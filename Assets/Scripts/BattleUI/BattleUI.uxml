@@ -1,0 +1,15 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Model/UI/BattleUI/BattleUIStyle.uss?fileID=7433441132597879392&amp;guid=548782943c278ca48a93e553a5230246&amp;type=3#BattleUIStyle" />
+    <engine:VisualElement name="Element1">
+        <engine:VisualElement name="ActionBox">
+            <engine:Button name="Attack" text="Attack" class="Button1" />
+            <engine:Button name="Heal" text="Heal" class="Button1" />
+            <engine:Button name="Move" text="Move" class="Button1" />
+            <engine:Button name="EndTurn" text="End Turn" class="Button1" />
+        </engine:VisualElement>
+        <engine:VisualElement name="Element2">
+            <engine:Label text="Label" name="EndText"/>
+            <engine:Button text="Return" name="Return"/>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
