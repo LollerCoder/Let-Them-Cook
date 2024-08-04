@@ -12,14 +12,9 @@ public class Attack : MonoBehaviour {
     }
 
     public void UnitAttack(Unit attacker, Unit target, int damage) {
-        if(attacker.Info.jobClass.className != EJobClass.Mage) {
-            damage = (attacker.Info.jobClass.strength / 2);
-            this.Melee(attacker, target, damage);
-        }
-        else {
-            damage = (attacker.Info.jobClass.intelligence / 2);
-            this.Range(attacker, target, damage);
-        }
+
+        this.Melee(attacker, target, damage);
+        this.Range(attacker, target, damage);
     }
 
     private void Range(Unit attacker, Unit target, int damage) {

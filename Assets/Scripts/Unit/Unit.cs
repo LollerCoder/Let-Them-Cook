@@ -30,15 +30,15 @@ public class Unit : MonoBehaviour {
     }
 
     public void Heal(int heal) {
-        if(heal > this.Info.jobClass.constitution) {
-            int remove = heal - this.Info.jobClass.constitution;
+        if(heal > this.Info.HP) {
+            int remove = heal - this.Info.HP;
             heal = remove;
         }
         Debug.Log(heal);
         this.health += heal;
     }
     public void Attack(Unit unit2, int roll) {
-        int damage = roll - unit2.Info.jobClass.constitution;
+        int damage = roll - unit2.Info.HP;
         this.attack.UnitAttack(this, unit2, damage);
     }
     public void OnTap() {
@@ -53,9 +53,7 @@ public class Unit : MonoBehaviour {
         UnitActionManager.Instance.StoreUnit(this);
         EventBroadcaster.Instance.AddObserver(EventNames.UnitActionEvents.ON_UNIT_TURN_END, this.OnUnitTurnEnd);
 
-        this.Info.jobClass.GenerateStats(this);
-
-        this.health = this.Info.jobClass.constitution;
+        this.health = this.Info.HP;
 
 
     }

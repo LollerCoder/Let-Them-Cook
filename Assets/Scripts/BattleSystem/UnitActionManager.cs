@@ -109,7 +109,7 @@ public class UnitActionManager : MonoBehaviour {
 
     public void UnitHeal() {
         if (!this.hadHealed) {
-            if (this._unitOrder[0].health == this._unitOrder[0].Info.jobClass.constitution) {
+            if (this._unitOrder[0].health == this._unitOrder[0].Info.HP) {
                 this.Heal = false;
                 Debug.Log("no heal");
                 return;
@@ -134,7 +134,7 @@ public class UnitActionManager : MonoBehaviour {
             roll = this.Roll();
         }
 
-        if (roll > target.Info.jobClass.constitution) {
+        if (roll > target.Info.HP) {
             this._unitOrder[0].Attack(target, roll);
         }
         else {
@@ -228,7 +228,7 @@ public class UnitActionManager : MonoBehaviour {
     }
     private void DecideTurnOrder() {
         this._unitOrder.AddRange(_Units);
-        this._unitOrder.Sort((x, y) => y.Info.jobClass.dexterity.CompareTo(x.Info.jobClass.dexterity));
+        this._unitOrder.Sort((x, y) => y.Info.SPD.CompareTo(x.Info.SPD));
     }
     private void UpdateTile() {
        TileMapGenerator.Instance.UpdateTile();
@@ -336,12 +336,7 @@ public class UnitActionManager : MonoBehaviour {
         int enemies = 0;
         bool alive = false;
         foreach(Unit unit in this._unitOrder) {
-            if(unit.Info.jobClass.className == EJobClass.Sage) {
-                alive = true;
-            }
-            if (unit.Info.type != EUnitType.Ally) {
-                enemies++;
-            }
+            
         }
 
         if (alive == false) {
