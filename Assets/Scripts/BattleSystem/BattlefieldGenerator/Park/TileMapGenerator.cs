@@ -14,9 +14,6 @@ public class TileMapGenerator : MonoBehaviour {
     [SerializeField]
     private Transform _TileField;
 
-    [SerializeField]
-    private PrefabGenerator _PrefabsGenerator;
-
     private ETileType[,] _tiles;
 
     private Dictionary<ETileType, TileType> _tileType = new Dictionary<ETileType, TileType>();
@@ -26,8 +23,8 @@ public class TileMapGenerator : MonoBehaviour {
         get { return _tileMap; }
     }
 
-    private int _mapSizeX = 10;
-    private int _mapSizeZ = 10;
+    private int _mapSizeX = 20;
+    private int _mapSizeZ = 20;
 
     public void TilePrefabGenerator() {
         for (int x = 0; x < this._mapSizeX; x++) {
@@ -45,8 +42,6 @@ public class TileMapGenerator : MonoBehaviour {
                     tile.isWalkable = true;
                 }
                 else {
-                    // make the tile with obstacle not walkable
-                    this._PrefabsGenerator.GenerateTreePrefab(x, z);
                     tile.isWalkable = false;
                 }
 
@@ -136,35 +131,17 @@ public class TileMapGenerator : MonoBehaviour {
                 this._tiles[x, z] = ETileType.GRASS;
             }
         }
-
-        for (int z = 0; z < 10; z++) {
-            this._tiles[0, z] = ETileType.TREES;
-        }
-
-        this._tiles[2, 9] = ETileType.TREES;
-        this._tiles[2, 8] = ETileType.TREES;
-        this._tiles[3, 9] = ETileType.TREES;
-
-        this._tiles[2, 5] = ETileType.TREES;
-        this._tiles[2, 4] = ETileType.TREES;
-        this._tiles[2, 3] = ETileType.TREES;
-
-        this._tiles[7, 2] = ETileType.TREES;
-        this._tiles[8, 2] = ETileType.TREES;
-        this._tiles[8, 3] = ETileType.TREES;
-
-        this._tiles[8, 9] = ETileType.TREES;
     }
 
     private void GeneratePath() {
-        for(int z = 0; z < 10; z++) {
+        for(int z = 0; z < this._mapSizeZ; z++) {
             this._tiles[4, z] = ETileType.DIRT;
             this._tiles[5, z] = ETileType.DIRT;
         }
 
-        for(int x = 6; x < 10; x++) {
-            this._tiles[x, 4] = ETileType.DIRT;
-            this._tiles[x, 5] = ETileType.DIRT;
+        for(int x = 6; x < this._mapSizeX; x++) {
+            this._tiles[x, 7] = ETileType.DIRT;
+            this._tiles[x, 8] = ETileType.DIRT;
         }
     }
     public void UpdateTile() {

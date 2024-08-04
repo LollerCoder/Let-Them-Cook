@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
 
-public class Unit : MonoBehaviour {
-    [SerializeField]
-    private UnitInfo _info;
-    public UnitInfo Info {
-        get { return _info; }
-    }
+public class Unit: MonoBehaviour { 
+    public EUnitType type;
+
+    public int Range;
+
+    public int SPD;
+
+    public int ATK;
+
+    public int HP;
+
+    public int DEF;
+
+    public int MAXHP;
 
     [SerializeField]
     private Tile _tile;
@@ -17,44 +25,26 @@ public class Unit : MonoBehaviour {
         set { _tile = value; }
     }
 
-    public int health = 0;
-
-    private Attack attack;
     public void TakeDamage(int damage) {
-        this.health -= damage;
+        this.HP -= damage;
+        this.HP = Mathf.Max(HP, 0);
 
-        if(this.health <= 0) {
+        if (this.HP < 1) {
             this.Tile.isWalkable = true;
             UnitActionManager.Instance.RemoveUnitFromOrder(this);
         }
     }
 
     public void Heal(int heal) {
-        if(heal > this.Info.HP) {
-            int remove = heal - this.Info.HP;
-            heal = remove;
-        }
-        Debug.Log(heal);
-        this.health += heal;
-    }
-    public void Attack(Unit unit2, int roll) {
-        int damage = roll - unit2.Info.HP;
-        this.attack.UnitAttack(this, unit2, damage);
-    }
-    public void OnTap() {
 
+    }
+    public virtual void Attack(Unit unit2) {
+
+    }
+    private void OnMouseUp() {
         UnitActionManager.Instance.UnitSelect(this);
     }
-    private void OnUnitTurnEnd() {
+    protected void OnUnitTurnEnd() {
         UnitActionManager.Instance.ConfirmUnitActionDone();
-    }
-    public void Start() {
-        this.attack = this.GetComponent<Attack>();
-        UnitActionManager.Instance.StoreUnit(this);
-        EventBroadcaster.Instance.AddObserver(EventNames.UnitActionEvents.ON_UNIT_TURN_END, this.OnUnitTurnEnd);
-
-        this.health = this.Info.HP;
-
-
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.46169513, g: 0.5124164, b: 0.58993304, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -150,54 +150,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &254762188
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 254762190}
-  - component: {fileID: 254762189}
-  m_Layer: 0
-  m_Name: Non-Tile Prefabs Generator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &254762189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254762188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1044969bea0796348a5164fa8a7f26fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enable: 0
-  _parkPrefabs:
-  - {fileID: 100000, guid: b82e76f4092b7d24aaeecddf36fe8d3b, type: 3}
-  _parent: {fileID: 60282560}
---- !u!4 &254762190
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254762188}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &377508127
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +183,6 @@ MonoBehaviour:
   - {fileID: 7899351574417267492, guid: 330303c2d611e1842b8efbe692938c63, type: 3}
   - {fileID: 7899351574417267492, guid: b2a695ef6e12ea34ca25c9a8cc7abee2, type: 3}
   _TileField: {fileID: 60282560}
-  _ParkPrefabsGenerator: {fileID: 254762189}
 --- !u!4 &377508129
 Transform:
   m_ObjectHideFlags: 0
@@ -440,4 +391,3 @@ SceneRoots:
   - {fileID: 667003242}
   - {fileID: 60282560}
   - {fileID: 377508129}
-  - {fileID: 254762190}

@@ -38,7 +38,8 @@ public class Tile : MonoBehaviour{
     public void HighlightAttackableTile() {
         this._mat.color = Color.red;
     }
-    public void OnTap() {
+
+    public void OnMouseUp() {
         UnitActionManager.Instance.TileTapped(this);
     }
 }
