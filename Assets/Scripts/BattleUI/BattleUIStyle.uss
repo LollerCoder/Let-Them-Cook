@@ -1,7 +1,8 @@
 #ActionBox{
 	flex-direction: column;
-	justify-content: center;
-	align-self: center;
+	align-self: stretch;
+	align-items: flex-end;
+	justify-content: flex-end;
 }
 
 #Element1{
@@ -20,6 +21,8 @@
 #Element2{
 	flex-grow: 1;
 	align-items: center;
+	align-self: stretch; 
+	justify-content: space-evenly;
 }
 
 #Return{
