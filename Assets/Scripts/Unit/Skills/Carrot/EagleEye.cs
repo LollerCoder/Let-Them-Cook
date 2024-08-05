@@ -4,8 +4,15 @@ using UnityEngine;
 //Give carrot a 10% accuracy buff
 public class EagleEye : Skill
 {
+
+
     private string skillName = "Fry Em";
     private EVeggie veggie = EVeggie.POTATO;
+
+    void Start()
+    {
+
+    }
     public override void SkillAction()
     {
 

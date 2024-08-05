@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
 
-public abstract class Unit: MonoBehaviour { 
+public abstract class Unit: MonoBehaviour {
+
+    protected List<Skill> skillList = new List<Skill>();
     protected EUnitType type;
     public EUnitType Type { get { return this.type; } }
 

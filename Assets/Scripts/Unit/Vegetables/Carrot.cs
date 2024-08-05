@@ -24,6 +24,8 @@ public class Carrot : Unit{
 
     }
     private void Start() {
+        Skill eagle = new EagleEye();
+        this.skillList.Add(eagle);
         this.charName = "Carrot";
         this.acc = 10;
         this.spd = 2;
