@@ -32,15 +32,24 @@ public class UnitActionManager : MonoBehaviour {
     private PathFinding _pathFinding;
     private Range _showRange;
 
+    public bool Selected = false;
+
     public bool hadMoved = false;
     public bool hadAttacked = false;
     public bool hadHealed = false;
+    public bool hadDefend = false;
 
     public bool OnAttack = false;
     public bool OnHeal = false;
     public bool OnMove = false;
+    public bool OnDefend = false;
 
     private bool OnStart = true;
+
+    // for storing the unit
+    public void StoreUnit(Unit unit) {
+        this._Units.Add(unit);
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FOR UNIT MOVEMENT
@@ -106,7 +115,7 @@ public class UnitActionManager : MonoBehaviour {
             this.hadHealed = true;
             this.OnHeal = false;
 
-            this._unitOrder[0].Heal(10);
+            //this._unitOrder[0].Heal();
         }
         
     }
@@ -118,10 +127,22 @@ public class UnitActionManager : MonoBehaviour {
         this.OnAttack = false;
         this.hadAttacked = true;
     }
-    public void ConfirmUnitActionDone() {
-        this.NextUnitTurn();
+
+    public void UnitHover(Unit selectedUnit) {
+        if (this._unitOrder[0] == selectedUnit && !this.Selected) {
+            this.OnMove = !this.OnMove;
+
+        }
     }
     public void UnitSelect(Unit selectedUnit) {
+        if (this._unitOrder[0] == selectedUnit) {
+            this.OnMove = true;
+            this.Selected = true;
+            this.OnAttack = false;
+            this.OnHeal = false;
+            this.OnDefend = false;
+            return;
+        }
 
         if (this.IsUnitAttackable(selectedUnit) && this.OnAttack) {
             this.ConfirmAttack(selectedUnit);
@@ -179,9 +200,7 @@ public class UnitActionManager : MonoBehaviour {
         this.CheckEndCondition();
 
     }
-    public void StoreUnit(Unit unit) {
-        this._Units.Add(unit);
-    }
+
     private void DecideTurnOrder() {
         this._unitOrder.AddRange(_Units);
         this._unitOrder.Sort((x, y) => y.Speed.CompareTo(x.Speed));
@@ -208,6 +227,7 @@ public class UnitActionManager : MonoBehaviour {
         this.hadHealed = false;
         this.GetUnitAttackOptions();
         this._unitOrder[0].Tile.isWalkable = true;
+        this.Selected = false;
 
         this.UnHighlightTiles();
         if (this._unitOrder[0].Type != EUnitType.Ally) {

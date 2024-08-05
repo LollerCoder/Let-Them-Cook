@@ -284,12 +284,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450797825}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.31279242, y: 0.32028237, z: -0.11292629, w: -0.88703316}
-  m_LocalPosition: {x: 17.73185, y: 9.2025175, z: -0.8474579}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.35712603, y: -0.03165209, z: 0.012122594, w: -0.93344104}
+  m_LocalPosition: {x: 0.23519135, y: 10.349949, z: -11.185244}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1908364830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &450797829
 MonoBehaviour:
@@ -443,6 +443,7 @@ MonoBehaviour:
   _battleScene: 0
   speed: 9
   _battleUIController: {fileID: 1405708423}
+  Selected: 0
   hadMoved: 0
   hadAttacked: 0
   hadHealed: 0
@@ -522,7 +523,6 @@ GameObject:
   - component: {fileID: 1908364829}
   - component: {fileID: 1908364828}
   - component: {fileID: 1908364827}
-  - component: {fileID: 1908364832}
   - component: {fileID: 1908364831}
   m_Layer: 0
   m_Name: Carrot
@@ -618,7 +618,8 @@ Transform:
   m_LocalPosition: {x: 4, y: 1, z: 1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 450797828}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1908364831
@@ -634,24 +635,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tile: {fileID: 0}
---- !u!114 &1908364832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1908364826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9891a1f65201ba34ebfa126f531a10f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tile: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 450797828}
   - {fileID: 667003242}
   - {fileID: 60282560}
   - {fileID: 377508129}

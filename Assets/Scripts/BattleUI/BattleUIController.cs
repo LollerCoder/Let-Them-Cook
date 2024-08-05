@@ -8,7 +8,7 @@ public class BattleUIController : MonoBehaviour {
 
     private Button Attack;
     private Button Heal;
-    private Button Move;
+    private Button Defend;
     private Button EndTurn;
     private Button End;
     private Label Text;
@@ -19,7 +19,7 @@ public class BattleUIController : MonoBehaviour {
 
         this.Attack = this.root.Query<Button>("Attack");
         this.Heal = this.root.Query<Button>("Heal");
-        this.Move = this.root.Query<Button>("Move");
+        this.Defend = this.root.Query<Button>("Defend");
         this.EndTurn = this.root.Query<Button>("EndTurn");
         this.EndTurn = this.root.Query<Button>("EndTurn");
         this.End = this.root.Query<Button>("Return");
@@ -34,14 +34,14 @@ public class BattleUIController : MonoBehaviour {
     private void EnableClick() {
         this.Attack.clicked += this.OnAttack;
         this.Heal.clicked += this.OnHeal;
-        this.Move.clicked += this.OnMove;
+        this.Defend.clicked += this.OnDefend;
         this.EndTurn.clicked += this.OnEndTurn;
     }
 
     private void DisableClick() {
         this.Attack.clicked -= this.OnAttack;
         this.Heal.clicked -= this.OnHeal;
-        this.Move.clicked -= this.OnMove;
+        this.Defend.clicked -= this.OnDefend;
         this.EndTurn.clicked -= this.OnEndTurn;
     }
     private void OnAttack() {
@@ -71,7 +71,7 @@ public class BattleUIController : MonoBehaviour {
         }
     }
 
-    private void OnMove() {
+    private void OnDefend() {
         if(!UnitActionManager.Instance.hadMoved) {
             UnitActionManager.Instance.OnMove = !UnitActionManager.Instance.OnMove;
 
@@ -103,7 +103,7 @@ public class BattleUIController : MonoBehaviour {
         this.DisableClick();
         this.Attack.style.display = DisplayStyle.None;
         this.Heal.style.display = DisplayStyle.None;
-        this.Move.style.display = DisplayStyle.None;
+        this.Defend.style.display = DisplayStyle.None;
         this.EndTurn.style.display = DisplayStyle.None;
 
         switch(scenario) {

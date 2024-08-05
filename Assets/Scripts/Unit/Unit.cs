@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
 
-public class Unit: MonoBehaviour { 
+public abstract class Unit: MonoBehaviour { 
     protected EUnitType type;
     public EUnitType Type { get { return this.type; } }
 
@@ -44,16 +44,17 @@ public class Unit: MonoBehaviour {
         }
     }
 
-    public void Heal(int heal) {
+    public void Heal(Unit target) {
 
     }
-    public virtual void UnitAttack(Unit unit2) {
+    public void Defend(int damage) {
 
     }
-    private void OnMouseUp() {
-        UnitActionManager.Instance.UnitSelect(this);
-    }
-    protected void OnUnitTurnEnd() {
-        UnitActionManager.Instance.ConfirmUnitActionDone();
+    public abstract void UnitAttack(Unit target);
+    public abstract void OnMouseUp();
+    public abstract void OnMouseEnter();
+    public abstract void OnMouseExit();
+    protected void HandleDeath() {
+        Destroy(this.gameObject);
     }
 }

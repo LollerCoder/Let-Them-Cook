@@ -4,11 +4,20 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class Carrot : Unit{
+    public override void OnMouseEnter() {
+        UnitActionManager.Instance.UnitHover(this);
+    }
+
+    public override void OnMouseExit() {
+        UnitActionManager.Instance.UnitHover(this);
+    }
+
+    public override void OnMouseUp() {
+        UnitActionManager.Instance.UnitSelect(this);
+    }
+
     public override void UnitAttack(Unit unit2) {
         
-    }
-    private void EndTurn() {
-        this.OnUnitTurnEnd();
     }
     private void Start() {
         this.charName = "Carrot";
@@ -20,6 +29,6 @@ public class Carrot : Unit{
         this.def = 1;
 
         UnitActionManager.Instance.StoreUnit(this);
-        EventBroadcaster.Instance.AddObserver(EventNames.UnitActionEvents.ON_UNIT_TURN_END, this.EndTurn);
+
     }
 }
