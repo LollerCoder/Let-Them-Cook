@@ -53,10 +53,22 @@ public abstract class Unit: MonoBehaviour {
     public void Defend(int damage) {
 
     }
+    protected void OnMouseEnter() {
+        UnitActionManager.Instance.UnitHover(this);
+    }
+
+    protected void OnMouseExit() {
+        UnitActionManager.Instance.UnitHover(this);
+    }
+
+    protected void OnMouseUp() {
+        UnitActionManager.Instance.UnitSelect(this);
+    }                                                                                             
+
+    public abstract void GetAttackOptions();
     public abstract void UnitAttack(Unit target);
-    public abstract void OnMouseUp();
-    public abstract void OnMouseEnter();
-    public abstract void OnMouseExit();
+    public abstract void Selected();
+
     protected void HandleDeath() {
         Destroy(this.gameObject);
     }
