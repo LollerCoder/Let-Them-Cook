@@ -31,6 +31,9 @@ public abstract class Unit: MonoBehaviour {
     protected int maxhp; // max health
     public int MAXHP { get { return this.maxhp; } }
 
+    protected int basicrange = 2; // max health
+    public int BasicRange { get { return this.basicrange; } }
+
     [SerializeField]
     private Tile _tile; // tile on the grid
     public Tile Tile {

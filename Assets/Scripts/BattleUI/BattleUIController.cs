@@ -93,7 +93,6 @@ public class BattleUIController : MonoBehaviour {
     }
     private void OnAttack() {
         if(!UnitActionManager.Instance.hadAttacked) {
-            UnitActionManager.Instance.OnAttack = !UnitActionManager.Instance.OnAttack;
             if (UnitActionManager.Instance.OnHeal) {
                 UnitActionManager.Instance.OnHeal = false;
             }
@@ -150,19 +149,24 @@ public class BattleUIController : MonoBehaviour {
     }
 
     private void OnBasicAttack() {
-
+        UnitActionManager.Instance.OnAttack = !UnitActionManager.Instance.OnAttack;
+        UnitActionManager.Instance.numAttack = 0;
     }
     private void OnSkill1() {
-
+        UnitActionManager.Instance.OnAttack = !UnitActionManager.Instance.OnAttack;
+        UnitActionManager.Instance.numAttack = 1;
     }
     private void OnSkill2() {
-
+        UnitActionManager.Instance.OnAttack = !UnitActionManager.Instance.OnAttack;
+        UnitActionManager.Instance.numAttack = 2;
     }
     private void OnSkill3() {
-
+        UnitActionManager.Instance.OnAttack = !UnitActionManager.Instance.OnAttack;
+        UnitActionManager.Instance.numAttack = 3;
     }
     private void OnSkill4() {
-
+        UnitActionManager.Instance.OnAttack = !UnitActionManager.Instance.OnAttack;
+        UnitActionManager.Instance.numAttack = 4;
     }
     private void OnCancel() {
         this.DisableSkillBoxClick();
