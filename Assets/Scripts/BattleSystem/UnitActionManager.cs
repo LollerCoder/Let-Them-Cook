@@ -65,6 +65,7 @@ public class UnitActionManager : MonoBehaviour {
                          );
             if(this._path.Count > 0) {
                 this.hadMoved = true;
+                this._unitOrder[0].OnMove(true);
             }
             
         }
@@ -90,8 +91,9 @@ public class UnitActionManager : MonoBehaviour {
             this._path.RemoveAt(0);
         }
 
-        if (this._path.Count < 1) {
+        if (this._path.Count <= 1) {
             this.OnMove = false;
+            this._unitOrder[0].OnMove(false);
         }
     }
     private bool AllyOnTileGoal(Tile endTile) {

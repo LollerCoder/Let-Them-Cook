@@ -37,6 +37,8 @@ public abstract class Unit: MonoBehaviour {
     protected int basicrange = 2; // max health
     public int BasicRange { get { return this.basicrange; } }
 
+    protected Animator animator;
+
     [SerializeField]
     private Tile _tile; // tile on the grid
     public Tile Tile {
@@ -58,6 +60,12 @@ public abstract class Unit: MonoBehaviour {
     }
     public void Defend(int damage) {
 
+    }
+
+    public void OnMove(bool value) {
+        if(this.animator != null) {
+            this.animator.SetBool("Walk", value);
+        }
     }
     protected void OnMouseEnter() {
         UnitActionManager.Instance.UnitHover(this);

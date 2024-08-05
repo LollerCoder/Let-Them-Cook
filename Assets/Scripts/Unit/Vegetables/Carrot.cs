@@ -21,6 +21,7 @@ public class Carrot : Unit{
 
     private void Start() {
         Skill eagle = new EagleEye();
+        this.animator = this.GetComponent<Animator>();
         this.skillList.Add(eagle);
         this.charName = "Carrot";
         this.acc = 10;
