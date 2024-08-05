@@ -42,25 +42,54 @@ public class BattleUIController : MonoBehaviour {
 
         this.Cancel = this.root.Query<Button>("CancelAttack");
 
-        this.EnableClick();
+        this.EnableActionBoxClick();
 
-        EventBroadcaster.Instance.AddObserver(EventNames.UIEvents.ENABLE_CLICKS, this.EnableClick);
-        EventBroadcaster.Instance.AddObserver(EventNames.UIEvents.DISABLE_CLICKS, this.DisableClick);
+        EventBroadcaster.Instance.AddObserver(EventNames.UIEvents.ENABLE_CLICKS, this.EnableActionBoxClick);
+        EventBroadcaster.Instance.AddObserver(EventNames.UIEvents.DISABLE_CLICKS, this.DisableActionBoxClick);
 
         this.SkillBox.style.display = DisplayStyle.None;
     }
-    private void EnableClick() {
+    private void EnableActionBoxClick() {
         this.Attack.clicked += this.OnAttack;
         this.Heal.clicked += this.OnHeal;
         this.Defend.clicked += this.OnDefend;
         this.EndTurn.clicked += this.OnEndTurn;
-    }
 
-    private void DisableClick() {
+        this.Attack.style.display = DisplayStyle.Flex;
+        this.Heal.style.display = DisplayStyle.Flex;
+        this.Defend.style.display = DisplayStyle.Flex;
+        this.EndTurn.style.display = DisplayStyle.Flex;
+    }
+    private void DisableActionBoxClick() {
         this.Attack.clicked -= this.OnAttack;
         this.Heal.clicked -= this.OnHeal;
         this.Defend.clicked -= this.OnDefend;
         this.EndTurn.clicked -= this.OnEndTurn;
+
+        this.Attack.style.display = DisplayStyle.None;
+        this.Heal.style.display = DisplayStyle.None;
+        this.Defend.style.display = DisplayStyle.None;
+        this.EndTurn.style.display = DisplayStyle.None;
+    }
+    private void EnableSkillBoxClick() {
+        this.BasicAttack.clicked += this.OnBasicAttack;
+        this.Skill1.clicked += this.OnSkill1;
+        this.Skill2.clicked += this.OnSkill2;
+        this.Skill3.clicked += this.OnSkill3;
+        this.Skill4.clicked += this.OnSkill4;
+        this.Cancel.clicked += this.OnCancel;
+
+        this.SkillBox.style.display = DisplayStyle.Flex;
+    }
+    private void DisableSkillBoxClick() {
+        this.BasicAttack.clicked -= this.OnBasicAttack;
+        this.Skill1.clicked -= this.OnSkill1;
+        this.Skill2.clicked -= this.OnSkill2;
+        this.Skill3.clicked -= this.OnSkill3;
+        this.Skill4.clicked -= this.OnSkill4;
+        this.Cancel.clicked -= this.OnCancel;
+
+        this.SkillBox.style.display = DisplayStyle.None;
     }
     private void OnAttack() {
         if(!UnitActionManager.Instance.hadAttacked) {
@@ -72,6 +101,9 @@ public class BattleUIController : MonoBehaviour {
             if (UnitActionManager.Instance.OnMove) {
                 UnitActionManager.Instance.OnMove = false;
             }
+
+            this.EnableSkillBoxClick();
+            this.DisableActionBoxClick();
         }
     }
     private void OnHeal() {
@@ -117,12 +149,30 @@ public class BattleUIController : MonoBehaviour {
 
     }
 
+    private void OnBasicAttack() {
+
+    }
+    private void OnSkill1() {
+
+    }
+    private void OnSkill2() {
+
+    }
+    private void OnSkill3() {
+
+    }
+    private void OnSkill4() {
+
+    }
+    private void OnCancel() {
+        this.DisableSkillBoxClick();
+        this.EnableActionBoxClick();
+    }
+
+
     public void EndScreen(int scenario) {
-        this.DisableClick();
-        this.Attack.style.display = DisplayStyle.None;
-        this.Heal.style.display = DisplayStyle.None;
-        this.Defend.style.display = DisplayStyle.None;
-        this.EndTurn.style.display = DisplayStyle.None;
+        this.DisableActionBoxClick();
+
 
         switch(scenario) {
             case 1:
