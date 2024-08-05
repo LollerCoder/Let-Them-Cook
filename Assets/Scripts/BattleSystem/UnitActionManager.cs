@@ -46,6 +46,8 @@ public class UnitActionManager : MonoBehaviour {
 
     private bool OnStart = true;
 
+    public int numAttack = -1; // default value
+
     // for storing the unit
     public void StoreUnit(Unit unit) {
         this._Units.Add(unit);
@@ -122,17 +124,20 @@ public class UnitActionManager : MonoBehaviour {
         }
         
     }
-
     private void ConfirmAttack(Unit target) {
 
         this._unitOrder[0].UnitAttack(target);
-
+        Debug.Log("Attacked Target " + target.name);
         this.OnAttack = false;
         this.hadAttacked = true;
     }
-
     public void UnitHover(Unit selectedUnit) {
-        if (this._unitOrder[0] == selectedUnit && !this.Selected) {
+        if (this._unitOrder[0] == selectedUnit
+            && !this.Selected
+            && !this.OnAttack
+            && !this.OnHeal
+            && !this.OnDefend) {
+
             this.OnMove = !this.OnMove;
 
         }
@@ -151,7 +156,6 @@ public class UnitActionManager : MonoBehaviour {
             this.ConfirmAttack(selectedUnit);
         }
     }
-
     private bool IsUnitAttackable(Unit selectedUnit) {
         foreach (Tile tile in this._inRangeTiles) {
             if (selectedUnit.Tile == tile) {
@@ -183,6 +187,11 @@ public class UnitActionManager : MonoBehaviour {
         yield return new WaitForSeconds(seconds);
         EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.ENABLE_CLICKS);
         this.NextUnitTurn();
+    }
+    private void OnAttackSelection() {
+        if(this.numAttack == 0) {
+            this.GetMeleeAttackTiles();
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -231,6 +240,7 @@ public class UnitActionManager : MonoBehaviour {
         this.GetUnitAttackOptions();
         this._unitOrder[0].Tile.isWalkable = true;
         this.Selected = false;
+        this.numAttack = -1;
 
         this.UnHighlightTiles();
         if (this._unitOrder[0].Type != EUnitType.Ally) {
@@ -277,15 +287,15 @@ public class UnitActionManager : MonoBehaviour {
         }
     }
     private void GetMeleeAttackTiles() {
-        //this.UnHighlightTiles();
+        this.UnHighlightTiles();
 
-        //Unit currentUnit = this._unitOrder[0];
+        Unit currentUnit = this._unitOrder[0];
 
-        //this._inRangeTiles = this._showRange.GetTilesInAttackMelee(currentUnit.Tile, currentUnit.Range);
+        this._inRangeTiles = this._showRange.GetTilesInAttackMelee(currentUnit.Tile, currentUnit.BasicRange);
 
-        //foreach (Tile tile in this._inRangeTiles) {
-        //    tile.HighlightAttackableTile();
-        //}
+        foreach (Tile tile in this._inRangeTiles) {
+            tile.HighlightAttackableTile();
+        }
     }
     private void GetRangeAttackTiles() {
         //this.UnHighlightTiles();
@@ -328,14 +338,9 @@ public class UnitActionManager : MonoBehaviour {
             if (this.OnMove && !this.hadMoved) {
                 this.GetRangeTiles();
             }
-            //else if (this.OnAttack && !this.hadAttacked) {
-            //    if (this._unitOrder[0].unitType == EUnitAttackType.Melee) {
-            //        this.GetMeleeAttackTiles();
-            //    }
-            //    if (this._unitOrder[0].unitType == EUnitAttackType.Range) {
-            //        this.GetRangeAttackTiles();
-            //    }
-            //}
+            else if (this.OnAttack && !this.hadAttacked) {
+                this.OnAttackSelection();
+            }
             else {
                 this.UnHighlightTiles();
             }

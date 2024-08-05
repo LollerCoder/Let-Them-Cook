@@ -101,6 +101,10 @@ public class BattleUIController : MonoBehaviour {
                 UnitActionManager.Instance.OnMove = false;
             }
 
+            if (UnitActionManager.Instance.OnDefend) {
+                UnitActionManager.Instance.OnDefend = false;
+            }
+
             this.EnableSkillBoxClick();
             this.DisableActionBoxClick();
         }
@@ -171,8 +175,9 @@ public class BattleUIController : MonoBehaviour {
     private void OnCancel() {
         this.DisableSkillBoxClick();
         this.EnableActionBoxClick();
-    }
 
+        UnitActionManager.Instance.OnAttack = false;
+    }
 
     public void EndScreen(int scenario) {
         this.DisableActionBoxClick();
