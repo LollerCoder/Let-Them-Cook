@@ -46,53 +46,53 @@ public class BattleUIController : MonoBehaviour {
     }
     private void OnAttack() {
         if(!UnitActionManager.Instance.hadAttacked) {
-            UnitActionManager.Instance.Attack = !UnitActionManager.Instance.Attack;
-            if (UnitActionManager.Instance.Heal) {
-                UnitActionManager.Instance.Heal = false;
+            UnitActionManager.Instance.OnAttack = !UnitActionManager.Instance.OnAttack;
+            if (UnitActionManager.Instance.OnHeal) {
+                UnitActionManager.Instance.OnHeal = false;
             }
 
-            if (UnitActionManager.Instance.Move) {
-                UnitActionManager.Instance.Move = false;
+            if (UnitActionManager.Instance.OnMove) {
+                UnitActionManager.Instance.OnMove = false;
             }
         }
     }
     private void OnHeal() {
         if(!UnitActionManager.Instance.hadHealed) {
-            UnitActionManager.Instance.Heal = !UnitActionManager.Instance.Heal;
+            UnitActionManager.Instance.OnHeal = !UnitActionManager.Instance.OnHeal;
             UnitActionManager.Instance.UnitHeal();
-            if (UnitActionManager.Instance.Attack) {
-                UnitActionManager.Instance.Attack = false;
+            if (UnitActionManager.Instance.OnAttack) {
+                UnitActionManager.Instance.OnAttack = false;
 
             }
 
-            if (UnitActionManager.Instance.Move) {
-                UnitActionManager.Instance.Move = false;
+            if (UnitActionManager.Instance.OnMove) {
+                UnitActionManager.Instance.OnMove = false;
             }
         }
     }
 
     private void OnMove() {
         if(!UnitActionManager.Instance.hadMoved) {
-            UnitActionManager.Instance.Move = !UnitActionManager.Instance.Move;
+            UnitActionManager.Instance.OnMove = !UnitActionManager.Instance.OnMove;
 
-            if (UnitActionManager.Instance.Attack) {
-                UnitActionManager.Instance.Attack = false;
+            if (UnitActionManager.Instance.OnAttack) {
+                UnitActionManager.Instance.OnAttack = false;
             }
 
-            if (UnitActionManager.Instance.Heal) {
-                UnitActionManager.Instance.Heal = false;
+            if (UnitActionManager.Instance.OnHeal) {
+                UnitActionManager.Instance.OnHeal = false;
             }
         }
     }
 
     private void OnEndTurn() {
-        if( !UnitActionManager.Instance.Attack && 
-            !UnitActionManager.Instance.Heal &&
-            !UnitActionManager.Instance.Move ) {
+        if( !UnitActionManager.Instance.OnAttack && 
+            !UnitActionManager.Instance.OnHeal &&
+            !UnitActionManager.Instance.OnMove ) {
 
-            UnitActionManager.Instance.Attack = false;
-            UnitActionManager.Instance.Heal = false;
-            UnitActionManager.Instance.Move = false;
+            UnitActionManager.Instance.OnAttack = false;
+            UnitActionManager.Instance.OnHeal = false;
+            UnitActionManager.Instance.OnMove = false;
 
             UnitActionManager.Instance.NextUnitTurn();
         }

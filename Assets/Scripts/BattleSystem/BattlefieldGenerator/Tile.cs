@@ -20,12 +20,12 @@ public class Tile : MonoBehaviour{
 
     public Tile previousTile;
     public TileType tileType;
-     
 
     public bool isWalkable;
     private void Start() {
         this._mat = this.gameObject.GetComponent<Renderer>().material;
         this._color = this._mat.color;    
+        
     }
     public void UnHighlightTile() {
         this._mat.color = this._color;

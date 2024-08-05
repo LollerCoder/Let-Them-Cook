@@ -7,6 +7,7 @@ using System.Linq;
 //using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms;
 
 public class UnitActionManager : MonoBehaviour {
     public static UnitActionManager Instance = null;
@@ -16,8 +17,8 @@ public class UnitActionManager : MonoBehaviour {
     [SerializeField]
     private float speed;
 
-    [SerializeField]
-    private Pointer arrow;
+    //[SerializeField]
+    //private Pointer arrow;
 
     [SerializeField]
     private BattleUIController _battleUIController;
@@ -35,21 +36,21 @@ public class UnitActionManager : MonoBehaviour {
     public bool hadAttacked = false;
     public bool hadHealed = false;
 
-    public bool Attack = false;
-    public bool Heal = false;
-    public bool Move = false;
+    public bool OnAttack = false;
+    public bool OnHeal = false;
+    public bool OnMove = false;
 
     private bool OnStart = true;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FOR UNIT MOVEMENT
     public void TileTapped(Tile goalTile) {
-        if (!this.hadMoved && !this.AllyOnTileGoal(goalTile) && this.Move) {
+        if (!this.hadMoved && !this.AllyOnTileGoal(goalTile) && this.OnMove) {
 
             this._path = this._pathFinding.AStarPathFinding(this._unitOrder[0].Tile,
                          goalTile,
                          this._showRange.GetTilesInMovement(this._unitOrder[0].Tile,
-                                                         this._unitOrder[0].SPD)
+                                                         this._unitOrder[0].Speed)
                          );
         }
     }
@@ -76,12 +77,12 @@ public class UnitActionManager : MonoBehaviour {
 
         if (this._path.Count < 1) {
             this.hadMoved = true;
-            this.Move = false;
+            this.OnMove = false;
         }
     }
     private bool AllyOnTileGoal(Tile endTile) {
         foreach (Unit ally in this._unitOrder) {
-            if (ally.type == EUnitType.Ally) {
+            if (ally.Type == EUnitType.Ally) {
                 if (ally.Tile.TilePos == endTile.TilePos) {
                     return true;
                 }
@@ -90,19 +91,6 @@ public class UnitActionManager : MonoBehaviour {
 
         return false;
     }
-    private void GetRangeTiles() {
-        foreach (Tile tile in this._inRangeTiles) {
-            tile.UnHighlightTile();
-        }
-
-        Unit currentUnit = this._unitOrder[0];
-
-        this._inRangeTiles = this._showRange.GetTilesInMovement(currentUnit.Tile, currentUnit.SPD);
-
-        foreach (Tile tile in this._inRangeTiles) {
-            tile.HighlightWalkableTile();
-        }
-    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // FOR UNIT ACTION
@@ -110,13 +98,13 @@ public class UnitActionManager : MonoBehaviour {
     public void UnitHeal() {
         if (!this.hadHealed) {
             if (this._unitOrder[0].HP == this._unitOrder[0].MAXHP) {
-                this.Heal = false;
+                this.OnHeal = false;
                 Debug.Log("no heal");
                 return;
             }
 
             this.hadHealed = true;
-            this.Heal = false;
+            this.OnHeal = false;
 
             this._unitOrder[0].Heal(10);
         }
@@ -125,9 +113,9 @@ public class UnitActionManager : MonoBehaviour {
 
     private void ConfirmAttack(Unit target) {
 
-        this._unitOrder[0].Attack(target);
+        this._unitOrder[0].UnitAttack(target);
 
-        this.Attack = false;
+        this.OnAttack = false;
         this.hadAttacked = true;
     }
     public void ConfirmUnitActionDone() {
@@ -135,32 +123,11 @@ public class UnitActionManager : MonoBehaviour {
     }
     public void UnitSelect(Unit selectedUnit) {
 
-        if (this.IsUnitAttackable(selectedUnit) && this.Attack) {
+        if (this.IsUnitAttackable(selectedUnit) && this.OnAttack) {
             this.ConfirmAttack(selectedUnit);
         }
     }
-    private void GetMeleeAttackTiles() {
-        this.UnHighlightTiles();
 
-        Unit currentUnit = this._unitOrder[0];
-
-        this._inRangeTiles = this._showRange.GetTilesInAttackMelee(currentUnit.Tile, currentUnit.Range);
-
-        foreach (Tile tile in this._inRangeTiles) {
-            tile.HighlightAttackableTile();
-        }
-    }
-    private void GetRangeAttackTiles() {
-        this.UnHighlightTiles();
-
-        Unit currentUnit = this._unitOrder[0];
-
-        this._inRangeTiles = this._showRange.GetTilesInAttackRange(currentUnit.Tile, currentUnit.Range);
-
-        foreach (Tile tile in this._inRangeTiles) {
-            tile.HighlightAttackableTile();
-        }
-    }
     private bool IsUnitAttackable(Unit selectedUnit) {
         foreach (Tile tile in this._inRangeTiles) {
             if (selectedUnit.Tile == tile) {
@@ -170,7 +137,7 @@ public class UnitActionManager : MonoBehaviour {
         return false;
     }
     public void EnemyUnitAction() {
-        this.Attack = true;
+        this.OnAttack = true;
 
         //if (this._unitOrder[0].unitType == EUnitAttackType.Melee) {
         //    this._inRangeTiles = this._showRange.GetTilesInAttackMelee(this._unitOrder[0].Tile, this._unitOrder[0].Range);
@@ -188,13 +155,16 @@ public class UnitActionManager : MonoBehaviour {
         this.StartCoroutine(this.EnemyWait(1.0f));
     }    
     private IEnumerator EnemyWait(float seconds) {
-        this.Attack = false;
+        this.OnAttack = false;
         yield return new WaitForSeconds(seconds);
         EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.ENABLE_CLICKS);
         this.NextUnitTurn();
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void GetUnitAttackOptions() {
+        
+    }
     public void RemoveUnitFromOrder(Unit removedUnit) {
 
         foreach (Unit remove in this._unitOrder) {
@@ -214,13 +184,13 @@ public class UnitActionManager : MonoBehaviour {
     }
     private void DecideTurnOrder() {
         this._unitOrder.AddRange(_Units);
-        this._unitOrder.Sort((x, y) => y.SPD.CompareTo(x.SPD));
+        this._unitOrder.Sort((x, y) => y.Speed.CompareTo(x.Speed));
     }
     private void UpdateTile() {
        TileMapGenerator.Instance.UpdateTile();
 
         foreach (Unit unit in this._unitOrder) {
-            if (unit.type != EUnitType.Ally) {
+            if (unit.Type != EUnitType.Ally) {
                 unit.Tile.isWalkable = false;
             }
             else {
@@ -236,10 +206,11 @@ public class UnitActionManager : MonoBehaviour {
         this.hadMoved = false;
         this.hadAttacked = false;
         this.hadHealed = false;
+        this.GetUnitAttackOptions();
         this._unitOrder[0].Tile.isWalkable = true;
 
         this.UnHighlightTiles();
-        if (this._unitOrder[0].type != EUnitType.Ally) {
+        if (this._unitOrder[0].Type != EUnitType.Ally) {
 
             EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
             this.EnemyUnitAction();
@@ -271,7 +242,40 @@ public class UnitActionManager : MonoBehaviour {
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void GetRangeTiles() {
+        this.UnHighlightTiles();
 
+        Unit currentUnit = this._unitOrder[0];
+
+        this._inRangeTiles = this._showRange.GetTilesInMovement(currentUnit.Tile, currentUnit.Speed);
+
+        foreach (Tile tile in this._inRangeTiles) {
+            tile.HighlightWalkableTile();
+        }
+    }
+    private void GetMeleeAttackTiles() {
+        //this.UnHighlightTiles();
+
+        //Unit currentUnit = this._unitOrder[0];
+
+        //this._inRangeTiles = this._showRange.GetTilesInAttackMelee(currentUnit.Tile, currentUnit.Range);
+
+        //foreach (Tile tile in this._inRangeTiles) {
+        //    tile.HighlightAttackableTile();
+        //}
+    }
+    private void GetRangeAttackTiles() {
+        //this.UnHighlightTiles();
+
+        //Unit currentUnit = this._unitOrder[0];
+
+        //this._inRangeTiles = this._showRange.GetTilesInAttackRange(currentUnit.Tile, currentUnit.Range);
+
+        //foreach (Tile tile in this._inRangeTiles) {
+        //    tile.HighlightAttackableTile();
+        //}
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void Start() {
 
     }
@@ -285,33 +289,34 @@ public class UnitActionManager : MonoBehaviour {
             this._pathFinding.BattleScene = this._battleScene;
             this._showRange.BattleScene = this._battleScene;
 
-            if (this._unitOrder[0].type != EUnitType.Ally) {
+            if (this._unitOrder[0].Type != EUnitType.Ally) {
                 EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
             }
 
             OnStart = false;
         }
 
-        arrow.UpdatePointer(this._unitOrder[0]);
+        //arrow.UpdatePointer(this._unitOrder[0]);
+
         if (this._path.Count > 0) {
             this.MoveCurrentUnit();
         }
-        //else {
-        //    if (this.Move && !this.hadMoved) {
-        //        this.GetRangeTiles();
-        //    }
-        //    else if(this.Attack && !this.hadAttacked) {
-        //        if(this._unitOrder[0].unitType == EUnitAttackType.Melee) {
-        //            this.GetMeleeAttackTiles();
-        //        }
-        //        if(this._unitOrder[0].unitType == EUnitAttackType.Range) {
-        //            this.GetRangeAttackTiles();
-        //        }
-        //    }
-        //    else {
-        //        this.UnHighlightTiles();
-        //    }
-        //}
+        else {
+            if (this.OnMove && !this.hadMoved) {
+                this.GetRangeTiles();
+            }
+            //else if (this.OnAttack && !this.hadAttacked) {
+            //    if (this._unitOrder[0].unitType == EUnitAttackType.Melee) {
+            //        this.GetMeleeAttackTiles();
+            //    }
+            //    if (this._unitOrder[0].unitType == EUnitAttackType.Range) {
+            //        this.GetRangeAttackTiles();
+            //    }
+            //}
+            else {
+                this.UnHighlightTiles();
+            }
+        }
     }
 
     private void CheckEndCondition() {

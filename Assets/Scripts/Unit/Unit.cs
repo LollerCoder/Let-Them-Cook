@@ -4,32 +4,41 @@ using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
 
 public class Unit: MonoBehaviour { 
-    public EUnitType type;
+    protected EUnitType type;
+    public EUnitType Type { get { return this.type; } }
 
-    public int Range;
+    protected string charName; // unit name
+    public string Name { get { return this.charName; } }
 
-    public int SPD;
+    protected int acc; // hit
+    public int Accuracy { get { return this.acc; } }
 
-    public int ATK;
+    protected int spd; // movement range
+    public int Speed { get { return this.spd; } }
 
-    public int HP;
+    protected int atk; // dmg
+    public int Attack { get { return this.atk; } }
 
-    public int DEF;
+    protected int hp; // health
+    public int HP { get { return this.hp; } }
 
-    public int MAXHP;
+    protected int def; // defense
+    public int DEF { get { return this.def; } }
+
+    protected int maxhp; // max health
+    public int MAXHP { get { return this.maxhp; } }
 
     [SerializeField]
-    private Tile _tile;
+    private Tile _tile; // tile on the grid
     public Tile Tile {
         get { return _tile; }
         set { _tile = value; }
     }
-
     public void TakeDamage(int damage) {
-        this.HP -= damage;
-        this.HP = Mathf.Max(HP, 0);
+        this.hp -= damage;
+        this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
 
-        if (this.HP < 1) {
+        if (this.HP == 0) {
             this.Tile.isWalkable = true;
             UnitActionManager.Instance.RemoveUnitFromOrder(this);
         }
@@ -38,7 +47,7 @@ public class Unit: MonoBehaviour {
     public void Heal(int heal) {
 
     }
-    public virtual void Attack(Unit unit2) {
+    public virtual void UnitAttack(Unit unit2) {
 
     }
     private void OnMouseUp() {
