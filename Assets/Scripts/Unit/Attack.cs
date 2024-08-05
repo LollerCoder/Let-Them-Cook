@@ -20,7 +20,7 @@ public class Attack : MonoBehaviour {
     private void Range(Unit attacker, Unit target, int damage) {
         Quaternion originaRotation = attacker.transform.rotation;
         attacker.transform.LookAt(target.transform, new Vector3(0, 1, 0));
-        target.TakeDamage(damage);
+        target.TakeDamage(damage,attacker);
         
         this.StartCoroutine(this.WaitForAnimationRange(2.0f, attacker, originaRotation));
     }
@@ -38,7 +38,7 @@ public class Attack : MonoBehaviour {
 
     private IEnumerator WaitForAnimationMelee(float seconds, Unit attacker, Unit target, int damage, Quaternion rotation) {
         yield return new WaitForSeconds(seconds);
-        target.TakeDamage(damage);
+        target.TakeDamage(damage,attacker);
         attacker.transform.rotation = rotation;
         EventBroadcaster.Instance.PostEvent(EventNames.UnitActionEvents.ON_ATTACK_END);
     }

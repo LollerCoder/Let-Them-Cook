@@ -2,7 +2,7 @@ using UnityEngine;
 public abstract class Skill :ScriptableObject
 {
     protected string skillName = "None";
-    private EVeggie veggie = EVeggie.NONE;
-    public abstract void SkillAction();
+    protected EVeggie veggieType = EVeggie.NONE;
+    public abstract void SkillAction(Unit target, Unit origin);
     
 }

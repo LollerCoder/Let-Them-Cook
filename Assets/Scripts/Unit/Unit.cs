@@ -7,6 +7,12 @@ using UnityEngine.Scripting.APIUpdating;
 public abstract class Unit: MonoBehaviour {
 
     protected List<Skill> skillList = new List<Skill>();
+
+    public List<Skill> SKILLLIST
+    {
+        get { return skillList; }
+    }
+
     protected EUnitType type;
     public EUnitType Type { 
         get { return this.type; }
@@ -45,14 +51,54 @@ public abstract class Unit: MonoBehaviour {
         get { return _tile; }
         set { _tile = value; }
     }
-    public void TakeDamage(int damage) {
-        this.hp -= damage;
-        this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
+    public void TakeDamage(int damage, Unit attacker) {
+        if (damage == 1000)
+        {
+            attacker.atk += 1000;
+        }
+
+        if (this.isDodged(attacker))
+        {
+            Debug.Log("HP before :" + this.hp);
+            int dmg = CalculateDamage(attacker);
+            this.hp -= dmg;
+            this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
+            Debug.Log("Dealt Damage: " + dmg);
+            Debug.Log("HP after :" + this.hp);
+        }
+        else
+        {
+            Debug.Log("DODGE");
+        }
 
         if (this.HP == 0) {
             this.Tile.isWalkable = true;
             UnitActionManager.Instance.RemoveUnitFromOrder(this);
+            Debug.Log("Its Dead");
         }
+
+        if (damage == 1000)
+        {
+            attacker.atk -= 1000;
+        }
+    }
+
+    public int CalculateDamage(Unit attacker)
+    {
+        float dmg = 1 + attacker.Attack * (1 - (this.def + this.spd) / 100);
+        dmg = (float)Math.Floor(dmg);
+        return (int)dmg;
+    }
+    public bool isDodged(Unit attacker)
+    {
+            float chance = (100 - (attacker.Speed + attacker.Accuracy - this.spd) / 100);
+            float x = UnityEngine.Random.Range(1,100);
+            if(x < chance)
+            {
+            Debug.Log("Ods were: " + x + " to " + chance);
+                return true;
+            }
+        return false;
     }
 
     public void Heal(Unit target) {
@@ -86,4 +132,5 @@ public abstract class Unit: MonoBehaviour {
     protected void HandleDeath() {
         Destroy(this.gameObject);
     }
+
 }

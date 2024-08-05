@@ -20,9 +20,14 @@ public class Carrot : Unit{
 
 
     private void Start() {
-        Skill eagle = new EagleEye();
+
         this.animator = this.GetComponent<Animator>();
-        this.skillList.Add(eagle);
+
+        Skill trueStrike = ScriptableObject.CreateInstance<TrueStrike>();
+        Skill basic = ScriptableObject.CreateInstance<BasicAttack>();
+        this.skillList.Add(basic);
+        this.skillList.Add(trueStrike);
+
         this.charName = "Carrot";
         this.acc = 10;
         this.spd = 2;

@@ -1,21 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//Give carrot a 10% accuracy buff
-public class EagleEye : Skill
+
+public class FastFood : Skill
 {
-
-
-
+    // Start is called before the first frame update
+    // Start is called before the first frame update
     void Start()
     {
-        this.skillName = "EagleEye";
+        this.skillName = "Fast Food";
         this.veggieType = EVeggie.CARROT;
     }
+
     public override void SkillAction(Unit target, Unit origin)
     {
-        Unit appliedTo = target.GetComponent<Unit>();
+        
 
-     
+        target.TakeDamage(1000,origin);
+
     }
 }

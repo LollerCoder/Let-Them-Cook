@@ -7,11 +7,11 @@ using UnityEngine;
 /// Makes Potato Attack thrice
 /// </summary>
 
-public class FryEm : Skill
+public class FryEm : Skill  
 {
     private string skillName = "Fry Em";
     private EVeggie veggie = EVeggie.POTATO;
-    public override void SkillAction()
+    public override void SkillAction(Unit target, Unit origin)
     {
 
     }

@@ -126,10 +126,38 @@ public class UnitActionManager : MonoBehaviour {
         }
         
     }
-    private void ConfirmAttack(Unit target) {
+    private void ConfirmAttack(Unit target, int Skill) {
 
-        this._unitOrder[0].UnitAttack(target);
+        switch (Skill)
+        {
+            case 0:
+                if (target.SKILLLIST[0] != null)
+                {
+                    this._unitOrder[0].SKILLLIST[Skill].SkillAction(target, this._unitOrder[0]);
+                }
+                break;
+            case 1:
+                if (target.SKILLLIST[1] != null)
+                {
+                    this._unitOrder[0].SKILLLIST[Skill].SkillAction(target, this._unitOrder[0]);
+                    Debug.Log(target.HP);
+                }
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+
+        }
+
+        
         Debug.Log("Attacked Target " + target.name);
+        if(Skill == 1)
+        {
+            Debug.Log("1000 dmg applied");
+        }
         this.OnAttack = false;
         this.hadAttacked = true;
     }
@@ -155,7 +183,7 @@ public class UnitActionManager : MonoBehaviour {
         }
 
         if (this.IsUnitAttackable(selectedUnit) && this.OnAttack) {
-            this.ConfirmAttack(selectedUnit);
+            this.ConfirmAttack(selectedUnit,numAttack);
         }
     }
     private bool IsUnitAttackable(Unit selectedUnit) {
