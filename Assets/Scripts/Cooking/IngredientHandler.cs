@@ -42,7 +42,6 @@ public class IngredientHandler : Draggable
                 if (IngredientsManager.IngredientAmount[this._type] > 0)
                 {
                     GameObject.Find("Pot Ingredients").GetComponent<PotHandler>().AddIngredient(this._type);
-                    IngredientsManager.IngredientAmount[this._type]--;
                 }
             }
         }

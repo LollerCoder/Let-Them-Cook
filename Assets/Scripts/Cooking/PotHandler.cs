@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class PotHandler : MonoBehaviour
     private List<GameObject> _ingredientHolder = new List<GameObject>();
 
     private int _ingredientAmount = 0;
+    public Dictionary<EIngredientType, int> IngredientsAdded = new Dictionary<EIngredientType, int>();
 
     private void SetSprite(int index, EIngredientType type)
     {
@@ -27,7 +29,27 @@ public class PotHandler : MonoBehaviour
 
         this.SetSprite(this._ingredientAmount, type);
 
+        IngredientsManager.IngredientAmount[type]--;
+        this.IngredientsAdded[type]++;
         this._ingredientAmount++;
+    }
+
+    public void ResetIngredients()
+    {
+        this._ingredientAmount = 0;
+
+        //ingredient amount
+        foreach (EIngredientType type in Enum.GetValues(typeof(EIngredientType)))
+        {
+            this.IngredientsAdded[type] = 0;
+        }
+
+        //ingredient holder
+        foreach (GameObject holder in this._ingredientHolder)
+        {
+            if (holder.activeSelf)
+            holder.SetActive(false);
+        }
     }
 
     // Start is called before the first frame update
@@ -39,11 +61,7 @@ public class PotHandler : MonoBehaviour
         this._ingredientSprite[EIngredientType.CHILI] = sprites[2];
         this._ingredientSprite[EIngredientType.POTATO] = sprites[3];
 
-        //ingredient holder
-        foreach (GameObject holder in this._ingredientHolder)
-        {
-            holder.SetActive(false);
-        }
+        this.ResetIngredients();
     }
 
     // Update is called once per frame

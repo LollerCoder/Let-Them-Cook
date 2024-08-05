@@ -8,9 +8,9 @@ public class IngredientAmountTracker : MonoBehaviour
     [SerializeField]
     private List<GameObject> _AmountLabels;
 
-    private Dictionary<EIngredientType, Text> _IngredientTracker = new Dictionary<EIngredientType, Text>();
+    private Dictionary<EIngredientType, TextMesh> _IngredientTracker = new Dictionary<EIngredientType, TextMesh>();
 
-    private void SetAmount(EIngredientType type, int amount)
+    public void SetAmount(EIngredientType type, int amount)
     {
         this._IngredientTracker[type].text = "Amount: " + amount.ToString();
     }
@@ -47,15 +47,17 @@ public class IngredientAmountTracker : MonoBehaviour
     {
         foreach (GameObject label in _AmountLabels)
         {
-            label.GetComponent<Text>().text = "Amount: 0";
+            label.GetComponent<TextMesh>().text = "Amount: 0";
         }
 
-        this._IngredientTracker[EIngredientType.CARROT] = this._AmountLabels[0].GetComponent<Text>();
-        this._IngredientTracker[EIngredientType.POTATO] = this._AmountLabels[1].GetComponent<Text>();
-        this._IngredientTracker[EIngredientType.CHILI] = this._AmountLabels[2].GetComponent<Text>();
-        this._IngredientTracker[EIngredientType.CABBAGE] = this._AmountLabels[3].GetComponent<Text>();
+        this._IngredientTracker[EIngredientType.CARROT] = this._AmountLabels[0].GetComponent<TextMesh>();
+        this._IngredientTracker[EIngredientType.POTATO] = this._AmountLabels[1].GetComponent<TextMesh>();
+        this._IngredientTracker[EIngredientType.CHILI] = this._AmountLabels[2].GetComponent<TextMesh>();
+        this._IngredientTracker[EIngredientType.CABBAGE] = this._AmountLabels[3].GetComponent<TextMesh>();
 
         IngredientsManager.IngredientAmount[EIngredientType.CABBAGE] = 4;
+        IngredientsManager.IngredientAmount[EIngredientType.CARROT] = 2;
+        IngredientsManager.IngredientAmount[EIngredientType.CHILI] = 6;
     }
 
     // Update is called once per frame
