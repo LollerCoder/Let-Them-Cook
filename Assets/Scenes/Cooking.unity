@@ -129,9 +129,9 @@ GameObject:
   m_Component:
   - component: {fileID: 54346912}
   - component: {fileID: 54346916}
-  - component: {fileID: 54346915}
   - component: {fileID: 54346914}
   - component: {fileID: 54346913}
+  - component: {fileID: 54346917}
   m_Layer: 0
   m_Name: Ingredient_Holder
   m_TagString: Untagged
@@ -202,20 +202,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 9.67, y: 8.83, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &54346915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 54346911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 118d85cb11624e047b8b2893f9807591, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myCam: {fileID: 1365736751}
-  _type: 1
 --- !u!212 &54346916
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -270,6 +256,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &54346917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54346911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc8378ec3955ed44bed6a3dbe549b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetPos: {x: 0, y: 0, z: 0}
+--- !u!1 &163829865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 163829866}
+  m_Layer: 0
+  m_Name: GoToPot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &163829866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163829865}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -4.46, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1934539481}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &210258272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -908,6 +938,7 @@ GameObject:
   - component: {fileID: 931660042}
   - component: {fileID: 931660040}
   - component: {fileID: 931660039}
+  - component: {fileID: 931660043}
   m_Layer: 0
   m_Name: Ingredient_Holder (4)
   m_TagString: Untagged
@@ -1032,6 +1063,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &931660043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931660037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc8378ec3955ed44bed6a3dbe549b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetPos: {x: 0, y: 0, z: 0}
 --- !u!1 &998444833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,9 +1490,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1232788405}
   - component: {fileID: 1232788409}
-  - component: {fileID: 1232788408}
   - component: {fileID: 1232788407}
   - component: {fileID: 1232788406}
+  - component: {fileID: 1232788410}
   m_Layer: 0
   m_Name: Ingredient_Holder (3)
   m_TagString: Untagged
@@ -1519,20 +1563,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 9.67, y: 8.83, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1232788408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1232788404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 118d85cb11624e047b8b2893f9807591, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myCam: {fileID: 1365736751}
-  _type: 1
 --- !u!212 &1232788409
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1587,6 +1617,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1232788410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232788404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc8378ec3955ed44bed6a3dbe549b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1243381160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1922,9 +1965,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1918115795}
   - component: {fileID: 1918115799}
-  - component: {fileID: 1918115798}
   - component: {fileID: 1918115797}
   - component: {fileID: 1918115796}
+  - component: {fileID: 1918115800}
   m_Layer: 0
   m_Name: Ingredient_Holder (2)
   m_TagString: Untagged
@@ -1995,20 +2038,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 9.67, y: 8.83, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1918115798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918115794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 118d85cb11624e047b8b2893f9807591, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myCam: {fileID: 1365736751}
-  _type: 1
 --- !u!212 &1918115799
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2063,6 +2092,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1918115800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918115794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc8378ec3955ed44bed6a3dbe549b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1934539480
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,6 +2141,7 @@ Transform:
   - {fileID: 1232788405}
   - {fileID: 931660038}
   - {fileID: 2081073796}
+  - {fileID: 163829866}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1934539482
@@ -2124,6 +2167,8 @@ MonoBehaviour:
   - {fileID: 1918115794}
   - {fileID: 1232788404}
   - {fileID: 931660037}
+  IsCooking: 0
+  _PotTargetPos: {fileID: 163829865}
 --- !u!1 &1951068986
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,9 +2179,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1951068987}
   - component: {fileID: 1951068991}
-  - component: {fileID: 1951068990}
   - component: {fileID: 1951068989}
   - component: {fileID: 1951068988}
+  - component: {fileID: 1951068992}
   m_Layer: 0
   m_Name: Ingredient_Holder (1)
   m_TagString: Untagged
@@ -2207,20 +2252,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 9.67, y: 8.83, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1951068990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951068986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 118d85cb11624e047b8b2893f9807591, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myCam: {fileID: 1365736751}
-  _type: 1
 --- !u!212 &1951068991
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2275,6 +2306,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1951068992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951068986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc8378ec3955ed44bed6a3dbe549b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1960539848
 GameObject:
   m_ObjectHideFlags: 0

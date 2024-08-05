@@ -14,8 +14,14 @@ public class PotHandler : MonoBehaviour
     [SerializeField]
     private List<GameObject> _ingredientHolder = new List<GameObject>();
 
+    //amount of ingredients
     private int _ingredientAmount = 0;
     public Dictionary<EIngredientType, int> IngredientsAdded = new Dictionary<EIngredientType, int>();
+
+    //Cooking
+    public bool IsCooking = false;
+    [SerializeField]
+    private GameObject _PotTargetPos;
 
     private void SetSprite(int index, EIngredientType type)
     {
@@ -45,8 +51,11 @@ public class PotHandler : MonoBehaviour
         }
 
         //ingredient holder
+        int posIndex = 0;
         foreach (GameObject holder in this._ingredientHolder)
         {
+            holder.GetComponent<CookedMover>().GoHome();
+            posIndex++;
             if (holder.activeSelf)
             holder.SetActive(false);
         }
@@ -67,6 +76,12 @@ public class PotHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (IsCooking)
+        {
+            foreach (GameObject ingredient in this._ingredientHolder)
+            {
+                ingredient.GetComponent<CookedMover>().TargetPos = this._PotTargetPos.transform.position;
+            }
+        }
     }
 }

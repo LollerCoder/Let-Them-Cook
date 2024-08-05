@@ -5,10 +5,17 @@ using UnityEngine;
 
 public class CookButtonsHandler : MonoBehaviour
 {
+    private void CookIngredients()
+    {
+        PotHandler potTracker = GameObject.Find("Pot Ingredients").GetComponent<PotHandler>();
+        potTracker.IsCooking = true;
+    }
+
     private void ResetIngredients()
     {
         IngredientAmountTracker tracker = GameObject.Find("Ingredients").GetComponent<IngredientAmountTracker>();
         PotHandler potTracker = GameObject.Find("Pot Ingredients").GetComponent<PotHandler>();
+        potTracker.IsCooking = false;
 
         foreach (EIngredientType type in Enum.GetValues(typeof(EIngredientType)))
         {
@@ -28,6 +35,7 @@ public class CookButtonsHandler : MonoBehaviour
         switch (this.gameObject.name)
         {
             case "Cook":
+                this.CookIngredients();
                 break;
             case "Reset":
                 this.ResetIngredients();
