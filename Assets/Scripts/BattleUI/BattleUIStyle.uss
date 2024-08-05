@@ -1,6 +1,6 @@
-#Action{
+#ActionBox{
 	flex-direction: column;
-	align-self: stretch;
+	align-self: flex-end;
 	align-items: flex-end;
 	justify-content: flex-end;
 }
@@ -15,6 +15,8 @@
 
 .Button1{
 	width: 100%;
+	height: 50px;
+	font-size: 20px;
 }
 
 #Element2{
@@ -33,7 +35,7 @@
 	display: none;
 }
 
-#SkillBox{
+#LeftBox{
 	flex-grow: 1; 
 	display: flex;
 	flex-direction: column; 
@@ -45,6 +47,8 @@
 
 .Button2{
 	width: 20%;
+	height: 10%;
+	font-size: 20px;
 	align-self: flex-start;
 }
 
@@ -55,4 +59,20 @@
 	align-items: center;
 	align-self: stretch; 
 	flex-wrap: wrap-reverse;
+}
+
+#SkillBox{
+	flex-grow: 1; 
+	align-self: stretch; 
+	align-items: stretch; 
+	justify-content: center;
+}
+
+#PlayerInfo{
+	flex-grow: 1;
+}
+
+#PlayerSprite{
+	display: none;
+	--unity-image: url("/Assets/Sprites/Carrot.png");
 }

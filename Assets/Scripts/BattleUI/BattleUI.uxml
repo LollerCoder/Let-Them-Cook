@@ -1,25 +1,28 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Scripts/BattleUI/BattleUIStyle.uss?fileID=7433441132597879392&amp;guid=548782943c278ca48a93e553a5230246&amp;type=3#BattleUIStyle" />
     <engine:VisualElement name="Element1">
-        <engine:VisualElement name="SkillBox">
-            <engine:Button name="Basic Attack" text="Basic Attack" class="Button2" />
-            <engine:Button name="Skill 1" text="Skill 1" class="Button2" />
-            <engine:Button name="Skill 2" text="Skill 2" class="Button2" />
-            <engine:Button name="Skill 3" text="Skill 3" class="Button2" />
-            <engine:Button name="Skill 4" text="Skill 4" class="Button2" />
-            <engine:Button name="CancelAttack" text="Return" class="Button2" />
+        <engine:VisualElement name="LeftBox">
+            <engine:VisualElement name="SkillBox">
+                <engine:Button name="Basic Attack" text="Basic Attack" class="Button2" />
+                <engine:Button name="Skill 1" text="Skill 1" class="Button2" />
+                <engine:Button name="Skill 2" text="Skill 2" class="Button2" />
+                <engine:Button name="Skill 3" text="Skill 3" class="Button2" />
+                <engine:Button name="Skill 4" text="Skill 4" class="Button2" />
+                <engine:Button name="CancelAttack" text="Return" class="Button2" />
+            </engine:VisualElement>
+            <engine:VisualElement name="PlayerInfo" style="flex-direction: row;">
+                <engine:Image name="PlayerSprite" />
+            </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement name="Element2">
             <engine:Label text="Label" name="EndText" />
             <engine:Button text="Return" name="Return" />
         </engine:VisualElement>
-        <engine:VisualElement name="Action">
-            <engine:VisualElement name="ActionBox">
-                <engine:Button name="Attack" text="Attack" class="Button1" />
-                <engine:Button name="Heal" text="Heal" class="Button1" />
-                <engine:Button name="Defend" text="Defend" class="Button1" />
-                <engine:Button name="EndTurn" text="End Turn" class="Button1" />
-            </engine:VisualElement>
+        <engine:VisualElement name="ActionBox">
+            <engine:Button name="Attack" text="Attack" class="Button1" />
+            <engine:Button name="Heal" text="Heal" class="Button1" />
+            <engine:Button name="Defend" text="Defend" class="Button1" />
+            <engine:Button name="EndTurn" text="End Turn" class="Button1" />
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>

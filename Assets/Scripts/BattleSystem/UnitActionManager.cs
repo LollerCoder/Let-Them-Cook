@@ -1,10 +1,9 @@
-//using NUnit.Framework.Internal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-//using Unity.VisualScripting;
-//using Unity.VisualScripting;
+using Unity.VisualScripting;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms;
@@ -20,8 +19,11 @@ public class UnitActionManager : MonoBehaviour {
     //[SerializeField]
     //private Pointer arrow;
 
+    //[SerializeField]
+    //private BattleUIController _battleUIController;
+
     [SerializeField]
-    private BattleUIController _battleUIController;
+    private BattleUI _battleUI;
 
     private List<Unit> _Units = new List<Unit>();
     private List<Unit> _unitOrder = new List<Unit>();
@@ -160,6 +162,7 @@ public class UnitActionManager : MonoBehaviour {
         }
         this.OnAttack = false;
         this.hadAttacked = true;
+        this._battleUI.ToggleSkillBox();
     }
     public void UnitHover(Unit selectedUnit) {
         if (this._unitOrder[0] == selectedUnit
@@ -170,6 +173,14 @@ public class UnitActionManager : MonoBehaviour {
 
             this.OnMove = !this.OnMove;
 
+        }
+    }
+
+    public void UnSelectUnit() {
+        if(this.OnMove && this.Selected) {
+            this.OnMove = false;
+            this.Selected = false;
+            this._unitOrder[0].OnMove(false);
         }
     }
     public void UnitSelect(Unit selectedUnit) {
@@ -271,6 +282,7 @@ public class UnitActionManager : MonoBehaviour {
         Unit unit = this._unitOrder[0];
         this._unitOrder.RemoveAt(0);
         this._unitOrder.Add(unit);
+        this._battleUI.NextCharacterAvatar(this._unitOrder[0]);
         this.hadMoved = false;
         this.hadAttacked = false;
         this.hadHealed = false;
@@ -358,6 +370,7 @@ public class UnitActionManager : MonoBehaviour {
             this._showRange = new Range();
             this._pathFinding.BattleScene = this._battleScene;
             this._showRange.BattleScene = this._battleScene;
+            this._battleUI.NextCharacterAvatar(this._unitOrder[0]);
 
             if (this._unitOrder[0].Type != EUnitType.Ally) {
                 EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
@@ -382,6 +395,10 @@ public class UnitActionManager : MonoBehaviour {
                 this.UnHighlightTiles();
             }
         }
+
+        if (Input.GetMouseButtonUp(1)) { // right button
+            this.UnSelectUnit();
+        }
     }
 
     private void CheckEndCondition() {
@@ -393,13 +410,13 @@ public class UnitActionManager : MonoBehaviour {
 
         if (alive == false) {
             Debug.Log("Defeated! DED MC");
-            this._battleUIController.EndScreen(1);
+            this._battleUI.EndScreen(1);
         }
 
         if (enemies == 0) {
             Debug.Log("Victory");
             EventBroadcaster.Instance.PostEvent(EventNames.Enemy_Events.ON_ENEMY_DEFEATED);
-            this._battleUIController.EndScreen(2);
+            this._battleUI.EndScreen(2);
         }
 
     }

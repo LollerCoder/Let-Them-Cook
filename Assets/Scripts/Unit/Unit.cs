@@ -116,7 +116,6 @@ public abstract class Unit: MonoBehaviour {
     protected void OnMouseEnter() {
         UnitActionManager.Instance.UnitHover(this);
     }
-
     protected void OnMouseExit() {
         UnitActionManager.Instance.UnitHover(this);
     }
