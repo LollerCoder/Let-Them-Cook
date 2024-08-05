@@ -4,25 +4,21 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class Carrot : Unit{
-    public override void OnMouseEnter() {
-        UnitActionManager.Instance.UnitHover(this);
-    }
 
-    public override void OnMouseExit() {
-        UnitActionManager.Instance.UnitHover(this);
-    }
-
-    public override void OnMouseUp() {
-        UnitActionManager.Instance.UnitSelect(this);
-    }
 
     public override void UnitAttack(Unit unit2) {
         
     }
 
-    public void GetAttackOptions() {
+    public override void Selected() {
 
     }
+
+    public override void GetAttackOptions() {
+
+    }
+
+
     private void Start() {
         this.charName = "Carrot";
         this.acc = 10;

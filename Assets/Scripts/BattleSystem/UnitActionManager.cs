@@ -61,6 +61,10 @@ public class UnitActionManager : MonoBehaviour {
                          this._showRange.GetTilesInMovement(this._unitOrder[0].Tile,
                                                          this._unitOrder[0].Speed)
                          );
+            if(this._path.Count > 0) {
+                this.hadMoved = true;
+            }
+            
         }
     }
     private void MoveCurrentUnit() {
@@ -85,7 +89,6 @@ public class UnitActionManager : MonoBehaviour {
         }
 
         if (this._path.Count < 1) {
-            this.hadMoved = true;
             this.OnMove = false;
         }
     }
@@ -135,7 +138,7 @@ public class UnitActionManager : MonoBehaviour {
         }
     }
     public void UnitSelect(Unit selectedUnit) {
-        if (this._unitOrder[0] == selectedUnit) {
+        if (this._unitOrder[0] == selectedUnit && !this.hadMoved) {
             this.OnMove = true;
             this.Selected = true;
             this.OnAttack = false;
