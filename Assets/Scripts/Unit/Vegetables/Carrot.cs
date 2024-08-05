@@ -19,6 +19,10 @@ public class Carrot : Unit{
     public override void UnitAttack(Unit unit2) {
         
     }
+
+    public void GetAttackOptions() {
+
+    }
     private void Start() {
         this.charName = "Carrot";
         this.acc = 10;
