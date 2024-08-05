@@ -145,12 +145,19 @@ public class UnitActionManager : MonoBehaviour {
         }
     }
     public void UnitSelect(Unit selectedUnit) {
-        if (this._unitOrder[0] == selectedUnit && !this.hadMoved) {
+        if (this._unitOrder[0] == selectedUnit
+            && !this.hadMoved
+            && !this.OnAttack
+            && !this.OnHeal
+            && !this.OnDefend) {
+
             this.OnMove = true;
             this.Selected = true;
             this.OnAttack = false;
             this.OnHeal = false;
             this.OnDefend = false;
+
+            this._unitOrder[0].OnMove(true);
             return;
         }
 
