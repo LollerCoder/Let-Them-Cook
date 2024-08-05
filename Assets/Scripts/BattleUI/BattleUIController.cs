@@ -181,7 +181,7 @@ public class BattleUIController : MonoBehaviour {
 
     public void EndScreen(int scenario) {
         this.DisableActionBoxClick();
-
+        this.DisableSkillBoxClick();
 
         switch(scenario) {
             case 1:

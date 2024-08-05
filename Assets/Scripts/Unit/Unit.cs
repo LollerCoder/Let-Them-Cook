@@ -8,7 +8,10 @@ public abstract class Unit: MonoBehaviour {
 
     protected List<Skill> skillList = new List<Skill>();
     protected EUnitType type;
-    public EUnitType Type { get { return this.type; } }
+    public EUnitType Type { 
+        get { return this.type; }
+        set { this.type = value;  }
+    }
 
     protected string charName; // unit name
     public string Name { get { return this.charName; } }
