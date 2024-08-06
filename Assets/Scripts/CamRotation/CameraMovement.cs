@@ -3,50 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
-{
-    //https://www.youtube.com/watch?v=iuygipAigew
+{    //https://www.youtube.com/watch?v=rDJOilo4Xrg&t=316s
 
-    private bool bLeft,bRight,bUp,bDown;
-    void Start()
+  private Vector3 previousPosition;
+  private Camera cam;
+  void Start()
     {
-        bLeft = false;
-        bRight = false;
-        bUp = false;
-        bDown = false;
+        cam = Camera.main;
+  
     }
 
     // Update is called once per frame
     void Update()
-    { 
-        checkKeyDown();
-
-        if (bLeft) transform.Rotate(0,100 * Time.deltaTime,0);
-        else if (bRight) transform.Rotate(0,-100 * Time.deltaTime,0);
-
-        //Up and Down will need to clamp
-        else if (bUp) 
-        {
-            transform.Rotate(100 * Time.deltaTime,0,0);   
-        }
-        
-        else if (bDown) transform.Rotate(-100 * Time.deltaTime,0,0);
-
-        checkKeyUp();
-    }
-
-    void checkKeyDown()
     {
-        if(Input.GetKeyDown(KeyCode.LeftArrow) && !bLeft) bLeft = true;
-        else if( Input.GetKeyDown(KeyCode.RightArrow) && !bRight) bRight = true;
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && !bUp) bUp = true;
-        else if (Input.GetKeyDown(KeyCode.DownArrow) && !bDown) bDown = true;
-    }
-    void checkKeyUp()
-    {
+      if (Input.GetMouseButtonDown(0))  
+      {
+        previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
+      }
 
-        if(Input.GetKeyUp(KeyCode.LeftArrow) && bLeft) bLeft = false;
-        else if( Input.GetKeyUp(KeyCode.RightArrow) && bRight) bRight = false;
-        else if (Input.GetKeyUp(KeyCode.UpArrow) && bUp) bUp = false;
-        else if (Input.GetKeyUp(KeyCode.DownArrow) && bDown) bDown = false;
+      if (Input.GetMouseButton(0))
+      {
+          Vector3 direction = previousPosition - cam.ScreenToViewportPoint(Input.mousePosition);
+
+          cam.transform.position = transform.position;
+
+          cam.transform.Rotate(new Vector3(1,0,0), direction.y * 180);
+          cam.transform.Rotate(new Vector3(0,1,0), -direction.x * 180,Space.World);
+          cam.transform.Translate(new Vector3(0,0,-10));
+
+          previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
+      }
     }
 }
