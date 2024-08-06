@@ -296,9 +296,9 @@ public class UnitActionManager : MonoBehaviour {
         this.UpdateTile();
         Unit unit = this._unitOrder[0];
 
+        this._unitOrder.RemoveAt(0);
         this._unitOrder[0].EffectTimer();
 
-        this._unitOrder.RemoveAt(0);
         this._unitOrder.Add(unit);
         this._battleUI.NextCharacterAvatar(this._unitOrder[0]);
         this.hadMoved = false;

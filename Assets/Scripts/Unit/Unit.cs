@@ -8,6 +8,7 @@ public abstract class Unit: MonoBehaviour {
 
     protected List<Skill> skillList = new List<Skill>();
     [SerializeField]
+
     
 
     public List<Skill> SKILLLIST
@@ -111,6 +112,9 @@ public abstract class Unit: MonoBehaviour {
             this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
             Debug.Log("Dealt Damage: " + dmg);
             Debug.Log("HP after :" + this.hp);
+
+
+            
         }
         else
         {

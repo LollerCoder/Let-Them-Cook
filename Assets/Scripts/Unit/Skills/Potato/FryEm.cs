@@ -24,4 +24,9 @@ public class FryEm : Skill
     {
 
     }
+    public string GetName()
+    {
+        return this.skillName;
+
+    }
 }

@@ -23,4 +23,10 @@ public class TrueStrike : Skill
         target.TakeDamage(1000,origin);
 
     }
+
+    public string GetName()
+    {
+        return this.skillName;
+
+    }
 }

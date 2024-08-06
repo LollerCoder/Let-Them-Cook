@@ -28,4 +28,9 @@ public class FastFood : Skill
         
 
     }
+    public string GetName()
+    {
+        return this.skillName;
+
+    }
 }

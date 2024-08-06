@@ -51,6 +51,12 @@ public class EagleEye : Skill, MultEffect
 
     }
 
-  
+    public string GetName()
+    {
+        return this.skillName;
+
+    }
+
+
 
 }
