@@ -38,6 +38,7 @@ public class TileMapGenerator : MonoBehaviour {
                 tile.TilePos = new Vector2Int(x, z);
 
                 tile.tileType = tiletype;
+
                 if (tile.tileType.tile != ETileType.TREES) {
                     tile.isWalkable = true;
                 }
@@ -52,29 +53,22 @@ public class TileMapGenerator : MonoBehaviour {
     public void TileGenerator() {
         this._tiles = new ETileType[this._mapSizeX, this._mapSizeZ];
 
-        this.GenerateGrass();
-        this.GeneratePath();
+        this.GenerateTiles();
     }
     public void GenerateTileTypes() {
         // assign each tile with their unique name, prefab, and type
         // then add it to the list of tile types
         TileType tiletype = new TileType();
-        tiletype.name = "GRASS";
+        tiletype.name = "BLACK";
         tiletype.tilePrefab = this._tilePrefabs[0];
-        tiletype.tile = ETileType.GRASS;
-        this._tileType.Add(ETileType.GRASS, tiletype);
+        tiletype.tile = ETileType.BLACK;
+        this._tileType.Add(ETileType.BLACK, tiletype);
 
         tiletype = new TileType();
-        tiletype.name = "DIRT";
+        tiletype.name = "WHITE";
         tiletype.tilePrefab = this._tilePrefabs[1];
-        tiletype.tile = ETileType.DIRT;
-        this._tileType.Add(ETileType.DIRT, tiletype);
-
-        tiletype = new TileType();
-        tiletype.name = "TREES";
-        tiletype.tilePrefab = this._tilePrefabs[0];
-        tiletype.tile = ETileType.TREES;
-        this._tileType.Add(ETileType.TREES, tiletype);
+        tiletype.tile = ETileType.WHITE;
+        this._tileType.Add(ETileType.WHITE, tiletype);
     }
     public List<Tile> GetNeighborTiles(Tile currentTile, List<Tile> inRangeTiles) {
         Dictionary<Vector2Int, Tile> availableTiles = new Dictionary<Vector2Int, Tile>();
@@ -125,23 +119,16 @@ public class TileMapGenerator : MonoBehaviour {
     public void StartMap() {
 
     }
-    private void GenerateGrass() {
-        for (int x = 0; x < this._mapSizeX; x++) {
-            for (int z = 0; z < this._mapSizeZ; z++) {
-                this._tiles[x, z] = ETileType.GRASS;
+    private void GenerateTiles() {
+        for (int z = 0; z < this._mapSizeZ; z++) {
+            for (int x = 0; x < this._mapSizeX; x++) {
+                if ((x + z) % 2 == 0) {
+                    this._tiles[x, z] = ETileType.BLACK;
+                }
+                else {
+                    this._tiles[x, z] = ETileType.WHITE;
+                }
             }
-        }
-    }
-
-    private void GeneratePath() {
-        for(int z = 0; z < this._mapSizeZ; z++) {
-            this._tiles[4, z] = ETileType.DIRT;
-            this._tiles[5, z] = ETileType.DIRT;
-        }
-
-        for(int x = 6; x < this._mapSizeX; x++) {
-            this._tiles[x, 7] = ETileType.DIRT;
-            this._tiles[x, 8] = ETileType.DIRT;
         }
     }
     public void UpdateTile() {
