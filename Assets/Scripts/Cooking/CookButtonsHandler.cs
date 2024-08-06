@@ -5,10 +5,20 @@ using UnityEngine;
 
 public class CookButtonsHandler : MonoBehaviour
 {
-    private void CookIngredients()
+    private IEnumerator CookIngredients()
     {
         PotHandler potTracker = GameObject.Find("Pot Ingredients").GetComponent<PotHandler>();
         potTracker.IsCooking = true;
+
+        yield return new WaitForSeconds(1);
+
+        CookingHandler cookingHandler = GameObject.Find("Cooking").GetComponent<CookingHandler>();
+        cookingHandler.CookMeal();
+
+        foreach (EIngredientType type in Enum.GetValues(typeof(EIngredientType)))
+        {
+            potTracker.IngredientsAdded[type] = 0;
+        }
     }
 
     private void ResetIngredients()
@@ -35,10 +45,16 @@ public class CookButtonsHandler : MonoBehaviour
         switch (this.gameObject.name)
         {
             case "Cook":
-                this.CookIngredients();
+                this.StartCoroutine(this.CookIngredients());
                 break;
             case "Reset":
                 this.ResetIngredients();
+                break;
+            case "Cook Again":
+                GameObject.Find("Cooking").GetComponent<CookingHandler>().HideDisplay();
+                this.ResetIngredients();
+                break;
+            case "Exit":
                 break;
         }
     }

@@ -56,6 +56,7 @@ public class IngredientAmountTracker : MonoBehaviour
         this._IngredientTracker[EIngredientType.CABBAGE] = this._AmountLabels[3].GetComponent<TextMesh>();
 
         IngredientsManager.IngredientAmount[EIngredientType.CABBAGE] = 4;
+        IngredientsManager.IngredientAmount[EIngredientType.POTATO] = 4;
         IngredientsManager.IngredientAmount[EIngredientType.CARROT] = 2;
         IngredientsManager.IngredientAmount[EIngredientType.CHILI] = 6;
     }

@@ -51,11 +51,9 @@ public class PotHandler : MonoBehaviour
         }
 
         //ingredient holder
-        int posIndex = 0;
         foreach (GameObject holder in this._ingredientHolder)
         {
             holder.GetComponent<CookedMover>().GoHome();
-            posIndex++;
             if (holder.activeSelf)
             holder.SetActive(false);
         }
