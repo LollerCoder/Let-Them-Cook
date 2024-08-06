@@ -23,5 +23,16 @@ public class BasicAttack : Skill
     {
       
         target.TakeDamage(target.Attack, origin);
-    }   
+    }
+
+    public string GetName()
+    {
+        return this.skillName;
+
+    }
+    public EVeggie GetVeggie()
+    {
+        return this.veggieType;
+
+    }
 }

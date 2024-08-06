@@ -29,4 +29,9 @@ public class TrueStrike : Skill
         return this.skillName;
 
     }
+    public EVeggie GetVeggie()
+    {
+        return this.veggieType;
+
+    }
 }

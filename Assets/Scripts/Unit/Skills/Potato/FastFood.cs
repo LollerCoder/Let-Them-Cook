@@ -33,4 +33,10 @@ public class FastFood : Skill
         return this.skillName;
 
     }
+
+    public EVeggie GetVeggie()
+    {
+        return this.veggieType;
+
+    }
 }
