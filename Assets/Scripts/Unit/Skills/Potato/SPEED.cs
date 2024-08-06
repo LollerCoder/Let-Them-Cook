@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class MashPotato : Skill, MultEffect
+public class SPEED : Skill, MultEffect
 {
-    private string skillName = "Mashed Potato";
+    private string skillName = "SPEED";
     public string SkillName
     {
         get { return this.skillName; }
@@ -18,15 +17,15 @@ public class MashPotato : Skill, MultEffect
 
 
 
-    //effectinfo def 
-    private int duration1 = 3;
-    private int mod1 = -20;
-    private EStatToEffect stat1 = EStatToEffect.DEFENSE;
+    //effectinfo atj
+    private int duration1 = 2;
+    private int mod1 = -100;
+    private EStatToEffect stat1 = EStatToEffect.ATTACK;
 
-    //effectinfo atk buff
-    private int duration2 = 3;
-    private int mod2 = 20;
-    private EStatToEffect stat2 = EStatToEffect.ATTACK;
+    //effectinfo spd
+    private int duration2 = 2;
+    private int mod2 = 50;
+    private EStatToEffect stat2 = EStatToEffect.SPEED;
 
     private int sucessChance = 90;
     private int x = 0; //bs way to apply to effects
@@ -45,17 +44,6 @@ public class MashPotato : Skill, MultEffect
             case 0:
                 if (target.EFFECTLIST.ContainsKey(this.skillName))
                 {
-                    target.EFFECTLIST[this.skillName + "defense"].DURATION = duration1;
-                }
-                else
-                {
-                    target.EFFECTLIST.Add(this.skillName + "defense", fInfo);
-                    Debug.Log("Target affected");
-                }
-                break;
-            case 1:
-                if (target.EFFECTLIST.ContainsKey(this.skillName))
-                {
                     target.EFFECTLIST[this.skillName + "attack"].DURATION = duration1;
                 }
                 else
@@ -64,15 +52,26 @@ public class MashPotato : Skill, MultEffect
                     Debug.Log("Target affected");
                 }
                 break;
+            case 1:
+                if (target.EFFECTLIST.ContainsKey(this.skillName))
+                {
+                    target.EFFECTLIST[this.skillName + "speed"].DURATION = duration1;
+                }
+                else
+                {
+                    target.EFFECTLIST.Add(this.skillName + "speed", fInfo);
+                    Debug.Log("Target affected");
+                }
+                break;
         }
-        
+
 
     }
     public void SkillAction(Unit target, Unit origin)
     {
-        //Def deBUF
+        //atk debuf
         EffectInfo fInfo1 = new EffectInfo(duration1, mod1, stat1);
-        //ATK BUF
+        //spd buf
         EffectInfo fInfo2 = new EffectInfo(duration2, mod2, stat2);
 
 

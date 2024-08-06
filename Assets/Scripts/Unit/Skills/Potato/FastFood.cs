@@ -23,7 +23,7 @@ public class FastFood : Skill
         for(int i = 0; i < 3; i++)
         {
             
-            target.TakeDamage(origin.Attack, origin);
+            target.TakeDamage(0, origin);
         }
         
 

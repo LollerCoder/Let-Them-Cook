@@ -16,11 +16,23 @@ public class TrueStrike : Skill
         get { return this.veggieType; }
     }
 
+
+
+    private int sucessChance = 40;
+
+
+
     public void SkillAction(Unit target, Unit origin)
     {
-        
-
-        target.TakeDamage(1000,origin);
+        if (Random.Range(1, 100) < sucessChance)
+        {
+            target.TakeDamage(10, origin);
+        }
+        else
+        {
+            target.TakeDamage(1, origin);
+        }
+            
 
     }
 

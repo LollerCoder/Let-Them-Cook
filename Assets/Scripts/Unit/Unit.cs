@@ -99,40 +99,44 @@ public abstract class Unit: MonoBehaviour {
     }
     public void TakeDamage(float damage, Unit attacker) {
         attacker.EffectAccess(attacker);
-        if (damage == 1000)//instakill skill used for debuggin remove after done.
-        {
-            attacker.atk += 1000;
+        if(damage == 0) {
+
+            if (this.isDodged(attacker))
+            {
+                Debug.Log("HP before :" + this.hp);
+                int dmg = CalculateDamage(attacker);
+                this.hp -= dmg;
+                this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
+                Debug.Log("Dealt Damage: " + dmg);
+                Debug.Log("HP after :" + this.hp);
+
+
+
+            }
+            else
+            {
+                Debug.Log("DODGE");
+            }
+
+            if (this.HP == 0)
+            {
+                this.Tile.isWalkable = true;
+                UnitActionManager.Instance.RemoveUnitFromOrder(this);
+                Debug.Log("Its Dead");
+            }
         }
 
-        if (this.isDodged(attacker))
-        {
-            Debug.Log("HP before :" + this.hp);
-            int dmg = CalculateDamage(attacker);
-            this.hp -= dmg;
-            this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
-            Debug.Log("Dealt Damage: " + dmg);
-            Debug.Log("HP after :" + this.hp);
-
-
-            
-        }
         else
         {
-            Debug.Log("DODGE");
+            this.hp -= (int)damage;
+            this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
         }
 
-        if (this.HP == 0) {
-            this.Tile.isWalkable = true;
-            UnitActionManager.Instance.RemoveUnitFromOrder(this);
-            Debug.Log("Its Dead");
-        }
+        
       
         attacker.EffectReset(attacker);
 
-        if (damage == 1000)
-        {
-            attacker.atk -= 1000;
-        }
+       
     }
 
     public void EffectAccess(Unit applyTo)
