@@ -216,7 +216,7 @@ public class UnitActionManager : MonoBehaviour {
         }
 
         if (this.IsUnitAttackable(selectedUnit) && this.OnAttack) {
-            this.ConfirmAttack(selectedUnit,numAttack);
+            this.ConfirmAttack(selectedUnit, this.numAttack);
         }
     }
     private bool IsUnitAttackable(Unit selectedUnit) {
@@ -230,18 +230,14 @@ public class UnitActionManager : MonoBehaviour {
     public void EnemyUnitAction() {
         this.OnAttack = true;
 
-        //if (this._unitOrder[0].unitType == EUnitAttackType.Melee) {
-        //    this._inRangeTiles = this._showRange.GetTilesInAttackMelee(this._unitOrder[0].Tile, this._unitOrder[0].Range);
-        //}
-        //if (this._unitOrder[0].unitType == EUnitAttackType.Range) {
-        //    this._inRangeTiles = this._showRange.GetTilesInAttackRange(this._unitOrder[0].Tile, this._unitOrder[0].Range);
-        //}
+        this._inRangeTiles = this._showRange.GetTilesInAttackMelee(this._unitOrder[0].Tile, this._unitOrder[0].BasicRange);
+        this.numAttack = 0;
 
-        //foreach (Unit unit in this._Units) {
-        //    if (unit.type == EUnitType.Ally) {
-        //       this.UnitSelect(unit);
-        //    }
-        //}
+        foreach (Unit unit in this._Units) {
+            if (unit.Type == EUnitType.Ally) {
+                this.UnitSelect(unit);
+            }
+        }
 
         this.StartCoroutine(this.EnemyWait(1.0f));
     }    
@@ -264,6 +260,9 @@ public class UnitActionManager : MonoBehaviour {
         if (this.numAttack == 3) {
             this.GetMeleeAttackTiles();
         }
+        if (this.numAttack == 4) {
+            this.GetMeleeAttackTiles();
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -280,9 +279,7 @@ public class UnitActionManager : MonoBehaviour {
         }
 
         this.CheckEndCondition();
-
     }
-
     private void DecideTurnOrder() {
         this._unitOrder.AddRange(_Units);
         this._unitOrder.Sort((x, y) => y.Speed.CompareTo(x.Speed));
@@ -315,13 +312,15 @@ public class UnitActionManager : MonoBehaviour {
         this.Selected = false;
         this.numAttack = -1;
 
-        
-
         this.UnHighlightTiles();
         if (this._unitOrder[0].Type != EUnitType.Ally) {
 
             EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
             this.EnemyUnitAction();
+        }
+        else {
+            Debug.Log("HIDE");
+            this._battleUI.ToggleActionBox();
         }
     }
     private void AssignUnitTile() {
@@ -398,9 +397,12 @@ public class UnitActionManager : MonoBehaviour {
             this._pathFinding.BattleScene = this._battleScene;
             this._showRange.BattleScene = this._battleScene;
             this._battleUI.NextCharacterAvatar(this._unitOrder[0]);
-
+           
             if (this._unitOrder[0].Type != EUnitType.Ally) {
                 EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
+            }
+            else {
+                this._battleUI.ToggleActionBox();
             }
 
             OnStart = false;

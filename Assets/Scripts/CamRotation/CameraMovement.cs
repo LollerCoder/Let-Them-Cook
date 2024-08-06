@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
@@ -33,5 +34,13 @@ public class CameraMovement : MonoBehaviour
 
           previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
       }
+
+        if (Input.mouseScrollDelta.y < 0 && cam.fieldOfView < 101) {
+            cam.fieldOfView += 0.5f;
+        }
+        if (Input.mouseScrollDelta.y > 0 && cam.fieldOfView > 30) {
+            cam.fieldOfView -= 0.5f;
+        }
     }
+
 }

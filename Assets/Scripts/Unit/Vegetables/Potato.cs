@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Carrot : Unit{
+public class Potato : Unit {
 
-    
+
     public override void UnitAttack(Unit unit2) {
-        
+
     }
 
     public override void Selected() {
@@ -23,26 +22,25 @@ public class Carrot : Unit{
 
         this.animator = this.GetComponent<Animator>();
 
-
         Skill basic = new BasicAttack();
-        Skill trueStrike = new TrueStrike();
-        Skill eyePoke = new EyePoke();
-        Skill tripUp = new TripUp();
-        Skill eagle = new EagleEye();
+        Skill FastFood = new FastFood();
+        Skill ImFrench = new ImFrench();
+        Skill MashPotato = new MashPotato();
+        Skill Speed = new SPEED();
 
         this.skillList.Add(basic);
-        this.skillList.Add(trueStrike);
-        this.skillList.Add(eyePoke);
-        this.skillList.Add(tripUp);
-        this.skillList.Add(eagle);
+        this.skillList.Add(FastFood);
+        this.skillList.Add(ImFrench);
+        this.skillList.Add(MashPotato);
+        this.skillList.Add(Speed);
 
-        this.charName = "Carrot";
-        this.acc = 10;
-        this.spd = 3;
-        this.maxhp = 20;
+        this.charName = "Potato";
+        this.acc = 5;
+        this.spd = 2;
+        this.maxhp = 15;
         this.hp = this.maxhp;
         this.atk = 3;
-        this.def = 1;
+        this.def = 5;
 
         UnitActionManager.Instance.StoreUnit(this);
 
