@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Carrot : Unit{
 
-
+    
     public override void UnitAttack(Unit unit2) {
         
     }
@@ -23,10 +23,17 @@ public class Carrot : Unit{
 
         this.animator = this.GetComponent<Animator>();
 
-        Skill trueStrike = ScriptableObject.CreateInstance<TrueStrike>();
-        Skill basic = ScriptableObject.CreateInstance<BasicAttack>();
+
+        Skill basic = new BasicAttack();
+        Skill trueStrike = new TrueStrike();
+        Skill fastFood = new FastFood();
+        Skill eagle = new EagleEye();
+
+
         this.skillList.Add(basic);
         this.skillList.Add(trueStrike);
+        this.skillList.Add(fastFood);
+        this.skillList.Add(eagle);
 
         this.charName = "Carrot";
         this.acc = 10;

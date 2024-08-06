@@ -133,23 +133,38 @@ public class UnitActionManager : MonoBehaviour {
         switch (Skill)
         {
             case 0:
-                if (target.SKILLLIST[0] != null)
+                if (target.SKILLLIST[Skill] != null)
                 {
                     this._unitOrder[0].SKILLLIST[Skill].SkillAction(target, this._unitOrder[0]);
                 }
                 break;
             case 1:
-                if (target.SKILLLIST[1] != null)
+                if (target.SKILLLIST[Skill] != null)
                 {
                     this._unitOrder[0].SKILLLIST[Skill].SkillAction(target, this._unitOrder[0]);
-                    Debug.Log(target.HP);
+                    
                 }
                 break;
             case 2:
+                if (target.SKILLLIST[Skill] != null)
+                {
+                    this._unitOrder[0].SKILLLIST[Skill].SkillAction(target, this._unitOrder[0]);
+                  
+                }
                 break;
             case 3:
+                if (target.SKILLLIST[Skill] != null)
+                {
+                    this._unitOrder[0].SKILLLIST[Skill].SkillAction(target, this._unitOrder[0]);
+                    
+                }
                 break;
             case 4:
+                if (target.SKILLLIST[Skill] != null)
+                {
+                    this._unitOrder[0].SKILLLIST[Skill].SkillAction(target, this._unitOrder[0]);
+                    
+                }
                 break;
 
         }
@@ -280,6 +295,9 @@ public class UnitActionManager : MonoBehaviour {
     public void NextUnitTurn() {
         this.UpdateTile();
         Unit unit = this._unitOrder[0];
+
+        this._unitOrder[0].EffectTimer();
+
         this._unitOrder.RemoveAt(0);
         this._unitOrder.Add(unit);
         this._battleUI.NextCharacterAvatar(this._unitOrder[0]);
@@ -290,6 +308,8 @@ public class UnitActionManager : MonoBehaviour {
         this._unitOrder[0].Tile.isWalkable = true;
         this.Selected = false;
         this.numAttack = -1;
+
+        
 
         this.UnHighlightTiles();
         if (this._unitOrder[0].Type != EUnitType.Ally) {
@@ -353,7 +373,8 @@ public class UnitActionManager : MonoBehaviour {
 
         //this._inRangeTiles = this._showRange.GetTilesInAttackRange(currentUnit.Tile, currentUnit.Range);
 
-        //foreach (Tile tile in this._inRangeTiles) {
+        //foreach (Tile tile in this._inRangeTiles)
+        //{
         //    tile.HighlightAttackableTile();
         //}
     }

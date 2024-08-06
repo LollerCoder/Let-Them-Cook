@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Range {
     public EBattleScene BattleScene;
-    public List<Tile> GetTilesInMovement(Tile startingTile, int range) {
+    public List<Tile> GetTilesInMovement(Tile startingTile, float range) {
         List<Tile> inRangeTiles = new List<Tile>();
 
         int stepCount = 0;
