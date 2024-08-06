@@ -255,12 +255,19 @@ public class UnitActionManager : MonoBehaviour {
         if(this.numAttack == 0) {
             this.GetMeleeAttackTiles();
         }
+        if (this.numAttack == 1) {
+            this.GetMeleeAttackTiles();
+        }
+        if (this.numAttack == 2) {
+            this.GetMeleeAttackTiles();
+        }
+        if (this.numAttack == 3) {
+            this.GetMeleeAttackTiles();
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private void GetUnitAttackOptions() {
-        
-    }
+
     public void RemoveUnitFromOrder(Unit removedUnit) {
 
         foreach (Unit remove in this._unitOrder) {
@@ -304,7 +311,6 @@ public class UnitActionManager : MonoBehaviour {
         this.hadMoved = false;
         this.hadAttacked = false;
         this.hadHealed = false;
-        this.GetUnitAttackOptions();
         this._unitOrder[0].Tile.isWalkable = true;
         this.Selected = false;
         this.numAttack = -1;
