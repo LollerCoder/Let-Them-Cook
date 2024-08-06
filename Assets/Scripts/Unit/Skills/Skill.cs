@@ -1,8 +1,7 @@
 using UnityEngine;
-public abstract class Skill :ScriptableObject
+public interface Skill 
 {
-    protected string skillName = "None";
-    protected EVeggie veggieType = EVeggie.NONE;
-    public abstract void SkillAction(Unit target, Unit origin);
+    
+    public void SkillAction(Unit target, Unit origin);
     
 }

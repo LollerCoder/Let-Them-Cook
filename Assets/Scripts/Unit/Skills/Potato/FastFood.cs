@@ -4,19 +4,28 @@ using UnityEngine;
 
 public class FastFood : Skill
 {
-    // Start is called before the first frame update
-    // Start is called before the first frame update
-    void Start()
+    protected string skillName = "Fast Food";
+
+    public string SkillName
     {
-        this.skillName = "Fast Food";
-        this.veggieType = EVeggie.CARROT;
+        get { return this.skillName; }
+    }
+    protected EVeggie veggieType = EVeggie.CARROT;
+    public EVeggie VEGGIETYPE
+    {
+        get { return this.veggieType; }
     }
 
-    public override void SkillAction(Unit target, Unit origin)
+
+    public void SkillAction(Unit target, Unit origin)
     {
         
-
-        target.TakeDamage(1000,origin);
+        for(int i = 0; i < 3; i++)
+        {
+            
+            target.TakeDamage(origin.Attack, origin);
+        }
+        
 
     }
 }

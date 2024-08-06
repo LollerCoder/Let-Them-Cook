@@ -10,8 +10,17 @@ using UnityEngine;
 public class FryEm : Skill  
 {
     private string skillName = "Fry Em";
-    private EVeggie veggie = EVeggie.POTATO;
-    public override void SkillAction(Unit target, Unit origin)
+    public string SkillName
+    {
+        get { return this.skillName; }
+    }
+    private EVeggie veggieType = EVeggie.POTATO;
+
+    public EVeggie VEGGIETYPE
+    {
+        get { return this.veggieType; }
+    }
+    public  void SkillAction(Unit target, Unit origin)
     {
 
     }
