@@ -112,7 +112,6 @@ public class BattleUIController : MonoBehaviour {
     private void OnHeal() {
         if(!UnitActionManager.Instance.hadHealed) {
             UnitActionManager.Instance.OnHeal = !UnitActionManager.Instance.OnHeal;
-            UnitActionManager.Instance.UnitHeal();
             if (UnitActionManager.Instance.OnAttack) {
                 UnitActionManager.Instance.OnAttack = false;
 

@@ -7,6 +7,9 @@ using UnityEngine.Scripting.APIUpdating;
 public abstract class Unit: MonoBehaviour {
 
     protected List<Skill> skillList = new List<Skill>();
+    [SerializeField]
+
+    
 
     public List<Skill> SKILLLIST
     {
@@ -28,28 +31,77 @@ public abstract class Unit: MonoBehaviour {
     protected string charName; // unit name
     public string Name { get { return this.charName; } }
 
-    protected int acc; // hit
-    public int Accuracy { get { return this.acc; } }
+    /// <summary>
+    /// Accuracy
+    /// </summary>
 
-    protected int spd; // movement range
-    public int Speed { get { return this.spd; } }
+    protected float acc; // hit
+    public float Accuracy { get { return this.acc; } }
 
-    protected int atk; // dmg
-    public int Attack { get { return this.atk; } }
+    protected float accMult = 1; // hit
+    public float AccuracyMultiplier { get { return this.accMult; } }
+
+    /// <summary>
+    /// SPEED
+    /// </summary>
+
+    protected float spd; // movement range
+    public float Speed { get { return this.spd; } }
+
+    protected float spdMult = 1; // hit
+    public float SpeedMultiplier { get { return this.spdMult; } }
+
+    /// <summary>
+    /// Attack
+    /// </summary>
+
+    protected float atk; // dmg
+    public float Attack { get { return this.atk; } }
+
+    protected float atkMult = 1; // hit
+    public float AttackMultiplier { get { return this.atkMult; } }
+
+    /// <summary>
+    /// HP
+    /// </summary>
 
     protected int hp; // health
     public int HP { get { return this.hp; } }
 
-    protected int def; // defense
-    public int DEF { get { return this.def; } }
+
+    /// <summary>
+    /// DEFENSE
+    /// </summary>
+    protected float def; // defense
+    public float DEF { get { return this.def; } }
+
+    protected float defMult = 1; // defense
+    public float DefenseMultiplier { get { return this.defMult; } }
+
+    /// <summary>
+    /// MaxHP
+    /// </summary>
 
     protected int maxhp; // max health
     public int MAXHP { get { return this.maxhp; } }
 
-    protected int basicrange = 2; // max health
+    protected int basicrange = 2; // range
     public int BasicRange { get { return this.basicrange; } }
 
     protected Animator animator;
+
+    protected bool defend = false;
+
+    public bool Defend {
+        get { return this.defend; }
+        set { this.defend = value; }
+    }
+
+    protected bool eatable = false;
+
+    public bool Eatable {
+        get { return this.eatable; }
+    }
 
     [SerializeField]
     private Tile _tile; // tile on the grid
@@ -57,27 +109,42 @@ public abstract class Unit: MonoBehaviour {
         get { return _tile; }
         set { _tile = value; }
     }
-    public void TakeDamage(int damage, Unit attacker) {
-        if (damage == 1000)
-        {
-            attacker.atk += 1000;
+    public void TakeDamage(float damage, Unit attacker) {
+        attacker.EffectAccess(attacker);
+        if(damage == 0) {
+            if (this.isDodged(attacker))
+            {
+                Debug.Log("HP before :" + this.hp);
+                int dmg = CalculateDamage(attacker);
+                if (this.defend) {
+                    
+                    dmg = dmg - (int)Mathf.Round(dmg * 0.2f);
+                }
+                this.hp -= dmg;
+                this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
+                Debug.Log("Dealt Damage: " + dmg);
+                Debug.Log("HP after :" + this.hp);
+
+                this.defend = false;
+
+
+            }
+            else
+            {
+                Debug.Log("DODGE");
+            }
         }
 
-        if (this.isDodged(attacker))
-        {
-            Debug.Log("HP before :" + this.hp);
-            int dmg = CalculateDamage(attacker);
-            this.hp -= dmg;
-            this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
-            Debug.Log("Dealt Damage: " + dmg);
-            Debug.Log("HP after :" + this.hp);
-        }
         else
         {
-            Debug.Log("DODGE");
+            this.hp -= (int)damage;
+            this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
+
         }
 
-        if (this.HP == 0) {
+
+        if (this.hp == 0) {
+            Debug.Log("Its Dead");
             this.Tile.isWalkable = true;
 
             if (attacker.type == EUnitType.Ally)
@@ -87,13 +154,104 @@ public abstract class Unit: MonoBehaviour {
             }
 
             UnitActionManager.Instance.RemoveUnitFromOrder(this);
-            Debug.Log("Its Dead");
+            this.HandleDeath();
+            
         }
 
-        if (damage == 1000)
+
+        attacker.EffectReset(attacker);
+
+       
+    }
+
+    public void EffectAccess(Unit applyTo)
+    {
+        ;
+        foreach (string key in applyTo.effectList.Keys)
         {
-            attacker.atk -= 1000;
+        
+            float augment = applyTo.effectList[key].MOD;
+            EStatToEffect stat = applyTo.effectList[key].STAT;
+            Debug.Log(applyTo.effectList[key].STAT);
+            switch (stat)
+            {
+                case EStatToEffect.ACCURACY:
+                    applyTo.accMult += augment / 100;
+                    //apply
+                    applyTo.acc *= applyTo.accMult;
+                    Debug.Log(applyTo.accMult);
+                    break;
+                case EStatToEffect.SPEED:
+                    applyTo.spdMult += augment / 100;
+                    //apply
+                    applyTo.spd *= applyTo.spdMult;
+                    break;
+                case EStatToEffect.DEFENSE:
+                    applyTo.defMult += augment / 100;
+                    //apply
+                    applyTo.def *= applyTo.defMult;
+                    break;
+                case EStatToEffect.ATTACK:
+                    applyTo.atkMult += augment / 100;
+                    //apply
+                    applyTo.atk *= applyTo.atkMult;
+                    break;
+                default:
+                    Debug.Log("Invalid");
+
+                    break;
+
+            }
         }
+    }
+
+    public void EffectTimer()
+    {
+        List<string> toDelete = new List<string>();
+        if(effectList.Count != 0)
+        {
+            foreach (string key in effectList.Keys)
+            {
+
+
+                effectList[key].DURATION -= 1;
+                Debug.Log("Effect " + key + " has " + effectList[key].DURATION + " left");
+
+                if (effectList[key].DURATION == 0)
+                {
+                    toDelete.Add(key);
+
+                }
+            }
+        }
+        foreach(string keyDelete in toDelete)
+        {
+            effectList.Remove(keyDelete);
+        }
+       
+        
+    }
+    private void EffectReset(Unit applyTo)
+    {
+        applyTo.accMult = 1;
+        applyTo.defMult = 1;
+        applyTo.atkMult = 1;
+        applyTo.spdMult = 1;
+    }
+
+
+    public bool isDodged(Unit attacker)
+    {
+        float chance = 50 + ((attacker.spd + attacker.acc - this.spd));
+            float x = UnityEngine.Random.Range(1,100);
+        
+        if (x < chance)
+            {
+            Debug.Log("HIT");
+                return true;
+            }
+        Debug.Log("MISS");
+        return false;
     }
 
     public int CalculateDamage(Unit attacker)
@@ -102,23 +260,14 @@ public abstract class Unit: MonoBehaviour {
         dmg = (float)Math.Floor(dmg);
         return (int)dmg;
     }
-    public bool isDodged(Unit attacker)
-    {
-            float chance = (100 - (attacker.Speed + attacker.Accuracy - this.spd) / 100);
-            float x = UnityEngine.Random.Range(1,100);
-            if(x < chance)
-            {
-            Debug.Log("Ods were: " + x + " to " + chance);
-                return true;
-            }
-        return false;
-    }
 
     public void Heal(Unit target) {
-
+        this.hp += 4;
+        Debug.Log($"New HP: {this.hp}");
+        target.HandleEaten();
     }
-    public void Defend(int damage) {
-
+    public void OnDefend() {
+        this.Defend = true;
     }
 
     public void OnMove(bool value) {
@@ -129,6 +278,7 @@ public abstract class Unit: MonoBehaviour {
     protected void OnMouseEnter() {
         UnitActionManager.Instance.UnitHover(this);
     }
+
     protected void OnMouseExit() {
         UnitActionManager.Instance.UnitHover(this);
     }
@@ -140,8 +290,8 @@ public abstract class Unit: MonoBehaviour {
     public abstract void GetAttackOptions();
     public abstract void UnitAttack(Unit target);
     public abstract void Selected();
-
-    protected void HandleDeath() {
+    protected abstract void HandleDeath();
+    public virtual void HandleEaten() {
         Destroy(this.gameObject);
     }
 

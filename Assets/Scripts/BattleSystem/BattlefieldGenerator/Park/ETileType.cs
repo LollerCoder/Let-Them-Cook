@@ -1,5 +1,7 @@
 public enum ETileType {
     GRASS,
     DIRT,
-    TREES
+    TREES,
+    WHITE,
+    BLACK
 }

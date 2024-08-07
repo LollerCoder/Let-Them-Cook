@@ -2,16 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.UI.Image;
-
+ 
 public class BasicAttack : Skill
 {
+
+    public string skillName = "Basic Attack";
+    private EVeggie veggieType = EVeggie.NONE;
+
+    public EVeggie VEGGIETYPE
+    {
+        get { return this.veggieType; }
+    }
+
+
     void Start()
     {
-        this.skillName = "Basic Attack";
-        this.veggieType = EVeggie.NONE;
+
     }
-    public override void  SkillAction(Unit target, Unit origin)
+    public void  SkillAction(Unit target, Unit origin)
     {
-        target.TakeDamage(target.Attack, origin);
-    }   
+        target.TakeDamage(0, origin);
+    }
+
+    public string GetName()
+    {
+        return this.skillName;
+
+    }
+    public EVeggie GetVeggie()
+    {
+        return this.veggieType;
+
+    }
 }

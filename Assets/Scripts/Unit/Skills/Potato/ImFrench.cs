@@ -1,37 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-//Give carrot a 10% accuracy buff
-public class EagleEye : Skill, MultEffect
+
+public class ImFrench : Skill, MultEffect
 {
-    private string skillName = "EagleEye";
+    private string skillName = "Im French";
     public string SkillName
     {
         get { return this.skillName; }
     }
-    private  EVeggie veggieType = EVeggie.CARROT;
+    private EVeggie veggieType = EVeggie.CARROT;
     public EVeggie VEGGIETYPE
     {
         get { return this.veggieType; }
     }
 
-    
+
 
     //effectinfo
     private int duration = 3;
-    private int sucessChance = 80;
-    private int mod = 10;
-    private EStatToEffect stat = EStatToEffect.ACCURACY;
+    private int sucessChance = 60;
+    private int mod = 20;
+    private EStatToEffect stat = EStatToEffect.SPEED;
 
 
 
 
 
 
-    
 
-    public  void ApplyEffect(Unit target, Unit origin, EffectInfo fInfo)
+
+    public void ApplyEffect(Unit target, Unit origin, EffectInfo fInfo)
     {
         if (target.EFFECTLIST.ContainsKey(this.skillName))
         {
@@ -42,13 +41,13 @@ public class EagleEye : Skill, MultEffect
             target.EFFECTLIST.Add(this.skillName, fInfo);
             Debug.Log("Target affected");
         }
-       
-    }    
+
+    }
     public void SkillAction(Unit target, Unit origin)
     {
         EffectInfo fInfo = new EffectInfo(duration, mod, stat);
         Unit appliedTo = target.GetComponent<Unit>();
-        if(Random.Range(1,100) < sucessChance)
+        if (Random.Range(1, 100) < sucessChance)
         {
             this.ApplyEffect(target, origin, fInfo);
         }
@@ -64,12 +63,10 @@ public class EagleEye : Skill, MultEffect
         return this.skillName;
 
     }
+
     public EVeggie GetVeggie()
     {
         return this.veggieType;
 
     }
-
-
-
 }
