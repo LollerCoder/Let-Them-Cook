@@ -13,13 +13,16 @@ public class IngredientsManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-
-            IngredientAmount[EIngredientType.CABBAGE] = InventoryManager.Instance.getItemAmount(EIngredientType.CABBAGE);
-            IngredientAmount[EIngredientType.CARROT] = InventoryManager.Instance.getItemAmount(EIngredientType.CARROT);
-            IngredientAmount[EIngredientType.CHILI] = InventoryManager.Instance.getItemAmount(EIngredientType.CHILI);
-            IngredientAmount[EIngredientType.POTATO] = InventoryManager.Instance.getItemAmount(EIngredientType.POTATO);
         }
         else Destroy(this.gameObject);
+    }
+
+    private void OnEnable()
+    {
+        //IngredientAmount[EIngredientType.CABBAGE] = InventoryManager.Instance.getItemAmount(EIngredientType.CABBAGE);
+        //IngredientAmount[EIngredientType.CARROT] = InventoryManager.Instance.getItemAmount(EIngredientType.CARROT);
+        //IngredientAmount[EIngredientType.CHILI] = InventoryManager.Instance.getItemAmount(EIngredientType.CHILI);
+        //IngredientAmount[EIngredientType.POTATO] = InventoryManager.Instance.getItemAmount(EIngredientType.POTATO);
     }
 
     // Start is called before the first frame update
