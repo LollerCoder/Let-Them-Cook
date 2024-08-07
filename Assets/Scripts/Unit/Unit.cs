@@ -13,6 +13,12 @@ public abstract class Unit: MonoBehaviour {
         get { return skillList; }
     }
 
+    protected EIngredientType ingredientType;
+    public EIngredientType IngredientType{
+        get { return this.ingredientType; }
+        set { this.ingredientType = value; }
+    }
+
     protected EUnitType type;
     public EUnitType Type { 
         get { return this.type; }
@@ -73,6 +79,13 @@ public abstract class Unit: MonoBehaviour {
 
         if (this.HP == 0) {
             this.Tile.isWalkable = true;
+
+            if (attacker.type == EUnitType.Ally)
+            {
+                Debug.Log(this.type);
+                GameManager.Instance.OnDiedCallback.Invoke(this.ingredientType);
+            }
+
             UnitActionManager.Instance.RemoveUnitFromOrder(this);
             Debug.Log("Its Dead");
         }
