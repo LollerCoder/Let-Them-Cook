@@ -53,9 +53,11 @@ public class Carrot : Unit{
         this.skillList.Add(eagle);
 
         this.charName = "Carrot";
+        this.ingredientType = EIngredientType.CARROT;
+        //this.type = EUnitType.Ally;
         this.acc = 10;
-        this.spd = 3;
-        this.maxhp = 20;
+        this.spd = 2;
+        this.maxhp = 1;
         this.hp = this.maxhp;
         this.atk = 10;
         this.def = 1;

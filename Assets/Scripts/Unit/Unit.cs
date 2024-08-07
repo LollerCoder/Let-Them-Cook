@@ -16,11 +16,10 @@ public abstract class Unit: MonoBehaviour {
         get { return skillList; }
     }
 
-    protected Dictionary<string, EffectInfo> effectList = new Dictionary<string, EffectInfo>();
-
-    public Dictionary<string, EffectInfo> EFFECTLIST
-    {
-        get { return this.effectList; }
+    protected EIngredientType ingredientType;
+    public EIngredientType IngredientType{
+        get { return this.ingredientType; }
+        set { this.ingredientType = value; }
     }
 
     protected EUnitType type;
@@ -147,6 +146,13 @@ public abstract class Unit: MonoBehaviour {
         if (this.hp == 0) {
             Debug.Log("Its Dead");
             this.Tile.isWalkable = true;
+
+            if (attacker.type == EUnitType.Ally)
+            {
+                Debug.Log(this.type);
+                GameManager.Instance.OnDiedCallback.Invoke(this.ingredientType);
+            }
+
             UnitActionManager.Instance.RemoveUnitFromOrder(this);
             this.HandleDeath();
             
