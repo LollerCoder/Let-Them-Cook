@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class MainMenuUIController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,20 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void PlayButtonPressed()
+    {
+
+    }
+
+    void CookingButtonPressed()
+    {
+
+    }
+
+    void CookbookButtonPressed()
+    {
+
     }
 }
