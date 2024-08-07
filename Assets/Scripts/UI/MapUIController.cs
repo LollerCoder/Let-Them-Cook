@@ -11,8 +11,8 @@ public class MapUIController : MonoBehaviour
     [SerializeField] Button lvl3;
     void Start()
     {
-        this.lvl2.interactable = false;
         this.lvl3.interactable = false;
+        
     }
 
     // Update is called once per frame
@@ -24,5 +24,15 @@ public class MapUIController : MonoBehaviour
     public void MainMenuButtonClicked()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Lvl1ButtonClicked()
+    {
+        //SceneManager.LoadScene("");
+    }
+
+    public void Lvl2ButtonClicked()
+    {
+        //SceneManager.LoadScene("");
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuUIController : MonoBehaviour
 {
@@ -16,17 +17,17 @@ public class MainMenuUIController : MonoBehaviour
         
     }
 
-    void PlayButtonPressed()
+    public void PlayButtonPressed()
+    {
+        SceneManager.LoadScene("Map");
+    }
+
+    public void CookingButtonPressed()
     {
 
     }
 
-    void CookingButtonPressed()
-    {
-
-    }
-
-    void CookbookButtonPressed()
+    public void CookbookButtonPressed()
     {
 
     }
