@@ -91,6 +91,19 @@ public abstract class Unit: MonoBehaviour {
 
     protected Animator animator;
 
+    protected bool defend = false;
+
+    public bool Defend {
+        get { return this.defend; }
+        set { this.defend = value; }
+    }
+
+    protected bool eatable = false;
+
+    public bool Eatable {
+        get { return this.eatable; }
+    }
+
     [SerializeField]
     private Tile _tile; // tile on the grid
     public Tile Tile {
@@ -100,16 +113,20 @@ public abstract class Unit: MonoBehaviour {
     public void TakeDamage(float damage, Unit attacker) {
         attacker.EffectAccess(attacker);
         if(damage == 0) {
-
             if (this.isDodged(attacker))
             {
                 Debug.Log("HP before :" + this.hp);
                 int dmg = CalculateDamage(attacker);
+                if (this.defend) {
+                    
+                    dmg = dmg - (int)Mathf.Round(dmg * 0.2f);
+                }
                 this.hp -= dmg;
                 this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
                 Debug.Log("Dealt Damage: " + dmg);
                 Debug.Log("HP after :" + this.hp);
 
+                this.defend = false;
 
 
             }
@@ -117,23 +134,25 @@ public abstract class Unit: MonoBehaviour {
             {
                 Debug.Log("DODGE");
             }
-
-            if (this.HP == 0)
-            {
-                this.Tile.isWalkable = true;
-                UnitActionManager.Instance.RemoveUnitFromOrder(this);
-                Debug.Log("Its Dead");
-            }
         }
 
         else
         {
             this.hp -= (int)damage;
             this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
+
         }
 
-        
-      
+
+        if (this.hp == 0) {
+            Debug.Log("Its Dead");
+            this.Tile.isWalkable = true;
+            UnitActionManager.Instance.RemoveUnitFromOrder(this);
+            this.HandleDeath();
+            
+        }
+
+
         attacker.EffectReset(attacker);
 
        
@@ -222,9 +241,10 @@ public abstract class Unit: MonoBehaviour {
         
         if (x < chance)
             {
-                
+            Debug.Log("HIT");
                 return true;
             }
+        Debug.Log("MISS");
         return false;
     }
 
@@ -236,10 +256,12 @@ public abstract class Unit: MonoBehaviour {
     }
 
     public void Heal(Unit target) {
-
+        this.hp += 4;
+        Debug.Log($"New HP: {this.hp}");
+        target.HandleEaten();
     }
-    public void Defend(int damage) {
-
+    public void OnDefend() {
+        this.Defend = true;
     }
 
     public void OnMove(bool value) {
@@ -262,8 +284,8 @@ public abstract class Unit: MonoBehaviour {
     public abstract void GetAttackOptions();
     public abstract void UnitAttack(Unit target);
     public abstract void Selected();
-
-    protected void HandleDeath() {
+    protected abstract void HandleDeath();
+    public virtual void HandleEaten() {
         Destroy(this.gameObject);
     }
 

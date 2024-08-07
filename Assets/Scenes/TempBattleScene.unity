@@ -378,18 +378,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carrot
       objectReference: {fileID: 0}
-    - target: {fileID: 4979412328576880875, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_CastShadows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4979412328576880875, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4979412328576880875, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_DynamicOccludee
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -724,6 +712,11 @@ MonoBehaviour:
   - {fileID: 1399115608}
   - {fileID: 1435628287}
   - {fileID: 1104581893}
+  OnAttack0: 0
+  OnAttack1: 0
+  OnAttack2: 0
+  OnAttack3: 0
+  OnAttack4: 0
 --- !u!1 &377508127
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,7 +813,7 @@ MonoBehaviour:
   _positions:
   - {x: 7, y: 1.5, z: 10}
   - {x: 9, y: 1.5, z: 12}
-  _scene: {fileID: 60282560}
+  _scene: {fileID: 380895304}
   _enemies:
   - {fileID: 85490013685061727, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
   boss: 0

@@ -16,12 +16,6 @@ public class UnitActionManager : MonoBehaviour {
     [SerializeField]
     private float speed;
 
-    //[SerializeField]
-    //private Pointer arrow;
-
-    //[SerializeField]
-    //private BattleUIController _battleUIController;
-
     [SerializeField]
     private BattleUI _battleUI;
 
@@ -33,6 +27,10 @@ public class UnitActionManager : MonoBehaviour {
 
     private PathFinding _pathFinding;
     private Range _showRange;
+
+    private Unit enemy = null;
+
+    private bool OverEnemy = false;
 
     public bool Selected = false;
 
@@ -113,7 +111,30 @@ public class UnitActionManager : MonoBehaviour {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // FOR UNIT ACTION
 
-    public void UnitHeal() {
+    public void UnitDefend() {
+        this._unitOrder[0].OnDefend();
+
+        this.hadAttacked = true;
+        this.hadMoved = true;
+        this.hadHealed = true;
+        this.OnDefend = false;
+        this.hadDefend = true;
+    }
+
+    private void UnitHeal() {
+        this.UnHighlightTiles();
+
+        Unit currentUnit = this._unitOrder[0];
+
+        this._inRangeTiles = this._showRange.GetTilesInAttackMelee(currentUnit.Tile, (int)currentUnit.Speed - 1);
+
+        foreach(Tile tile in this._inRangeTiles) {
+            tile.HighlightEatableTile();
+        }
+        
+    }
+
+    private void ConfirmEat(Unit target) {
         if (!this.hadHealed) {
             if (this._unitOrder[0].HP == this._unitOrder[0].MAXHP) {
                 this.OnHeal = false;
@@ -121,12 +142,10 @@ public class UnitActionManager : MonoBehaviour {
                 return;
             }
 
+            this._unitOrder[0].Heal(target);
             this.hadHealed = true;
             this.OnHeal = false;
-
-            //this._unitOrder[0].Heal();
         }
-        
     }
     private void ConfirmAttack(Unit target, int Skill) {
 
@@ -177,10 +196,15 @@ public class UnitActionManager : MonoBehaviour {
         }
         this.OnAttack = false;
         this.hadAttacked = true;
-        this._battleUI.ToggleSkillBox();
+
+        if (this._unitOrder[0].Type == EUnitType.Ally) {
+            this._battleUI.ToggleSkillBox();
+        }
+        
     }
     public void UnitHover(Unit selectedUnit) {
         if (this._unitOrder[0] == selectedUnit
+            && this._unitOrder[0].Type == EUnitType.Ally
             && !this.Selected
             && !this.OnAttack
             && !this.OnHeal
@@ -189,8 +213,16 @@ public class UnitActionManager : MonoBehaviour {
             this.OnMove = !this.OnMove;
 
         }
-    }
+        //else if (this._unitOrder[0] != selectedUnit && 
+        //        selectedUnit.Type != EUnitType.Ally) {
+        //    this.OverEnemy = !this.OverEnemy;
+        //    this.enemy = selectedUnit;
+        //}
 
+        //if (!this.OverEnemy) {
+        //    this.enemy = null;
+        //}
+    }
     public void UnSelectUnit() {
         if(this.OnMove && this.Selected) {
             this.OnMove = false;
@@ -218,6 +250,21 @@ public class UnitActionManager : MonoBehaviour {
         if (this.IsUnitAttackable(selectedUnit) && this.OnAttack) {
             this.ConfirmAttack(selectedUnit, this.numAttack);
         }
+        if (this.IsUnitEatable(selectedUnit) && this.OnHeal) {
+            this.ConfirmEat(selectedUnit);
+        }
+    }
+
+    private bool IsUnitEatable(Unit selectedUnit) {
+        if (selectedUnit.Eatable) {
+            foreach (Tile tile in this._inRangeTiles) {
+                if (selectedUnit.Tile == tile) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
     private bool IsUnitAttackable(Unit selectedUnit) {
         foreach (Tile tile in this._inRangeTiles) {
@@ -273,7 +320,6 @@ public class UnitActionManager : MonoBehaviour {
             if (remove == removedUnit) {
                 this._unitOrder.Remove(remove);
                 remove.Tile.isWalkable = true;
-                remove.gameObject.SetActive(false);
                 break;
             }
         }
@@ -304,10 +350,15 @@ public class UnitActionManager : MonoBehaviour {
         this._unitOrder[0].EffectTimer();
 
         this._unitOrder.Add(unit);
+
+        // remove defend buff on their turn
+        this._unitOrder[0].Defend = false;
+
         this._battleUI.NextCharacterAvatar(this._unitOrder[0]);
         this.hadMoved = false;
         this.hadAttacked = false;
         this.hadHealed = false;
+        this.hadDefend = false;
         this._unitOrder[0].Tile.isWalkable = true;
         this.Selected = false;
         this.numAttack = -1;
@@ -319,7 +370,6 @@ public class UnitActionManager : MonoBehaviour {
             this.EnemyUnitAction();
         }
         else {
-            Debug.Log("HIDE");
             this._battleUI.ToggleActionBox();
         }
     }
@@ -349,6 +399,15 @@ public class UnitActionManager : MonoBehaviour {
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void GetEnemyMoveRange(Unit enemy) {
+        this.UnHighlightTiles();
+
+        this._inRangeTiles = this._showRange.GetTilesInMovement(enemy.Tile, enemy.Speed);
+
+        foreach (Tile tile in this._inRangeTiles) {
+            tile.HighlightWalkableTile();
+        }
+    }
     private void GetRangeTiles() {
         this.UnHighlightTiles();
 
@@ -408,8 +467,6 @@ public class UnitActionManager : MonoBehaviour {
             OnStart = false;
         }
 
-        //arrow.UpdatePointer(this._unitOrder[0]);
-
         if (this._path.Count > 0) {
             this.MoveCurrentUnit();
         }
@@ -417,8 +474,14 @@ public class UnitActionManager : MonoBehaviour {
             if (this.OnMove && !this.hadMoved) {
                 this.GetRangeTiles();
             }
+            else if (this.OnHeal && !this.hadHealed) {
+                this.UnitHeal();
+            }
             else if (this.OnAttack && !this.hadAttacked) {
                 this.OnAttackSelection();
+            }
+            else if (this.OverEnemy && this.enemy != null) {
+                this.GetEnemyMoveRange(this.enemy);
             }
             else {
                 this.UnHighlightTiles();
@@ -432,18 +495,23 @@ public class UnitActionManager : MonoBehaviour {
 
     private void CheckEndCondition() {
         int enemies = 0;
-        bool alive = false;
+        int allies = 0;
         foreach(Unit unit in this._unitOrder) {
-            
+            if(unit.Type == EUnitType.Ally) {
+                allies++;
+            }
+            if (unit.Type != EUnitType.Ally) {
+                enemies++;
+            }
         }
 
-        if (alive == false) {
-            Debug.Log("Defeated! DED MC");
+        if (allies == 0) {
+            Debug.Log("Defeated!");
             this._battleUI.EndScreen(1);
         }
 
         if (enemies == 0) {
-            Debug.Log("Victory");
+            Debug.Log("Level Cleared!");
             EventBroadcaster.Instance.PostEvent(EventNames.Enemy_Events.ON_ENEMY_DEFEATED);
             this._battleUI.EndScreen(2);
         }

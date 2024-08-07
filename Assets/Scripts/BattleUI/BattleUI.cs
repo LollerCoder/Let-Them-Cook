@@ -64,7 +64,6 @@ public class BattleUI : MonoBehaviour {
     public void OnHeal() {
         if (!UnitActionManager.Instance.hadHealed) {
             UnitActionManager.Instance.OnHeal = !UnitActionManager.Instance.OnHeal;
-            UnitActionManager.Instance.UnitHeal();
             if (UnitActionManager.Instance.OnAttack) {
                 UnitActionManager.Instance.OnAttack = false;
 
@@ -76,8 +75,9 @@ public class BattleUI : MonoBehaviour {
         }
     }
     public void OnDefend() {
-        if (!UnitActionManager.Instance.hadMoved) {
-            UnitActionManager.Instance.OnMove = !UnitActionManager.Instance.OnMove;
+        if (!UnitActionManager.Instance.hadDefend) {
+            UnitActionManager.Instance.OnDefend = !UnitActionManager.Instance.OnDefend;
+            UnitActionManager.Instance.UnitDefend();
 
             if (UnitActionManager.Instance.OnAttack) {
                 UnitActionManager.Instance.OnAttack = false;
@@ -284,25 +284,6 @@ public class BattleUI : MonoBehaviour {
     }
 
     public void EndScreen(int scenario) {
-        //this.DisableActionBoxClick();
-        //this.DisableSkillBoxClick();
 
-        //switch (scenario) {
-        //    case 1:
-        //        this.Text.text = "Defeat";
-        //        break;
-        //    case 2:
-        //        this.Text.text = "Level Cleared!";
-        //        break;
-        //    default: break;
-        //}
-
-        //this.Text.style.display = DisplayStyle.Flex;
-        //this.End.style.display = DisplayStyle.Flex;
-
-        //Debug.Log("Text: " + this.Text.visible);
-        //Debug.Log("End: " + this.End.visible);
-
-        //this.End.clicked += this.OnEndBattle;
     }
 }

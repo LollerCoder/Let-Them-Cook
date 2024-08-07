@@ -21,8 +21,7 @@ public class BasicAttack : Skill
     }
     public void  SkillAction(Unit target, Unit origin)
     {
-      
-        target.TakeDamage(target.Attack, origin);
+        target.TakeDamage(0, origin);
     }
 
     public string GetName()
