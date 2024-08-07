@@ -1137,6 +1137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b963c56b17fb84388083175861aead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookbook: {fileID: 0}
+  _mainCam: {fileID: 0}
+  _pages: {fileID: 6042938536498959889}
 --- !u!65 &319238777775803538
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3231,6 +3234,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b963c56b17fb84388083175861aead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cookbook: {fileID: 0}
+  _mainCam: {fileID: 0}
+  _pages: {fileID: 6042938536498959889}
 --- !u!65 &3118017557359489050
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3348,7 +3354,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8845558016745365191}
   - component: {fileID: 3601272939104954392}
-  - component: {fileID: 1532429903003909609}
   m_Layer: 0
   m_Name: Pages
   m_TagString: Untagged
@@ -3388,18 +3393,6 @@ MonoBehaviour:
   _pages:
   - {fileID: 5257756013122666258}
   - {fileID: 3122956071709546698}
---- !u!114 &1532429903003909609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6042938536498959889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43b963c56b17fb84388083175861aead, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6129284112818139511
 GameObject:
   m_ObjectHideFlags: 0

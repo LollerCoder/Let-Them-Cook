@@ -10,6 +10,9 @@ public class CookbookButtonHandler : MonoBehaviour
     [SerializeField]
     private GameObject _mainCam = null;
 
+    [SerializeField]
+    private GameObject _pages;
+
     private PageTurner _pageTurner;
 
     public void OnMouseDown()
@@ -34,17 +37,23 @@ public class CookbookButtonHandler : MonoBehaviour
 
     private void ShowCookbook(bool show)
     {
-        this._mainCam.SetActive(!show);
-        this._cookbook.SetActive(show);
+        if (this._mainCam != null) this._mainCam.SetActive(!show);
+        if (this._cookbook != null) this._cookbook.SetActive(show);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if (this._pageTurner != null)
-        this._pageTurner = GameObject.Find("Pages").GetComponent<PageTurner>();
+        if (this._pages != null)
+        this._pageTurner = this._pages.GetComponent<PageTurner>();
 
-        if (this._cookbook != null) this._cookbook.SetActive(false);
+        //if (this._cookbook != null) this._cookbook.SetActive(show);
+
+        if (this._cookbook != null)
+        {
+            if (this._cookbook.activeSelf)
+                this._cookbook.SetActive(false);
+        }
     }
 
     // Update is called once per frame
