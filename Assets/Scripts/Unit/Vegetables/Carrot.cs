@@ -56,10 +56,10 @@ public class Carrot : Unit{
         this.ingredientType = EIngredientType.CARROT;
         //this.type = EUnitType.Ally;
         this.acc = 10;
-        this.spd = 2;
-        this.maxhp = 1;
+        this.spd = 3;
+        this.maxhp = 20;
         this.hp = this.maxhp;
-        this.atk = 10;
+        this.atk = 4;
         this.def = 1;
 
         UnitActionManager.Instance.StoreUnit(this);

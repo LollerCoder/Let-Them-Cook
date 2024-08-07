@@ -16,6 +16,11 @@ public abstract class Unit: MonoBehaviour {
         get { return skillList; }
     }
 
+    protected Dictionary<string, EffectInfo> effectList = new Dictionary<string, EffectInfo>();
+    public Dictionary<string, EffectInfo> EFFECTLIST {
+        get { return this.effectList; }
+    }
+
     protected EIngredientType ingredientType;
     public EIngredientType IngredientType{
         get { return this.ingredientType; }

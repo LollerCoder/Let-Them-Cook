@@ -351,9 +351,6 @@ public class UnitActionManager : MonoBehaviour {
 
         this._unitOrder.Add(unit);
 
-        // remove defend buff on their turn
-        this._unitOrder[0].Defend = false;
-
         this._battleUI.NextCharacterAvatar(this._unitOrder[0]);
         this.hadMoved = false;
         this.hadAttacked = false;
@@ -363,7 +360,11 @@ public class UnitActionManager : MonoBehaviour {
         this.Selected = false;
         this.numAttack = -1;
 
+        // remove defend buff on their turn
+        this._unitOrder[0].Defend = false;
+
         this.UnHighlightTiles();
+
         if (this._unitOrder[0].Type != EUnitType.Ally) {
 
             EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
