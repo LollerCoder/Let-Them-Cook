@@ -32,11 +32,10 @@ public class Carrot : Unit{
         this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
         this.eatable = true;
     }
-
-
-    private void Start() {
+    protected override void Start() { 
 
         this.animator = this.GetComponent<Animator>();
+        base.Start();
 
         this.ondefend = this.defend;
 

@@ -27,7 +27,7 @@ public abstract class Unit: MonoBehaviour {
         set { this.ingredientType = value; }
     }
 
-    protected EUnitType type;
+    protected EUnitType type = EUnitType.Ally;
     public EUnitType Type { 
         get { return this.type; }
         set { this.type = value;  }
@@ -303,8 +303,20 @@ public abstract class Unit: MonoBehaviour {
 
     protected void OnMouseUp() {
         UnitActionManager.Instance.UnitSelect(this);
-    }                                                                                             
+    }
 
+    protected virtual void Start() {
+        if (this.type == EUnitType.Ally) {
+            this.animator.SetBool("Ally", true);
+        }
+        if (this.type != EUnitType.Ally) {
+            this.animator.SetBool("Ally", false);
+        }
+    }
+
+    //protected virtual void SetHighlight(bool value) {
+    //    this.animator.SetBool("Ally", value);
+    //} 
     public abstract void GetAttackOptions();
     public abstract void UnitAttack(Unit target);
     public abstract void Selected();

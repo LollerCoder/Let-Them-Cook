@@ -17,6 +17,8 @@ public class BattleUI : MonoBehaviour {
     [SerializeField]
     private List<Button> Attacks;
 
+    private UnitStats _unitStats;
+
     private bool skillShow = false;
     private bool actionShow = false;
 
@@ -28,7 +30,11 @@ public class BattleUI : MonoBehaviour {
 
     private bool[] skillSlots = { false, false, false, false, false };
     private void Start() {
+        this._unitStats = this.GetComponentInChildren<UnitStats>();
 
+        if(this._unitStats == null) {
+            Debug.Log("ERROR: UNITSTATS CANNOT BE FOUND (BATTLEUI.CS, START() )");
+        }
     }
 
     public void AvatarClick() {
@@ -137,6 +143,8 @@ public class BattleUI : MonoBehaviour {
             
         }
         this.AssignSprites(unit);
+
+        this._unitStats.SetUnitStats(unit);
     }
 
     private void AssignSprites(Unit unit) {
