@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class BattleUI : MonoBehaviour {
     [SerializeField]
-    private Image characterAvatar;
+    private Button characterAvatar;
     [SerializeField]
     private Image SkillBox;
     [SerializeField]
@@ -29,6 +29,14 @@ public class BattleUI : MonoBehaviour {
     private bool[] skillSlots = { false, false, false, false, false };
     private void Start() {
 
+    }
+
+    public void AvatarClick() {
+        Parameters param = new Parameters();
+        
+        param.PutExtra("POS", UnitActionManager.Instance.GetUnit().transform.position);
+
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.ON_AVATAR_CLICK, param);
     }
     public void ToggleSkillBox() {
         this.skillShow = !this.skillShow;
@@ -114,7 +122,7 @@ public class BattleUI : MonoBehaviour {
     }
 
     public void NextCharacterAvatar(Unit unit) {
-        this.characterAvatar.sprite = unit.GetComponent<SpriteRenderer>().sprite;
+        this.characterAvatar.image.sprite = unit.GetComponent<SpriteRenderer>().sprite;
 
         // reset the values in the array
 

@@ -114,6 +114,12 @@ public abstract class Unit: MonoBehaviour {
         get { return _tile; }
         set { _tile = value; }
     }
+
+    private bool turn = false;
+
+    public bool Turn {
+        get { return this.turn; }
+    }
     public void TakeDamage(float damage, Unit attacker) {
         attacker.EffectAccess(attacker);
         if(damage == 0) {
@@ -273,6 +279,13 @@ public abstract class Unit: MonoBehaviour {
     }
     public void OnDefend() {
         this.Defend = true;
+    }
+
+    public void OnTurn(bool value) {
+        if(this.animator != null) {
+            this.animator.SetBool("Turn", value);
+            this.turn = value;
+        }
     }
 
     public void OnMove(bool value) {
