@@ -121,7 +121,8 @@ public abstract class Unit: MonoBehaviour {
         get { return this.turn; }
     }
     public void TakeDamage(float damage, Unit attacker) {
-        attacker.EffectAccess(attacker);
+        attacker.EffectAccess(attacker); // attacker
+        this.EffectAccess(this); //target
         if(damage == 0) {
             if (this.isDodged(attacker))
             {
@@ -244,9 +245,16 @@ public abstract class Unit: MonoBehaviour {
     }
     private void EffectReset(Unit applyTo)
     {
+        applyTo.acc /= applyTo.accMult;
         applyTo.accMult = 1;
+
+        applyTo.def /= applyTo.defMult;
         applyTo.defMult = 1;
+
+        applyTo.atk /= applyTo.atkMult;
         applyTo.atkMult = 1;
+
+        applyTo.spd /= applyTo.spdMult;
         applyTo.spdMult = 1;
     }
 
