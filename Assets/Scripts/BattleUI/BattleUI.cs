@@ -154,7 +154,7 @@ public class BattleUI : MonoBehaviour {
         for (int i = 1; i < this.skillSlots.Length; i++) {
             if (this.skillSlots[i] == true) {
                 this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[1];
-                this.Attacks[i].GetComponentInChildren<Text>().text = unit.SKILLLIST[i].GetName();
+                this.Attacks[i].GetComponentInChildren<Text>().text = unit.SKILLLIST[i];
             }
             else {
                 this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[2];

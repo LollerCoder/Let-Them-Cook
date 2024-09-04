@@ -17,7 +17,7 @@ public class SPEED : Skill, MultEffect
 
 
 
-    //effectinfo atj
+    //effectinfo atk
     private int duration1 = 2;
     private int mod1 = -100;
     private EStatToEffect stat1 = EStatToEffect.ATTACK;

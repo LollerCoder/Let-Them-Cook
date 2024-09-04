@@ -5,24 +5,19 @@ using UnityEngine;
 public class TrueStrike : Skill
 {
 
-    protected string skillName = "True Strike";
-    public string SkillName
+
+    private int sucessChance = 20;
+
+    public TrueStrike()
     {
-        get { return this.skillName; }
-    }
-    protected EVeggie veggieType = EVeggie.CARROT;
-    public EVeggie VEGGIETYPE
-    {
-        get { return this.veggieType; }
+        this.skillName = "TrueStrike";
+        this.veggieType = EVeggie.CARROT; 
+        this.skillType = ESkillType.BASIC;
     }
 
 
 
-    private int sucessChance = 40;
-
-
-
-    public void SkillAction(Unit target, Unit origin)
+    public override void SkillAction(Unit target, Unit origin)
     {
         if (Random.Range(1, 100) < sucessChance)
         {
@@ -36,14 +31,6 @@ public class TrueStrike : Skill
 
     }
 
-    public string GetName()
-    {
-        return this.skillName;
-
-    }
-    public EVeggie GetVeggie()
-    {
-        return this.veggieType;
-
-    }
+   
 }
+ 

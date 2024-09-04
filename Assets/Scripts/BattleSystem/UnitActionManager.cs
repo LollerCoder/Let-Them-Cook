@@ -156,37 +156,40 @@ public class UnitActionManager : MonoBehaviour {
         switch (Skill)
         {
             case 0:
-                if (target.SKILLLIST[Skill] != null)
+                if (this._unitOrder[0].SKILLLIST[Skill] != null)
                 {
-                    this._unitOrder[0].SKILLLIST[Skill].SkillAction(target, this._unitOrder[0]);
+                    Debug.Log(this._unitOrder[0].SKILLLIST[Skill]);
+                    Debug.Log(target.Name);
+                    SkillDatabase.Instance.applySkill(this._unitOrder[0].SKILLLIST[Skill], target, this._unitOrder[0]);
+                    
                 }
                 break;
             case 1:
-                if (target.SKILLLIST[Skill] != null)
+                if (this._unitOrder[0].SKILLLIST[Skill] != null)
                 {
-                    this._unitOrder[0].SKILLLIST[Skill].SkillAction(target, this._unitOrder[0]);
-                    
+                    SkillDatabase.Instance.applySkill(this._unitOrder[0].SKILLLIST[Skill], target, this._unitOrder[0]);
+
                 }
                 break;
             case 2:
-                if (target.SKILLLIST[Skill] != null)
+                if (this._unitOrder[0].SKILLLIST[Skill] != null)
                 {
-                    this._unitOrder[0].SKILLLIST[Skill].SkillAction(target, this._unitOrder[0]);
-                  
+                    SkillDatabase.Instance.applySkill(this._unitOrder[0].SKILLLIST[Skill], target, this._unitOrder[0]);
+
                 }
                 break;
             case 3:
-                if (target.SKILLLIST[Skill] != null)
+                if (this._unitOrder[0].SKILLLIST[Skill] != null)
                 {
-                    this._unitOrder[0].SKILLLIST[Skill].SkillAction(target, this._unitOrder[0]);
-                    
+                    SkillDatabase.Instance.applySkill(this._unitOrder[0].SKILLLIST[Skill], target, this._unitOrder[0]);
+
                 }
                 break;
             case 4:
-                if (target.SKILLLIST[Skill] != null)
+                if (this._unitOrder[0].SKILLLIST[Skill] != null)
                 {
-                    this._unitOrder[0].SKILLLIST[Skill].SkillAction(target, this._unitOrder[0]);
-                    
+                    SkillDatabase.Instance.applySkill(this._unitOrder[0].SKILLLIST[Skill], target, this._unitOrder[0]);
+
                 }
                 break;
 
@@ -352,9 +355,11 @@ public class UnitActionManager : MonoBehaviour {
 
         unit.OnTurn(!unit.Turn);
 
+        
+
         this._unitOrder.RemoveAt(0);
         this._unitOrder[0].EffectTimer();
-
+        
         this._unitOrder.Add(unit);
 
         this._battleUI.NextCharacterAvatar(this._unitOrder[0]);
