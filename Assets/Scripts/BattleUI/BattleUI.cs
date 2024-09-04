@@ -147,7 +147,7 @@ public class BattleUI : MonoBehaviour {
         this._unitStats.SetUnitStats(unit);
     }
 
-    private void AssignSprites(Unit unit) {
+    private void AssignSprites(Unit unit) {   // also where gettng the name of the skills
         // set the sprite for the basic attack already
         this.Attacks[0].GetComponent<Image>().sprite = this.attackSprites[0];
 
