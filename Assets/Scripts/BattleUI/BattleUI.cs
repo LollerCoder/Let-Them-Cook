@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class BattleUI : MonoBehaviour {
     [SerializeField]
-    private Image characterAvatar;
+    private Button characterAvatar;
     [SerializeField]
     private Image SkillBox;
     [SerializeField]
@@ -16,6 +16,8 @@ public class BattleUI : MonoBehaviour {
 
     [SerializeField]
     private List<Button> Attacks;
+
+    private UnitStats _unitStats;
 
     private bool skillShow = false;
     private bool actionShow = false;
@@ -28,7 +30,19 @@ public class BattleUI : MonoBehaviour {
 
     private bool[] skillSlots = { false, false, false, false, false };
     private void Start() {
+        this._unitStats = this.GetComponentInChildren<UnitStats>();
 
+        if(this._unitStats == null) {
+            Debug.Log("ERROR: UNITSTATS CANNOT BE FOUND (BATTLEUI.CS, START() )");
+        }
+    }
+
+    public void AvatarClick() {
+        Parameters param = new Parameters();
+        
+        param.PutExtra("POS", UnitActionManager.Instance.GetUnit().transform.position);
+
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.ON_AVATAR_CLICK, param);
     }
     public void ToggleSkillBox() {
         this.skillShow = !this.skillShow;
@@ -114,7 +128,7 @@ public class BattleUI : MonoBehaviour {
     }
 
     public void NextCharacterAvatar(Unit unit) {
-        this.characterAvatar.sprite = unit.GetComponent<SpriteRenderer>().sprite;
+        this.characterAvatar.image.sprite = unit.GetComponent<SpriteRenderer>().sprite;
 
         // reset the values in the array
 
@@ -129,9 +143,11 @@ public class BattleUI : MonoBehaviour {
             
         }
         this.AssignSprites(unit);
+
+        this._unitStats.SetUnitStats(unit);
     }
 
-    private void AssignSprites(Unit unit) {
+    private void AssignSprites(Unit unit) {   // also where gettng the name of the skills
         // set the sprite for the basic attack already
         this.Attacks[0].GetComponent<Image>().sprite = this.attackSprites[0];
 

@@ -27,7 +27,7 @@ public abstract class Unit: MonoBehaviour {
         set { this.ingredientType = value; }
     }
 
-    protected EUnitType type;
+    protected EUnitType type = EUnitType.Ally;
     public EUnitType Type { 
         get { return this.type; }
         set { this.type = value;  }
@@ -114,8 +114,15 @@ public abstract class Unit: MonoBehaviour {
         get { return _tile; }
         set { _tile = value; }
     }
+
+    private bool turn = false;
+
+    public bool Turn {
+        get { return this.turn; }
+    }
     public void TakeDamage(float damage, Unit attacker) {
-        attacker.EffectAccess(attacker);
+        attacker.EffectAccess(attacker); // attacker
+        this.EffectAccess(this); //target
         if(damage == 0) {
             if (this.isDodged(attacker))
             {
@@ -238,9 +245,16 @@ public abstract class Unit: MonoBehaviour {
     }
     private void EffectReset(Unit applyTo)
     {
+        applyTo.acc /= applyTo.accMult;
         applyTo.accMult = 1;
+
+        applyTo.def /= applyTo.defMult;
         applyTo.defMult = 1;
+
+        applyTo.atk /= applyTo.atkMult;
         applyTo.atkMult = 1;
+
+        applyTo.spd /= applyTo.spdMult;
         applyTo.spdMult = 1;
     }
 
@@ -275,6 +289,13 @@ public abstract class Unit: MonoBehaviour {
         this.Defend = true;
     }
 
+    public void OnTurn(bool value) {
+        if(this.animator != null) {
+            this.animator.SetBool("Turn", value);
+            this.turn = value;
+        }
+    }
+
     public void OnMove(bool value) {
         if(this.animator != null) {
             this.animator.SetBool("Walk", value);
@@ -290,8 +311,20 @@ public abstract class Unit: MonoBehaviour {
 
     protected void OnMouseUp() {
         UnitActionManager.Instance.UnitSelect(this);
-    }                                                                                             
+    }
 
+    protected virtual void Start() {
+        if (this.type == EUnitType.Ally) {
+            this.animator.SetBool("Ally", true);
+        }
+        if (this.type != EUnitType.Ally) {
+            this.animator.SetBool("Ally", false);
+        }
+    }
+
+    //protected virtual void SetHighlight(bool value) {
+    //    this.animator.SetBool("Ally", value);
+    //} 
     public abstract void GetAttackOptions();
     public abstract void UnitAttack(Unit target);
     public abstract void Selected();

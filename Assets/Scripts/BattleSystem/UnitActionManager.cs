@@ -53,6 +53,10 @@ public class UnitActionManager : MonoBehaviour {
         this._Units.Add(unit);
     }
 
+    public Unit GetUnit() {
+        return this._unitOrder[0];
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FOR UNIT MOVEMENT
     public void TileTapped(Tile goalTile) {
@@ -346,12 +350,16 @@ public class UnitActionManager : MonoBehaviour {
         this.UpdateTile();
         Unit unit = this._unitOrder[0];
 
+        unit.OnTurn(!unit.Turn);
+
         this._unitOrder.RemoveAt(0);
         this._unitOrder[0].EffectTimer();
 
         this._unitOrder.Add(unit);
 
         this._battleUI.NextCharacterAvatar(this._unitOrder[0]);
+        this._unitOrder[0].OnTurn(!this._unitOrder[0].Turn);
+
         this.hadMoved = false;
         this.hadAttacked = false;
         this.hadHealed = false;
@@ -457,7 +465,9 @@ public class UnitActionManager : MonoBehaviour {
             this._pathFinding.BattleScene = this._battleScene;
             this._showRange.BattleScene = this._battleScene;
             this._battleUI.NextCharacterAvatar(this._unitOrder[0]);
-           
+            
+            this._unitOrder[0].OnTurn(!this._unitOrder[0].Turn);
+
             if (this._unitOrder[0].Type != EUnitType.Ally) {
                 EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
             }
@@ -528,3 +538,4 @@ public class UnitActionManager : MonoBehaviour {
         }
     }
 }
+

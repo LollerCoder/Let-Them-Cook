@@ -31,9 +31,12 @@ public class Potato : Unit {
         this.ondefend = this.defend;
     }
 
-    private void Start() {
+    protected override void Start() {
+        
+
         this.ondefend = this.defend;
         this.animator = this.GetComponent<Animator>();
+        base.Start();
 
         Skill basic = new BasicAttack();
         Skill FastFood = new FastFood();

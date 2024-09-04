@@ -77,6 +77,10 @@ public class EventNames {
         public const string ON_WAND_REGISTER = "ON_WAND_REGISTER";
         public const string CHECK_DONE = "CHECK_DONE";
     }
+
+	public class BattleUI_Events {
+		public const string ON_AVATAR_CLICK = "ON_AVATAR_CLICK";
+	}
 }
 
 
