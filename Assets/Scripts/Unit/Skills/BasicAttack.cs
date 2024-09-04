@@ -6,32 +6,17 @@ using static UnityEngine.UI.Image;
 public class BasicAttack : Skill
 {
 
-    public string skillName = "Basic Attack";
-    private EVeggie veggieType = EVeggie.NONE;
-
-    public EVeggie VEGGIETYPE
+    public BasicAttack()
     {
-        get { return this.veggieType; }
+        this.skillName = "Basic Attack";
+        this.veggieType = EVeggie.NONE;
+        this.skillType = ESkillType.BASIC;
     }
 
-
-    void Start()
-    {
-
-    }
-    public void  SkillAction(Unit target, Unit origin)
+    public override void  SkillAction(Unit target, Unit origin)
     {
         target.TakeDamage(0, origin);
     }
 
-    public string GetName()
-    {
-        return this.skillName;
-
-    }
-    public EVeggie GetVeggie()
-    {
-        return this.veggieType;
-
-    }
+    
 }

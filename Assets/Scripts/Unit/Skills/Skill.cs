@@ -1,11 +1,32 @@
 using UnityEngine;
-public interface Skill 
+public class Skill 
 {
-    
-    public void SkillAction(Unit target, Unit origin);
+    protected string skillName;
+    public string SkillName
+    {
+        get { return this.skillName; }
+    }
 
-    public string GetName();
 
-    public EVeggie GetVeggie();
+
+    protected EVeggie veggieType;
+    public EVeggie VEGGIETYPE
+    {
+        get { return this.veggieType; }
+    }
+
+    protected ESkillType skillType;
+
+    public ESkillType SKILLTYPE
+    {
+        get { return this.skillType; }
+    }
+
+    public virtual void SkillAction(Unit target, Unit origin)
+    {
+
+    }
+
+   
     
 }

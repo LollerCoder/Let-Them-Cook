@@ -6,12 +6,12 @@ using UnityEngine.Scripting.APIUpdating;
 
 public abstract class Unit: MonoBehaviour {
 
-    protected List<Skill> skillList = new List<Skill>();
+    protected List<string> skillList = new List<string>();
     [SerializeField]
 
     
 
-    public List<Skill> SKILLLIST
+    public List<string> SKILLLIST
     {
         get { return skillList; }
     }
@@ -121,8 +121,11 @@ public abstract class Unit: MonoBehaviour {
         get { return this.turn; }
     }
     public void TakeDamage(float damage, Unit attacker) {
+
         attacker.EffectAccess(attacker); // attacker
         this.EffectAccess(this); //target
+        
+        //check if its true damage
         if(damage == 0) {
             if (this.isDodged(attacker))
             {
@@ -172,26 +175,27 @@ public abstract class Unit: MonoBehaviour {
 
 
         attacker.EffectReset(attacker);
+        this.EffectReset(this);
 
-       
+
     }
 
     public void EffectAccess(Unit applyTo)
     {
-        ;
+        
         foreach (string key in applyTo.effectList.Keys)
         {
         
             float augment = applyTo.effectList[key].MOD;
             EStatToEffect stat = applyTo.effectList[key].STAT;
-            Debug.Log(applyTo.effectList[key].STAT);
+            //Debug.Log(applyTo.effectList[key].STAT);
             switch (stat)
             {
                 case EStatToEffect.ACCURACY:
                     applyTo.accMult += augment / 100;
                     //apply
                     applyTo.acc *= applyTo.accMult;
-                    Debug.Log(applyTo.accMult);
+                    
                     break;
                 case EStatToEffect.SPEED:
                     applyTo.spdMult += augment / 100;
@@ -243,8 +247,10 @@ public abstract class Unit: MonoBehaviour {
        
         
     }
-    private void EffectReset(Unit applyTo)
+    public void EffectReset(Unit applyTo)
     {
+       
+
         applyTo.acc /= applyTo.accMult;
         applyTo.accMult = 1;
 
@@ -256,6 +262,9 @@ public abstract class Unit: MonoBehaviour {
 
         applyTo.spd /= applyTo.spdMult;
         applyTo.spdMult = 1;
+
+
+       
     }
 
 

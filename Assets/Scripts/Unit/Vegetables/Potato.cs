@@ -38,18 +38,7 @@ public class Potato : Unit {
         this.animator = this.GetComponent<Animator>();
         base.Start();
 
-        Skill basic = new BasicAttack();
-        Skill FastFood = new FastFood();
-        Skill ImFrench = new ImFrench();
-        Skill MashPotato = new MashPotato();
-        Skill Speed = new SPEED();
-
-        this.skillList.Add(basic);
-        this.skillList.Add(FastFood);
-        this.skillList.Add(ImFrench);
-        this.skillList.Add(MashPotato);
-        this.skillList.Add(Speed);
-
+       
         this.charName = "Potato";
         this.acc = 5;
         this.spd = 2;
