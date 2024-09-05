@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.ProjectWindowCallback;
+
 //using Unity.VisualScripting;
 using UnityEngine;
 
@@ -25,6 +28,8 @@ public class TileMapGenerator : MonoBehaviour {
 
     private int _mapSizeX = 20;
     private int _mapSizeZ = 20;
+
+    private int _buffCounter = 0, _debuffCounter = 0, _randomCounter = 0, _hazardCounter = 0;
 
     public void TilePrefabGenerator() {
         for (int x = 0; x < this._mapSizeX; x++) {
@@ -69,6 +74,35 @@ public class TileMapGenerator : MonoBehaviour {
         tiletype.tilePrefab = this._tilePrefabs[1];
         tiletype.tile = ETileType.WHITE;
         this._tileType.Add(ETileType.WHITE, tiletype);
+
+        /*Special TIle Types*/
+        tiletype = new TileType();
+        tiletype.name = "BUFF";
+        tiletype.tilePrefab = this._tilePrefabs[2];
+        tiletype.tile = ETileType.BUFF;
+        this._tileType.Add(ETileType.BUFF, tiletype);
+
+
+        tiletype = new TileType();
+        tiletype.name = "DEBUFF";
+        tiletype.tilePrefab = this._tilePrefabs[3];
+        tiletype.tile = ETileType.DEBUFF;
+        this._tileType.Add(ETileType.DEBUFF, tiletype);
+
+
+        tiletype = new TileType();
+        tiletype.name = "RANDOM";
+        tiletype.tilePrefab = this._tilePrefabs[4];
+        tiletype.tile = ETileType.RANDOM;
+        this._tileType.Add(ETileType.RANDOM, tiletype);
+
+
+        tiletype = new TileType();
+        tiletype.name = "HAZARD";
+        tiletype.tilePrefab = this._tilePrefabs[5];
+        tiletype.tile = ETileType.HAZARD;
+        this._tileType.Add(ETileType.HAZARD, tiletype);
+        
     }
     public List<Tile> GetNeighborTiles(Tile currentTile, List<Tile> inRangeTiles) {
         Dictionary<Vector2Int, Tile> availableTiles = new Dictionary<Vector2Int, Tile>();
@@ -122,11 +156,31 @@ public class TileMapGenerator : MonoBehaviour {
     private void GenerateTiles() {
         for (int z = 0; z < this._mapSizeZ; z++) {
             for (int x = 0; x < this._mapSizeX; x++) {
-                if ((x + z) % 2 == 0) {
-                    this._tiles[x, z] = ETileType.BLACK;
-                }
-                else {
-                    this._tiles[x, z] = ETileType.WHITE;
+
+                int currTile = UnityEngine.Random.Range(1,41);
+
+                switch(currTile)
+                {
+                    case 10:  this._tiles[x, z] = ETileType.BUFF;
+                    break;
+
+                    case 20:  this._tiles[x, z] = ETileType.DEBUFF;
+                    break;
+
+                    case 30:  this._tiles[x, z] = ETileType.RANDOM;
+                    break;
+
+                    case 40:  this._tiles[x, z] = ETileType.HAZARD;
+                    break;
+
+                    default:
+                        if ((x + z) % 2 == 0) {
+                        this._tiles[x, z] = ETileType.BLACK;
+                        }
+                        else {
+                            this._tiles[x, z] = ETileType.WHITE;
+                        }
+                    break;
                 }
             }
         }
