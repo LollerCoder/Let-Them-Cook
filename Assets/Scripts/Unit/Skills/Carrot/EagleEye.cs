@@ -5,26 +5,31 @@ using UnityEngine;
 //Give carrot a 10% accuracy buff
 public class EagleEye : Skill, MultEffect
 {
-    private string skillName = "EagleEye";
-    public string SkillName
-    {
-        get { return this.skillName; }
-    }
-    private  EVeggie veggieType = EVeggie.CARROT;
-    public EVeggie VEGGIETYPE
-    {
-        get { return this.veggieType; }
-    }
 
-    
+
+    EffectInfo skillData; 
 
     //effectinfo
-    private int duration = 3;
+   
     private int sucessChance = 80;
-    private int mod = 10;
-    private EStatToEffect stat = EStatToEffect.ACCURACY;
+    
+   
 
+    public EagleEye()
+    {
 
+        this.skillName = "EagleEye";
+        this.veggieType = EVeggie.CARROT;
+        this.skillType = ESkillType.BUFFDEBUFF;
+
+        //EFFECT INFO
+        int duration = 3;
+        EStatToEffect stat = EStatToEffect.ACCURACY;
+        int mod = 10;
+
+        skillData = new EffectInfo(duration, mod, stat);
+
+    }
 
 
 
@@ -35,7 +40,7 @@ public class EagleEye : Skill, MultEffect
     {
         if (target.EFFECTLIST.ContainsKey(this.skillName))
         {
-            target.EFFECTLIST[this.skillName].DURATION = duration;
+            target.EFFECTLIST[this.skillName].DURATION = this.skillData.DURATION;
         }
         else
         {
@@ -44,13 +49,15 @@ public class EagleEye : Skill, MultEffect
         }
        
     }    
-    public void SkillAction(Unit target, Unit origin)
+
+
+    public override void SkillAction(Unit target, Unit origin)
     {
-        EffectInfo fInfo = new EffectInfo(duration, mod, stat);
+        
         Unit appliedTo = target.GetComponent<Unit>();
-        if(Random.Range(1,100) < sucessChance)
+        if(Random.Range(1,100) < 1000/*sucessChance*/)
         {
-            this.ApplyEffect(target, origin, fInfo);
+            this.ApplyEffect(target, origin, this.skillData);
         }
         else
         {
@@ -59,16 +66,7 @@ public class EagleEye : Skill, MultEffect
 
     }
 
-    public string GetName()
-    {
-        return this.skillName;
-
-    }
-    public EVeggie GetVeggie()
-    {
-        return this.veggieType;
-
-    }
+   
 
 
 

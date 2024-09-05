@@ -45,11 +45,13 @@ public class Carrot : Unit{
         Skill tripUp = new TripUp();
         Skill eagle = new EagleEye();
 
-        this.skillList.Add(basic);
-        this.skillList.Add(trueStrike);
-        this.skillList.Add(eyePoke);
-        this.skillList.Add(tripUp);
-        this.skillList.Add(eagle);
+        this.skillList.Add("Basic Attack");
+        this.skillList.Add("TrueStrike");
+        this.skillList.Add("EyePoke");
+        this.skillList.Add("TripUp");
+        this.skillList.Add("EagleEye");
+
+        Debug.Log("There are " + this.skillList.Count + " SKills");
 
         this.charName = "Carrot";
         this.ingredientType = EIngredientType.CARROT;
