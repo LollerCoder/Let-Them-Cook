@@ -3,5 +3,11 @@ public enum ETileType {
     DIRT,
     TREES,
     WHITE,
-    BLACK
+    BLACK,
+
+    /*SPECIAL TILE TYPES*/
+    BUFF,
+    DEBUFF,
+    RANDOM,
+    HAZARD
 }
