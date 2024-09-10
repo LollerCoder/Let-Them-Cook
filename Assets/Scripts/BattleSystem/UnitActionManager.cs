@@ -11,7 +11,7 @@ using UnityEngine.SocialPlatforms;
 public class UnitActionManager : MonoBehaviour {
     public static UnitActionManager Instance = null;
 
-    public EBattleScene _battleScene;
+    private EBattleScene _battleScene;
 
     [SerializeField]
     private float speed;
@@ -330,12 +330,14 @@ public class UnitActionManager : MonoBehaviour {
                 break;
             }
         }
-
+        this._battleUI.UpdateTurnOrder(this._unitOrder);
         this.CheckEndCondition();
+
     }
     private void DecideTurnOrder() {
         this._unitOrder.AddRange(_Units);
         this._unitOrder.Sort((x, y) => y.Speed.CompareTo(x.Speed));
+        this._battleUI.UpdateTurnOrder(this._unitOrder);
     }
     private void UpdateTile() {
        TileMapGenerator.Instance.UpdateTile();
@@ -361,7 +363,7 @@ public class UnitActionManager : MonoBehaviour {
         this._unitOrder[0].EffectTimer();
         
         this._unitOrder.Add(unit);
-
+        this._battleUI.UpdateTurnOrder(this._unitOrder);
         this._battleUI.NextCharacterAvatar(this._unitOrder[0]);
         this._unitOrder[0].OnTurn(!this._unitOrder[0].Turn);
 
