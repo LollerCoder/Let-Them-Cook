@@ -1,31 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
-public class SPEED : Skill, MultEffect
+public class SPEED : Skill, IEffectable
 {
-    private string skillName = "SPEED";
-    public string SkillName
+
+    private EffectInfo skillData2;
+
+    public SPEED()
     {
-        get { return this.skillName; }
+        this.skillName = "SPEED";
+        //effectinfo atk
+        int duration1 = 2;
+        int mod1 = -100;
+        EStatToEffect stat1 = EStatToEffect.ATTACK;
+
+        this.skillData = new EffectInfo(duration1, mod1, stat1);
+
+        //effectinfo spd
+        int duration2 = 2;
+        int mod2 = 50;
+        EStatToEffect stat2 = EStatToEffect.SPEED;
+
+        this.skillData2 = new EffectInfo(duration2, mod2, stat2);
     }
-    private EVeggie veggieType = EVeggie.CARROT;
-    public EVeggie VEGGIETYPE
-    {
-        get { return this.veggieType; }
-    }
 
 
 
-    //effectinfo atk
-    private int duration1 = 2;
-    private int mod1 = -100;
-    private EStatToEffect stat1 = EStatToEffect.ATTACK;
-
-    //effectinfo spd
-    private int duration2 = 2;
-    private int mod2 = 50;
-    private EStatToEffect stat2 = EStatToEffect.SPEED;
+   
 
     private int sucessChance = 90;
     private int x = 0; //bs way to apply to effects
@@ -42,24 +45,24 @@ public class SPEED : Skill, MultEffect
         switch (x)
         {
             case 0:
-                if (target.EFFECTLIST.ContainsKey(this.skillName))
+                if (target.EffectManager.EFFECTLIST.ContainsKey(this.skillName))
                 {
-                    target.EFFECTLIST[this.skillName + "attack"].DURATION = duration1;
+                    target.EffectManager.EFFECTLIST[this.skillName + "attack"].DURATION = this.skillData.DURATION;
                 }
                 else
                 {
-                    target.EFFECTLIST.Add(this.skillName + "attack", fInfo);
+                    target.EffectManager.EFFECTLIST.Add(this.skillName + "attack", fInfo);
                     Debug.Log("Target affected");
                 }
                 break;
             case 1:
-                if (target.EFFECTLIST.ContainsKey(this.skillName))
+                if (target.EffectManager.EFFECTLIST.ContainsKey(this.skillName))
                 {
-                    target.EFFECTLIST[this.skillName + "speed"].DURATION = duration1;
+                    target.EffectManager.EFFECTLIST[this.skillName + "speed"].DURATION = this.skillData2.DURATION;
                 }
                 else
                 {
-                    target.EFFECTLIST.Add(this.skillName + "speed", fInfo);
+                    target.EffectManager.EFFECTLIST.Add(this.skillName + "speed", fInfo);
                     Debug.Log("Target affected");
                 }
                 break;
@@ -67,21 +70,18 @@ public class SPEED : Skill, MultEffect
 
 
     }
-    public void SkillAction(Unit target, Unit origin)
+    public override void SkillAction(Unit target, Unit origin)
     {
-        //atk debuf
-        EffectInfo fInfo1 = new EffectInfo(duration1, mod1, stat1);
-        //spd buf
-        EffectInfo fInfo2 = new EffectInfo(duration2, mod2, stat2);
+        
 
 
 
         Unit appliedTo = target.GetComponent<Unit>();
         if (Random.Range(1, 100) < sucessChance)
         {
-            this.ApplyEffect(target, origin, fInfo1);
+            this.ApplyEffect(target, origin, skillData);
             x++;
-            this.ApplyEffect(target, origin, fInfo2);
+            this.ApplyEffect(target, origin, skillData2);
         }
         else
         {
@@ -91,15 +91,5 @@ public class SPEED : Skill, MultEffect
 
     }
 
-    public string GetName()
-    {
-        return this.skillName;
-
-    }
-
-    public EVeggie GetVeggie()
-    {
-        return this.veggieType;
-
-    }
+    
 }

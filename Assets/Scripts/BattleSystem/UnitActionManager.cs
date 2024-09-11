@@ -226,7 +226,7 @@ public class UnitActionManager : MonoBehaviour {
         Debug.Log("Attacked Target " + target.name);
         if(Skill == 1)
         {
-            Debug.Log("1000 dmg applied");
+            Debug.Log("10 dmg applied");
         }
         this.OnAttack = false;
         this.hadAttacked = true;
@@ -387,7 +387,7 @@ public class UnitActionManager : MonoBehaviour {
         
 
         this._unitOrder.RemoveAt(0);
-        this._unitOrder[0].EffectTimer();
+        this._unitOrder[0].EffectManager.EffectTimer();
         
         this._unitOrder.Add(unit);
         this._battleUI.UpdateTurnOrder(this._unitOrder);

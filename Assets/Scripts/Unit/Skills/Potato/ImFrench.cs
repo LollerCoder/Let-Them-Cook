@@ -2,28 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ImFrench : Skill, MultEffect
+public class ImFrench : Skill, IEffectable
 {
-    private string skillName = "Im French";
-    public string SkillName
-    {
-        get { return this.skillName; }
-    }
-    private EVeggie veggieType = EVeggie.CARROT;
-    public EVeggie VEGGIETYPE
-    {
-        get { return this.veggieType; }
-    }
-
+    
+    
+    
 
 
     //effectinfo
-    private int duration = 3;
+   
     private int sucessChance = 60;
-    private int mod = 20;
-    private EStatToEffect stat = EStatToEffect.SPEED;
+    
 
+    public ImFrench()
+    {
 
+        this.skillName = "Im French";
+        this.veggieType = EVeggie.POTATO;
+        this.skillType = ESkillType.BUFFDEBUFF;
+
+        //EFFECT INFO
+        int duration = 3;
+        EStatToEffect stat = EStatToEffect.SPEED;
+        int mod = 20;
+
+        this.skillData = new EffectInfo(duration, mod, stat);
+
+    }
 
 
 
@@ -32,24 +37,24 @@ public class ImFrench : Skill, MultEffect
 
     public void ApplyEffect(Unit target, Unit origin, EffectInfo fInfo)
     {
-        if (target.EFFECTLIST.ContainsKey(this.skillName))
+        if (target.EffectManager.EFFECTLIST.ContainsKey(this.skillName))
         {
-            target.EFFECTLIST[this.skillName].DURATION = duration;
+            target.EffectManager.EFFECTLIST[this.skillName].DURATION = this.skillData.DURATION;
         }
         else
         {
-            target.EFFECTLIST.Add(this.skillName, fInfo);
+            target.EffectManager.EFFECTLIST.Add(this.skillName, fInfo);
             Debug.Log("Target affected");
         }
 
     }
-    public void SkillAction(Unit target, Unit origin)
+    public override void SkillAction(Unit target, Unit origin)
     {
-        EffectInfo fInfo = new EffectInfo(duration, mod, stat);
+        
         Unit appliedTo = target.GetComponent<Unit>();
         if (Random.Range(1, 100) < sucessChance)
         {
-            this.ApplyEffect(target, origin, fInfo);
+            this.ApplyEffect(target, origin, this.skillData);
         }
         else
         {

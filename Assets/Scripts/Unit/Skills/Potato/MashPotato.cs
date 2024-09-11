@@ -3,36 +3,42 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class MashPotato : Skill, MultEffect
+public class MashPotato : Skill, IEffectable
 {
-    private string skillName = "Mashed Potato";
-    public string SkillName
-    {
-        get { return this.skillName; }
-    }
-    private EVeggie veggieType = EVeggie.CARROT;
-    public EVeggie VEGGIETYPE
-    {
-        get { return this.veggieType; }
-    }
+    
 
 
+    private EffectInfo skillData2;
 
-    //effectinfo def 
-    private int duration1 = 3;
-    private int mod1 = -20;
-    private EStatToEffect stat1 = EStatToEffect.DEFENSE;
-
-    //effectinfo atk buff
-    private int duration2 = 3;
-    private int mod2 = 20;
-    private EStatToEffect stat2 = EStatToEffect.ATTACK;
+    
 
     private int sucessChance = 90;
     private int x = 0; //bs way to apply to effects
 
 
+    public MashPotato()
+    {
 
+        this.skillName = "Mashed Potato";
+        this.veggieType = EVeggie.POTATO;
+        this.skillType = ESkillType.BUFFDEBUFF;
+
+        
+        //effectinfo def 
+        int duration1 = 3;
+        int mod1 = -20;
+        EStatToEffect stat1 = EStatToEffect.DEFENSE;
+
+        this.skillData = new EffectInfo(duration1, mod1, stat1);
+
+        //effectinfo atk buff
+        int duration2 = 3;
+        int mod2 = 20;
+        EStatToEffect stat2 = EStatToEffect.ATTACK;
+
+        
+        this.skillData2 = new EffectInfo(duration2, mod2, stat2);
+    }
 
 
 
@@ -43,24 +49,24 @@ public class MashPotato : Skill, MultEffect
         switch (x)
         {
             case 0:
-                if (target.EFFECTLIST.ContainsKey(this.skillName))
+                if (target.EffectManager.EFFECTLIST.ContainsKey(this.skillName))
                 {
-                    target.EFFECTLIST[this.skillName + "defense"].DURATION = duration1;
+                    target.EffectManager.EFFECTLIST[this.skillName + "defense"].DURATION = this.skillData.DURATION;
                 }
                 else
                 {
-                    target.EFFECTLIST.Add(this.skillName + "defense", fInfo);
+                    target.EffectManager.EFFECTLIST.Add(this.skillName + "defense", fInfo);
                     Debug.Log("Target affected");
                 }
                 break;
             case 1:
-                if (target.EFFECTLIST.ContainsKey(this.skillName))
+                if (target.EffectManager.EFFECTLIST.ContainsKey(this.skillName))
                 {
-                    target.EFFECTLIST[this.skillName + "attack"].DURATION = duration1;
+                    target.EffectManager.EFFECTLIST[this.skillName + "attack"].DURATION = this.skillData2.DURATION;
                 }
                 else
                 {
-                    target.EFFECTLIST.Add(this.skillName + "attack", fInfo);
+                    target.EffectManager.EFFECTLIST.Add(this.skillName + "attack", fInfo);
                     Debug.Log("Target affected");
                 }
                 break;
@@ -68,21 +74,18 @@ public class MashPotato : Skill, MultEffect
         
 
     }
-    public void SkillAction(Unit target, Unit origin)
+    public override void SkillAction(Unit target, Unit origin)
     {
-        //Def deBUF
-        EffectInfo fInfo1 = new EffectInfo(duration1, mod1, stat1);
-        //ATK BUF
-        EffectInfo fInfo2 = new EffectInfo(duration2, mod2, stat2);
+        
 
 
 
         Unit appliedTo = target.GetComponent<Unit>();
         if (Random.Range(1, 100) < sucessChance)
         {
-            this.ApplyEffect(target, origin, fInfo1);
+            this.ApplyEffect(target, origin, this.skillData);
             x++;
-            this.ApplyEffect(target, origin, fInfo2);
+            this.ApplyEffect(target, origin, this.skillData2);
         }
         else
         {
@@ -92,15 +95,5 @@ public class MashPotato : Skill, MultEffect
 
     }
 
-    public string GetName()
-    {
-        return this.skillName;
-
-    }
-
-    public EVeggie GetVeggie()
-    {
-        return this.veggieType;
-
-    }
+    
 }

@@ -48,7 +48,7 @@ public class SkillDatabase : MonoBehaviour
     {
         if (skillDatabase.ContainsKey(name))
         {
-            Debug.Log("Its here");
+           
             skillDatabase[name].SkillAction(target, Origin);
         }
     }

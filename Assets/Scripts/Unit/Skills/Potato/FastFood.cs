@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class FastFood : Skill
 {
-    protected string skillName = "Fast Food";
 
-    public string SkillName
+
+
+    public FastFood()
     {
-        get { return this.skillName; }
-    }
-    protected EVeggie veggieType = EVeggie.CARROT;
-    public EVeggie VEGGIETYPE
-    {
-        get { return this.veggieType; }
+
+        this.skillName = "Fast Food";
+        this.veggieType = EVeggie.POTATO;
+        this.skillType = ESkillType.BASIC;
+
+      
+        
     }
 
-
-    public void SkillAction(Unit target, Unit origin)
+    public override void SkillAction(Unit target, Unit origin)
     {
         
         for(int i = 0; i < 3; i++)

@@ -21,7 +21,7 @@ public class UnitStats : MonoBehaviour
         this.SetHealth(unit.MAXHP, unit.HP);
         this.SetATK(unit.Attack);
         this.SetSPD(unit.Speed);
-        this.SetDEF(unit.DEF);
+        this.SetDEF(unit.Defense);
         this.SetACC(unit.Accuracy);
     }
 

@@ -3,23 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
-
+    
 public abstract class Unit: MonoBehaviour {
 
     protected List<string> skillList = new List<string>();
     [SerializeField]
 
-    
+    protected EffectManager effectManager = new EffectManager();
+    public EffectManager EffectManager
+    {
+        get { return this.effectManager; }
+    }
+
 
     public List<string> SKILLLIST
     {
         get { return skillList; }
     }
 
-    protected Dictionary<string, EffectInfo> effectList = new Dictionary<string, EffectInfo>();
-    public Dictionary<string, EffectInfo> EFFECTLIST {
-        get { return this.effectList; }
-    }
+   
 
     protected EIngredientType ingredientType;
     public EIngredientType IngredientType{
@@ -41,47 +43,91 @@ public abstract class Unit: MonoBehaviour {
     /// </summary>
 
     protected float acc; // hit
-    public float Accuracy { get { return this.acc; } }
+    public float Accuracy {
+
+        get { return this.acc; }
+        set { this.acc = value; }
+    
+    }
 
     protected float accMult = 1; // hit
-    public float AccuracyMultiplier { get { return this.accMult; } }
+    public float AccuracyMultiplier { 
+
+        get { return this.accMult; }
+        set { this.accMult = value; }
+
+    }
 
     /// <summary>
     /// SPEED
     /// </summary>
 
     protected float spd; // movement range
-    public float Speed { get { return this.spd; } }
+    public float Speed {
+        
+        get { return this.spd; }
+        set { this.spd = value; }
+
+    }
 
     protected float spdMult = 1; // hit
-    public float SpeedMultiplier { get { return this.spdMult; } }
+    public float SpeedMultiplier {
+        
+        get { return this.spdMult; }
+        set { this.spdMult = value; }
+
+    }
 
     /// <summary>
     /// Attack
     /// </summary>
 
     protected float atk; // dmg
-    public float Attack { get { return this.atk; } }
+    public float Attack {
+        
+        get { return this.atk; }
+        set { this.atk = value; }
+
+    }
 
     protected float atkMult = 1; // hit
-    public float AttackMultiplier { get { return this.atkMult; } }
+    public float AttackMultiplier { 
+        
+        get { return this.atkMult; }
+        set { this.atkMult = value; }
+
+    }
 
     /// <summary>
     /// HP
     /// </summary>
 
     protected int hp; // health
-    public int HP { get { return this.hp; } }
+    public int HP { 
+        
+        get { return this.hp; }
+        set { this.hp = value; }
+         
+    }
 
 
     /// <summary>
     /// DEFENSE
     /// </summary>
     protected float def; // defense
-    public float DEF { get { return this.def; } }
+    public float Defense {
+        
+        get { return this.def; }
+        set { this.def = value; }
+
+    }
 
     protected float defMult = 1; // defense
-    public float DefenseMultiplier { get { return this.defMult; } }
+    public float DefenseMultiplier { 
+        
+        get { return this.defMult; }
+        set { this.defMult = value; }
+    }
 
     /// <summary>
     /// MaxHP
@@ -122,8 +168,11 @@ public abstract class Unit: MonoBehaviour {
     }
     public void TakeDamage(float damage, Unit attacker) {
 
-        attacker.EffectAccess(attacker); // attacker
-        this.EffectAccess(this); //target
+        Debug.Log("Unit name: " + attacker.Name);
+        Debug.Log(attacker.effectManager);
+        
+        attacker.effectManager.EffectAccess(attacker); // attacker
+        this.effectManager.EffectAccess(this); //target
         
         //check if its true damage
         if(damage == 0) {
@@ -174,98 +223,13 @@ public abstract class Unit: MonoBehaviour {
         }
 
 
-        attacker.EffectReset(attacker);
-        this.EffectReset(this);
+        attacker.effectManager.EffectReset(attacker);
+        this.effectManager.EffectReset(this);
 
 
     }
 
-    public void EffectAccess(Unit applyTo)
-    {
-        
-        foreach (string key in applyTo.effectList.Keys)
-        {
-        
-            float augment = applyTo.effectList[key].MOD;
-            EStatToEffect stat = applyTo.effectList[key].STAT;
-            //Debug.Log(applyTo.effectList[key].STAT);
-            switch (stat)
-            {
-                case EStatToEffect.ACCURACY:
-                    applyTo.accMult += augment / 100;
-                    //apply
-                    applyTo.acc *= applyTo.accMult;
-                    
-                    break;
-                case EStatToEffect.SPEED:
-                    applyTo.spdMult += augment / 100;
-                    //apply
-                    applyTo.spd *= applyTo.spdMult;
-                    break;
-                case EStatToEffect.DEFENSE:
-                    applyTo.defMult += augment / 100;
-                    //apply
-                    applyTo.def *= applyTo.defMult;
-                    break;
-                case EStatToEffect.ATTACK:
-                    applyTo.atkMult += augment / 100;
-                    //apply
-                    applyTo.atk *= applyTo.atkMult;
-                    break;
-                default:
-                    Debug.Log("Invalid");
-
-                    break;
-
-            }
-        }
-    }
-
-    public void EffectTimer()
-    {
-        List<string> toDelete = new List<string>();
-        if(effectList.Count != 0)
-        {
-            foreach (string key in effectList.Keys)
-            {
-
-
-                effectList[key].DURATION -= 1;
-                Debug.Log("Effect " + key + " has " + effectList[key].DURATION + " left");
-
-                if (effectList[key].DURATION == 0)
-                {
-                    toDelete.Add(key);
-
-                }
-            }
-        }
-        foreach(string keyDelete in toDelete)
-        {
-            effectList.Remove(keyDelete);
-        }
-       
-        
-    }
-    public void EffectReset(Unit applyTo)
-    {
-       
-
-        applyTo.acc /= applyTo.accMult;
-        applyTo.accMult = 1;
-
-        applyTo.def /= applyTo.defMult;
-        applyTo.defMult = 1;
-
-        applyTo.atk /= applyTo.atkMult;
-        applyTo.atkMult = 1;
-
-        applyTo.spd /= applyTo.spdMult;
-        applyTo.spdMult = 1;
-
-
-       
-    }
+    
 
 
     public bool isDodged(Unit attacker)

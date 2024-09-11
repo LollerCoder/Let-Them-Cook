@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EyePoke : Skill, MultEffect
+public class EyePoke : Skill, IEffectable
 {
     private int sucessChance = 70;
-    EffectInfo skillData;
+   
 
     public EyePoke()
     {
@@ -18,7 +18,7 @@ public class EyePoke : Skill, MultEffect
         int mod = -10;
         EStatToEffect stat = EStatToEffect.ACCURACY;
 
-        skillData = new EffectInfo(duration, mod, stat);
+        this.skillData = new EffectInfo(duration, mod, stat);
     }
 
 
@@ -33,13 +33,13 @@ public class EyePoke : Skill, MultEffect
 
     public void ApplyEffect(Unit target, Unit origin, EffectInfo fInfo)
     {
-        if (target.EFFECTLIST.ContainsKey(this.skillName))
+        if (target.EffectManager.EFFECTLIST.ContainsKey(this.skillName))
         {
-            target.EFFECTLIST[this.skillName].DURATION = this.skillData.DURATION;
+            target.EffectManager.EFFECTLIST[this.skillName].DURATION = this.skillData.DURATION;
         }
         else
         {
-            target.EFFECTLIST.Add(this.skillName, fInfo);
+            target.EffectManager.EFFECTLIST.Add(this.skillName, fInfo);
             Debug.Log("Target affected");
         }
 

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 //Give carrot a 10% accuracy buff
-public class EagleEye : Skill, MultEffect
+public class EagleEye : Skill, IEffectable
 {
 
 
-    EffectInfo skillData; 
+    
 
     //effectinfo
    
@@ -27,7 +27,7 @@ public class EagleEye : Skill, MultEffect
         EStatToEffect stat = EStatToEffect.ACCURACY;
         int mod = 10;
 
-        skillData = new EffectInfo(duration, mod, stat);
+        this.skillData = new EffectInfo(duration, mod, stat);
 
     }
 
@@ -38,13 +38,13 @@ public class EagleEye : Skill, MultEffect
 
     public  void ApplyEffect(Unit target, Unit origin, EffectInfo fInfo)
     {
-        if (target.EFFECTLIST.ContainsKey(this.skillName))
+        if (target.EffectManager.EFFECTLIST.ContainsKey(this.skillName))
         {
-            target.EFFECTLIST[this.skillName].DURATION = this.skillData.DURATION;
+            target.EffectManager.EFFECTLIST[this.skillName].DURATION = this.skillData.DURATION;
         }
         else
         {
-            target.EFFECTLIST.Add(this.skillName, fInfo);
+            target.EffectManager.EFFECTLIST.Add(this.skillName, fInfo);
             Debug.Log("Target affected");
         }
        
@@ -55,7 +55,7 @@ public class EagleEye : Skill, MultEffect
     {
         
         Unit appliedTo = target.GetComponent<Unit>();
-        if(Random.Range(1,100) < 1000/*sucessChance*/)
+        if(Random.Range(1,100) < sucessChance)
         {
             this.ApplyEffect(target, origin, this.skillData);
         }
