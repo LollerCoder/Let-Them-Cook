@@ -70,6 +70,33 @@ public class UnitActionManager : MonoBehaviour {
             if(this._path.Count > 0) {
                 this.hadMoved = true;
                 this._unitOrder[0].OnMove(true);
+                
+                /*Special Tile Detection*/
+                if(goalTile.gameObject.tag == "SpecialTile")
+                {
+                    Debug.Log("Special Tile detected!");
+
+                    switch(goalTile.gameObject.name)
+                    {
+                        case "BuffTile":
+                        //this._unitOrder[0].SpeedMultiplier += 5;
+                        break;
+
+                        case "DebuffTile":
+                        break;
+
+                        case "RandomTile":
+                        break;
+
+                        case "HazardTile":
+                        break;
+
+                        default:
+                        break;
+                    }
+                }
+
+
             }
             
         }
