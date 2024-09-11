@@ -14,6 +14,8 @@ public class BattleUI : MonoBehaviour {
     [SerializeField]
     private List<Sprite> attackSprites;
 
+    public List<Image> Turn;
+
     [SerializeField]
     private List<Button> Attacks;
 
@@ -35,6 +37,8 @@ public class BattleUI : MonoBehaviour {
         if(this._unitStats == null) {
             Debug.Log("ERROR: UNITSTATS CANNOT BE FOUND (BATTLEUI.CS, START() )");
         }
+
+        
     }
 
     public void AvatarClick() {
@@ -292,6 +296,16 @@ public class BattleUI : MonoBehaviour {
             UnitActionManager.Instance.numAttack = 4;
         }
     }
+
+    public void UpdateTurnOrder(List<Unit> unitOrder) {
+
+        for(int i = 0; i < 3; i++) {
+            this.Turn[i].sprite = unitOrder[i].GetComponent<SpriteRenderer>().sprite;
+        }
+
+
+    }
+
     public void OnCancel() {
         //this.DisableSkillBoxClick();
         //this.EnableActionBoxClick();
@@ -302,4 +316,5 @@ public class BattleUI : MonoBehaviour {
     public void EndScreen(int scenario) {
 
     }
+
 }
