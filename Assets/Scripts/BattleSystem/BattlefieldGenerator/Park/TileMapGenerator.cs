@@ -29,8 +29,6 @@ public class TileMapGenerator : MonoBehaviour {
     private int _mapSizeX = 20;
     private int _mapSizeZ = 20;
 
-    private int _buffCounter = 0, _debuffCounter = 0, _randomCounter = 0, _hazardCounter = 0;
-
     public void TilePrefabGenerator() {
         for (int x = 0; x < this._mapSizeX; x++) {
             for (int z = 0; z < this._mapSizeZ; z++) {  
