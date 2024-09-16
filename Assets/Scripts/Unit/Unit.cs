@@ -170,7 +170,7 @@ public abstract class Unit: MonoBehaviour {
 
         Debug.Log("Unit name: " + attacker.Name);
         Debug.Log(attacker.effectManager);
-        
+
         attacker.effectManager.EffectAccess(attacker); // attacker
         this.effectManager.EffectAccess(this); //target
         
@@ -258,6 +258,13 @@ public abstract class Unit: MonoBehaviour {
         Debug.Log($"New HP: {this.hp}");
         target.HandleEaten();
     }
+
+    public void Heal()
+    {
+        this.hp += 4;
+        Debug.Log($"New HP: {this.hp}");
+    }
+
     public void OnDefend() {
         this.Defend = true;
     }

@@ -145,6 +145,8 @@ public class UnitActionManager : MonoBehaviour {
     public void UnitDefend() {
         this._unitOrder[0].OnDefend();
 
+        Debug.Log(this._unitOrder[0].Name + " defended!");
+
         this.hadAttacked = true;
         this.hadMoved = true;
         this.hadHealed = true;
@@ -156,6 +158,8 @@ public class UnitActionManager : MonoBehaviour {
         this.UnHighlightTiles();
 
         Unit currentUnit = this._unitOrder[0];
+
+        Debug.Log("UnitHeal " + currentUnit.Name + " Healed");
 
         this._inRangeTiles = this._showRange.GetTilesInAttackMelee(currentUnit.Tile, (int)currentUnit.Speed - 1);
 
@@ -309,14 +313,44 @@ public class UnitActionManager : MonoBehaviour {
         return false;
     }
     public void EnemyUnitAction() {
-        this.OnAttack = true;
 
-        this._inRangeTiles = this._showRange.GetTilesInAttackMelee(this._unitOrder[0].Tile, this._unitOrder[0].BasicRange);
-        this.numAttack = 0;
+        int action = UnityEngine.Random.Range(1,3);
 
-        foreach (Unit unit in this._Units) {
-            if (unit.Type == EUnitType.Ally) {
-                this.UnitSelect(unit);
+        /*
+         * movement
+        */
+
+        Debug.Log("enter enemyunityaction");
+
+        switch(action)
+        {
+            case 1:
+            {
+                this.OnAttack = true;
+
+                this._inRangeTiles = this._showRange.GetTilesInAttackMelee(this._unitOrder[0].Tile, this._unitOrder[0].BasicRange);
+                this.numAttack = 0;
+
+                foreach (Unit unit in this._Units)
+                {
+                    if (unit.Type == EUnitType.Ally)
+                    {
+                        this.UnitSelect(unit);
+                    }
+                }
+
+                break;
+            }
+            case 2:
+            {
+                this._unitOrder[0].Heal();
+                break;
+            }
+            case 3:
+            {
+                this.OnDefend = true;
+                this._unitOrder[0].OnDefend();
+                break;
             }
         }
 
