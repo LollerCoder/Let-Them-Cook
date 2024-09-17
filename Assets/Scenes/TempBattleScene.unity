@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ally Unit 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1088408925908182974, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9
@@ -219,6 +223,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ally Unit 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1088408925908182974, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -275,6 +283,10 @@ PrefabInstance:
     - target: {fileID: 1088408925908182974, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
       propertyPath: m_Name
       value: Ally Unit 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088408925908182974, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -451,7 +463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 380895304}
   - component: {fileID: 380895305}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -947,7 +959,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
