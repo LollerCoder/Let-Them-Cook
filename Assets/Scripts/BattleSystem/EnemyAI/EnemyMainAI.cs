@@ -65,8 +65,8 @@ namespace EnemyAI
 
         public void TakeAction()
         {
-            int action = UnityEngine.Random.Range(1, 3);
-
+            //int action = UnityEngine.Random.Range(1, 3);
+            int action = 1;
             switch (action)
             {
                 case 1:
@@ -93,7 +93,7 @@ namespace EnemyAI
 
         public List<Tile> TakeTurn(Unit currentEnemyAgent)
         {
-            List<Tile> path = null;
+            List<Tile> path = new List<Tile>();
             this._CurrentEnemyUnit = currentEnemyAgent;
 
             Debug.Log("enter enemyunityaction");
