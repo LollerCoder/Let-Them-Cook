@@ -89,22 +89,25 @@ public class UnitActionManager : MonoBehaviour{
                     {
                         case "BuffTile(Clone)":
                         terst = new EffectInfo(3,2,EStatToEffect.ACCURACY); //effectInfo
+                        bufDebufname = "BuffTile";
                         
                         break;
 
                         case "DebuffTile(Clone)":
-                        _skill.skillData = new EffectInfo(3,-2,EStatToEffect.SPEED);
-                        this._eagleEye.ApplyEffect(this._unitOrder[0],this._unitOrder[0],_skill.skillData); 
+                        terst = new EffectInfo(3,-2,EStatToEffect.SPEED);
+                        // this._eagleEye.ApplyEffect(this._unitOrder[0],this._unitOrder[0],_skill.skillData); 
+                        bufDebufname = "DebuffTile";
                         break;
 
                         case "RandomTile(Clone)":
                         this._affectedStatValue = UnityEngine.Random.Range(-6,6);
-                        _skill.skillData = new EffectInfo(3,this._affectedStatValue,EStatToEffect.ATTACK);
-                        this._eagleEye.ApplyEffect(this._unitOrder[0],this._unitOrder[0],_skill.skillData);
+                        terst = new EffectInfo(3,this._affectedStatValue,EStatToEffect.ATTACK);
+                        bufDebufname = "RandomTile";
+                        // this._eagleEye.ApplyEffect(this._unitOrder[0],this._unitOrder[0],_skill.skillData);
                         break;
 
                         case "HazardTile(Clone)":
-                         this._unitOrder[0].HP -= 1;
+                        this._unitOrder[0].HP -= 1;
                         break;
 
                         default:
