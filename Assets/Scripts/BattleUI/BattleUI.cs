@@ -137,7 +137,6 @@ public class BattleUI : MonoBehaviour {
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.ON_AVATAR_CLICK, param); // remember to change the name for this event --
 
-        Debug.Log("HHEHE");
         this.characterAvatar.image.sprite = unit.GetComponent<SpriteRenderer>().sprite;
 
         // reset the values in the array
