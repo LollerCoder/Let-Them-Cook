@@ -1,3 +1,4 @@
+using EnemyAI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,6 +30,7 @@ public class UnitActionManager : MonoBehaviour {
     private Range _showRange;
 
     private Unit enemy = null;
+    private EnemyMainAI _enemyAI;
 
     private bool OverEnemy = false;
 
@@ -152,8 +154,6 @@ public class UnitActionManager : MonoBehaviour {
     public void UnitDefend() {
         this._unitOrder[0].OnDefend();
 
-        Debug.Log(this._unitOrder[0].Name + " defended!");
-
         this.hadAttacked = true;
         this.hadMoved = true;
         this.hadHealed = true;
@@ -167,8 +167,6 @@ public class UnitActionManager : MonoBehaviour {
         Unit currentUnit = this._unitOrder[0];
 
         Debug.Log("UnitHeal " + currentUnit.Name + " Healed");
-
-        this._inRangeTiles = this._showRange.GetTilesInAttackMelee(currentUnit.Tile, (int)currentUnit.Speed - 1);
 
         foreach(Tile tile in this._inRangeTiles) {
             tile.HighlightEatableTile();
@@ -321,52 +319,28 @@ public class UnitActionManager : MonoBehaviour {
         return false;
     }
     public void EnemyUnitAction() {
+        //this.OnAttack = true;
 
-        int action = UnityEngine.Random.Range(1,3);
+        //this._inRangeTiles = this._showRange.GetTilesInAttackMelee(this._unitOrder[0].Tile, this._unitOrder[0].BasicRange);
+        //this.numAttack = 0;
 
-        /*
-         * movement
-        */
+        //foreach (Unit unit in this._Units)
+        //{
+        //    if (unit.Type == EUnitType.Ally)
+        //    {
+        //        this.UnitSelect(unit);
+        //    }
+        //}
 
-        Debug.Log("enter enemyunityaction");
-
-        switch(action)
-        {
-            case 1:
-            {
-                this.OnAttack = true;
-
-                this._inRangeTiles = this._showRange.GetTilesInAttackMelee(this._unitOrder[0].Tile, this._unitOrder[0].BasicRange);
-                this.numAttack = 0;
-
-                foreach (Unit unit in this._Units)
-                {
-                    if (unit.Type == EUnitType.Ally)
-                    {
-                        this.UnitSelect(unit);
-                    }
-                }
-
-                break;
-            }
-            case 2:
-            {
-                this._unitOrder[0].Heal();
-                break;
-            }
-            case 3:
-            {
-                this.OnDefend = true;
-                this._unitOrder[0].OnDefend();
-                break;
-            }
-        }
+        this._path = this._enemyAI.TakeTurn(this._unitOrder[0]);
 
         this.StartCoroutine(this.EnemyWait(1.0f));
     }    
     private IEnumerator EnemyWait(float seconds) {
         this.OnAttack = false;
+        this.OnMove = false;
         yield return new WaitForSeconds(seconds);
+        this._path.Clear();
         EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.ENABLE_CLICKS);
         this.NextUnitTurn();
     }
@@ -541,7 +515,9 @@ public class UnitActionManager : MonoBehaviour {
             this._pathFinding.BattleScene = this._battleScene;
             this._showRange.BattleScene = this._battleScene;
             this._battleUI.NextCharacterAvatar(this._unitOrder[0]);
-            
+
+            this._enemyAI = new EnemyMainAI(this._Units);
+
             this._unitOrder[0].OnTurn(!this._unitOrder[0].Turn);
 
             if (this._unitOrder[0].Type != EUnitType.Ally) {
@@ -553,6 +529,13 @@ public class UnitActionManager : MonoBehaviour {
 
             OnStart = false;
         }
+
+        if (Input.GetMouseButtonUp(1))
+        { // right button
+            this.UnSelectUnit();
+        }
+
+        if (this._path == null) return;
 
         if (this._path.Count > 0) {
             this.MoveCurrentUnit();
@@ -573,10 +556,6 @@ public class UnitActionManager : MonoBehaviour {
             else {
                 this.UnHighlightTiles();
             }
-        }
-
-        if (Input.GetMouseButtonUp(1)) { // right button
-            this.UnSelectUnit();
         }
     }
 
