@@ -8,10 +8,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms;
 
-public class UnitActionManager : MonoBehaviour {
+public class UnitActionManager : MonoBehaviour{
     public static UnitActionManager Instance = null;
 
     private EBattleScene _battleScene;
+
+    private Skill _skill;
+
+    private EagleEye _eagleEye;
 
     [SerializeField]
     private float speed;
@@ -81,16 +85,19 @@ public class UnitActionManager : MonoBehaviour {
                     switch(goalTile.gameObject.name)
                     {
                         case "BuffTile(Clone)":
-                        this._unitOrder[0].EffectManager.EffectTileAccess(this._unitOrder[0],EStatToEffect.ACCURACY,2);
+                        _skill.skillData = new EffectInfo(3,2,EStatToEffect.ACCURACY);
+                        this._eagleEye.ApplyEffect(this._unitOrder[0],this._unitOrder[0],_skill.skillData);
                         break;
 
                         case "DebuffTile(Clone)":
-                        this._unitOrder[0].EffectManager.EffectTileAccess(this._unitOrder[0],EStatToEffect.SPEED,-2);
+                        _skill.skillData = new EffectInfo(3,-2,EStatToEffect.SPEED);
+                        this._eagleEye.ApplyEffect(this._unitOrder[0],this._unitOrder[0],_skill.skillData);
                         break;
 
                         case "RandomTile(Clone)":
                         this._affectedStatValue = UnityEngine.Random.Range(-6,6);
-                        this._unitOrder[0].EffectManager.EffectTileAccess(this._unitOrder[0],EStatToEffect.ATTACK,this._affectedStatValue);
+                        _skill.skillData = new EffectInfo(3,this._affectedStatValue,EStatToEffect.ATTACK);
+                        this._eagleEye.ApplyEffect(this._unitOrder[0],this._unitOrder[0],_skill.skillData);
                         break;
 
                         case "HazardTile(Clone)":

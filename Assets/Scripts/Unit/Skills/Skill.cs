@@ -28,7 +28,7 @@ public class Skill
     }
 
     //Debuffs/Buffs
-    protected EffectInfo skillData;
+    public EffectInfo skillData;
 
 
 
