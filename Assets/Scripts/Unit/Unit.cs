@@ -6,6 +6,10 @@ using UnityEngine.Scripting.APIUpdating;
     
 public abstract class Unit: MonoBehaviour {
 
+
+    
+    
+
     protected List<string> skillList = new List<string>();
     [SerializeField]
 
@@ -176,7 +180,7 @@ public abstract class Unit: MonoBehaviour {
         
         //check if its true damage
         if(damage == 0) {
-            if (this.isDodged(attacker))
+            if (this.isDodged(attacker) || GameSettingsManager.Instance.turnOffDodge)
             {
                 Debug.Log("HP before :" + this.hp);
                 int dmg = CalculateDamage(attacker);
@@ -187,6 +191,8 @@ public abstract class Unit: MonoBehaviour {
                 this.hp -= dmg;
                 this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
                 Debug.Log("Dealt Damage: " + dmg);
+                
+                PopUpManager.Instance.addPopUp(dmg.ToString(), this.transform);
                 Debug.Log("HP after :" + this.hp);
 
                 this.defend = false;
