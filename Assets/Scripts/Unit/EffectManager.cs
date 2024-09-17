@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EffectManager
 {
-
     private Dictionary<string, EffectInfo> effectList; 
     public Dictionary<string, EffectInfo> EFFECTLIST
     {
         get { return this.effectList; }
+        set { this.effectList = value; }
     }
 
 
@@ -18,13 +18,52 @@ public class EffectManager
     }
 
 
+    public void EffectTileAccess(Unit applyTo, EStatToEffect stat,float augment)
+    {
+        Debug.Log("In EffectTileAccess");
+        
+        // foreach (string key in applyTo.EffectManager.effectList.Keys)
+        // {
+             //float augment = applyTo.EffectManager.effectList[key].MOD;
+            //EStatToEffect stat = applyTo.EffectManager.effectList[key].STAT;
+            //Debug.Log(applyTo.EFFECTLIST[key].STAT);
+            switch (stat)
+            {
+                case EStatToEffect.ACCURACY:
+                    applyTo.AccuracyMultiplier += augment / 100;
+                    //apply
+                    applyTo.Accuracy *= applyTo.AccuracyMultiplier;
+                    
+                    break;
+                case EStatToEffect.SPEED:
+                    applyTo.SpeedMultiplier += augment / 100;
+                    //apply
+                    applyTo.Speed *= applyTo.SpeedMultiplier;
+                    break;
+                case EStatToEffect.DEFENSE:
+                    applyTo.DefenseMultiplier += augment / 100;
+                    //apply
+                    applyTo.Defense *= applyTo.DefenseMultiplier;
+                    break;
+                case EStatToEffect.ATTACK:
+                    applyTo.AttackMultiplier += augment / 100;
+                    //apply
+                    applyTo.Attack *= applyTo.AttackMultiplier;
+                    break;
+                default:
+                    Debug.Log("Invalid Effect");
+                    break;
+
+         //   }
+        }
+    }
+
     public void EffectAccess(Unit applyTo)
     {
         Debug.Log("In EffectAccess");
         
         foreach (string key in applyTo.EffectManager.effectList.Keys)
         {
-        
             float augment = applyTo.EffectManager.effectList[key].MOD;
             EStatToEffect stat = applyTo.EffectManager.effectList[key].STAT;
             //Debug.Log(applyTo.EFFECTLIST[key].STAT);
@@ -52,11 +91,10 @@ public class EffectManager
                     applyTo.Attack *= applyTo.AttackMultiplier;
                     break;
                 default:
-                    Debug.Log("Invalid");
-
+                    Debug.Log("Invalid Effect");
                     break;
 
-            }
+           }
         }
     }
 
@@ -88,7 +126,6 @@ public class EffectManager
     }
     public void EffectReset(Unit applyTo)
     {
-       
 
         applyTo.Accuracy /= applyTo.AccuracyMultiplier;
         applyTo.AccuracyMultiplier = 1;
@@ -102,7 +139,5 @@ public class EffectManager
         applyTo.Speed /= applyTo.SpeedMultiplier;
         applyTo.SpeedMultiplier = 1;
 
-
-       
     }
 }

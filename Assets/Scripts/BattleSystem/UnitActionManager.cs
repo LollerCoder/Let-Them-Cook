@@ -46,6 +46,8 @@ public class UnitActionManager : MonoBehaviour {
 
     private bool OnStart = true;
 
+    private int _affectedStatValue = 0;
+
     public int numAttack = -1; // default value
 
     // for storing the unit
@@ -74,24 +76,29 @@ public class UnitActionManager : MonoBehaviour {
                 /*Special Tile Detection*/
                 if(goalTile.gameObject.tag == "SpecialTile")
                 {
-                    Debug.Log("Special Tile detected!");
+                    Debug.Log("Special Tile detected!" + goalTile.gameObject.name);
 
                     switch(goalTile.gameObject.name)
                     {
-                        case "BuffTile":
-                        //this._unitOrder[0].SpeedMultiplier += 5;
+                        case "BuffTile(Clone)":
+                        this._unitOrder[0].EffectManager.EffectTileAccess(this._unitOrder[0],EStatToEffect.ACCURACY,2);
                         break;
 
-                        case "DebuffTile":
+                        case "DebuffTile(Clone)":
+                        this._unitOrder[0].EffectManager.EffectTileAccess(this._unitOrder[0],EStatToEffect.SPEED,-2);
                         break;
 
-                        case "RandomTile":
+                        case "RandomTile(Clone)":
+                        this._affectedStatValue = UnityEngine.Random.Range(-6,6);
+                        this._unitOrder[0].EffectManager.EffectTileAccess(this._unitOrder[0],EStatToEffect.ATTACK,this._affectedStatValue);
                         break;
 
-                        case "HazardTile":
+                        case "HazardTile(Clone)":
+                         this._unitOrder[0].HP -= 1;
                         break;
 
                         default:
+                        Debug.Log("B");
                         break;
                     }
                 }

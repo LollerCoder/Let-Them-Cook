@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EffectInfo 
 {
-    private int duration = 0;
+    private int duration = 3;
 
     public int DURATION
     {
