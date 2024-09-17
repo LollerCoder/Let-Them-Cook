@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms;
+using static UnityEngine.GraphicsBuffer;
 
 public class UnitActionManager : MonoBehaviour{
     public static UnitActionManager Instance = null;
@@ -66,6 +67,8 @@ public class UnitActionManager : MonoBehaviour{
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FOR UNIT MOVEMENT
     public void TileTapped(Tile goalTile) {
+        string bufDebufname = ""; //name
+        EffectInfo terst = new EffectInfo(0, 0, EStatToEffect.NOTSET);//effectInfo
         if (!this.hadMoved && !this.AllyOnTileGoal(goalTile) && this.OnMove) {
 
             this._path = this._pathFinding.AStarPathFinding(this._unitOrder[0].Tile,
@@ -85,13 +88,13 @@ public class UnitActionManager : MonoBehaviour{
                     switch(goalTile.gameObject.name)
                     {
                         case "BuffTile(Clone)":
-                        _skill.skillData = new EffectInfo(3,2,EStatToEffect.ACCURACY);
-                        this._eagleEye.ApplyEffect(this._unitOrder[0],this._unitOrder[0],_skill.skillData);
+                        terst = new EffectInfo(3,2,EStatToEffect.ACCURACY); //effectInfo
+                        
                         break;
 
                         case "DebuffTile(Clone)":
                         _skill.skillData = new EffectInfo(3,-2,EStatToEffect.SPEED);
-                        this._eagleEye.ApplyEffect(this._unitOrder[0],this._unitOrder[0],_skill.skillData);
+                        this._eagleEye.ApplyEffect(this._unitOrder[0],this._unitOrder[0],_skill.skillData); 
                         break;
 
                         case "RandomTile(Clone)":
@@ -109,6 +112,19 @@ public class UnitActionManager : MonoBehaviour{
                         break;
                     }
                 }
+
+
+                if (_unitOrder[0].EffectManager.EFFECTLIST.ContainsKey(bufDebufname)) //name this is just to prevent same skill effect stacking
+                {
+                    _unitOrder[0].EffectManager.EFFECTLIST[bufDebufname].DURATION = terst.DURATION;
+                    
+                }
+                else // the actual way of adding a debuff/buff to a unit the rest is already handled by UnitActionManager....Somewhere
+                {
+                    _unitOrder[0].EffectManager.EFFECTLIST.Add(bufDebufname, terst);
+                    Debug.Log("Target affected");
+                }
+
 
 
             }
