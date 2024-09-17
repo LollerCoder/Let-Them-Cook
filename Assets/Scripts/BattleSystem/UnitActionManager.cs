@@ -247,6 +247,7 @@ public class UnitActionManager : MonoBehaviour {
             this.OnMove = !this.OnMove;
 
         }
+       
         //else if (this._unitOrder[0] != selectedUnit && 
         //        selectedUnit.Type != EUnitType.Ally) {
         //    this.OverEnemy = !this.OverEnemy;
@@ -328,7 +329,7 @@ public class UnitActionManager : MonoBehaviour {
         EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.ENABLE_CLICKS);
         this.NextUnitTurn();
     }
-    private void OnAttackSelection() {
+    private void OnAttackSelection() { // OVER HERE IS WHERE YOU'LL DO HIGHLIGHT?
         if(this.numAttack == 0) {
             this.GetMeleeAttackTiles();
         }

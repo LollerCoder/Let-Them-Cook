@@ -201,6 +201,7 @@ public abstract class Unit: MonoBehaviour {
             }
             else
             {
+                PopUpManager.Instance.addPopUp("DODGE", this.transform);
                 Debug.Log("DODGE");
             }
         }
@@ -281,6 +282,7 @@ public abstract class Unit: MonoBehaviour {
         }
     }
     protected void OnMouseEnter() {
+
         UnitActionManager.Instance.UnitHover(this);
     }
 
