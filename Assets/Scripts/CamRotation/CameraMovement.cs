@@ -29,18 +29,22 @@ public class CameraMovement : MonoBehaviour
     private void ResetPosition(Parameters param) {
         Vector3 characterPos = param.GetVector3Extra(POS);
 
-        Vector3 cameraPosition = characterPos - transform.forward * 5.0f; // change the float to set different distance
+        Vector3 cameraPosition = characterPos;
 
         cameraPosition.y = this.cam.transform.position.y;
 
         this.cam.transform.position = cameraPosition;
 
-        this.cam.transform.LookAt(characterPos);
+        // set the camera's x rotation to 89 instead of exactly looking at the character (90)
+        Quaternion targetRotation = Quaternion.Euler(89f, 0f, 0f);
+        this.cam.transform.rotation = targetRotation;
+
+        //this.cam.transform.LookAt(characterPos);
 
         // override the rotationX with the new rotation so that it wont go back to the original rotation before the reset
         this.rotationX = cam.transform.localEulerAngles.x;
 
-        this.cam.fieldOfView = 60.0f; // reset to original FoV
+        this.cam.fieldOfView = 50.0f; // reset to original FoV
     }
 
     private void CameraLook() {
@@ -55,7 +59,7 @@ public class CameraMovement : MonoBehaviour
             //cam.transform.position = transform.position;
 
             rotationX += direction.y * 180;
-            rotationX = Mathf.Clamp(rotationX, 20, 80);
+            rotationX = Mathf.Clamp(rotationX, 20, 89);
 
             cam.transform.localEulerAngles = new Vector3(rotationX, cam.transform.localEulerAngles.y, cam.transform.localEulerAngles.z);
             cam.transform.Rotate(new Vector3(0, 1, 0), -direction.x * 180, Space.World);

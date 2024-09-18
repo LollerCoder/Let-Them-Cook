@@ -132,6 +132,11 @@ public class BattleUI : MonoBehaviour {
     }
 
     public void NextCharacterAvatar(Unit unit) {
+        Parameters param = new Parameters();
+        param.PutExtra("POS", unit.transform.position);
+
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.ON_AVATAR_CLICK, param); // remember to change the name for this event --
+
         this.characterAvatar.image.sprite = unit.GetComponent<SpriteRenderer>().sprite;
 
         // reset the values in the array

@@ -8,11 +8,16 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms;
+using static UnityEngine.GraphicsBuffer;
 
-public class UnitActionManager : MonoBehaviour {
+public class UnitActionManager : MonoBehaviour{
     public static UnitActionManager Instance = null;
 
     private EBattleScene _battleScene;
+
+    private Skill _skill;
+
+    private EagleEye _eagleEye;
 
     [SerializeField]
     private float speed;
@@ -64,6 +69,8 @@ public class UnitActionManager : MonoBehaviour {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //FOR UNIT MOVEMENT
     public void TileTapped(Tile goalTile) {
+        string bufDebufname = ""; //name
+        EffectInfo terst = new EffectInfo(0, 0, EStatToEffect.NOTSET);//effectInfo
         if (!this.hadMoved && !this.AllyOnTileGoal(goalTile) && this.OnMove) {
 
             this._path = this._pathFinding.AStarPathFinding(this._unitOrder[0].Tile,
@@ -83,20 +90,26 @@ public class UnitActionManager : MonoBehaviour {
                     switch(goalTile.gameObject.name)
                     {
                         case "BuffTile(Clone)":
-                        this._unitOrder[0].EffectManager.EffectTileAccess(this._unitOrder[0],EStatToEffect.ACCURACY,2);
+                        terst = new EffectInfo(3,2,EStatToEffect.ACCURACY); //effectInfo
+                        bufDebufname = "BuffTile";
+                        
                         break;
 
                         case "DebuffTile(Clone)":
-                        this._unitOrder[0].EffectManager.EffectTileAccess(this._unitOrder[0],EStatToEffect.SPEED,-2);
+                        terst = new EffectInfo(3,-2,EStatToEffect.SPEED);
+                        // this._eagleEye.ApplyEffect(this._unitOrder[0],this._unitOrder[0],_skill.skillData); 
+                        bufDebufname = "DebuffTile";
                         break;
 
                         case "RandomTile(Clone)":
                         this._affectedStatValue = UnityEngine.Random.Range(-6,6);
-                        this._unitOrder[0].EffectManager.EffectTileAccess(this._unitOrder[0],EStatToEffect.ATTACK,this._affectedStatValue);
+                        terst = new EffectInfo(3,this._affectedStatValue,EStatToEffect.ATTACK);
+                        bufDebufname = "RandomTile";
+                        // this._eagleEye.ApplyEffect(this._unitOrder[0],this._unitOrder[0],_skill.skillData);
                         break;
 
                         case "HazardTile(Clone)":
-                         this._unitOrder[0].HP -= 1;
+                        this._unitOrder[0].HP -= 1;
                         break;
 
                         default:
@@ -104,6 +117,19 @@ public class UnitActionManager : MonoBehaviour {
                         break;
                     }
                 }
+
+
+                if (_unitOrder[0].EffectManager.EFFECTLIST.ContainsKey(bufDebufname)) //name this is just to prevent same skill effect stacking
+                {
+                    _unitOrder[0].EffectManager.EFFECTLIST[bufDebufname].DURATION = terst.DURATION;
+                    
+                }
+                else // the actual way of adding a debuff/buff to a unit the rest is already handled by UnitActionManager....Somewhere
+                {
+                    _unitOrder[0].EffectManager.EFFECTLIST.Add(bufDebufname, terst);
+                    Debug.Log("Target affected");
+                }
+
 
 
             }

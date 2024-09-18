@@ -10,10 +10,8 @@ public class TileHover : MonoBehaviour {
             Tile tile = Tile.GetComponent<Tile>();
             if (tile != null) {
                 this.transform.position = new Vector3(tile.transform.position.x, 
-                    tile.transform.position.y + 0.55f, 
+                    tile.transform.position.y + 0.55f, // set it just above the tile
                     tile.transform.position.z);
-
-                Debug.Log("Hit");
             }
         }
     }
@@ -24,7 +22,9 @@ public class TileHover : MonoBehaviour {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity)) {
+        int ignoreLayer = ~LayerMask.GetMask("Units"); // ignore the unit layer
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ignoreLayer)) {
             hitTile = hit.collider.gameObject;
         }
 
