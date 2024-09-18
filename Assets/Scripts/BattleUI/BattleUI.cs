@@ -24,12 +24,7 @@ public class BattleUI : MonoBehaviour {
     private bool skillShow = false;
     private bool actionShow = false;
 
-    public bool OnAttack0 = false;
-    public bool OnAttack1 = false;
-    public bool OnAttack2 = false;
-    public bool OnAttack3 = false;
-    public bool OnAttack4 = false;
-
+    private bool[] attackNum = { false, false, false, false, false };
     private bool[] skillSlots = { false, false, false, false, false };
     private void Start() {
         this._unitStats = this.GetComponentInChildren<UnitStats>();
@@ -62,48 +57,35 @@ public class BattleUI : MonoBehaviour {
             if (UnitActionManager.Instance.OnAttack) {
                 UnitActionManager.Instance.OnAttack = false;
             }
-
-            if (UnitActionManager.Instance.OnHeal) {
-                UnitActionManager.Instance.OnHeal = false;
+            else {
+                this.ResetActions();
+                UnitActionManager.Instance.OnAttack = true;
             }
-
-            if (UnitActionManager.Instance.OnMove) {
-                UnitActionManager.Instance.OnMove = false;
-            }
-
-            if (UnitActionManager.Instance.OnDefend) {
-                UnitActionManager.Instance.OnDefend = false;
-            }
-
-
             this.ToggleSkillBox();
         }
     }
     public void OnHeal() {
         if (!UnitActionManager.Instance.hadHealed) {
-            UnitActionManager.Instance.OnHeal = !UnitActionManager.Instance.OnHeal;
-            if (UnitActionManager.Instance.OnAttack) {
-                UnitActionManager.Instance.OnAttack = false;
-
+            if (UnitActionManager.Instance.OnHeal) {
+                UnitActionManager.Instance.OnHeal = false;
             }
-
-            if (UnitActionManager.Instance.OnMove) {
-                UnitActionManager.Instance.OnMove = false;
+            else {
+                this.ResetActions();
+                UnitActionManager.Instance.OnHeal = true;
             }
         }
     }
     public void OnDefend() {
         if (!UnitActionManager.Instance.hadDefend) {
-            UnitActionManager.Instance.OnDefend = !UnitActionManager.Instance.OnDefend;
-            UnitActionManager.Instance.UnitDefend();
-
-            if (UnitActionManager.Instance.OnAttack) {
-                UnitActionManager.Instance.OnAttack = false;
+            if (UnitActionManager.Instance.OnDefend) {
+                UnitActionManager.Instance.OnDefend = false;
             }
-
-            if (UnitActionManager.Instance.OnHeal) {
-                UnitActionManager.Instance.OnHeal = false;
+            else {
+                this.ResetActions();
+                UnitActionManager.Instance.OnDefend = true;
             }
+            //UnitActionManager.Instance.UnitDefend();
+            UnitActions.UnitDefend();
         }
     }
 
@@ -124,6 +106,7 @@ public class BattleUI : MonoBehaviour {
 
     private IEnumerator CloseUI(float seconds) {
         yield return new WaitForSeconds(seconds);
+
         UnitActionManager.Instance.OnAttack = false;
         UnitActionManager.Instance.OnHeal = false;
         UnitActionManager.Instance.OnMove = false;
@@ -154,6 +137,10 @@ public class BattleUI : MonoBehaviour {
         this.AssignSprites(unit);
 
         this._unitStats.SetUnitStats(unit);
+
+        if(unit.Type == EUnitType.Ally) {
+            this.ToggleActionBox();
+        }
     }
 
     private void AssignSprites(Unit unit) {   // also where gettng the name of the skills
@@ -171,135 +158,43 @@ public class BattleUI : MonoBehaviour {
         }
     }
 
-    public void OnBasicAttack() {
-        if (this.skillSlots[0] == true) {
-            if (this.OnAttack1 ||
-                this.OnAttack2 ||
-                this.OnAttack3 ||
-                this.OnAttack4) {
-
-                this.OnAttack0 = true;
-                this.OnAttack1 = false;
-                this.OnAttack2 = false;
-                this.OnAttack3 = false;
-                this.OnAttack4 = false;
-                UnitActionManager.Instance.OnAttack = true;
-            }
-            else if (!this.OnAttack0) {
-                this.OnAttack0 = true;
-                UnitActionManager.Instance.OnAttack = true;
-            }
-            else {
-                this.OnAttack0 = false;
-                UnitActionManager.Instance.OnAttack = false;
+    private void AttackState(int num) {
+        if (this.skillSlots[num] == true) {
+            if (this.attackNum[num] == true) {   // if the same skill is selected twice, unselect it
+                this.attackNum[num] = false;
+                UnitActionManager.Instance.numAttack = -1;  // default value (no skill is selected)
+                return;
             }
 
-            UnitActionManager.Instance.numAttack = 0;
+            for(int i = 0; i < this.attackNum.Length; i++) {   // reset everything
+                this.attackNum[num] = false;          
+            }
+
+            this.attackNum[num] = true;
+
+            UnitActionManager.Instance.OnAttack = true;
+            UnitActionManager.Instance.numAttack = num;
+        }
+        else {
+            UnitActionManager.Instance.OnAttack = false;
         }
 
+    }
+
+    public void OnBasicAttack() {
+        this.AttackState(0);
     }
     public void OnSkill1() {
-        if (this.skillSlots[1] == true) {
-            if (this.OnAttack0 ||
-                this.OnAttack2 ||
-                this.OnAttack3 || 
-                this.OnAttack4) {
-
-                this.OnAttack0 = false;
-                this.OnAttack1 = true;
-                this.OnAttack2 = false;
-                this.OnAttack3 = false;
-                this.OnAttack4 = false;
-                UnitActionManager.Instance.OnAttack = true;
-            }
-            else if(!this.OnAttack1){
-                this.OnAttack1 = true;
-                UnitActionManager.Instance.OnAttack = true;
-            }
-            else {
-                this.OnAttack1 = false;
-                UnitActionManager.Instance.OnAttack = false;
-            }
-            
-            UnitActionManager.Instance.numAttack = 1;
-        }
+        this.AttackState(1);
     }
     public void OnSkill2() {
-        if (this.skillSlots[2] == true) {
-            if (this.OnAttack0 ||
-                this.OnAttack1 ||
-                this.OnAttack3 ||
-                this.OnAttack4) {
-
-                this.OnAttack0 = false;
-                this.OnAttack1 = false;
-                this.OnAttack2 = true;
-                this.OnAttack3 = false;
-                this.OnAttack4 = false;
-                UnitActionManager.Instance.OnAttack = true;
-            }
-            else if (!this.OnAttack2) {
-                this.OnAttack2 = true;
-                UnitActionManager.Instance.OnAttack = true;
-            }
-            else {
-                this.OnAttack2 = false;
-                UnitActionManager.Instance.OnAttack = false;
-            }
-            UnitActionManager.Instance.numAttack = 2;
-        }
+        this.AttackState(2);
     }
     public void OnSkill3() {
-        if (this.skillSlots[3] == true) {
-            if (this.OnAttack0 ||
-                this.OnAttack1 ||
-                this.OnAttack2 ||
-                this.OnAttack4) {
-
-                this.OnAttack0 = false;
-                this.OnAttack1 = false;
-                this.OnAttack2 = false;
-                this.OnAttack3 = true;
-                this.OnAttack4 = false;
-                UnitActionManager.Instance.OnAttack = true;
-            }
-            else if (!this.OnAttack3) {
-                this.OnAttack3 = true;
-                UnitActionManager.Instance.OnAttack = true;
-            }
-            else {
-                this.OnAttack3 = false;
-                UnitActionManager.Instance.OnAttack = false;
-            }
-            
-            UnitActionManager.Instance.numAttack = 3;
-        }
+        this.AttackState(3);
     }
     public void OnSkill4() {
-        if (this.skillSlots[4] == true) {
-            if (this.OnAttack0 ||
-                this.OnAttack1 ||
-                this.OnAttack2 ||
-                this.OnAttack3) {
-
-
-                this.OnAttack0 = false;
-                this.OnAttack1 = false;
-                this.OnAttack2 = false;
-                this.OnAttack3 = false;
-                this.OnAttack4 = true;
-                UnitActionManager.Instance.OnAttack = true;
-            }
-            else if (!this.OnAttack4) {
-                this.OnAttack4 = true;
-                UnitActionManager.Instance.OnAttack = true;
-            }
-            else {
-                this.OnAttack4 = false;
-                UnitActionManager.Instance.OnAttack = false;
-            }
-            UnitActionManager.Instance.numAttack = 4;
-        }
+        this.AttackState(4);
     }
 
     public void UpdateTurnOrder(List<Unit> unitOrder) {
@@ -320,6 +215,13 @@ public class BattleUI : MonoBehaviour {
 
     public void EndScreen(int scenario) {
 
+    }
+
+    private void ResetActions() {
+        UnitActionManager.Instance.OnAttack = false;
+        UnitActionManager.Instance.OnDefend = false;
+        UnitActionManager.Instance.OnHeal = false;
+        UnitActionManager.Instance.OnMove = false;
     }
 
 }
