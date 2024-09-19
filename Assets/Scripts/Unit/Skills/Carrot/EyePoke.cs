@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EyePoke : Skill, IEffectable
+public class EyePoke : Skill
 {
     private int sucessChance = 70;
    
@@ -31,27 +31,16 @@ public class EyePoke : Skill, IEffectable
 
 
 
-    public void ApplyEffect(Unit target, Unit origin, EffectInfo fInfo)
-    {
-        if (target.EffectManager.EFFECTLIST.ContainsKey(this.skillName))
-        {
-            target.EffectManager.EFFECTLIST[this.skillName].DURATION = this.skillData.DURATION;
-        }
-        else
-        {
-            target.EffectManager.EFFECTLIST.Add(this.skillName, fInfo);
-            Debug.Log("Target affected");
-        }
-
-    }
+    
     public override void SkillAction(Unit target, Unit origin)
     {
         
         Unit appliedTo = target.GetComponent<Unit>();
         if (Random.Range(1, 100) < sucessChance)
         {
-            this.ApplyEffect(target, origin, skillData);
+            target.EffectManager.ApplyEffect(target, origin, this.skillName, this.skillData.DURATION);
             target.TakeDamage(0, origin);
+            
         }
         else
         {
