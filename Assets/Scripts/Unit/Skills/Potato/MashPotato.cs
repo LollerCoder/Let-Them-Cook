@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class MashPotato : Skill, IEffectable
+public class MashPotato : Skill
 {
     
 
@@ -44,36 +44,7 @@ public class MashPotato : Skill, IEffectable
 
 
 
-    public void ApplyEffect(Unit target, Unit origin, EffectInfo fInfo)
-    {
-        switch (x)
-        {
-            case 0:
-                if (target.EffectManager.EFFECTLIST.ContainsKey(this.skillName))
-                {
-                    target.EffectManager.EFFECTLIST[this.skillName + "defense"].DURATION = this.skillData.DURATION;
-                }
-                else
-                {
-                    target.EffectManager.EFFECTLIST.Add(this.skillName + "defense", fInfo);
-                    Debug.Log("Target affected");
-                }
-                break;
-            case 1:
-                if (target.EffectManager.EFFECTLIST.ContainsKey(this.skillName))
-                {
-                    target.EffectManager.EFFECTLIST[this.skillName + "attack"].DURATION = this.skillData2.DURATION;
-                }
-                else
-                {
-                    target.EffectManager.EFFECTLIST.Add(this.skillName + "attack", fInfo);
-                    Debug.Log("Target affected");
-                }
-                break;
-        }
-        
-
-    }
+   
     public override void SkillAction(Unit target, Unit origin)
     {
         
@@ -83,9 +54,11 @@ public class MashPotato : Skill, IEffectable
         Unit appliedTo = target.GetComponent<Unit>();
         if (Random.Range(1, 100) < sucessChance)
         {
-            this.ApplyEffect(target, origin, this.skillData);
+           
+            target.EffectManager.ApplyEffect(target, origin, this.skillName + "defense", this.skillData.DURATION);
             x++;
-            this.ApplyEffect(target, origin, this.skillData2);
+            
+            target.EffectManager.ApplyEffect(target, origin, this.skillName + "attack", this.skillData2.DURATION);
         }
         else
         {
