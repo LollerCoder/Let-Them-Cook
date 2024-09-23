@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-public class SPEED : Skill, IEffectable
+public class SPEED : Skill
 {
 
     private EffectInfo skillData2;
@@ -40,36 +40,7 @@ public class SPEED : Skill, IEffectable
 
 
 
-    public void ApplyEffect(Unit target, Unit origin, EffectInfo fInfo)
-    {
-        switch (x)
-        {
-            case 0:
-                if (target.EffectManager.EFFECTLIST.ContainsKey(this.skillName))
-                {
-                    target.EffectManager.EFFECTLIST[this.skillName + "attack"].DURATION = this.skillData.DURATION;
-                }
-                else
-                {
-                    target.EffectManager.EFFECTLIST.Add(this.skillName + "attack", fInfo);
-                    Debug.Log("Target affected");
-                }
-                break;
-            case 1:
-                if (target.EffectManager.EFFECTLIST.ContainsKey(this.skillName))
-                {
-                    target.EffectManager.EFFECTLIST[this.skillName + "speed"].DURATION = this.skillData2.DURATION;
-                }
-                else
-                {
-                    target.EffectManager.EFFECTLIST.Add(this.skillName + "speed", fInfo);
-                    Debug.Log("Target affected");
-                }
-                break;
-        }
-
-
-    }
+    
     public override void SkillAction(Unit target, Unit origin)
     {
         
@@ -79,9 +50,10 @@ public class SPEED : Skill, IEffectable
         Unit appliedTo = target.GetComponent<Unit>();
         if (Random.Range(1, 100) < sucessChance)
         {
-            this.ApplyEffect(target, origin, skillData);
+            target.EffectManager.ApplyEffect(target, origin, this.skillName + "defense", this.skillData.DURATION);
             x++;
-            this.ApplyEffect(target, origin, skillData2);
+
+            target.EffectManager.ApplyEffect(target, origin, this.skillName + "attack", this.skillData2.DURATION);
         }
         else
         {

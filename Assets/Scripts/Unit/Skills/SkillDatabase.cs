@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class SkillDatabase : MonoBehaviour
 {
     //SINGLETON
+    
     public static SkillDatabase Instance;
 
     public void Awake()
@@ -51,5 +53,51 @@ public class SkillDatabase : MonoBehaviour
            
             skillDatabase[name].SkillAction(target, Origin);
         }
+    }
+
+    public Skill findSkill(string name)
+    {
+        Skill skillToReturn = null;
+        if (skillDatabase.ContainsKey(name))
+        {
+
+            skillToReturn = skillDatabase[name];
+            
+        }
+
+        return skillToReturn;
+       
+    }
+    public void addSkill(EffectInfo effects, string skillName) //////Mainly for adding tile effects and the like
+    {
+        if (!skillDatabase.ContainsKey(skillName)) //just add the tile in
+        {
+            Skill toAdd = new Skill(effects);
+            skillDatabase.Add(skillName, toAdd);
+           
+        }
+
+        else if(skillName == "RandomTile")// you can only be debuff by tiles once, might have to change.
+        {
+            List<string> toDelete = new List<string>();
+            
+                foreach (string key in skillDatabase.Keys)
+                {
+
+                   if(key == "RandomTile")
+                    {
+                        toDelete.Add(key);
+                    }
+                }
+            
+            foreach (string keyDelete in toDelete)
+            {
+                skillDatabase.Remove(keyDelete);
+            }
+            Skill toAdd = new Skill(effects);
+            skillDatabase.Add(skillName, toAdd);
+        }
+
+        Debug.Log(skillDatabase.Count);
     }
 }

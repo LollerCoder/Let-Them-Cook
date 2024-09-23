@@ -51,7 +51,7 @@ public class Carrot : Unit{
         this.skillList.Add("TripUp");
         this.skillList.Add("EagleEye");
 
-        Debug.Log("There are " + this.skillList.Count + " SKills");
+        
 
         this.charName = "Carrot";
         this.ingredientType = EIngredientType.CARROT;
