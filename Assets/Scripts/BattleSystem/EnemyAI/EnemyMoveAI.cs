@@ -8,13 +8,13 @@ namespace EnemyAI
     public class EnemyMoveAI
     {
 
-        private PathFinding _pathFinding;
-        private Range _showRange;
+        //private PathFinding _pathFinding;
+        //private Range _showRange;
 
         public EnemyMoveAI()
         {
-            this._pathFinding = new PathFinding();
-            this._showRange = new Range();
+            ///this._pathFinding = new PathFinding();
+            //this._showRange = new Range();
         }
 
         public List<Tile> MoveEnemy(Unit _currentUnit, Unit targetUnit)
@@ -24,9 +24,9 @@ namespace EnemyAI
             UnitActionManager.Instance.OnMove = true;
 
 
-            List<Tile> path = this._pathFinding.AStarPathFinding(_currentUnit.Tile,
+            List<Tile> path = PathFinding.AStarPathFinding(_currentUnit.Tile,
                              targetUnit.Tile,
-                             this._showRange.GetTilesInMovement(_currentUnit.Tile,
+                             Range.GetTilesInMovement(_currentUnit.Tile,
                                                              100)
                              );
             path.RemoveAt(path.Count - 1);

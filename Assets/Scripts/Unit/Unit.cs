@@ -289,16 +289,18 @@ public abstract class Unit: MonoBehaviour {
         }
     }
     protected void OnMouseEnter() {
-
-        UnitActionManager.Instance.UnitHover(this);
+        UnitActions.UnitHover(this);
+        //UnitActionManager.Instance.UnitHover(this);
     }
 
     protected void OnMouseExit() {
-        UnitActionManager.Instance.UnitHover(this);
+        UnitActions.UnitHover(this);
+        //UnitActionManager.Instance.UnitHover(this);
     }
 
     protected void OnMouseUp() {
-        UnitActionManager.Instance.UnitSelect(this);
+        UnitActions.UnitSelect(this);
+        //UnitActionManager.Instance.UnitSelect(this);
     }
 
     protected virtual void Start() {

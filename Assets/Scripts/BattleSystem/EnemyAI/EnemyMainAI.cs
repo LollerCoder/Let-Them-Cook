@@ -13,8 +13,8 @@ namespace EnemyAI
         //private List<Unit> _EnemyUnits = new List<Unit>();
         private List<Unit> _AllyUnits = new List<Unit>();
 
-        private PathFinding _pathFinding;
-        private Range _showRange;
+        //private PathFinding _pathFinding;
+        //private Range _showRange;
 
         //AI components
         private EnemyMoveAI _moveAI;
@@ -22,8 +22,8 @@ namespace EnemyAI
 
         public EnemyMainAI(List<Unit> units)
         {
-            this._pathFinding = new PathFinding();
-            this._showRange = new Range();
+            //this._pathFinding = new PathFinding();
+            //this._showRange = new Range();
 
             this._moveAI = new EnemyMoveAI();
             this._attackAI = new EnemyAttackAI();
@@ -98,7 +98,7 @@ namespace EnemyAI
 
             Debug.Log("enter enemyunityaction");
 
-            List<Tile> inRangeTiles = this._showRange.GetTilesInAttackMelee(
+            List<Tile> inRangeTiles = Range.GetTilesInAttackMelee(
                 this._CurrentEnemyUnit.Tile, 
                 this._CurrentEnemyUnit.BasicRange
                 );
