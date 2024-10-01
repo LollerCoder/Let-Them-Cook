@@ -127,6 +127,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 740032863754657875, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 740032863754657875, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1088408925908182974, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
       propertyPath: m_Name
       value: Ally Unit 2
@@ -219,6 +227,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 740032863754657875, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 740032863754657875, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1088408925908182974, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
       propertyPath: m_Name
       value: Ally Unit 3
@@ -280,6 +296,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 740032863754657875, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 740032863754657875, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1088408925908182974, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
       propertyPath: m_Name
       value: Ally Unit 1
@@ -779,6 +803,7 @@ MonoBehaviour:
   speed: 9
   _battleUI: {fileID: 331831667}
   Selected: 0
+  numAttack: -1
   hadMoved: 0
   hadAttacked: 0
   hadHealed: 0
@@ -787,7 +812,6 @@ MonoBehaviour:
   OnHeal: 0
   OnMove: 0
   OnDefend: 0
-  numAttack: -1
 --- !u!1 &1452340463
 GameObject:
   m_ObjectHideFlags: 0

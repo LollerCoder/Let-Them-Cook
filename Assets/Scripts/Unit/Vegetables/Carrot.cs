@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+
+using UnityEngine.UI;
 
 public class Carrot : Unit{
     [SerializeField]
     private Sprite carrot;
 
     public bool ondefend = false;
+
+    [SerializeField]
+    public GameObject hpBar;
     
     public override void UnitAttack(Unit unit2) {
         
@@ -24,6 +28,8 @@ public class Carrot : Unit{
 
     private void Update() {
         this.ondefend = this.defend;
+        hpBar.GetComponentInChildren<Slider>().maxValue = this.maxhp;
+        hpBar.GetComponentInChildren<Slider>().value = this.hp;
     }
 
     protected override void HandleDeath() {
@@ -65,5 +71,6 @@ public class Carrot : Unit{
 
         UnitActionManager.Instance.StoreUnit(this);
 
+        
     }
 }

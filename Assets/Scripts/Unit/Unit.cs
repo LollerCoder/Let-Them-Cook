@@ -265,7 +265,7 @@ public abstract class Unit: MonoBehaviour {
         Debug.Log($"New HP: {this.hp}");
         target.HandleEaten();
     }
-
+        
     public void Heal()
     {
         this.hp += 4;
