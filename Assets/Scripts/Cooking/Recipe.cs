@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public struct IngredientsList
+public struct IngredientAmount
 {
     public EIngredientType type;
     public int amount;
@@ -16,21 +16,21 @@ public class Recipe
     [SerializeField]
     public string Name;
     [SerializeField]
-    public List<IngredientsList> IngredientsNeeded;
+    public List<IngredientAmount> IngredientsNeeded;
 
     public Recipe()
     {
         Name = "Empty";
         foreach (EIngredientType type in Enum.GetValues(typeof(EIngredientType)))
         {
-            IngredientsList toAdd = new IngredientsList();
+            IngredientAmount toAdd = new IngredientAmount();
             toAdd.type = type;
             toAdd.amount = 0;
             IngredientsNeeded.Add(toAdd);
         }
     }
 
-    public Recipe(string name, List<IngredientsList> ingredientsNeeded)
+    public Recipe(string name, List<IngredientAmount> ingredientsNeeded)
     {
         Name = name;
         if (ingredientsNeeded.Count == Enum.GetValues(typeof(EIngredientType)).Length)
@@ -42,9 +42,9 @@ public class Recipe
     }
 
     //will add the unadded ingredients as zero
-    private List<IngredientsList> FillInMissingIngredients (List<IngredientsList> ingAdded)
+    private List<IngredientAmount> FillInMissingIngredients (List<IngredientAmount> ingAdded)
     {
-        IngredientsList ingListToAdd = new IngredientsList();
+        IngredientAmount ingListToAdd = new IngredientAmount();
 
         foreach (EIngredientType type in Enum.GetValues(typeof(EIngredientType)))
         {
@@ -59,11 +59,16 @@ public class Recipe
         return ingAdded;
     }
 
-    private bool IsIngredientInRecipe(EIngredientType type, List<IngredientsList> ingredientsAdded)
+    public void FillInMissingIngredients()
+    {
+        this.IngredientsNeeded = this.FillInMissingIngredients(this.IngredientsNeeded);
+    }
+
+    private bool IsIngredientInRecipe(EIngredientType type, List<IngredientAmount> ingredientsAdded)
     {
         bool isIn = false;
 
-        foreach(IngredientsList ingList in ingredientsAdded)
+        foreach(IngredientAmount ingList in ingredientsAdded)
         {
             if (ingList.type == type) isIn = true;
         }
@@ -74,7 +79,7 @@ public class Recipe
     public void PrintIngredients()
     {
         Debug.Log("Recipe for " + this.Name);
-        foreach(IngredientsList ingList in this.IngredientsNeeded)
+        foreach(IngredientAmount ingList in this.IngredientsNeeded)
         {
             Debug.Log(ingList.type + " = " + ingList.amount);
         }
