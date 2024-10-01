@@ -6,11 +6,7 @@ using UnityEngine.UI;
 
 public class BattleUI : MonoBehaviour {
     [SerializeField]
-    private Button characterAvatar;
-    [SerializeField]
-    private Image SkillBox;
-    [SerializeField]
-    private GameObject ActionBox;
+    private Image AttackBox;
     [SerializeField]
     private List<Sprite> attackSprites;
 
@@ -21,18 +17,18 @@ public class BattleUI : MonoBehaviour {
 
     private UnitStats _unitStats;
 
-    private bool skillShow = false;
     private bool actionShow = false;
 
     private bool[] attackNum = { false, false, false, false, false };
     private bool[] skillSlots = { false, false, false, false, false };
     private void Start() {
-        this._unitStats = this.GetComponentInChildren<UnitStats>();
+        //this._unitStats = this.GetComponentInChildren<UnitStats>();
 
-        if(this._unitStats == null) {
-            Debug.Log("ERROR: UNITSTATS CANNOT BE FOUND (BATTLEUI.CS, START() )");
-        }
+        //if(this._unitStats == null) {
+        //    Debug.Log("ERROR: UNITSTATS CANNOT BE FOUND (BATTLEUI.CS, START() )");
+        //}
 
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX, this.ToggleActionBox);
         
     }
 
@@ -43,65 +39,15 @@ public class BattleUI : MonoBehaviour {
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.ON_AVATAR_CLICK, param);
     }
-    public void ToggleSkillBox() {
-        this.skillShow = !this.skillShow;
-        this.SkillBox.GetComponent<Animator>().SetBool("Show", this.skillShow);
-    }
 
     public void ToggleActionBox() {
         this.actionShow = !this.actionShow;
-        this.ActionBox.GetComponent<Animator>().SetBool("Show", this.actionShow);
-    }
-    public void OnAttack() {
-        if (!UnitActionManager.Instance.hadAttacked) {
-            if (UnitActionManager.Instance.OnAttack) {
-                UnitActionManager.Instance.OnAttack = false;
-            }
-            else {
-                this.ResetActions();
-                UnitActionManager.Instance.OnAttack = true;
-            }
-            this.ToggleSkillBox();
-        }
-    }
-    public void OnHeal() {
-        if (!UnitActionManager.Instance.hadHealed) {
-            if (UnitActionManager.Instance.OnHeal) {
-                UnitActionManager.Instance.OnHeal = false;
-            }
-            else {
-                this.ResetActions();
-                UnitActionManager.Instance.OnHeal = true;
-            }
-        }
-    }
-    public void OnDefend() {
-        if (!UnitActionManager.Instance.hadDefend) {
-            if (UnitActionManager.Instance.OnDefend) {
-                UnitActionManager.Instance.OnDefend = false;
-            }
-            else {
-                this.ResetActions();
-                UnitActionManager.Instance.OnDefend = true;
-            }
-            //UnitActionManager.Instance.UnitDefend();
-            UnitActions.UnitDefend();
-        }
+        this.AttackBox.GetComponent<Animator>().SetBool("Show", this.actionShow);
     }
 
     public void OnEndTurn() {
-        if (!UnitActionManager.Instance.OnAttack &&
-            !UnitActionManager.Instance.OnHeal &&
-            !UnitActionManager.Instance.OnMove) {
-            this.ToggleActionBox();
-
-            if (this.skillShow) {
-                this.ToggleSkillBox();
-            }
-            
-            this.StartCoroutine(this.CloseUI(1.5f));
-
-        }
+        this.ToggleActionBox();
+        this.StartCoroutine(this.CloseUI(1.5f));
     }
 
     private IEnumerator CloseUI(float seconds) {
@@ -115,12 +61,7 @@ public class BattleUI : MonoBehaviour {
     }
 
     public void NextCharacterAvatar(Unit unit) {
-        Parameters param = new Parameters();
-        param.PutExtra("POS", unit.transform.position);
-
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.ON_AVATAR_CLICK, param); // remember to change the name for this event --
-
-        this.characterAvatar.image.sprite = unit.GetComponent<SpriteRenderer>().sprite;
+        
 
         // reset the values in the array
 
@@ -136,11 +77,8 @@ public class BattleUI : MonoBehaviour {
         }
         this.AssignSprites(unit);
 
-        this._unitStats.SetUnitStats(unit);
+        //this._unitStats.SetUnitStats(unit);
 
-        if(unit.Type == EUnitType.Ally) {
-            this.ToggleActionBox();
-        }
     }
 
     private void AssignSprites(Unit unit) {   // also where gettng the name of the skills
@@ -198,8 +136,8 @@ public class BattleUI : MonoBehaviour {
     }
 
     public void UpdateTurnOrder(List<Unit> unitOrder) {
-
-        for(int i = 0; i < 3; i++) {
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.ON_AVATAR_CLICK); // remember to change the name for this event --
+        for (int i = 0; i < 3; i++) {
             this.Turn[i].sprite = unitOrder[i].GetComponent<SpriteRenderer>().sprite;
         }
 
@@ -219,7 +157,6 @@ public class BattleUI : MonoBehaviour {
 
     private void ResetActions() {
         UnitActionManager.Instance.OnAttack = false;
-        UnitActionManager.Instance.OnDefend = false;
         UnitActionManager.Instance.OnHeal = false;
         UnitActionManager.Instance.OnMove = false;
     }

@@ -1,22 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public static class UnitActions {
     private static bool mouseOnUnit = false;
+    private static Tile currentTile;
+    private static Vector3 currentTilePos;
+    private static Tile goalTile;
+    public static bool selectFlag = false;
 
     ///////////////////////////////////////////////////////
+    public static void SetCurrentTile(Tile Tile, float y) {
+        currentTile = Tile;
+        currentTilePos = new Vector3(currentTile.transform.position.x, y, currentTile.transform.position.z);
+    }
     public static void UnitHover(Unit selectedUnit) {
-        Unit currentUnit = UnitActionManager.Instance.unitOrder[0];
+        Unit currentUnit = UnitActionManager.Instance.GetUnit();
         if (currentUnit == selectedUnit
             && currentUnit.Type == EUnitType.Ally
             && !UnitActionManager.Instance.Selected
             && !UnitActionManager.Instance.OnAttack
             && !UnitActionManager.Instance.OnHeal
-            && !UnitActionManager.Instance.OnDefend) {
+            ) {
 
             UnitActionManager.Instance.OnMove = !UnitActionManager.Instance.OnMove;
-            mouseOnUnit = !mouseOnUnit;
+            //mouseOnUnit = !mouseOnUnit;
         }
 
         //else if (this._unitOrder[0] != selectedUnit && 
@@ -30,33 +39,40 @@ public static class UnitActions {
         //}
     }
     public static void UnSelectUnit() {
-        if (UnitActionManager.Instance.OnMove && UnitActionManager.Instance.Selected) {
-            if (!mouseOnUnit) {
-                UnitActionManager.Instance.OnMove = false;
+        if (UnitActionManager.Instance.Selected && !UnitActionManager.Instance.Moving && !UnitActionManager.Instance.OnAttack) {
+            UnitActionManager.Instance.OnMove = false;
+
+            if (UnitActionManager.Instance.hadMoved) {
+                EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
             }
-            else {
-                UnitActionManager.Instance.OnMove = true;
-            }
-            
+
             UnitActionManager.Instance.Selected = false;
-            UnitActionManager.Instance.unitOrder[0].OnMove(false);
+            UnitActionManager.Instance.hadMoved = false;
+            UnitActionManager.Instance.GetUnit().OnMove(false);
+            UnitActionManager.Instance.GetUnit().transform.position = currentTilePos;
+            UnitActionManager.Instance.GetUnit().Tile = currentTile;
+
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.ON_AVATAR_CLICK);
+
+            selectFlag = false;
         }
     }
     public static void UnitSelect(Unit selectedUnit) {
-        if (UnitActionManager.Instance.unitOrder[0] == selectedUnit
+        if (UnitActionManager.Instance.GetUnit() == selectedUnit
             && !UnitActionManager.Instance.hadMoved
             && !UnitActionManager.Instance.OnAttack
             && !UnitActionManager.Instance.OnHeal
-            && !UnitActionManager.Instance.OnDefend) {
+            && !selectFlag) {
 
+            
             UnitActionManager.Instance.Selected = true;
 
             UnitActionManager.Instance.OnMove = true;
             UnitActionManager.Instance.OnAttack = false;
             UnitActionManager.Instance.OnHeal = false;
-            UnitActionManager.Instance.OnDefend = false;
 
-            UnitActionManager.Instance.unitOrder[0].OnMove(true);
+            UnitActionManager.Instance.GetUnit().OnMove(true);
+
             return;
         }
 
@@ -70,18 +86,22 @@ public static class UnitActions {
         }
     }
 
-    ///////////////////////////////////////////////////////
-    public static void UnitDefend() { 
-        UnitActionManager.Instance.unitOrder[0].OnDefend();
-
-        UnitActionManager.Instance.hadAttacked = true;
-        UnitActionManager.Instance.hadMoved = true;
-        UnitActionManager.Instance.hadHealed = true;
-        UnitActionManager.Instance.OnDefend = false;
-        UnitActionManager.Instance.hadDefend = true;
+    public static void ConfirmMove() {
+        if (UnitActionManager.Instance.Selected && !UnitActionManager.Instance.Moving && !UnitActionManager.Instance.OnAttack) {
+            UnitActionManager.Instance.hadMoved = true;
+            UnitActionManager.Instance.OnMove = false;
+            UnitActionManager.Instance.OnAttack = true;
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
+            UnitActionManager.Instance.GetUnit().OnMove(false);
+            Range.UnHighlightTiles();
+            selectFlag = false;
+            UnitActionManager.Instance.GetUnit().Tile = goalTile;
+        }
     }
+
+    ///////////////////////////////////////////////////////
     public static void ConfirmEat(Unit target) { // move to unit actions
-        Unit currentUnit = UnitActionManager.Instance.unitOrder[0];
+        Unit currentUnit = UnitActionManager.Instance.GetUnit();
 
         if (!UnitActionManager.Instance.hadHealed) {
             if (currentUnit.HP == currentUnit.MAXHP) {
@@ -97,7 +117,7 @@ public static class UnitActions {
         }
     }
     public static void ConfirmAttack(Unit target, int Skill) {   // move to unit actions
-        Unit currentUnit = UnitActionManager.Instance.unitOrder[0];
+        Unit currentUnit = UnitActionManager.Instance.GetUnit();
 
         switch (Skill) {
             case 0:
@@ -142,11 +162,6 @@ public static class UnitActions {
         }
         UnitActionManager.Instance.OnAttack = false;
         UnitActionManager.Instance.hadAttacked = true;
-
-        if (currentUnit.Type == EUnitType.Ally) {
-            UnitActionManager.Instance.BattleUI.ToggleSkillBox();
-        }
-
     }
     public static bool IsUnitEatable(Unit selectedUnit) { ///// move to unit actions
         if (selectedUnit.Eatable) {
@@ -161,7 +176,7 @@ public static class UnitActions {
     }
     public static bool IsUnitAttackable(Unit selectedUnit) { //// move to unit actions
         foreach (Tile tile in Range.InRangeTiles) {
-            if (selectedUnit.Tile == tile) {
+            if (selectedUnit.Tile == tile && selectedUnit != UnitActionManager.Instance.GetUnit()) {
                 return true;
             }
         }
@@ -171,7 +186,7 @@ public static class UnitActions {
     ///////////////////////////////////////////////////////
     
     public static void MoveCurrentUnit() {
-        Unit currentUnit = UnitActionManager.Instance.unitOrder[0];
+        Unit currentUnit = UnitActionManager.Instance.GetUnit();
 
         float step = UnitActionManager.Instance.Speed * Time.deltaTime;
 
@@ -185,6 +200,9 @@ public static class UnitActions {
 
         Vector2 unitPos = new Vector2(currentUnit.transform.position.x, currentUnit.transform.position.z);
         Vector2 tilePos = new Vector2(PathFinding.Path[0].transform.position.x, PathFinding.Path[0].transform.position.z);
+
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.ON_AVATAR_CLICK);
+
         if (Vector2.Distance(unitPos, tilePos) < 0.1f) {
             currentUnit.transform.position = new Vector3(PathFinding.Path[0].transform.position.x,
                                                             previousY,
@@ -193,9 +211,13 @@ public static class UnitActions {
             PathFinding.Path.RemoveAt(0);
         }
 
-        if (PathFinding.Path.Count <= 1) {
-            UnitActionManager.Instance.OnMove = false;
+        if (PathFinding.Path.Count < 1) {
+            goalTile = currentUnit.Tile;
+            currentUnit.Tile = currentTile;
+            UnitActionManager.Instance.Moving = false;
+            //UnitActionManager.Instance.OnMove = false;
             currentUnit.OnMove(false);
+            
         }
     }
 }

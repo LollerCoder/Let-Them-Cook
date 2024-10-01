@@ -272,10 +272,6 @@ public abstract class Unit: MonoBehaviour {
         Debug.Log($"New HP: {this.hp}");
     }
 
-    public void OnDefend() {
-        this.Defend = true;
-    }
-
     public void OnTurn(bool value) {
         if(this.animator != null) {
             this.animator.SetBool("Turn", value);

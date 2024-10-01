@@ -81,13 +81,7 @@ namespace EnemyAI
                         this._CurrentEnemyUnit.Heal();
                         break;
                     }
-                case 3:
-                    {
-                        Debug.Log("Enemy Agent Defending!");
-                        UnitActionManager.Instance.OnDefend = true;
-                        this._CurrentEnemyUnit.OnDefend();
-                        break;
-                    }
+                default: break;
             }
         }
 
