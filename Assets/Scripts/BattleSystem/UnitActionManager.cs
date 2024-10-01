@@ -87,10 +87,8 @@ public class UnitActionManager : MonoBehaviour{
     }
     public void TileTapped(Tile goalTile) {
         string bufDebufname = ""; //name
-        EffectInfo terst = new EffectInfo(0, 0, EStatToEffect.NOTSET);//effectInfo
-        if (!this.hadMoved && 
-            !this.AllyOnTileGoal(goalTile) &&
-            this.OnMove) {
+        EffectInfo terst = new EffectInfo(0, 0, EStatToEffect.NOTSET); //effectInfo
+        if (!this.hadMoved && !this.AllyOnTileGoal(goalTile) && this.OnMove) {
 
             PathFinding.Path = PathFinding.AStarPathFinding(this._unitOrder[0].Tile,
                          goalTile,
@@ -135,19 +133,15 @@ public class UnitActionManager : MonoBehaviour{
                         Debug.Log("B");
                         break;
                     }
-                }
-
-
-                if (_unitOrder[0].EffectManager.EFFECTLIST.ContainsKey(bufDebufname)) //name this is just to prevent same skill effect stacking
-                {
-                    _unitOrder[0].EffectManager.EFFECTLIST[bufDebufname].DURATION = terst.DURATION;
+                    // TODO put APPLYEFFECT into effectmanager, its reused in many codes throughtout...NUKE IEFFECTABLE
+                    if(bufDebufname != "")
+                    {
+                        SkillDatabase.Instance.addSkill(terst, bufDebufname);
+                        _unitOrder[0].EffectManager.ApplyTileEffect(_unitOrder[0], bufDebufname, terst.DURATION);
+                    }
                     
                 }
-                else // the actual way of adding a debuff/buff to a unit the rest is already handled by UnitActionManager....Somewhere
-                {
-                    _unitOrder[0].EffectManager.EFFECTLIST.Add(bufDebufname, terst);
-                    Debug.Log("Target affected");
-                }
+                
 
 
 

@@ -31,5 +31,15 @@ public class Skill
     public EffectInfo skillData;
 
 
+    public Skill()
+    {
+
+    }
+    public Skill(EffectInfo effects)
+    {
+        skillData = effects;
+    }
+    
+
 
 }

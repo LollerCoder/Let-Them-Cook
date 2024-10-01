@@ -28,7 +28,7 @@ public class MapUIController : MonoBehaviour
 
     public void Lvl1ButtonClicked()
     {
-        //SceneManager.LoadScene("");
+        SceneManager.LoadScene("TempBattleScene");
     }
 
     public void Lvl2ButtonClicked()
