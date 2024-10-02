@@ -7,14 +7,16 @@ public static class UnitActions {
     private static bool mouseOnUnit = false;
     private static Tile currentTile;
     private static Vector3 currentTilePos;
-    private static Tile goalTile;
-    public static bool selectFlag = false;
+    private static Tile goalTile = new Tile();
+    public static bool stepFlag = false;
 
     ///////////////////////////////////////////////////////
     public static void SetCurrentTile(Tile Tile, float y) {
+        UnitActionManager.Instance.Stayed = true;
         currentTile = Tile;
         currentTilePos = new Vector3(currentTile.transform.position.x, y, currentTile.transform.position.z);
     }
+
     public static void UnitHover(Unit selectedUnit) {
         Unit currentUnit = UnitActionManager.Instance.GetUnit();
         if (currentUnit == selectedUnit
@@ -54,7 +56,7 @@ public static class UnitActions {
 
             EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.ON_AVATAR_CLICK);
 
-            selectFlag = false;
+            stepFlag = false;
         }
     }
     public static void UnitSelect(Unit selectedUnit) {
@@ -62,9 +64,10 @@ public static class UnitActions {
             && !UnitActionManager.Instance.hadMoved
             && !UnitActionManager.Instance.OnAttack
             && !UnitActionManager.Instance.OnHeal
-            && !selectFlag) {
+            && !stepFlag) {
 
-            
+            currentTile = UnitActionManager.Instance.GetUnit().Tile;
+
             UnitActionManager.Instance.Selected = true;
 
             UnitActionManager.Instance.OnMove = true;
@@ -72,7 +75,6 @@ public static class UnitActions {
             UnitActionManager.Instance.OnHeal = false;
 
             UnitActionManager.Instance.GetUnit().OnMove(true);
-
             return;
         }
 
@@ -94,8 +96,11 @@ public static class UnitActions {
             EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
             UnitActionManager.Instance.GetUnit().OnMove(false);
             Range.UnHighlightTiles();
-            selectFlag = false;
-            UnitActionManager.Instance.GetUnit().Tile = goalTile;
+            stepFlag = false;
+
+            if(!UnitActionManager.Instance.Stayed) {
+                UnitActionManager.Instance.GetUnit().Tile = goalTile;
+            }
         }
     }
 
@@ -207,13 +212,14 @@ public static class UnitActions {
             currentUnit.transform.position = new Vector3(PathFinding.Path[0].transform.position.x,
                                                             previousY,
                                                             PathFinding.Path[0].transform.position.z);
-            currentUnit.Tile = PathFinding.Path[0];
+            //currentUnit.Tile = PathFinding.Path[0];
+            goalTile = PathFinding.Path[0];
             PathFinding.Path.RemoveAt(0);
         }
 
         if (PathFinding.Path.Count < 1) {
-            goalTile = currentUnit.Tile;
-            currentUnit.Tile = currentTile;
+
+            //currentUnit.Tile = currentTile;
             UnitActionManager.Instance.Moving = false;
             //UnitActionManager.Instance.OnMove = false;
             currentUnit.OnMove(false);
