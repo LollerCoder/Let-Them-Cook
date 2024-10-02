@@ -807,11 +807,9 @@ MonoBehaviour:
   hadMoved: 0
   hadAttacked: 0
   hadHealed: 0
-  hadDefend: 0
   OnAttack: 0
   OnHeal: 0
   OnMove: 0
-  OnDefend: 0
 --- !u!1 &1452340463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,7 +1159,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 830395547585718269, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 204.99997
+      value: 205
       objectReference: {fileID: 0}
     - target: {fileID: 3011255269130654912, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1343,9 +1341,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: BattleUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5114184375910117851, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5232467644495936170, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -109.999985
+      value: -110
       objectReference: {fileID: 0}
     - target: {fileID: 5989070171183071911, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_AnchorMax.x

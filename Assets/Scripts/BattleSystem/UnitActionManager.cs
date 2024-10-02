@@ -33,9 +33,6 @@ public class UnitActionManager : MonoBehaviour{
 
     private List<Unit> _Units = new List<Unit>();
     private List<Unit> _unitOrder = new List<Unit>();
-    public List<Unit> unitOrder {
-        get { return this._unitOrder; }
-    }
 
     private Unit enemy = null;
     private EnemyMainAI _enemyAI;
@@ -53,12 +50,12 @@ public class UnitActionManager : MonoBehaviour{
     public bool hadMoved = false;
     public bool hadAttacked = false;
     public bool hadHealed = false;
-    public bool hadDefend = false;
 
     public bool OnAttack = false;
     public bool OnHeal = false;
     public bool OnMove = false;
-    public bool OnDefend = false;
+
+    public bool Moving = false;
 
     // for storing the unit
     public void StoreUnit(Unit unit) {
@@ -67,8 +64,6 @@ public class UnitActionManager : MonoBehaviour{
 
     public Unit GetUnit() {
         return this._unitOrder[0];
-
-        
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,7 +83,7 @@ public class UnitActionManager : MonoBehaviour{
     public void TileTapped(Tile goalTile) {
         string bufDebufname = ""; //name
         EffectInfo terst = new EffectInfo(0, 0, EStatToEffect.NOTSET); //effectInfo
-        if (!this.hadMoved && !this.AllyOnTileGoal(goalTile) && this.OnMove) {
+        if (!this.hadMoved && !this.AllyOnTileGoal(goalTile) && this.OnMove && !UnitActions.selectFlag) {
 
             PathFinding.Path = PathFinding.AStarPathFinding(this._unitOrder[0].Tile,
                          goalTile,
@@ -96,9 +91,9 @@ public class UnitActionManager : MonoBehaviour{
                                                          this._unitOrder[0].Speed)
                          );
             if(PathFinding.Path.Count > 0) {
-                this.hadMoved = true;
+                UnitActions.selectFlag = true;
                 this._unitOrder[0].OnMove(true);
-                
+                this.Moving = true;
                 /*Special Tile Detection*/
                 if(goalTile.gameObject.tag == "SpecialTile")
                 {
@@ -244,19 +239,17 @@ public class UnitActionManager : MonoBehaviour{
         
         this._unitOrder.Add(unit);
         this._battleUI.UpdateTurnOrder(this._unitOrder);
-        this._battleUI.NextCharacterAvatar(this._unitOrder[0]);
+
         this._unitOrder[0].OnTurn(!this._unitOrder[0].Turn);
+                    
+        UnitActions.SetCurrentTile(this._unitOrder[0].Tile, this._unitOrder[0].transform.position.y);
 
         this.hadMoved = false;
         this.hadAttacked = false;
         this.hadHealed = false;
-        this.hadDefend = false;
         this._unitOrder[0].Tile.isWalkable = true;
         this.Selected = false;
         this.numAttack = -1;
-
-        // remove defend buff on their turn
-        this._unitOrder[0].Defend = false;
 
         Range.UnHighlightTiles();
 
@@ -301,7 +294,7 @@ public class UnitActionManager : MonoBehaviour{
             PathFinding.BattleScene = this._battleScene;
             Range.BattleScene = this._battleScene;
             this._battleUI.NextCharacterAvatar(this._unitOrder[0]);
-
+            UnitActions.SetCurrentTile(this._unitOrder[0].Tile, this._unitOrder[0].transform.position.y);
             this._enemyAI = new EnemyMainAI(this._Units);
 
             this._unitOrder[0].OnTurn(!this._unitOrder[0].Turn);
@@ -313,9 +306,13 @@ public class UnitActionManager : MonoBehaviour{
             OnStart = false;
         }
 
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetKeyUp(KeyCode.Q))
         { // right button
             UnitActions.UnSelectUnit();
+        }
+
+        if(Input.GetKeyUp(KeyCode.E)) {
+            UnitActions.ConfirmMove();
         }
 
         if (PathFinding.Path == null) return;
@@ -326,7 +323,7 @@ public class UnitActionManager : MonoBehaviour{
         }
         else {
             if (this.OnMove && !this.hadMoved) {
-                Range.GetRange(this._unitOrder[0], this._unitOrder[0].BasicRange, "Move");
+                Range.GetRange(this._unitOrder[0], this._unitOrder[0].Speed, "Move");
             }
             else if (this.OnHeal && !this.hadHealed) {
                 Range.GetRange(this._unitOrder[0], this._unitOrder[0].BasicRange, "Heal");

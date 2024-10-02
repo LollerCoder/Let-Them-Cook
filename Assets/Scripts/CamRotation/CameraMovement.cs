@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {    //https://www.youtube.com/watch?v=rDJOilo4Xrg&t=316s
 
-  private Vector3 previousPosition;
-  private Camera cam;
-  private float rotationX = 0f;
-  
-  public float movementSpeed = 5.0f;
+    private Vector3 previousPosition;
+    private Camera cam;
+    private float rotationX = 0f;
 
-  public const string POS = "POS";
+    public float movementSpeed = 5.0f; 
+    
+    public const string POS = "POS";
+
+    private bool reset = false;
+    private Vector3 targetPosition;
+    
     void Start()
     {
         cam = Camera.main;
@@ -24,16 +29,29 @@ public class CameraMovement : MonoBehaviour
     {
         this.CameraMove();
         this.CameraLook();
+
+        if (Input.GetKeyUp(KeyCode.Space)) {
+            this.ResetPosition();
+        }
+
+        if (this.reset) {
+            this.cam.transform.position = Vector3.Lerp(this.cam.transform.position, this.targetPosition, Time.deltaTime * 5f);
+            if(Vector3.Distance(this.cam.transform.position, this.targetPosition) < 0.1f) {
+                this.reset = false;
+                this.targetPosition = Vector3.zero;
+            }
+        }
     }
 
-    private void ResetPosition(Parameters param) {
-        Vector3 characterPos = param.GetVector3Extra(POS);
+    private void ResetPosition() {
+        Vector3 characterPos = UnitActionManager.Instance.GetUnit().transform.position;
 
         Vector3 cameraPosition = characterPos;
 
         cameraPosition.y = this.cam.transform.position.y;
 
-        this.cam.transform.position = cameraPosition;
+        this.reset = true;
+        this.targetPosition = cameraPosition;
 
         // set the camera's x rotation to 89 instead of exactly looking at the character (90)
         Quaternion targetRotation = Quaternion.Euler(89f, 0f, 0f);
@@ -82,30 +100,31 @@ public class CameraMovement : MonoBehaviour
     }
     private void CameraMove() {
         float speed = Time.deltaTime * this.movementSpeed;
-
-        if (Input.GetKey(KeyCode.W)) {
-            Vector3 forward = this.cam.transform.forward;
-            forward.y = 0; // discard y/vertical component so that it wont go up or down
-            forward.Normalize(); // normalize to maintain consistent speed
-            this.cam.transform.Translate(forward * speed, Space.World);
-        }
-        else if (Input.GetKey(KeyCode.A)) {
-            Vector3 left = this.cam.transform.right * -1.0f;
-            left.y = 0;
-            left.Normalize(); 
-            this.cam.transform.Translate(left * speed, Space.World);
-        }
-        else if (Input.GetKey(KeyCode.S)) {
-            Vector3 back = this.cam.transform.forward * -1.0f;
-            back.y = 0;
-            back.Normalize(); 
-            this.cam.transform.Translate(back * speed, Space.World);
-        }
-        else if (Input.GetKey(KeyCode.D)) {
-            Vector3 right = this.cam.transform.right;
-            right.y = 0;
-            right.Normalize(); 
-            this.cam.transform.Translate(right * speed, Space.World);
+        if (!this.reset) {
+            if (Input.GetKey(KeyCode.W)) {
+                Vector3 forward = this.cam.transform.forward;
+                forward.y = 0; // discard y/vertical component so that it wont go up or down
+                forward.Normalize(); // normalize to maintain consistent speed
+                this.cam.transform.Translate(forward * speed, Space.World);
+            }
+            else if (Input.GetKey(KeyCode.A)) {
+                Vector3 left = this.cam.transform.right * -1.0f;
+                left.y = 0;
+                left.Normalize();
+                this.cam.transform.Translate(left * speed, Space.World);
+            }
+            else if (Input.GetKey(KeyCode.S)) {
+                Vector3 back = this.cam.transform.forward * -1.0f;
+                back.y = 0;
+                back.Normalize();
+                this.cam.transform.Translate(back * speed, Space.World);
+            }
+            else if (Input.GetKey(KeyCode.D)) {
+                Vector3 right = this.cam.transform.right;
+                right.y = 0;
+                right.Normalize();
+                this.cam.transform.Translate(right * speed, Space.World);
+            }
         }
     }
 
