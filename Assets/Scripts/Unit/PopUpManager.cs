@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -46,15 +47,19 @@ public class PopUpManager : MonoBehaviour
 
     IEnumerator popUpDestroyer(GameObject popUpp)
     {
-        while (popUpp.transform.position.y - this.transform.position.y < 23)
+        float time = 2;
+        float counter = 0;
+        while (counter < time)
         {
+            counter += Time.deltaTime;
+            float test = popUpp.transform.position.y - this.transform.position.y;
             popUpp.transform.Translate(new Vector3(0,1,0) * Time.deltaTime);
-           
+
 
             yield return null;
         }
         Destroy(popUpp);
-        
+        Debug.Log("dead");
         yield return null;
 
     }

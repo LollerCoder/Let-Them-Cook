@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.UI;
 public class Potato : Unit {
     [SerializeField]
     private Sprite potato;
 
     public bool ondefend = false;
+
+    [SerializeField]
+    public GameObject hpBar;
 
     public override void UnitAttack(Unit unit2) {
 
@@ -29,6 +33,9 @@ public class Potato : Unit {
 
     private void Update() {
         this.ondefend = this.defend;
+
+        hpBar.GetComponentInChildren<Slider>().maxValue = this.maxhp;
+        hpBar.GetComponentInChildren<Slider>().value = this.hp;
     }
 
     protected override void Start() {
