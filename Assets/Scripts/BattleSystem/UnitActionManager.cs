@@ -55,6 +55,7 @@ public class UnitActionManager : MonoBehaviour{
     public bool OnHeal = false;
     public bool OnMove = false;
 
+    public bool Stayed = false;
     public bool Moving = false;
 
     // for storing the unit
@@ -83,15 +84,16 @@ public class UnitActionManager : MonoBehaviour{
     public void TileTapped(Tile goalTile) {
         string bufDebufname = ""; //name
         EffectInfo terst = new EffectInfo(0, 0, EStatToEffect.NOTSET); //effectInfo
-        if (!this.hadMoved && !this.AllyOnTileGoal(goalTile) && this.OnMove && !UnitActions.selectFlag) {
+        if (!this.hadMoved && !this.AllyOnTileGoal(goalTile) && this.OnMove && !UnitActions.stepFlag) {
 
             PathFinding.Path = PathFinding.AStarPathFinding(this._unitOrder[0].Tile,
                          goalTile,
                          Range.GetTilesInMovement(this._unitOrder[0].Tile,
                                                          this._unitOrder[0].Speed)
                          );
-            if(PathFinding.Path.Count > 0) {
-                UnitActions.selectFlag = true;
+            if (PathFinding.Path.Count > 0) {
+                this.Stayed = false;
+                UnitActions.stepFlag = true;
                 this._unitOrder[0].OnMove(true);
                 this.Moving = true;
                 /*Special Tile Detection*/
