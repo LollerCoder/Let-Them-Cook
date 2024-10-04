@@ -7,11 +7,11 @@ using UnityEngine.Scripting.APIUpdating;
 public abstract class Unit: MonoBehaviour {
 
 
-    
+        
     
 
     protected List<string> skillList = new List<string>();
-    [SerializeField]
+    
 
     protected EffectManager effectManager = new EffectManager();
     public EffectManager EffectManager
@@ -193,6 +193,10 @@ public abstract class Unit: MonoBehaviour {
                 Debug.Log("Dealt Damage: " + dmg);
                 
                 PopUpManager.Instance.addPopUp(dmg.ToString(), this.transform);
+                Debug.Log("HP after :" + this.hp);
+                
+                //PopUpManager.Instance.addpopUpHealth(this.MAXHP, this.HP,this.transform);
+
                 Debug.Log("HP after :" + this.hp);
 
                 this.defend = false;

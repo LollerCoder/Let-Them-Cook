@@ -59,7 +59,26 @@ public class PopUpManager : MonoBehaviour
             yield return null;
         }
         Destroy(popUpp);
-        Debug.Log("dead");
+       
+        yield return null;
+
+    }
+
+    IEnumerator popUpHpDestroyer(GameObject popUpp)
+    {
+        float time = 3;
+        float counter = 0;
+        while (counter < time)
+        {
+            counter += Time.deltaTime;
+            
+            
+
+
+            yield return null;
+        }
+        Destroy(popUpp);
+        Debug.Log("HP dead");
         yield return null;
 
     }
@@ -68,31 +87,37 @@ public class PopUpManager : MonoBehaviour
     {
         GameObject popUpHp = Instantiate(healthBarPrefab, from.position, Quaternion.identity);
 
-        
+
+
+        popUpHp.transform.Translate(new Vector3(0, 5, 0));
+
+        Debug.Log("HP BAR POPPED");
 
         popUpHp.GetComponentInChildren<Slider>().maxValue = UnitMaxHP;
         popUpHp.GetComponentInChildren<Slider>().value = UnitHP;
 
-        this.hpbarList.Add(popUpHp);
-        
+        StartCoroutine(popUpHpDestroyer(popUpHp));
+
+        //this.hpbarList.Add(popUpHp);
+
     }
 
-    public void popUpDestroyHealth()
-    {
+    //public void popUpDestroyHealth()
+    //{
         
-        if(hpbarList != null)
-        {
-            if (hpbarList.Count > 0)
-            {
-                for (int i = 0; i < hpbarList.Count; i++)
-                {
+    //    if(hpbarList != null)
+    //    {
+    //        if (hpbarList.Count > 0)
+    //        {
+    //            for (int i = 0; i < hpbarList.Count; i++)
+    //            {
                    
-                    Destroy(hpbarList[i]);
-                }
-            }
-        }
-        hpbarList.Clear();
-    }
+    //                Destroy(hpbarList[i]);
+    //            }
+    //        }
+    //    }
+    //    hpbarList.Clear();
+    //}
 
     
 }

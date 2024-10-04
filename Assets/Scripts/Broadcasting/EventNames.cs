@@ -51,12 +51,7 @@ public class EventNames {
         public const string ON_ATTACK_START = "ON_ATTACK_START";
         public const string ON_ATTACK_END = "ON_ATTACK_END";
     }
-    public class Roll_Events
-	{
-		public const string ON_ROLL_FINISH = "ON_ROLL_FINISH";
-		public const string ON_ROLLUI_EXIT = "ON_ROLLUI_EXIT";
-
-    }
+  
     public class UIEvents {
         public const string ENABLE_CLICKS = "ENABLE_CLICKS";
         public const string DISABLE_CLICKS = "DISABLE_CLICKS";
@@ -72,15 +67,12 @@ public class EventNames {
 
     }
 
-    public class Wand_Events
-    {
-        public const string ON_WAND_REGISTER = "ON_WAND_REGISTER";
-        public const string CHECK_DONE = "CHECK_DONE";
-    }
+   
 
 	public class BattleUI_Events {
 		public const string ON_AVATAR_CLICK = "ON_AVATAR_CLICK";
 		public const string TOGGLE_ACTION_BOX = "TOGGLE_ACTION_BOX";
+		public const string UNIT_ATTACK = "UNIT_ATTACK";
 	}
 }
 

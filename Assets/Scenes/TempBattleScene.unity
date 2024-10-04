@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254a5cbe4eaffe242b619ff4f3ffd7bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnOffDodge: 0
+  turnOffDodge: 1
 --- !u!4 &439627407
 Transform:
   m_ObjectHideFlags: 0
@@ -810,6 +810,7 @@ MonoBehaviour:
   OnAttack: 0
   OnHeal: 0
   OnMove: 0
+  Stayed: 0
   Moving: 0
 --- !u!1 &1452340463
 GameObject:
@@ -1121,7 +1122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popUpPrefab: {fileID: 6633466865353387927, guid: 081d42f72b651514887a7fc6e7fdedda, type: 3}
-  healthBarPrefab: {fileID: 0}
+  healthBarPrefab: {fileID: 363432561203616215, guid: e36a319bdd348ac4d97b5025a9517795, type: 3}
 --- !u!4 &1853368167
 Transform:
   m_ObjectHideFlags: 0

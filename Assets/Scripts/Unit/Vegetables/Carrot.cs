@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -28,9 +29,12 @@ public class Carrot : Unit{
 
     private void Update() {
         this.ondefend = this.defend;
-        hpBar.GetComponentInChildren<Slider>().maxValue = this.maxhp;
-        hpBar.GetComponentInChildren<Slider>().value = this.hp;
+       
+
+        
     }
+
+  
 
     protected override void HandleDeath() {
         this.GetComponent<SpriteRenderer>().sprite = carrot;
@@ -38,7 +42,27 @@ public class Carrot : Unit{
         this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
         this.eatable = true;
     }
-    protected override void Start() { 
+
+    void HpBarShow()
+    {
+       
+        this.hpBar.SetActive(true);
+
+        
+       
+    }
+
+    IEnumerator HpUpdate()
+    {
+        yield return new WaitForSeconds(2.0f);
+        hpBar.GetComponentInChildren<Slider>().maxValue = this.maxhp;
+        hpBar.GetComponentInChildren<Slider>().value = this.hp;
+        this.hpBar.SetActive(false);
+    }
+
+    protected override void Start() {
+
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.UNIT_ATTACK, HpBarShow);
 
         this.animator = this.GetComponent<Animator>();
         base.Start();

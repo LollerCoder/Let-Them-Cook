@@ -34,12 +34,29 @@ public class Potato : Unit {
     private void Update() {
         this.ondefend = this.defend;
 
+       
+    }
+
+    void HpBarShow()
+    {
+
+        this.hpBar.SetActive(true);
+
+
+
+    }
+
+    IEnumerator HpUpdate()
+    {
+        yield return new WaitForSeconds(2.0f);
         hpBar.GetComponentInChildren<Slider>().maxValue = this.maxhp;
         hpBar.GetComponentInChildren<Slider>().value = this.hp;
+        this.hpBar.SetActive(false);
     }
 
     protected override void Start() {
-        
+
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.UNIT_ATTACK, this.HpBarShow);
 
         this.ondefend = this.defend;
         this.animator = this.GetComponent<Animator>();
