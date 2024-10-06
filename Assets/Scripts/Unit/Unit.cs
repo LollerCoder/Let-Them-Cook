@@ -7,8 +7,8 @@ using UnityEngine.Scripting.APIUpdating;
 public abstract class Unit: MonoBehaviour {
 
 
-        
-    
+
+    public const string UNIT = "UNIT";
 
     protected List<string> skillList = new List<string>();
     
@@ -170,6 +170,7 @@ public abstract class Unit: MonoBehaviour {
     public bool Turn {
         get { return this.turn; }
     }
+
     public void TakeDamage(float damage, Unit attacker) {
 
         Debug.Log("Unit name: " + attacker.Name);
@@ -283,24 +284,20 @@ public abstract class Unit: MonoBehaviour {
         }
     }
 
-    public void OnMove(bool value) {
+    public void OnMovement(bool value) {
         if(this.animator != null) {
             this.animator.SetBool("Walk", value);
         }
     }
-    protected void OnMouseEnter() {
+    private void OnMouseEnter() {
         UnitActions.UnitHover(this);
-        //UnitActionManager.Instance.UnitHover(this);
     }
 
-    protected void OnMouseExit() {
-        UnitActions.UnitHover(this);
-        //UnitActionManager.Instance.UnitHover(this);
+    private void OnMouseExit() {
+        
     }
-
     protected void OnMouseUp() {
         UnitActions.UnitSelect(this);
-        //UnitActionManager.Instance.UnitSelect(this);
     }
 
     protected virtual void Start() {

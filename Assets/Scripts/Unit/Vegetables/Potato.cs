@@ -37,18 +37,23 @@ public class Potato : Unit {
        
     }
 
-    void HpBarShow()
+    void HpBarShow(Parameters param)
     {
 
-        this.hpBar.SetActive(true);
+        Unit unit = param.GetUnitExtra(UNIT);
 
+        if (unit == this) {
+            this.hpBar.SetActive(true);
 
+            StartCoroutine(HpUpdate());
+        }
 
     }
 
     IEnumerator HpUpdate()
     {
-        yield return new WaitForSeconds(2.0f);
+        Debug.Log("Dying");
+        yield return new WaitForSeconds(0.5f);
         hpBar.GetComponentInChildren<Slider>().maxValue = this.maxhp;
         hpBar.GetComponentInChildren<Slider>().value = this.hp;
         this.hpBar.SetActive(false);

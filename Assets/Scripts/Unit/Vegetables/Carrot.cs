@@ -14,7 +14,7 @@ public class Carrot : Unit{
 
     [SerializeField]
     public GameObject hpBar;
-    
+
     public override void UnitAttack(Unit unit2) {
         
     }
@@ -42,23 +42,27 @@ public class Carrot : Unit{
         this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
         this.eatable = true;
     }
-
-    void HpBarShow()
+    
+    void HpBarShow(Parameters param)
     {
-       
-        this.hpBar.SetActive(true);
+        Unit unit = param.GetUnitExtra(UNIT);
 
-        
-       
+        if(unit == this) {
+            this.hpBar.SetActive(true);
+
+            StartCoroutine(HpUpdate());
+        }
     }
 
     IEnumerator HpUpdate()
     {
-        yield return new WaitForSeconds(2.0f);
+        Debug.Log("Dying");
+        yield return new WaitForSeconds(0.5f);
         hpBar.GetComponentInChildren<Slider>().maxValue = this.maxhp;
         hpBar.GetComponentInChildren<Slider>().value = this.hp;
         this.hpBar.SetActive(false);
     }
+
 
     protected override void Start() {
 
