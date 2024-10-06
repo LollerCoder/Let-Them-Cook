@@ -27,6 +27,7 @@ public class Parameters {
 	//added
     private Dictionary<string, GameObject> gameObjectListData;
     private Dictionary<string, Vector3> Vector3Data;
+    private Dictionary<string, Unit> UnitaData;
 
     public Parameters() {
 		this.charData = new Dictionary<string, char>();
@@ -43,6 +44,7 @@ public class Parameters {
         //added
         this.gameObjectListData = new Dictionary<string, GameObject>();
         this.Vector3Data = new Dictionary<string, Vector3>();
+		this.UnitaData = new Dictionary<string, Unit>();
     }
 
 	public void PutExtra(string paramName, bool value) {
@@ -97,6 +99,9 @@ public class Parameters {
     }
     public void PutExtra(string paramName, Vector3 value) {
         this.Vector3Data.Add(paramName, value);
+    }   
+	public void PutExtra(string paramName, Unit value) {
+        this.UnitaData.Add(paramName, value);
     }
 
     public int GetIntExtra(string paramName, int defaultValue) {
@@ -209,12 +214,20 @@ public class Parameters {
             return null;
         }
     }
-    public Vector3 GetVector3Extra(string paramName) {
-        if (this.Vector3Data.ContainsKey(paramName)) {
-            return this.Vector3Data[paramName];
+	public Vector3 GetVector3Extra(string paramName) {
+		if (this.Vector3Data.ContainsKey(paramName)) {
+			return this.Vector3Data[paramName];
+		}
+		else {
+			return Vector3.zero;
+		}
+	}
+	public Unit GetUnitExtra(string paramName) {
+        if (this.UnitaData.ContainsKey(paramName)) {
+            return this.UnitaData[paramName];
         }
         else {
-            return Vector3.zero;
+            return null;
         }
     }
 }
