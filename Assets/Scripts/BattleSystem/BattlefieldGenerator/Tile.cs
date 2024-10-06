@@ -44,6 +44,6 @@ public class Tile : MonoBehaviour{
     }
 
     public void OnMouseUp() {
-        UnitActionManager.Instance.TileTapped(this);
+        UnitActions.TileTapped(this);
     }
 }

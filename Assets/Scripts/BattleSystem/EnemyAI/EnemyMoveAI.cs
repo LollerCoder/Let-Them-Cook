@@ -34,7 +34,7 @@ namespace EnemyAI
             if (path.Count > 0)
             {
                 UnitActionManager.Instance.hadMoved = true;
-                _currentUnit.OnMove(true);
+                _currentUnit.OnMovement(true);
             }
             Debug.Log($"Current Unit: {_currentUnit} Target unit: {targetUnit} = Path length: {path.Count}");
 

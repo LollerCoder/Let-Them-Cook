@@ -31,15 +31,6 @@ public class BattleUI : MonoBehaviour {
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX, this.ToggleActionBox);
         
     }
-
-    public void AvatarClick() {
-        Parameters param = new Parameters();
-        
-        param.PutExtra("POS", UnitActionManager.Instance.GetUnit().transform.position);
-
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.ON_AVATAR_CLICK, param);
-    }
-
     public void ToggleActionBox() {
         this.actionShow = !this.actionShow;
         this.AttackBox.GetComponent<Animator>().SetBool("Show", this.actionShow);
@@ -97,6 +88,7 @@ public class BattleUI : MonoBehaviour {
     }
 
     private void AttackState(int num) {
+        UnitActions.EnemyListed = false;
         if (this.skillSlots[num] == true) {
             if (this.attackNum[num] == true) {   // if the same skill is selected twice, unselect it
                 this.attackNum[num] = false;
@@ -153,12 +145,6 @@ public class BattleUI : MonoBehaviour {
 
     public void EndScreen(int scenario) {
 
-    }
-
-    private void ResetActions() {
-        UnitActionManager.Instance.OnAttack = false;
-        UnitActionManager.Instance.OnHeal = false;
-        UnitActionManager.Instance.OnMove = false;
     }
 
 }
