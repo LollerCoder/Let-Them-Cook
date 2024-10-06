@@ -44,7 +44,7 @@ public class CameraMovement : MonoBehaviour
     }
 
     private void ResetPosition() {
-        Vector3 characterPos = UnitActionManager.Instance.GetUnit().transform.position;
+        Vector3 characterPos = UnitActionManager.Instance.GetFirstUnit().transform.position;
 
         Vector3 cameraPosition = characterPos;
 
@@ -52,9 +52,10 @@ public class CameraMovement : MonoBehaviour
 
         this.reset = true;
         this.targetPosition = cameraPosition;
+        this.targetPosition.z = cameraPosition.z - 2;
 
         // set the camera's x rotation to 89 instead of exactly looking at the character (90)
-        Quaternion targetRotation = Quaternion.Euler(89f, 0f, 0f);
+        Quaternion targetRotation = Quaternion.Euler(63f, 0f, 0f);
         this.cam.transform.rotation = targetRotation;
 
         //this.cam.transform.LookAt(characterPos);
@@ -62,7 +63,7 @@ public class CameraMovement : MonoBehaviour
         // override the rotationX with the new rotation so that it wont go back to the original rotation before the reset
         this.rotationX = cam.transform.localEulerAngles.x;
 
-        this.cam.fieldOfView = 50.0f; // reset to original FoV
+        this.cam.fieldOfView = 71.0f; // reset to original FoV
     }
 
     private void CameraLook() {
@@ -77,7 +78,7 @@ public class CameraMovement : MonoBehaviour
             //cam.transform.position = transform.position;
 
             rotationX += direction.y * 180;
-            rotationX = Mathf.Clamp(rotationX, 20, 89);
+            rotationX = Mathf.Clamp(rotationX, 36, 89);
 
             cam.transform.localEulerAngles = new Vector3(rotationX, cam.transform.localEulerAngles.y, cam.transform.localEulerAngles.z);
             cam.transform.Rotate(new Vector3(0, 1, 0), -direction.x * 180, Space.World);
@@ -91,11 +92,11 @@ public class CameraMovement : MonoBehaviour
             //previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
         }
 
-        if (Input.mouseScrollDelta.y < 0 && cam.fieldOfView < 91) {
-            cam.fieldOfView += 0.5f;
+        if (Input.mouseScrollDelta.y < 0 && cam.fieldOfView < 71) {
+            cam.fieldOfView += 1.0f;
         }
-        if (Input.mouseScrollDelta.y > 0 && cam.fieldOfView > 39) {
-            cam.fieldOfView -= 0.5f;
+        if (Input.mouseScrollDelta.y > 0 && cam.fieldOfView > 29) {
+            cam.fieldOfView -= 1.0f;
         }
     }
     private void CameraMove() {
