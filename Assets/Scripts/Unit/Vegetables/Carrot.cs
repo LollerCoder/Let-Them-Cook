@@ -48,25 +48,28 @@ public class Carrot : Unit{
         Unit unit = param.GetUnitExtra(UNIT);
 
         if(unit == this) {
-            this.hpBar.SetActive(true);
-
-            StartCoroutine(HpUpdate());
+            PopUpManager.Instance.hpPopUp(hpBar, this.maxhp, this.hp);
         }
     }
 
-    IEnumerator HpUpdate()
+
+    void HpBarHide(Parameters param)
     {
-        Debug.Log("Dying");
-        yield return new WaitForSeconds(0.5f);
-        hpBar.GetComponentInChildren<Slider>().maxValue = this.maxhp;
-        hpBar.GetComponentInChildren<Slider>().value = this.hp;
-        this.hpBar.SetActive(false);
+
+        Unit unit = param.GetUnitExtra(UNIT);
+
+        if (unit == this)
+        {
+            PopUpManager.Instance.hpHide(this.hpBar);
+        }
+
     }
 
 
     protected override void Start() {
 
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.UNIT_ATTACK, HpBarShow);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.HIDE_HP, this.HpBarHide);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.SHOW_HP, this.HpBarShow);
 
         this.animator = this.GetComponent<Animator>();
         base.Start();

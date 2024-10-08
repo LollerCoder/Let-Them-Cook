@@ -43,26 +43,29 @@ public class Potato : Unit {
         Unit unit = param.GetUnitExtra(UNIT);
 
         if (unit == this) {
-            this.hpBar.SetActive(true);
-
-            StartCoroutine(HpUpdate());
+            PopUpManager.Instance.hpPopUp(this.hpBar, this.maxhp, this.hp);
         }
 
     }
 
-    IEnumerator HpUpdate()
+    void HpBarHide(Parameters param)
     {
-        Debug.Log("Dying");
-        yield return new WaitForSeconds(0.5f);
-        hpBar.GetComponentInChildren<Slider>().maxValue = this.maxhp;
-        hpBar.GetComponentInChildren<Slider>().value = this.hp;
-        this.hpBar.SetActive(false);
+
+        Unit unit = param.GetUnitExtra(UNIT);
+
+        if (unit == this)
+        {
+            PopUpManager.Instance.hpHide(this.hpBar);
+        }
+
     }
+
+
 
     protected override void Start() {
 
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.UNIT_ATTACK, this.HpBarShow);
-
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.SHOW_HP, this.HpBarShow);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.HIDE_HP, this.HpBarHide);
         this.ondefend = this.defend;
         this.animator = this.GetComponent<Animator>();
         base.Start();

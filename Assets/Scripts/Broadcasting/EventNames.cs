@@ -72,8 +72,11 @@ public class EventNames {
 	public class BattleUI_Events {
 		public const string ON_AVATAR_CLICK = "ON_AVATAR_CLICK";
 		public const string TOGGLE_ACTION_BOX = "TOGGLE_ACTION_BOX";
-		public const string UNIT_ATTACK = "UNIT_ATTACK";
-	}
+		public const string SHOW_HP = "SHOW_HP";
+		public const string HIDE_HP = "HIDE_HP";
+
+
+    }
 }
 
 

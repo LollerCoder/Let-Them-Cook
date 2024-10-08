@@ -83,35 +83,57 @@ public class PopUpManager : MonoBehaviour
 
     }
 
-    public void addpopUpHealth( int UnitMaxHP, int UnitHP, Transform from)
+    public void hpPopUp(GameObject popUpp, int maxHp, int hp)
     {
-        GameObject popUpHp = Instantiate(healthBarPrefab, from.position, Quaternion.identity);
+        popUpp.SetActive(true);
+        popUpp.GetComponentInChildren<Slider>().maxValue = maxHp;
+        popUpp.GetComponentInChildren<Slider>().value = hp;
 
-
-
-        popUpHp.transform.Translate(new Vector3(0, 5, 0));
-
-        Debug.Log("HP BAR POPPED");
-
-        popUpHp.GetComponentInChildren<Slider>().maxValue = UnitMaxHP;
-        popUpHp.GetComponentInChildren<Slider>().value = UnitHP;
-
-        StartCoroutine(popUpHpDestroyer(popUpHp));
-
-        //this.hpbarList.Add(popUpHp);
+        
+        
 
     }
 
+    public void hpHide(GameObject popUp)
+    {
+        popUp.SetActive(false);
+    }
+
+
+   
+
+
+    //Old popupHP Implementation keep just in case
+
+    //public void addpopUpHealth( int UnitMaxHP, int UnitHP, Transform from)
+    //{
+    //    GameObject popUpHp = Instantiate(healthBarPrefab, from.position, Quaternion.identity);
+
+
+
+    //    popUpHp.transform.Translate(new Vector3(0, 5, 0));
+
+    //    Debug.Log("HP BAR POPPED");
+
+    //    popUpHp.GetComponentInChildren<Slider>().maxValue = UnitMaxHP;
+    //    popUpHp.GetComponentInChildren<Slider>().value = UnitHP;
+
+    //    StartCoroutine(popUpHpDestroyer(popUpHp));
+
+    //    //this.hpbarList.Add(popUpHp);
+
+    //}
+
     //public void popUpDestroyHealth()
     //{
-        
+
     //    if(hpbarList != null)
     //    {
     //        if (hpbarList.Count > 0)
     //        {
     //            for (int i = 0; i < hpbarList.Count; i++)
     //            {
-                   
+
     //                Destroy(hpbarList[i]);
     //            }
     //        }
@@ -119,5 +141,5 @@ public class PopUpManager : MonoBehaviour
     //    hpbarList.Clear();
     //}
 
-    
+
 }

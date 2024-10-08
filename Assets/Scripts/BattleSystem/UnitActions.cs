@@ -11,7 +11,7 @@ public static class UnitActions {
     private static List<Unit> Attackables = new List<Unit>();
     
     public static bool stepFlag = false;
-
+    
     private static int _affectedStatValue = 0;
 
     public static bool EnemyListed = false;
@@ -44,7 +44,7 @@ public static class UnitActions {
         Parameters param = new Parameters();
 
         param.PutExtra("UNIT", unit);
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.UNIT_ATTACK, param);
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
     }
     public static void UnitSelect(Unit selectedUnit) {
         if (IsUnitAttackable(selectedUnit) && UnitActionManager.Instance.OnAttack) {
