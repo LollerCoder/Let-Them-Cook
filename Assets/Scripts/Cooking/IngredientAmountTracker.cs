@@ -64,7 +64,6 @@ public class IngredientAmountTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SaveGame.LoadInventory();
         this.UpdateCurrentAmount();
     }
 }

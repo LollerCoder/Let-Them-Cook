@@ -5,7 +5,7 @@ using System.IO;
 
 public static class SaveGame
 {
-    public static void SaveInventory (Ingredient ingList)
+    public static void SaveRecipe (Recipe ingList)
     {
         BinaryFormatter formatter = new BinaryFormatter();
 
@@ -13,14 +13,14 @@ public static class SaveGame
 
         FileStream stream = new FileStream(path,FileMode.Create);
 
-        Ingredient data = new Ingredient(ingList);
+        Recipe data = new Recipe(ingList);
 
         formatter.Serialize(stream, data);
 
         stream.Close();
     }
 
-    public static Ingredient LoadInventory()
+    public static Recipe LoadRecipe()
     {
         //getting the path where the game is saved
         string path = UnityEngine.Application.persistentDataPath+ "/Save.Slots";
@@ -30,7 +30,7 @@ public static class SaveGame
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
-          Ingredient data = formatter.Deserialize(stream) as Ingredient;
+           Recipe data = formatter.Deserialize(stream) as Recipe;
 
            stream.Close();
 

@@ -84,4 +84,24 @@ public class Recipe :  MonoBehaviour
             Debug.Log(ingList.type + " = " + ingList.amount);
         }
     }
+
+    
+    public Recipe (Recipe ing)
+    {
+        Name = ing.Name;
+        IngredientsNeeded = ing.IngredientsNeeded;
+    }
+
+    public void SaveProgress()
+    {
+        SaveGame.SaveRecipe(this);
+    }
+
+    public void LoadRecipe()
+    {
+        Recipe data = SaveGame.LoadRecipe();
+
+        Name = data.Name;
+        IngredientsNeeded = data.IngredientsNeeded;
+    }
 }
