@@ -51,7 +51,7 @@ public class BattleUI : MonoBehaviour {
         UnitActionManager.Instance.NextUnitTurn();
     }
 
-    public void NextCharacterAvatar(Unit unit) {
+    public void NextUnitSkills(Unit unit) {
         
 
         // reset the values in the array
@@ -128,7 +128,7 @@ public class BattleUI : MonoBehaviour {
     }
 
     public void UpdateTurnOrder(List<Unit> unitOrder) {
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.ON_AVATAR_CLICK); // remember to change the name for this event --
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.CAMERA_FOLLOW);
         for (int i = 0; i < 3; i++) {
             this.Turn[i].sprite = unitOrder[i].GetComponent<SpriteRenderer>().sprite;
         }
