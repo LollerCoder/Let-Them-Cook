@@ -7,6 +7,8 @@ public class IngredientHandler : Draggable
 {
     [SerializeField]
     private EIngredientType _type;
+    [SerializeField]
+    private GameObject _potIngredientsHolder;
 
     private Vector3 _initPos;
     private bool _inPot = false;
@@ -41,7 +43,7 @@ public class IngredientHandler : Draggable
                 this._inPot = false;
                 if (IngredientsManager.IngredientAmount[this._type] > 0)
                 {
-                    GameObject.Find("Pot Ingredients").GetComponent<PotHandler>().AddIngredient(this._type);
+                    this._potIngredientsHolder.GetComponent<PotHandler>().AddIngredient(this._type);
                 }
             }
         }

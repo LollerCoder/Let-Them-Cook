@@ -80,8 +80,15 @@ public class CookingHandler : MonoBehaviour
 
     public void ToggleDisplay(bool isDisplayed)
     {
-        this._mealDisplay.SetActive(isDisplayed);
-        this._statDisplay.SetActive(isDisplayed);
+        if (this._mealDisplay != null)
+            this._mealDisplay.SetActive(isDisplayed);
+        else
+            Debug.LogWarning("No Meal Display set!");
+
+        if (this._statDisplay != null)
+            this._statDisplay.SetActive(isDisplayed);
+        //else
+        //    Debug.LogWarning("No Stat Display set!");
     }
 
     // Start is called before the first frame update

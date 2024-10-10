@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CookButtonsHandler : MonoBehaviour
 {
@@ -54,7 +55,8 @@ public class CookButtonsHandler : MonoBehaviour
                 GameObject.Find("Cooking").GetComponent<CookingHandler>().ToggleDisplay(false);
                 this.ResetIngredients();
                 break;
-            case "Exit":
+            case "Go To Map":
+                SceneManager.LoadScene("Map");
                 break;
         }
     }
