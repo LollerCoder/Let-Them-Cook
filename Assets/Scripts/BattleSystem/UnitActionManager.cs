@@ -13,6 +13,8 @@ using static UnityEngine.GraphicsBuffer;
 public class UnitActionManager : MonoBehaviour{
     public static UnitActionManager Instance = null;
 
+    public const string UNIT = "UNIT";
+
     private EBattleScene _battleScene;
 
     private Skill _skill;
@@ -182,10 +184,9 @@ public class UnitActionManager : MonoBehaviour{
             }
         }
     }
-
     private void SetUpTurn() {
         Parameters param = new Parameters();
-        param.PutExtra(this.GetFirstUnit().Name, this.GetFirstUnit());
+        param.PutExtra(UNIT, this.GetFirstUnit());
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
 

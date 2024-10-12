@@ -45,6 +45,7 @@ public class BattleUI : MonoBehaviour {
 
     private IEnumerator CloseUI(float seconds) {
         yield return new WaitForSeconds(seconds);
+        UnitActions.HideInRangeHPBar();
 
         UnitActionManager.Instance.OnAttack = false;
         UnitActionManager.Instance.OnHeal = false;

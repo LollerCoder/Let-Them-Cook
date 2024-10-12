@@ -5,14 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 public class Potato : Unit {
-    [SerializeField]
-    private Sprite potato;
-
-    public bool ondefend = false;
-
-    [SerializeField]
-    public GameObject hpBar;
-
     public override void UnitAttack(Unit unit2) {
 
     }
@@ -24,20 +16,9 @@ public class Potato : Unit {
     public override void GetAttackOptions() {
 
     }
-
-    protected override void HandleDeath() {
-        this.GetComponent<SpriteRenderer>().sprite = potato;
-        this.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
-        this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
-        this.eatable = true;
-    }
-
     private void Update() {
-        this.ondefend = this.defend;
 
-       
     }
-
     private void HpBarShow(Parameters param)
     {
 
@@ -61,13 +42,10 @@ public class Potato : Unit {
 
     }
 
-
-
     protected override void Start() {
 
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.SHOW_HP, this.HpBarShow);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.HIDE_HP, this.HpBarHide);
-        this.ondefend = this.defend;
         this.animator = this.GetComponent<Animator>();
         base.Start();
 

@@ -67,7 +67,7 @@ public static class UnitActions {
         }
     }
 
-    //public static void ConfirmMove() {
+    //public static void ConfirmMove() { // might use 
     //    if (!UnitActionManager.Instance.Moving && !UnitActionManager.Instance.OnAttack) {
     //        UnitActionManager.Instance.hadMoved = true;
     //        UnitActionManager.Instance.OnMove = false;
@@ -199,6 +199,7 @@ public static class UnitActions {
             }
         }
     }
+
     ///////////////////////////////////////////////////////
     public static void OnAttackSelection() { // OVER HERE IS WHERE YOU'LL DO HIGHLIGHT?
         int Attack = UnitActionManager.Instance.numAttack;

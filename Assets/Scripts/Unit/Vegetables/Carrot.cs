@@ -7,14 +7,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Carrot : Unit{
-    [SerializeField]
-    private Sprite carrot;
-
-    public bool ondefend = false;
-
-    [SerializeField]
-    public GameObject hpBar;
-
     public override void UnitAttack(Unit unit2) {
         
     }
@@ -28,19 +20,7 @@ public class Carrot : Unit{
     }
 
     private void Update() {
-        this.ondefend = this.defend;
-       
-
-        
-    }
-
-  
-
-    protected override void HandleDeath() {
-        this.GetComponent<SpriteRenderer>().sprite = carrot;
-        this.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
-        this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
-        this.eatable = true;
+         
     }
     
     private void HpBarShow(Parameters param)
@@ -51,7 +31,6 @@ public class Carrot : Unit{
             PopUpManager.Instance.hpPopUp(hpBar, this.maxhp, this.hp);
         }
     }
-
 
     private void HpBarHide(Parameters param)
     {
@@ -65,7 +44,6 @@ public class Carrot : Unit{
 
     }
 
-
     protected override void Start() {
 
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.HIDE_HP, this.HpBarHide);
@@ -73,8 +51,6 @@ public class Carrot : Unit{
 
         this.animator = this.GetComponent<Animator>();
         base.Start();
-
-        this.ondefend = this.defend;
 
         Skill basic = new BasicAttack();
         Skill trueStrike = new TrueStrike();
@@ -87,8 +63,6 @@ public class Carrot : Unit{
         this.skillList.Add("EyePoke");
         this.skillList.Add("TripUp");
         this.skillList.Add("EagleEye");
-
-        
 
         this.charName = "Carrot";
         this.ingredientType = EIngredientType.CARROT;
