@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 public class Potato : Unit {
     [SerializeField]
     private Sprite potato;
@@ -37,7 +38,7 @@ public class Potato : Unit {
        
     }
 
-    void HpBarShow(Parameters param)
+    private void HpBarShow(Parameters param)
     {
 
         Unit unit = param.GetUnitExtra(UNIT);
@@ -48,7 +49,7 @@ public class Potato : Unit {
 
     }
 
-    void HpBarHide(Parameters param)
+    private void HpBarHide(Parameters param)
     {
 
         Unit unit = param.GetUnitExtra(UNIT);

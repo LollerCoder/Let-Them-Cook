@@ -43,7 +43,7 @@ public class Carrot : Unit{
         this.eatable = true;
     }
     
-    void HpBarShow(Parameters param)
+    private void HpBarShow(Parameters param)
     {
         Unit unit = param.GetUnitExtra(UNIT);
 
@@ -53,7 +53,7 @@ public class Carrot : Unit{
     }
 
 
-    void HpBarHide(Parameters param)
+    private void HpBarHide(Parameters param)
     {
 
         Unit unit = param.GetUnitExtra(UNIT);

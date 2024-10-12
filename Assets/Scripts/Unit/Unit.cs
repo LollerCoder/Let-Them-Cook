@@ -6,8 +6,6 @@ using UnityEngine.Scripting.APIUpdating;
     
 public abstract class Unit: MonoBehaviour {
 
-
-
     public const string UNIT = "UNIT";
 
     protected List<string> skillList = new List<string>();
@@ -39,8 +37,10 @@ public abstract class Unit: MonoBehaviour {
         set { this.type = value;  }
     }
 
-    protected string charName; // unit name
-    public string Name { get { return this.charName; } }
+    [SerializeField] protected string charName; // unit name
+    public string Name { 
+        get { return this.charName; } 
+    }
 
     /// <summary>
     /// Accuracy
@@ -171,6 +171,7 @@ public abstract class Unit: MonoBehaviour {
         get { return this.turn; }
     }
 
+    public bool InRange = false;
     public void TakeDamage(float damage, Unit attacker) {
 
         Debug.Log("Unit name: " + attacker.Name);
@@ -319,5 +320,4 @@ public abstract class Unit: MonoBehaviour {
     public virtual void HandleEaten() {
         Destroy(this.gameObject);
     }
-
 }

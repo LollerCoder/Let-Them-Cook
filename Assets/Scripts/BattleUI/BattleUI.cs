@@ -96,6 +96,7 @@ public class BattleUI : MonoBehaviour {
                 this.attackNum[num] = false;
                 UnitActionManager.Instance.OnAttack = false;
                 UnitActionManager.Instance.numAttack = -1;  // default value (no skill is selected)
+                UnitActions.HideInRangeHPBar();
                 return;
             }
 

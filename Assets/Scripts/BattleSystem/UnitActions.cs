@@ -8,7 +8,8 @@ public static class UnitActions {
     private static Tile currentTile;
     private static Vector3 currentTilePos;
     private static Tile goalTile = new Tile();
-    private static List<Unit> Attackables = new List<Unit>();
+
+    public static List<Unit> Attackables = new List<Unit>();
     
     public static bool stepFlag = false;
     
@@ -43,15 +44,14 @@ public static class UnitActions {
             stepFlag = false;
         }
     }
-    public static void UnitHover(Unit unit, bool state) {
+    public static void UnitHover(Unit unit, bool toggle) { // if true, show hp bar ; if false, hide 
         Parameters param = new Parameters();
+        param.PutExtra(UNIT, unit);
 
-        param.PutExtra("UNIT", unit);
-
-        if (state) {
+        if (toggle && !unit.InRange) {
             EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
         }
-        else {
+        else if (!toggle && !unit.InRange) {
             EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.HIDE_HP, param);
         }
         
@@ -84,6 +84,17 @@ public static class UnitActions {
     //}
 
     ///////////////////////////////////////////////////////
+    public static bool IsUnitEatable(Unit selectedUnit) { ///// move to unit actions
+        if (selectedUnit.Eatable) {
+            foreach (Tile tile in Range.InRangeTiles) {
+                if (selectedUnit.Tile == tile) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
     public static void ConfirmEat(Unit target) { // move to unit actions
         Unit currentUnit = UnitActionManager.Instance.GetFirstUnit();
 
@@ -99,6 +110,14 @@ public static class UnitActions {
             UnitActionManager.Instance.OnHeal = false;
             Debug.Log("UnitHeal " + currentUnit.Name + " Healed");
         }
+    }
+    public static bool IsUnitAttackable(Unit selectedUnit) { //// move to unit actions
+
+        if (Attackables.Find(u => u == selectedUnit)) {
+            return true;
+        }
+
+        return false;
     }
     public static void ConfirmAttack(Unit target, int Skill) {   // move to unit actions
         Unit currentUnit = UnitActionManager.Instance.GetFirstUnit();
@@ -149,44 +168,37 @@ public static class UnitActions {
         UnitActionManager.Instance.hadAttacked = true;
         UnitActionManager.Instance.NextTurn();
     }
-    public static bool IsUnitEatable(Unit selectedUnit) { ///// move to unit actions
-        if (selectedUnit.Eatable) {
-            foreach (Tile tile in Range.InRangeTiles) {
-                if (selectedUnit.Tile == tile) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-    public static bool IsUnitAttackable(Unit selectedUnit) { //// move to unit actions
-
-        if (Attackables.Find(u => u == selectedUnit)) {
-            return true;
-        }
-
-        return false;
-    }
     public static void GetAttackableUnits() {
         foreach(Unit unit in UnitActionManager.Instance.UnitOrder) {
             foreach(Tile tile in Range.InRangeTiles) {
                 if(unit.Tile == tile && unit.Type != EUnitType.Ally) {
-                    Debug.Log(unit.Name);
                     Attackables.Add(unit);
+                    unit.InRange = true;
                 }
             }
         }
     }
-    private static void InRangeHPBar() {
-        //Parameters param = new Parameters();
-        //foreach (Unit unit in Attackables) {
-        //    param.PutExtra("UNIT", unit);
-        //    EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
-        //}
-
+    private static void ShowInRangeHPBar() {
+        Parameters param;
+        if (Attackables.Count > 0) {
+            foreach (Unit unit in Attackables) {
+                param = new Parameters();
+                param.PutExtra(UNIT, unit);
+                EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
+            }
+        }
     }
-
+    public static void HideInRangeHPBar() {
+        Parameters param = new Parameters();
+        if (Attackables.Count > 0) {
+            foreach (Unit unit in Attackables) {
+                param = new Parameters();
+                param.PutExtra(UNIT, unit);
+                unit.InRange = false;
+                EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.HIDE_HP, param);
+            }
+        }
+    }
     ///////////////////////////////////////////////////////
     public static void OnAttackSelection() { // OVER HERE IS WHERE YOU'LL DO HIGHLIGHT?
         int Attack = UnitActionManager.Instance.numAttack;
@@ -215,9 +227,10 @@ public static class UnitActions {
         if (!EnemyListed) {
             GetAttackableUnits();
             EnemyListed = true;
+            if(Attackables.Count > 0) {
+                ShowInRangeHPBar();
+            }
         }
-
-        InRangeHPBar();
     }   
     public static bool AllyOnTileGoal(Tile endTile) {
         if (endTile.TilePos == UnitActionManager.Instance.GetFirstUnit().Tile.TilePos) {
