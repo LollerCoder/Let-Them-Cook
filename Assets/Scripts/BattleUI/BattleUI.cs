@@ -94,6 +94,7 @@ public class BattleUI : MonoBehaviour {
         if (this.skillSlots[num] == true) {
             if (this.attackNum[num] == true) {   // if the same skill is selected twice, unselect it
                 this.attackNum[num] = false;
+                UnitActionManager.Instance.OnAttack = false;
                 UnitActionManager.Instance.numAttack = -1;  // default value (no skill is selected)
                 return;
             }

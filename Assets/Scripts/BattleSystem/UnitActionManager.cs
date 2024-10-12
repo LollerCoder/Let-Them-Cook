@@ -218,7 +218,6 @@ public class UnitActionManager : MonoBehaviour{
             Start = false;
         }
     }
-
     private void CheckEndCondition() {
         int enemies = 0;
         int allies = 0;
