@@ -290,11 +290,11 @@ public abstract class Unit: MonoBehaviour {
         }
     }
     private void OnMouseEnter() {
-        UnitActions.UnitHover(this);
+        UnitActions.UnitHover(this, true);
     }
 
     private void OnMouseExit() {
-       
+        UnitActions.UnitHover(this, false);
     }
     protected void OnMouseUp() {
         UnitActions.UnitSelect(this);
