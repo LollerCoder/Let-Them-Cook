@@ -86,20 +86,20 @@ public class Recipe :  MonoBehaviour
     }
 
     
-    public Recipe (Recipe ing)
+    public Recipe (Recipe recipe)
     {
-        Name = ing.Name;
-        IngredientsNeeded = ing.IngredientsNeeded;
+        Name = recipe.Name;
+        IngredientsNeeded = recipe.IngredientsNeeded;
     }
 
     public void SaveProgress()
     {
-        SaveGame.SaveRecipe(this);
+        IngredientsDatabase.SaveRecipe(this);
     }
 
-    public void LoadRecipe()
+    public void LoadProgress()
     {
-        Recipe data = SaveGame.LoadRecipe();
+        Recipe data = IngredientsDatabase.LoadRecipe();
 
         Name = data.Name;
         IngredientsNeeded = data.IngredientsNeeded;

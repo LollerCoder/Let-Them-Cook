@@ -17,7 +17,22 @@ public class Ingredient
     [SerializeField]
     public string Name;
     [SerializeField]
-    public List<IngredientData> IngredientsNeeded;
+    public List<IngredientData> IngredientsNeeded = new List<IngredientData>();
 
+       public Ingredient (Ingredient ing)
+    {
+        IngredientsNeeded = ing.IngredientsNeeded;
+    }
 
+     public void SaveProgress()
+    {
+        IngredientsDatabase.SaveIngredients(this);
+    }
+
+    public void LoadProgress()
+    {
+        Ingredient data = IngredientsDatabase.LoadIngredients();
+
+        IngredientsNeeded = data.IngredientsNeeded;
+    }
 }
