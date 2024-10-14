@@ -8,7 +8,6 @@ using UnityEngine;
 public class UnitDatabaseManager : MonoBehaviour
 {
     [SerializeField] List<Unit> unitList = new List<Unit>();
-    [SerializeField] TMPro.TextMeshPro m_TextMeshPro;
 
     private string filePath = "Assets/Scripts/Database/UnitDatabase/UnitDatabase.txt";
     private StreamWriter writer = null;
@@ -22,10 +21,20 @@ public class UnitDatabaseManager : MonoBehaviour
 
     public static UnitDatabaseManager Instance { get; private set; }
 
+
+    public void addDatabase(string item)
+    {
+        using (var writer = new StreamWriter(filePath, true))
+        {
+            writer.WriteLine(item);
+            writer.Flush();
+        }
+    }
+
     public void saveDatabase()
     {
         //for loops of the list of allies
-        writer = new StreamWriter(filePath, false);
+        writer = new StreamWriter(filePath, true);
         /*writer.WriteLine("CARROT");
         writer.Flush();*/
     }
@@ -57,6 +66,13 @@ public class UnitDatabaseManager : MonoBehaviour
         }
     }
 
+    private void lineChanger(string newText, string fileName, int line_to_edit)
+    {
+        string[] arrLine = File.ReadAllLines(fileName);
+        arrLine[line_to_edit - 1] = newText;
+        File.WriteAllLines(fileName, arrLine);
+    }
+
     private void Awake()
     {
         if (Instance == null)
@@ -73,7 +89,7 @@ public class UnitDatabaseManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        loadDatabase();
+        //loadDatabase();
     }
 
     // Update is called once per frame
