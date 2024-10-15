@@ -11,16 +11,18 @@ public struct IngredientAmount
 }
 
 [Serializable]
-public class Recipe :  MonoBehaviour
+public class Recipe
 {
     [SerializeField]
-    public string Name;
+    public Sprite MealImage;
     [SerializeField]
-    public List<IngredientAmount> IngredientsNeeded;
+    public ECookedMeal Name;
+    [SerializeField]
+    public List<IngredientAmount> IngredientsNeeded = new List<IngredientAmount>();
 
     public Recipe()
     {
-        Name = "Empty";
+        Name = ECookedMeal.FAIL;
         foreach (EIngredientType type in Enum.GetValues(typeof(EIngredientType)))
         {
             IngredientAmount toAdd = new IngredientAmount();
@@ -30,7 +32,7 @@ public class Recipe :  MonoBehaviour
         }
     }
 
-    public Recipe(string name, List<IngredientAmount> ingredientsNeeded)
+    public Recipe(ECookedMeal name, List<IngredientAmount> ingredientsNeeded)
     {
         Name = name;
         if (ingredientsNeeded.Count == Enum.GetValues(typeof(EIngredientType)).Length)
@@ -84,7 +86,6 @@ public class Recipe :  MonoBehaviour
             Debug.Log(ingList.type + " = " + ingList.amount);
         }
     }
-
     
     public Recipe (Recipe recipe)
     {

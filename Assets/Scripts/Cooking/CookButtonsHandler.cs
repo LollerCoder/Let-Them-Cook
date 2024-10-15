@@ -61,12 +61,23 @@ public class CookButtonsHandler : MonoBehaviour
                 break;
             case "Go To Map":
                 SceneManager.LoadScene("Map");
+                break;
             case "Exit":
                 ingredientData.SaveProgress();
                 /*Save ingredients and recipes here*/
                 //recipeData.SaveProgress();
              
 
+                break;
+            case "Bookmark":
+                GameObject.Find("Recipe Book Popup").GetComponent<RecipeBPPHandler>().ToggleDisplay(true);
+                break;
+            case "Popdown Cookbook":
+                GameObject.Find("Recipe Book Popup").GetComponent<RecipeBPPHandler>().ToggleDisplay(false);
+                break;
+
+            case "Clipboard Closer":
+                RecipeClipboardManager.Instance.ShowClipboard(false);
                 break;
         }
     }

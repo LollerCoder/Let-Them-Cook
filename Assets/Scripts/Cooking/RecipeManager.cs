@@ -29,6 +29,7 @@ public class RecipeManager : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("I am in " + this.gameObject.name);
         //foreach (Recipe rec in Recipes)
         //{
         //    rec.PrintIngredients();
@@ -36,15 +37,15 @@ public class RecipeManager : MonoBehaviour
 
         testRecipe.FillInMissingIngredients();
         //testRecipe.PrintIngredients();
-        if (FindValidRecipe(testRecipe.IngredientsNeeded) != null)
+        if (FindValidRecipe(testRecipe.IngredientsNeeded) != ECookedMeal.FAIL)
             Debug.Log("TAMA!");
         else
             Debug.Log("Mali!");
     }
 
-    private string FindValidRecipe(List<IngredientAmount> ingredientsAdded)
+    private ECookedMeal FindValidRecipe(List<IngredientAmount> ingredientsAdded)
     {
-        string foundRecipe = null;
+        ECookedMeal foundRecipe = ECookedMeal.FAIL;
 
         foreach (Recipe recipe in Recipes)
         {
@@ -72,5 +73,18 @@ public class RecipeManager : MonoBehaviour
         }
 
         return isValid;
+    }
+
+    public List<IngredientAmount> GetIngredientsInRecipe(ECookedMeal mealName)
+    {
+        List<IngredientAmount> ingredients = new List<IngredientAmount>();
+        foreach (Recipe recipe in Recipes)
+        {
+            if (recipe.Name == mealName)
+                ingredients = recipe.IngredientsNeeded;
+        }
+        ingredients.RemoveAll(s => s.amount <= 0);
+
+        return ingredients;
     }
 }

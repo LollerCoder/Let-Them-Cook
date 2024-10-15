@@ -3,5 +3,7 @@ using System;
 public enum ECookedMeal
 {
     FAIL,
-    SPICY_FRIES
+    SPICY_FRIES,
+    POTATO_SALAD,
+    CARROT_STICKS
 }

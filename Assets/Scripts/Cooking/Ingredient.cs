@@ -19,12 +19,12 @@ public class Ingredient
     [SerializeField]
     public List<IngredientData> IngredientsNeeded = new List<IngredientData>();
 
-       public Ingredient (Ingredient ing)
+    public Ingredient (Ingredient ing)
     {
         IngredientsNeeded = ing.IngredientsNeeded;
     }
 
-     public void SaveProgress()
+    public void SaveProgress()
     {
         IngredientsDatabase.SaveIngredients(this);
     }
@@ -32,6 +32,8 @@ public class Ingredient
     public void LoadProgress()
     {
         Ingredient data = IngredientsDatabase.LoadIngredients();
+
+        if (data == null) Debug.LogWarning("404 ingredient data not found!");
 
         IngredientsNeeded = data.IngredientsNeeded;
     }

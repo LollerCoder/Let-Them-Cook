@@ -60,16 +60,13 @@ public class IngredientAmountTracker : MonoBehaviour
 
         /*Load ingredients and recipes here*/
         //recipeData.LoadProgress();
-        ingredientData.LoadProgress();
+        //ingredientData.LoadProgress();
 
-
-
-        /*
         IngredientsManager.IngredientAmount[EIngredientType.CABBAGE] = 4;
         IngredientsManager.IngredientAmount[EIngredientType.POTATO] = 4;
         IngredientsManager.IngredientAmount[EIngredientType.CARROT] = 2;
         IngredientsManager.IngredientAmount[EIngredientType.CHILI] = 6;
-        */
+
     }
 
     // Update is called once per frame
