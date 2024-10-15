@@ -9,14 +9,8 @@ public abstract class Unit: MonoBehaviour {
 
     public const string UNIT = "UNIT";
 
-    [SerializeField] 
-    private Sprite onDeathSprite;
-
     [SerializeField]
     public GameObject hpBar;
-
-    [SerializeField]
-    private DroppedVegetable dropVegetable;
 
     protected List<string> skillList = new List<string>();
     
@@ -247,9 +241,9 @@ public abstract class Unit: MonoBehaviour {
     }
 
     private void HandleDeath() {
-        DroppedVegetable droppedVegetable = GameObject.Instantiate(this.dropVegetable);
 
-        droppedVegetable.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
+        Vector3 pos = new Vector3(this.transform.position.x, 1, this.transform.position.z);
+        DroppedVegetableManager.Instance.CreateDropVegetable(this.Name, pos);
 
         this.eatable = true;
 

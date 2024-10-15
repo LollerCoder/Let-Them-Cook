@@ -276,12 +276,13 @@ public static class UnitActions {
         }
 
         if (PathFinding.Path.Count < 1) {
-
             //currentUnit.Tile = currentTile;
             UnitActionManager.Instance.Moving = false;
             UnitActionManager.Instance.OnMove = false;
             currentUnit.OnMovement(false);
-            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
+            if(currentUnit.Type == EUnitType.Ally) {
+                EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
+            }
         }
     }
     public static void TileTapped(Tile goalTile) {
