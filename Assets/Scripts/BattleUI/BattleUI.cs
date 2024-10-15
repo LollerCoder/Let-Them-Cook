@@ -86,6 +86,7 @@ public class BattleUI : MonoBehaviour {
             }
             else {
                 this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[2];
+                this.Attacks[i].GetComponentInChildren<Text>().text = "";
             }
         }
     }
@@ -97,6 +98,14 @@ public class BattleUI : MonoBehaviour {
                 this.attackNum[num] = false;
                 UnitActionManager.Instance.OnAttack = false;
                 UnitActionManager.Instance.numAttack = -1;  // default value (no skill is selected)
+
+                if (num != 0) {
+                    this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[1];
+                }
+                else {
+                    this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[0];
+                }
+
                 UnitActions.HideInRangeHPBar();
                 return;
             }
@@ -105,8 +114,14 @@ public class BattleUI : MonoBehaviour {
                 this.attackNum[num] = false;          
             }
 
-            this.attackNum[num] = true;
+            if(num != 0) {
+                this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[4];
+            }
+            else {
+                this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[3];
+            }
 
+            this.attackNum[num] = true;
             UnitActionManager.Instance.OnAttack = true;
             UnitActionManager.Instance.numAttack = num;
         }
