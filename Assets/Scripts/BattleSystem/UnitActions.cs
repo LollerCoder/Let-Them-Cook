@@ -43,11 +43,18 @@ public static class UnitActions {
             stepFlag = false;
         }
     }
-    public static void UnitHover(Unit unit) {
+    public static void UnitHover(Unit unit, bool state) {
         Parameters param = new Parameters();
 
         param.PutExtra("UNIT", unit);
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
+
+        if (state) {
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
+        }
+        else {
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.HIDE_HP, param);
+        }
+        
     }
     public static void UnitSelect(Unit selectedUnit) {
         if (IsUnitAttackable(selectedUnit) && UnitActionManager.Instance.OnAttack) {
