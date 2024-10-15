@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
     
@@ -14,9 +13,6 @@ public abstract class Unit: MonoBehaviour {
 
     [SerializeField]
     public GameObject hpBar;
-
-    [SerializeField]
-    private DroppedVegetable dropVegetable;
 
     protected List<string> skillList = new List<string>();
     
@@ -202,9 +198,7 @@ public abstract class Unit: MonoBehaviour {
         attacker.effectManager.EffectReset(attacker);
         this.effectManager.EffectReset(this);
 
-        Parameters param = new Parameters();
-        param.PutExtra(UNIT, this);
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
+
     }
     public bool isDodged(Unit attacker)
     {
@@ -247,14 +241,11 @@ public abstract class Unit: MonoBehaviour {
     }
 
     private void HandleDeath() {
-        DroppedVegetable droppedVegetable = GameObject.Instantiate(this.dropVegetable);
-
-        droppedVegetable.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
-
+        this.GetComponent<SpriteRenderer>().sprite = this.onDeathSprite;
+        this.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+        this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
         this.eatable = true;
-
         this.GetComponent<Animator>().enabled = false;
-        this.gameObject.SetActive(false);
     }
 
     private void OnMouseEnter() {

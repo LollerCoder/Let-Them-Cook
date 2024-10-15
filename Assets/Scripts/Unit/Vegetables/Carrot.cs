@@ -34,6 +34,7 @@ public class Carrot : Unit{
 
     private void HpBarHide(Parameters param)
     {
+
         Unit unit = param.GetUnitExtra(UNIT);
 
         if (unit == this)

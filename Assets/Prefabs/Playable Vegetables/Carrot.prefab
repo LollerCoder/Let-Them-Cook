@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2094699684586030274}
   - component: {fileID: 7451941840912662282}
   - component: {fileID: 3826094964889907313}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1088408925908182974}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 0.6, z: 1}
+  m_LocalPosition: {x: 4, y: 1, z: 1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -126,12 +126,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onDeathSprite: {fileID: 21300000, guid: 266d2d55fa2106b47aa311f73c9bd08d, type: 3}
-  hpBar: {fileID: 742051265592354550}
-  dropVegetable: {fileID: 3005119942298183213, guid: 49401971659eac34ba425d8e54a39c68, type: 3}
   charName: 
   hp: 0
   _tile: {fileID: 0}
   InRange: 0
+  carrot: {fileID: 21300000, guid: 266d2d55fa2106b47aa311f73c9bd08d, type: 3}
+  hpBar: {fileID: 742051265592354550}
 --- !u!65 &7451941840912662282
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.4839087, y: 1.9678161, z: 0.2}
-  m_Center: {x: 0, y: 0.7, z: 0}
+  m_Center: {x: -0.052746773, y: 0.08659804, z: 0}
 --- !u!114 &3826094964889907313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 826142558394276649, guid: e36a319bdd348ac4d97b5025a9517795, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.04
+      value: 1.211
       objectReference: {fileID: 0}
     - target: {fileID: 826142558394276649, guid: e36a319bdd348ac4d97b5025a9517795, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -131,7 +131,7 @@ public class UnitActionManager : MonoBehaviour{
         unit.OnTurn(false);
         unit.OnMovement(false);
         Parameters param = new Parameters();
-        param.PutExtra(UNIT, unit);
+        param.PutExtra(unit.Name, unit);
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.HIDE_HP, param);
 
