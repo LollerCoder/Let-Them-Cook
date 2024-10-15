@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class CookButtonsHandler : MonoBehaviour
 {
+
+    private Recipe recipeData;
+
+    private Ingredient ingredientData;
     private IEnumerator CookIngredients()
     {
         PotHandler potTracker = GameObject.Find("Pot Ingredients").GetComponent<PotHandler>();
@@ -57,6 +61,12 @@ public class CookButtonsHandler : MonoBehaviour
                 break;
             case "Go To Map":
                 SceneManager.LoadScene("Map");
+            case "Exit":
+                ingredientData.SaveProgress();
+                /*Save ingredients and recipes here*/
+                //recipeData.SaveProgress();
+             
+
                 break;
         }
     }

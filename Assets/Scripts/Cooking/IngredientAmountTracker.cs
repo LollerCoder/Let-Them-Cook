@@ -15,6 +15,9 @@ public class IngredientAmountTracker : MonoBehaviour
         this._IngredientTracker[type].text = "Amount: " + amount.ToString();
     }
 
+    private Recipe recipeData;
+    private Ingredient ingredientData;
+
     private void UpdateCurrentAmount()
     {
         EIngredientType currentType = EIngredientType.CARROT;
@@ -55,10 +58,18 @@ public class IngredientAmountTracker : MonoBehaviour
         this._IngredientTracker[EIngredientType.CHILI] = this._AmountLabels[2].GetComponent<TextMesh>();
         this._IngredientTracker[EIngredientType.CABBAGE] = this._AmountLabels[3].GetComponent<TextMesh>();
 
+        /*Load ingredients and recipes here*/
+        //recipeData.LoadProgress();
+        ingredientData.LoadProgress();
+
+
+
+        /*
         IngredientsManager.IngredientAmount[EIngredientType.CABBAGE] = 4;
         IngredientsManager.IngredientAmount[EIngredientType.POTATO] = 4;
         IngredientsManager.IngredientAmount[EIngredientType.CARROT] = 2;
         IngredientsManager.IngredientAmount[EIngredientType.CHILI] = 6;
+        */
     }
 
     // Update is called once per frame
