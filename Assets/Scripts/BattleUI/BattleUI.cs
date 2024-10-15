@@ -37,7 +37,9 @@ public class BattleUI : MonoBehaviour {
     }
 
     public void OnEndTurn() {
-        this.ToggleActionBox();
+        if(UnitActionManager.Instance.GetFirstUnit().Type == EUnitType.Ally) {
+            this.ToggleActionBox();
+        }
         this.StartCoroutine(this.CloseUI(1.5f));
     }
 
@@ -48,7 +50,7 @@ public class BattleUI : MonoBehaviour {
         UnitActionManager.Instance.OnHeal = false;
         UnitActionManager.Instance.OnMove = false;
 
-        UnitActionManager.Instance.NextUnitTurn();
+        UnitActionManager.Instance.UnitTurn();
     }
 
     public void NextUnitSkills(Unit unit) {
