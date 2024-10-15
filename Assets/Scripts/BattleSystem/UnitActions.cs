@@ -182,7 +182,7 @@ public static class UnitActions {
         //Parameters param = new Parameters();
         //foreach (Unit unit in Attackables) {
         //    param.PutExtra("UNIT", unit);
-        //    EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
+        //    EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.UNIT_ATTACK, param);
         //}
 
     }
