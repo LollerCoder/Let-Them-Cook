@@ -137,10 +137,12 @@ public static class UnitActions {
         if (Skill == 1) {
             Debug.Log("10 dmg applied");
         }
-
         UnitActionManager.Instance.OnAttack = false;
         UnitActionManager.Instance.hadAttacked = true;
-        UnitActionManager.Instance.NextTurn();
+        UnitActionManager.Instance.NextUnitTurn();
+        if (UnitActionManager.Instance.GetFirstUnit().Type == EUnitType.Ally) {
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
+        }
     }
     public static bool IsUnitEatable(Unit selectedUnit) { ///// move to unit actions
         if (selectedUnit.Eatable) {
@@ -260,7 +262,9 @@ public static class UnitActions {
             UnitActionManager.Instance.Moving = false;
             UnitActionManager.Instance.OnMove = false;
             currentUnit.OnMovement(false);
-            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
+            if(UnitActionManager.Instance.GetFirstUnit().Type == EUnitType.Ally) {
+                EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
+            }           
         }
     }
     public static void TileTapped(Tile goalTile) {

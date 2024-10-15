@@ -95,7 +95,7 @@ public class UnitActionManager : MonoBehaviour{
         yield return new WaitForSeconds(seconds);
         PathFinding.Path.Clear();
         EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.ENABLE_CLICKS);
-        this.NextTurn();
+        this.NextUnitTurn();
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -118,12 +118,9 @@ public class UnitActionManager : MonoBehaviour{
         this._unitOrder.Sort((x, y) => y.Speed.CompareTo(x.Speed));
         this._battleUI.UpdateTurnOrder(this._unitOrder);
     }
-
-    public void NextTurn() {
-        this._battleUI.OnEndTurn();
-
-    }
-    public void UnitTurn() {
+    public void NextUnitTurn() {
+        UnitActions.EnemyListed = false;
+        UnitActions.UpdateTile();
         Unit unit = this._unitOrder[0];
         unit.GetComponent<BoxCollider>().enabled = true;
         unit.OnTurn(false);
@@ -132,12 +129,10 @@ public class UnitActionManager : MonoBehaviour{
         this._unitOrder.Remove(unit);
         this._unitOrder.Add(unit);
 
-        Range.UnHighlightTiles();
-
-        UnitActions.EnemyListed = false;
-        UnitActions.UpdateTile();
-
         this.SetUpTurn();
+
+        Range.UnHighlightTiles();
+       
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
