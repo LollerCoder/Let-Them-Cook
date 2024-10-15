@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.UI;
-
+using UnityEngine.UIElements;
 public class Potato : Unit {
     public override void UnitAttack(Unit unit2) {
 
@@ -23,23 +23,6 @@ public class Potato : Unit {
     {
 
         Unit unit = param.GetUnitExtra(UNIT);
-
-        if (this.Type == EUnitType.Enemy)//enemy
-        {
-            this.hpBar.GetComponentInChildren<Slider>().GetComponentInChildren<Image>().color = new Color(0.8941177f, 0, 0.05098039f, 1);
-
-        }
-
-        if (this.Type == EUnitType.Ally)//ally
-        {
-            this.hpBar.GetComponentInChildren<Slider>().GetComponentInChildren<Image>().color = new Color(0.0619223f, 0.2870282f, 0.8415094f, 1);
-        }
-
-        if (UnitActionManager.Instance.UnitOrder[0] == this && this.Type != EUnitType.Enemy)//its you
-        {
-            this.hpBar.GetComponentInChildren<Slider>().GetComponentInChildren<Image>().color = new Color(0.2638531f, 0.8943396f, 0.2008044f, 1);
-        }
-
 
         if (unit == this) {
             PopUpManager.Instance.hpPopUp(this.hpBar, this.maxhp, this.hp);
