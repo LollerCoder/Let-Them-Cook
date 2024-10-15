@@ -61,10 +61,10 @@ public static class UnitActions {
             ConfirmAttack(selectedUnit, UnitActionManager.Instance.numAttack);
             //this.ConfirmAttack(selectedUnit, this.numAttack);
         }
-        if (IsUnitEatable(selectedUnit) && UnitActionManager.Instance.OnHeal) {
-            //this.ConfirmEat(selectedUnit);
-            ConfirmEat(selectedUnit);
-        }
+        //if (IsUnitEatable(selectedUnit)) {
+        //    //this.ConfirmEat(selectedUnit);
+        //    ConfirmEat(selectedUnit);
+        //}
     }
 
     //public static void ConfirmMove() { // might use 
@@ -98,18 +98,18 @@ public static class UnitActions {
     public static void ConfirmEat(Unit target) { // move to unit actions
         Unit currentUnit = UnitActionManager.Instance.GetFirstUnit();
 
-        if (!UnitActionManager.Instance.hadHealed) {
-            if (currentUnit.HP == currentUnit.MAXHP) {
-                UnitActionManager.Instance.OnHeal = false;
-                Debug.Log("no heal");
-                return;
-            }
+        //if (!UnitActionManager.Instance.hadHealed) {
+        //    if (currentUnit.HP == currentUnit.MAXHP) {
+        //        UnitActionManager.Instance.OnHeal = false;
+        //        Debug.Log("no heal");
+        //        return;
+        //    }
 
-            currentUnit.Heal(target);
-            UnitActionManager.Instance.hadHealed = true;
-            UnitActionManager.Instance.OnHeal = false;
-            Debug.Log("UnitHeal " + currentUnit.Name + " Healed");
-        }
+        //    currentUnit.Heal(target);
+        //    UnitActionManager.Instance.hadHealed = true;
+        //    UnitActionManager.Instance.OnHeal = false;
+        //    Debug.Log("UnitHeal " + currentUnit.Name + " Healed");
+        //}
     }
     public static bool IsUnitAttackable(Unit selectedUnit) { //// move to unit actions
 

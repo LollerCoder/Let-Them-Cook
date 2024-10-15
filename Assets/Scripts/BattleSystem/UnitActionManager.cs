@@ -53,10 +53,8 @@ public class UnitActionManager : MonoBehaviour{
 
     public bool hadMoved = false;
     public bool hadAttacked = false;
-    public bool hadHealed = false;
 
     public bool OnAttack = false;
-    public bool OnHeal = false;
     public bool OnMove = false;
 
     public bool Stayed = false;
@@ -168,10 +166,7 @@ public class UnitActionManager : MonoBehaviour{
         }
         else {
             if (this.OnMove && !this.hadMoved) {
-                Range.GetRange(this._unitOrder[0], this._unitOrder[0].Speed, "Move");
-            }
-            else if (this.OnHeal && !this.hadHealed) {
-                Range.GetRange(this._unitOrder[0], this._unitOrder[0].BasicRange, "Heal");
+                Range.GetRange(this._unitOrder[0], this._unitOrder[0].Move, "Move");
             }
             else if (this.OnAttack && !this.hadAttacked) {
                 UnitActions.OnAttackSelection();
@@ -202,7 +197,6 @@ public class UnitActionManager : MonoBehaviour{
         this.OnMove = true;
         this.hadMoved = false;
         this.hadAttacked = false;
-        this.hadHealed = false;
         this.GetFirstUnit().Tile.isWalkable = true;
         this.numAttack = -1;
 

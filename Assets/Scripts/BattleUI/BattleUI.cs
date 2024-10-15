@@ -48,7 +48,6 @@ public class BattleUI : MonoBehaviour {
         UnitActions.HideInRangeHPBar();
 
         UnitActionManager.Instance.OnAttack = false;
-        UnitActionManager.Instance.OnHeal = false;
         UnitActionManager.Instance.OnMove = false;
 
         UnitActionManager.Instance.UnitTurn();
