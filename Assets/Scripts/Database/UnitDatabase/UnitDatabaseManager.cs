@@ -59,7 +59,7 @@ public class UnitDatabaseManager : MonoBehaviour
 
             int x = UnityEngine.Random.Range(1, 17);
             int z = UnityEngine.Random.Range(1, 17);
-            unit = Instantiate(this.unitList[prefabIndex], new Vector3(x, 1.0f, z), Quaternion.identity, this.allySpawnZone.transform);
+            unit = Instantiate(this.unitList[prefabIndex], new Vector3(x, 0.6f, z), Quaternion.identity, this.allySpawnZone.transform);
             unit.transform.rotation = Quaternion.Euler(0, -180, 0);
             unit.Type = EUnitType.Ally;
             unit.gameObject.layer = this.gameObject.layer;
