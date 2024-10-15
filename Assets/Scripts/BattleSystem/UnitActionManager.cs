@@ -122,24 +122,45 @@ public class UnitActionManager : MonoBehaviour{
         UnitActions.EnemyListed = false;
         UnitActions.UpdateTile();
         Unit unit = this._unitOrder[0];
-        unit.GetComponent<BoxCollider>().enabled = true;
+        
         unit.OnTurn(false);
-        unit.OnMovement(false);
+        //unit.OnMovement(false);
+ 
 
-        this._unitOrder.Remove(unit);
+        this._unitOrder.RemoveAt(0);
+        this._unitOrder[0].EffectManager.EffectTimer();
+        
         this._unitOrder.Add(unit);
+        this._battleUI.UpdateTurnOrder(this._unitOrder);
+                    
+        UnitActions.SetCurrentTile(this.GetFirstUnit().Tile, this.GetFirstUnit().transform.position.y);
 
-        this.SetUpTurn();
+        this.GetFirstUnit().OnMovement(true);
+        this.GetFirstUnit().OnTurn(true);
+        //this.GetFirstUnit().GetComponent<BoxCollider>().enabled = false;
+
+        this.OnMove = true;
+        this.hadMoved = false;
+        this.hadAttacked = false;
+        this.hadHealed = false;
+        this.GetFirstUnit().Tile.isWalkable = true;
+        this.numAttack = -1;
 
         Range.UnHighlightTiles();
-       
+
+        if (this._unitOrder[0].Type != EUnitType.Ally) {
+
+            EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
+            this.EnemyUnitAction();
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void LateUpdate() {
         this.OnStart();
 
-        if (Input.GetKeyUp(KeyCode.Q) && UnitActions.stepFlag) { 
+        if (Input.GetKeyUp(KeyCode.Q) && UnitActions.stepFlag)
+        { // right button
             UnitActions.ResetPosition();
         }
 
@@ -154,6 +175,7 @@ public class UnitActionManager : MonoBehaviour{
 
         if (PathFinding.Path.Count > 0) {
             UnitActions.MoveCurrentUnit();
+            //this.MoveCurrentUnit();
         }
         else {
             if (this.OnMove && !this.hadMoved) {
@@ -174,31 +196,6 @@ public class UnitActionManager : MonoBehaviour{
         }
     }
 
-    private void SetUpTurn() {
-        this._battleUI.UpdateTurnOrder(this._unitOrder);
-        this._battleUI.NextUnitSkills(this.GetFirstUnit());
-        UnitActions.SetCurrentTile(this.GetFirstUnit().Tile, this.GetFirstUnit().transform.position.y);
-        this.GetFirstUnit().EffectManager.EffectTimer();
-        this.GetFirstUnit().OnMovement(true);
-        this.GetFirstUnit().OnTurn(true);
-        this.GetFirstUnit().GetComponent<BoxCollider>().enabled = false;
-
-        this.Stayed = false;
-        this.OnMove = true;
-        this.hadMoved = false;
-        this.hadAttacked = false;
-        this.hadHealed = false;
-        this.GetFirstUnit().Tile.isWalkable = true;
-        this.numAttack = -1;
-
-        if (this._unitOrder[0].Type != EUnitType.Ally) {
-
-            EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
-            this.EnemyUnitAction();
-        }
-
-
-    }
     private void OnStart() {
         if (Start) {
             this.DecideTurnOrder();
@@ -206,9 +203,19 @@ public class UnitActionManager : MonoBehaviour{
             UnitActions.UpdateTile();
             PathFinding.BattleScene = this._battleScene;
             Range.BattleScene = this._battleScene;
+            this._battleUI.NextCharacterAvatar(this.GetFirstUnit());
+            UnitActions.SetCurrentTile(this.GetFirstUnit().Tile, this.GetFirstUnit().transform.position.y);
             this._enemyAI = new EnemyMainAI(this._Units);
 
-            this.SetUpTurn();
+            //this.GetFirstUnit().GetComponent<BoxCollider>().enabled = false;
+            this.GetFirstUnit().OnMovement(true);
+            this.GetFirstUnit().OnTurn(!this._unitOrder[0].Turn);
+            this.OnMove = true;
+
+
+            if (this._unitOrder[0].Type != EUnitType.Ally) {
+                EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
+            }
 
             Start = false;
         }

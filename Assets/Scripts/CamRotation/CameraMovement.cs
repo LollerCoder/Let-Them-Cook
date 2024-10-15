@@ -21,7 +21,7 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.CAMERA_FOLLOW, this.ResetPosition);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.ON_AVATAR_CLICK, this.ResetPosition);
     }
 
     // Update is called once per frame

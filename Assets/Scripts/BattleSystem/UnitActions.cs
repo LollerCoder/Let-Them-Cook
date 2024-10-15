@@ -16,21 +16,18 @@ public static class UnitActions {
 
     public static bool EnemyListed = false;
 
-    public const string UNIT = "UNIT";
-
     ///////////////////////////////////////////////////////
     public static void SetCurrentTile(Tile Tile, float y) {
         currentTile = Tile;
         currentTilePos = new Vector3(currentTile.transform.position.x, y, currentTile.transform.position.z);
     }
     public static void ResetPosition() {
-        if (!UnitActionManager.Instance.Moving) {
+        if (!UnitActionManager.Instance.Moving && !UnitActionManager.Instance.OnAttack) {
             UnitActionManager.Instance.OnMove = false;
 
             if (UnitActionManager.Instance.hadMoved) {
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
             }
-            UnitActionManager.Instance.OnAttack = false;
             UnitActionManager.Instance.Stayed = false;
             UnitActionManager.Instance.OnMove = true;
             UnitActionManager.Instance.hadMoved = false;
@@ -38,7 +35,7 @@ public static class UnitActions {
             UnitActionManager.Instance.GetFirstUnit().transform.position = currentTilePos;
             UnitActionManager.Instance.GetFirstUnit().Tile = currentTile;
 
-            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.CAMERA_FOLLOW);
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.ON_AVATAR_CLICK);
             EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
             stepFlag = false;
         }
@@ -139,10 +136,6 @@ public static class UnitActions {
         }
         UnitActionManager.Instance.OnAttack = false;
         UnitActionManager.Instance.hadAttacked = true;
-        UnitActionManager.Instance.NextUnitTurn();
-        if (UnitActionManager.Instance.GetFirstUnit().Type == EUnitType.Ally) {
-            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
-        }
     }
     public static bool IsUnitEatable(Unit selectedUnit) { ///// move to unit actions
         if (selectedUnit.Eatable) {
@@ -172,14 +165,6 @@ public static class UnitActions {
                 }
             }
         }
-    }
-    private static void InRangeHPBar() {
-        //Parameters param = new Parameters();
-        //foreach (Unit unit in Attackables) {
-        //    param.PutExtra("UNIT", unit);
-        //    EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.UNIT_ATTACK, param);
-        //}
-
     }
 
     ///////////////////////////////////////////////////////
@@ -211,8 +196,6 @@ public static class UnitActions {
             GetAttackableUnits();
             EnemyListed = true;
         }
-
-        InRangeHPBar();
     }   
     public static bool AllyOnTileGoal(Tile endTile) {
         if (endTile.TilePos == UnitActionManager.Instance.GetFirstUnit().Tile.TilePos) {
@@ -245,7 +228,7 @@ public static class UnitActions {
         Vector2 unitPos = new Vector2(currentUnit.transform.position.x, currentUnit.transform.position.z);
         Vector2 tilePos = new Vector2(PathFinding.Path[0].transform.position.x, PathFinding.Path[0].transform.position.z);
 
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.CAMERA_FOLLOW);
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.ON_AVATAR_CLICK);
 
         if (Vector2.Distance(unitPos, tilePos) < 0.1f) {
             currentUnit.transform.position = new Vector3(PathFinding.Path[0].transform.position.x,
@@ -262,11 +245,11 @@ public static class UnitActions {
             UnitActionManager.Instance.Moving = false;
             UnitActionManager.Instance.OnMove = false;
             currentUnit.OnMovement(false);
-            if(UnitActionManager.Instance.GetFirstUnit().Type == EUnitType.Ally) {
-                EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
-            }           
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
+            
         }
     }
+
     public static void TileTapped(Tile goalTile) {
         Unit unit = UnitActionManager.Instance.GetFirstUnit();
         string bufDebufname = ""; //name
@@ -333,6 +316,7 @@ public static class UnitActions {
             }
         }
     }
+
     public static void AssignUnitTile() {
 
         var map = TileMapGenerator.Instance.TileMap;
@@ -352,6 +336,7 @@ public static class UnitActions {
 
         }
     }
+
     public static  void UpdateTile() { /////move to tileactions
         TileMapGenerator.Instance.UpdateTile();
 

@@ -70,7 +70,6 @@ public class EventNames {
    
 
 	public class BattleUI_Events {
-		public const string CAMERA_FOLLOW = "CAMERA_FOLLOW";
 		public const string ON_AVATAR_CLICK = "ON_AVATAR_CLICK";
 		public const string TOGGLE_ACTION_BOX = "TOGGLE_ACTION_BOX";
 		public const string SHOW_HP = "SHOW_HP";
