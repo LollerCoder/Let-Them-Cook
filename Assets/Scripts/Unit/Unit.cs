@@ -107,6 +107,15 @@ public abstract class Unit: MonoBehaviour {
     protected int basicrange = 2; // range
     public int BasicRange { get { return this.basicrange; } }
 
+    protected float move = 3; // defense
+    public float Move
+    {
+        get { return this.move; }
+        set { this.move = value; }
+    }
+
+
+
     protected Animator animator;
 
     protected bool defend = false;
