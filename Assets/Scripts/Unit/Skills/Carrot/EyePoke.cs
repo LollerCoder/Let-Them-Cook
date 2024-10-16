@@ -18,6 +18,9 @@ public class EyePoke : Skill
         int mod = -10;
         EStatToEffect stat = EStatToEffect.ACCURACY;
 
+        //for skill progressions
+        this.cost = 50;
+
         this.skillData = new EffectInfo(duration, mod, stat);
     }
 

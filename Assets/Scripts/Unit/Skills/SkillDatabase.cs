@@ -68,11 +68,11 @@ public class SkillDatabase : MonoBehaviour
         return skillToReturn;
        
     }
-    public void addSkill(EffectInfo effects, string skillName) //////Mainly for adding tile effects and the like
+    public void addSkill(EffectInfo effects, string skillName,float cost) //////Mainly for adding tile effects and the like
     {
         if (!skillDatabase.ContainsKey(skillName)) //just add the tile in
         {
-            Skill toAdd = new Skill(effects);
+            Skill toAdd = new Skill(effects,cost);
             skillDatabase.Add(skillName, toAdd);
            
         }

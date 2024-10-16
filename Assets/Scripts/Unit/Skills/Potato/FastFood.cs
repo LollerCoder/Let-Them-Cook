@@ -14,8 +14,11 @@ public class FastFood : Skill
         this.veggieType = EVeggie.POTATO;
         this.skillType = ESkillType.BASIC;
 
-      
-        
+        //for skill progressions
+        this.cost = 10;
+
+
+
     }
 
     public override void SkillAction(Unit target, Unit origin)

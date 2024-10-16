@@ -19,6 +19,9 @@ public class TripUp : Skill
         int mod = -10;
         EStatToEffect stat = EStatToEffect.SPEED;
 
+        //for skill progressions
+        this.cost = 30;
+
         this.skillData = new EffectInfo(duration, mod, stat);
     }
 

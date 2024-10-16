@@ -23,6 +23,9 @@ public class SPEED : Skill
         int mod2 = 50;
         EStatToEffect stat2 = EStatToEffect.SPEED;
 
+        //for skill progressions
+        this.cost = 60;
+
         this.skillData2 = new EffectInfo(duration2, mod2, stat2);
     }
 

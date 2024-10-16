@@ -21,10 +21,16 @@ public class ImFrench : Skill
         this.veggieType = EVeggie.POTATO;
         this.skillType = ESkillType.BUFFDEBUFF;
 
+
+
         //EFFECT INFO
         int duration = 3;
         EStatToEffect stat = EStatToEffect.SPEED;
         int mod = 20;
+
+
+        //for skill progressions
+        this.cost = 30;
 
         this.skillData = new EffectInfo(duration, mod, stat);
 

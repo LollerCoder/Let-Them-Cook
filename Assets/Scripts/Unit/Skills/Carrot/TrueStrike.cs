@@ -13,6 +13,8 @@ public class TrueStrike : Skill
         this.skillName = "TrueStrike";
         this.veggieType = EVeggie.CARROT; 
         this.skillType = ESkillType.BASIC;
+        //for skill progressions
+        this.cost = 30;
     }
 
 

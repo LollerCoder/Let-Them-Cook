@@ -36,7 +36,10 @@ public class MashPotato : Skill
         int mod2 = 20;
         EStatToEffect stat2 = EStatToEffect.ATTACK;
 
-        
+        //for skill progressions
+        this.cost = 40;
+
+
         this.skillData2 = new EffectInfo(duration2, mod2, stat2);
     }
 

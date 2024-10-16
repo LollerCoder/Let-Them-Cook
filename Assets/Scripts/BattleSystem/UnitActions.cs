@@ -344,7 +344,7 @@ public static class UnitActions {
                     }
                     // TODO put APPLYEFFECT into effectmanager, its reused in many codes throughtout...NUKE IEFFECTABLE
                     if (bufDebufname != "") {
-                        SkillDatabase.Instance.addSkill(terst, bufDebufname);
+                        SkillDatabase.Instance.addSkill(terst, bufDebufname, 0);
                         unit.EffectManager.ApplyTileEffect(unit, bufDebufname, terst.DURATION);
                     }
                 }

@@ -12,8 +12,8 @@ public class EagleEye : Skill
     //effectinfo
    
     private int sucessChance = 80;
+
     
-   
 
     public EagleEye()
     {
@@ -22,10 +22,15 @@ public class EagleEye : Skill
         this.veggieType = EVeggie.CARROT;
         this.skillType = ESkillType.BUFFDEBUFF;
 
+
         //EFFECT INFO
         int duration = 3;
         EStatToEffect stat = EStatToEffect.ACCURACY;
         int mod = 10;
+
+        //for skill progressions
+        this.cost = 50;
+
 
         this.skillData = new EffectInfo(duration, mod, stat);
 
