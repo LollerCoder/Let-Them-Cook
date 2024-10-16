@@ -94,7 +94,7 @@ public class SkillDatabase : MonoBehaviour
             {
                 skillDatabase.Remove(keyDelete);
             }
-            Skill toAdd = new Skill(effects);
+            Skill toAdd = new Skill(effects,0);
             skillDatabase.Add(skillName, toAdd);
         }
 
