@@ -107,7 +107,7 @@ public abstract class Unit: MonoBehaviour {
     protected int basicrange = 2; // range
     public int BasicRange { get { return this.basicrange; } }
 
-    protected float move = 3; // defense
+    protected float move = 3; // move
     public float Move
     {
         get { return this.move; }
@@ -252,7 +252,8 @@ public abstract class Unit: MonoBehaviour {
     private void HandleDeath() {
 
         Vector3 pos = new Vector3(this.transform.position.x, 0.6f, this.transform.position.z);
-        DroppedVegetableManager.Instance.CreateDropVegetable(this.Name, pos);
+        Debug.Log(this.IngredientType.ToString());
+        DroppedVegetableManager.Instance.CreateDropVegetable(this.IngredientType.ToString(), pos);
 
         this.eatable = true;
 

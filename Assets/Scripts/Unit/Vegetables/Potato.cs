@@ -79,7 +79,6 @@ public class Potato : Unit {
         this.skillList.Add("Mashed Potato");
         this.skillList.Add("SPEED");
 
-
         this.charName = "Potato";
         this.acc = 5;
         this.spd = 2;
@@ -89,6 +88,6 @@ public class Potato : Unit {
         this.def = 5;
 
         UnitActionManager.Instance.StoreUnit(this);
-
+        this.ingredientType = EIngredientType.POTATO;
     }
 }

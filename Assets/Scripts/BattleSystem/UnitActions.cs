@@ -1,21 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public static class UnitActions {
-    private static bool mouseOnUnit = false;
+    //private static bool mouseOnUnit = false;
     private static Tile currentTile;
     private static Vector3 currentTilePos;
     private static Tile goalTile = new Tile();
-
-    public static List<Unit> Attackables = new List<Unit>();
     
     public static bool stepFlag = false;
     
     private static int _affectedStatValue = 0;
-
-    public static bool EnemyListed = false;
 
     public const string UNIT = "UNIT";
 
@@ -39,9 +36,17 @@ public static class UnitActions {
             UnitActionManager.Instance.GetFirstUnit().transform.position = currentTilePos;
             UnitActionManager.Instance.GetFirstUnit().Tile = currentTile;
 
-            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.CAMERA_FOLLOW);
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
             EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
             stepFlag = false;
+
+            HideInRangeHPBar(UnitActionManager.Instance.numAttack);
+
+            // reset and updatec attackable list
+            UnitAttackActions.ResetAttackables();
+            UnitAttackActions.CheckSkillRange(UnitActionManager.Instance.GetFirstUnit());
+
+
         }
     }
     public static void UnitHover(Unit unit, bool toggle) { // if true, show hp bar ; if false, hide 
@@ -57,7 +62,7 @@ public static class UnitActions {
         
     }
     public static void UnitSelect(Unit selectedUnit) {
-        if (IsUnitAttackable(selectedUnit) && UnitActionManager.Instance.OnAttack) {
+        if (UnitAttackActions.IsUnitAttackable(selectedUnit) && UnitActionManager.Instance.OnAttack) {
             ConfirmAttack(selectedUnit, UnitActionManager.Instance.numAttack);
             //this.ConfirmAttack(selectedUnit, this.numAttack);
         }
@@ -95,31 +100,11 @@ public static class UnitActions {
 
         return false;
     }
-    public static void ConfirmEat(Unit target) { // move to unit actions
+    public static void ConfirmEat(Unit target) {
         Unit currentUnit = UnitActionManager.Instance.GetFirstUnit();
-
-        //if (!UnitActionManager.Instance.hadHealed) {
-        //    if (currentUnit.HP == currentUnit.MAXHP) {
-        //        UnitActionManager.Instance.OnHeal = false;
-        //        Debug.Log("no heal");
-        //        return;
-        //    }
-
-        //    currentUnit.Heal(target);
-        //    UnitActionManager.Instance.hadHealed = true;
-        //    UnitActionManager.Instance.OnHeal = false;
-        //    Debug.Log("UnitHeal " + currentUnit.Name + " Healed");
-        //}
     }
-    public static bool IsUnitAttackable(Unit selectedUnit) { //// move to unit actions
 
-        if (Attackables.Find(u => u == selectedUnit)) {
-            return true;
-        }
-
-        return false;
-    }
-    public static void ConfirmAttack(Unit target, int Skill) {   // move to unit actions
+    public static void ConfirmAttack(Unit target, int Skill) {
         Unit currentUnit = UnitActionManager.Instance.GetFirstUnit();
 
         switch (Skill) {
@@ -168,71 +153,33 @@ public static class UnitActions {
         UnitActionManager.Instance.hadAttacked = true;
         UnitActionManager.Instance.NextTurn();
     }
-    public static void GetAttackableUnits() {
-        foreach(Unit unit in UnitActionManager.Instance.UnitOrder) {
-            foreach(Tile tile in Range.InRangeTiles) {
-                if(unit.Tile == tile && unit.Type != EUnitType.Ally) {
-                    Attackables.Add(unit);
-                    unit.InRange = true;
-                }
-            }
-        }
-    }
-    private static void ShowInRangeHPBar() {
+
+    public static void ShowInRangeHPBar(int i) {
         Parameters param;
-        if (Attackables.Count > 0) {
-            foreach (Unit unit in Attackables) {
-                param = new Parameters();
-                param.PutExtra(UNIT, unit);
-                EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
-            }
+
+        foreach (Unit unit in UnitAttackActions.Attackables[i]) {
+            param = new Parameters();
+            param.PutExtra(UNIT, unit);
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
         }
     }
-    public static void HideInRangeHPBar() {
+    public static void HideInRangeHPBar(int i) {
         Parameters param = new Parameters();
-        if (Attackables.Count > 0) {
-            foreach (Unit unit in Attackables) {
-                param = new Parameters();
-                param.PutExtra(UNIT, unit);
-                unit.InRange = false;
-                EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.HIDE_HP, param);
-            }
+
+        if (i == -1) { // skip if there are no skill activated
+            return;
+        }
+
+        foreach (Unit unit in UnitAttackActions.Attackables[i]) {
+            param = new Parameters();
+            param.PutExtra(UNIT, unit);
+            unit.InRange = false;
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.HIDE_HP, param);
         }
     }
 
     ///////////////////////////////////////////////////////
-    public static void OnAttackSelection() { // OVER HERE IS WHERE YOU'LL DO HIGHLIGHT?
-        int Attack = UnitActionManager.Instance.numAttack;
-        Unit unit = UnitActionManager.Instance.GetFirstUnit();
-
-        if (Attack == 0) {
-            Range.GetRange(unit, unit.BasicRange, "Attack"); // temporary for all
-            //this.GetMeleeAttackTiles();
-        }
-        if (Attack == 1) {
-            Range.GetRange(unit, unit.BasicRange, "Attack");
-            //this.GetMeleeAttackTiles();
-        }
-        if (Attack == 2) {
-            Range.GetRange(unit, unit.BasicRange, "Attack");
-            //this.GetMeleeAttackTiles();
-        }
-        if (Attack == 3) {
-            Range.GetRange(unit, unit.BasicRange, "Attack");
-            //this.GetMeleeAttackTiles();
-        }
-        if (Attack == 4) {
-            Range.GetRange(unit, unit.BasicRange, "Attack");
-            //this.GetMeleeAttackTiles();
-        }
-        if (!EnemyListed) {
-            GetAttackableUnits();
-            EnemyListed = true;
-            if(Attackables.Count > 0) {
-                ShowInRangeHPBar();
-            }
-        }
-    }   
+    
     public static bool AllyOnTileGoal(Tile endTile) {
         if (endTile.TilePos == UnitActionManager.Instance.GetFirstUnit().Tile.TilePos) {
             return false;
@@ -264,7 +211,7 @@ public static class UnitActions {
         Vector2 unitPos = new Vector2(currentUnit.transform.position.x, currentUnit.transform.position.z);
         Vector2 tilePos = new Vector2(PathFinding.Path[0].transform.position.x, PathFinding.Path[0].transform.position.z);
 
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.CAMERA_FOLLOW);
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
 
         if (Vector2.Distance(unitPos, tilePos) < 0.1f) {
             currentUnit.transform.position = new Vector3(PathFinding.Path[0].transform.position.x,
@@ -282,6 +229,10 @@ public static class UnitActions {
             currentUnit.OnMovement(false);
             if(currentUnit.Type == EUnitType.Ally) {
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
+
+                // reset and update attackable list
+                UnitAttackActions.ResetAttackables();
+                UnitAttackActions.CheckSkillRange(UnitActionManager.Instance.GetFirstUnit());
             }
         }
     }

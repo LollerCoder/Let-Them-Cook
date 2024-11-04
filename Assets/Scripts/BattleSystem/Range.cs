@@ -104,14 +104,11 @@ public static class Range {
 
     ///////////////////////////////////////////////////////////////////////////////////////
     
-    private static void HighlightTiles(string Type, Unit unit, float range) {
+    private static void GetTiles(string Type, Unit unit, float range) {
         switch (Type) {
             case "Attack":
                 _inRangeTiles = GetTilesInAttackMelee(unit.Tile, (int)range);
 
-                foreach (Tile tile in _inRangeTiles) {
-                    tile.HighlightAttackableTile();
-                }
                 break;
             case "Move":
                 _inRangeTiles = GetTilesInMovement(unit.Tile, range);
@@ -133,7 +130,7 @@ public static class Range {
     public static void GetRange(Unit unit, float range, string Type) {
         UnHighlightTiles();
 
-        HighlightTiles(Type, unit, range);
+        GetTiles(Type, unit, range);
     }
     public static void UnHighlightTiles() { 
         foreach (Tile tile in _inRangeTiles) {

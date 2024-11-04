@@ -8,6 +8,8 @@ public class DroppedVegetable : MonoBehaviour {
     private float attack;
     private float healthpoint;
     private float defense;
+
+    public string Name;
     public void SetStats() {
 
     }

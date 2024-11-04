@@ -70,14 +70,18 @@ public class EventNames {
    
 
 	public class BattleUI_Events {
-		public const string CAMERA_FOLLOW = "CAMERA_FOLLOW";
 		public const string ON_AVATAR_CLICK = "ON_AVATAR_CLICK";
 		public const string TOGGLE_ACTION_BOX = "TOGGLE_ACTION_BOX";
 		public const string SHOW_HP = "SHOW_HP";
 		public const string HIDE_HP = "HIDE_HP";
 
 
-    }
+	}
+
+	public class BattleCamera_Events {
+		public const string ENEMY_FOCUS = "ENEMY_FOCUS";
+		public const string CURRENT_FOCUS = "CURRENT_FOCUS";
+	}
 }
 
 

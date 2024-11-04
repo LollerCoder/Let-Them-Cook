@@ -7,8 +7,6 @@ public class Skill
         get { return this.skillName; }
     }
 
-
-
     protected EVeggie veggieType;
     public EVeggie VEGGIETYPE
     {

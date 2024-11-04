@@ -21,7 +21,8 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.CAMERA_FOLLOW, this.ResetPosition);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleCamera_Events.CURRENT_FOCUS, this.ResetPosition);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleCamera_Events.ENEMY_FOCUS, this.EnemyPosition);
     }
 
     // Update is called once per frame
@@ -30,10 +31,15 @@ public class CameraMovement : MonoBehaviour
         this.CameraMove();
         this.CameraLook();
 
-        if (Input.GetKeyUp(KeyCode.Space)) {
+        if (Input.GetKeyUp(KeyCode.Space) && !UnitActionManager.Instance.OnAttack) {
             this.ResetPosition();
         }
-
+        if (Input.GetKeyUp(KeyCode.Q) && UnitActionManager.Instance.numAttack >= 0) {
+            UnitAttackActions.CycleEnemy(UnitActionManager.Instance.numAttack, 0); // 0 for Q/Left
+        }
+        if (Input.GetKeyUp(KeyCode.E) && UnitActionManager.Instance.numAttack >= 0) {
+            UnitAttackActions.CycleEnemy(UnitActionManager.Instance.numAttack, 1); // 1 for E/Right
+        }
         if (this.reset) {
             this.cam.transform.position = Vector3.Lerp(this.cam.transform.position, this.targetPosition, Time.deltaTime * 5f);
             if(Vector3.Distance(this.cam.transform.position, this.targetPosition) < 0.1f) {
@@ -41,6 +47,30 @@ public class CameraMovement : MonoBehaviour
                 this.targetPosition = Vector3.zero;
             }
         }
+    }
+
+    private void EnemyPosition(Parameters param) {
+        Unit unit = param.GetUnitExtra("UNIT");
+        Vector3 characterPos = unit.transform.position;
+
+        Vector3 cameraPosition = characterPos;
+
+        cameraPosition.y = this.cam.transform.position.y;
+
+        this.reset = true;
+        this.targetPosition = cameraPosition;
+        this.targetPosition.z = cameraPosition.z - 2;
+
+        // set the camera's x rotation to 89 instead of exactly looking at the character (90)
+        Quaternion targetRotation = Quaternion.Euler(63f, 0f, 0f);
+        this.cam.transform.rotation = targetRotation;
+
+        //this.cam.transform.LookAt(characterPos);
+
+        // override the rotationX with the new rotation so that it wont go back to the original rotation before the reset
+        this.rotationX = cam.transform.localEulerAngles.x;
+
+        this.cam.fieldOfView = 71.0f; // reset to original FoV
     }
 
     private void ResetPosition() {

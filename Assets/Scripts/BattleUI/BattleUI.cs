@@ -1,6 +1,8 @@
+using NUnit.Framework.Internal;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,14 +15,14 @@ public class BattleUI : MonoBehaviour {
     public List<Image> Turn;
 
     [SerializeField]
-    private List<Button> Attacks;
+    private List<Button> Attacks; // buttons 
 
     private UnitStats _unitStats;
 
     private bool actionShow = false;
 
-    private bool[] attackNum = { false, false, false, false, false };
-    private bool[] skillSlots = { false, false, false, false, false };
+    public bool[] attackNum = { false, false, false, false, false }; // which skill was pressed 
+    public bool[] skillSlots = { false, false, false, false, false }; // which skill is usable
     private void Start() {
         //this._unitStats = this.GetComponentInChildren<UnitStats>();
 
@@ -40,12 +42,17 @@ public class BattleUI : MonoBehaviour {
         if(UnitActionManager.Instance.GetFirstUnit().Type == EUnitType.Ally) {
             this.ToggleActionBox();
         }
+
+        for(int i = 0; i < this.attackNum.Count(); i++) {
+            this.attackNum[i] = false;
+        }
+
         this.StartCoroutine(this.CloseUI(1.5f));
     }
 
     private IEnumerator CloseUI(float seconds) {
         yield return new WaitForSeconds(seconds);
-        UnitActions.HideInRangeHPBar();
+        UnitActions.HideInRangeHPBar(UnitActionManager.Instance.numAttack);
 
         UnitActionManager.Instance.OnAttack = false;
         UnitActionManager.Instance.OnMove = false;
@@ -76,22 +83,50 @@ public class BattleUI : MonoBehaviour {
 
     private void AssignSprites(Unit unit) {   // also where gettng the name of the skills
         // set the sprite for the basic attack already
-        this.Attacks[0].GetComponent<Image>().sprite = this.attackSprites[0];
+        this.Attacks[0].GetComponent<Image>().sprite = this.attackSprites[0]; // basic attack
 
         for (int i = 1; i < this.skillSlots.Length; i++) {
             if (this.skillSlots[i] == true) {
-                this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[1];
+                this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[1]; // skills
                 this.Attacks[i].GetComponentInChildren<Text>().text = unit.SKILLLIST[i];
             }
             else {
-                this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[2];
+                this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[2]; // none
                 this.Attacks[i].GetComponentInChildren<Text>().text = "";
             }
         }
     }
+    public void UpdateButtonState(int i, bool active) {
+        if (!active) {
+            this.skillSlots[i] = false;
+
+            Color color = this.Attacks[i].GetComponent<Image>().color;
+
+            color.r = 0.3f;
+            color.g = 0.3f;
+            color.b = 0.3f;
+
+            this.Attacks[i].GetComponent<Image>().color = color;
+        }
+        else{
+            this.skillSlots[i] = true;
+
+            Color color = this.Attacks[i].GetComponent<Image>().color;
+
+            color.r = 1f;
+            color.g = 1f;
+            color.b = 1f;
+
+            this.Attacks[i].GetComponent<Image>().color = color;
+        }
+    }
 
     private void AttackState(int num) {
-        UnitActions.EnemyListed = false;
+        UnitAttackActions.EnemyListed = false;
+        if(num < 0) {
+            return;
+        }
+
         if (this.skillSlots[num] == true) {
             if (this.attackNum[num] == true) {   // if the same skill is selected twice, unselect it
                 this.attackNum[num] = false;
@@ -99,35 +134,50 @@ public class BattleUI : MonoBehaviour {
                 UnitActionManager.Instance.numAttack = -1;  // default value (no skill is selected)
 
                 if (num != 0) {
-                    this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[1];
+                    this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[1]; // skills
                 }
                 else {
-                    this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[0];
+                    this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[0]; // basic attack
                 }
 
-                UnitActions.HideInRangeHPBar();
+                UnitActions.HideInRangeHPBar(num);
                 return;
             }
 
             for(int i = 0; i < this.attackNum.Length; i++) {   // reset everything
-                this.attackNum[num] = false;          
+                this.attackNum[i] = false;
+
+                if (i != 0) {
+                    this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[1]; // skills
+                }
+                else {
+                    this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[0]; // basic attack
+                }
+
             }
 
             if(num != 0) {
-                this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[4];
+                this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[4]; // skills
             }
             else {
-                this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[3];
+                this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[3];// basic
             }
 
             this.attackNum[num] = true;
             UnitActionManager.Instance.OnAttack = true;
             UnitActionManager.Instance.numAttack = num;
+
+            UnitAttackActions.CycleEnemy(num, 0);
+
+
         }
         else {
             UnitActionManager.Instance.OnAttack = false;
         }
+    }
 
+    public void ResetButtonState(int i) {
+        this.AttackState(i);
     }
 
     public void OnBasicAttack() {
@@ -147,7 +197,7 @@ public class BattleUI : MonoBehaviour {
     }
 
     public void UpdateTurnOrder(List<Unit> unitOrder) {
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.CAMERA_FOLLOW);
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
         for (int i = 0; i < 3; i++) {
             this.Turn[i].sprite = unitOrder[i].GetComponent<SpriteRenderer>().sprite;
         }

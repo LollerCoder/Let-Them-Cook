@@ -138,9 +138,10 @@ public class UnitActionManager : MonoBehaviour{
 
         Range.UnHighlightTiles();
 
-        UnitActions.EnemyListed = false;
+        UnitAttackActions.EnemyListed = false;
+
         UnitActions.UpdateTile();
-        UnitActions.Attackables.Clear();
+
         this.SetUpTurn();
     }
 
@@ -148,7 +149,8 @@ public class UnitActionManager : MonoBehaviour{
     private void LateUpdate() {
         this.OnStart();
 
-        if (Input.GetKeyUp(KeyCode.Q) && UnitActions.stepFlag) { 
+        if (Input.GetKeyUp(KeyCode.R) && UnitActions.stepFlag) {
+            this.BattleUI.ResetButtonState(this.numAttack);
             UnitActions.ResetPosition();
         }
 
@@ -169,7 +171,7 @@ public class UnitActionManager : MonoBehaviour{
                 Range.GetRange(this._unitOrder[0], this._unitOrder[0].Move, "Move");
             }
             else if (this.OnAttack && !this.hadAttacked) {
-                UnitActions.OnAttackSelection();
+                UnitAttackActions.ShowUnitsInSkillRange(this.numAttack);
             }
             else if (this.OverEnemy && this.enemy != null) {
                 Range.GetRange(this.enemy, this.enemy.Speed, "Move");
@@ -199,6 +201,9 @@ public class UnitActionManager : MonoBehaviour{
         this.hadAttacked = false;
         this.GetFirstUnit().Tile.isWalkable = true;
         this.numAttack = -1;
+
+        // reset and update attackable list
+        UnitAttackActions.SetAttackableList();
 
         if (this._unitOrder[0].Type != EUnitType.Ally) {
 
