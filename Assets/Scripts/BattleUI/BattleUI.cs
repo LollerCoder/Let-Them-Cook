@@ -7,6 +7,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BattleUI : MonoBehaviour {
+    [SerializeField] 
+    private GameObject turnOrderCard;
+    [SerializeField]
+    private GameObject turnOrderField;
+
     [SerializeField]
     private Image AttackBox;
     [SerializeField]
@@ -192,13 +197,22 @@ public class BattleUI : MonoBehaviour {
     public void OnSkill3() {
         this.AttackState(3);
     }
-    public void OnSkill4() {
+    public void OnSkill4() { 
         this.AttackState(4);
     }
 
     public void UpdateTurnOrder(List<Unit> unitOrder) {
+        while(this.Turn.Count < unitOrder.Count)
+        {
+           GameObject newCard = Instantiate(turnOrderCard);
+           this.Turn.Add(newCard.transform.Find("1").GetComponent<Image>());
+           newCard.transform.SetParent(this.turnOrderField.transform, false);
+
+        }
+
         EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
-        for (int i = 0; i < 3; i++) {
+
+        for (int i = 0; i < unitOrder.Count; i++) {
             this.Turn[i].sprite = unitOrder[i].GetComponent<SpriteRenderer>().sprite;
         }
 
