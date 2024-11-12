@@ -17,6 +17,7 @@ public class PotHandler : MonoBehaviour
     //amount of ingredients
     private int _ingredientAmount = 0;
     public Dictionary<EIngredientType, int> IngredientsAdded = new Dictionary<EIngredientType, int>();
+    public List<IngredientAmount> InputtedIngredients = new List<IngredientAmount>();
 
     //Cooking
     public bool IsCooking = false;
@@ -38,10 +39,17 @@ public class PotHandler : MonoBehaviour
         IngredientsManager.IngredientAmount[type]--;
         this.IngredientsAdded[type]++;
         this._ingredientAmount++;
+
+        IngredientAmount ing;
+        ing.amount = 1;
+        ing.type = type;
+        this.InputtedIngredients.Add(ing);
     }
 
     public void ResetIngredients()
     {
+        this.InputtedIngredients.Clear();
+
         this._ingredientAmount = 0;
 
         //ingredient amount
