@@ -7,6 +7,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BattleUI : MonoBehaviour {
+
+    [SerializeField]
+    private List<Sprite> lids;
     [SerializeField] 
     private GameObject turnOrderCard;
     [SerializeField]
@@ -18,6 +21,9 @@ public class BattleUI : MonoBehaviour {
     private List<Sprite> attackSprites;
 
     public List<Image> Turn;
+
+    [SerializeField]
+    private List<Image> BuffetContainers;
 
     [SerializeField]
     private List<Button> Attacks; // buttons 
@@ -83,7 +89,7 @@ public class BattleUI : MonoBehaviour {
         this.AssignSprites(unit);
 
         //this._unitStats.SetUnitStats(unit);
-
+            
     }
 
     private void AssignSprites(Unit unit) {   // also where gettng the name of the skills
@@ -93,7 +99,10 @@ public class BattleUI : MonoBehaviour {
         for (int i = 1; i < this.skillSlots.Length; i++) {
             if (this.skillSlots[i] == true) {
                 this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[1]; // skills
+
+                //this.Attacks[i].transform.Find("Nameplate").transform.Find("Text (Legacy)").GetComponentInChildren<Text>().text = unit.SKILLLIST[i];
                 this.Attacks[i].GetComponentInChildren<Text>().text = unit.SKILLLIST[i];
+               
             }
             else {
                 this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[2]; // none
@@ -105,7 +114,11 @@ public class BattleUI : MonoBehaviour {
         if (!active) {
             this.skillSlots[i] = false;
 
+            this.Attacks[i].GetComponentInParent<Image>().enabled = false;
+
             Color color = this.Attacks[i].GetComponent<Image>().color;
+
+            this.BuffetContainers[i].sprite = lids[0];
 
             color.r = 0.3f;
             color.g = 0.3f;
@@ -115,6 +128,10 @@ public class BattleUI : MonoBehaviour {
         }
         else{
             this.skillSlots[i] = true;
+
+            this.Attacks[i].GetComponentInParent<Image>().enabled = true;
+
+            this.BuffetContainers[i].sprite = lids[1];
 
             Color color = this.Attacks[i].GetComponent<Image>().color;
 
