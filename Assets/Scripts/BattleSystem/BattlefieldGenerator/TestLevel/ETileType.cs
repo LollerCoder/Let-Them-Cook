@@ -4,6 +4,7 @@ public enum ETileType {
     TREES,
     WHITE,
     BLACK,
+    BLOCK,
 
     /*SPECIAL TILE TYPES*/
     BUFF,
