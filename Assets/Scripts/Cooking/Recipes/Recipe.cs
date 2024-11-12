@@ -44,7 +44,7 @@ public class Recipe
     }
 
     //will add the unadded ingredients as zero
-    private List<IngredientAmount> FillInMissingIngredients (List<IngredientAmount> ingAdded)
+    public List<IngredientAmount> FillInMissingIngredients (List<IngredientAmount> ingAdded)
     {
         IngredientAmount ingListToAdd = new IngredientAmount();
 
@@ -64,6 +64,26 @@ public class Recipe
     public void FillInMissingIngredients()
     {
         this.IngredientsNeeded = this.FillInMissingIngredients(this.IngredientsNeeded);
+    }
+
+    public void RemoveDuplicates()
+    {
+        List<IngredientAmount> ingList = new List<IngredientAmount>();
+
+        foreach (EIngredientType type in Enum.GetValues(typeof(EIngredientType)))
+        {
+            IngredientAmount ing;
+            ing.type = type;
+            ing.amount = 0;
+            foreach (IngredientAmount ingA in this.IngredientsNeeded)
+            {
+                if (ingA.type == type)
+                    ing.amount += ingA.amount;
+            }
+            ingList.Add(ing);
+        }
+
+        this.IngredientsNeeded = ingList;
     }
 
     private bool IsIngredientInRecipe(EIngredientType type, List<IngredientAmount> ingredientsAdded)

@@ -213,58 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0039b5bf243dcc429861f499963afc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &113656886
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 113656888}
-  - component: {fileID: 113656887}
-  m_Layer: 0
-  m_Name: Managers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &113656887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113656886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd89471289f2e1c45b05fc1a9a2268e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RecipesInput:
-  - MealImage: {fileID: 0}
-    Name: 0
-    IngredientsNeeded: []
-  testRecipe:
-    MealImage: {fileID: 0}
-    Name: 0
-    IngredientsNeeded: []
---- !u!4 &113656888
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113656886}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.261872, y: 4.122317, z: -3.4595788}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &160563714
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1add8f1843bb2a41a2beb294673eb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MealType: 1
+  MealType: 2
 --- !u!1 &308106565
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,13 +748,13 @@ MonoBehaviour:
   - ingredientType: 1
     ingredientSprite: {fileID: 21300000, guid: 3faaa082d47abe54e9e6f9336b1abcf8, type: 3}
   _MealSprites:
-  - mealName: 0
-    mealSprite: {fileID: 21300000, guid: 91bf2485ff6e6444ab6dd7687b796720, type: 3}
   - mealName: 1
-    mealSprite: {fileID: 21300000, guid: 0f6af044cff657643816de16efe006c6, type: 3}
+    mealSprite: {fileID: 21300000, guid: 91bf2485ff6e6444ab6dd7687b796720, type: 3}
   - mealName: 2
-    mealSprite: {fileID: 21300000, guid: b35c0e54bdd370b419e0803ab54c81b1, type: 3}
+    mealSprite: {fileID: 21300000, guid: 0f6af044cff657643816de16efe006c6, type: 3}
   - mealName: 3
+    mealSprite: {fileID: 21300000, guid: b35c0e54bdd370b419e0803ab54c81b1, type: 3}
+  - mealName: 4
     mealSprite: {fileID: 21300000, guid: acb5a2636b4cfc141a564fca7ef83812, type: 3}
   _recipeIngredientSpriteHolders:
   - {fileID: 1675740496}
@@ -1057,33 +1005,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RecipesInput:
   - MealImage: {fileID: 21300000, guid: 91bf2485ff6e6444ab6dd7687b796720, type: 3}
-    Name: 0
+    Name: 1
     IngredientsNeeded: []
   - MealImage: {fileID: 21300000, guid: 0f6af044cff657643816de16efe006c6, type: 3}
-    Name: 1
+    Name: 2
     IngredientsNeeded:
     - type: 2
       amount: 1
     - type: 1
       amount: 1
   - MealImage: {fileID: 21300000, guid: b35c0e54bdd370b419e0803ab54c81b1, type: 3}
-    Name: 2
+    Name: 3
     IngredientsNeeded:
     - type: 3
       amount: 1
     - type: 1
       amount: 1
   - MealImage: {fileID: 21300000, guid: acb5a2636b4cfc141a564fca7ef83812, type: 3}
-    Name: 3
+    Name: 4
     IngredientsNeeded:
     - type: 0
-      amount: 1
-    - type: 0
-      amount: 1
+      amount: 2
   testRecipe:
     MealImage: {fileID: 0}
     Name: 0
-    IngredientsNeeded: []
+    IngredientsNeeded:
+    - type: 0
+      amount: 1
 --- !u!4 &898345471
 Transform:
   m_ObjectHideFlags: 0
@@ -1994,7 +1942,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1add8f1843bb2a41a2beb294673eb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MealType: 2
+  MealType: 3
+--- !u!1 &1893032302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1893032304}
+  - component: {fileID: 1893032303}
+  m_Layer: 0
+  m_Name: DATABASE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1893032303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893032302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577a5c7b9a1a70040adc2c5bf30c854d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1893032304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893032302}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.972002, y: 3.203402, z: 0.9292754}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1897993678 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6804527584244571341, guid: 9f5ed9c6b28682244b0ed5d6dd40b8ec, type: 3}
@@ -2455,7 +2447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1add8f1843bb2a41a2beb294673eb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MealType: 3
+  MealType: 4
 --- !u!1 &2089011598
 GameObject:
   m_ObjectHideFlags: 0
@@ -3204,7 +3196,7 @@ GameObject:
   - component: {fileID: 2895110467612345202}
   - component: {fileID: 3696763843292676165}
   m_Layer: 0
-  m_Name: Label_Cabbage
+  m_Name: Label_Potato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3555,9 +3547,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _AmountLabels:
   - {fileID: 6324993971681709670}
-  - {fileID: 7312169443445921147}
-  - {fileID: 8273104000074339598}
   - {fileID: 2186222205903229180}
+  - {fileID: 8273104000074339598}
+  - {fileID: 7312169443445921147}
 --- !u!102 &3366592064295335900
 TextMesh:
   serializedVersion: 3
@@ -3664,7 +3656,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 3.38, z: -6}
-  m_LocalScale: {x: 0.29, y: 0.29, z: 0.29}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1241635601193146712}
@@ -3744,7 +3736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!33 &4112203226950236799
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4081,9 +4073,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4eb4c535e98d7b4ebe4eafbef93111d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mealSprites:
-  - {fileID: 21300000, guid: 91bf2485ff6e6444ab6dd7687b796720, type: 3}
-  - {fileID: 21300000, guid: 0f6af044cff657643816de16efe006c6, type: 3}
+  _MealSprites:
+  - mealName: 0
+    mealSprite: {fileID: 0}
+  - mealName: 2
+    mealSprite: {fileID: 21300000, guid: 0f6af044cff657643816de16efe006c6, type: 3}
+  - mealName: 3
+    mealSprite: {fileID: 21300000, guid: b35c0e54bdd370b419e0803ab54c81b1, type: 3}
+  - mealName: 4
+    mealSprite: {fileID: 21300000, guid: acb5a2636b4cfc141a564fca7ef83812, type: 3}
   _mealDisplay: {fileID: 3482160145627095143}
   _statDisplay: {fileID: 0}
   _cookedSprite: {fileID: 7010631925032137682}
@@ -4447,7 +4445,7 @@ GameObject:
   - component: {fileID: 6731089297993179212}
   - component: {fileID: 7598785434950675902}
   m_Layer: 0
-  m_Name: Label_Potato
+  m_Name: Label_Cabbage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4874,6 +4872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7098095799550531239}
   - component: {fileID: 3299619731833213994}
+  - component: {fileID: 8811393747929750372}
   m_Layer: 0
   m_Name: Ingredients
   m_TagString: Untagged
@@ -4881,6 +4880,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8811393747929750372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8811393747929750371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 840959337f2a75e40b8bc4e030b49a2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &8824298755302098474
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5037,5 +5048,5 @@ SceneRoots:
   - {fileID: 1286330230558620553}
   - {fileID: 482806903}
   - {fileID: 1846148659}
-  - {fileID: 113656888}
   - {fileID: 898345471}
+  - {fileID: 1893032304}

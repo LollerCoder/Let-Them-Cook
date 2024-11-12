@@ -10,7 +10,7 @@ struct IngredientSprite{
 }
 
 [Serializable]
-struct MealSprite{
+public struct MealSprite{
     public ECookedMeal mealName;
     public Sprite mealSprite;
 }
@@ -94,6 +94,7 @@ public class RecipeClipboardManager : MonoBehaviour
         Sprite spriteToLoad;
         for (int i = 0; i < 3; i++)
         {
+            Debug.Log("Changing sprite " + i + " / Ingredient count " + ingredients.Count);
             if (i < ingredients.Count)
             {
                 spriteToLoad = this.GetIngredientSprite(ingredients[i].type);

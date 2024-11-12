@@ -5,7 +5,7 @@ using UnityEngine;
 public class CookingHandler : MonoBehaviour
 {
     [SerializeField]
-    private List<Sprite> _mealSprites = new List<Sprite>();
+    private List<MealSprite> _MealSprites;
 
     [SerializeField]
     private GameObject _mealDisplay;
@@ -23,32 +23,26 @@ public class CookingHandler : MonoBehaviour
     private Vector3 _failedPos;
     private Vector3 _successPos;
 
-    public void CookMeal()
+    public void CookMeal(ECookedMeal mealType)
     {
-        //if (this.CheckValidIngredients(0,1,1,0))
-        //{
-        //    this.CookSuccess("Spicy Fries");
-        //}
-        //else 
-        if (this.CheckValidIngredients(0, 1, 0, 0))
+        if (mealType != ECookedMeal.FAIL)
         {
-            this.CookSuccess("Fries");
+            this.CookSuccess(mealType);
+            CookedMealDatabase.CookedMeals.Add(mealType);
         }
         else
-        {
             this.CookFailed();
-        }
     }
 
-    private void CookSuccess(string mealName)
+    private void CookSuccess(ECookedMeal mealName)
     {
         this.ToggleDisplay(true);
 
         this._cookedSprite.SetActive(true);
-        this._cookedSprite.GetComponent<SpriteRenderer>().sprite = this._mealSprites[1];
+        this._cookedSprite.GetComponent<SpriteRenderer>().sprite = this.GetMealSprite(mealName);
         this._cookedSprite.transform.localPosition = _successPos;
 
-        this._mealLabel.text = "SUCCESS" + "\n\n" + mealName + " cooked!";
+        this._mealLabel.text = mealName + "\ncooked!";
     }
 
     private void CookFailed()
@@ -89,6 +83,19 @@ public class CookingHandler : MonoBehaviour
             this._statDisplay.SetActive(isDisplayed);
         //else
         //    Debug.LogWarning("No Stat Display set!");
+    }
+
+    private Sprite GetMealSprite(ECookedMeal mealType)
+    {
+        Sprite spr = null;
+
+        foreach (MealSprite mealSpr in this._MealSprites)
+        {
+            if (mealSpr.mealName == mealType)
+                return mealSpr.mealSprite;
+        }
+
+        return spr;
     }
 
     // Start is called before the first frame update

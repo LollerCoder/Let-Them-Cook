@@ -8,7 +8,7 @@ public class RecipeManager : MonoBehaviour
 
     [SerializeField]
     public List<Recipe> RecipesInput = new List<Recipe>();
-    public static List<Recipe> Recipes = new List<Recipe>();
+    public static List<Recipe> Recipes;
 
     [SerializeField]
     private Recipe testRecipe;
@@ -18,13 +18,15 @@ public class RecipeManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+
             foreach (Recipe rec in RecipesInput)
             {
+                //Debug.Log("Rec name: " + rec.Name);
                 rec.FillInMissingIngredients();
             }
             Recipes = RecipesInput;
         }
-        else Destroy(this.gameObject);
+        else Destroy(this);
     }
 
     private void Start()
@@ -43,11 +45,11 @@ public class RecipeManager : MonoBehaviour
             Debug.Log("Mali!");
     }
 
-    private ECookedMeal FindValidRecipe(List<IngredientAmount> ingredientsAdded)
+    public ECookedMeal FindValidRecipe(List<IngredientAmount> ingredientsAdded)
     {
         ECookedMeal foundRecipe = ECookedMeal.FAIL;
 
-        foreach (Recipe recipe in Recipes)
+        foreach (Recipe recipe in RecipeManager.Recipes)
         {
             if (IsIngredientValid(ingredientsAdded, recipe))
                 foundRecipe = recipe.Name;
@@ -80,11 +82,27 @@ public class RecipeManager : MonoBehaviour
         List<IngredientAmount> ingredients = new List<IngredientAmount>();
         foreach (Recipe recipe in Recipes)
         {
+            Debug.Log("Recipe name " + recipe.Name);
             if (recipe.Name == mealName)
+            {
+                Debug.Log("Found recipe!");
                 ingredients = recipe.IngredientsNeeded;
+            }
         }
+
+        this.PrintIngredients(ingredients);
         ingredients.RemoveAll(s => s.amount <= 0);
+        this.PrintIngredients(ingredients);
 
         return ingredients;
+    }
+
+    public void PrintIngredients(List<IngredientAmount> _ingredients)
+    {
+        Debug.Log("INGREDIENTS: ");
+        foreach (IngredientAmount ingList in _ingredients)
+        {
+            Debug.Log(ingList.type + " = " + ingList.amount);
+        }
     }
 }
