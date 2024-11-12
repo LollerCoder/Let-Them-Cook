@@ -753,7 +753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5964572778694241861
 Transform:
   m_ObjectHideFlags: 0
@@ -1298,9 +1298,7 @@ MonoBehaviour:
   - {fileID: 1145077948, guid: e1070dc2be319d24d86ed34827562566, type: 3}
   - {fileID: -1864374679, guid: e1070dc2be319d24d86ed34827562566, type: 3}
   Turn:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4163483270329904357}
   Attacks:
   - {fileID: 25848365592272997}
   - {fileID: 3322365432758108066}
@@ -1672,7 +1670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4348115164841646872
 Transform:
   m_ObjectHideFlags: 0
@@ -2603,3 +2601,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3284344819352380973, guid: 69a5838914dbf8d439bad48a9fe413d5, type: 3}
   m_PrefabInstance: {fileID: 1000322215392911508}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4163483270329904357 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3757816527842610289, guid: 69a5838914dbf8d439bad48a9fe413d5, type: 3}
+  m_PrefabInstance: {fileID: 1000322215392911508}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

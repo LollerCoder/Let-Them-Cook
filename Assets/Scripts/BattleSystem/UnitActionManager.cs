@@ -124,18 +124,7 @@ public class UnitActionManager : MonoBehaviour{
 
     }
     public void UnitTurn() {
-        Unit unit = this._unitOrder[0];
-        unit.GetComponent<BoxCollider>().enabled = true;
-        unit.OnTurn(false);
-        unit.OnMovement(false);
-        Parameters param = new Parameters();
-        param.PutExtra(UNIT, unit);
-
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.HIDE_HP, param);
-
-        this._unitOrder.Remove(unit);
-        this._unitOrder.Add(unit);
-
+   
         Range.UnHighlightTiles();
 
         UnitAttackActions.EnemyListed = false;
@@ -143,6 +132,21 @@ public class UnitActionManager : MonoBehaviour{
         UnitActions.UpdateTile();
 
         this.SetUpTurn();
+    }
+
+    public void ResetCurrentUnit() {
+        Unit unit = this.GetFirstUnit();
+        unit.GetComponent<BoxCollider>().enabled = true;
+        unit.OnMovement(false);
+        unit.OnTurn(false);
+
+        Parameters param = new Parameters();
+        param.PutExtra(UNIT, unit);
+
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.HIDE_HP, param);
+
+        this._unitOrder.Remove(unit);
+        this._unitOrder.Add(unit);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////

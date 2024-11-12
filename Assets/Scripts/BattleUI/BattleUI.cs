@@ -51,7 +51,7 @@ public class BattleUI : MonoBehaviour {
         for(int i = 0; i < this.attackNum.Count(); i++) {
             this.attackNum[i] = false;
         }
-
+        UnitActionManager.Instance.ResetCurrentUnit();
         this.StartCoroutine(this.CloseUI(1.5f));
     }
 
@@ -61,7 +61,7 @@ public class BattleUI : MonoBehaviour {
 
         UnitActionManager.Instance.OnAttack = false;
         UnitActionManager.Instance.OnMove = false;
-
+ 
         UnitActionManager.Instance.UnitTurn();
     }
 
