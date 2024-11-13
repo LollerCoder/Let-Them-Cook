@@ -91,13 +91,24 @@ public class RecipeClipboardManager : MonoBehaviour
 
     private void ChangeIngredientSprite(List<IngredientAmount> ingredients)
     {
+        List<EIngredientType> ingredientsAdded = new List<EIngredientType>();
+
+        foreach (IngredientAmount ingA in ingredients)
+        {
+            if (ingA.amount > 0)
+            {
+                for (int i = 0; i <ingA.amount; i++)
+                    ingredientsAdded.Add(ingA.type);
+            }
+        }
+
         Sprite spriteToLoad;
         for (int i = 0; i < 3; i++)
         {
             Debug.Log("Changing sprite " + i + " / Ingredient count " + ingredients.Count);
-            if (i < ingredients.Count)
+            if (i < ingredientsAdded.Count)
             {
-                spriteToLoad = this.GetIngredientSprite(ingredients[i].type);
+                spriteToLoad = this.GetIngredientSprite(ingredientsAdded[i]);
                 this._recipeIngredientSpriteHolders[i].SetActive(true);
                 this._recipeIngredientSpriteHolders[i].GetComponent<SpriteRenderer>().sprite = spriteToLoad;
             }
