@@ -219,7 +219,11 @@ public class BattleUI : MonoBehaviour {
     }
 
     public void UpdateTurnOrder(List<Unit> unitOrder) {
-        while(this.Turn.Count < unitOrder.Count)
+        int max_queue= 9;
+        int curr_count = 0; //for making sure portraits are slapped onto the queue
+        int curr_created = 0; //counting how many veggies are made currently
+        
+        while(this.Turn.Count < max_queue)
         {
            GameObject newCard = Instantiate(turnOrderCard);
            this.Turn.Add(newCard.transform.Find("1").GetComponent<Image>());
@@ -229,9 +233,25 @@ public class BattleUI : MonoBehaviour {
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
 
-        for (int i = 0; i < unitOrder.Count; i++) {
-            this.Turn[i].sprite = unitOrder[i].GetComponent<SpriteRenderer>().sprite;
-        }
+        do
+        {
+            Debug.Log(curr_created);
+            
+            if (curr_created < unitOrder.Count)
+            {
+                this.Turn[curr_count].sprite = unitOrder[curr_created].GetComponent<SpriteRenderer>().sprite;
+                curr_created++;
+            }
+            else
+            {
+                curr_created = 0;
+                this.Turn[curr_count].sprite = unitOrder[curr_created].GetComponent<SpriteRenderer>().sprite;
+                curr_created++;
+            }
+            curr_count++;
+
+        } while(curr_count < max_queue);
+        
 
 
     }
