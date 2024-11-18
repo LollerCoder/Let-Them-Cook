@@ -7,16 +7,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BattleUI : MonoBehaviour {
+    public static BattleUI Instance;
 
     [SerializeField]
     private List<Sprite> lids;
+
     [SerializeField] 
     private GameObject turnOrderCard;
+
     [SerializeField]
     private GameObject turnOrderField;
 
     [SerializeField]
     private Image AttackBox;
+
     [SerializeField]
     private List<Sprite> attackSprites;
 
@@ -28,12 +32,24 @@ public class BattleUI : MonoBehaviour {
     [SerializeField]
     private List<Button> Attacks; // buttons 
 
+    [SerializeField]
+    private Text gameEndText;
+
+    [SerializeField]
+    private Text gameEndButtonText;
+
+    [SerializeField]
+    private Image gameEndScreen;
+
     private UnitStats _unitStats;
 
     private bool actionShow = false;
 
     public bool[] attackNum = { false, false, false, false, false }; // which skill was pressed 
     public bool[] skillSlots = { false, false, false, false, false }; // which skill is usable
+
+    
+
     private void Start() {
         //this._unitStats = this.GetComponentInChildren<UnitStats>();
 
@@ -58,7 +74,7 @@ public class BattleUI : MonoBehaviour {
             this.attackNum[i] = false;
         }
         UnitActionManager.Instance.ResetCurrentUnit();
-        this.StartCoroutine(this.CloseUI(1.5f));
+        this.StartCoroutine(this.CloseUI(0.2f));
     }
 
     private IEnumerator CloseUI(float seconds) {
@@ -263,8 +279,24 @@ public class BattleUI : MonoBehaviour {
         UnitActionManager.Instance.OnAttack = false;
     }
 
-    public void EndScreen(int scenario) {
-
+    public void EndScreen(EUnitType type) {
+        switch (type) {
+            case EUnitType.Ally:
+                this.gameEndText.text = "Stage Complete";
+                this.gameEndButtonText.text = "Continue";
+                break;
+            case EUnitType.Enemy:
+                this.gameEndText.text = "Game Over";
+                this.gameEndButtonText.text = "Restock";
+                break;
+        }
     }
-
+    public void Awake() {
+        if (Instance == null) {
+            Instance = this;
+        }
+        else if (Instance != null) {
+            Destroy(this.gameObject);
+        }
+    }
 }

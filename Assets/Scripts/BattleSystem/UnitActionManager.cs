@@ -13,6 +13,8 @@ using static UnityEngine.GraphicsBuffer;
 public class UnitActionManager : MonoBehaviour{
     public static UnitActionManager Instance = null;
 
+    private BattleManager battleManager = new BattleManager();
+
     public const string UNIT = "UNIT";
 
     private EBattleScene _battleScene;
@@ -25,12 +27,6 @@ public class UnitActionManager : MonoBehaviour{
     private float speed;
     public float Speed {  
         get { return this.speed; } 
-    }
-
-    [SerializeField]
-    private BattleUI _battleUI;
-    public BattleUI BattleUI {
-        get { return _battleUI; }
     }
 
     private List<Unit> _Units = new List<Unit>();
@@ -59,7 +55,7 @@ public class UnitActionManager : MonoBehaviour{
 
     public bool Stayed = false;
     public bool Moving = false;
-
+    
     // for storing the unit
     public void StoreUnit(Unit unit) {
         this._Units.Add(unit);
@@ -101,26 +97,19 @@ public class UnitActionManager : MonoBehaviour{
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void RemoveUnitFromOrder(Unit removedUnit) {
+        this._unitOrder.Remove(removedUnit);
+        removedUnit.Tile.isWalkable = true;
 
-        foreach (Unit remove in this._unitOrder) {
-            if (remove == removedUnit) {
-                this._unitOrder.Remove(remove);
-                remove.Tile.isWalkable = true;
-                break;
-            }
-        }
-        this._battleUI.UpdateTurnOrder(this._unitOrder);
-        this.CheckEndCondition();
-
+        this.battleManager.EndCondition(removedUnit);
     }
     private void DecideTurnOrder() {
         this._unitOrder.AddRange(_Units);
         this._unitOrder.Sort((x, y) => y.Speed.CompareTo(x.Speed));
-        this._battleUI.UpdateTurnOrder(this._unitOrder);
+        BattleUI.Instance.UpdateTurnOrder(this._unitOrder);
     }
 
     public void NextTurn() {
-        this._battleUI.OnEndTurn();
+        BattleUI.Instance.OnEndTurn();
 
     }
     public void UnitTurn() {
@@ -154,7 +143,7 @@ public class UnitActionManager : MonoBehaviour{
         this.OnStart();
 
         if (Input.GetKeyUp(KeyCode.R) && UnitActions.stepFlag) {
-            this.BattleUI.ResetButtonState(this.numAttack);
+            BattleUI.Instance.ResetButtonState(this.numAttack);
             UnitActions.ResetPosition();
         }
 
@@ -191,8 +180,8 @@ public class UnitActionManager : MonoBehaviour{
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
 
-        this._battleUI.UpdateTurnOrder(this._unitOrder);
-        this._battleUI.NextUnitSkills(this.GetFirstUnit());
+        BattleUI.Instance.UpdateTurnOrder(this._unitOrder);
+        BattleUI.Instance.NextUnitSkills(this.GetFirstUnit());
         UnitActions.SetCurrentTile(this.GetFirstUnit().Tile, this.GetFirstUnit().transform.position.y);
         this.GetFirstUnit().EffectManager.EffectTimer();
         this.GetFirstUnit().OnMovement(true);
@@ -229,31 +218,9 @@ public class UnitActionManager : MonoBehaviour{
             this.SetUpTurn();
 
             Start = false;
-        }
-    }
-    private void CheckEndCondition() {
-        int enemies = 0;
-        int allies = 0;
-        foreach(Unit unit in this._unitOrder) {
-            if(unit.Type == EUnitType.Ally) {
-                allies++;
-            }
-            if (unit.Type != EUnitType.Ally) {
-                enemies++;
-            }
-        }
 
-        if (allies == 0) {
-            Debug.Log("Defeated!");
-            this._battleUI.EndScreen(1);
+            this.battleManager.SetNums();
         }
-
-        if (enemies == 0) {
-            Debug.Log("Level Cleared!");
-            EventBroadcaster.Instance.PostEvent(EventNames.Enemy_Events.ON_ENEMY_DEFEATED);
-            this._battleUI.EndScreen(2);
-        }
-
     }
 
     public void Awake() {

@@ -196,7 +196,6 @@ public abstract class Unit: MonoBehaviour {
                 GameManager.Instance.OnDiedCallback.Invoke(this.ingredientType);
             }
 
-            UnitActionManager.Instance.RemoveUnitFromOrder(this);
             this.HandleDeath();
             
         }
@@ -259,6 +258,8 @@ public abstract class Unit: MonoBehaviour {
 
         this.GetComponent<Animator>().enabled = false;
         this.gameObject.SetActive(false);
+
+        UnitActionManager.Instance.RemoveUnitFromOrder(this);
     }
 
     private void OnMouseEnter() {

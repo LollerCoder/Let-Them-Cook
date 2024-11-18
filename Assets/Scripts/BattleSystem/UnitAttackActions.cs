@@ -32,11 +32,10 @@ public class UnitAttackActions : MonoBehaviour {
         }
         for (int j = 0; j < Attackables.Count; j++) { // will change depending to the range of the unit/skill
             if (Attackables[j].Count == 0){
-                UnitActionManager.Instance.BattleUI.UpdateButtonState(j, false);
+                BattleUI.Instance.UpdateButtonState(j, false);
             }
             else {
-                
-                UnitActionManager.Instance.BattleUI.UpdateButtonState(j, true);
+                BattleUI.Instance.UpdateButtonState(j, true);
             }
         }
     }

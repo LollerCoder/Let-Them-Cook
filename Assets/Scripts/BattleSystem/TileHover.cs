@@ -10,7 +10,7 @@ public class TileHover : MonoBehaviour {
             Tile tile = Tile.GetComponent<Tile>();
             if (tile != null) {
                 this.transform.position = new Vector3(tile.transform.position.x, 
-                    tile.transform.position.y + 0.55f, // set it just above the tile
+                    tile.transform.position.y + 1.05f, // set it just above the tile
                     tile.transform.position.z);
             }
         }

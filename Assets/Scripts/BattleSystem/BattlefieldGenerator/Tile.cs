@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 public class Tile : MonoBehaviour{
     private Material _mat;
     private Color _color;
@@ -44,6 +45,8 @@ public class Tile : MonoBehaviour{
     }
 
     public void OnMouseUp() {
-        UnitActions.TileTapped(this);
+        if (!EventSystem.current.IsPointerOverGameObject()) {
+            UnitActions.TileTapped(this);
+        }
     }
 }
