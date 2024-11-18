@@ -65,6 +65,14 @@ public class UnitActionManager : MonoBehaviour{
         return this._unitOrder[0];
     }
 
+    public bool IsGameEnd() {
+        if (this.battleManager.GameEnd) {
+            return true;
+        }
+
+        return false;
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     public void EnemyUnitAction() {

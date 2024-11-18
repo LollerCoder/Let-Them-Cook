@@ -45,7 +45,7 @@ public class Tile : MonoBehaviour{
     }
 
     public void OnMouseUp() {
-        if (!EventSystem.current.IsPointerOverGameObject()) {
+        if (!EventSystem.current.IsPointerOverGameObject()) { // to make sure that it wont be clickable when behind a UI element
             UnitActions.TileTapped(this);
         }
     }

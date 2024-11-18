@@ -1350,7 +1350,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 320257045222948330}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2915055729960775402}
+        m_TargetAssemblyTypeName: BattleUI, Assembly-CSharp
+        m_MethodName: GameEndButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3488934264086967455
 GameObject:
   m_ObjectHideFlags: 0
@@ -2100,9 +2112,9 @@ MonoBehaviour:
   - {fileID: 5126844270992914198}
   - {fileID: 5781706839050815053}
   - {fileID: 3559129797758921346}
+  gameEndScreen: {fileID: 1471421583096351887}
   gameEndText: {fileID: 3150957101616295480}
   gameEndButtonText: {fileID: 6398538858444314231}
-  gameEndScreen: {fileID: 0}
   attackNum: 0000000000
   skillSlots: 0000000000
 --- !u!1 &5303227089696330162
@@ -2625,7 +2637,7 @@ GameObject:
   - component: {fileID: 4154950260751774159}
   - component: {fileID: 3150957101616295480}
   m_Layer: 5
-  m_Name: GameEnd
+  m_Name: GameEndText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

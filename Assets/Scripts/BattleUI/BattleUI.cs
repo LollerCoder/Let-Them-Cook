@@ -33,29 +33,34 @@ public class BattleUI : MonoBehaviour {
     private List<Button> Attacks; // buttons 
 
     [SerializeField]
+    private Image gameEndScreen;
+
+    [SerializeField]
     private Text gameEndText;
 
     [SerializeField]
     private Text gameEndButtonText;
 
-    [SerializeField]
-    private Image gameEndScreen;
+    private Animator gameEndAnimator;
 
     private UnitStats _unitStats;
+
+    private bool gameEndAllyWin = true; 
 
     private bool actionShow = false;
 
     public bool[] attackNum = { false, false, false, false, false }; // which skill was pressed 
     public bool[] skillSlots = { false, false, false, false, false }; // which skill is usable
 
-    
 
+    
     private void Start() {
         //this._unitStats = this.GetComponentInChildren<UnitStats>();
 
         //if(this._unitStats == null) {
         //    Debug.Log("ERROR: UNITSTATS CANNOT BE FOUND (BATTLEUI.CS, START() )");
         //}
+        this.gameEndAnimator = this.gameEndScreen.GetComponent<Animator>();
 
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX, this.ToggleActionBox);
         
@@ -78,6 +83,11 @@ public class BattleUI : MonoBehaviour {
     }
 
     private IEnumerator CloseUI(float seconds) {
+
+        if (UnitActionManager.Instance.IsGameEnd()) {
+            yield break;
+        }
+
         yield return new WaitForSeconds(seconds);
         UnitActions.HideInRangeHPBar(UnitActionManager.Instance.numAttack);
 
@@ -284,12 +294,28 @@ public class BattleUI : MonoBehaviour {
             case EUnitType.Ally:
                 this.gameEndText.text = "Stage Complete";
                 this.gameEndButtonText.text = "Continue";
+                this.gameEndAllyWin = true;
                 break;
             case EUnitType.Enemy:
                 this.gameEndText.text = "Game Over";
-                this.gameEndButtonText.text = "Restock";
+                this.gameEndButtonText.text = "Restart";
+                this.gameEndAllyWin = false;
                 break;
         }
+
+        this.gameEndAnimator.SetBool("GameEnd", true);
+    }
+
+    public void GameEndButtonClick() {
+        if(this.gameEndAllyWin) {
+
+        }
+        else {
+
+        }
+
+        this.gameEndAllyWin = true;
+        this.gameEndAnimator.SetBool("GameEnd", false);
     }
     public void Awake() {
         if (Instance == null) {

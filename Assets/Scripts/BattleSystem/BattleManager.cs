@@ -6,11 +6,14 @@ public class BattleManager : MonoBehaviour {
     private int numAllies = 0;
     private int numEnemies = 0;
 
+    public bool GameEnd = false;
+
     public void EndCondition(Unit unit) {
         if (unit.Type == EUnitType.Enemy) {
             this.numEnemies--;
             if (this.numEnemies == 0) {
-                BattleUI.Instance.EndScreen(EUnitType.Enemy);
+                BattleUI.Instance.EndScreen(EUnitType.Ally);
+                this.GameEnd = true;
                 return;
             }
         }
@@ -18,7 +21,8 @@ public class BattleManager : MonoBehaviour {
         if (unit.Type == EUnitType.Ally) {
             this.numAllies--;
             if (this.numAllies == 0) {
-                BattleUI.Instance.EndScreen(EUnitType.Ally);
+                BattleUI.Instance.EndScreen(EUnitType.Enemy);
+                this.GameEnd = true;
                 return;
             }
         }
