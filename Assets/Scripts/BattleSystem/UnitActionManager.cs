@@ -118,7 +118,7 @@ public class UnitActionManager : MonoBehaviour{
 
     public void NextTurn() {
         BattleUI.Instance.OnEndTurn();
-
+       
     }
     public void UnitTurn() {
    
@@ -141,6 +141,7 @@ public class UnitActionManager : MonoBehaviour{
         param.PutExtra(UNIT, unit);
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.HIDE_HP, param);
+       
 
         this._unitOrder.Remove(unit);
         this._unitOrder.Add(unit);

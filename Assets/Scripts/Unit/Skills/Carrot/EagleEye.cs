@@ -48,14 +48,18 @@ public class EagleEye : Skill
     {
         
         Unit appliedTo = target.GetComponent<Unit>();
-        if(Random.Range(1,100) < sucessChance+1000)
+        if(Random.Range(1,100) < sucessChance)
         {
             target.EffectManager.ApplyEffect(target, origin, this.skillName, this.skillData.DURATION);
-            
+            PopUpManager.Instance.addPopUp(this.skillName, target.transform);
+            target.EffectManager.ArrowShower(target);
+
         }
         else
         {
-            Debug.Log("Fail");
+                   
+            PopUpManager.Instance.addPopUp("MISS", target.transform);
+            
         }
 
     }

@@ -5,6 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Potato : Unit {
+
+    [SerializeField]
+    Animator BufController;
+
+    [SerializeField]
+    Animator DebufController;
     public override void UnitAttack(Unit unit2) {
 
     }
@@ -59,10 +65,28 @@ public class Potato : Unit {
 
     }
 
+
+    private void BuffArrowShow()
+    {
+        this.BufController.SetBool("isBuffed", true);
+        Debug.Log("Buffed");
+    }
+
+    private void DebuffArrowShow()
+    {
+        this.DebufController.SetBool("isDebuffed", true);
+        Debug.Log("Debuffed");
+    }
+
+
     protected override void Start() {
 
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.SHOW_HP, this.HpBarShow);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.HIDE_HP, this.HpBarHide);
+
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.DEBUFF_SHOW, this.DebuffArrowShow);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.BUFF_SHOW, this.BuffArrowShow);
+
         this.animator = this.GetComponent<Animator>();
         base.Start();
 

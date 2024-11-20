@@ -261,7 +261,7 @@ public class BattleUI : MonoBehaviour {
 
         do
         {
-            Debug.Log(curr_created);
+            
             
             if (curr_created < unitOrder.Count)
             {

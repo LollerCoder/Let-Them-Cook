@@ -32,10 +32,11 @@ public class EffectManager
         {
             Skill foundSkill = SkillDatabase.Instance.findSkill(key);
 
-            if (foundSkill == null)
+            if (foundSkill != null)
             {
                 float augment = foundSkill.skillData.MOD;
                 EStatToEffect stat = foundSkill.skillData.STAT;
+                Debug.Log("Augment was: " + augment);
                 //Debug.Log(applyTo.EFFECTLIST[key].STAT);
                 switch (stat)
                 {
@@ -66,10 +67,38 @@ public class EffectManager
 
                 }
             }
-
+          
 
            
         }
+
+
+    }
+
+    public void ArrowShower(Unit ApplyTo)
+    {
+        Parameters param = new Parameters();
+        param.PutExtra("UNIT", ApplyTo);
+
+     
+
+        this.EffectAccess(ApplyTo);
+
+   
+
+        if (ApplyTo.AttackMultiplier < 1 || ApplyTo.SpeedMultiplier < 1 || ApplyTo.AccuracyMultiplier < 1 || ApplyTo.DefenseMultiplier < 1)
+        {
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.DEBUFF_SHOW,param);
+            Debug.Log("Posted here");
+        }
+
+        if (ApplyTo.AttackMultiplier > 1 ||  ApplyTo.SpeedMultiplier > 1 || ApplyTo.AccuracyMultiplier > 1 || ApplyTo.DefenseMultiplier > 1)
+        {
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.BUFF_SHOW,param);
+            Debug.Log("Posted here");
+        }
+
+        this.EffectReset(ApplyTo);
     }
 
     public void EffectTimer()
@@ -82,7 +111,7 @@ public class EffectManager
             foreach (string key in toIterateThrough)
             {
                 EFFECTLIST[key] -= 1;
-                Debug.Log("Effect " + key + " has " + EFFECTLIST[key] + " left");
+                //Debug.Log("Effect " + key + " has " + EFFECTLIST[key] + " left");
 
                 if (EFFECTLIST[key] <= 0)
                 {

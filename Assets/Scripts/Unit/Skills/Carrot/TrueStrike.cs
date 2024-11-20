@@ -24,9 +24,11 @@ public class TrueStrike : Skill
         if (Random.Range(1, 100) < sucessChance)
         {
             target.TakeDamage(10, origin);
+            PopUpManager.Instance.addPopUp(this.skillName + " 10 DMG", target.transform);
         }
         else
         {
+            PopUpManager.Instance.addPopUp(this.skillName + " 1 DMG", target.transform);
             target.TakeDamage(1, origin);
         }
             

@@ -180,6 +180,7 @@ public abstract class Unit: MonoBehaviour {
 
         else
         {
+            //PopUpManager.Instance.addPopUp(damage.ToString(), this.transform);
             this.hp -= (int)damage;
             this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
 
@@ -280,7 +281,13 @@ public abstract class Unit: MonoBehaviour {
         if (this.type != EUnitType.Ally) {
             this.animator.SetBool("Ally", false);
         }
+   
     }
+
+
+    
+
+
     public abstract void GetAttackOptions();
     public abstract void UnitAttack(Unit target);
     public abstract void Selected();

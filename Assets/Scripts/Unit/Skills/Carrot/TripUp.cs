@@ -44,9 +44,11 @@ public class TripUp : Skill
         {
             target.EffectManager.ApplyEffect(target, origin, this.skillName, this.skillData.DURATION);
             target.TakeDamage(0, origin);
+            PopUpManager.Instance.addPopUp(this.skillName, target.transform);
         }
         else
         {
+            PopUpManager.Instance.addPopUp("MISS", target.transform);
             Debug.Log("Fail");
         }
 

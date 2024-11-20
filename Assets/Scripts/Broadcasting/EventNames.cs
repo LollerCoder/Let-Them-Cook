@@ -74,9 +74,10 @@ public class EventNames {
 		public const string TOGGLE_ACTION_BOX = "TOGGLE_ACTION_BOX";
 		public const string SHOW_HP = "SHOW_HP";
 		public const string HIDE_HP = "HIDE_HP";
+		public const string DEBUFF_SHOW = "DEBUFF_SHOW";
+        public const string BUFF_SHOW = "BUFF_SHOW";
 
-
-	}
+    }
 
 	public class BattleCamera_Events {
 		public const string ENEMY_FOCUS = "ENEMY_FOCUS";
