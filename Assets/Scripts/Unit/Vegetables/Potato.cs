@@ -15,14 +15,17 @@ public class Potato : Unit {
 
     }
 
-    public override void Selected() {
+    public override void Selected()
+    {
 
     }
 
-    public override void GetAttackOptions() {
+    public override void GetAttackOptions()
+    {
 
     }
-    private void Update() {
+    private void Update()
+    {
 
     }
     private void HpBarShow(Parameters param)
@@ -47,7 +50,8 @@ public class Potato : Unit {
         }
 
 
-        if (unit == this) {
+        if (unit == this)
+        {
             PopUpManager.Instance.hpPopUp(this.hpBar, this.maxhp, this.hp);
         }
 
@@ -114,4 +118,6 @@ public class Potato : Unit {
         UnitActionManager.Instance.StoreUnit(this);
         this.ingredientType = EIngredientType.POTATO;
     }
+
+
 }
