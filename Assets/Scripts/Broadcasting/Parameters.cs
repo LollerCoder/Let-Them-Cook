@@ -27,7 +27,8 @@ public class Parameters {
 	//added
     private Dictionary<string, GameObject> gameObjectListData;
     private Dictionary<string, Vector3> Vector3Data;
-    private Dictionary<string, Unit> UnitaData;
+    private Dictionary<string, Unit> UnitData;
+    private Dictionary<string, DroppedVegetable> VegData;
 
     public Parameters() {
 		this.charData = new Dictionary<string, char>();
@@ -44,7 +45,8 @@ public class Parameters {
         //added
         this.gameObjectListData = new Dictionary<string, GameObject>();
         this.Vector3Data = new Dictionary<string, Vector3>();
-		this.UnitaData = new Dictionary<string, Unit>();
+		this.UnitData = new Dictionary<string, Unit>();
+		this.VegData = new Dictionary<string, DroppedVegetable>();
     }
 
 	public void PutExtra(string paramName, bool value) {
@@ -101,7 +103,10 @@ public class Parameters {
         this.Vector3Data.Add(paramName, value);
     }   
 	public void PutExtra(string paramName, Unit value) {
-        this.UnitaData.Add(paramName, value);
+        this.UnitData.Add(paramName, value);
+    }
+    public void PutExtra(string paramName, DroppedVegetable value) {
+        this.VegData.Add(paramName, value);
     }
 
     public int GetIntExtra(string paramName, int defaultValue) {
@@ -223,8 +228,16 @@ public class Parameters {
 		}
 	}
 	public Unit GetUnitExtra(string paramName) {
-        if (this.UnitaData.ContainsKey(paramName)) {
-            return this.UnitaData[paramName];
+        if (this.UnitData.ContainsKey(paramName)) {
+            return this.UnitData[paramName];
+        }
+        else {
+            return null;
+        }
+    }
+    public DroppedVegetable GetVegExtra(string paramName) {
+        if (this.VegData.ContainsKey(paramName)) {
+            return this.VegData[paramName];
         }
         else {
             return null;

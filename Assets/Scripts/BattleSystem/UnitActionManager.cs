@@ -49,7 +49,6 @@ public class UnitActionManager : MonoBehaviour
     public bool OnAttack = false;
     public bool OnMove = false;
 
-    public bool Stayed = false;
     public bool Moving = false;
 
     // for storing the unit
@@ -146,13 +145,12 @@ public class UnitActionManager : MonoBehaviour
 
         if (PathFinding.Path == null) return;
 
-        if (this.Stayed)
-        {
-            this.GetFirstUnit().OnMovement(false);
-            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
-            this.Stayed = false;
-            this.OnMove = false;
-        }
+        //if (this.Stayed)
+        //{
+        //    this.GetFirstUnit().OnMovement(false);
+        //    this.Stayed = false;
+        //    this.OnMove = false;
+        //}
 
         if (PathFinding.Path.Count > 0)
         {
@@ -193,7 +191,6 @@ public class UnitActionManager : MonoBehaviour
         this.GetFirstUnit().OnTurn(true);
         this.GetFirstUnit().GetComponent<BoxCollider>().enabled = false;
 
-        this.Stayed = false;
         this.OnMove = true;
         this.hadMoved = false;
         this.hadAttacked = false;

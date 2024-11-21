@@ -33,6 +33,9 @@ public class BattleUI : MonoBehaviour {
     private List<Button> Attacks; // buttons 
 
     [SerializeField]
+    private Animator EatPickUpButtons;
+
+    [SerializeField]
     private Image gameEndScreen;
 
     [SerializeField]
@@ -49,6 +52,8 @@ public class BattleUI : MonoBehaviour {
 
     private bool actionShow = false;
 
+    private bool eatPickUpShow = false;
+
     public bool[] attackNum = { false, false, false, false, false }; // which skill was pressed 
     public bool[] skillSlots = { false, false, false, false, false }; // which skill is usable
 
@@ -62,7 +67,7 @@ public class BattleUI : MonoBehaviour {
         //}
         this.gameEndAnimator = this.gameEndScreen.GetComponent<Animator>();
 
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX, this.ToggleActionBox);
+        //EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX, this.ToggleActionBox);
         
     }
     public void ToggleActionBox() {
@@ -70,16 +75,35 @@ public class BattleUI : MonoBehaviour {
         this.AttackBox.GetComponent<Animator>().SetBool("Show", this.actionShow);
     }
 
+    public void ToggleEatOrPickUpButtons() {
+        this.eatPickUpShow = !this.eatPickUpShow;
+        this.EatPickUpButtons.SetBool("Show", this.eatPickUpShow);
+    }
+
+    public void EatButton() {
+        Debug.Log("Eat");
+        UnitActions.UpdateVegetable(0);
+    }
+
+    public void PickUpButton() {
+        Debug.Log("PickUp");
+        UnitActions.UpdateVegetable(1);
+    }
+
     public void WaitButton() {
         this.OnEndTurn(false);
     }
 
     public void OnEndTurn(bool GameEnd) {
-        if(UnitActionManager.Instance.GetFirstUnit().Type == EUnitType.Ally) {
+        if(UnitActionManager.Instance.GetFirstUnit().Type == EUnitType.Ally && this.actionShow) {
             this.ToggleActionBox();
         }
 
-        for(int i = 0; i < this.attackNum.Count(); i++) {
+        if (UnitActionManager.Instance.GetFirstUnit().Type == EUnitType.Ally && this.eatPickUpShow) {
+            this.ToggleEatOrPickUpButtons();
+        }
+
+        for (int i = 0; i < this.attackNum.Count(); i++) {
             this.attackNum[i] = false;
         }
         UnitActionManager.Instance.ResetCurrentUnit();
@@ -184,7 +208,7 @@ public class BattleUI : MonoBehaviour {
                 this.attackNum[num] = false;
                 UnitActionManager.Instance.OnAttack = false;
                 UnitActionManager.Instance.numAttack = -1;  // default value (no skill is selected)
-
+                EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
                 if (num != 0) {
                     this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[1]; // skills
                 }

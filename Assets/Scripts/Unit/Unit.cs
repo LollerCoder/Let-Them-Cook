@@ -164,13 +164,6 @@ public abstract class Unit : MonoBehaviour
         set { this.defend = value; }
     }
 
-    protected bool eatable = false;
-
-    public bool Eatable
-    {
-        get { return this.eatable; }
-    }
-
     [SerializeField]
     private Tile _tile; // tile on the grid
     public Tile Tile
@@ -274,11 +267,9 @@ public abstract class Unit : MonoBehaviour
         dmg = (float)Math.Floor(dmg);
         return (int)dmg;
     }
-    public void Heal(Unit target)
+    public void Eat(Unit target)
     {
-        this.hp += 4;
-        Debug.Log($"New HP: {this.hp}");
-        target.HandleEaten();
+        
     }
     public void Heal()
     {
@@ -300,14 +291,8 @@ public abstract class Unit : MonoBehaviour
         }
     }
 
-    private void HandleDeath()
-    {
-
-        Vector3 pos = new Vector3(this.transform.position.x, 1.1f, this.transform.position.z);
-        Debug.Log(this.IngredientType.ToString());
-        DroppedVegetableManager.Instance.CreateDropVegetable(this.IngredientType.ToString(), pos);
-
-        this.eatable = true;
+    private void HandleDeath() {
+        DroppedVegetableManager.Instance.CreateDropVegetable(this);
 
         this.GetComponent<Animator>().enabled = false;
         this.gameObject.SetActive(false);
@@ -350,10 +335,6 @@ public abstract class Unit : MonoBehaviour
     public abstract void UnitAttack(Unit target);
     public abstract void Selected();
     //protected abstract void HandleDeath();
-    public virtual void HandleEaten()
-    {
-        Destroy(this.gameObject);
-    }
 
     // public Unit(Unit unit)
     // {

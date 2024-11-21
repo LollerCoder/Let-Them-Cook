@@ -44,16 +44,19 @@ public class UnitAttackActions : MonoBehaviour {
             foreach (Tile tile in Range.InRangeTiles) {
                 if (unit.Tile == tile && unit.Type != EUnitType.Ally) {
                     Attackables[i].Add(unit);
-                    unit.InRange = true;
+                    //unit.InRange = true;
                 }
             }
         }
     }
     public static bool IsUnitAttackable(Unit selectedUnit) {
-        for(int i = 0; i < Attackables.Count; i++) {
-            if (Attackables[i].Find(u => u == selectedUnit)) {
-                return true;
-            }
+        //for(int i = 0; i < Attackables.Count; i++) {
+        //    if (Attackables[i].Find(u => u == selectedUnit)) {
+        //        return true;
+        //    }
+        //}
+        if(selectedUnit.InRange) {
+            return true;
         }
         return false;
     }
@@ -70,7 +73,7 @@ public class UnitAttackActions : MonoBehaviour {
     public static void ResetAttackables() {
         foreach (List<Unit> attackables in Attackables) {
             foreach (Unit unit in attackables) {
-                unit.InRange = false;
+                //unit.InRange = false;
                 unit.Tile.UnHighlightTile();
             }
             attackables.Clear();

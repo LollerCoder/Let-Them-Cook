@@ -9,6 +9,7 @@ public static class UnitActions {
     private static Tile currentTile;
     private static Vector3 currentTilePos;
     private static Tile goalTile = new Tile();
+    private static DroppedVegetable currVeg;
     
     public static bool stepFlag = false;
     
@@ -26,10 +27,10 @@ public static class UnitActions {
             UnitActionManager.Instance.OnMove = false;
 
             if (UnitActionManager.Instance.hadMoved) {
-                EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
+                //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
+                BattleUI.Instance.ToggleActionBox();
             }
             UnitActionManager.Instance.OnAttack = false;
-            UnitActionManager.Instance.Stayed = false;
             UnitActionManager.Instance.OnMove = true;
             UnitActionManager.Instance.hadMoved = false;
             UnitActionManager.Instance.GetFirstUnit().OnMovement(true);
@@ -37,7 +38,8 @@ public static class UnitActions {
             UnitActionManager.Instance.GetFirstUnit().Tile = currentTile;
 
             EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
-            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
+            //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
+            BattleUI.Instance.ToggleActionBox();
             stepFlag = false;
 
             HideInRangeHPBar(UnitActionManager.Instance.numAttack);
@@ -64,46 +66,10 @@ public static class UnitActions {
     public static void UnitSelect(Unit selectedUnit) {
         if (UnitAttackActions.IsUnitAttackable(selectedUnit) && UnitActionManager.Instance.OnAttack) {
             ConfirmAttack(selectedUnit, UnitActionManager.Instance.numAttack);
-            //this.ConfirmAttack(selectedUnit, this.numAttack);
         }
-        //if (IsUnitEatable(selectedUnit)) {
-        //    //this.ConfirmEat(selectedUnit);
-        //    ConfirmEat(selectedUnit);
-        //}
     }
-
-    //public static void ConfirmMove() { // might use 
-    //    if (!UnitActionManager.Instance.Moving && !UnitActionManager.Instance.OnAttack) {
-    //        UnitActionManager.Instance.hadMoved = true;
-    //        UnitActionManager.Instance.OnMove = false;
-    //        UnitActionManager.Instance.OnAttack = true;
-    //        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
-    //        UnitActionManager.Instance.GetUnit().OnMovement(false);
-    //        Range.UnHighlightTiles();
-    //        stepFlag = false;
-
-    //        if(!UnitActionManager.Instance.Stayed) {
-    //            UnitActionManager.Instance.GetUnit().Tile = goalTile;
-    //        }
-    //    }
-    //}
 
     ///////////////////////////////////////////////////////
-    public static bool IsUnitEatable(Unit selectedUnit) { ///// move to unit actions
-        if (selectedUnit.Eatable) {
-            foreach (Tile tile in Range.InRangeTiles) {
-                if (selectedUnit.Tile == tile) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-    public static void ConfirmEat(Unit target) {
-        Unit currentUnit = UnitActionManager.Instance.GetFirstUnit();
-    }
-
     public static void ConfirmAttack(Unit target, int Skill) {
         Unit currentUnit = UnitActionManager.Instance.GetFirstUnit();
 
@@ -159,6 +125,7 @@ public static class UnitActions {
         Parameters param;
 
         foreach (Unit unit in UnitAttackActions.Attackables[i]) {
+            unit.InRange = true;
             param = new Parameters();
             param.PutExtra(UNIT, unit);
             EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
@@ -228,14 +195,43 @@ public static class UnitActions {
             UnitActionManager.Instance.Moving = false;
             UnitActionManager.Instance.OnMove = false;
             currentUnit.OnMovement(false);
-            if(currentUnit.Type == EUnitType.Ally) {
-                EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
+            if(currentUnit.Type == EUnitType.Ally && !CheckVegetableOnTile(currentUnit)) {
+                BattleUI.Instance.ToggleActionBox();
+                //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
 
                 // reset and update attackable list
                 UnitAttackActions.ResetAttackables();
                 UnitAttackActions.CheckSkillRange(UnitActionManager.Instance.GetFirstUnit());
             }
+            else if (CheckVegetableOnTile(currentUnit)) {
+                BattleUI.Instance.ToggleEatOrPickUpButtons();
+            }
+            
         }
+    }
+
+    private static bool CheckVegetableOnTile(Unit unit) {
+        foreach(DroppedVegetable veg in DroppedVegetableManager.Instance.VegInField) {
+            if(veg.Tile == unit.Tile) {
+                currVeg = veg;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static void UpdateVegetable(int choice) { // 0 for eat, 1 for pickup
+        if (choice == 0) {
+            DroppedVegetableManager.Instance.EatVegetable(currVeg);
+        }
+        if(choice == 1) {
+            DroppedVegetableManager.Instance.PickUpVegetable(currVeg);
+        }
+   
+        currVeg = null;
+        BattleUI.Instance.ToggleEatOrPickUpButtons();
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
     }
     public static void TileTapped(Tile goalTile) {
         Unit unit = UnitActionManager.Instance.GetFirstUnit();
@@ -254,11 +250,12 @@ public static class UnitActions {
 
             if (unit.Tile.TilePos == goalTile.TilePos) {
                 stepFlag = true;
-                UnitActionManager.Instance.Stayed = true;
+                BattleUI.Instance.ToggleActionBox();
+                UnitActionManager.Instance.GetFirstUnit().OnMovement(false);
+                UnitActionManager.Instance.OnMove = false;
             }
 
             if (PathFinding.Path.Count > 0) {
-                UnitActionManager.Instance.Stayed = false;
                 stepFlag = true;
                 unit.OnMovement(true);
                 UnitActionManager.Instance.Moving = true;

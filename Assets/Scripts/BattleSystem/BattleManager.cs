@@ -12,6 +12,8 @@ public class BattleManager : MonoBehaviour {
     [SerializeField]
     private int currAllies = 0;
 
+    [SerializeField]
+    private List<DroppedVegetable> inInventory = new List<DroppedVegetable>();
 
     [SerializeField]
     private int numEnemies = 0;
@@ -33,6 +35,7 @@ public class BattleManager : MonoBehaviour {
             if (this.currEnemies == 0) {
                 BattleUI.Instance.EndScreen(EUnitType.Ally);
                 this.GameEnd = true;
+                this.CollectRemainingVeg();
                 return;
             }
         }
@@ -42,12 +45,13 @@ public class BattleManager : MonoBehaviour {
             if (this.currAllies == 0) {
                 BattleUI.Instance.EndScreen(EUnitType.Enemy);
                 this.GameEnd = true;
+                this.CollectRemainingVeg();
                 return;
             }
         }
     }
 
-    private void SetNums() {
+    private void SetUnitNums() {
         foreach(Unit unit in UnitActionManager.Instance.UnitList) {
             if(unit.Type == EUnitType.Ally) {
                 this.numAllies++;
@@ -66,15 +70,25 @@ public class BattleManager : MonoBehaviour {
         RewardSystem.Instance.gainRewards(2, this.numEnemies, this.numAllies, this.currAllies, UnitActionManager.Instance.UnitOrder);
     }
 
-    private void UpdateInventory() {
+    private void UpdateInventory(Parameters param) {
+        DroppedVegetable veg = param.GetVegExtra("VEG");
 
+        this.inInventory.Add(veg);  
+    }
+    private void CollectRemainingVeg() {
+        foreach (DroppedVegetable veg in DroppedVegetableManager.Instance.VegInField) {
+            if (!this.inInventory.Contains(veg)) {
+                this.inInventory.Add(veg);
+            }
+        }
     }
 
     public void Start() {
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.HANDLE_GAIN_REWARDS, this.HandleUnitLevelUp);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CHECK_END_CONDITION, this.EndCondition);
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.ON_START, this.SetNums);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.ON_START, this.SetUnitNums);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.NEXT_TURN, this.NextTurn);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.UPDATE_INVENTORY, this.UpdateInventory);
 
         this.StartCoroutine(this.SetUpBattle());
     }

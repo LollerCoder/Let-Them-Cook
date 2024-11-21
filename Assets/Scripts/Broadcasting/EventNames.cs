@@ -72,6 +72,7 @@ public class EventNames {
         public const string CHECK_END_CONDITION = "CHECK_END_CONDITION";
         public const string ON_START = "ON_START";
 		public const string NEXT_TURN = "NEXT_TURN";
+		public const string UPDATE_INVENTORY = "UPDATE_INVENTORY";
     }
 
 
