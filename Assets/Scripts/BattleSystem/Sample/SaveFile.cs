@@ -14,11 +14,11 @@ public class SaveFile : ScriptableObject
     public SerializedDictionary<string, List<float>> savedUnits = new SerializedDictionary<string, List<float>>();
 
     //Unique Ids must be added
-    public void SaveGame(Unit[] units)
+    public void SaveGame(List<Unit> units)
     {
         savedUnits.Clear();
 
-        List<Unit> unitList = units.ToList();
+        List<Unit> unitList = units;
         foreach (Unit unit in unitList)
         {
             List<float> unitStats = new List<float>();
@@ -28,6 +28,7 @@ public class SaveFile : ScriptableObject
             unitStats.Add(unit.HP);
             unitStats.Add(unit.Experience);
             unitStats.Add(unit.Defense);
+            
             savedUnits.Add(unit.name, unitStats);
         }
     }

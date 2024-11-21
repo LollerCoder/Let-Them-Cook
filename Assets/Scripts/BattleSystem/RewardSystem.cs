@@ -7,12 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class RewardSystem : MonoBehaviour
 {
-
     public UnitStats stats;
+    public SaveFile save;
     /*Save Game Components*/
-
-    //save the exp of each character in the party
-
     public static RewardSystem Instance;
     private void Awake()
     {
@@ -48,6 +45,8 @@ public class RewardSystem : MonoBehaviour
         /*EXPERIENCE GAINER*/
         /*current level of the map .  BattleScene Names are like this "<WorldName>-<LevelNumber>*/
         int levelNum = int.Parse(SceneManager.GetActiveScene().name.Split("-")[1]);
+
+        List<Unit> party = new List<Unit>();
         
         //SceneManager.GetActiveScene().name.ElementAt/ (SceneManager.GetActiveScene().name.Length + 1);
 
@@ -66,7 +65,7 @@ public class RewardSystem : MonoBehaviour
             totalexp = levelNum + enemies + (int)(members/2);
         }
 
-        //distribute the exp to the party 
+        //distribute the exp to the party
         foreach(Unit unit in partyList) {
             if(unit.Type == EUnitType.Ally) {
 
@@ -78,9 +77,11 @@ public class RewardSystem : MonoBehaviour
 
                 //update the stats
                 stats.SetUnitStats(unit);
+                party.Add(unit);
             }
         }
         
         //Autosaves the games progress
+        save.SaveGame(party);
     }
 }

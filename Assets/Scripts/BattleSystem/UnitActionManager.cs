@@ -265,7 +265,7 @@ public class UnitActionManager : MonoBehaviour
         int enemies = 0;
         int allies = 0;
         int deadAllies = 0;
-        //int outcome = 0;
+        int outcome = 0;
         foreach (Unit unit in this._unitOrder)
         {
             if (unit.Type == EUnitType.Ally)
@@ -282,18 +282,17 @@ public class UnitActionManager : MonoBehaviour
         if (allies == 0)
         {
             Debug.Log("Defeated!");
-            //outcome = 1;
+            outcome = 1;
         }
 
         if (enemies == 0)
         {
             Debug.Log("Level Cleared!");
             EventBroadcaster.Instance.PostEvent(EventNames.Enemy_Events.ON_ENEMY_DEFEATED);
-            //outcome = 2;
+            outcome = 2;
         }
 
-        //    RewardSystem.Instance.gainRewards(outcome, enemies, allies, deadAllies,this._unitOrder);
-        //     this._battleUI.EndScreen(outcome);
+        RewardSystem.Instance.gainRewards(outcome, enemies, allies, deadAllies,this._unitOrder);
 
     }
 
