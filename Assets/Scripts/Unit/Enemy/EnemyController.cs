@@ -15,8 +15,7 @@ public class EnemyController: MonoBehaviour {
     private List<Unit> _enemies;
 
     public bool boss = false;
-
-    private void SpawnEnemy(){
+    public IEnumerator SpawnEnemy(){
         Unit unit = null;
         
         if (!this.boss) {
@@ -41,10 +40,10 @@ public class EnemyController: MonoBehaviour {
             unit.gameObject.layer = this.gameObject.layer;
         }
 
-        
+        yield break;
     }
 
     private void Start() {
-        this.SpawnEnemy();
+        
     }
 }

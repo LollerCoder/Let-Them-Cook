@@ -65,9 +65,15 @@ public class EventNames {
 	{
 		public const string ON_ENEMY_DEFEATED = "ON_ENEMY_DEFEATED";
 
+	}
+
+	public class BattleManager_Events {
+        public const string HANDLE_GAIN_REWARDS = "HANDLE_GAIN_REWARDS";
+        public const string CHECK_END_CONDITION = "CHECK_END_CONDITION";
+        public const string ON_START = "ON_START";
+		public const string NEXT_TURN = "NEXT_TURN";
     }
 
-   
 
 	public class BattleUI_Events {
 		public const string ON_AVATAR_CLICK = "ON_AVATAR_CLICK";

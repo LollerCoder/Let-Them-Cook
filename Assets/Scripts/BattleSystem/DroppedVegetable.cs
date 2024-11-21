@@ -13,7 +13,4 @@ public class DroppedVegetable : MonoBehaviour {
     public void SetStats() {
 
     }
-    public void OnMouseEnter() {
-        
-    }
 }

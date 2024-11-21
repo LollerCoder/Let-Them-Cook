@@ -11,12 +11,19 @@ public class DroppedVegetableManager : MonoBehaviour {
 
     private Dictionary<string, DroppedVegetable> dropVegetableDictionary = new Dictionary<string, DroppedVegetable>();
 
+    private List<DroppedVegetable> vegInField = new List<DroppedVegetable>();
+    public List<DroppedVegetable> VegInFied { 
+        get { return this.vegInField; } 
+    }
+
     public void CreateDropVegetable(string name, Vector3 pos) {
         if (this.dropVegetableDictionary.ContainsKey(name)) {
             DroppedVegetable droppedVegetable = GameObject.Instantiate(this.dropVegetableDictionary[name]);
             droppedVegetable.transform.position = pos;
             droppedVegetable.Name = name;
             this.ProvideStats(droppedVegetable);
+
+            this.vegInField.Add(droppedVegetable);
         }
         else {
             Debug.Log(name + " not found!");

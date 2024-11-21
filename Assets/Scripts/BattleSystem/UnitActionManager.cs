@@ -14,15 +14,9 @@ public class UnitActionManager : MonoBehaviour
 {
     public static UnitActionManager Instance = null;
 
-    private BattleManager battleManager = new BattleManager();
-
     public const string UNIT = "UNIT";
 
     private EBattleScene _battleScene;
-
-    private Skill _skill;
-
-    private EagleEye _eagleEye;
 
     [SerializeField]
     private float speed;
@@ -47,8 +41,6 @@ public class UnitActionManager : MonoBehaviour
 
     private bool OverEnemy = false;
 
-    private bool Start = true;
-
     public int numAttack = -1; // default value
 
     public bool hadMoved = false;
@@ -61,24 +53,12 @@ public class UnitActionManager : MonoBehaviour
     public bool Moving = false;
 
     // for storing the unit
-    public void StoreUnit(Unit unit)
-    {
+    public void StoreUnit(Unit unit) {
         this._Units.Add(unit);
     }
 
-    public Unit GetFirstUnit()
-    {
+    public Unit GetFirstUnit() {
         return this._unitOrder[0];
-    }
-
-    public bool IsGameEnd()
-    {
-        if (this.battleManager.GameEnd)
-        {
-            return true;
-        }
-
-        return false;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -109,33 +89,28 @@ public class UnitActionManager : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         PathFinding.Path.Clear();
         EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.ENABLE_CLICKS);
-        this.NextTurn();
+
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public void RemoveUnitFromOrder(Unit removedUnit)
-    {
+    public void RemoveUnitFromOrder(Unit removedUnit) {
         this._unitOrder.Remove(removedUnit);
         removedUnit.Tile.isWalkable = true;
 
-        this.battleManager.EndCondition(removedUnit);
+        Parameters param = new Parameters();
+        param.PutExtra(UNIT, removedUnit);
+
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
     }
-    private void DecideTurnOrder()
-    {
+    private void DecideTurnOrder() {
         this._unitOrder.AddRange(_Units);
         this._unitOrder.Sort((x, y) => y.Speed.CompareTo(x.Speed));
         BattleUI.Instance.UpdateTurnOrder(this._unitOrder);
     }
 
-    public void NextTurn()
-    {
-        BattleUI.Instance.OnEndTurn();
-
-    }
-    public void UnitTurn()
-    {
-
+    public void UnitTurn() {
         Range.UnHighlightTiles();
 
         UnitAttackActions.EnemyListed = false;
@@ -145,8 +120,7 @@ public class UnitActionManager : MonoBehaviour
         this.SetUpTurn();
     }
 
-    public void ResetCurrentUnit()
-    {
+    public void ResetCurrentUnit() {
         Unit unit = this.GetFirstUnit();
         unit.GetComponent<BoxCollider>().enabled = true;
         unit.OnMovement(false);
@@ -163,10 +137,7 @@ public class UnitActionManager : MonoBehaviour
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private void LateUpdate()
-    {
-        this.OnStart();
-
+    private void LateUpdate() {
         if (Input.GetKeyUp(KeyCode.R) && UnitActions.stepFlag)
         {
             BattleUI.Instance.ResetButtonState(this.numAttack);
@@ -232,8 +203,7 @@ public class UnitActionManager : MonoBehaviour
         // reset and update attackable list
         UnitAttackActions.SetAttackableList();
 
-        if (this._unitOrder[0].Type != EUnitType.Ally)
-        {
+        if (this._unitOrder[0].Type != EUnitType.Ally) {
 
             EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
             this.EnemyUnitAction();
@@ -241,59 +211,17 @@ public class UnitActionManager : MonoBehaviour
 
 
     }
-    private void OnStart()
-    {
-        if (Start)
-        {
-            this.DecideTurnOrder();
-            UnitActions.AssignUnitTile();
-            UnitActions.UpdateTile();
-            PathFinding.BattleScene = this._battleScene;
-            Range.BattleScene = this._battleScene;
-            this._enemyAI = new EnemyMainAI(this._Units);
+    public void OnStart() {
+        this.DecideTurnOrder();
+        UnitActions.AssignUnitTile();
+        UnitActions.UpdateTile();
+        PathFinding.BattleScene = this._battleScene;
+        Range.BattleScene = this._battleScene;
+        this._enemyAI = new EnemyMainAI(this._Units);
 
-            this.SetUpTurn();
+        this.SetUpTurn();
 
-            Start = false;
-
-            this.battleManager.SetNums();
-
-        }
-    }
-    private void CheckEndCondition()
-    {
-        int enemies = 0;
-        int allies = 0;
-        int deadAllies = 0;
-        int outcome = 0;
-        foreach (Unit unit in this._unitOrder)
-        {
-            if (unit.Type == EUnitType.Ally)
-            {
-                allies++;
-                if (unit.HP <= 0) deadAllies++;
-            }
-            if (unit.Type != EUnitType.Ally)
-            {
-                enemies++;
-            }
-        }
-
-        if (allies == 0)
-        {
-            Debug.Log("Defeated!");
-            outcome = 1;
-        }
-
-        if (enemies == 0)
-        {
-            Debug.Log("Level Cleared!");
-            EventBroadcaster.Instance.PostEvent(EventNames.Enemy_Events.ON_ENEMY_DEFEATED);
-            outcome = 2;
-        }
-
-        RewardSystem.Instance.gainRewards(outcome, enemies, allies, deadAllies,this._unitOrder);
-
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.ON_START);  
     }
 
     public void Awake()

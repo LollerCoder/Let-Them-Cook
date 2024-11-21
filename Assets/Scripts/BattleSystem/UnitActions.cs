@@ -151,7 +151,8 @@ public static class UnitActions {
 
         UnitActionManager.Instance.OnAttack = false;
         UnitActionManager.Instance.hadAttacked = true;
-        UnitActionManager.Instance.NextTurn();
+
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
     }
 
     public static void ShowInRangeHPBar(int i) {

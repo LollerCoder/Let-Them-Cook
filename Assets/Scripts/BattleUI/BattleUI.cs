@@ -70,7 +70,11 @@ public class BattleUI : MonoBehaviour {
         this.AttackBox.GetComponent<Animator>().SetBool("Show", this.actionShow);
     }
 
-    public void OnEndTurn() {
+    public void WaitButton() {
+        this.OnEndTurn(false);
+    }
+
+    public void OnEndTurn(bool GameEnd) {
         if(UnitActionManager.Instance.GetFirstUnit().Type == EUnitType.Ally) {
             this.ToggleActionBox();
         }
@@ -79,15 +83,15 @@ public class BattleUI : MonoBehaviour {
             this.attackNum[i] = false;
         }
         UnitActionManager.Instance.ResetCurrentUnit();
+
+        if(GameEnd) {
+            return;
+        }
+
         this.StartCoroutine(this.CloseUI(0.2f));
     }
 
     private IEnumerator CloseUI(float seconds) {
-
-        if (UnitActionManager.Instance.IsGameEnd()) {
-            yield break;
-        }
-
         yield return new WaitForSeconds(seconds);
         UnitActions.HideInRangeHPBar(UnitActionManager.Instance.numAttack);
 
@@ -289,7 +293,9 @@ public class BattleUI : MonoBehaviour {
         UnitActionManager.Instance.OnAttack = false;
     }
 
+
     public void EndScreen(EUnitType type) {
+        
         switch (type) {
             case EUnitType.Ally:
                 this.gameEndText.text = "Stage Complete";
