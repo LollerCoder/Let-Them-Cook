@@ -11052,9 +11052,9 @@ GameObject:
   - component: {fileID: 8702689200656186444}
   - component: {fileID: 9115320851605742839}
   - component: {fileID: 9115320851605742840}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Buff
-  m_TagString: Untagged
+  m_TagString: SpecialTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11329,8 +11329,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.028699584, y: 0.028874172, z: 0.03632054}
-  m_Center: {x: 0.00007695658, y: 0.0036362652, z: 0.008160273}
+  m_Size: {x: 0.0198, y: 0.0198, z: 0.017}
+  m_Center: {x: 0, y: 0, z: -0.0017}
 --- !u!114 &9115320851605742840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11349,7 +11349,7 @@ MonoBehaviour:
   tileType:
     name: 
     tilePrefab: {fileID: 0}
-    tile: 6
+    tile: 7
   isWalkable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
