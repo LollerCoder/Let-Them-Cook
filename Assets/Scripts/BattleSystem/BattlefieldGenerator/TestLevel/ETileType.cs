@@ -5,6 +5,7 @@ public enum ETileType {
     WHITE,
     BLACK,
     BLOCK,
+    UNPASSABLE,
 
     /*SPECIAL TILE TYPES*/
     BUFF,

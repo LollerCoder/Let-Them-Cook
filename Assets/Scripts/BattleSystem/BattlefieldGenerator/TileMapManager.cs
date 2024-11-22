@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -11,10 +12,15 @@ public class TileMapManager : MonoBehaviour {
         get { return _tileMap; }
     }
 
+    [SerializeField]
+    private List<TileMapProps> Props = new List<TileMapProps>();
+
+    [SerializeField]
+    private Transform PropField;
+
     // Start is called before the first frame update
     void Start() {
         Tile[] Tiles = FindObjectsByType<Tile>(FindObjectsSortMode.None);
-
         foreach (Tile tile in Tiles) {
             Vector2Int tilePosition = new Vector2Int(Mathf.RoundToInt(tile.transform.position.x), // to ensure the position is not a float
                                                      Mathf.RoundToInt(tile.transform.position.z));
@@ -27,6 +33,8 @@ public class TileMapManager : MonoBehaviour {
                 this._tileMap.Add(tilePosition, tile);
             }
         }
+        this.PropGenerator();
+        this.UpdateTileWithProps();
     }
 
     public void Awake() {
@@ -35,6 +43,23 @@ public class TileMapManager : MonoBehaviour {
         }
         else if (Instance != null) {
             Destroy(this.gameObject);
+        }
+    }
+
+    private void PropGenerator() {
+        foreach(TileMapProps props in this.Props) {
+            Instantiate(props.value, props.key, props.value.transform.rotation, this.PropField);
+        }
+    }
+
+    private void UpdateTileWithProps() {
+        foreach (TileMapProps props in this.Props) {
+            Vector2Int key = new Vector2Int(Mathf.RoundToInt(props.value.transform.position.x), 
+                                            Mathf.RoundToInt(props.value.transform.position.z));
+            if (this.TileMap.ContainsKey(key)) {
+                this.TileMap[key].tileType.tile = ETileType.UNPASSABLE;
+                this.TileMap[key].isWalkable = false;
+            }
         }
     }
 
@@ -79,17 +104,21 @@ public class TileMapManager : MonoBehaviour {
         return neighbors;
     }
     public void UpdateTile() {
-        //for (int x = 0; x < this._mapSizeX; x++) {
-        //    for (int z = 0; z < this._mapSizeZ; z++) {
-        //        if (this._tileMap[new Vector2Int(x, z)].tileType.tile != ETileType.TREES) {
-        //            this._tileMap[new Vector2Int(x, z)].isWalkable = true;
-        //        }
-        //    }
-        //}
-
-        foreach(var i in this._tileMap) {
-            i.Value.isWalkable = true;
+        foreach(var tileMap in this._tileMap) {
+            if(tileMap.Value.tileType.tile != ETileType.UNPASSABLE) {
+                tileMap.Value.isWalkable = true;
+            }
         }
     }
 
+}
+
+[Serializable]
+public class TileMapProps {
+    public Vector3 key;
+    public GameObject value;
+    public TileMapProps(Vector3 key, GameObject value) {
+        this.key = key;
+        this.value = value;
+    }
 }
