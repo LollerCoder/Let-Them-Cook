@@ -51,8 +51,14 @@ public class BattleUI : MonoBehaviour {
     private bool gameEndAllyWin = true; 
 
     private bool actionShow = false;
+    public bool ActionBoxState {
+        get { return this.actionShow; }
+    }
 
     private bool eatPickUpShow = false;
+    public bool EatPickUpButtonState {
+        get { return this.eatPickUpShow; }
+    }
 
     public bool[] attackNum = { false, false, false, false, false }; // which skill was pressed 
     public bool[] skillSlots = { false, false, false, false, false }; // which skill is usable

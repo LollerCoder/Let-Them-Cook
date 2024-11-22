@@ -39,7 +39,14 @@ public static class UnitActions {
 
             EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
             //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
-            BattleUI.Instance.ToggleActionBox();
+            if (BattleUI.Instance.ActionBoxState) {
+                BattleUI.Instance.ToggleActionBox();
+            }
+        
+            if (BattleUI.Instance.EatPickUpButtonState){
+                BattleUI.Instance.ToggleEatOrPickUpButtons();
+            }
+           
             stepFlag = false;
 
             HideInRangeHPBar(UnitActionManager.Instance.numAttack);

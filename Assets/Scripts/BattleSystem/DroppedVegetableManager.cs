@@ -20,7 +20,7 @@ public class DroppedVegetableManager : MonoBehaviour {
         string name = deadUnit.IngredientType.ToString();
         if (this.dropVegetableDictionary.ContainsKey(name)) {
             DroppedVegetable droppedVegetable = GameObject.Instantiate(this.dropVegetableDictionary[name]);
-            Vector3 pos = new Vector3(deadUnit.transform.position.x, 1.1f, deadUnit.transform.position.z);
+            Vector3 pos = new Vector3(deadUnit.transform.position.x, 0.5f, deadUnit.transform.position.z);
             droppedVegetable.transform.position = pos;
             droppedVegetable.Name = name;
             droppedVegetable.Tile = deadUnit.Tile;
