@@ -187,14 +187,15 @@ public static class UnitActions {
                                                             PathFinding.Path[0].transform.position.z);
             currentUnit.Tile = PathFinding.Path[0];
             goalTile = PathFinding.Path[0];
+
             PathFinding.Path.RemoveAt(0);
         }
 
         if (PathFinding.Path.Count < 1) {
-            //currentUnit.Tile = currentTile;
             UnitActionManager.Instance.Moving = false;
             UnitActionManager.Instance.OnMove = false;
             currentUnit.OnMovement(false);
+
             if(currentUnit.Type == EUnitType.Ally && !CheckVegetableOnTile(currentUnit)) {
                 BattleUI.Instance.ToggleActionBox();
                 //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
@@ -206,7 +207,6 @@ public static class UnitActions {
             else if (CheckVegetableOnTile(currentUnit)) {
                 BattleUI.Instance.ToggleEatOrPickUpButtons();
             }
-            
         }
     }
 
@@ -302,9 +302,8 @@ public static class UnitActions {
     }
     public static void AssignUnitTile() {
 
-        var map = TileMapGenerator.Instance.TileMap;
-
-        map = TileMapGenerator.Instance.TileMap;
+        var map = TileMapManager.Instance.TileMap;
+        //var map = TileMapGenerator.Instance.TileMap;
 
         Vector2Int unitPos = new Vector2Int();
         foreach (Unit unit in UnitActionManager.Instance.UnitList) {
@@ -320,8 +319,8 @@ public static class UnitActions {
         }
     }
     public static  void UpdateTile() { /////move to tileactions
-        TileMapGenerator.Instance.UpdateTile();
-
+        //TileMapGenerator.Instance.UpdateTile();
+        TileMapManager.Instance.UpdateTile();
         foreach (Unit unit in UnitActionManager.Instance.UnitOrder) {
             if (unit.Type != EUnitType.Ally) {
                 unit.Tile.isWalkable = false;

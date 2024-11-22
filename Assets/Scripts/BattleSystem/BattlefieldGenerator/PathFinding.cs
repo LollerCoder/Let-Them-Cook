@@ -50,7 +50,8 @@ public static class PathFinding {
     private static List<Tile> GetNeighborTiles(Tile currentTile, List<Tile> inRangeTiles) {
         List<Tile> neighborTiles = new List<Tile>();
 
-        neighborTiles = TileMapGenerator.Instance.GetNeighborTiles(currentTile, inRangeTiles);
+        neighborTiles = TileMapManager.Instance.GetNeighborTiles(currentTile, inRangeTiles);
+        //neighborTiles = TileMapGenerator.Instance.GetNeighborTiles(currentTile, inRangeTiles);
 
         return neighborTiles;
     }

@@ -96,7 +96,8 @@ public static class Range {
     private static List<Tile>GetNeighborTiles(Tile tile) {
         List<Tile> neighborTiles = new List<Tile>();
 
-        neighborTiles = TileMapGenerator.Instance.GetNeighborTiles(tile, new List<Tile>());
+        neighborTiles = TileMapManager.Instance.GetNeighborTiles(tile, new List<Tile>());
+        //neighborTiles = TileMapGenerator.Instance.GetNeighborTiles(tile, new List<Tile>());
 
         return neighborTiles;
     }

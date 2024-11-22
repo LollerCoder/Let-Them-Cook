@@ -79,7 +79,7 @@ public class UnitActionManager : MonoBehaviour
 
         PathFinding.Path = this._enemyAI.TakeTurn(this._unitOrder[0]);
 
-        this.StartCoroutine(this.EnemyWait(1.0f));
+        this.StartCoroutine(this.EnemyWait(2.0f)); // fix this instead of doing a coroutine, do the next turn whenever the enemy has done all of their actions
     }
     private IEnumerator EnemyWait(float seconds)
     {
@@ -145,15 +145,7 @@ public class UnitActionManager : MonoBehaviour
 
         if (PathFinding.Path == null) return;
 
-        //if (this.Stayed)
-        //{
-        //    this.GetFirstUnit().OnMovement(false);
-        //    this.Stayed = false;
-        //    this.OnMove = false;
-        //}
-
-        if (PathFinding.Path.Count > 0)
-        {
+        if (PathFinding.Path.Count > 0) {
             UnitActions.MoveCurrentUnit();
         }
         else
