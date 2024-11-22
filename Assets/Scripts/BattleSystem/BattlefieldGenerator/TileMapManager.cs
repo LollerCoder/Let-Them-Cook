@@ -53,9 +53,10 @@ public class TileMapManager : MonoBehaviour {
     }
 
     private void UpdateTileWithProps() {
+        Vector2Int key;
         foreach (TileMapProps props in this.Props) {
-            Vector2Int key = new Vector2Int(Mathf.RoundToInt(props.value.transform.position.x), 
-                                            Mathf.RoundToInt(props.value.transform.position.z));
+            key = new Vector2Int((int)props.key.x, (int)props.key.z);
+
             if (this.TileMap.ContainsKey(key)) {
                 this.TileMap[key].tileType.tile = ETileType.UNPASSABLE;
                 this.TileMap[key].isWalkable = false;
