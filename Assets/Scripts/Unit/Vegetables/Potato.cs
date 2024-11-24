@@ -70,16 +70,42 @@ public class Potato : Unit {
     }
 
 
-    private void BuffArrowShow()
+    private void BuffArrowShow(Parameters param)
     {
-        this.BufController.SetBool("isBuffed", true);
-        Debug.Log("Buffed");
+        if(this == param.GetUnitExtra("UNIT"))
+        {
+            this.BufController.SetBool("isBuffed", true);
+            Debug.Log("Buffed");
+        }
+        
     }
 
-    private void DebuffArrowShow()
+    private void DebuffArrowShow(Parameters param)
     {
-        this.DebufController.SetBool("isDebuffed", true);
-        Debug.Log("Debuffed");
+        if (this == param.GetUnitExtra("UNIT"))
+        {
+            this.DebufController.SetBool("isDebuffed", true);
+            Debug.Log("Debuffed");
+        }
+    }
+
+    private void BuffArrowHide(Parameters param)
+    {
+        if (this == param.GetUnitExtra("UNIT"))
+        {
+            this.BufController.SetBool("isBuffed", false);
+            Debug.Log("buffGone");
+        }
+
+    }
+
+    private void DebuffArrowHide(Parameters param)
+    {
+        if (this == param.GetUnitExtra("UNIT"))
+        {
+            this.DebufController.SetBool("isDebuffed", false);
+            Debug.Log("DebuffedGone");
+        }
     }
 
 
@@ -90,6 +116,8 @@ public class Potato : Unit {
 
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.DEBUFF_SHOW, this.DebuffArrowShow);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.BUFF_SHOW, this.BuffArrowShow);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.DEBUFF_HIDE, this.DebuffArrowHide);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.BUFF_HIDE, this.BuffArrowHide);
 
         this.animator = this.GetComponent<Animator>();
         base.Start();

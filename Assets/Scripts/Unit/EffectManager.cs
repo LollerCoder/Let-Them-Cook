@@ -37,7 +37,7 @@ public class EffectManager
                 float augment = foundSkill.skillData.MOD;
                 EStatToEffect stat = foundSkill.skillData.STAT;
                 Debug.Log("Augment was: " + augment);
-                //Debug.Log(applyTo.EFFECTLIST[key].STAT);
+                Debug.Log(foundSkill.skillData.STAT);
                 switch (stat)
                 {
                     case EStatToEffect.ACCURACY:
@@ -69,9 +69,9 @@ public class EffectManager
             }
           
 
-           
+          
         }
-
+        Debug.Log(applyTo.AccuracyMultiplier);
 
     }
 
@@ -88,14 +88,55 @@ public class EffectManager
 
         if (ApplyTo.AttackMultiplier < 1 || ApplyTo.SpeedMultiplier < 1 || ApplyTo.AccuracyMultiplier < 1 || ApplyTo.DefenseMultiplier < 1)
         {
+            Debug.Log("Arrow show Atk: " + ApplyTo.AttackMultiplier);
+            Debug.Log("Arrow show Spd: " + ApplyTo.SpeedMultiplier);
+            Debug.Log("Arrow show Acc: " + ApplyTo.AccuracyMultiplier);
+            Debug.Log("Arrow show Def: " + ApplyTo.DefenseMultiplier);
             EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.DEBUFF_SHOW,param);
-            Debug.Log("Posted here");
+            
         }
+        
+
+
 
         if (ApplyTo.AttackMultiplier > 1 ||  ApplyTo.SpeedMultiplier > 1 || ApplyTo.AccuracyMultiplier > 1 || ApplyTo.DefenseMultiplier > 1)
         {
+            Debug.Log("Arrow show Atk: " + ApplyTo.AttackMultiplier);
+            Debug.Log("Arrow show Spd: " + ApplyTo.SpeedMultiplier);
+            Debug.Log("Arrow show Acc: " + ApplyTo.AccuracyMultiplier);
+            Debug.Log("Arrow show Def: " + ApplyTo.DefenseMultiplier);
             EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.BUFF_SHOW,param);
-            Debug.Log("Posted here");
+            
+
+        }
+        
+       
+
+
+
+        this.EffectReset(ApplyTo);
+    }
+
+    public void ArrowHider(Unit ApplyTo)
+    {
+        Parameters param = new Parameters();
+        param.PutExtra("UNIT", ApplyTo);
+
+        this.EffectAccess(ApplyTo);
+
+        if (ApplyTo.AttackMultiplier >= 1 && ApplyTo.SpeedMultiplier >= 1 && ApplyTo.AccuracyMultiplier >= 1 && ApplyTo.DefenseMultiplier >= 1)
+        {
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.DEBUFF_HIDE, param);
+        }
+
+        if (ApplyTo.AttackMultiplier <= 1 && ApplyTo.SpeedMultiplier <= 1 && ApplyTo.AccuracyMultiplier <= 1 && ApplyTo.DefenseMultiplier <= 1)
+        {
+            Debug.Log("Atk: "+ApplyTo.AttackMultiplier);
+            Debug.Log("Spd: "+ApplyTo.SpeedMultiplier);
+            Debug.Log("Acc: "+ApplyTo.AccuracyMultiplier);
+            Debug.Log("Def: "+ApplyTo.DefenseMultiplier);
+
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.BUFF_HIDE, param);
         }
 
         this.EffectReset(ApplyTo);
@@ -111,7 +152,7 @@ public class EffectManager
             foreach (string key in toIterateThrough)
             {
                 EFFECTLIST[key] -= 1;
-                //Debug.Log("Effect " + key + " has " + EFFECTLIST[key] + " left");
+                Debug.Log("Effect " + key + " has " + EFFECTLIST[key] + " left");
 
                 if (EFFECTLIST[key] <= 0)
                 {
@@ -125,7 +166,7 @@ public class EffectManager
         {
             EFFECTLIST.Remove(keyDelete);
         }
-       
+
         
     }
     public void EffectReset(Unit applyTo)

@@ -83,6 +83,8 @@ public class EventNames {
 		public const string HIDE_HP = "HIDE_HP";
 		public const string DEBUFF_SHOW = "DEBUFF_SHOW";
         public const string BUFF_SHOW = "BUFF_SHOW";
+        public const string DEBUFF_HIDE = "DEBUFF_HIDE";
+        public const string BUFF_HIDE = "BUFF_HIDE";
 
     }
 

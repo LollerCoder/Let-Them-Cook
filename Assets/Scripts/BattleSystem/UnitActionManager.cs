@@ -130,7 +130,8 @@ public class UnitActionManager : MonoBehaviour
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.HIDE_HP, param);
 
-
+        unit.EffectManager.EffectTimer();
+        unit.EffectManager.ArrowHider(unit);
         this._unitOrder.Remove(unit);
         this._unitOrder.Add(unit);
     }
@@ -178,7 +179,8 @@ public class UnitActionManager : MonoBehaviour
         BattleUI.Instance.UpdateTurnOrder(this._unitOrder);
         BattleUI.Instance.NextUnitSkills(this.GetFirstUnit());
         UnitActions.SetCurrentTile(this.GetFirstUnit().Tile, this.GetFirstUnit().transform.position.y);
-        this.GetFirstUnit().EffectManager.EffectTimer();
+        
+        
         this.GetFirstUnit().OnMovement(true);
         this.GetFirstUnit().OnTurn(true);
         this.GetFirstUnit().GetComponent<BoxCollider>().enabled = false;
