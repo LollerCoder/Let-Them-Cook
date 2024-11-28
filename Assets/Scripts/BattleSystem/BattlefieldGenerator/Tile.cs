@@ -33,7 +33,7 @@ public class Tile : MonoBehaviour{
     }
     public void HighlightWalkableTile() {
         if (this.isWalkable) { //just to make sure it wont be highlighted
-            this._mat.color = Color.cyan;
+            this._mat.color = Color.magenta;
         }
     }
     public void HighlightAttackableTile() {
