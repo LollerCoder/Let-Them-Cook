@@ -31,4 +31,9 @@ public class MainMenuUIController : MonoBehaviour
     {
 
     }
+
+    public void ExitButtonPressed()
+    {
+        Application.Quit();
+    }
 }
