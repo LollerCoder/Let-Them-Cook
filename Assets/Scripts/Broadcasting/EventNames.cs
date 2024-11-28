@@ -51,12 +51,7 @@ public class EventNames {
         public const string ON_ATTACK_START = "ON_ATTACK_START";
         public const string ON_ATTACK_END = "ON_ATTACK_END";
     }
-    public class Roll_Events
-	{
-		public const string ON_ROLL_FINISH = "ON_ROLL_FINISH";
-		public const string ON_ROLLUI_EXIT = "ON_ROLLUI_EXIT";
-
-    }
+  
     public class UIEvents {
         public const string ENABLE_CLICKS = "ENABLE_CLICKS";
         public const string DISABLE_CLICKS = "DISABLE_CLICKS";
@@ -70,16 +65,32 @@ public class EventNames {
 	{
 		public const string ON_ENEMY_DEFEATED = "ON_ENEMY_DEFEATED";
 
+	}
+
+	public class BattleManager_Events {
+        public const string HANDLE_GAIN_REWARDS = "HANDLE_GAIN_REWARDS";
+        public const string CHECK_END_CONDITION = "CHECK_END_CONDITION";
+        public const string ON_START = "ON_START";
+		public const string NEXT_TURN = "NEXT_TURN";
+		public const string UPDATE_INVENTORY = "UPDATE_INVENTORY";
     }
 
-    public class Wand_Events
-    {
-        public const string ON_WAND_REGISTER = "ON_WAND_REGISTER";
-        public const string CHECK_DONE = "CHECK_DONE";
-    }
 
 	public class BattleUI_Events {
 		public const string ON_AVATAR_CLICK = "ON_AVATAR_CLICK";
+		public const string TOGGLE_ACTION_BOX = "TOGGLE_ACTION_BOX";
+		public const string SHOW_HP = "SHOW_HP";
+		public const string HIDE_HP = "HIDE_HP";
+		public const string DEBUFF_SHOW = "DEBUFF_SHOW";
+        public const string BUFF_SHOW = "BUFF_SHOW";
+        public const string DEBUFF_HIDE = "DEBUFF_HIDE";
+        public const string BUFF_HIDE = "BUFF_HIDE";
+
+    }
+
+	public class BattleCamera_Events {
+		public const string ENEMY_FOCUS = "ENEMY_FOCUS";
+		public const string CURRENT_FOCUS = "CURRENT_FOCUS";
 	}
 }
 

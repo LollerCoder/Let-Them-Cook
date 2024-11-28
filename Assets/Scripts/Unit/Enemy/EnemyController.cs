@@ -15,16 +15,16 @@ public class EnemyController: MonoBehaviour {
     private List<Unit> _enemies;
 
     public bool boss = false;
-
-    private void SpawnEnemy(){
-        Unit unit;
-
+    public IEnumerator SpawnEnemy(){
+        Unit unit = null;
+        
         if (!this.boss) {
             for(int i = 0;  i < _normalEnemies; i++) {
                 int rand = Random.Range(0, this._enemies.Count - 1);
                 unit = Instantiate(this._enemies[rand], this._positions[i], Quaternion.identity, this._scene.transform);
                 unit.transform.rotation = Quaternion.Euler(0,-180,0);
                 unit.Type = EUnitType.Enemy;
+                unit.gameObject.layer = this.gameObject.layer;
             }
         }
         else {
@@ -37,11 +37,13 @@ public class EnemyController: MonoBehaviour {
             unit = Instantiate(this._enemies[3], this._positions[3], Quaternion.identity, this._scene.transform);
             unit.transform.rotation = Quaternion.Euler(0, -180, 0);
             unit.Type = EUnitType.Boss;
+            unit.gameObject.layer = this.gameObject.layer;
         }
 
+        yield break;
     }
 
     private void Start() {
-        this.SpawnEnemy();
+        
     }
 }

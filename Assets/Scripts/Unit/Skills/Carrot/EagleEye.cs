@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 //Give carrot a 10% accuracy buff
-public class EagleEye : Skill, MultEffect
+public class EagleEye : Skill
 {
 
 
-    EffectInfo skillData; 
+    
 
     //effectinfo
    
     private int sucessChance = 80;
+
     
-   
 
     public EagleEye()
     {
@@ -22,12 +22,17 @@ public class EagleEye : Skill, MultEffect
         this.veggieType = EVeggie.CARROT;
         this.skillType = ESkillType.BUFFDEBUFF;
 
+
         //EFFECT INFO
         int duration = 3;
         EStatToEffect stat = EStatToEffect.ACCURACY;
         int mod = 10;
 
-        skillData = new EffectInfo(duration, mod, stat);
+        //for skill progressions
+        this.cost = 50;
+
+
+        this.skillData = new EffectInfo(duration, mod, stat);
 
     }
 
@@ -36,32 +41,25 @@ public class EagleEye : Skill, MultEffect
 
     
 
-    public  void ApplyEffect(Unit target, Unit origin, EffectInfo fInfo)
-    {
-        if (target.EFFECTLIST.ContainsKey(this.skillName))
-        {
-            target.EFFECTLIST[this.skillName].DURATION = this.skillData.DURATION;
-        }
-        else
-        {
-            target.EFFECTLIST.Add(this.skillName, fInfo);
-            Debug.Log("Target affected");
-        }
        
-    }    
 
 
     public override void SkillAction(Unit target, Unit origin)
     {
         
         Unit appliedTo = target.GetComponent<Unit>();
-        if(Random.Range(1,100) < 1000/*sucessChance*/)
+        if(Random.Range(1,100) < sucessChance)
         {
-            this.ApplyEffect(target, origin, this.skillData);
+            target.EffectManager.ApplyEffect(target, origin, this.skillName, this.skillData.DURATION);
+            PopUpManager.Instance.addPopUp(this.skillName, target.transform);
+            target.EffectManager.ArrowShower(target);
+
         }
         else
         {
-            Debug.Log("Fail");
+                   
+            PopUpManager.Instance.addPopUp("MISS", target.transform);
+            
         }
 
     }

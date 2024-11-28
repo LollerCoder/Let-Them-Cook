@@ -17,12 +17,16 @@ public class UnitStats : MonoBehaviour
     [SerializeField]
     private Text ACC;
 
+    [SerializeField]
+    private Text EXP;
+
     public void SetUnitStats(Unit unit) {
         this.SetHealth(unit.MAXHP, unit.HP);
         this.SetATK(unit.Attack);
         this.SetSPD(unit.Speed);
-        this.SetDEF(unit.DEF);
+        this.SetDEF(unit.Defense);
         this.SetACC(unit.Accuracy);
+        this.SetEXP(unit.Experience);
     }
 
     private void SetHealth(int UnitMaxHP, int UnitHP) {
@@ -41,5 +45,9 @@ public class UnitStats : MonoBehaviour
     }
     private void SetACC(float acc) {
         this.ACC.text = "ACC: " + acc;
+    }
+
+     private void SetEXP(float exp) {
+        this.EXP.text = "EXP: " + exp;
     }
 }

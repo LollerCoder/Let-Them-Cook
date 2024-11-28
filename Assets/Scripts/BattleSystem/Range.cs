@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Range {
-    public EBattleScene BattleScene;
-    public List<Tile> GetTilesInMovement(Tile startingTile, float range) {
+public static class Range {
+    public static EBattleScene BattleScene;
+
+    private static List<Tile> _inRangeTiles = new List<Tile>();
+    public static List<Tile> InRangeTiles {
+        get { return _inRangeTiles; }
+    }
+
+    public static List<Tile> GetTilesInMovement(Tile startingTile, float range) {
         List<Tile> inRangeTiles = new List<Tile>();
 
         int stepCount = 0;
@@ -22,7 +28,7 @@ public class Range {
                 if (!tile.isWalkable) { // do not add as highlighted area in range
                     continue;
                 }
-                neighborTiles.AddRange(this.GetNeighborTiles(tile));
+                neighborTiles.AddRange(GetNeighborTiles(tile));
             }
 
             inRangeTiles.AddRange(neighborTiles);
@@ -32,7 +38,7 @@ public class Range {
         return inRangeTiles.Distinct().ToList();
     }
 
-    public List<Tile> GetTilesInAttackRange(Tile startingTile, int range) {
+    public static List<Tile> GetTilesInAttackRange(Tile startingTile, int range) {
         List<Tile> inRangeTiles = new List<Tile>();
 
         int stepCount = 0;
@@ -49,7 +55,7 @@ public class Range {
                 if (!tile.isWalkable) {
                     continue;
                 }
-                neighborTiles.AddRange(this.GetNeighborTiles(tile));
+                neighborTiles.AddRange(GetNeighborTiles(tile));
             }
             previousTiles = neighborTiles.Distinct().ToList();
             stepCount++;
@@ -59,8 +65,7 @@ public class Range {
         inRangeTiles.Remove(startingTile);
         return inRangeTiles.Distinct().ToList();
     }
-
-    public List<Tile> GetTilesInAttackMelee(Tile startingTile, int range) {
+    public static List<Tile> GetTilesInAttackMelee(Tile startingTile, int range) {
         List<Tile> inRangeTiles = new List<Tile>();
 
         int stepCount = 0;
@@ -77,7 +82,7 @@ public class Range {
                 if (!tile.isWalkable) {
                     continue;
                 }
-                neighborTiles.AddRange(this.GetNeighborTiles(tile));
+                neighborTiles.AddRange(GetNeighborTiles(tile));
             }
             inRangeTiles.AddRange(neighborTiles);
             previousTiles = neighborTiles.Distinct().ToList();
@@ -88,12 +93,50 @@ public class Range {
         inRangeTiles.Remove(startingTile);
         return inRangeTiles.Distinct().ToList();
     }
-    private List<Tile>GetNeighborTiles(Tile tile) {
+    private static List<Tile>GetNeighborTiles(Tile tile) {
         List<Tile> neighborTiles = new List<Tile>();
 
-        neighborTiles = TileMapGenerator.Instance.GetNeighborTiles(tile, new List<Tile>());
+        neighborTiles = TileMapManager.Instance.GetNeighborTiles(tile, new List<Tile>());
+        //neighborTiles = TileMapGenerator.Instance.GetNeighborTiles(tile, new List<Tile>());
 
         return neighborTiles;
     }
-        
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+    
+    private static void GetTiles(string Type, Unit unit, float range) {
+        switch (Type) {
+            case "Attack":
+                _inRangeTiles = GetTilesInAttackMelee(unit.Tile, (int)range);
+
+                break;
+            case "Move":
+                _inRangeTiles = GetTilesInMovement(unit.Tile, range);
+
+                foreach (Tile tile in _inRangeTiles) {
+                    tile.HighlightWalkableTile();
+                }
+                break;
+            case "Heal":
+                _inRangeTiles = GetTilesInAttackRange(unit.Tile, (int)range);
+
+                foreach (Tile tile in _inRangeTiles) {
+                    tile.HighlightEatableTile();
+                }
+                break;
+            default: break;
+        }
+    }
+    public static void GetRange(Unit unit, float range, string Type) {
+        UnHighlightTiles();
+
+        GetTiles(Type, unit, range);
+    }
+    public static void UnHighlightTiles() { 
+        foreach (Tile tile in _inRangeTiles) {
+            tile.UnHighlightTile();
+        }
+    }
+
 }

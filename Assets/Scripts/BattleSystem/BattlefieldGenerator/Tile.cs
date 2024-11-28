@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 public class Tile : MonoBehaviour{
     private Material _mat;
     private Color _color;
@@ -32,7 +33,7 @@ public class Tile : MonoBehaviour{
     }
     public void HighlightWalkableTile() {
         if (this.isWalkable) { //just to make sure it wont be highlighted
-            this._mat.color = Color.cyan;
+            this._mat.color = Color.magenta;
         }
     }
     public void HighlightAttackableTile() {
@@ -44,6 +45,8 @@ public class Tile : MonoBehaviour{
     }
 
     public void OnMouseUp() {
-        UnitActionManager.Instance.TileTapped(this);
+        if (!EventSystem.current.IsPointerOverGameObject()) { // to make sure that it wont be clickable when behind a UI element
+            UnitActions.TileTapped(this);
+        }
     }
 }

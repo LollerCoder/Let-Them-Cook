@@ -3,86 +3,65 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class MashPotato : Skill, MultEffect
+public class MashPotato : Skill
 {
-    private string skillName = "Mashed Potato";
-    public string SkillName
-    {
-        get { return this.skillName; }
-    }
-    private EVeggie veggieType = EVeggie.CARROT;
-    public EVeggie VEGGIETYPE
-    {
-        get { return this.veggieType; }
-    }
+    
 
 
+    private EffectInfo skillData2;
 
-    //effectinfo def 
-    private int duration1 = 3;
-    private int mod1 = -20;
-    private EStatToEffect stat1 = EStatToEffect.DEFENSE;
-
-    //effectinfo atk buff
-    private int duration2 = 3;
-    private int mod2 = 20;
-    private EStatToEffect stat2 = EStatToEffect.ATTACK;
+    
 
     private int sucessChance = 90;
     private int x = 0; //bs way to apply to effects
 
 
-
-
-
-
-
-
-    public void ApplyEffect(Unit target, Unit origin, EffectInfo fInfo)
+    public MashPotato()
     {
-        switch (x)
-        {
-            case 0:
-                if (target.EFFECTLIST.ContainsKey(this.skillName))
-                {
-                    target.EFFECTLIST[this.skillName + "defense"].DURATION = duration1;
-                }
-                else
-                {
-                    target.EFFECTLIST.Add(this.skillName + "defense", fInfo);
-                    Debug.Log("Target affected");
-                }
-                break;
-            case 1:
-                if (target.EFFECTLIST.ContainsKey(this.skillName))
-                {
-                    target.EFFECTLIST[this.skillName + "attack"].DURATION = duration1;
-                }
-                else
-                {
-                    target.EFFECTLIST.Add(this.skillName + "attack", fInfo);
-                    Debug.Log("Target affected");
-                }
-                break;
-        }
+
+        this.skillName = "Mashed Potato";
+        this.veggieType = EVeggie.POTATO;
+        this.skillType = ESkillType.BUFFDEBUFF;
+
         
+        //effectinfo def 
+        int duration1 = 3;
+        int mod1 = -20;
+        EStatToEffect stat1 = EStatToEffect.DEFENSE;
 
+        this.skillData = new EffectInfo(duration1, mod1, stat1);
+
+        //effectinfo atk buff
+        int duration2 = 3;
+        int mod2 = 20;
+        EStatToEffect stat2 = EStatToEffect.ATTACK;
+
+        //for skill progressions
+        this.cost = 40;
+
+
+        this.skillData2 = new EffectInfo(duration2, mod2, stat2);
     }
-    public void SkillAction(Unit target, Unit origin)
+
+
+
+
+
+   
+    public override void SkillAction(Unit target, Unit origin)
     {
-        //Def deBUF
-        EffectInfo fInfo1 = new EffectInfo(duration1, mod1, stat1);
-        //ATK BUF
-        EffectInfo fInfo2 = new EffectInfo(duration2, mod2, stat2);
+        
 
 
 
         Unit appliedTo = target.GetComponent<Unit>();
         if (Random.Range(1, 100) < sucessChance)
         {
-            this.ApplyEffect(target, origin, fInfo1);
+           
+            target.EffectManager.ApplyEffect(target, origin, this.skillName + "defense", this.skillData.DURATION);
             x++;
-            this.ApplyEffect(target, origin, fInfo2);
+            
+            target.EffectManager.ApplyEffect(target, origin, this.skillName + "attack", this.skillData2.DURATION);
         }
         else
         {
@@ -92,15 +71,5 @@ public class MashPotato : Skill, MultEffect
 
     }
 
-    public string GetName()
-    {
-        return this.skillName;
-
-    }
-
-    public EVeggie GetVeggie()
-    {
-        return this.veggieType;
-
-    }
+    
 }

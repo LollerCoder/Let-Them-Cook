@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PathFinding {
-    public EBattleScene BattleScene;
-    public List<Tile> AStarPathFinding(Tile start, Tile end, List<Tile> inRangeTiles) {
+public static class PathFinding {
+    public static EBattleScene BattleScene;
+
+    private static List<Tile> _path = new List<Tile>();
+    public static List<Tile> Path { 
+        get {  return _path; } 
+        set { _path = value; }
+    }
+    public static List<Tile> AStarPathFinding(Tile start, Tile end, List<Tile> inRangeTiles) {
         List<Tile> tileQueue = new List<Tile>();
         List<Tile> tileVisited = new List<Tile>();
 
@@ -28,8 +34,8 @@ public class PathFinding {
                     continue;
                 }
 
-                neighbor.cost = this.GetManhattanDistance(start, neighbor);
-                neighbor.heuristic = this.GetManhattanDistance(end, neighbor);
+                neighbor.cost = GetManhattanDistance(start, neighbor);
+                neighbor.heuristic = GetManhattanDistance(end, neighbor);
 
                 neighbor.previousTile = currentTile;
 
@@ -41,14 +47,15 @@ public class PathFinding {
 
         return new List<Tile>();
     }
-    private List<Tile> GetNeighborTiles(Tile currentTile, List<Tile> inRangeTiles) {
+    private static List<Tile> GetNeighborTiles(Tile currentTile, List<Tile> inRangeTiles) {
         List<Tile> neighborTiles = new List<Tile>();
 
-        neighborTiles = TileMapGenerator.Instance.GetNeighborTiles(currentTile, inRangeTiles);
+        neighborTiles = TileMapManager.Instance.GetNeighborTiles(currentTile, inRangeTiles);
+        //neighborTiles = TileMapGenerator.Instance.GetNeighborTiles(currentTile, inRangeTiles);
 
         return neighborTiles;
     }
-    private List<Tile> GetPath(Tile start, Tile end) {
+    private static List<Tile> GetPath(Tile start, Tile end) {
         List<Tile> finalPath = new List<Tile>();
 
         Tile currentTile = end;
@@ -62,7 +69,10 @@ public class PathFinding {
 
         return finalPath;
     }
-    private int GetManhattanDistance(Tile tile, Tile neighbor) {
+    private static int GetManhattanDistance(Tile tile, Tile neighbor) {
         return Mathf.Abs(tile.TilePos.x - neighbor.TilePos.x) + Mathf.Abs(tile.TilePos.y - neighbor.TilePos.y);
     }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
