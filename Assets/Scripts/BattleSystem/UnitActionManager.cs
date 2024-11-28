@@ -151,13 +151,13 @@ public class UnitActionManager : MonoBehaviour
         }
         else
         {
-            if (this.OnMove && !this.hadMoved)
-            {
-                Range.GetRange(this._unitOrder[0], this._unitOrder[0].Move, "Move");
-            }
-            else if (this.OnAttack && !this.hadAttacked)
+            if (this.OnAttack && !this.hadAttacked)
             {
                 UnitAttackActions.ShowUnitsInSkillRange(this.numAttack);
+            }
+            else if (this.OnMove && !this.hadMoved)
+            {
+                Range.GetRange(this._unitOrder[0], this._unitOrder[0].Move, "Move");
             }
             else if (this.OverEnemy && this.enemy != null)
             {
@@ -199,6 +199,10 @@ public class UnitActionManager : MonoBehaviour
             EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
             this.EnemyUnitAction();
         }
+        else
+        {
+            BattleUI.Instance.ToggleActionBox();
+        }
 
 
     }
@@ -213,6 +217,7 @@ public class UnitActionManager : MonoBehaviour
         this.SetUpTurn();
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.ON_START);  
+        
     }
 
     public void Awake()

@@ -39,10 +39,10 @@ public static class UnitActions {
 
             EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
             //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
-            if (BattleUI.Instance.ActionBoxState) {
-                BattleUI.Instance.ToggleActionBox();
-            }
-        
+            //if (BattleUI.Instance.ActionBoxState) {               // MIGHT CHANGE
+            //    BattleUI.Instance.ToggleActionBox();
+            //}
+
             if (BattleUI.Instance.EatPickUpButtonState){
                 BattleUI.Instance.ToggleEatOrPickUpButtons();
             }
@@ -204,7 +204,7 @@ public static class UnitActions {
             currentUnit.OnMovement(false);
 
             if(currentUnit.Type == EUnitType.Ally && !CheckVegetableOnTile(currentUnit)) {
-                BattleUI.Instance.ToggleActionBox();
+                //BattleUI.Instance.ToggleActionBox();
                 //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
 
                 // reset and update attackable list
@@ -257,7 +257,7 @@ public static class UnitActions {
 
             if (unit.Tile.TilePos == goalTile.TilePos) {
                 stepFlag = true;
-                BattleUI.Instance.ToggleActionBox();
+                //BattleUI.Instance.ToggleActionBox(); // MIGHT CHANGE
                 UnitActionManager.Instance.GetFirstUnit().OnMovement(false);
                 UnitActionManager.Instance.OnMove = false;
             }

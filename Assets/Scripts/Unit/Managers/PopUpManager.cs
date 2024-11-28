@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class PopUpManager : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class PopUpManager : MonoBehaviour
 
     public GameObject healthBarPrefab;
 
-    private List<GameObject> hpbarList = new List<GameObject>();
+    
 
    
     public static PopUpManager Instance { get; private set; }
@@ -38,28 +40,33 @@ public class PopUpManager : MonoBehaviour
        
         GameObject popUp = Instantiate(popUpPrefab,from.position,Quaternion.identity);
 
-        popUp.GetComponent<TextMesh>().text = text;
+        popUp.GetComponent<TextMeshPro>().text = text;
 
-        StartCoroutine(popUpDestroyer(popUp));
+        //StartCoroutine(popUpDestroyer(popUp));
 
         
     }
 
     IEnumerator popUpDestroyer(GameObject popUpp)
     {
-        float time = 2;
+        float time = 1;
         float counter = 0;
+        float interp = 0;
+
+     
         while (counter < time)
         {
             counter += Time.deltaTime;
-            float test = popUpp.transform.position.y - this.transform.position.y;
-            popUpp.transform.Translate(new Vector3(0,1,0) * Time.deltaTime);
+            
 
+            if(interp <= 1.0f) popUpp.transform.Translate(new Vector3(0, Mathf.Lerp(0, 80, interp),0));
+            interp += 0.1f * Time.deltaTime /1000;
 
+            
             yield return null;
         }
         Destroy(popUpp);
-       
+     
         yield return null;
 
     }
@@ -83,24 +90,14 @@ public class PopUpManager : MonoBehaviour
 
     }
 
-    public void hpPopUp(GameObject popUpp, int maxHp, int hp)
+    
+
+
+    private void Update()
     {
-        popUpp.SetActive(true);
-        popUpp.GetComponentInChildren<Slider>().maxValue = maxHp;
-        popUpp.GetComponentInChildren<Slider>().value = hp;
 
-        
-        
-
+        float time = Time.deltaTime;
     }
-
-    public void hpHide(GameObject popUp)
-    {
-        popUp.SetActive(false);
-    }
-
-
-   
 
 
     //Old popupHP Implementation keep just in case

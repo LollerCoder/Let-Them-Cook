@@ -118,7 +118,7 @@ public class BattleUI : MonoBehaviour {
             return;
         }
 
-        this.StartCoroutine(this.CloseUI(0.2f));
+        this.StartCoroutine(this.CloseUI(0.75f));
     }
 
     private IEnumerator CloseUI(float seconds) {

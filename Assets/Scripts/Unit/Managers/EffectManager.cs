@@ -26,7 +26,7 @@ public class EffectManager
     }
     public void EffectAccess(Unit applyTo)
     {
-        Debug.Log("In EffectAccess");
+        //Debug.Log("In EffectAccess");
         
         foreach (string key in applyTo.EffectManager.effectList.Keys)
         {
@@ -36,8 +36,8 @@ public class EffectManager
             {
                 float augment = foundSkill.skillData.MOD;
                 EStatToEffect stat = foundSkill.skillData.STAT;
-                Debug.Log("Augment was: " + augment);
-                Debug.Log(foundSkill.skillData.STAT);
+                //Debug.Log("Augment was: " + augment);
+                //Debug.Log(foundSkill.skillData.STAT);
                 switch (stat)
                 {
                     case EStatToEffect.ACCURACY:
@@ -88,10 +88,10 @@ public class EffectManager
 
         if (ApplyTo.AttackMultiplier < 1 || ApplyTo.SpeedMultiplier < 1 || ApplyTo.AccuracyMultiplier < 1 || ApplyTo.DefenseMultiplier < 1)
         {
-            Debug.Log("Arrow show Atk: " + ApplyTo.AttackMultiplier);
-            Debug.Log("Arrow show Spd: " + ApplyTo.SpeedMultiplier);
-            Debug.Log("Arrow show Acc: " + ApplyTo.AccuracyMultiplier);
-            Debug.Log("Arrow show Def: " + ApplyTo.DefenseMultiplier);
+            //Debug.Log("Arrow show Atk: " + ApplyTo.AttackMultiplier);
+            //Debug.Log("Arrow show Spd: " + ApplyTo.SpeedMultiplier);
+            //Debug.Log("Arrow show Acc: " + ApplyTo.AccuracyMultiplier);
+            //Debug.Log("Arrow show Def: " + ApplyTo.DefenseMultiplier);
             EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.DEBUFF_SHOW,param);
             
         }
@@ -101,10 +101,10 @@ public class EffectManager
 
         if (ApplyTo.AttackMultiplier > 1 ||  ApplyTo.SpeedMultiplier > 1 || ApplyTo.AccuracyMultiplier > 1 || ApplyTo.DefenseMultiplier > 1)
         {
-            Debug.Log("Arrow show Atk: " + ApplyTo.AttackMultiplier);
-            Debug.Log("Arrow show Spd: " + ApplyTo.SpeedMultiplier);
-            Debug.Log("Arrow show Acc: " + ApplyTo.AccuracyMultiplier);
-            Debug.Log("Arrow show Def: " + ApplyTo.DefenseMultiplier);
+            //Debug.Log("Arrow show Atk: " + ApplyTo.AttackMultiplier);
+            //Debug.Log("Arrow show Spd: " + ApplyTo.SpeedMultiplier);
+            //Debug.Log("Arrow show Acc: " + ApplyTo.AccuracyMultiplier);
+            //Debug.Log("Arrow show Def: " + ApplyTo.DefenseMultiplier);
             EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.BUFF_SHOW,param);
             
 
@@ -131,10 +131,10 @@ public class EffectManager
 
         if (ApplyTo.AttackMultiplier <= 1 && ApplyTo.SpeedMultiplier <= 1 && ApplyTo.AccuracyMultiplier <= 1 && ApplyTo.DefenseMultiplier <= 1)
         {
-            Debug.Log("Atk: "+ApplyTo.AttackMultiplier);
-            Debug.Log("Spd: "+ApplyTo.SpeedMultiplier);
-            Debug.Log("Acc: "+ApplyTo.AccuracyMultiplier);
-            Debug.Log("Def: "+ApplyTo.DefenseMultiplier);
+            //Debug.Log("Atk: "+ApplyTo.AttackMultiplier);
+            //Debug.Log("Spd: "+ApplyTo.SpeedMultiplier);
+            //Debug.Log("Acc: "+ApplyTo.AccuracyMultiplier);
+            //Debug.Log("Def: "+ApplyTo.DefenseMultiplier);
 
             EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.BUFF_HIDE, param);
         }
@@ -152,7 +152,7 @@ public class EffectManager
             foreach (string key in toIterateThrough)
             {
                 EFFECTLIST[key] -= 1;
-                Debug.Log("Effect " + key + " has " + EFFECTLIST[key] + " left");
+                //Debug.Log("Effect " + key + " has " + EFFECTLIST[key] + " left");
 
                 if (EFFECTLIST[key] <= 0)
                 {
@@ -193,12 +193,12 @@ public class EffectManager
         if (target.EffectManager.EFFECTLIST.ContainsKey(skillName))
         {
             target.EffectManager.EFFECTLIST[skillName] = duration;
-            Debug.Log("Should have been refreshed dur: " + target.EffectManager.EFFECTLIST[skillName]);
+            //Debug.Log("Should have been refreshed dur: " + target.EffectManager.EFFECTLIST[skillName]);
         }
         else
         {
             target.EffectManager.EFFECTLIST.Add(skillName, duration);
-            Debug.Log("Target affected");
+            //Debug.Log("Target affected");
         }
 
     }
@@ -208,12 +208,12 @@ public class EffectManager
         if (target.EffectManager.EFFECTLIST.ContainsKey(tileName))
         {
             target.EffectManager.EFFECTLIST[tileName] = duration;
-            Debug.Log("Should have been refreshed dur: " + target.EffectManager.EFFECTLIST[tileName]);
+            //Debug.Log("Should have been refreshed dur: " + target.EffectManager.EFFECTLIST[tileName]);
         }
         else
         {
             target.EffectManager.EFFECTLIST.Add(tileName, duration);
-            Debug.Log("Target affected");
+            //Debug.Log("Target affected");
         }
     }
 }

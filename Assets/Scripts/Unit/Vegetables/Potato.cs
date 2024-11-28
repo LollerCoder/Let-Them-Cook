@@ -35,24 +35,24 @@ public class Potato : Unit {
 
         if (this.Type == EUnitType.Enemy)//enemy
         {
-            this.hpBar.GetComponentInChildren<Slider>().GetComponentInChildren<Image>().color = new Color(0.8941177f, 0, 0.05098039f, 1);
+            this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.8941177f, 0, 0.05098039f, 1);
 
         }
 
         if (this.Type == EUnitType.Ally)//ally
         {
-            this.hpBar.GetComponentInChildren<Slider>().GetComponentInChildren<Image>().color = new Color(0.0619223f, 0.2870282f, 0.8415094f, 1);
+            this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.0619223f, 0.2870282f, 0.8415094f, 1);
         }
 
         if (UnitActionManager.Instance.UnitOrder[0] == this && this.Type != EUnitType.Enemy)//its you
         {
-            this.hpBar.GetComponentInChildren<Slider>().GetComponentInChildren<Image>().color = new Color(0.2638531f, 0.8943396f, 0.2008044f, 1);
+            this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.2638531f, 0.8943396f, 0.2008044f, 1);
         }
 
 
         if (unit == this)
         {
-            PopUpManager.Instance.hpPopUp(this.hpBar, this.maxhp, this.hp);
+            this.hpBar.GetComponentInChildren<HpBar>().hpPopUp(this.hpBar, this.maxhp, this.hp);
         }
 
     }
@@ -64,7 +64,7 @@ public class Potato : Unit {
 
         if (unit == this)
         {
-            PopUpManager.Instance.hpHide(this.hpBar);
+            this.hpBar.GetComponentInChildren<HpBar>().hpHide(this.hpBar);
         }
 
     }
@@ -75,7 +75,7 @@ public class Potato : Unit {
         if(this == param.GetUnitExtra("UNIT"))
         {
             this.BufController.SetBool("isBuffed", true);
-            Debug.Log("Buffed");
+            //Debug.Log("Buffed");
         }
         
     }
@@ -85,7 +85,7 @@ public class Potato : Unit {
         if (this == param.GetUnitExtra("UNIT"))
         {
             this.DebufController.SetBool("isDebuffed", true);
-            Debug.Log("Debuffed");
+            //Debug.Log("Debuffed");
         }
     }
 
@@ -94,7 +94,7 @@ public class Potato : Unit {
         if (this == param.GetUnitExtra("UNIT"))
         {
             this.BufController.SetBool("isBuffed", false);
-            Debug.Log("buffGone");
+            //Debug.Log("buffGone");
         }
 
     }
@@ -104,7 +104,7 @@ public class Potato : Unit {
         if (this == param.GetUnitExtra("UNIT"))
         {
             this.DebufController.SetBool("isDebuffed", false);
-            Debug.Log("DebuffedGone");
+           // Debug.Log("DebuffedGone");
         }
     }
 
@@ -142,6 +142,14 @@ public class Potato : Unit {
         this.hp = this.maxhp;
         this.atk = 3;
         this.def = 5;
+
+
+        Slider hpSlide = this.hpBar.transform.Find("Slider").GetComponent<Slider>();
+        hpSlide.maxValue = this.maxhp;
+        hpSlide.value = hp;
+        Slider easeSlide = this.hpBar.transform.Find("EaseSlider").GetComponent<Slider>();
+        easeSlide.maxValue = this.maxhp;
+        easeSlide.value = hp;
 
         UnitActionManager.Instance.StoreUnit(this);
         this.ingredientType = EIngredientType.POTATO;

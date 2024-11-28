@@ -14,6 +14,11 @@ public abstract class Unit : MonoBehaviour
     [SerializeField]
     public GameObject hpBar;
 
+    public GameObject HPBAR
+    {
+        get { return this.hpBar; }
+    }
+
     protected List<string> skillList = new List<string>();
 
     protected EffectManager effectManager = new EffectManager();
@@ -199,6 +204,7 @@ public abstract class Unit : MonoBehaviour
                 Debug.Log("Dealt Damage: " + dmg);
 
                 PopUpManager.Instance.addPopUp(dmg.ToString(), this.transform);
+                Debug.Log("My name is: " + this.Name + "Yo");
                 Debug.Log("HP after :" + this.hp);
 
                 //PopUpManager.Instance.addpopUpHealth(this.MAXHP, this.HP,this.transform);
