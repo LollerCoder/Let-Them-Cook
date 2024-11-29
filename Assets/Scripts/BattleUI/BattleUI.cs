@@ -122,11 +122,13 @@ public class BattleUI : MonoBehaviour {
     }
 
     private IEnumerator CloseUI(float seconds) {
+        UnitActionManager.Instance.OnAttack = false;
+        UnitActionManager.Instance.OnMove = false;
+
         yield return new WaitForSeconds(seconds);
         UnitActions.HideInRangeHPBar(UnitActionManager.Instance.numAttack);
 
-        UnitActionManager.Instance.OnAttack = false;
-        UnitActionManager.Instance.OnMove = false;
+
  
         UnitActionManager.Instance.UnitTurn();
     }
