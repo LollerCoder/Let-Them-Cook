@@ -166,7 +166,9 @@ public class BattleUI : MonoBehaviour {
             }
             else {
                 this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[2]; // none
-                this.Attacks[i].GetComponentInChildren<Text>().text = "";
+                //this.Attacks[i].GetComponentInChildren<Text>().text = "";
+                this.Attacks[i].GetComponentInParent<Image>().enabled = false;
+                this.BuffetContainers[i].sprite = lids[0];
             }
         }
     }
@@ -230,19 +232,20 @@ public class BattleUI : MonoBehaviour {
                 this.attackNum[i] = false;
 
                 if (i != 0) {
-                    this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[1]; // skills
+                    this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[1]; // skill - TRUE STRIKE FOR NOW
                 }
                 else {
                     this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[0]; // basic attack
                 }
 
             }
-
+            
+            //highlights
             if(num != 0) {
-                this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[4]; // skills
+                this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[3]; // skill - TRUE STRIKE FOR NOW
             }
             else {
-                this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[3];// basic
+                this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[2];// basic
             }
 
             this.attackNum[num] = true;

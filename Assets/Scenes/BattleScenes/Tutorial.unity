@@ -11050,15 +11050,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1903961927187183522, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: dialogue.name
-      value: 'Officer BOB '
+      value: Sergeant BOB
       objectReference: {fileID: 0}
     - target: {fileID: 1903961927187183522, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: dialogue.sprite
       value: 
       objectReference: {fileID: 21300000, guid: a78a3b4fbb39b68409597733827be283, type: 3}
     - target: {fileID: 1903961927187183522, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903961927187183522, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: 'dialogue.sentences.Array.data[0]'
-      value: ...Nikos is Gay Nikos is Gay Nikos is Gay Nikos is Gay Nikos is Gay
+      value: Welcome basic training school cadet.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903961927187183522, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: 'dialogue.sentences.Array.data[1]'
+      value: My name is Sergeant BOB and Im here to tell you what's what in this
+        army.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903961927187183522, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: 'dialogue.sentences.Array.data[2]'
+      value: PRIVATE POTATO JENKINS!
       objectReference: {fileID: 0}
     - target: {fileID: 2338931673485903545, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_AnchorMax.y
@@ -11100,6 +11113,38 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -107
       objectReference: {fileID: 0}
+    - target: {fileID: 2915055729960775402, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: attackSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2915055729960775402, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: 'attackSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 7d6429a4adb780a4c8ac9d60aafef8e1, type: 3}
+    - target: {fileID: 2915055729960775402, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: 'attackSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: -806478487, guid: e1070dc2be319d24d86ed34827562566, type: 3}
+    - target: {fileID: 2915055729960775402, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: 'attackSprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 8e3eb03214fcf95419d090d9a4349764, type: 3}
+    - target: {fileID: 2915055729960775402, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: 'attackSprites.Array.data[4]'
+      value: 
+      objectReference: {fileID: -1864374679, guid: e1070dc2be319d24d86ed34827562566, type: 3}
+    - target: {fileID: 2915055729960775402, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: 'attackSprites.Array.data[5]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 7d6429a4adb780a4c8ac9d60aafef8e1, type: 3}
+    - target: {fileID: 2915055729960775402, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: 'attackSprites.Array.data[6]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 8e3eb03214fcf95419d090d9a4349764, type: 3}
+    - target: {fileID: 2915055729960775402, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: 'attackSprites.Array.data[7]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 8e3eb03214fcf95419d090d9a4349764, type: 3}
     - target: {fileID: 3150957101616295480, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 20
