@@ -25,8 +25,10 @@ public class HpBar : MonoBehaviour
 
         if (easeSlide.value != hpSlide.value)
         {
-            
-            StartCoroutine(easer(popUpp));
+            if (popUpp.activeSelf)
+            {
+                StartCoroutine(easer(popUpp));
+            }
         }
 
 
@@ -59,7 +61,7 @@ public class HpBar : MonoBehaviour
         }
       
         easeSlide.value = Mathf.CeilToInt(easeSlide.value)/1;
-        //Debug.Log("Final: " + easeSlide.value);
+        Debug.Log("Final: " + easeSlide.value);
         yield return null;
 
     }
