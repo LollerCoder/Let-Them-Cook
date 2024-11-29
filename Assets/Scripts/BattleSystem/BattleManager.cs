@@ -90,13 +90,13 @@ public class BattleManager : MonoBehaviour {
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.NEXT_TURN, this.NextTurn);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.UPDATE_INVENTORY, this.UpdateInventory);
 
-        this.StartCoroutine(this.SetUpBattle());
+        this.SetUpBattle();
     }
 
-    private IEnumerator SetUpBattle() {
-        this.enemyController.SpawnEnemy();
+    private void SetUpBattle() {
+        //this.enemyController.SpawnEnemy();
 
-        yield return this.StartCoroutine(this.enemyController.SpawnEnemy()); // waits for the spawn enemy to finish spawning before starting the battle
+        //yield return this.StartCoroutine(this.enemyController.SpawnEnemy()); // waits for the spawn enemy to finish spawning before starting the battle
 
         UnitActionManager.Instance.OnStart();
     }

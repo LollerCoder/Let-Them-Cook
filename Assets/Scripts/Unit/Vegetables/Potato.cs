@@ -120,8 +120,6 @@ public class Potato : Unit {
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.BUFF_HIDE, this.BuffArrowHide);
 
         this.animator = this.GetComponent<Animator>();
-        base.Start();
-
 
         Skill basic = new BasicAttack();
         Skill fast = new FastFood();
@@ -135,7 +133,7 @@ public class Potato : Unit {
         this.skillList.Add("Mashed Potato");
         this.skillList.Add("SPEED");
 
-        this.charName = "Potato";
+  
         this.acc = 5;
         this.spd = 2;
         this.maxhp = 15;
@@ -151,8 +149,10 @@ public class Potato : Unit {
         easeSlide.maxValue = this.maxhp;
         easeSlide.value = hp;
 
-        UnitActionManager.Instance.StoreUnit(this);
-        this.ingredientType = EIngredientType.POTATO;
+        //UnitActionManager.Instance.StoreUnit(this);
+        //this.ingredientType = EIngredientType.POTATO;
+        //this.charName = "Potato";
+        base.Start();
     }
 
 
