@@ -127,9 +127,9 @@ public class Carrot : Unit{
 
         this.skillList.Add("Basic Attack");
         this.skillList.Add("TrueStrike");
-        this.skillList.Add("EyePoke");
-        this.skillList.Add("TripUp");
-        this.skillList.Add("EagleEye");
+        //this.skillList.Add("EyePoke");
+        //this.skillList.Add("TripUp");
+        //this.skillList.Add("EagleEye");
 
 
         this.acc = 10;
