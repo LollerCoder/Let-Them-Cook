@@ -118,9 +118,6 @@ public class Carrot : Unit{
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.BUFF_SHOW, this.BuffArrowHide);
 
         this.animator = this.GetComponent<Animator>();
-        
-        
-        base.Start();
 
         Skill basic = new BasicAttack();
         Skill trueStrike = new TrueStrike();
@@ -134,9 +131,7 @@ public class Carrot : Unit{
         this.skillList.Add("TripUp");
         this.skillList.Add("EagleEye");
 
-        this.charName = "Carrot";
-        this.ingredientType = EIngredientType.CARROT;
-        //this.type = EUnitType.Ally;
+
         this.acc = 10;
         this.spd = 3;
         this.maxhp = 20;
@@ -144,8 +139,10 @@ public class Carrot : Unit{
         this.atk = 4;
         this.def = 1;
 
-        UnitActionManager.Instance.StoreUnit(this);
-
-        
+        //UnitActionManager.Instance.StoreUnit(this);
+        //this.charName = "Carrot";
+        //this.ingredientType = EIngredientType.CARROT;
+        //this.type = EUnitType.Ally;
+        base.Start();
     }
 }

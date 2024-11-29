@@ -33,6 +33,7 @@ public abstract class Unit : MonoBehaviour
         get { return skillList; }
     }
 
+    [SerializeField]
     protected EIngredientType ingredientType;
     public EIngredientType IngredientType
     {
@@ -40,6 +41,7 @@ public abstract class Unit : MonoBehaviour
         set { this.ingredientType = value; }
     }
 
+    [SerializeField]
     protected EUnitType type = EUnitType.Ally;
     public EUnitType Type
     {
@@ -315,27 +317,18 @@ public abstract class Unit : MonoBehaviour
     {
         UnitActions.UnitHover(this, false);
     }
-    protected void OnMouseUp()
-    {
+    protected void OnMouseUp() {
         UnitActions.UnitSelect(this);
     }
-
-    protected virtual void Start()
-    {
-        if (this.type == EUnitType.Ally)
-        {
+    protected virtual void Start() {
+        if (this.type == EUnitType.Ally) {
             this.animator.SetBool("Ally", true);
         }
-        if (this.type != EUnitType.Ally)
-        {
+        if (this.type != EUnitType.Ally) {
             this.animator.SetBool("Ally", false);
         }
-   
+
     }
-
-
-    
-
 
     public abstract void GetAttackOptions();
     public abstract void UnitAttack(Unit target);

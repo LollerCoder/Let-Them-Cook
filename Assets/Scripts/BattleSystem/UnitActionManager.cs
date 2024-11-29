@@ -25,6 +25,7 @@ public class UnitActionManager : MonoBehaviour
         get { return this.speed; }
     }
 
+    [SerializeField]
     private List<Unit> _Units = new List<Unit>();
     public List<Unit> UnitList
     {

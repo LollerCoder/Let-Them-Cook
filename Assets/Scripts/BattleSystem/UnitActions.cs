@@ -211,7 +211,7 @@ public static class UnitActions {
                 UnitAttackActions.ResetAttackables();
                 UnitAttackActions.CheckSkillRange(UnitActionManager.Instance.GetFirstUnit());
             }
-            else if (CheckVegetableOnTile(currentUnit)) {
+            else if (CheckVegetableOnTile(currentUnit) && currentUnit.Type == EUnitType.Ally) {
                 BattleUI.Instance.ToggleEatOrPickUpButtons();
             }
         }

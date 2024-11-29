@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour {
     public Animator animator;
     public Text nameText;
     public Text dialogeText;
+    public Image image;
 
     private bool isTyping = false;
     private bool skipTyping = false;
@@ -22,6 +23,8 @@ public class DialogueManager : MonoBehaviour {
         this.animator.SetBool("Open", true);
 
         this.nameText.text = dialogue.name;
+
+        this.image.sprite = dialogue.sprite;
 
         this.sentences.Clear();
 
