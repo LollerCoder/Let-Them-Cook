@@ -8,6 +8,8 @@ public class DialogueManager : MonoBehaviour {
     public static DialogueManager Instance = null;
 
     [SerializeField] private Queue sentences = new Queue();
+    [SerializeField] private Queue sprites = new Queue();
+    [SerializeField] private Queue names = new Queue();
 
     public float TextSpeed;
 
@@ -22,11 +24,17 @@ public class DialogueManager : MonoBehaviour {
     public void StartDialogue(Dialogue dialogue) {
         this.animator.SetBool("Open", true);
 
-        this.nameText.text = dialogue.name;
-
-        this.image.sprite = dialogue.sprite;
-
         this.sentences.Clear();
+        this.sprites.Clear();
+        this.names.Clear();
+
+        foreach (Sprite sprite in dialogue.sprites) {
+            this.sprites.Enqueue(sprite);
+        }
+
+        foreach (string name in dialogue.names) {
+            this.names.Enqueue(name);
+        }
 
         foreach (string sentence in dialogue.sentences) {
             this.sentences.Enqueue(sentence);
@@ -47,7 +55,12 @@ public class DialogueManager : MonoBehaviour {
             return;
         }
 
+        Sprite sprite = (Sprite)this.sprites.Dequeue();
         string sentence = (string)this.sentences.Dequeue();
+        string name = (string)this.names.Dequeue();
+
+        this.nameText.text = name;
+        this.image.sprite = sprite;
         this.StopAllCoroutines();
         this.StartCoroutine(this.TypeSentence(sentence));
     }
