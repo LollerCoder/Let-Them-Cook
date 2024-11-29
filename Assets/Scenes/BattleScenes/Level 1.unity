@@ -4822,17 +4822,6 @@ MonoBehaviour:
     tilePrefab: {fileID: 0}
     tile: 0
   isWalkable: 0
---- !u!114 &539140346 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 75610858902384175, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
-  m_PrefabInstance: {fileID: 794716827822140901}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &551983979
 GameObject:
   m_ObjectHideFlags: 0
@@ -8764,6 +8753,7 @@ MonoBehaviour:
     - {fileID: 893666098, guid: 5b268fe7a7e0da346a3a4cf97d9ba0f4, type: 3}
     sentences:
     - bingus king
+    - bingus is bingus
     - bingus is bingus
 --- !u!114 &883399653
 MonoBehaviour:
@@ -18744,18 +18734,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2366000296427119323, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
-      propertyPath: m_BlockingObjects
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2366000296427119323, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
-      propertyPath: m_BlockingMask.m_Bits
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150957101616295480, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 3601496294334080019, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -18836,22 +18814,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 21.772
       objectReference: {fileID: 0}
-    - target: {fileID: 3871375588739444452, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: WaitButton
-      objectReference: {fileID: 0}
     - target: {fileID: 5114184375910117851, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_Name
       value: BattleUI
       objectReference: {fileID: 0}
-    - target: {fileID: 5232467644495936170, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -110
-      objectReference: {fileID: 0}
-    - target: {fileID: 6141479869966817110, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
-      propertyPath: image
-      value: 
-      objectReference: {fileID: 539140346}
     - target: {fileID: 6629844031012271415, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_Camera
       value: 
