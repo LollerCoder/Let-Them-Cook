@@ -1244,7 +1244,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ab49b835e161324408334eb75b3b11a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 769a6b5e549d3ef4a90f7d9b6e215299, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1527,7 +1527,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407912161}
-  m_Text: Map
+  m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -2056,6 +2056,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 475938241018495934, guid: 9f5ed9c6b28682244b0ed5d6dd40b8ec, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 954095860430780687, guid: 9f5ed9c6b28682244b0ed5d6dd40b8ec, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4723761405d45ac458af7691906fd30e, type: 3}
     - target: {fileID: 1167376192021915865, guid: 9f5ed9c6b28682244b0ed5d6dd40b8ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2115,6 +2123,14 @@ PrefabInstance:
     - target: {fileID: 5345893014674029916, guid: 9f5ed9c6b28682244b0ed5d6dd40b8ec, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723293848700193184, guid: 9f5ed9c6b28682244b0ed5d6dd40b8ec, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 28092512c5b9b38439f0f9d04f5e8a86, type: 3}
+    - target: {fileID: 6436140678341720490, guid: 9f5ed9c6b28682244b0ed5d6dd40b8ec, type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6804527584244571341, guid: 9f5ed9c6b28682244b0ed5d6dd40b8ec, type: 3}
       propertyPath: m_LocalPosition.x
