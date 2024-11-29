@@ -96,6 +96,10 @@ public class CookButtonsHandler : MonoBehaviour
             case "Clipboard Closer":
                 RecipeClipboardManager.Instance.ShowClipboard(false);
                 break;
+
+            case "Cooking Tutorial Done":
+                GameObject.Find("CookingTutorialDialogue").GetComponent<CookTutorialDailogueHandler>().GoToNextScene();
+                break;
         }
     }
 

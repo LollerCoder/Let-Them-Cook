@@ -62,10 +62,10 @@ public class IngredientAmountTracker : MonoBehaviour
         //recipeData.LoadProgress();
         //ingredientData.LoadProgress();
 
-        IngredientsManager.IngredientAmount[EIngredientType.CABBAGE] = 4;
-        IngredientsManager.IngredientAmount[EIngredientType.POTATO] = 4;
-        IngredientsManager.IngredientAmount[EIngredientType.CARROT] = 2;
-        IngredientsManager.IngredientAmount[EIngredientType.CHILI] = 6;
+        IngredientsManager.IngredientAmount[EIngredientType.CABBAGE] = 0;
+        IngredientsManager.IngredientAmount[EIngredientType.POTATO] = 1;
+        IngredientsManager.IngredientAmount[EIngredientType.CARROT] = 0;
+        IngredientsManager.IngredientAmount[EIngredientType.CHILI] = 1;
 
     }
 
