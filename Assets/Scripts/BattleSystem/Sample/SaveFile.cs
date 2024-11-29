@@ -4,26 +4,36 @@ using UnityEngine;
 using AYellowpaper.SerializedCollections;
 using System;
 using System.Linq;
+using UnityEditor;
 
 [Serializable]
 [CreateAssetMenu(fileName = "Save Game Data", menuName = "Jan/Saving")]
 public class SaveFile : ScriptableObject
 {
+
+    /*Ingredient Checker*/
+    public int potatoCount = 0;
+    public int chiliCount = 0;
+    public int cabbageCount = 0;
+    public int carrotCount = 0;
     //[SerializedDictionary("Ingredient Data", "Inventory")]
-   // public SerializedDictionary<string, InventoryManager> itemList = new  SerializedDictionary<string, InventoryManager>();
 
-    // public void SaveGame(InventoryManager manager)
-    // {
-    //     //overwrite old data
-    //     itemList.Clear();
-    //     itemList.Add("IngredientUpdate", manager);
-    // }
-    //  public InventoryManager LoadGame()
-    // {
-    //     InventoryManager manager = itemList["IngredientUpdate"];
+    InventoryManager manager;
+  // public SerializedDictionary<string, InventoryManager> itemList = new  SerializedDictionary<string, InventoryManager>();
 
-    //     return manager;
-    // }
+    public void SaveGame()
+    {
+        
+        //overwrite old data
+        // itemList.Clear();
+        // itemList.Add("IngredientUpdate", manager);
+    }
+     public InventoryManager LoadGame()
+    {
+        // InventoryManager manager = itemList["IngredientUpdate"];
+
+        return manager;
+    }
 
     // Start is called before the first frame update
     //[SerializedDictionary("Unit Data", "Stats")]

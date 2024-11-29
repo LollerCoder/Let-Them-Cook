@@ -2,15 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class RewardSystem : MonoBehaviour
 {
     public UnitStats stats;
-    public SaveFile save;
+    public SaveFile data;
     /*Save Game Components*/
     public static RewardSystem Instance;
+
+    void Start()
+    {
+        data = AssetDatabase.LoadAssetAtPath<SaveFile>("Assets/Scripts/BattleSystem/Sample/New Save File.asset");
+        if (data == null)
+        {
+            // Create and save ScriptableObject because it doesn't exist yet
+            data = ScriptableObject.CreateInstance<SaveFile>();
+            data.cabbageCount = InventoryManager.Instance.getItemAmount(EIngredientType.CABBAGE);
+            data.carrotCount = InventoryManager.Instance.getItemAmount(EIngredientType.CARROT);
+            data.chiliCount = InventoryManager.Instance.getItemAmount(EIngredientType.CHILI);
+            data.potatoCount = InventoryManager.Instance.getItemAmount(EIngredientType.POTATO);
+            AssetDatabase.CreateAsset(data, "Assets/Scripts/BattleSystem/Sample/New Save File.asset");
+        }
+    }
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -18,15 +34,6 @@ public class RewardSystem : MonoBehaviour
             Destroy(this);
         } else Instance = this;
     }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
     /*
     -Current level of Map/Battle 
     -Number of enemies
@@ -41,7 +48,7 @@ public class RewardSystem : MonoBehaviour
     {
         float totalexp = 0f;
         /*total number of raw ingredients left in the battle field*/
-        InventoryManager.Instance.getItemAmount(EIngredientType.POTATO);
+     
 
         /*EXPERIENCE GAINER*/
         /*current level of the map .  BattleScene Names are like this "<WorldName>-<LevelNumber>*/
@@ -83,8 +90,11 @@ public class RewardSystem : MonoBehaviour
         
         //Autosaves the games progress
         //save.SaveGame(party);
-        
-        
         //save.SaveGame(InventoryManager.Instance);
+        data.cabbageCount = InventoryManager.Instance.getItemAmount(EIngredientType.CABBAGE);
+        data.carrotCount = InventoryManager.Instance.getItemAmount(EIngredientType.CARROT);
+        data.chiliCount = InventoryManager.Instance.getItemAmount(EIngredientType.CHILI);
+        data.potatoCount = InventoryManager.Instance.getItemAmount(EIngredientType.POTATO);
+        AssetDatabase.CreateAsset(data, "Assets/Scripts/BattleSystem/Sample/NewSaveFile.asset");
     }
 }
