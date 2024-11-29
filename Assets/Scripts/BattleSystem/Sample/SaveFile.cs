@@ -6,42 +6,61 @@ using System;
 using System.Linq;
 
 [Serializable]
-[CreateAssetMenu(fileName = "New Save File", menuName = "Jan/Saving")]
+[CreateAssetMenu(fileName = "Save Game Data", menuName = "Jan/Saving")]
 public class SaveFile : ScriptableObject
 {
+    [SerializedDictionary("Ingredient Data", "Inventory")]
+    public SerializedDictionary<string, InventoryManager> itemList = new  SerializedDictionary<string, InventoryManager>();
+
+    public void SaveGame(InventoryManager manager)
+    {
+        //overwrite old data
+        itemList.Clear();
+        itemList.Add("IngredientUpdate", manager);
+    }
+     public InventoryManager LoadGame()
+    {
+        InventoryManager manager = itemList["IngredientUpdate"];
+
+        return manager;
+    }
+
     // Start is called before the first frame update
-    [SerializedDictionary("Unit ID", "Stats")]
-    public SerializedDictionary<string, List<float>> savedUnits = new SerializedDictionary<string, List<float>>();
+    //[SerializedDictionary("Unit Data", "Stats")]
 
-    //Unique Ids must be added
-    public void SaveGame(List<Unit> units)
-    {
-        savedUnits.Clear();
 
-        List<Unit> unitList = units;
-        foreach (Unit unit in unitList)
-        {
-            List<float> unitStats = new List<float>();
-            unitStats.Add(unit.Accuracy);
-            unitStats.Add(unit.Speed);
-            unitStats.Add(unit.Attack);
-            unitStats.Add(unit.HP);
-            unitStats.Add(unit.Experience);
-            unitStats.Add(unit.Defense);
+    //public SerializedDictionary<string, List<Unit>> savedUnits = new SerializedDictionary<string, List<Unit>>();
+
+    //List<Unit> unitList = new List<Unit>();
+
+    // public void SaveGame(List<Unit> units)
+    // {
+    //     savedUnits.Clear();
+
+    //     unitList = units;
+    //     foreach (Unit unit in units)
+    //     {
+    //         List<float> unitStats = new List<float>();
+    //         unitStats.Add(unit.Accuracy);
+    //         unitStats.Add(unit.Speed);
+    //         unitStats.Add(unit.Attack);
+    //         unitStats.Add(unit.HP);
+    //         unitStats.Add(unit.Experience);
+    //         unitStats.Add(unit.Defense);
             
-            savedUnits.Add(unit.name, unitStats);
-        }
-    }
+    //         savedUnits.Add("Saved", unitStats);
+    //     }
+    // }
 
-    public List<Unit> LoadGame()
-    {
-        List<Unit> loadedUnits = new List<Unit>();
-        foreach (string unitID in savedUnits.Keys)
-        {
-            //* Create Unit with stats
-            // Unit loadedUnit = new Unit(savedUnits[unitID][0], savedUnits[unitID][1]);
-            // loadedUnits.Add(loadedUnit);
-        }
-        return loadedUnits;
-    }
+    // public List<Unit> LoadGame()
+    // {
+    //     List<Unit> loadedUnits = new List<Unit>();
+    //     foreach (string unitID in savedUnits.Keys)
+    //     {
+    //         //* Create Unit with stats
+    //         Unit loadedUnit = new Unit(unitList);
+    //         loadedUnits.Add(loadedUnit);
+    //     }
+    //     return loadedUnits;
+    // }
 }

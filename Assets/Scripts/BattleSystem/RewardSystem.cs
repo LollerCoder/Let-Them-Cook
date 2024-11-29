@@ -41,14 +41,14 @@ public class RewardSystem : MonoBehaviour
     {
         float totalexp = 0f;
         /*total number of raw ingredients left in the battle field*/
+        InventoryManager.Instance.getItemAmount(EIngredientType.POTATO);
 
         /*EXPERIENCE GAINER*/
         /*current level of the map .  BattleScene Names are like this "<WorldName>-<LevelNumber>*/
         int levelNum = int.Parse(SceneManager.GetActiveScene().name.Split("-")[1]);
 
         List<Unit> party = new List<Unit>();
-        
-        //SceneManager.GetActiveScene().name.ElementAt/ (SceneManager.GetActiveScene().name.Length + 1);
+    
 
         /*Max Number of EXP is 100*/
         
@@ -66,22 +66,25 @@ public class RewardSystem : MonoBehaviour
         }
 
         //distribute the exp to the party
-        foreach(Unit unit in partyList) {
-            if(unit.Type == EUnitType.Ally) {
+        // foreach(Unit unit in partyList) {
+        //     if(unit.Type == EUnitType.Ally) {
 
-                //active party members
-                if (unit.HP >= 1) unit.Experience += totalexp;
+        //         //active party members
+        //         if (unit.HP >= 1) unit.Experience += totalexp;
 
-                //dead members
-                else unit.Experience += totalexp/2;
+        //         //dead members
+        //         else unit.Experience += totalexp/2;
 
-                //update the stats
-                stats.SetUnitStats(unit);
-                party.Add(unit);
-            }
-        }
+        //         //update the stats
+        //         stats.SetUnitStats(unit);
+        //         party.Add(unit);
+        //     }
+        // }
         
         //Autosaves the games progress
-        save.SaveGame(party);
+        //save.SaveGame(party);
+        
+        
+        //save.SaveGame(InventoryManager.Instance);
     }
 }
