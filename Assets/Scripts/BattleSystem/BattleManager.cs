@@ -97,7 +97,7 @@ public class BattleManager : MonoBehaviour {
         //this.enemyController.SpawnEnemy();
 
         //yield return this.StartCoroutine(this.enemyController.SpawnEnemy()); // waits for the spawn enemy to finish spawning before starting the battle
-        yield return null;
+        yield return null; // waits for the next frame, basically make every unit load first
         UnitActionManager.Instance.OnStart();
     }
 
