@@ -8,25 +8,10 @@ using UnityEngine.SceneManagement;
 
 public class RewardSystem : MonoBehaviour
 {
-    public UnitStats stats;
-    public SaveFile data;
+    private UnitStats stats;
+    private SaveFile data;
     /*Save Game Components*/
     public static RewardSystem Instance;
-
-    void Start()
-    {
-        data = AssetDatabase.LoadAssetAtPath<SaveFile>("Assets/Scripts/BattleSystem/Sample/New Save File.asset");
-        if (data == null)
-        {
-            // Create and save ScriptableObject because it doesn't exist yet
-            data = ScriptableObject.CreateInstance<SaveFile>();
-            data.cabbageCount = InventoryManager.Instance.getItemAmount(EIngredientType.CABBAGE);
-            data.carrotCount = InventoryManager.Instance.getItemAmount(EIngredientType.CARROT);
-            data.chiliCount = InventoryManager.Instance.getItemAmount(EIngredientType.CHILI);
-            data.potatoCount = InventoryManager.Instance.getItemAmount(EIngredientType.POTATO);
-            AssetDatabase.CreateAsset(data, "Assets/Scripts/BattleSystem/Sample/New Save File.asset");
-        }
-    }
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -46,6 +31,18 @@ public class RewardSystem : MonoBehaviour
     */
     public void gainRewards(int outcome, int enemies, int members, int deadMembers, List<Unit> partyList)
     {
+        // data = AssetDatabase.LoadAssetAtPath<SaveFile>("Assets/Scripts/BattleSystem/Sample/New Save File.asset");
+        // if (data == null)
+        // {
+        //     // Create and save ScriptableObject because it doesn't exist yet
+        //     data = ScriptableObject.CreateInstance<SaveFile>();
+        //     data.cabbageCount = InventoryManager.Instance.getItemAmount(EIngredientType.CABBAGE);
+        //     data.carrotCount = InventoryManager.Instance.getItemAmount(EIngredientType.CARROT);
+        //     data.chiliCount = InventoryManager.Instance.getItemAmount(EIngredientType.CHILI);
+        //     data.potatoCount = InventoryManager.Instance.getItemAmount(EIngredientType.POTATO);
+        //     AssetDatabase.CreateAsset(data, "Assets/Scripts/BattleSystem/Sample/New Save File.asset");
+        // }
+
         float totalexp = 0f;
         /*total number of raw ingredients left in the battle field*/
      
@@ -91,10 +88,10 @@ public class RewardSystem : MonoBehaviour
         //Autosaves the games progress
         //save.SaveGame(party);
         //save.SaveGame(InventoryManager.Instance);
-        data.cabbageCount = InventoryManager.Instance.getItemAmount(EIngredientType.CABBAGE);
-        data.carrotCount = InventoryManager.Instance.getItemAmount(EIngredientType.CARROT);
-        data.chiliCount = InventoryManager.Instance.getItemAmount(EIngredientType.CHILI);
-        data.potatoCount = InventoryManager.Instance.getItemAmount(EIngredientType.POTATO);
-        AssetDatabase.CreateAsset(data, "Assets/Scripts/BattleSystem/Sample/NewSaveFile.asset");
+        // data.cabbageCount = InventoryManager.Instance.getItemAmount(EIngredientType.CABBAGE);
+        // data.carrotCount = InventoryManager.Instance.getItemAmount(EIngredientType.CARROT);
+        // data.chiliCount = InventoryManager.Instance.getItemAmount(EIngredientType.CHILI);
+        // data.potatoCount = InventoryManager.Instance.getItemAmount(EIngredientType.POTATO);
+        // AssetDatabase.CreateAsset(data, "Assets/Scripts/BattleSystem/Sample/New Save File.asset");
     }
 }
