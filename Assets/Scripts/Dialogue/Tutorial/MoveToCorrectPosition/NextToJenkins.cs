@@ -25,6 +25,8 @@ public class NextToJenkins : MonoBehaviour
         {
             playerEntered.Invoke();
             destroyPos.Invoke();
+            
+            
         }
     }
 }
