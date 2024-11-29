@@ -9,21 +9,21 @@ using System.Linq;
 [CreateAssetMenu(fileName = "Save Game Data", menuName = "Jan/Saving")]
 public class SaveFile : ScriptableObject
 {
-    [SerializedDictionary("Ingredient Data", "Inventory")]
-    public SerializedDictionary<string, InventoryManager> itemList = new  SerializedDictionary<string, InventoryManager>();
+    //[SerializedDictionary("Ingredient Data", "Inventory")]
+   // public SerializedDictionary<string, InventoryManager> itemList = new  SerializedDictionary<string, InventoryManager>();
 
-    public void SaveGame(InventoryManager manager)
-    {
-        //overwrite old data
-        itemList.Clear();
-        itemList.Add("IngredientUpdate", manager);
-    }
-     public InventoryManager LoadGame()
-    {
-        InventoryManager manager = itemList["IngredientUpdate"];
+    // public void SaveGame(InventoryManager manager)
+    // {
+    //     //overwrite old data
+    //     itemList.Clear();
+    //     itemList.Add("IngredientUpdate", manager);
+    // }
+    //  public InventoryManager LoadGame()
+    // {
+    //     InventoryManager manager = itemList["IngredientUpdate"];
 
-        return manager;
-    }
+    //     return manager;
+    // }
 
     // Start is called before the first frame update
     //[SerializedDictionary("Unit Data", "Stats")]
