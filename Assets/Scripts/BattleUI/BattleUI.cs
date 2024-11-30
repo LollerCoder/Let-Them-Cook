@@ -44,6 +44,12 @@ public class BattleUI : MonoBehaviour {
     [SerializeField]
     private Text gameEndButtonText;
 
+    [SerializeField]
+    private Button waitButton;
+
+   
+    
+
     private Animator gameEndAnimator;
 
     private UnitStats _unitStats;
@@ -100,6 +106,30 @@ public class BattleUI : MonoBehaviour {
         this.OnEndTurn(false);
     }
 
+    public void ShowWaitButton()
+    {
+        Color col = this.waitButton.GetComponent<Image>().color;
+
+        col.a = 1.0f;
+
+        this.waitButton.GetComponent<Image>().color = col;
+
+        this.waitButton.enabled = true;
+
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.WAIT_BUTTON_SHOW);
+    }
+
+    public void HideWaitButton()
+    {
+        Color col = this.waitButton.GetComponent<Image>().color;
+
+        col.a = 0;
+
+        this.waitButton.GetComponent<Image>().color = col;
+
+        this.waitButton.enabled = false;
+    }
+
     public void OnEndTurn(bool GameEnd) {
         if(UnitActionManager.Instance.GetFirstUnit().Type == EUnitType.Ally && this.actionShow) {
             this.ToggleActionBox();
@@ -117,16 +147,19 @@ public class BattleUI : MonoBehaviour {
         if(GameEnd) {
             return;
         }
+        //if(BattleUI.Instance.waitButton.enabled == false) BattleUI.Instance.ShowWaitButton(); // used in tutorial because of hiding wait button
 
         this.StartCoroutine(this.CloseUI(0.75f));
     }
 
     private IEnumerator CloseUI(float seconds) {
+        UnitActionManager.Instance.OnAttack = false;
+        UnitActionManager.Instance.OnMove = false;
+
         yield return new WaitForSeconds(seconds);
         UnitActions.HideInRangeHPBar(UnitActionManager.Instance.numAttack);
 
-        UnitActionManager.Instance.OnAttack = false;
-        UnitActionManager.Instance.OnMove = false;
+
  
         UnitActionManager.Instance.UnitTurn();
     }

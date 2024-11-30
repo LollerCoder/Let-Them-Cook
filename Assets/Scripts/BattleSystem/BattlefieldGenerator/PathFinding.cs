@@ -4,9 +4,7 @@ using System.Linq;
 using UnityEngine;
 
 public static class PathFinding {
-    public static EBattleScene BattleScene;
-
-    private static List<Tile> _path = new List<Tile>();
+      private static List<Tile> _path = new List<Tile>();
     public static List<Tile> Path { 
         get {  return _path; } 
         set { _path = value; }

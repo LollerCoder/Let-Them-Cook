@@ -4,8 +4,6 @@ using System.Linq;
 using UnityEngine;
 
 public static class Range {
-    public static EBattleScene BattleScene;
-
     private static List<Tile> _inRangeTiles = new List<Tile>();
     public static List<Tile> InRangeTiles {
         get { return _inRangeTiles; }

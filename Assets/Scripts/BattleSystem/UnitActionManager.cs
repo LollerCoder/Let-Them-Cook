@@ -16,8 +16,6 @@ public class UnitActionManager : MonoBehaviour
 
     public const string UNIT = "UNIT";
 
-    private EBattleScene _battleScene;
-
     [SerializeField]
     private float speed;
     public float Speed
@@ -211,8 +209,6 @@ public class UnitActionManager : MonoBehaviour
         this.DecideTurnOrder();
         UnitActions.AssignUnitTile();
         UnitActions.UpdateTile();
-        PathFinding.BattleScene = this._battleScene;
-        Range.BattleScene = this._battleScene;
         this._enemyAI = new EnemyMainAI(this._Units);
 
         this.SetUpTurn();

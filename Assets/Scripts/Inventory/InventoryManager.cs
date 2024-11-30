@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -56,6 +57,7 @@ public class InventoryManager : MonoBehaviour
     void Start()
     {
         GameManager.Instance.OnAddItem += OnAddToInventory;
+        SaveFile data = AssetDatabase.LoadAssetAtPath<SaveFile>("Assets/Scripts/BattleSystem/Sample/New Save File.asset");
     }
 
     // Update is called once per frame
