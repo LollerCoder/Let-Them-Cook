@@ -80,7 +80,7 @@ public class CookButtonsHandler : MonoBehaviour
                 SceneManager.LoadScene("Map");
                 break;
             case "Exit":
-                ingredientData.SaveProgress();
+                //ingredientData.SaveProgress();
                 /*Save ingredients and recipes here*/
                 //recipeData.SaveProgress();
              

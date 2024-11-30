@@ -31,10 +31,10 @@ public class IngredientsManager : MonoBehaviour
             //IngredientAmount[EIngredientType.POTATO] = 4;
             //IngredientAmount[EIngredientType.CARROT] = 2;
             //IngredientAmount[EIngredientType.CHILI] = 6;
-            IngredientAmount[EIngredientType.CABBAGE] = 0;
-            IngredientAmount[EIngredientType.CARROT] = 0;
-            IngredientAmount[EIngredientType.CHILI] = 0;
-            IngredientAmount[EIngredientType.POTATO] = 0;
+            // IngredientAmount[EIngredientType.CABBAGE] = 0;
+            // IngredientAmount[EIngredientType.CARROT] = 0;
+            // IngredientAmount[EIngredientType.CHILI] = 0;
+            // IngredientAmount[EIngredientType.POTATO] = 0;
         }
         else Destroy(this.gameObject);
     }
