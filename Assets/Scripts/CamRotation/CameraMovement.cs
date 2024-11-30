@@ -49,6 +49,12 @@ public class CameraMovement : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        //EventBroadcaster.Instance.RemoveObserver(EventNames.BattleCamera_Events.CURRENT_FOCUS);
+        //EventBroadcaster.Instance.RemoveObserver(EventNames.BattleCamera_Events.ENEMY_FOCUS);
+    }
+
     private void EnemyPosition(Parameters param) {
         Unit unit = param.GetUnitExtra("UNIT");
         Vector3 characterPos = unit.transform.position;

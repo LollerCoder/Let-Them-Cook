@@ -93,6 +93,11 @@ public class BattleManager : MonoBehaviour {
         this.StartCoroutine(this.SetUpBattle());
     }
 
+    private void OnDestroy()
+    {
+        EventBroadcaster.Instance.RemoveAllObservers();
+    }
+
     IEnumerator SetUpBattle() {
         //this.enemyController.SpawnEnemy();
 
