@@ -57,7 +57,7 @@ public class InventoryManager : MonoBehaviour
     void Start()
     {
         GameManager.Instance.OnAddItem += OnAddToInventory;
-        SaveFile data = AssetDatabase.LoadAssetAtPath<SaveFile>("Assets/Scripts/BattleSystem/Sample/New Save File.asset");
+        //SaveFile data = AssetDatabase.LoadAssetAtPath<SaveFile>("Assets/Scripts/BattleSystem/Sample/New Save File.asset");
     }
 
     // Update is called once per frame

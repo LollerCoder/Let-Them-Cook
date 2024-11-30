@@ -63,12 +63,12 @@ public class IngredientAmountTracker : MonoBehaviour
         }
 
         //Loads the amount of ingreidents collected
-        SaveFile data = AssetDatabase.LoadAssetAtPath<SaveFile>("Assets/Scripts/BattleSystem/Sample/New Save File.asset");
+        //SaveFile data = AssetDatabase.LoadAssetAtPath<SaveFile>("Assets/Scripts/BattleSystem/Sample/New Save File.asset");
 
-        if (data != null )
-        {
-            Debug.Log("Data file found!");
-        }
+        //if (data != null )
+        //{
+        //    Debug.Log("Data file found!");
+        //}
 
         this._IngredientTracker[EIngredientType.CARROT] = this._AmountLabels[0].GetComponent<TextMesh>();
         this._IngredientTracker[EIngredientType.POTATO] = this._AmountLabels[1].GetComponent<TextMesh>();
