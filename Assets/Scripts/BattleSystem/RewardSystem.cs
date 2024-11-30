@@ -86,12 +86,11 @@ public class RewardSystem : MonoBehaviour
         // }
         
         //Autosaves the games progress
-        //save.SaveGame(party);
-        //save.SaveGame(InventoryManager.Instance);
-        // data.cabbageCount = InventoryManager.Instance.getItemAmount(EIngredientType.CABBAGE);
-        // data.carrotCount = InventoryManager.Instance.getItemAmount(EIngredientType.CARROT);
-        // data.chiliCount = InventoryManager.Instance.getItemAmount(EIngredientType.CHILI);
-        // data.potatoCount = InventoryManager.Instance.getItemAmount(EIngredientType.POTATO);
-        // AssetDatabase.CreateAsset(data, "Assets/Scripts/BattleSystem/Sample/New Save File.asset");
+
+        data.cabbageCount = InventoryManager.Instance.getItemAmount(EIngredientType.CABBAGE);
+        data.carrotCount = InventoryManager.Instance.getItemAmount(EIngredientType.CARROT);
+        data.chiliCount = InventoryManager.Instance.getItemAmount(EIngredientType.CHILI);
+        data.potatoCount = InventoryManager.Instance.getItemAmount(EIngredientType.POTATO);
+        AssetDatabase.CreateAsset(data, "Assets/Scripts/BattleSystem/Sample/New Save File.asset");
     }
 }
