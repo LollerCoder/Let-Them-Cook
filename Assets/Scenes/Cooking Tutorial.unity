@@ -422,18 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MealType: 2
---- !u!114 &252956568 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8582458924857535872, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
-  m_PrefabInstance: {fileID: 291944181}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &291944181
+--- !u!1001 &210043956
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -441,6 +430,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 481451922828264808, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338931673485903545, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338931673485903545, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338931673485903545, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338931673485903545, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -75
+      objectReference: {fileID: 0}
     - target: {fileID: 3601496294334080019, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -521,21 +530,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3603217999178902401, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5114184375910117851, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_Name
       value: BattleUI
       objectReference: {fileID: 0}
-    - target: {fileID: 6141479869966817110, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
-      propertyPath: image
-      value: 
-      objectReference: {fileID: 252956568}
+    - target: {fileID: 5303227089696330162, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7079041278187719721, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231738459660210749, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 7079041278187719721, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
-    - {fileID: 8231738459660210749, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
-    - {fileID: 3603217999178902401, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
-    - {fileID: 481451922828264808, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
-    - {fileID: 5303227089696330162, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
@@ -659,6 +675,11 @@ Transform:
   - {fileID: 168902596}
   m_Father: {fileID: 892384215}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &453220599 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 109992227200039972, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+  m_PrefabInstance: {fileID: 210043956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &456592274
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,6 +899,39 @@ MonoBehaviour:
   - {fileID: 770173175}
   - {fileID: 2089011598}
   _MealSpriteRef: {fileID: 2061327957}
+--- !u!1 &572358465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 572358467}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &572358467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572358465}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 898345471}
+  - {fileID: 1717267476}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &626701797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,7 +1230,9 @@ MonoBehaviour:
     - Officer Chef Jef
     - Officer Chef Jef
     - Officer Chef Jef
+    - Officer Chef Jef
     sprites:
+    - {fileID: 635010942, guid: 534c3446d60d8fb478a0cd60742e5afc, type: 3}
     - {fileID: 635010942, guid: 534c3446d60d8fb478a0cd60742e5afc, type: 3}
     - {fileID: 635010942, guid: 534c3446d60d8fb478a0cd60742e5afc, type: 3}
     - {fileID: 635010942, guid: 534c3446d60d8fb478a0cd60742e5afc, type: 3}
@@ -1191,6 +1247,7 @@ MonoBehaviour:
     - These meals will temporarily buff your units in battle
     - You can view the meal recipes by clicking the icon on the top left
     - For now, try cooking some Spicy Fries
+    - Here I'll give some ingredients. Don't worry, these aren't our comrades.
   _dialogue2:
     names:
     - Officer Chef Jef
@@ -1204,7 +1261,7 @@ MonoBehaviour:
     - Good job Comrade!
     - Now our soldiers are a bit more stronger
     - Let's check their current strength in the battle field
-  _animator: {fileID: 1802002386}
+  _animator: {fileID: 453220599}
 --- !u!1 &892384214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,12 +1363,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898345469}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.261872, y: 4.122317, z: -3.4595788}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.781334, y: 10.6755905, z: -14.052715}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 572358467}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1020590207
 GameObject:
@@ -1937,11 +1994,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1802002386 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 109992227200039972, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
-  m_PrefabInstance: {fileID: 291944181}
+--- !u!1 &1717267475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1717267476}
+  m_Layer: 0
+  m_Name: InventoryManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1717267476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717267475}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.519462, y: -6.553274, z: 10.593137}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 572358467}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1846148657
 GameObject:
   m_ObjectHideFlags: 0
@@ -5125,8 +5208,8 @@ SceneRoots:
   - {fileID: 1286330230558620553}
   - {fileID: 482806903}
   - {fileID: 1846148659}
-  - {fileID: 898345471}
   - {fileID: 1893032304}
   - {fileID: 821415817}
   - {fileID: 703480655}
-  - {fileID: 291944181}
+  - {fileID: 210043956}
+  - {fileID: 572358467}

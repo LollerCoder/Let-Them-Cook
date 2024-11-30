@@ -45,7 +45,7 @@ public class CookTutorialDailogueHandler : MonoBehaviour
         if (!this._animator.GetBool("Open") && this._currentTextIndex == 2)
         {
             //Debug.Log("Going to next scene!");
-            SceneManager.LoadScene("Level 1");
+            SceneManager.LoadScene("Level-2");
         }
     }
 

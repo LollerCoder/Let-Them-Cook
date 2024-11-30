@@ -40,6 +40,6 @@ public class IntroVidHandler : MonoBehaviour
     private void OnVideoEnd(VideoPlayer source)
     {
         //Debug.Log("Video ended!");
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("Tutorial-1");
     }
 }

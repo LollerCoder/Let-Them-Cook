@@ -11332,13 +11332,13 @@ MonoBehaviour:
     sentences:
     - 'FLOWERS ARE EFFECTS CADET!
 
-      
+
 
 
 '
     - They range from good to downright nasty to VEGAS.
-    - Good is the [BLANK] stuff. Its a buff in stats, always good.
-    - Vegas is colored [BLANK]. Its VEGAS. You risk big to gain big.
+    - Good is the purple stuff. Its a buff in stats, always good.
+    - Vegas is colored orange. Its VEGAS. You risk big to gain big.
     - "Or fall flat on your face.\r\n\r\r\n\r\r"
     - "Take note of this Cadet.\r\n\r\r\n"
     - "Now Carrote ain't no where near Jenkins!\r\n\r\r\n"
@@ -12207,17 +12207,17 @@ MonoBehaviour:
     sentences:
     - 'GOOD JOB CADET!
 
-      
+
 
 '
     - 'Now you might be wondering what the images on the bottom of the screen are!
 
-      
+
 
 '
     - 'That''s our GLORIOUS LEADER''S SKILLS bestowed upon us!
 
-      
+
 
 '
     - 'Aren''t they a beauty!
@@ -12226,12 +12226,12 @@ MonoBehaviour:
     - THE PLATTER will be OPEN if you can use em!
     - 'CADET! CLICK ON ANY of these useable SKILLS!
 
-      
+
 
 '
     - 'And put it right in JENKINS TEETH!
 
-      
+
 
 '
 --- !u!1 &1931276139
@@ -13436,6 +13436,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -110
       objectReference: {fileID: 0}
+    - target: {fileID: 5303227089696330162, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6141479869966817110, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: image
       value: 
@@ -13444,6 +13448,34 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1533642186}
+    - target: {fileID: 8287271111585280180, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287271111585280180, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287271111585280180, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 794716827822140903}
+    - target: {fileID: 8287271111585280180, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287271111585280180, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GoToScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287271111585280180, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: DemoSceneLoading, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287271111585280180, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8489155879292951400, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -13451,8 +13483,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3413517092561654114, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 794716827822140903}
   m_SourcePrefab: {fileID: 100100000, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+--- !u!1 &794716827822140902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3413517092561654114, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+  m_PrefabInstance: {fileID: 794716827822140901}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &794716827822140903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794716827822140902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99365efd4ca5cf243806598f1e3a95e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _screenName: Cooking Tutorial
 --- !u!114 &810046040506243574
 MonoBehaviour:
   m_ObjectHideFlags: 0
