@@ -6,6 +6,7 @@ using System.Linq;
 using Unity.VisualScripting;
 
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms;
 using static UnityEngine.GraphicsBuffer;
@@ -15,6 +16,8 @@ public class UnitActionManager : MonoBehaviour
     public static UnitActionManager Instance = null;
 
     public const string UNIT = "UNIT";
+
+    [SerializeField] PostProcessVolume vignette;
 
     [SerializeField]
     private float speed;
@@ -196,11 +199,21 @@ public class UnitActionManager : MonoBehaviour
         if (this._unitOrder[0].Type != EUnitType.Ally) {
 
             EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
+
+            while (vignette.weight < 1)
+            {
+                vignette.weight  += 0.5f * Time.deltaTime;
+            }
+            
             this.EnemyUnitAction();
         }
         else
         {
             BattleUI.Instance.ToggleActionBox();
+            while (vignette.weight > 0)
+            {
+                vignette.weight  -= 0.5f * Time.deltaTime;
+            }
         }
 
 

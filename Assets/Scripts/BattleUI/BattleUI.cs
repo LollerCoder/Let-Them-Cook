@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 
 public class BattleUI : MonoBehaviour {
@@ -70,8 +71,12 @@ public class BattleUI : MonoBehaviour {
     public bool[] skillSlots = { false, false, false, false, false }; // which skill is usable
 
 
+
+
     
     private void Start() {
+        
+  
         //this._unitStats = this.GetComponentInChildren<UnitStats>();
 
         //if(this._unitStats == null) {
@@ -153,14 +158,13 @@ public class BattleUI : MonoBehaviour {
     }
 
     private IEnumerator CloseUI(float seconds) {
+
         UnitActionManager.Instance.OnAttack = false;
         UnitActionManager.Instance.OnMove = false;
 
         yield return new WaitForSeconds(seconds);
         UnitActions.HideInRangeHPBar(UnitActionManager.Instance.numAttack);
 
-
- 
         UnitActionManager.Instance.UnitTurn();
     }
 
