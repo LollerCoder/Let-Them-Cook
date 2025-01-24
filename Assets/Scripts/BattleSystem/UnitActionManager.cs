@@ -17,7 +17,7 @@ public class UnitActionManager : MonoBehaviour
 
     public const string UNIT = "UNIT";
 
-    [SerializeField] PostProcessVolume vignette;
+    PostProcessVolume vignette;
 
     [SerializeField]
     private float speed;
@@ -64,6 +64,11 @@ public class UnitActionManager : MonoBehaviour
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+    void Start()
+    {
+        vignette = Camera.main.GetComponentInChildren<PostProcessVolume>();
+    }
     public void EnemyUnitAction()
     {
         //UnitActions.OnAttack = true;
@@ -202,7 +207,7 @@ public class UnitActionManager : MonoBehaviour
 
             while (vignette.weight < 1)
             {
-                vignette.weight  += 0.5f * Time.deltaTime;
+                vignette.weight  += 0.1f * Time.deltaTime;
             }
             
             this.EnemyUnitAction();
@@ -212,7 +217,7 @@ public class UnitActionManager : MonoBehaviour
             BattleUI.Instance.ToggleActionBox();
             while (vignette.weight > 0)
             {
-                vignette.weight  -= 0.5f * Time.deltaTime;
+                vignette.weight  -= 0.1f * Time.deltaTime;
             }
         }
 
