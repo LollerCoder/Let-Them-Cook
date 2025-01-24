@@ -19,6 +19,8 @@ public class UnitActionManager : MonoBehaviour
 
     PostProcessVolume vignette;
 
+    bool bEnemy = false;
+
     [SerializeField]
     private float speed;
     public float Speed
@@ -68,6 +70,7 @@ public class UnitActionManager : MonoBehaviour
     void Start()
     {
         vignette = Camera.main.GetComponentInChildren<PostProcessVolume>();
+        vignette.weight = 0.0f;
     }
     public void EnemyUnitAction()
     {
@@ -143,6 +146,24 @@ public class UnitActionManager : MonoBehaviour
         this._unitOrder.Add(unit);
     }
 
+
+    void Update()
+    {
+        if (bEnemy)
+        {
+            if (vignette.weight < 0.90)  vignette.weight  +=  3.0f * Time.deltaTime;
+            else vignette.weight = 1.0f;
+        }
+
+        else if (!bEnemy)
+        {
+            if (vignette.weight > 0.1) {vignette.weight  -=  2.0f  * Time.deltaTime;}
+            else vignette.weight = 0.0f;
+        }
+            
+
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void LateUpdate() {
         if (Input.GetKeyUp(KeyCode.R) && UnitActions.stepFlag)
@@ -203,25 +224,20 @@ public class UnitActionManager : MonoBehaviour
 
         if (this._unitOrder[0].Type != EUnitType.Ally) {
 
-            EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
+            bEnemy = true;
 
-            while (vignette.weight < 1)
-            {
-                vignette.weight  += 0.1f * Time.deltaTime;
-            }
+            EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
             
             this.EnemyUnitAction();
         }
         else
         {
+            Debug.Log("hi");
+            bEnemy = false;
             BattleUI.Instance.ToggleActionBox();
-            while (vignette.weight > 0)
-            {
-                vignette.weight  -= 0.1f * Time.deltaTime;
-            }
+            
+
         }
-
-
     }
     public void OnStart() {
         this.DecideTurnOrder();
