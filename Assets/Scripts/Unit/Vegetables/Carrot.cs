@@ -124,9 +124,11 @@ public class Carrot : Unit{
         Skill eyePoke = new EyePoke();
         Skill tripUp = new TripUp();
         Skill eagle = new EagleEye();
+        Skill heal = new QualityControl();
 
         this.skillList.Add("Basic Attack");
         this.skillList.Add("TrueStrike");
+        this.skillList.Add("Quality Control");
         //this.skillList.Add("EyePoke");
         //this.skillList.Add("TripUp");
         //this.skillList.Add("EagleEye");
