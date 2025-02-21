@@ -256,6 +256,43 @@ public abstract class Unit : MonoBehaviour
         param.PutExtra(UNIT, this);
         EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
     }
+
+     public void gainHealth(float healPts, Unit attacker)
+    {
+
+        Debug.Log("Unit name: " + attacker.Name);
+        Debug.Log(attacker.effectManager);
+
+        attacker.effectManager.EffectAccess(attacker); // attacker
+        this.effectManager.EffectAccess(this); //target
+            this.hp += (int)healPts;
+            this.hp = Mathf.Max(HP, 0); 
+        
+
+
+        if (this.hp == 0)
+        {
+            Debug.Log("Its Dead");
+            this.Tile.isWalkable = true;
+
+            if (attacker.type == EUnitType.Ally)   
+            {
+                Debug.Log(this.type);
+                GameManager.Instance.OnDiedCallback.Invoke(this.ingredientType);
+            }
+
+            this.HandleDeath();
+
+        }
+
+
+        attacker.effectManager.EffectReset(attacker);
+        this.effectManager.EffectReset(this);
+
+        Parameters param = new Parameters();
+        param.PutExtra(UNIT, this);
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
+    }
     public bool isDodged(Unit attacker)
     {
         float chance = 50 + ((attacker.spd + attacker.acc - this.spd));
