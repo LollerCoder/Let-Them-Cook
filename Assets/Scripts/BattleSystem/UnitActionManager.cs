@@ -205,7 +205,9 @@ public class UnitActionManager : MonoBehaviour
         EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
 
         BattleUI.Instance.UpdateTurnOrder(this._unitOrder);
-        BattleUI.Instance.NextUnitSkills(this.GetFirstUnit());
+
+        if(this.GetFirstUnit().Type == EUnitType.Ally) BattleUI.Instance.NextUnitSkills(this.GetFirstUnit());
+
         UnitActions.SetCurrentTile(this.GetFirstUnit().Tile, this.GetFirstUnit().transform.position.y);
         
         

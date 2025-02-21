@@ -190,13 +190,9 @@ public class BattleUI : MonoBehaviour {
     }
 
     private void AssignSprites(Unit unit) {   // also where gettng the name of the skills
-        // set the sprite for the basic attack already
-        this.Attacks[0].GetComponent<Image>().sprite = this.attackSprites[0]; // basic attack
-
-        for (int i = 1; i < this.skillSlots.Length; i++) {
+        for (int i = 0; i < this.skillSlots.Length; i++) {
             if (this.skillSlots[i] == true) {
-                this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[1]; // skills
-
+                this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[i]; // skills
                 //this.Attacks[i].transform.Find("Nameplate").transform.Find("Text (Legacy)").GetComponentInChildren<Text>().text = unit.SKILLLIST[i];
                 this.Attacks[i].GetComponentInChildren<Text>().text = unit.SKILLLIST[i];
                
