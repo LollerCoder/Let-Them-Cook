@@ -119,16 +119,10 @@ public class Carrot : Unit{
 
         this.animator = this.GetComponent<Animator>();
 
-        Skill basic = new BasicAttack();
-        Skill trueStrike = new TrueStrike();
-        Skill eyePoke = new EyePoke();
-        Skill tripUp = new TripUp();
-        Skill eagle = new EagleEye();
-        Skill heal = new QualityControl();
-
         this.skillList.Add("Basic Attack");
         this.skillList.Add("TrueStrike");
-        this.skillList.Add("Quality Control");
+        //this.skillList.Add("Photosynthesis");
+        this.skillList.Add("Shove");
         //this.skillList.Add("EyePoke");
         //this.skillList.Add("TripUp");
         //this.skillList.Add("EagleEye");
