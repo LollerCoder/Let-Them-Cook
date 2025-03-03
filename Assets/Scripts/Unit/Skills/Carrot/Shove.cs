@@ -35,10 +35,28 @@ public class Shove : Skill
 
     private void ShoveTarget (Unit target, Vector3 direction)
     {
+        //backup the position
+        Vector3 currPos = target.transform.position;
 
-        //moving the target
-        Vector3 currPos = target.transform.position; //backup the position
-        target.gameObject.transform.Translate(direction); //move the target
+        Debug.Log("Direciton: " + direction);
+
+        //getting the direction relative to local position
+        Vector3 localDir = target.gameObject.transform.InverseTransformDirection(direction);
+
+        //move the target
+        target.gameObject.transform.Translate(localDir);
+
+        ////Check if horizontal or in x-axis
+        //if (direction.z == 0)
+        //{
+        //    //moving it
+        //    this.MoveHorizontaly(target, direction.x);
+        //}
+        //else if (direction.x == 0)
+        //{
+        //    //moving it
+        //    this.MoveVerticaly(target, direction.z);
+        //}
 
         //Updating the unit's tile
         Tile landingSpot = this.GetLandingSpot(target);
@@ -50,6 +68,16 @@ public class Shove : Skill
         {
             target.gameObject.transform.position = currPos;
         }
+    }
+
+    private void MoveHorizontaly(Unit target, float isRight)
+    {
+        target.gameObject.transform.Translate(1 * isRight, 0, 0);
+    }
+
+    private void MoveVerticaly(Unit target, float isUp)
+    {
+        target.gameObject.transform.Translate(0, 0, 1 * isUp);
     }
 
     private Tile GetLandingSpot(Unit target)
