@@ -25,7 +25,7 @@ public class Shove : Skill
         {
             PopUpManager.Instance.addPopUp(this.skillName + "d", target.transform);
             Vector3 dir = (target.gameObject.transform.position - origin.gameObject.transform.position).normalized;
-            this.ShoveTarget(target, dir);
+            if (!this.WallChecker(target.gameObject.transform.position, dir)) this.ShoveTarget(target, dir);
         }
         else
         {
@@ -38,25 +38,11 @@ public class Shove : Skill
         //backup the position
         Vector3 currPos = target.transform.position;
 
-        Debug.Log("Direciton: " + direction);
-
         //getting the direction relative to local position
         Vector3 localDir = target.gameObject.transform.InverseTransformDirection(direction);
 
         //move the target
         target.gameObject.transform.Translate(localDir);
-
-        ////Check if horizontal or in x-axis
-        //if (direction.z == 0)
-        //{
-        //    //moving it
-        //    this.MoveHorizontaly(target, direction.x);
-        //}
-        //else if (direction.x == 0)
-        //{
-        //    //moving it
-        //    this.MoveVerticaly(target, direction.z);
-        //}
 
         //Updating the unit's tile
         Tile landingSpot = this.GetLandingSpot(target);
@@ -70,14 +56,21 @@ public class Shove : Skill
         }
     }
 
-    private void MoveHorizontaly(Unit target, float isRight)
+    //checks if the position where target is getting shoved into has a wall or is occupied
+    private bool WallChecker(Vector3 originPoint, Vector3 dir)
     {
-        target.gameObject.transform.Translate(1 * isRight, 0, 0);
-    }
+        bool isWall = true;
 
-    private void MoveVerticaly(Unit target, float isUp)
-    {
-        target.gameObject.transform.Translate(0, 0, 1 * isUp);
+        RaycastHit hit;
+        originPoint += dir * 0.2f;  
+        Debug.DrawRay(originPoint, dir, Color.red, 5f);
+        Physics.Raycast(originPoint, dir, out hit, Mathf.Infinity);
+        Debug.Log("Hit " + hit);
+        if (hit.collider == null) return false;
+
+        if (!hit.collider.gameObject.GetComponent<Unit>()) return false;
+
+        return isWall;
     }
 
     private Tile GetLandingSpot(Unit target)
