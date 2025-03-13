@@ -293,6 +293,42 @@ public abstract class Unit : MonoBehaviour
         param.PutExtra(UNIT, this);
         EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
     }
+
+    public void gainDefense(float defensePoints, Unit defender)
+    {
+
+        Debug.Log("Unit name: " + defender.Name);
+        Debug.Log(defender.effectManager);
+
+        defender.effectManager.EffectAccess(defender); // attacker
+        this.effectManager.EffectAccess(this); //target
+            this.def += (int)defensePoints;
+            this.def = Mathf.Max(HP, 0); 
+        
+        if (this.hp == 0)
+        {
+            Debug.Log("Its Dead");
+            this.Tile.isWalkable = true;
+
+            if (defender.type == EUnitType.Ally)
+            {
+                Debug.Log(this.type);
+                GameManager.Instance.OnDiedCallback.Invoke(this.ingredientType);
+            }
+
+            this.HandleDeath();
+
+        }
+
+
+        defender.effectManager.EffectReset(defender);
+        this.effectManager.EffectReset(this);
+
+        Parameters param = new Parameters();
+        param.PutExtra(UNIT, this);
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_DEFENSE, param);
+
+    }
     public bool isDodged(Unit attacker)
     {
         float chance = 50 + ((attacker.spd + attacker.acc - this.spd));

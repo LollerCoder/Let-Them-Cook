@@ -39,6 +39,8 @@ public class SkillDatabase : MonoBehaviour
         Skill eagle = new EagleEye();
         Skill shove = new Shove();
         Skill heal = new Photosynthesis();
+        Skill foilStackin = new FoilStackin();
+        Skill defensiveWhack = new DefensiveWhack();
 
         this.skillDatabase.Add(basic.SkillName,basic);
         this.skillDatabase.Add(trueStrike.SkillName, trueStrike);
@@ -47,6 +49,8 @@ public class SkillDatabase : MonoBehaviour
         this.skillDatabase.Add(eagle.SkillName, eagle);
         this.skillDatabase.Add(shove.SkillName, shove);
         this.skillDatabase.Add(heal.SkillName,heal);
+        this.skillDatabase.Add(foilStackin.SkillName,foilStackin);
+        this.skillDatabase.Add(defensiveWhack.SkillName,defensiveWhack);
     }
 
     // Update is called once per frame
