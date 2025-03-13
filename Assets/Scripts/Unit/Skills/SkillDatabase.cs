@@ -41,6 +41,7 @@ public class SkillDatabase : MonoBehaviour
         Skill heal = new Photosynthesis();
         Skill foilStackin = new FoilStackin();
         Skill defensiveWhack = new DefensiveWhack();
+        Skill circularCut = new CircularCut();
 
         this.skillDatabase.Add(basic.SkillName,basic);
         this.skillDatabase.Add(trueStrike.SkillName, trueStrike);
@@ -51,6 +52,7 @@ public class SkillDatabase : MonoBehaviour
         this.skillDatabase.Add(heal.SkillName,heal);
         this.skillDatabase.Add(foilStackin.SkillName,foilStackin);
         this.skillDatabase.Add(defensiveWhack.SkillName,defensiveWhack);
+        this.skillDatabase.Add(circularCut.SkillName, circularCut);
     }
 
     // Update is called once per frame
