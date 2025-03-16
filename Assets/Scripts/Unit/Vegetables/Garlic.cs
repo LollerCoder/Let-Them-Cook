@@ -6,7 +6,7 @@ using UnityEngine;
 
 using UnityEngine.UI;
 
-public class Carrot : Unit{
+public class Garlic : Unit{
 
     [SerializeField]
     Animator BufController;
@@ -119,8 +119,9 @@ public class Carrot : Unit{
 
         this.animator = this.GetComponent<Animator>();
 
-        this.skillList.Add("Basic Attack");
-        this.skillList.Add("Circular Cut");
+        this.skillList.Add("Foil Stackin");
+        this.skillList.Add("Defensive Whack");
+
 
         this.acc = 10;
         this.spd = 3;

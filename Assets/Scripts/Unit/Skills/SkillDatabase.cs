@@ -37,12 +37,22 @@ public class SkillDatabase : MonoBehaviour
         Skill eyePoke = new EyePoke();
         Skill tripUp = new TripUp();
         Skill eagle = new EagleEye();
+        Skill shove = new Shove();
+        Skill heal = new Photosynthesis();
+        Skill foilStackin = new FoilStackin();
+        Skill defensiveWhack = new DefensiveWhack();
+        Skill circularCut = new CircularCut();
 
         this.skillDatabase.Add(basic.SkillName,basic);
         this.skillDatabase.Add(trueStrike.SkillName, trueStrike);
         this.skillDatabase.Add(eyePoke.SkillName, eyePoke);
         this.skillDatabase.Add(tripUp.SkillName, tripUp);
         this.skillDatabase.Add(eagle.SkillName, eagle);
+        this.skillDatabase.Add(shove.SkillName, shove);
+        this.skillDatabase.Add(heal.SkillName,heal);
+        this.skillDatabase.Add(foilStackin.SkillName,foilStackin);
+        this.skillDatabase.Add(defensiveWhack.SkillName,defensiveWhack);
+        this.skillDatabase.Add(circularCut.SkillName, circularCut);
     }
 
     // Update is called once per frame

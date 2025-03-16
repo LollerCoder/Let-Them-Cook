@@ -3,5 +3,6 @@ public enum EVeggie {
     CARROT,
     CHILI,
     CABBAGE,
-    POTATO
+    POTATO,
+    GARLIC
 }
