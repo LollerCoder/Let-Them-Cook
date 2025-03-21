@@ -232,7 +232,7 @@ public class UnitActionManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("hi");
+            //Debug.Log("hi");
             bEnemy = false;
             BattleUI.Instance.ToggleActionBox();
             

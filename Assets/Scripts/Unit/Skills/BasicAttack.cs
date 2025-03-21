@@ -5,6 +5,7 @@ using static UnityEngine.UI.Image;
  
 public class BasicAttack : Skill
 {
+    int damage = 3;
 
     public BasicAttack()
     {
@@ -15,7 +16,8 @@ public class BasicAttack : Skill
 
     public override void  SkillAction(Unit target, Unit origin)
     {
-        target.TakeDamage(0, origin);
+        target.TakeDamage(damage, origin);
+        PopUpManager.Instance.addPopUp("-" + damage, target.transform);
     }
 
     

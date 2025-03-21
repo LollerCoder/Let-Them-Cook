@@ -10,13 +10,14 @@ namespace EnemyAI
         //private PathFinding _pathFinding;
         //private Range _showRange; 
 
-        public void OnAttack(Unit target)
+        public void OnAttack(Unit target, Unit origin)
         {
+            Debug.Log(origin.name + " is now attacking " + target.name);
             UnitActionManager.Instance.OnAttack = true;
             UnitActionManager.Instance.numAttack = 0;
 
             UnitActions.UnitSelect(target);
-            //UnitActionManager.Instance.UnitSelect(target);
+            SkillDatabase.Instance.applySkill(origin.SKILLLIST[0], target, origin);
         }
     }
 
