@@ -36,6 +36,7 @@ public class UnitAttackActions : MonoBehaviour {
             }
             else {
                 BattleUI.Instance.UpdateButtonState(j, true);
+                Debug.Log(j);
             }
         }
     }
