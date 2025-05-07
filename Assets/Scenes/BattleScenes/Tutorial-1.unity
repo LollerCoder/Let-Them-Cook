@@ -5925,6 +5925,17 @@ MonoBehaviour:
     tilePrefab: {fileID: 0}
     tile: 0
   isWalkable: 0
+--- !u!114 &813297240 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1552359711998657431, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+  m_PrefabInstance: {fileID: 794716827822140901}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &814636674
 GameObject:
   m_ObjectHideFlags: 0
@@ -9991,6 +10002,7 @@ GameObject:
   - component: {fileID: 1533642187}
   - component: {fileID: 1533642186}
   - component: {fileID: 1533642185}
+  - component: {fileID: 1533642188}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -10073,6 +10085,23 @@ Transform:
   - {fileID: 403620424}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1533642188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533642184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 0}
+  isGlobal: 0
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &1574191255
 GameObject:
   m_ObjectHideFlags: 0
@@ -13171,6 +13200,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 263592157444321293, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2338931673485903545, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -13187,6 +13220,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3278284843112715353, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 7d82fe5635994d4469eaf5bc7e045fd6, type: 3}
     - target: {fileID: 3601496294334080019, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -13270,6 +13307,14 @@ PrefabInstance:
     - target: {fileID: 5114184375910117851, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_Name
       value: BattleUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141479869966817110, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: dialogeText
+      value: 
+      objectReference: {fileID: 813297240}
+    - target: {fileID: 8720894784665288470, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
