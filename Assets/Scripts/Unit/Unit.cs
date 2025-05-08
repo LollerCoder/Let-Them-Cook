@@ -377,7 +377,7 @@ public abstract class Unit : MonoBehaviour
 
         this.GetComponent<Animator>().enabled = false;
         this.gameObject.SetActive(false);
-
+        this.Tile.isWalkable = true;
         UnitActionManager.Instance.RemoveUnitFromOrder(this);
     }
 

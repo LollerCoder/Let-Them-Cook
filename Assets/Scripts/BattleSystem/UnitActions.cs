@@ -202,7 +202,7 @@ public static class UnitActions {
             UnitActionManager.Instance.Moving = false;
             UnitActionManager.Instance.OnMove = false;
             currentUnit.OnMovement(false);
-
+            BattleUI.Instance.ToggleWaitButton(true);
             if(currentUnit.Type == EUnitType.Ally && !CheckVegetableOnTile(currentUnit)) {
                 //BattleUI.Instance.ToggleActionBox();
                 //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
@@ -266,6 +266,8 @@ public static class UnitActions {
                 stepFlag = true;
                 unit.OnMovement(true);
                 UnitActionManager.Instance.Moving = true;
+                BattleUI.Instance.ToggleWaitButton(false);
+
                 /*Special Tile Detection*/
                 if (goalTile.gameObject.tag == "SpecialTile") {
                     Debug.Log("Special Tile detected!" + goalTile.gameObject.name);

@@ -87,9 +87,14 @@ public class BattleUI : MonoBehaviour {
         //EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX, this.ToggleActionBox);
         
     }
+
+    public void ToggleWaitButton(bool flag) {
+        this.waitButton.interactable = flag;
+    }
     public void ToggleActionBox() {
         this.actionShow = !this.actionShow;
         this.AttackBox.GetComponent<Animator>().SetBool("Show", this.actionShow);
+        this.ToggleWaitButton(this.actionShow);
     }
 
     public void ToggleEatOrPickUpButtons() {
@@ -239,6 +244,10 @@ public class BattleUI : MonoBehaviour {
     }
 
     private void AttackState(int num) {
+        if (UnitActionManager.Instance.numAttack > 0) { // reset skill highlighted tiles
+            UnitAttackActions.UnHighlightUnitTiles(UnitAttackActions.Attackables[UnitActionManager.Instance.numAttack]);
+        }
+
         UnitAttackActions.EnemyListed = false;
         if(num < 0) {
             return;

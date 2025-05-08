@@ -7,6 +7,13 @@ public class Skill
         get { return this.skillName; }
     }
 
+    protected int skillRange = 2;
+
+    public int SkillRange {
+        get { return this.skillRange; }
+    }
+    
+
     protected EVeggie veggieType;
     public EVeggie VEGGIETYPE
     {
@@ -55,7 +62,9 @@ public class Skill
 
     }
 
-
+    public virtual void HighlightTile(Unit unit) {
+        unit.Tile.HighlightAttackableTile();
+    }
 
 
 }
