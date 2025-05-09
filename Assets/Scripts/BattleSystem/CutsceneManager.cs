@@ -8,6 +8,9 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] GameObject movingBox;
     [SerializeField] GameObject enemySpawn;
     [SerializeField] GameObject playerSpawn;
+    [SerializeField] SpriteRenderer CutscenePlayerSprite;
+    [SerializeField] SpriteRenderer CutsceneEnemySprite;
+    [SerializeField] Animator CutsceneAnim;
     Unit player;
     Unit target;
     GameObject camera;
@@ -37,7 +40,12 @@ public class CutsceneManager : MonoBehaviour
         //target.transform.position = enemySpawn.transform.position;
         //player.transform.position = playerSpawn.transform.position;
 
+        SpriteRenderer PlayerSprite = player.gameObject.GetComponent<SpriteRenderer>();
+        SpriteRenderer EnemySprite = target.gameObject.GetComponent<SpriteRenderer>();
+        CutscenePlayerSprite.sprite = PlayerSprite.sprite;
+        CutsceneEnemySprite.sprite = EnemySprite.sprite;
         moving = true;
+        CutsceneAnim.SetTrigger("Attack");
     }
 
     private void Start()
@@ -59,7 +67,7 @@ public class CutsceneManager : MonoBehaviour
         {
             Debug.Log("MOVING");
             ticks += Time.deltaTime;
-            if (ticks < 1.0f)
+            if (ticks < 5.0f)
             {
                 movingBox.transform.Translate(Vector3.right * speed * Time.deltaTime);
 
