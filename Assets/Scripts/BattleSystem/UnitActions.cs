@@ -17,6 +17,12 @@ public static class UnitActions {
 
     public const string UNIT = "UNIT";
 
+    //cutscene
+    public const string currUNIT = "CURRUNIT";
+    public const string TARGET = "TARGET";
+    public const string CAMERA = "CAMERA";
+
+
     ///////////////////////////////////////////////////////
     public static void SetCurrentTile(Tile Tile, float y) {
         currentTile = Tile;
@@ -125,7 +131,19 @@ public static class UnitActions {
         UnitActionManager.Instance.OnAttack = false;
         UnitActionManager.Instance.hadAttacked = true;
 
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+        //JAIRO WORKING HERE
+        Parameters param = new Parameters();
+        param.PutExtra(currUNIT, currentUnit);
+        param.PutExtra(TARGET, target);
+        param.PutGameObjectExtra(CAMERA, Camera.main.gameObject);
+
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY, param); //cutscene call
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY); // camera takes one with params
+
+
+
+
+        //EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
     }
 
     public static void ShowInRangeHPBar(int i) {

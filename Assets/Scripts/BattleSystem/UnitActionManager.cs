@@ -71,6 +71,8 @@ public class UnitActionManager : MonoBehaviour
     {
         vignette = Camera.main.GetComponentInChildren<PostProcessVolume>();
         vignette.weight = 0.0f;
+     
+
     }
     public void EnemyUnitAction()
     {
