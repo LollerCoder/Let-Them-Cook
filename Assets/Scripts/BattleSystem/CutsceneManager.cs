@@ -29,11 +29,13 @@ public class CutsceneManager : MonoBehaviour
         target = param.GetUnitExtra(TARGET);
         camera = param.GetGameObjectExtra(CAMERA);
 
-        playerOriginalpos = player.transform.position;
-        targetOriginalpos = target.transform.position;
+        //player.gameObject.GetComponent<SpriteRenderer>().sprite;
 
-        target.transform.position = enemySpawn.transform.position;
-        player.transform.position = playerSpawn.transform.position;
+        //playerOriginalpos = player.transform.position;
+        //targetOriginalpos = target.transform.position;
+
+        //target.transform.position = enemySpawn.transform.position;
+        //player.transform.position = playerSpawn.transform.position;
 
         moving = true;
     }
@@ -47,8 +49,8 @@ public class CutsceneManager : MonoBehaviour
 
     private void CutsceneEnd()
     {
-        player.transform.position = playerOriginalpos;
-        target.transform.position = targetOriginalpos;
+        //player.transform.position = playerOriginalpos;
+        //target.transform.position = targetOriginalpos;
     }
 
     private void Update()
