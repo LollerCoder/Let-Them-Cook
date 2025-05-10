@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerWASDMovement : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] float runSpeed = 10f;
+    [SerializeField] private float runSpeed = 10f;
 
     [Header("References")]
     Animator myAnimator;
@@ -74,5 +74,10 @@ public class PlayerWASDMovement : MonoBehaviour
         //animating
         if (moveInput != Vector2.zero) myAnimator.SetBool("Walk", true);
         else myAnimator.SetBool("Walk", false);
+    }
+
+    public void SetRunSpeed(float _speed)
+    {
+        runSpeed = _speed;
     }
 }
