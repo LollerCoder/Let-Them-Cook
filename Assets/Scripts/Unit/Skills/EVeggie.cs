@@ -4,5 +4,7 @@ public enum EVeggie {
     CHILI,
     CABBAGE,
     POTATO,
-    GARLIC
+    GARLIC,
+    PUMPKIN,
+    TOMATO
 }

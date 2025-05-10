@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour {
 
@@ -36,6 +37,9 @@ public class BattleManager : MonoBehaviour {
                 BattleUI.Instance.EndScreen(EUnitType.Ally);
                 this.GameEnd = true;
                 this.CollectRemainingVeg();
+
+                /*Set the next level as unlocked*/
+                LevelManager.instance.updateMap(SceneManager.GetActiveScene().name);
                 return;
             }
         }

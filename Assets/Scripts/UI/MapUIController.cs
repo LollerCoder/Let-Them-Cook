@@ -6,14 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class MapUIController : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] Button lvl2;
     [SerializeField] Button lvl3;
+    // Start is called before the first frame update
     void Start()
     {
-        this.lvl3.interactable = false;
-        
+        /*Load Game here*/
+        GameScript.LoadGame();
     }
+
 
     // Update is called once per frame
     void Update()
