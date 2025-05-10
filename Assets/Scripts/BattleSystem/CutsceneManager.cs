@@ -27,7 +27,8 @@ public class CutsceneManager : MonoBehaviour
     bool moving = false;
     private void MOVE(Parameters param)
     {
-        
+        BattleUI.Instance.ToggleActionBox();
+        BattleUI.Instance.ToggleTurnOrderUI();
         player = param.GetUnitExtra(currUNIT);
         target = param.GetUnitExtra(TARGET);
         camera = param.GetGameObjectExtra(CAMERA);
@@ -59,6 +60,9 @@ public class CutsceneManager : MonoBehaviour
     {
         //player.transform.position = playerOriginalpos;
         //target.transform.position = targetOriginalpos;
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_END);
+        BattleUI.Instance.ToggleTurnOrderUI();
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
     }
 
     private void Update()
@@ -77,8 +81,7 @@ public class CutsceneManager : MonoBehaviour
                 ticks = 0.0f;
                 moving = false;
                 this.CutsceneEnd();
-                EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_END);
-                EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+                
                
 
             }

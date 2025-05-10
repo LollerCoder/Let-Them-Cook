@@ -1320,6 +1320,11 @@ MonoBehaviour:
     tilePrefab: {fileID: 0}
     tile: 0
   isWalkable: 0
+--- !u!1 &207946083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5114184375910117851, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+  m_PrefabInstance: {fileID: 794716827822140901}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &208626693
 GameObject:
   m_ObjectHideFlags: 0
@@ -18512,7 +18517,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055038846}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18951,6 +18956,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 377036228}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2146715685
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207946083}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 51a0ddd17fdae0345be887536ab26b11, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &85490013874568567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19435,6 +19462,9 @@ PrefabInstance:
       insertIndex: 0
       addedObject: {fileID: 883399656}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5114184375910117851, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2146715685}
     - targetCorrespondingSourceObject: {fileID: 3413517092561654114, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       insertIndex: -1
       addedObject: {fileID: 794716827822140904}

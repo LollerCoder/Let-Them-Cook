@@ -58,6 +58,8 @@ public class BattleUI : MonoBehaviour {
     private bool gameEndAllyWin = true; 
 
     private bool actionShow = false;
+
+    private bool turnOrderShow = true;
     public bool ActionBoxState {
         get { return this.actionShow; }
     }
@@ -100,6 +102,12 @@ public class BattleUI : MonoBehaviour {
     public void ToggleEatOrPickUpButtons() {
         this.eatPickUpShow = !this.eatPickUpShow;
         this.EatPickUpButtons.SetBool("Show", this.eatPickUpShow);
+    }
+
+    public void ToggleTurnOrderUI()
+    {
+        this.turnOrderShow = !this.turnOrderShow;
+        this.GetComponent<Animator>().SetBool("Show", this.turnOrderShow);
     }
 
     public void EatButton() {
