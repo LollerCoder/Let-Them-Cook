@@ -30,7 +30,6 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("Map updating");
 
-
         /*calling upon the list of levels*/
         // for (int i = 0; i < GameScript.parent.transform.childCount;i++)
         // {
