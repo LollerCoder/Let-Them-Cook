@@ -39,24 +39,46 @@ public class PlayerWASDMovement : MonoBehaviour
     {
         Vector2 inputs = Vector2.zero;
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && !CheckWall(Vector3.right))
         {
             inputs += Vector2.right;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && !CheckWall(Vector3.left))
         {
             inputs += Vector2.left;
         }
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && !CheckWall(Vector3.forward))
         {
             inputs += Vector2.up;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && !CheckWall(Vector3.back))
         {
             inputs += Vector2.down;
         }
 
         return inputs;
+    }
+
+    private bool CheckWall(Vector3 dir)
+    {
+        RaycastHit hit;
+        Vector3 originPoint = transform.position;
+        //Debug.DrawRay(originPoint, dir, Color.red, 15f);
+        Physics.Raycast(originPoint, dir, out hit, 5f);
+
+        if (hit.collider == null) return false;
+
+        //Debug.Log(hit);
+
+        if (hit.collider.tag == "Border")
+        {
+            //Debug.Log("Found wall");
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private void Walk()
