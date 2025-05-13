@@ -40,8 +40,6 @@ public class BattleManager : MonoBehaviour {
 
                 /*Set the next level as unlocked*/
                 LevelManager.instance.updateMap(SceneManager.GetActiveScene().name);
-
-           
                 return;
             }
         }
@@ -73,7 +71,7 @@ public class BattleManager : MonoBehaviour {
     }
 
     private void HandleUnitLevelUp() {
-        RewardSystem.Instance.gainRewards(2, this.numEnemies, this.numAllies, this.currAllies, UnitActionManager.Instance.UnitOrder);
+        //RewardSystem.Instance.gainRewards(2, this.numEnemies, this.numAllies, this.currAllies, UnitActionManager.Instance.UnitOrder);
     }
 
     private void UpdateInventory(Parameters param) {
@@ -90,6 +88,8 @@ public class BattleManager : MonoBehaviour {
     }
 
     public void Start() {
+
+        
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.HANDLE_GAIN_REWARDS, this.HandleUnitLevelUp);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CHECK_END_CONDITION, this.EndCondition);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.ON_START, this.SetUnitNums);

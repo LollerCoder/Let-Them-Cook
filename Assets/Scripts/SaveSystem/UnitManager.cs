@@ -3,26 +3,29 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
+/*to be added in the Allies parent*/
 public class UnitManager : MonoBehaviour
 {
     private GameObject unitParent;
-    public GameObject unitTemplate;
+    public GameObject carrotTemplate /*will add more templates when assets are done*/;
     // Start is called before the first frame update
     void Start()
     {
         unitParent = this.gameObject;
-
-        //manageParty();
+        manageParty();
     }
 
     public void manageParty()
     {
-        //how mamy levels has the player accomplished?
-        //int levelNum = GameScript.parent.transform.childCount;
+        //what level number is the player at right now?
+        int levelNum = int.Parse(SceneManager.GetActiveScene().name.Split("-")[1]);
         
 
-        // if (levelNum >= 1) addUnit("Carrot", new Vector3(3,0.5f,3));
+        if (levelNum >= 1) addUnit("Carrot", carrotTemplate, new Vector3(3,0.5f,4));
+
+        /*Will uncomment when we have the assets for them*/
         // else if (levelNum >= 3) addUnit("Chili", new Vector3(3,0.5f,4));
         // else if (levelNum >= 5) addUnit("Cabbage", new Vector3(2,0.5f,5));
         // else if (levelNum >= 7) addUnit("Potato", new Vector3(3,0.5f,5) );
@@ -31,18 +34,18 @@ public class UnitManager : MonoBehaviour
         // else if (levelNum >= 13) addUnit("Tomato", new Vector3(5,0.5f,4));
     }
 
-    public void addUnit(string name, Vector3 position)
+    public void addUnit(string name, GameObject template, Vector3 position)
     {
-        GameObject unit = Instantiate(unitTemplate, position, Quaternion.identity, unitParent.transform);
+        GameObject unit = Instantiate(template, position, Quaternion.identity, unitParent.transform);
 
-        //Add TRANSFORM
-        //SPRITE RENDERER
+        unit.name = name;
 
-        //ANIMATOR
-
-        //NAME SCRIPT
+        unit.SetActive(true);
 
         //Add it to parent
-        //unit.transform.parent = unitParent.transform;
+        unit.transform.parent = unitParent.transform;
+
+        //Add unit in the UnitList
+        UnitActionManager.Instance.UnitList.Add(unit.GetComponent<Unit>());
     }
 }
