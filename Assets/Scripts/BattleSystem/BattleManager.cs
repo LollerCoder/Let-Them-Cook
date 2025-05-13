@@ -40,6 +40,8 @@ public class BattleManager : MonoBehaviour {
 
                 /*Set the next level as unlocked*/
                 LevelManager.instance.updateMap(SceneManager.GetActiveScene().name);
+
+           
                 return;
             }
         }

@@ -11,16 +11,17 @@ using UnityEngine.SceneManagement;
 //Tutorial : https://www.youtube.com/watch?v=vUEJGYg7FsQ
 public class GameScript : MonoBehaviour
 {
-    public bool bComplete = false;
-    public static GameObject parent;
+    //public bool bComplete = false;
+    public GameObject parent;
 
-    public static List<GameScript> levelList = new List<GameScript>();
+    public static List<Button> levelList = new List<Button>();
 
 
 
     void Start()
     {
-        parent = GetComponentInParent<GameObject>();
+        parent = this.gameObject;
+
         //this.lvl3.interactable = false;
 
    
@@ -28,7 +29,7 @@ public class GameScript : MonoBehaviour
 
     void Update()
     {
-        if (bComplete) this.gameObject.GetComponent<Button>().interactable = true;
+        //if (bComplete) this.gameObject.GetComponent<Button>().interactable = true;
     }
 
     public void SaveGame()
@@ -37,12 +38,12 @@ public class GameScript : MonoBehaviour
         Debug.Log(this.gameObject.name + " saved");
     }
     
-    public static void LoadGame()
+    public void LoadGame()
     {
         for (int i = 0; i < parent.transform.childCount; i++)
         {
 
-            levelList.Add(parent.transform.GetChild(i).gameObject.GetComponent<GameScript>());
+            levelList.Add(parent.transform.GetChild(i).gameObject.GetComponent<Button>());
             Debug.Log(parent.transform.GetChild(i));
          }
          
@@ -51,7 +52,8 @@ public class GameScript : MonoBehaviour
          //load it back here
         for (int i = 0; i < parent.transform.childCount;i++)
         {
-            levelList[i].bComplete = data.finishedLvlList[i];
+            //levelList[i].bComplete = data.finishedLvlList[i];
+            levelList[i].interactable = data.finishedLvlList[i];
         }
         
     }

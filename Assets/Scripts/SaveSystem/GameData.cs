@@ -23,10 +23,10 @@ public class GameData
         finishedLvlList = new bool[3]; 
 
         //make a list inside the loop
-        for (int i = 0; i < GameScript.parent.transform.childCount;i++)
+        for (int i = 0; i < clickable.parent.transform.childCount;i++)
         {
-            Debug.Log(GameScript.parent.transform.GetChild(i) +  "   "  +  GameScript.parent.transform.GetChild(i).gameObject.GetComponent<GameScript>().bComplete);
-            finishedLvlList[i] = GameScript.parent.transform.GetChild(i).gameObject.GetComponent<GameScript>().bComplete;
+            Debug.Log(clickable.parent.transform.GetChild(i) +  "   "  +  clickable.parent.transform.GetChild(i).gameObject.GetComponent<Button>().interactable);
+            finishedLvlList[i] = clickable.parent.transform.GetChild(i).gameObject.GetComponent<Button>().interactable;
         }
         Debug.Log("Overwrite done");
         
