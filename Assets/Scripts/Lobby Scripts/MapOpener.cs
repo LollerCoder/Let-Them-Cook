@@ -94,6 +94,7 @@ public class MapOpener : MonoBehaviour
 
         GetComponent<BoxCollider>().enabled = !mapToggled;
         playerRef.GetComponent<SpriteRenderer>().enabled = !mapToggled;
+        playerRef.GetComponent<Collider>().enabled = !mapToggled;
         mapObj.SetActive(mapToggled);
     }
 }
