@@ -13,14 +13,24 @@ public class MapOpener : MonoBehaviour
     private Vector3 cameraTargetPos;
 
     private bool isPlayerIn = false;
+
+    [Header("Map")]
+    [SerializeField] private GameObject mapObj;
     private bool mapToggled = false;
 
     private GameObject playerRef;
+
+    private LevelSelector[] levelSelectors;
 
     // Start is called before the first frame update
     void Start()
     {
         cameraTargetPos = camerajeraObjRef.transform.position;
+        mapObj.SetActive(false);
+
+        //toggling the levels
+        levelSelectors = mapObj.GetComponentsInChildren<LevelSelector>();
+        levelSelectors[0].ToggleLevel(true);
     }
 
     // Update is called once per frame
@@ -56,22 +66,26 @@ public class MapOpener : MonoBehaviour
 
     private void ToggleMap()
     {
-        //not yet toggled on
+        //Toggle on
         if (!mapToggled)
         {
-            Debug.Log("Going to map");
+            //Debug.Log("Going to map");
             mapToggled = true;
             cameraTargetPos = cameraMapPos;
             playerRef.GetComponent<PlayerWASDMovement>().SetRunSpeed(0.0f);
-            playerRef.GetComponent<SpriteRenderer>().enabled = false;
         }
+
+        //Toggle off
         else
         {
-            Debug.Log("Back to player");
+            //Debug.Log("Back to player");
             mapToggled = false;
             cameraTargetPos = playerCamMarker.transform.position;
             playerRef.GetComponent<PlayerWASDMovement>().SetRunSpeed(10.0f);
-            playerRef.GetComponent<SpriteRenderer>().enabled = true;
         }
+
+        GetComponent<BoxCollider>().enabled = !mapToggled;
+        playerRef.GetComponent<SpriteRenderer>().enabled = !mapToggled;
+        mapObj.SetActive(mapToggled);
     }
 }
