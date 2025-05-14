@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelSelector : MonoBehaviour
 {
     [Header("Level Info")]
-    [SerializeField] private bool canLoad = false;
+    public bool canLoad = false;
     [SerializeField] private string sceneToLoad;
 
     [Header("Material")]

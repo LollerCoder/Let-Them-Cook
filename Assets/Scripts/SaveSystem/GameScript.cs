@@ -14,14 +14,14 @@ public class GameScript : MonoBehaviour
     //public bool bComplete = false;
     public GameObject parent;
 
-    public static List<Button> levelList = new List<Button>();
+    public static List<LevelSelector> levelList = new List<LevelSelector>();
 
 
 
     void Start()
     {
         parent = this.gameObject;
-
+        LoadGame();
         //this.lvl3.interactable = false;
 
    
@@ -43,8 +43,8 @@ public class GameScript : MonoBehaviour
         for (int i = 0; i < parent.transform.childCount; i++)
         {
 
-            levelList.Add(parent.transform.GetChild(i).gameObject.GetComponent<Button>());
-            Debug.Log(parent.transform.GetChild(i));
+            levelList.Add(parent.transform.GetChild(i).gameObject.GetComponent<LevelSelector>());
+            //Debug.Log(parent.transform.GetChild(i));
          }
          
         GameData data = FileSystem.LoadProgress();
@@ -53,7 +53,8 @@ public class GameScript : MonoBehaviour
         for (int i = 0; i < parent.transform.childCount;i++)
         {
             //levelList[i].bComplete = data.finishedLvlList[i];
-            levelList[i].interactable = data.finishedLvlList[i];
+            levelList[i].canLoad = data.finishedLvlList[i];
+            Debug.Log(parent.transform.GetChild(i).name + "    "  + levelList[i].canLoad);
         }
         
     }
