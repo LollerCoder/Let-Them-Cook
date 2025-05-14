@@ -20048,6 +20048,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1533642186}
+    - target: {fileID: 7819675680523207393, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8287271111585280180, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -20110,7 +20114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99365efd4ca5cf243806598f1e3a95e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _screenName: Map
+  _screenName: Lobby
 --- !u!114 &810046040506243574
 MonoBehaviour:
   m_ObjectHideFlags: 0
