@@ -31,6 +31,7 @@ public class MapOpener : MonoBehaviour
         //toggling the levels
         levelSelectors = mapObj.GetComponentsInChildren<LevelSelector>();
         levelSelectors[0].ToggleLevel(true);
+        levelSelectors[1].ToggleLevel(true);
 
         //load level data (outline code)
         /*
