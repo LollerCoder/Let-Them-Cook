@@ -72,7 +72,7 @@ namespace EnemyAI
                 case 1:
                     {
                         Debug.Log("Enemy Agent Attacking!");
-                        this._attackAI.OnAttack(this.GetClosestAllyUnit());
+                        this._attackAI.OnAttack(this.GetClosestAllyUnit(), this._CurrentEnemyUnit);
                         break;
                     }
                 case 2:
@@ -102,6 +102,7 @@ namespace EnemyAI
             if (inRangeTiles.Contains(target.Tile))
             {
                 //Take action
+                Debug.Log("Taking action!");
                 this.TakeAction();
             }
             else
