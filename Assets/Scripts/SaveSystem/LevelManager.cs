@@ -37,8 +37,8 @@ public class LevelManager : MonoBehaviour
         {
             if (parent.transform.GetChild(i).gameObject.name == sceneName) 
             {
-                parent.transform.GetChild(i).gameObject.GetComponent<Button>().interactable = true;
-                parent.transform.GetChild(i + 1).gameObject.GetComponent<Button>().interactable = true;
+                //parent.transform.GetChild(i + 1).gameObject.GetComponent<LevelSelector>().canLoad = true;
+                //Debug.Log( parent.transform.GetChild(i + 1).gameObject.name + "  is now saved");
 
                 /*save game here*/
                 parent.gameObject.GetComponent<GameScript>().SaveGame();

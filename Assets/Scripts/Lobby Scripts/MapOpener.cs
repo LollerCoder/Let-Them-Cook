@@ -28,9 +28,7 @@ public class MapOpener : MonoBehaviour
         cameraTargetPos = camerajeraObjRef.transform.position;
         mapObj.SetActive(false);
 
-        //toggling the levels
-        levelSelectors = mapObj.GetComponentsInChildren<LevelSelector>();
-        levelSelectors[0].ToggleLevel(true);
+    
 
         //load level data (outline code)
         /*
@@ -39,6 +37,24 @@ public class MapOpener : MonoBehaviour
             levelSelectors[i].ToggleLevel(levelData[i])
         }
          */
+    }
+
+    void Awake()
+    {
+        updateToggles();
+    }
+
+    private void updateToggles()
+    {
+        Debug.Log("MAP OPENER");
+          //toggling the levels
+        levelSelectors = mapObj.GetComponentsInChildren<LevelSelector>();
+        
+
+        for (int i = 0; i < mapObj.transform.childCount; i++)
+        {
+            if (levelSelectors[i].canLoad || i == 0) levelSelectors[i].ToggleLevel(true);
+        }
     }
 
     // Update is called once per frame

@@ -1403,8 +1403,16 @@ PrefabInstance:
       value: Level-1
       objectReference: {fileID: 0}
     - target: {fileID: 5396324965939318960, guid: 384f33a790f74444dad68b45480f5a92, type: 3}
+      propertyPath: canLoad
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5396324965939318960, guid: 384f33a790f74444dad68b45480f5a92, type: 3}
       propertyPath: sceneToLoad
       value: Level-3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182350132109428886, guid: 384f33a790f74444dad68b45480f5a92, type: 3}
+      propertyPath: canLoad
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9177399462966862763, guid: 384f33a790f74444dad68b45480f5a92, type: 3}
       propertyPath: m_LocalPosition.x
