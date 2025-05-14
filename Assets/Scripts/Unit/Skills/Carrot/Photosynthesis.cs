@@ -12,11 +12,16 @@ public class Photosynthesis : Skill
 
         //for skill progressions
         this.cost = 15;
+        this.skillRange = 1;
     }
 
     public override void SkillAction(Unit target, Unit origin)
     {
             origin.gainHealth(10,target);
             PopUpManager.Instance.addPopUp(this.skillName + " 10 HP", target.transform);
-    } 
+    }
+
+    public override void HighlightTile(Unit unit) {
+        unit.Tile.HighlightHealableTile();
+    }
 }

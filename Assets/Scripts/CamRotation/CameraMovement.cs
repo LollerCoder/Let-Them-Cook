@@ -17,12 +17,18 @@ public class CameraMovement : MonoBehaviour
 
     private bool reset = false;
     private Vector3 targetPosition;
+
+    private Vector3 previousCamPos;
+    private Quaternion previousCamRot;
+
     
     void Start()
     {
         cam = Camera.main;
         EventBroadcaster.Instance.AddObserver(EventNames.BattleCamera_Events.CURRENT_FOCUS, this.ResetPosition);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleCamera_Events.ENEMY_FOCUS, this.EnemyPosition);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_PLAY, this.battleCutsceneCamMove);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_END, this.battleCutsceneReset);
     }
 
     // Update is called once per frame
@@ -163,6 +169,21 @@ public class CameraMovement : MonoBehaviour
                 this.cam.transform.Translate(right * speed, Space.World);
             }
         }
+    }
+
+    private void battleCutsceneCamMove()
+    {
+        GameObject battleCutscene = GameObject.FindWithTag("BattleCutscene");
+        previousCamPos = cam.transform.position;
+        previousCamRot = cam.transform.rotation;
+        cam.gameObject.transform.position = battleCutscene.transform.position;
+        cam.gameObject.transform.rotation = battleCutscene.transform.rotation;
+    }
+
+    private void battleCutsceneReset()
+    {
+        cam.gameObject.transform.position = previousCamPos;
+        cam.gameObject.transform.rotation = previousCamRot;
     }
 
 }

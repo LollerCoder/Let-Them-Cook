@@ -71,6 +71,8 @@ public class UnitActionManager : MonoBehaviour
     {
         vignette = Camera.main.GetComponentInChildren<PostProcessVolume>();
         vignette.weight = 0.0f;
+     
+
     }
     public void EnemyUnitAction()
     {
@@ -181,7 +183,7 @@ public class UnitActionManager : MonoBehaviour
         {
             if (this.OnAttack && !this.hadAttacked)
             {
-                UnitAttackActions.ShowUnitsInSkillRange(this.numAttack);
+                UnitAttackActions.ShowUnitsInSkillRange(this.numAttack, this.GetFirstUnit());
             }
             else if (this.OnMove && !this.hadMoved)
             {
@@ -234,7 +236,6 @@ public class UnitActionManager : MonoBehaviour
         }
         else
         {
-            //Debug.Log("hi");
             bEnemy = false;
             BattleUI.Instance.ToggleActionBox();
             

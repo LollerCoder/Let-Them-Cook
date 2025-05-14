@@ -58,6 +58,8 @@ public class BattleUI : MonoBehaviour {
     private bool gameEndAllyWin = true; 
 
     private bool actionShow = false;
+
+    private bool turnOrderShow = true;
     public bool ActionBoxState {
         get { return this.actionShow; }
     }
@@ -87,14 +89,25 @@ public class BattleUI : MonoBehaviour {
         //EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX, this.ToggleActionBox);
         
     }
+
+    public void ToggleWaitButton(bool flag) {
+        this.waitButton.interactable = flag;
+    }
     public void ToggleActionBox() {
         this.actionShow = !this.actionShow;
         this.AttackBox.GetComponent<Animator>().SetBool("Show", this.actionShow);
+        this.ToggleWaitButton(this.actionShow);
     }
 
     public void ToggleEatOrPickUpButtons() {
         this.eatPickUpShow = !this.eatPickUpShow;
         this.EatPickUpButtons.SetBool("Show", this.eatPickUpShow);
+    }
+
+    public void ToggleTurnOrderUI()
+    {
+        this.turnOrderShow = !this.turnOrderShow;
+        this.GetComponent<Animator>().SetBool("Show", this.turnOrderShow);
     }
 
     public void EatButton() {
@@ -239,6 +252,10 @@ public class BattleUI : MonoBehaviour {
     }
 
     private void AttackState(int num) {
+        if (UnitActionManager.Instance.numAttack > 0) { // reset skill highlighted tiles
+            UnitAttackActions.UnHighlightUnitTiles(UnitAttackActions.Attackables[UnitActionManager.Instance.numAttack]);
+        }
+
         UnitAttackActions.EnemyListed = false;
         if(num < 0) {
             return;

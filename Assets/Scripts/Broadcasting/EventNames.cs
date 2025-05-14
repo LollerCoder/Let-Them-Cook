@@ -73,6 +73,8 @@ public class EventNames {
         public const string ON_START = "ON_START";
 		public const string NEXT_TURN = "NEXT_TURN";
 		public const string UPDATE_INVENTORY = "UPDATE_INVENTORY";
+		public const string CUTSCENE_PLAY = "CUTSCENE_PLAY";
+        public const string CUTSCENE_END = "CUTSCENE_END";
     }
 
 

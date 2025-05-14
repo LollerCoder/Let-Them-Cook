@@ -40,7 +40,7 @@ public class Tile : MonoBehaviour{
         this._mat.color = Color.red;
     }
 
-    public void HighlightEatableTile() {
+    public void HighlightHealableTile() {
         this._mat.color = Color.green;
     }
 

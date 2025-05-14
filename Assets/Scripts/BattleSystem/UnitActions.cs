@@ -17,6 +17,12 @@ public static class UnitActions {
 
     public const string UNIT = "UNIT";
 
+    //cutscene
+    public const string currUNIT = "CURRUNIT";
+    public const string TARGET = "TARGET";
+    public const string CAMERA = "CAMERA";
+
+
     ///////////////////////////////////////////////////////
     public static void SetCurrentTile(Tile Tile, float y) {
         currentTile = Tile;
@@ -125,7 +131,19 @@ public static class UnitActions {
         UnitActionManager.Instance.OnAttack = false;
         UnitActionManager.Instance.hadAttacked = true;
 
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+        //JAIRO WORKING HERE
+        Parameters param = new Parameters();
+        param.PutExtra(currUNIT, currentUnit);
+        param.PutExtra(TARGET, target);
+        param.PutGameObjectExtra(CAMERA, Camera.main.gameObject);
+
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY, param); //cutscene call
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY); // camera takes one with params
+
+
+
+
+        //EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
     }
 
     public static void ShowInRangeHPBar(int i) {
@@ -202,7 +220,7 @@ public static class UnitActions {
             UnitActionManager.Instance.Moving = false;
             UnitActionManager.Instance.OnMove = false;
             currentUnit.OnMovement(false);
-
+            BattleUI.Instance.ToggleWaitButton(true);
             if(currentUnit.Type == EUnitType.Ally && !CheckVegetableOnTile(currentUnit)) {
                 //BattleUI.Instance.ToggleActionBox();
                 //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
@@ -266,6 +284,8 @@ public static class UnitActions {
                 stepFlag = true;
                 unit.OnMovement(true);
                 UnitActionManager.Instance.Moving = true;
+                BattleUI.Instance.ToggleWaitButton(false);
+
                 /*Special Tile Detection*/
                 if (goalTile.gameObject.tag == "SpecialTile") {
                     Debug.Log("Special Tile detected!" + goalTile.gameObject.name);

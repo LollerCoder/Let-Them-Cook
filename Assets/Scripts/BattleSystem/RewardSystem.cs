@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class RewardSystem : MonoBehaviour
 {
     private UnitStats stats;
-    private SaveFile data;
+    //private SaveFile data;
     /*Save Game Components*/
     public static RewardSystem Instance;
     private void Awake()
@@ -87,10 +87,10 @@ public class RewardSystem : MonoBehaviour
         
         //Autosaves the games progress
 
-        data.cabbageCount = InventoryManager.Instance.getItemAmount(EIngredientType.CABBAGE);
-        data.carrotCount = InventoryManager.Instance.getItemAmount(EIngredientType.CARROT);
-        data.chiliCount = InventoryManager.Instance.getItemAmount(EIngredientType.CHILI);
-        data.potatoCount = InventoryManager.Instance.getItemAmount(EIngredientType.POTATO);
+        // data.cabbageCount = InventoryManager.Instance.getItemAmount(EIngredientType.CABBAGE);
+        // data.carrotCount = InventoryManager.Instance.getItemAmount(EIngredientType.CARROT);
+        // data.chiliCount = InventoryManager.Instance.getItemAmount(EIngredientType.CHILI);
+        // data.potatoCount = InventoryManager.Instance.getItemAmount(EIngredientType.POTATO);
         //AssetDatabase.CreateAsset(data, "Assets/Scripts/BattleSystem/Sample/New Save File.asset");
     }
 }

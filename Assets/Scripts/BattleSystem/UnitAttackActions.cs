@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UnitAttackActions : MonoBehaviour {
@@ -8,14 +9,18 @@ public class UnitAttackActions : MonoBehaviour {
     public static bool EnemyListed = false;
     private static int attackablesIndex = 0;
 
-    public static void ShowUnitsInSkillRange(int i) {
+    public static void ShowUnitsInSkillRange(int i, Unit unit) {
+        Skill skill = SkillDatabase.Instance.findSkill(unit.SKILLLIST[i]);
+
         if (Attackables[i].Count > 0) {
             UnitActions.ShowInRangeHPBar(i);
         }
 
-        foreach(Unit unit in Attackables[i]) {
-            unit.Tile.HighlightAttackableTile();
+        foreach (Unit _unit in Attackables[i]) { // highlights the tiles of the units 
+            skill.HighlightTile(_unit);
         }
+
+
     }
 
     public static void CheckSkillRange(Unit unit) { // OVER HERE IS WHERE YOU'LL DO HIGHLIGHT?
@@ -23,10 +28,9 @@ public class UnitAttackActions : MonoBehaviour {
         int i = 0;
         foreach (string uSkill in unit.SKILLLIST) {
             skill = SkillDatabase.Instance.findSkill(uSkill);
-
-            if (skill != null){ 
-                Range.GetRange(unit, unit.BasicRange, "Attack"); // change this to base on the actual range
-                UpdateAttackableUnits(i);
+           
+            if (skill != null){
+                GetUnitsInRange(skill, unit, i);
             }
             i++;
         }
@@ -46,6 +50,16 @@ public class UnitAttackActions : MonoBehaviour {
                 if (unit.Tile == tile && unit.Type != EUnitType.Ally) {
                     Attackables[i].Add(unit);
                     //unit.InRange = true;
+                }
+            }
+        }
+    }
+
+    public static void UpdateSelectableAllies(int i) {
+        foreach (Unit unit in UnitActionManager.Instance.UnitOrder) {
+            foreach (Tile tile in Range.InRangeTiles) {
+                if (unit.Tile == tile && unit.Type == EUnitType.Ally) {
+                    Attackables[i].Add(unit);
                 }
             }
         }
@@ -73,12 +87,16 @@ public class UnitAttackActions : MonoBehaviour {
 
     public static void ResetAttackables() {
         foreach (List<Unit> attackables in Attackables) {
-            foreach (Unit unit in attackables) {
-                //unit.InRange = false;
-                unit.Tile.UnHighlightTile();
-            }
+            UnHighlightUnitTiles(attackables);
             attackables.Clear();
             attackablesIndex = 0;
+        }
+    }
+
+    public static void UnHighlightUnitTiles(List<Unit> attackables) {
+        foreach (Unit unit in attackables) {
+            //unit.InRange = false;
+            unit.Tile.UnHighlightTile();
         }
     }
 
@@ -100,5 +118,20 @@ public class UnitAttackActions : MonoBehaviour {
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.ENEMY_FOCUS, param);
     }
+    private static void GetUnitsInRange(Skill skill, Unit unit, int index) { // Function that determines the skill type to pick the appropriate range and target selection
+        
+        Range.GetRange(unit, skill.SkillRange, skill.SKILLTYPE.ToString()); // change this to base on the actual range
 
+        switch (skill.SKILLTYPE) { 
+            case ESkillType.BASIC:
+                UpdateAttackableUnits(index);
+                break;
+            case ESkillType.HEAL:
+                UpdateSelectableAllies(index);
+                break;
+            default: break;
+        }
+    }
 }
+
+

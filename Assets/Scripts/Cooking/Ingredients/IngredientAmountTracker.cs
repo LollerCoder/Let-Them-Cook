@@ -19,7 +19,7 @@ public class IngredientAmountTracker : MonoBehaviour
     private Recipe recipeData;
     private Ingredient ingredientData;
 
-    private SaveFile data;
+    //private SaveFile data;
 
     private void UpdateCurrentAmount()
     {

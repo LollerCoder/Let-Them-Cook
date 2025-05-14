@@ -6,14 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class MapUIController : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] Button lvl2;
     [SerializeField] Button lvl3;
+    // Start is called before the first frame update
     void Start()
     {
-        this.lvl3.interactable = false;
-        
     }
+
 
     // Update is called once per frame
     void Update()
@@ -28,11 +27,18 @@ public class MapUIController : MonoBehaviour
 
     public void Lvl1ButtonClicked()
     {
-        SceneManager.LoadScene("TempBattleScene");
+        //SceneManager.LoadScene("TempBattleScene");
+        //SceneManager.LoadScene("Tutorial-1");
+        SceneManager.LoadScene("Level-1");
     }
 
     public void Lvl2ButtonClicked()
     {
-        //SceneManager.LoadScene("");
+        SceneManager.LoadScene("Level-2");
+    }
+
+     public void Lvl3ButtonClicked()
+    {
+        SceneManager.LoadScene("Level-3");
     }
 }
