@@ -24,7 +24,7 @@ public class GameScript : MonoBehaviour
 
     void Awake()
     {
-        LoadGame();
+        //LoadGame();
     }
 
     void Update()

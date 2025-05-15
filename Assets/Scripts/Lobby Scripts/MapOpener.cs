@@ -27,6 +27,7 @@ public class MapOpener : MonoBehaviour
     {
         cameraTargetPos = camerajeraObjRef.transform.position;
         mapObj.SetActive(false);
+        updateToggles();
 
     
 
@@ -41,7 +42,7 @@ public class MapOpener : MonoBehaviour
 
     void Awake()
     {
-        updateToggles();
+        
     }
 
     private void updateToggles()

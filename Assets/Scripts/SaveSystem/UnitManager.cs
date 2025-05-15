@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class UnitManager : MonoBehaviour
 {
     private GameObject unitParent;
-    public GameObject carrotTemplate /*will add more templates when assets are done*/;
+    public GameObject carrotTemplate, garlicTemplate /*will add more templates when assets are done*/;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,11 +25,14 @@ public class UnitManager : MonoBehaviour
 
         if (levelNum >= 1) addUnit("Carrot", carrotTemplate, new Vector3(3,0.5f,4));
 
+        /*for testing pruposes*/
+        if (levelNum >= 1) addUnit("Garlic", garlicTemplate, new Vector3(4,0.5f,4));
+
         /*Will uncomment when we have the assets for them*/
         // else if (levelNum >= 3) addUnit("Chili", new Vector3(3,0.5f,4));
         // else if (levelNum >= 5) addUnit("Cabbage", new Vector3(2,0.5f,5));
         // else if (levelNum >= 7) addUnit("Potato", new Vector3(3,0.5f,5) );
-        // else if (levelNum >= 9) addUnit("Garlic", new Vector3(4,0.5f,4));
+        //if (levelNum >= 9) addUnit("Garlic", new Vector3(4,0.5f,4));
         // else if (levelNum >= 11) addUnit("Pumpkin", new Vector3(5,0.5f,3));
         // else if (levelNum >= 13) addUnit("Tomato", new Vector3(5,0.5f,4));
     }

@@ -6,5 +6,6 @@ public enum EIngredientType
     CARROT,
     POTATO,
     CHILI,
-    CABBAGE
+    CABBAGE,
+    GARLIC
 }

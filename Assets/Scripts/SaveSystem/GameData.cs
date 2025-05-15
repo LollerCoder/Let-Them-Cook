@@ -25,9 +25,8 @@ public class GameData
         //make a list inside the loop
         for (int i = 0; i < clickable.parent.transform.childCount;i++)
         {
-           
-            finishedLvlList[i] = clickable.parent.transform.GetChild(i).gameObject.GetComponent<LevelSelector>().canLoad;
-             Debug.Log(clickable.parent.transform.GetChild(i) +  "   "  +  clickable.parent.transform.GetChild(i).gameObject.GetComponent<LevelSelector>().canLoad);
+            finishedLvlList[i] = clickable.parent.transform.GetChild(i).GetComponent<LevelSelector>().canLoad;
+            Debug.Log(clickable.parent.transform.GetChild(i) +  "   "  +  clickable.parent.transform.GetChild(i).GetComponent<LevelSelector>().canLoad);
         }
         Debug.Log("Overwrite done");
         
