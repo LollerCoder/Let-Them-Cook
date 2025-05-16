@@ -15,6 +15,7 @@ public class GameScript : MonoBehaviour
 
     public List<LevelSelector> levelList = new List<LevelSelector>();
 
+    public bool bData = false;
 
     void Start()
     {
@@ -46,13 +47,14 @@ public class GameScript : MonoBehaviour
          }
          
         GameData data = FileSystem.LoadProgress();
-        if (data == null) {Debug.Log("Save File not found"); return;}
+        if (data == null) { Debug.Log("Save File not found"); return; }
+        else bData = true;
 
          //load it back here
-        for (int i = 0; i < parent.transform.childCount;i++)
+        for (int i = 0; i < parent.transform.childCount; i++)
         {
             levelList[i].canLoad = data.finishedLvlList[i];
-            Debug.Log(parent.transform.GetChild(i).name + "    "  + levelList[i].canLoad);
+            Debug.Log(parent.transform.GetChild(i).name + "    " + levelList[i].canLoad);
         }
         
     }

@@ -22,11 +22,17 @@ public class MapOpener : MonoBehaviour
 
     private LevelSelector[] levelSelectors;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
         cameraTargetPos = camerajeraObjRef.transform.position;
+
+        mapObj.GetComponent<GameScript>().LoadGame();
+
         mapObj.SetActive(false);
+
         updateToggles();
 
     
@@ -40,21 +46,20 @@ public class MapOpener : MonoBehaviour
          */
     }
 
-    void Awake()
-    {
-        
-    }
-
     private void updateToggles()
     {
         Debug.Log("MAP OPENER");
           //toggling the levels
         levelSelectors = mapObj.GetComponentsInChildren<LevelSelector>();
-        
+
 
         for (int i = 0; i < mapObj.transform.childCount; i++)
         {
+
             if (levelSelectors[i].canLoad || i == 0) levelSelectors[i].ToggleLevel(true);
+
+            if (mapObj.GetComponent<GameScript>().bData == false) { Debug.Log("LOOP RETURN"); return; }
+           
         }
     }
 
