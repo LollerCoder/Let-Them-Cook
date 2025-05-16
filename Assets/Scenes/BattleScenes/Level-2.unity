@@ -5074,7 +5074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce29ff0ef3df5c45bbb85d9206be6be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 6428714788639732129, guid: f96ccc8b5974fef40b2011e2eda10209, type: 3}
+  parent: {fileID: 5312672484983110462, guid: 583ff1e82f474f64bafa522075192727, type: 3}
 --- !u!1 &529730351
 GameObject:
   m_ObjectHideFlags: 0
@@ -15803,7 +15803,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b53149a35afd0419ffc20d9a5bb810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitTemplate: {fileID: 1741617109}
+  carrotTemplate: {fileID: 0}
+  garlicTemplate: {fileID: 0}
 --- !u!1 &1669565681
 GameObject:
   m_ObjectHideFlags: 0
@@ -19995,6 +19996,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1533642186}
+    - target: {fileID: 7819675680523207393, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8287271111585280180, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -20057,7 +20062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99365efd4ca5cf243806598f1e3a95e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _screenName: Map
+  _screenName: Lobby
 --- !u!114 &810046040506243574
 MonoBehaviour:
   m_ObjectHideFlags: 0

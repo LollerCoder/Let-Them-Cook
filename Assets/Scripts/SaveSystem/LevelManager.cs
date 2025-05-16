@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance { get; private set; }
 
     public GameObject parent;
+    //public GameObject parent;
     private void Awake()
     {
         if (instance == null)
@@ -32,20 +34,14 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("Map updating");
 
-        /*calling upon the list of levels*/
-        for (int i = 0; i < parent.transform.childCount;i++)
-        {
-            if (parent.transform.GetChild(i).gameObject.name == sceneName) 
-            {
-                parent.transform.GetChild(i).gameObject.GetComponent<Button>().interactable = true;
-                parent.transform.GetChild(i + 1).gameObject.GetComponent<Button>().interactable = true;
+        int levelNum = int.Parse(SceneManager.GetActiveScene().name.Split("-")[1]);
 
-                /*save game here*/
-                parent.gameObject.GetComponent<GameScript>().SaveGame();
-                return;
+        parent.transform.GetChild(levelNum).gameObject.GetComponent<LevelSelector>().canLoad = true;
+        Debug.Log(parent.transform.GetChild(levelNum).gameObject.name + "  is now saved");
 
-            }
+        /*save game here*/
+        parent.gameObject.GetComponent<GameScript>().SaveGame();
 
-        }
+    
     }
 }

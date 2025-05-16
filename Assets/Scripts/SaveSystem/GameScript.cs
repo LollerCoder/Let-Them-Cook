@@ -11,25 +11,25 @@ using UnityEngine.SceneManagement;
 //Tutorial : https://www.youtube.com/watch?v=vUEJGYg7FsQ
 public class GameScript : MonoBehaviour
 {
-    //public bool bComplete = false;
     public GameObject parent;
 
-    public static List<Button> levelList = new List<Button>();
+    public List<LevelSelector> levelList = new List<LevelSelector>();
 
-
+    public bool bData = false;
 
     void Start()
     {
         parent = this.gameObject;
+       
+    }
 
-        //this.lvl3.interactable = false;
-
-   
+    void Awake()
+    {
+        //LoadGame();
     }
 
     void Update()
     {
-        //if (bComplete) this.gameObject.GetComponent<Button>().interactable = true;
     }
 
     public void SaveGame()
@@ -40,20 +40,21 @@ public class GameScript : MonoBehaviour
     
     public void LoadGame()
     {
+        Debug.Log("LOAD GAME");
         for (int i = 0; i < parent.transform.childCount; i++)
         {
-
-            levelList.Add(parent.transform.GetChild(i).gameObject.GetComponent<Button>());
-            Debug.Log(parent.transform.GetChild(i));
+            levelList.Add(parent.transform.GetChild(i).gameObject.GetComponent<LevelSelector>());
          }
          
         GameData data = FileSystem.LoadProgress();
+        if (data == null) { Debug.Log("Save File not found"); return; }
+        else bData = true;
 
          //load it back here
-        for (int i = 0; i < parent.transform.childCount;i++)
+        for (int i = 0; i < parent.transform.childCount; i++)
         {
-            //levelList[i].bComplete = data.finishedLvlList[i];
-            levelList[i].interactable = data.finishedLvlList[i];
+            levelList[i].canLoad = data.finishedLvlList[i];
+            Debug.Log(parent.transform.GetChild(i).name + "    " + levelList[i].canLoad);
         }
         
     }
