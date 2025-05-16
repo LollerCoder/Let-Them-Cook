@@ -9,6 +9,8 @@ public class IntroVidHandler : MonoBehaviour
     [SerializeField]
     private GameObject _vidBackground;
 
+    [SerializeField] private string nextScene = "Tutorial-1";
+
     VideoPlayer _vidPlayer;
 
     // Start is called before the first frame update
@@ -40,6 +42,6 @@ public class IntroVidHandler : MonoBehaviour
     private void OnVideoEnd(VideoPlayer source)
     {
         //Debug.Log("Video ended!");
-        SceneManager.LoadScene("Tutorial-1");
+        SceneManager.LoadScene(nextScene);
     }
 }

@@ -32,11 +32,10 @@ public class MapOpener : MonoBehaviour
         mapObj.GetComponent<GameScript>().LoadGame();
 
         mapObj.SetActive(false);
-
+        
         updateToggles();
 
-    
-
+  
         //load level data (outline code)
         /*
          for (int i = 0; i < levelData.count; i++)
