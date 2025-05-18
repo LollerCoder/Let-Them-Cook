@@ -47,7 +47,21 @@ namespace EnemyAI
                 UnitActionManager.Instance.hadMoved = true;
                 _currentUnit.OnMovement(true);
             }
-            
+
+            //making the sprite face the correct direction
+            SpriteRenderer cuSR =  _currentUnit.GetComponent<SpriteRenderer>();
+
+            if (_currentUnit.transform.position.x >= targetUnit.transform.position.x)
+            {
+                Debug.Log("looking left");
+                cuSR.flipX = true;
+            }
+            else
+            {
+                Debug.Log("looking right");
+                cuSR.flipX = false;
+            }
+
             //Debug.Log($"Current Unit: {_currentUnit} Target unit: {targetUnit} = Path length: {actual_path.Count}");
 
             return actual_path;
