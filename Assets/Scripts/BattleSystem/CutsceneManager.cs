@@ -21,6 +21,7 @@ public class CutsceneManager : MonoBehaviour
     public const string currUNIT = "CURRUNIT";
     public const string TARGET = "TARGET";
     public const string CAMERA = "CAMERA";
+    public const string SKILLANIM = "SKILLANIM";
 
     float ticks = 0.0f;
     float speed = 25.0f;
@@ -32,6 +33,10 @@ public class CutsceneManager : MonoBehaviour
         player = param.GetUnitExtra(currUNIT);
         target = param.GetUnitExtra(TARGET);
         camera = param.GetGameObjectExtra(CAMERA);
+        ESkillAnim skillAnim = param.GetSkillAnimExtra(SKILLANIM);
+
+        findSkillAnim(skillAnim);
+        
 
         //player.gameObject.GetComponent<SpriteRenderer>().sprite;
 
@@ -46,6 +51,7 @@ public class CutsceneManager : MonoBehaviour
         CutscenePlayerSprite.sprite = PlayerSprite.sprite;
         CutsceneEnemySprite.sprite = EnemySprite.sprite;
         moving = true;
+
         CutsceneAnim.SetTrigger("Attack");
     }
 
@@ -54,6 +60,31 @@ public class CutsceneManager : MonoBehaviour
 
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_PLAY, this.MOVE);
 
+    }
+
+    private void findSkillAnim(ESkillAnim skillAnim)
+    {
+        switch (skillAnim)
+        {
+            case ESkillAnim.NONE:
+                Debug.Log("No skill");
+                break;
+            case ESkillAnim.MELEE:
+                Debug.Log("MELEE");
+                break;
+            case ESkillAnim.AOEMELEE:
+                Debug.Log("Spinner");
+                break;
+            case ESkillAnim.RANGE:
+                Debug.Log("Snipe");
+                break;
+            case ESkillAnim.AOERANGE:
+                Debug.Log("Molotov");
+                break;
+            case ESkillAnim.HEAL:
+                Debug.Log("Boo Boo");
+                break;
+        }
     }
 
     private void CutsceneEnd()

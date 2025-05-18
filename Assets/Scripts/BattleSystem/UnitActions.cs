@@ -21,6 +21,7 @@ public static class UnitActions {
     public const string currUNIT = "CURRUNIT";
     public const string TARGET = "TARGET";
     public const string CAMERA = "CAMERA";
+    public const string SKILLANIM = "SKILLANIM";
 
 
     ///////////////////////////////////////////////////////
@@ -85,38 +86,44 @@ public static class UnitActions {
     ///////////////////////////////////////////////////////
     public static void ConfirmAttack(Unit target, int Skill) {
         Unit currentUnit = UnitActionManager.Instance.GetFirstUnit();
+        ESkillAnim skillAnim = ESkillAnim.NONE;
 
         switch (Skill) {
             case 0:
                 if (currentUnit.SKILLLIST[Skill] != null) {
-                    Debug.Log(currentUnit.SKILLLIST[Skill]);
-                    Debug.Log(target.Name);
+                    //Debug.Log(currentUnit.SKILLLIST[Skill]);
+                    //Debug.Log(target.Name);
                     SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
-
+                    
+                    skillAnim = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SKILLANIM;
                 }
                 break;
             case 1:
                 if (currentUnit.SKILLLIST[Skill] != null) {
                     SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
 
+                    skillAnim = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SKILLANIM;
                 }
                 break;
             case 2:
                 if (currentUnit.SKILLLIST[Skill] != null) {
                     SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
 
+                    skillAnim = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SKILLANIM;
                 }
                 break;
             case 3:
                 if (currentUnit.SKILLLIST[Skill] != null) {
                     SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
 
+                    skillAnim = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SKILLANIM;
                 }
                 break;
             case 4:
                 if (currentUnit.SKILLLIST[Skill] != null) {
                     SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
 
+                    skillAnim = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SKILLANIM;
                 }
                 break;
 
@@ -136,6 +143,7 @@ public static class UnitActions {
         param.PutExtra(currUNIT, currentUnit);
         param.PutExtra(TARGET, target);
         param.PutGameObjectExtra(CAMERA, Camera.main.gameObject);
+        param.PutExtra(SKILLANIM, skillAnim);
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY, param); //cutscene call
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY); // camera takes one with params
