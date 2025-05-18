@@ -52,7 +52,7 @@ public class CutsceneManager : MonoBehaviour
         CutsceneEnemySprite.sprite = EnemySprite.sprite;
         moving = true;
 
-        CutsceneAnim.SetTrigger("Attack");
+       
     }
 
     private void Start()
@@ -68,12 +68,15 @@ public class CutsceneManager : MonoBehaviour
         {
             case ESkillAnim.NONE:
                 Debug.Log("No skill");
+                 
                 break;
             case ESkillAnim.MELEE:
                 Debug.Log("MELEE");
+                CutsceneAnim.SetTrigger("Attack");
                 break;
             case ESkillAnim.AOEMELEE:
                 Debug.Log("Spinner");
+                CutsceneAnim.SetTrigger("Spin");
                 break;
             case ESkillAnim.RANGE:
                 Debug.Log("Snipe");
