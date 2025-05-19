@@ -19,7 +19,6 @@ public class EffectManager
         set { this.effectList = value; }
     }
 
-
     public EffectManager()
     {
         effectList = new Dictionary<string, int>();

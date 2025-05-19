@@ -8,24 +8,38 @@ public class Tile : MonoBehaviour{
 
     private int tileX;
     private int tileZ;
+
     public Vector2Int TilePos {
         get { return new Vector2Int(tileX, tileZ);}
         set { tileX = value.x; tileZ = value.y; }
     }
 
-    public int cost;
-    public int heuristic;
-    public int F {
-        get { return this.cost + this.heuristic; }
+    private int Cost;
+    private int Heuristic;
+
+    public int cost {
+        get { return this.Cost; }
+        set { this.Cost = value; }
     }
 
+    public int heuristic {
+        get { return this.Heuristic; }
+        set { this.Heuristic = value; }
+    }
+
+    public int F {
+        get { return this.Cost + this.Heuristic; }
+    }
+    
     public Tile previousTile;
-    public TileType tileType;
+
+    public ETileType tileType;
 
     public bool isWalkable;
-    private void Start() {
+    protected void Start() {
         this._mat = this.gameObject.GetComponent<Renderer>().material;
-        this._color = this._mat.color;    
+        this._color = this._mat.color;
+        this.tileType = ETileType.DEFAULT;
         
     }
     public void UnHighlightTile() {
@@ -48,5 +62,8 @@ public class Tile : MonoBehaviour{
         if (!EventSystem.current.IsPointerOverGameObject()) { // to make sure that it wont be clickable when behind a UI element
             UnitActions.TileTapped(this);
         }
+    }
+    public virtual void ApplyEffect(Unit unit) {
+        Debug.Log("DEFAULT");
     }
 }

@@ -296,45 +296,6 @@ public static class UnitActions {
                 unit.OnMovement(true);
                 UnitActionManager.Instance.Moving = true;
                 BattleUI.Instance.ToggleWaitButton(false);
-
-                /*Special Tile Detection*/
-                if (goalTile.gameObject.tag == "SpecialTile") {
-                    Debug.Log("Special Tile detected!" + goalTile.gameObject.name);
-
-                    switch (goalTile.gameObject.name) {
-                        case "BuffTile(Clone)":
-                            terst = new EffectInfo(3, 2, EStatToEffect.ACCURACY); //effectInfo
-                            bufDebufname = "BuffTile";
-
-                            break;
-
-                        case "DebuffTile(Clone)":
-                            terst = new EffectInfo(3, -2, EStatToEffect.SPEED);
-                            // this._eagleEye.ApplyEffect(this._unitOrder[0],this._unitOrder[0],_skill.skillData); 
-                            bufDebufname = "DebuffTile";
-                            break;
-
-                        case "RandomTile(Clone)":
-                            _affectedStatValue = UnityEngine.Random.Range(-6, 6);
-                            terst = new EffectInfo(3, _affectedStatValue, EStatToEffect.ATTACK);
-                            bufDebufname = "RandomTile";
-                            // this._eagleEye.ApplyEffect(this._unitOrder[0],this._unitOrder[0],_skill.skillData);
-                            break;
-
-                        case "HazardTile(Clone)":
-                            unit.HP -= 1;
-                            break;
-
-                        default:
-                            Debug.Log("B");
-                            break;
-                    }
-                    // TODO put APPLYEFFECT into effectmanager, its reused in many codes throughtout...NUKE IEFFECTABLE
-                    if (bufDebufname != "") {
-                        SkillDatabase.Instance.addSkill(terst, bufDebufname, 0);
-                        unit.EffectManager.ApplyTileEffect(unit, bufDebufname, terst.DURATION);
-                    }
-                }
             }
         }
     }

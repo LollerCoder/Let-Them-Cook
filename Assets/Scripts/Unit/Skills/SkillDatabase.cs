@@ -78,36 +78,5 @@ public class SkillDatabase : MonoBehaviour
         return skillToReturn;
        
     }
-    public void addSkill(EffectInfo effects, string skillName,float cost) //////Mainly for adding tile effects and the like
-    {
-        if (!skillDatabase.ContainsKey(skillName)) //just add the tile in
-        {
-            Skill toAdd = new Skill(effects,cost);
-            skillDatabase.Add(skillName, toAdd);
-           
-        }
-
-        else if(skillName == "RandomTile")// you can only be debuff by tiles once, might have to change.
-        {
-            List<string> toDelete = new List<string>();
-            
-                foreach (string key in skillDatabase.Keys)
-                {
-
-                   if(key == "RandomTile")
-                    {
-                        toDelete.Add(key);
-                    }
-                }
-            
-            foreach (string keyDelete in toDelete)
-            {
-                skillDatabase.Remove(keyDelete);
-            }
-            Skill toAdd = new Skill(effects,0);
-            skillDatabase.Add(skillName, toAdd);
-        }
-
-        Debug.Log(skillDatabase.Count);
-    }
+    
 }

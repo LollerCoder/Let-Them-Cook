@@ -25,6 +25,11 @@ public class BattleManager : MonoBehaviour {
     private bool GameEnd = false;
 
     private void NextTurn() {
+        Unit unit = UnitActionManager.Instance.GetFirstUnit();
+        if (unit != null) {
+            unit.Tile.ApplyEffect(unit);
+        }
+
         BattleUI.Instance.OnEndTurn(this.GameEnd);
     }
 

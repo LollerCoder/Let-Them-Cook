@@ -354,8 +354,8 @@ public abstract class Unit : MonoBehaviour
     }
     public void Heal()
     {
-        this.hp += 4;
-        Debug.Log($"New HP: {this.hp}");
+        this.hp += 5;
+        //Debug.Log($"New HP: {this.hp}");
     }
     public void OnTurn(bool value)
     {
