@@ -27,12 +27,7 @@ public class Skill
         get { return this.skillType; }
     }
 
-    protected ESkillAnim skillAnim;
-
-    public ESkillAnim SKILLANIM
-    {
-        get { return this.skillAnim; }
-    }
+   
 
 
     protected float cost;
@@ -53,7 +48,7 @@ public class Skill
 
     public Skill()
     {
-        this.skillAnim = ESkillAnim.NONE;
+       
     }
     public Skill(EffectInfo effects,float cost)
     {

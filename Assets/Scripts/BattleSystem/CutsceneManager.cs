@@ -13,7 +13,7 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] Animator CutsceneAnim;
     Unit player;
     Unit target;
-    GameObject camera;
+    //GameObject camera;
 
     Vector3 playerOriginalpos;
     Vector3 targetOriginalpos;
@@ -21,7 +21,8 @@ public class CutsceneManager : MonoBehaviour
     public const string currUNIT = "CURRUNIT";
     public const string TARGET = "TARGET";
     public const string CAMERA = "CAMERA";
-    public const string SKILLANIM = "SKILLANIM";
+    //public const string SKILLANIM = "SKILLANIM";
+    public const string SKILLNAME = "SKILLNAME";
 
     float ticks = 0.0f;
     float speed = 25.0f;
@@ -32,10 +33,11 @@ public class CutsceneManager : MonoBehaviour
         BattleUI.Instance.ToggleTurnOrderUI();
         player = param.GetUnitExtra(currUNIT);
         target = param.GetUnitExtra(TARGET);
-        camera = param.GetGameObjectExtra(CAMERA);
-        ESkillAnim skillAnim = param.GetSkillAnimExtra(SKILLANIM);
+        string skillName = param.GetStringExtra(SKILLNAME,"THIS SHOULD NEVER BE USED.");
+        //camera = param.GetGameObjectExtra(CAMERA);
+        //ESkillType skillAnim = param.GetSkillTypeExtra(SKILLANIM);
 
-        findSkillAnim(skillAnim);
+        findSkillAnim(skillName);
         
 
         //player.gameObject.GetComponent<SpriteRenderer>().sprite;
@@ -62,30 +64,33 @@ public class CutsceneManager : MonoBehaviour
 
     }
 
-    private void findSkillAnim(ESkillAnim skillAnim)
+    private void findSkillAnim(string name)
     {
+        ESkillType skillAnim = SkillDatabase.Instance.findSkill(name).SKILLTYPE;
         switch (skillAnim)
         {
-            case ESkillAnim.NONE:
+            case ESkillType.NONE:
                 Debug.Log("No skill");
                  
                 break;
-            case ESkillAnim.MELEE:
+            case ESkillType.BASIC:
                 Debug.Log("MELEE");
                 CutsceneAnim.SetTrigger("Attack");
                 break;
-            case ESkillAnim.AOEMELEE:
-                Debug.Log("Spinner");
+            case ESkillType.BUFFDEBUFF:
+                Debug.Log("BuffDebuff");
+                
+                break;
+            case ESkillType.HEAL:
+                Debug.Log("BOO BOO");
+
+                break;
+            case ESkillType.DEFEND:
+                Debug.Log("Parry");
+                break;
+            case ESkillType.AOE:
+                Debug.Log("SPUN");
                 CutsceneAnim.SetTrigger("Spin");
-                break;
-            case ESkillAnim.RANGE:
-                Debug.Log("Snipe");
-                break;
-            case ESkillAnim.AOERANGE:
-                Debug.Log("Molotov");
-                break;
-            case ESkillAnim.HEAL:
-                Debug.Log("Boo Boo");
                 break;
         }
     }

@@ -29,7 +29,7 @@ public class Parameters {
     private Dictionary<string, Vector3> Vector3Data;
     private Dictionary<string, Unit> UnitData;
     private Dictionary<string, DroppedVegetable> VegData;
-    private Dictionary<string, ESkillAnim> SkillAnimData;
+    private Dictionary<string, ESkillType> SkillTypeData;
 
     public Parameters() {
 		this.charData = new Dictionary<string, char>();
@@ -48,7 +48,7 @@ public class Parameters {
         this.Vector3Data = new Dictionary<string, Vector3>();
 		this.UnitData = new Dictionary<string, Unit>();
 		this.VegData = new Dictionary<string, DroppedVegetable>();
-        this.SkillAnimData = new Dictionary<string, ESkillAnim>();
+        this.SkillTypeData = new Dictionary<string, ESkillType>();
     }
 
 	public void PutExtra(string paramName, bool value) {
@@ -111,9 +111,9 @@ public class Parameters {
         this.VegData.Add(paramName, value);
     }
 
-    public void PutExtra(string paramName, ESkillAnim value)
+    public void PutExtra(string paramName, ESkillType value)
     {
-        this.SkillAnimData.Add(paramName, value);
+        this.SkillTypeData.Add(paramName, value);
     }
 
 
@@ -252,15 +252,15 @@ public class Parameters {
         }
     }
 
-    public ESkillAnim GetSkillAnimExtra(string paramName)
+    public ESkillType GetSkillTypeExtra(string paramName)
     {
-        if (this.SkillAnimData.ContainsKey(paramName))
+        if (this.SkillTypeData.ContainsKey(paramName))
         {
-            return this.SkillAnimData[paramName];
+            return this.SkillTypeData[paramName];
         }
         else
         {
-            return ESkillAnim.NONE;
+            return ESkillType.NONE;
         }
     }
 }
