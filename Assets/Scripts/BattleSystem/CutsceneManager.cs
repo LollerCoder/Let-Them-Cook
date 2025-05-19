@@ -1,16 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UIElements;
 using static EventNames;
 public class CutsceneManager : MonoBehaviour
 {
-    [SerializeField] GameObject movingBox;
+    [Header("Spawns")]
     [SerializeField] GameObject enemySpawn;
     [SerializeField] GameObject playerSpawn;
-    [SerializeField] SpriteRenderer CutscenePlayerSprite;
-    [SerializeField] SpriteRenderer CutsceneEnemySprite;
+    [Header("OriginalCutsceneStuff")]
+    [SerializeField] GameObject CutscenePlayer;
+    [SerializeField] GameObject CutsceneEnemy;
+    [Header("HPBars")]
+    [SerializeField] GameObject PlayerHP;
+    [SerializeField] GameObject EnemyHP;
+
+
+
     [SerializeField] Animator CutsceneAnim;
+    
+    
     Unit player;
     Unit target;
     //GameObject camera;
@@ -18,11 +28,16 @@ public class CutsceneManager : MonoBehaviour
     Vector3 playerOriginalpos;
     Vector3 targetOriginalpos;
 
+
+    public const string UNIT = "UNIT";
+
     public const string currUNIT = "CURRUNIT";
     public const string TARGET = "TARGET";
     public const string CAMERA = "CAMERA";
     //public const string SKILLANIM = "SKILLANIM";
     public const string SKILLNAME = "SKILLNAME";
+
+
 
     float ticks = 0.0f;
     float speed = 25.0f;
@@ -50,8 +65,8 @@ public class CutsceneManager : MonoBehaviour
 
         SpriteRenderer PlayerSprite = player.gameObject.GetComponent<SpriteRenderer>();
         SpriteRenderer EnemySprite = target.gameObject.GetComponent<SpriteRenderer>();
-        CutscenePlayerSprite.sprite = PlayerSprite.sprite;
-        CutsceneEnemySprite.sprite = EnemySprite.sprite;
+        CutscenePlayer.GetComponent<SpriteRenderer>().sprite = PlayerSprite.sprite;
+        CutsceneEnemy.GetComponent<SpriteRenderer>().sprite = EnemySprite.sprite;
         moving = true;
 
        
@@ -100,8 +115,36 @@ public class CutsceneManager : MonoBehaviour
         //player.transform.position = playerOriginalpos;
         //target.transform.position = targetOriginalpos;
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_END);
+
+
+        target.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
+
+        //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.HIDE_HP);
+
         BattleUI.Instance.ToggleTurnOrderUI();
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+    }
+
+    private void CutsceneTakeDamage()
+    {
+
+            
+        //Parameters param = new Parameters();
+        //param.PutExtra(UNIT, target);
+
+
+        UnitActions.applySkill(target, UnitActionManager.Instance.numAttack);
+
+        target.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Enemy, false);
+
+        target.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.HP, target.MAXHP);
+
+ 
+           
+       
+        
+        Debug.Log("CutsceneOuch");
+        
     }
 
     private void Update()
@@ -112,7 +155,7 @@ public class CutsceneManager : MonoBehaviour
             ticks += Time.deltaTime;
             if (ticks < 5.0f)
             {
-                movingBox.transform.Translate(Vector3.right * speed * Time.deltaTime);
+                //movingBox.transform.Translate(Vector3.right * speed * Time.deltaTime);
 
             }
             else

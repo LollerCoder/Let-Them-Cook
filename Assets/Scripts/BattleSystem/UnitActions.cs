@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public static class UnitActions {
     //private static bool mouseOnUnit = false;
@@ -94,36 +95,35 @@ public static class UnitActions {
                 if (currentUnit.SKILLLIST[Skill] != null) {
                     //Debug.Log(currentUnit.SKILLLIST[Skill]);
                     //Debug.Log(target.Name);
-                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+                    //SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
 
-                    //skillType = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SKILLTYPE;
                     SkillName = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SkillName;
                 }
                 break;
             case 1:
                 if (currentUnit.SKILLLIST[Skill] != null) {
-                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+                    //SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
 
                     SkillName = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SkillName;
                 }
                 break;
             case 2:
                 if (currentUnit.SKILLLIST[Skill] != null) {
-                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+                    //SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
 
                     SkillName = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SkillName;
                 }
                 break;
             case 3:
                 if (currentUnit.SKILLLIST[Skill] != null) {
-                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+                    //SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
 
                     SkillName = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SkillName;
                 }
                 break;
             case 4:
                 if (currentUnit.SKILLLIST[Skill] != null) {
-                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+                    //SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
 
                     SkillName = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SkillName;
                 }
@@ -157,6 +157,57 @@ public static class UnitActions {
         //EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
     }
 
+
+    public static void applySkill(Unit target, int Skill)
+    {
+        Unit currentUnit = UnitActionManager.Instance.GetFirstUnit();
+        switch (Skill)
+        {
+            case 0:
+                if (currentUnit.SKILLLIST[Skill] != null)
+                {
+                    //Debug.Log(currentUnit.SKILLLIST[Skill]);
+                    //Debug.Log(target.Name);
+                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+
+                  
+                }
+                break;
+            case 1:
+                if (currentUnit.SKILLLIST[Skill] != null)
+                {
+                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+
+                 
+                }
+                break;
+            case 2:
+                if (currentUnit.SKILLLIST[Skill] != null)
+                {
+                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+
+                   
+                }
+                break;
+            case 3:
+                if (currentUnit.SKILLLIST[Skill] != null)
+                {
+                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+
+               
+                }
+                break;
+            case 4:
+                if (currentUnit.SKILLLIST[Skill] != null)
+                {
+                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+
+               
+                }
+                break;
+
+        }
+    }
     public static void ShowInRangeHPBar(int i) {
         Parameters param;
 

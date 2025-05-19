@@ -31,24 +31,26 @@ public class Carrot : Unit{
     
     private void HpBarShow(Parameters param)
     {
+        bool isYou = false;
         Unit unit = param.GetUnitExtra(UNIT);
 
-        if (this.Type == EUnitType.Enemy)//enemy
-        {
-            this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.8941177f, 0, 0.05098039f, 1);
+        
+        //if (this.Type == EUnitType.Enemy)//enemy
+        //{
+        //    this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.8941177f, 0, 0.05098039f, 1);
 
-        }
+        //}
 
-        if (this.Type == EUnitType.Ally)//ally
-        {
-            this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.0619223f, 0.2870282f, 0.8415094f, 1);
-        }
+        //if (this.Type == EUnitType.Ally)//ally
+        //{
+        //    this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.0619223f, 0.2870282f, 0.8415094f, 1);
+        //}
 
         if (UnitActionManager.Instance.UnitOrder[0] == this && this.Type != EUnitType.Enemy)//its you
         {
-            this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.2638531f, 0.8943396f, 0.2008044f, 1);
+            isYou = true;   
         }
-
+        this.hpBar.GetComponent<HpBar>().setColor(unit.Type, isYou);
         if (unit == this) {
             this.hpBar.GetComponentInChildren<HpBar>().hpPopUp(this.hpBar, this.maxhp, this.hp);
         }
