@@ -19,18 +19,18 @@ public class HpBar : MonoBehaviour
 
         if (unitType == EUnitType.Enemy)//enemy
         {
-            this.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.8941177f, 0, 0.05098039f, 1);
+            this.gameObject.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.8941177f, 0, 0.05098039f, 1);
 
         }
 
         if (unitType == EUnitType.Ally)//ally
         {
-            this.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.0619223f, 0.2870282f, 0.8415094f, 1);
+            this.gameObject.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.0619223f, 0.2870282f, 0.8415094f, 1);
         }
 
         if (isItYou)//its you
         {
-            this.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.2638531f, 0.8943396f, 0.2008044f, 1);
+            this.gameObject.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.2638531f, 0.8943396f, 0.2008044f, 1);
         }
     }
 
