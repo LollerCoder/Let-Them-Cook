@@ -10,7 +10,6 @@ public class Rotten : Skill
         this.skillName = "Rotten";
         this.veggieType = EVeggie.NONE;
         this.skillType = ESkillType.BASIC;
-        this.skillAnim = ESkillAnim.MELEE;
     }
 
        public override void  SkillAction(Unit target, Unit origin)

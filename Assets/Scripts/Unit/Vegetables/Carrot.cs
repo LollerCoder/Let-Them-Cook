@@ -53,14 +53,10 @@ public class Carrot : Unit{
         {
             isYou = true;   
         }
-<<<<<<< Updated upstream
         this.hpBar.GetComponent<HpBar>().setColor(unit.Type, isYou);
-        if (unit == this) {
-=======
 
         if (unit == this)
         {
->>>>>>> Stashed changes
             this.hpBar.GetComponentInChildren<HpBar>().hpPopUp(this.hpBar, this.maxhp, this.hp);
         }
     }
