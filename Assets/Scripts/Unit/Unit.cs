@@ -408,9 +408,6 @@ public abstract class Unit : MonoBehaviour
 
     }
 
-    public abstract void GetAttackOptions();
-    public abstract void UnitAttack(Unit target);
-    public abstract void Selected();
     //protected abstract void HandleDeath();
 
     // public Unit(Unit unit)

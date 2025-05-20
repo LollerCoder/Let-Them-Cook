@@ -13,17 +13,6 @@ public class Garlic : Unit{
 
     [SerializeField]
     Animator DebufController;
-    public override void UnitAttack(Unit unit2) {
-        
-    }
-
-    public override void Selected() {
-
-    }
-
-    public override void GetAttackOptions() {
-
-    }
 
     private void Update() {
          
