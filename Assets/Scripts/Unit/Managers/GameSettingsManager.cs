@@ -7,6 +7,7 @@ public class GameSettingsManager : MonoBehaviour
     public static GameSettingsManager Instance { get; private set; }
 
     [SerializeField] public bool turnOffDodge = false;
+    [SerializeField] public bool enableCutscene = true;
 
     private void Awake()
     {

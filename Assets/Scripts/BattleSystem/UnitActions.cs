@@ -141,20 +141,29 @@ public static class UnitActions {
         UnitActionManager.Instance.hadAttacked = true;
 
         //JAIRO WORKING HERE
-        Parameters param = new Parameters();
-        param.PutExtra(currUNIT, currentUnit);
-        param.PutExtra(TARGET, target);
-        param.PutGameObjectExtra(CAMERA, Camera.main.gameObject);
-        //param.PutExtra(SKILLANIM, skillType);
-        param.PutExtra(SKILLNAME, SkillName);
 
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY, param); //cutscene call
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY); // camera takes one with params
+        if (GameSettingsManager.Instance.enableCutscene)
+        {
+            Parameters param = new Parameters();
+            param.PutExtra(currUNIT, currentUnit);
+            param.PutExtra(TARGET, target);
+            param.PutGameObjectExtra(CAMERA, Camera.main.gameObject);
+            //param.PutExtra(SKILLANIM, skillType);
+            param.PutExtra(SKILLNAME, SkillName);
+
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY, param); //cutscene call
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY); // camera takes one with params
+        }
+        else
+        {
+            applySkill(target, Skill);
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+        }
 
 
 
 
-        //EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+
     }
 
 
