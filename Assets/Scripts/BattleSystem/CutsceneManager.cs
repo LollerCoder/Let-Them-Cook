@@ -52,6 +52,9 @@ public class CutsceneManager : MonoBehaviour
         //camera = param.GetGameObjectExtra(CAMERA);
         //ESkillType skillAnim = param.GetSkillTypeExtra(SKILLANIM);
 
+
+        EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.HP, target.MAXHP);
+        EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
         findSkillAnim(skillName);
         
 
@@ -69,7 +72,7 @@ public class CutsceneManager : MonoBehaviour
         CutsceneEnemy.GetComponent<SpriteRenderer>().sprite = EnemySprite.sprite;
         moving = true;
 
-       
+        
     }
 
     private void Start()
@@ -117,7 +120,7 @@ public class CutsceneManager : MonoBehaviour
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_END);
 
 
-        target.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
+        EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
 
         //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.HIDE_HP);
 
@@ -128,21 +131,22 @@ public class CutsceneManager : MonoBehaviour
     private void CutsceneTakeDamage()
     {
 
-            
+
         //Parameters param = new Parameters();
         //param.PutExtra(UNIT, target);
 
+        EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Enemy, false);
+        EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.HP, target.MAXHP);
 
         UnitActions.applySkill(target, UnitActionManager.Instance.numAttack);
 
-        target.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Enemy, false);
 
-        target.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.HP, target.MAXHP);
-
- 
-           
-       
         
+        
+
+
+
+
         Debug.Log("CutsceneOuch");
         
     }
@@ -151,7 +155,7 @@ public class CutsceneManager : MonoBehaviour
     {
         if (moving)
         {
-            Debug.Log("MOVING");
+            //Debug.Log("MOVING");
             ticks += Time.deltaTime;
             if (ticks < 5.0f)
             {
