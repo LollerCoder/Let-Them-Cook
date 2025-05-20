@@ -1,0 +1,4 @@
+interface ISpecialTile
+{
+    void ApplyEffect();
+}

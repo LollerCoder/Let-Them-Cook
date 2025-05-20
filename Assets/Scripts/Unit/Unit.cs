@@ -257,7 +257,7 @@ public abstract class Unit : MonoBehaviour
         EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
     }
 
-     public void gainHealth(float healPts, Unit partyMember)
+    public void gainHealth(float healPts, Unit partyMember)
     {
 
         Debug.Log("Unit name: " + partyMember.Name);
@@ -265,9 +265,9 @@ public abstract class Unit : MonoBehaviour
 
         partyMember.effectManager.EffectAccess(partyMember); // attacker
         this.effectManager.EffectAccess(this); //target
-            this.hp += (int)healPts;
-            this.hp = Mathf.Max(HP, 0); 
-        
+        this.hp += (int)healPts;
+        this.hp = Mathf.Max(HP, 0);
+
 
 
         if (this.hp == 0)
@@ -275,7 +275,7 @@ public abstract class Unit : MonoBehaviour
             Debug.Log("Its Dead");
             this.Tile.isWalkable = true;
 
-            if (partyMember.type == EUnitType.Ally)   
+            if (partyMember.type == EUnitType.Ally)
             {
                 Debug.Log(this.type);
                 GameManager.Instance.OnDiedCallback.Invoke(this.ingredientType);
@@ -302,9 +302,9 @@ public abstract class Unit : MonoBehaviour
 
         defender.effectManager.EffectAccess(defender); // attacker
         this.effectManager.EffectAccess(this); //target
-            this.def += (int)defensePoints;
-            this.def = Mathf.Max(HP, 0); 
-        
+        this.def += (int)defensePoints;
+        this.def = Mathf.Max(HP, 0);
+
         if (this.hp == 0)
         {
             Debug.Log("Its Dead");
@@ -350,12 +350,12 @@ public abstract class Unit : MonoBehaviour
     }
     public void Eat(Unit target)
     {
-        
+
     }
     public void Heal()
     {
-        this.hp += 4;
-        Debug.Log($"New HP: {this.hp}");
+        this.hp += 5;
+        //Debug.Log($"New HP: {this.hp}");
     }
     public void OnTurn(bool value)
     {
@@ -372,7 +372,8 @@ public abstract class Unit : MonoBehaviour
         }
     }
 
-    private void HandleDeath() {
+    private void HandleDeath()
+    {
         DroppedVegetableManager.Instance.CreateDropVegetable(this);
 
         this.GetComponent<Animator>().enabled = false;
@@ -390,22 +391,23 @@ public abstract class Unit : MonoBehaviour
     {
         UnitActions.UnitHover(this, false);
     }
-    protected void OnMouseUp() {
+    protected void OnMouseUp()
+    {
         UnitActions.UnitSelect(this);
     }
-    protected virtual void Start() {
-        if (this.type == EUnitType.Ally) {
+    protected virtual void Start()
+    {
+        if (this.type == EUnitType.Ally)
+        {
             this.animator.SetBool("Ally", true);
         }
-        if (this.type != EUnitType.Ally) {
+        if (this.type != EUnitType.Ally)
+        {
             this.animator.SetBool("Ally", false);
         }
 
     }
 
-    public abstract void GetAttackOptions();
-    public abstract void UnitAttack(Unit target);
-    public abstract void Selected();
     //protected abstract void HandleDeath();
 
     // public Unit(Unit unit)
@@ -416,4 +418,44 @@ public abstract class Unit : MonoBehaviour
     //     this.Defense = unit.Defense;
     //     this.Experience = unit.Experience;
     // }
+
+
+
+    /*COLOR CHANGER*/
+
+    public Color poisonUnit(SpriteRenderer spriteAsset)
+    {
+
+        if (spriteAsset != null)Debug.Log("POISON");
+        //add damage logic here later
+
+        //Color change
+
+        /*
+        R - 79
+        G - 224
+        B - 90
+        */
+        Color poison = Color.green;
+
+        spriteAsset.color = poison;
+        // float rValue = 0, gValue = 0, bValue = 0;
+
+        // for (int counter = 0; counter <= 224; counter++)
+        // {
+        //     if (gValue <= 224) { poison.g = gValue; gValue++; }
+        //     if (rValue <= 79) { poison.r = rValue; rValue++; }
+        //     if (bValue <= 90) { poison.b = bValue; bValue++; }
+
+
+        //     spriteAsset.color = poison;
+        // }
+
+        //back to normal color
+
+
+        return poison;
+        
+
+    }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public static class UnitActions {
     //private static bool mouseOnUnit = false;
@@ -21,7 +22,8 @@ public static class UnitActions {
     public const string currUNIT = "CURRUNIT";
     public const string TARGET = "TARGET";
     public const string CAMERA = "CAMERA";
-
+    //public const string SKILLANIM = "SKILLANIM";
+    public const string SKILLNAME = "SKILLNAME";
 
     ///////////////////////////////////////////////////////
     public static void SetCurrentTile(Tile Tile, float y) {
@@ -61,7 +63,7 @@ public static class UnitActions {
             UnitAttackActions.ResetAttackables();
             UnitAttackActions.CheckSkillRange(UnitActionManager.Instance.GetFirstUnit());
 
-
+            
         }
     }
     public static void UnitHover(Unit unit, bool toggle) { // if true, show hp bar ; if false, hide 
@@ -85,38 +87,45 @@ public static class UnitActions {
     ///////////////////////////////////////////////////////
     public static void ConfirmAttack(Unit target, int Skill) {
         Unit currentUnit = UnitActionManager.Instance.GetFirstUnit();
+        //ESkillType skillType = ESkillType.NONE;
+        string SkillName = "";
 
         switch (Skill) {
             case 0:
                 if (currentUnit.SKILLLIST[Skill] != null) {
-                    Debug.Log(currentUnit.SKILLLIST[Skill]);
-                    Debug.Log(target.Name);
-                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+                    //Debug.Log(currentUnit.SKILLLIST[Skill]);
+                    //Debug.Log(target.Name);
+                    //SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
 
+                    SkillName = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SkillName;
                 }
                 break;
             case 1:
                 if (currentUnit.SKILLLIST[Skill] != null) {
-                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+                    //SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
 
+                    SkillName = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SkillName;
                 }
                 break;
             case 2:
                 if (currentUnit.SKILLLIST[Skill] != null) {
-                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+                    //SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
 
+                    SkillName = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SkillName;
                 }
                 break;
             case 3:
                 if (currentUnit.SKILLLIST[Skill] != null) {
-                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+                    //SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
 
+                    SkillName = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SkillName;
                 }
                 break;
             case 4:
                 if (currentUnit.SKILLLIST[Skill] != null) {
-                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+                    //SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
 
+                    SkillName = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SkillName;
                 }
                 break;
 
@@ -132,20 +141,82 @@ public static class UnitActions {
         UnitActionManager.Instance.hadAttacked = true;
 
         //JAIRO WORKING HERE
-        Parameters param = new Parameters();
-        param.PutExtra(currUNIT, currentUnit);
-        param.PutExtra(TARGET, target);
-        param.PutGameObjectExtra(CAMERA, Camera.main.gameObject);
 
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY, param); //cutscene call
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY); // camera takes one with params
+        if (GameSettingsManager.Instance.enableCutscene)
+        {
+            Parameters param = new Parameters();
+            param.PutExtra(currUNIT, currentUnit);
+            param.PutExtra(TARGET, target);
+            param.PutGameObjectExtra(CAMERA, Camera.main.gameObject);
+            //param.PutExtra(SKILLANIM, skillType);
+            param.PutExtra(SKILLNAME, SkillName);
+
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY, param); //cutscene call
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY); // camera takes one with params
+        }
+        else
+        {
+            applySkill(target, Skill);
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+        }
 
 
 
 
-        //EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+
     }
 
+
+    public static void applySkill(Unit target, int Skill)
+    {
+        Unit currentUnit = UnitActionManager.Instance.GetFirstUnit();
+        switch (Skill)
+        {
+            case 0:
+                if (currentUnit.SKILLLIST[Skill] != null)
+                {
+                    //Debug.Log(currentUnit.SKILLLIST[Skill]);
+                    //Debug.Log(target.Name);
+                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+
+                  
+                }
+                break;
+            case 1:
+                if (currentUnit.SKILLLIST[Skill] != null)
+                {
+                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+
+                 
+                }
+                break;
+            case 2:
+                if (currentUnit.SKILLLIST[Skill] != null)
+                {
+                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+
+                   
+                }
+                break;
+            case 3:
+                if (currentUnit.SKILLLIST[Skill] != null)
+                {
+                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+
+               
+                }
+                break;
+            case 4:
+                if (currentUnit.SKILLLIST[Skill] != null)
+                {
+                    SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
+
+               
+                }
+                break;
+
+        }
+    }
     public static void ShowInRangeHPBar(int i) {
         Parameters param;
 
@@ -214,6 +285,9 @@ public static class UnitActions {
             goalTile = PathFinding.Path[0];
 
             PathFinding.Path.RemoveAt(0);
+
+
+
         }
 
         if (PathFinding.Path.Count < 1) {
@@ -233,6 +307,7 @@ public static class UnitActions {
                 BattleUI.Instance.ToggleEatOrPickUpButtons();
             }
         }
+
     }
 
     private static bool CheckVegetableOnTile(Unit unit) {
@@ -286,43 +361,15 @@ public static class UnitActions {
                 UnitActionManager.Instance.Moving = true;
                 BattleUI.Instance.ToggleWaitButton(false);
 
-                /*Special Tile Detection*/
-                if (goalTile.gameObject.tag == "SpecialTile") {
-                    Debug.Log("Special Tile detected!" + goalTile.gameObject.name);
 
-                    switch (goalTile.gameObject.name) {
-                        case "BuffTile(Clone)":
-                            terst = new EffectInfo(3, 2, EStatToEffect.ACCURACY); //effectInfo
-                            bufDebufname = "BuffTile";
-
-                            break;
-
-                        case "DebuffTile(Clone)":
-                            terst = new EffectInfo(3, -2, EStatToEffect.SPEED);
-                            // this._eagleEye.ApplyEffect(this._unitOrder[0],this._unitOrder[0],_skill.skillData); 
-                            bufDebufname = "DebuffTile";
-                            break;
-
-                        case "RandomTile(Clone)":
-                            _affectedStatValue = UnityEngine.Random.Range(-6, 6);
-                            terst = new EffectInfo(3, _affectedStatValue, EStatToEffect.ATTACK);
-                            bufDebufname = "RandomTile";
-                            // this._eagleEye.ApplyEffect(this._unitOrder[0],this._unitOrder[0],_skill.skillData);
-                            break;
-
-                        case "HazardTile(Clone)":
-                            unit.HP -= 1;
-                            break;
-
-                        default:
-                            Debug.Log("B");
-                            break;
-                    }
-                    // TODO put APPLYEFFECT into effectmanager, its reused in many codes throughtout...NUKE IEFFECTABLE
-                    if (bufDebufname != "") {
-                        SkillDatabase.Instance.addSkill(terst, bufDebufname, 0);
-                        unit.EffectManager.ApplyTileEffect(unit, bufDebufname, terst.DURATION);
-                    }
+                SpriteRenderer cuSR = UnitActionManager.Instance.GetFirstUnit().GetComponent<SpriteRenderer>();
+                if (UnitActionManager.Instance.GetFirstUnit().transform.position.x > goalTile.transform.position.x) {
+                    //Debug.Log("looking left");
+                    cuSR.flipX = true;
+                }
+                else {
+                    //Debug.Log("looking right");
+                    cuSR.flipX = false;
                 }
             }
         }

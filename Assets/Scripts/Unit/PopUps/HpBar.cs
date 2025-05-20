@@ -14,6 +14,27 @@ public class HpBar : MonoBehaviour
     // Start is called before the first frame update
    
 
+    public void setColor(EUnitType unitType, bool isItYou)
+    {
+
+        if (unitType == EUnitType.Enemy)//enemy
+        {
+            this.gameObject.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.8941177f, 0, 0.05098039f, 1);
+
+        }
+
+        if (unitType == EUnitType.Ally)//ally
+        {
+            this.gameObject.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.0619223f, 0.2870282f, 0.8415094f, 1);
+        }
+
+        if (isItYou)//its you
+        {
+            this.gameObject.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.2638531f, 0.8943396f, 0.2008044f, 1);
+        }
+    }
+
+
     public void hpPopUp(GameObject popUpp, int maxHp, int hp)
     {
         popUpp.SetActive(true);
@@ -61,7 +82,7 @@ public class HpBar : MonoBehaviour
         }
       
         easeSlide.value = Mathf.CeilToInt(easeSlide.value)/1;
-        Debug.Log("Final: " + easeSlide.value);
+        Debug.Log("Easing Final: " + easeSlide.value);
         yield return null;
 
     }
@@ -69,6 +90,11 @@ public class HpBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    private void Start()
+    {
+     
     }
 
 }

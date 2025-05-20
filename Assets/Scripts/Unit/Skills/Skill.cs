@@ -27,6 +27,9 @@ public class Skill
         get { return this.skillType; }
     }
 
+   
+
+
     protected float cost;
     public float COST
     {
@@ -45,7 +48,7 @@ public class Skill
 
     public Skill()
     {
-
+       
     }
     public Skill(EffectInfo effects,float cost)
     {

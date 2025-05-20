@@ -121,7 +121,7 @@ public class BattleUI : MonoBehaviour {
     }
 
     public void WaitButton() {
-        this.OnEndTurn(false);
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
     }
 
     public void ShowWaitButton()

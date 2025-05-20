@@ -27,7 +27,6 @@ public class TileMapManager : MonoBehaviour {
 
             tile.isWalkable = true;
             tile.TilePos = tilePosition;
-            tile.tileType.name = tile.tileType.tile.ToString();
 
             if (!this._tileMap.ContainsKey(tilePosition)) { // avoid any duplicate keys
                 this._tileMap.Add(tilePosition, tile);
@@ -58,8 +57,10 @@ public class TileMapManager : MonoBehaviour {
             key = new Vector2Int((int)props.key.x, (int)props.key.z);
 
             if (this.TileMap.ContainsKey(key)) {
-                this.TileMap[key].tileType.tile = ETileType.UNPASSABLE;
+                this.TileMap[key].tileType = ETileType.UNPASSABLE;
                 this.TileMap[key].isWalkable = false;
+                Debug.Log(this.TileMap[key].name);
+                Debug.Log(key);
             }
         }
     }
@@ -106,7 +107,7 @@ public class TileMapManager : MonoBehaviour {
     }
     public void UpdateTile() {
         foreach(var tileMap in this._tileMap) {
-            if(tileMap.Value.tileType.tile != ETileType.UNPASSABLE) {
+            if(tileMap.Value.tileType != ETileType.UNPASSABLE) {
                 tileMap.Value.isWalkable = true;
             }
         }

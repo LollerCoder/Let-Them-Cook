@@ -1,26 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UIElements;
 using static EventNames;
 public class CutsceneManager : MonoBehaviour
 {
-    [SerializeField] GameObject movingBox;
+    [Header("Spawns")]
     [SerializeField] GameObject enemySpawn;
     [SerializeField] GameObject playerSpawn;
-    [SerializeField] SpriteRenderer CutscenePlayerSprite;
-    [SerializeField] SpriteRenderer CutsceneEnemySprite;
+    [Header("OriginalCutsceneStuff")]
+    [SerializeField] GameObject CutscenePlayer;
+    [SerializeField] GameObject CutsceneEnemy;
+    [Header("HPBars")]
+    [SerializeField] GameObject PlayerHP;
+    [SerializeField] GameObject EnemyHP;
+
+
+
     [SerializeField] Animator CutsceneAnim;
+    
+    
     Unit player;
     Unit target;
-    GameObject camera;
+    //GameObject camera;
 
     Vector3 playerOriginalpos;
     Vector3 targetOriginalpos;
 
+
+    public const string UNIT = "UNIT";
+
     public const string currUNIT = "CURRUNIT";
     public const string TARGET = "TARGET";
     public const string CAMERA = "CAMERA";
+    //public const string SKILLANIM = "SKILLANIM";
+    public const string SKILLNAME = "SKILLNAME";
+
+
 
     float ticks = 0.0f;
     float speed = 25.0f;
@@ -31,7 +48,15 @@ public class CutsceneManager : MonoBehaviour
         BattleUI.Instance.ToggleTurnOrderUI();
         player = param.GetUnitExtra(currUNIT);
         target = param.GetUnitExtra(TARGET);
-        camera = param.GetGameObjectExtra(CAMERA);
+        string skillName = param.GetStringExtra(SKILLNAME,"THIS SHOULD NEVER BE USED.");
+        //camera = param.GetGameObjectExtra(CAMERA);
+        //ESkillType skillAnim = param.GetSkillTypeExtra(SKILLANIM);
+
+
+        EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.HP, target.MAXHP);
+        EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
+        findSkillAnim(skillName);
+        
 
         //player.gameObject.GetComponent<SpriteRenderer>().sprite;
 
@@ -43,10 +68,11 @@ public class CutsceneManager : MonoBehaviour
 
         SpriteRenderer PlayerSprite = player.gameObject.GetComponent<SpriteRenderer>();
         SpriteRenderer EnemySprite = target.gameObject.GetComponent<SpriteRenderer>();
-        CutscenePlayerSprite.sprite = PlayerSprite.sprite;
-        CutsceneEnemySprite.sprite = EnemySprite.sprite;
+        CutscenePlayer.GetComponent<SpriteRenderer>().sprite = PlayerSprite.sprite;
+        CutsceneEnemy.GetComponent<SpriteRenderer>().sprite = EnemySprite.sprite;
         moving = true;
-        CutsceneAnim.SetTrigger("Attack");
+
+        
     }
 
     private void Start()
@@ -56,24 +82,84 @@ public class CutsceneManager : MonoBehaviour
 
     }
 
+    private void findSkillAnim(string name)
+    {
+        ESkillType skillAnim = SkillDatabase.Instance.findSkill(name).SKILLTYPE;
+        switch (skillAnim)
+        {
+            case ESkillType.NONE:
+                Debug.Log("No skill");
+                 
+                break;
+            case ESkillType.BASIC:
+                Debug.Log("MELEE");
+                CutsceneAnim.SetTrigger("Attack");
+                break;
+            case ESkillType.BUFFDEBUFF:
+                Debug.Log("BuffDebuff");
+                
+                break;
+            case ESkillType.HEAL:
+                Debug.Log("BOO BOO");
+
+                break;
+            case ESkillType.DEFEND:
+                Debug.Log("Parry");
+                break;
+            case ESkillType.AOE:
+                Debug.Log("SPUN");
+                CutsceneAnim.SetTrigger("Spin");
+                break;
+        }
+    }
+
     private void CutsceneEnd()
     {
         //player.transform.position = playerOriginalpos;
         //target.transform.position = targetOriginalpos;
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_END);
+
+
+        EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
+
+        //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.HIDE_HP);
+
         BattleUI.Instance.ToggleTurnOrderUI();
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+    }
+
+    private void CutsceneTakeDamage()
+    {
+
+
+        //Parameters param = new Parameters();
+        //param.PutExtra(UNIT, target);
+
+        EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Enemy, false);
+        EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.HP, target.MAXHP);
+
+        UnitActions.applySkill(target, UnitActionManager.Instance.numAttack);
+
+
+        
+        
+
+
+
+
+        Debug.Log("CutsceneOuch");
+        
     }
 
     private void Update()
     {
         if (moving)
         {
-            Debug.Log("MOVING");
+            //Debug.Log("MOVING");
             ticks += Time.deltaTime;
             if (ticks < 5.0f)
             {
-                movingBox.transform.Translate(Vector3.right * speed * Time.deltaTime);
+                //movingBox.transform.Translate(Vector3.right * speed * Time.deltaTime);
 
             }
             else

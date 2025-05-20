@@ -225,22 +225,50 @@ public class UnitActionManager : MonoBehaviour
 
         // reset and update attackable list
         UnitAttackActions.SetAttackableList();
-
-        if (this._unitOrder[0].Type != EUnitType.Ally) {
-
-            bEnemy = true;
-
-            EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
-            
-            this.EnemyUnitAction();
-        }
-        else
+        
+        switch (this._unitOrder[0].Type)
         {
-            bEnemy = false;
-            BattleUI.Instance.ToggleActionBox();
-            
+            case EUnitType.Ally:
+
+                bEnemy = false;
+                BattleUI.Instance.ToggleActionBox();
+                break;
+
+
+            case EUnitType.Enemy:
+
+                bEnemy = true;
+
+                EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
+
+                this.EnemyUnitAction();
+                break;
+
+
+            case EUnitType.SpecialTile:
+                ((ISpecialTile)this._unitOrder[0]).ApplyEffect();
+                break;
+
 
         }
+
+        //if (this._unitOrder[0].Type != EUnitType.Ally) {
+
+        //    bEnemy = true;
+
+        //    EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
+            
+        //    this.EnemyUnitAction();
+        //}
+        //else
+        //{
+        //    bEnemy = false;
+        //    BattleUI.Instance.ToggleActionBox();
+            
+
+        //}
+
+
     }
     public void OnStart() {
         this.DecideTurnOrder();

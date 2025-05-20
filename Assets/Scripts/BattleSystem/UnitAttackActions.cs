@@ -121,9 +121,10 @@ public class UnitAttackActions : MonoBehaviour {
     private static void GetUnitsInRange(Skill skill, Unit unit, int index) { // Function that determines the skill type to pick the appropriate range and target selection
         
         Range.GetRange(unit, skill.SkillRange, skill.SKILLTYPE.ToString()); // change this to base on the actual range
-
+        
         switch (skill.SKILLTYPE) { 
             case ESkillType.BASIC:
+            case ESkillType.AOE:
                 UpdateAttackableUnits(index);
                 break;
             case ESkillType.HEAL:

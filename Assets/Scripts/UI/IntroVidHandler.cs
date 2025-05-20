@@ -6,10 +6,17 @@ using UnityEngine.Video;
 
 public class IntroVidHandler : MonoBehaviour
 {
+    [Header("Video")]
     [SerializeField]
     private GameObject _vidBackground;
 
-    [SerializeField] private string nextScene = "Tutorial-1";
+    [Header("Scenes")]
+    [SerializeField] 
+    private string nextScene = "Tutorial-1";
+
+    [Header("Level Holder")]
+    [SerializeField]
+    private GameObject levelHolder;
 
     VideoPlayer _vidPlayer;
 
@@ -42,6 +49,11 @@ public class IntroVidHandler : MonoBehaviour
     private void OnVideoEnd(VideoPlayer source)
     {
         //Debug.Log("Video ended!");
+
+        //make new save
+        levelHolder.GetComponent<GameScript>().SaveGame();
+
+        //loading the scene
         SceneManager.LoadScene(nextScene);
     }
 }
