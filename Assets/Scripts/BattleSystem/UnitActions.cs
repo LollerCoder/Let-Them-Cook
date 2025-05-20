@@ -63,7 +63,7 @@ public static class UnitActions {
             UnitAttackActions.ResetAttackables();
             UnitAttackActions.CheckSkillRange(UnitActionManager.Instance.GetFirstUnit());
 
-
+            
         }
     }
     public static void UnitHover(Unit unit, bool toggle) { // if true, show hp bar ; if false, hide 
@@ -294,6 +294,17 @@ public static class UnitActions {
             else if (CheckVegetableOnTile(currentUnit) && currentUnit.Type == EUnitType.Ally) {
                 BattleUI.Instance.ToggleEatOrPickUpButtons();
             }
+        }
+
+        SpriteRenderer cuSR = currentUnit.GetComponent<SpriteRenderer>();
+
+        if (currentUnit.transform.position.x > PathFinding.Path[0].transform.position.x) {
+            //Debug.Log("looking left");
+            cuSR.flipX = true;
+        }
+        else {
+            //Debug.Log("looking right");
+            cuSR.flipX = false;
         }
     }
 
