@@ -33,11 +33,16 @@ public class Tile : MonoBehaviour{
     
     public Tile previousTile;
 
-    public ETileType tileType;
+    protected ETileType TileType;
+    public ETileType tileType {
+        get { return this.TileType; }
+        set {  TileType = value; }
+    }
+
 
     public bool isWalkable;
     protected void Start() {
-        this.tileType = ETileType.DEFAULT;
+        
         this._mat = this.gameObject.GetComponent<Renderer>().material;
         this._color = this._mat.color;
     }
