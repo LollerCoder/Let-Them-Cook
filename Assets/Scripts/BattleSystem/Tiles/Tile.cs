@@ -37,10 +37,9 @@ public class Tile : MonoBehaviour{
 
     public bool isWalkable;
     protected void Start() {
+        this.tileType = ETileType.DEFAULT;
         this._mat = this.gameObject.GetComponent<Renderer>().material;
         this._color = this._mat.color;
-        this.tileType = ETileType.DEFAULT;
-        
     }
     public void UnHighlightTile() {
         this._mat.color = this._color;
