@@ -1,75 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Data;
-using Unity.VisualScripting;
 using UnityEngine;
 
 using UnityEngine.UI;
 
-public class Carrot : Unit{
+public class Brocolli : Unit {
 
     [SerializeField]
     Animator BufController;
 
     [SerializeField]
     Animator DebufController;
-    public override void UnitAttack(Unit unit2)
+    public override void UnitAttack(Unit unit2) {
+
+    }
+
+    public override void Selected()
     {
 
     }
 
-    public override void Selected() {
+    public override void GetAttackOptions()
+    {
 
     }
-
-    public override void GetAttackOptions() {
-
-    }
-
     private void Update()
     {
-   
-         
+
     }
-    
     private void HpBarShow(Parameters param)
     {
-        bool isYou = false;
+
         Unit unit = param.GetUnitExtra(UNIT);
 
-        
-        //if (this.Type == EUnitType.Enemy)//enemy
-        //{
-        //    this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.8941177f, 0, 0.05098039f, 1);
+        if (this.Type == EUnitType.Enemy)//enemy
+        {
+            this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.8941177f, 0, 0.05098039f, 1);
 
-        //}
+        }
 
-        //if (this.Type == EUnitType.Ally)//ally
-        //{
-        //    this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.0619223f, 0.2870282f, 0.8415094f, 1);
-        //}
+        if (this.Type == EUnitType.Ally)//ally
+        {
+            this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.0619223f, 0.2870282f, 0.8415094f, 1);
+        }
 
         if (UnitActionManager.Instance.UnitOrder[0] == this && this.Type != EUnitType.Enemy)//its you
         {
-            isYou = true;   
+            this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.2638531f, 0.8943396f, 0.2008044f, 1);
         }
-<<<<<<< Updated upstream
-        this.hpBar.GetComponent<HpBar>().setColor(unit.Type, isYou);
-        if (unit == this) {
-=======
+
 
         if (unit == this)
         {
->>>>>>> Stashed changes
             this.hpBar.GetComponentInChildren<HpBar>().hpPopUp(this.hpBar, this.maxhp, this.hp);
         }
+
     }
 
     private void HpBarHide(Parameters param)
     {
+
         Unit unit = param.GetUnitExtra(UNIT);
-
-
 
         if (unit == this)
         {
@@ -78,14 +69,15 @@ public class Carrot : Unit{
 
     }
 
+
     private void BuffArrowShow(Parameters param)
-    {   
-        if (this == param.GetUnitExtra("UNIT"))
+    {
+        if(this == param.GetUnitExtra("UNIT"))
         {
             this.BufController.SetBool("isBuffed", true);
             //Debug.Log("Buffed");
         }
-
+        
     }
 
     private void DebuffArrowShow(Parameters param)
@@ -93,7 +85,7 @@ public class Carrot : Unit{
         if (this == param.GetUnitExtra("UNIT"))
         {
             this.DebufController.SetBool("isDebuffed", true);
-           // Debug.Log("Debuffed");
+            //Debug.Log("Debuffed");
         }
     }
 
@@ -117,38 +109,37 @@ public class Carrot : Unit{
     }
 
 
+    protected override void Start() {
 
-    protected override void Start()
-    {
-
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.HIDE_HP, this.HpBarHide);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.SHOW_HP, this.HpBarShow);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.HIDE_HP, this.HpBarHide);
 
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.DEBUFF_SHOW, this.DebuffArrowShow);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.BUFF_SHOW, this.BuffArrowShow);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.DEBUFF_HIDE, this.DebuffArrowHide);
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.BUFF_SHOW, this.BuffArrowHide);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.BUFF_HIDE, this.BuffArrowHide);
 
         this.animator = this.GetComponent<Animator>();
 
-        this.skillList.Add("Basic Attack");
-        this.skillList.Add("Circular Cut");
-        this.skillList.Add("Photosynthesis");
+        this.skillList.Add("Rotten");
 
-        this.acc = 10;
-        this.spd = 3;
-        this.maxhp = 20;
+        this.acc = 5;
+        this.spd = 2;
+        this.maxhp = 15;
         this.hp = this.maxhp;
-        this.atk = 4;
-        this.def = 1;
+        this.atk = 3;
+        this.def = 5;
 
 
-        //UnitActionManager.Instance.StoreUnit(this);
-        //this.charName = "Carrot";
-        //this.ingredientType = EIngredientType.CARROT;
-        //this.type = EUnitType.Ally;
+        Slider hpSlide = this.hpBar.transform.Find("Slider").GetComponent<Slider>();
+        hpSlide.maxValue = this.maxhp;
+        hpSlide.value = hp;
+        Slider easeSlide = this.hpBar.transform.Find("EaseSlider").GetComponent<Slider>();
+        easeSlide.maxValue = this.maxhp;
+        easeSlide.value = hp;
+
         base.Start();
-        
-
     }
+
+
 }

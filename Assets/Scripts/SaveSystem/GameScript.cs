@@ -23,15 +23,6 @@ public class GameScript : MonoBehaviour
        
     }
 
-    void Awake()
-    {
-        //LoadGame();
-    }
-
-    void Update()
-    {
-    }
-
     public void SaveGame()
     {
         FileSystem.saveProgress(this);
@@ -45,17 +36,20 @@ public class GameScript : MonoBehaviour
         {
             levelList.Add(parent.transform.GetChild(i).gameObject.GetComponent<LevelSelector>());
          }
-         
-        GameData data = FileSystem.LoadProgress();
-        if (data == null) { Debug.Log("Save File not found"); return; }
-        else bData = true;
 
-         //load it back here
-        for (int i = 0; i < parent.transform.childCount; i++)
-        {
-            levelList[i].canLoad = data.finishedLvlList[i];
-            Debug.Log(parent.transform.GetChild(i).name + "    " + levelList[i].canLoad);
-        }
+            GameData data = FileSystem.LoadProgress();
+            if (data == null) { Debug.Log("Save File not found"); return; }
+            else bData = true;
+                
+                
+            //load it back here
+            for (int i = 0; i < parent.transform.childCount; i++)
+            {
+                levelList[i].canLoad = data.finishedLvlList[i];
+                Debug.Log(parent.transform.GetChild(i).name + "    " + levelList[i].canLoad);
+            }
+
+
         
     }
 

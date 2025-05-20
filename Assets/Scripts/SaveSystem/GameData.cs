@@ -20,7 +20,7 @@ public class GameData
     public GameData(GameScript clickable)
     {
         //3 bc there are 3 elements atm
-        finishedLvlList = new bool[3]; 
+        finishedLvlList = new bool[5]; 
 
         //make a list inside the loop
         for (int i = 0; i < clickable.parent.transform.childCount;i++)
