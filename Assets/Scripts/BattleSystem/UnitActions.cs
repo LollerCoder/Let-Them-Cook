@@ -285,6 +285,9 @@ public static class UnitActions {
             goalTile = PathFinding.Path[0];
 
             PathFinding.Path.RemoveAt(0);
+
+
+
         }
 
         if (PathFinding.Path.Count < 1) {
@@ -305,16 +308,6 @@ public static class UnitActions {
             }
         }
 
-        SpriteRenderer cuSR = currentUnit.GetComponent<SpriteRenderer>();
-
-        if (currentUnit.transform.position.x > PathFinding.Path[0].transform.position.x) {
-            //Debug.Log("looking left");
-            cuSR.flipX = true;
-        }
-        else {
-            //Debug.Log("looking right");
-            cuSR.flipX = false;
-        }
     }
 
     private static bool CheckVegetableOnTile(Unit unit) {
@@ -367,6 +360,17 @@ public static class UnitActions {
                 unit.OnMovement(true);
                 UnitActionManager.Instance.Moving = true;
                 BattleUI.Instance.ToggleWaitButton(false);
+
+
+                SpriteRenderer cuSR = UnitActionManager.Instance.GetFirstUnit().GetComponent<SpriteRenderer>();
+                if (UnitActionManager.Instance.GetFirstUnit().transform.position.x > goalTile.transform.position.x) {
+                    //Debug.Log("looking left");
+                    cuSR.flipX = true;
+                }
+                else {
+                    //Debug.Log("looking right");
+                    cuSR.flipX = false;
+                }
             }
         }
     }

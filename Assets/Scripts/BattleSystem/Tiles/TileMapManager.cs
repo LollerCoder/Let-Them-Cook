@@ -59,6 +59,8 @@ public class TileMapManager : MonoBehaviour {
             if (this.TileMap.ContainsKey(key)) {
                 this.TileMap[key].tileType = ETileType.UNPASSABLE;
                 this.TileMap[key].isWalkable = false;
+                Debug.Log(this.TileMap[key].name);
+                Debug.Log(key);
             }
         }
     }
