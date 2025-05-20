@@ -36,7 +36,7 @@ namespace EnemyAI
             //get actual path relative to unit's speed
             List<Tile> actual_path = new List<Tile>();
 
-            for (int i = 0; i < _currentUnit.Move; i++)
+            for (int i = 0; i < _currentUnit.Move && i < path.Count; i++)
             {
                 actual_path.Add(path[i]);
             }

@@ -12,7 +12,8 @@ public class BasicAttack : Skill
         this.skillName = "Basic Attack";
         this.veggieType = EVeggie.NONE;
         this.skillType = ESkillType.BASIC;
-        
+
+        //this.skillRange = 1;
     }
 
     public override void  SkillAction(Unit target, Unit origin)
