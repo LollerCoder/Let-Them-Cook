@@ -517,6 +517,7 @@ public abstract class Unit : MonoBehaviour
             this.animator.SetBool("Ally", false);
         }
 
+        UnitActionManager.Instance.UnitList.Add(this);
     }
 
     //protected abstract void HandleDeath();
