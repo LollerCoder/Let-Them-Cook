@@ -10,11 +10,15 @@ public class Rotten : Skill
         this.skillName = "Rotten";
         this.veggieType = EVeggie.NONE;
         this.skillType = ESkillType.BASIC;
+
+        this.skillRange = 1;
     }
 
-       public override void  SkillAction(Unit target, Unit origin)
+    public override void  SkillAction(Unit target, Unit origin)
     {
-       target.GetComponent<SpriteRenderer>().color =  target.poisonUnit(target.GetComponent<SpriteRenderer>());
+        target.GetComponent<SpriteRenderer>().color =  target.poisonUnit(target.GetComponent<SpriteRenderer>());
+        
+        
     }
 
     // Start is called before the first frame update

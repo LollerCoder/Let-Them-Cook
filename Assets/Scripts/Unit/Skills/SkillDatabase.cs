@@ -42,6 +42,7 @@ public class SkillDatabase : MonoBehaviour
         Skill foilStackin = new FoilStackin();
         Skill defensiveWhack = new DefensiveWhack();
         Skill circularCut = new CircularCut();
+        Skill rotten = new Rotten();
 
         this.skillDatabase.Add(basic.SkillName,basic);
         this.skillDatabase.Add(trueStrike.SkillName, trueStrike);
@@ -53,6 +54,7 @@ public class SkillDatabase : MonoBehaviour
         this.skillDatabase.Add(foilStackin.SkillName,foilStackin);
         this.skillDatabase.Add(defensiveWhack.SkillName,defensiveWhack);
         this.skillDatabase.Add(circularCut.SkillName, circularCut);
+        this.skillDatabase.Add(rotten.SkillName, rotten);
     }
 
     // Update is called once per frame
