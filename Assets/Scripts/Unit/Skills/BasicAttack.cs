@@ -13,7 +13,7 @@ public class BasicAttack : Skill
         this.veggieType = EVeggie.NONE;
         this.skillType = ESkillType.BASIC;
 
-        //this.skillRange = 1;
+        this.skillRange = 1;
     }
 
     public override void  SkillAction(Unit target, Unit origin)

@@ -10,8 +10,8 @@ public class CircularCut : Skill
         this.skillName = "Circular Cut";
         this.veggieType = EVeggie.CARROT;
         this.skillType = ESkillType.AOE;
-        
 
+        this.skillRange = 1;
 
         //for skill progressions
         this.cost = 30;

@@ -1,24 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Data;
-using Unity.VisualScripting;
 using UnityEngine;
 
-using UnityEngine.UI;
+public class Tomato : Unit
+{
 
-public class Garlic : Unit{
+    protected override void Start()
+    {
 
-    private void Update() {
-         
-    }
-
-
-    protected override void Start() {
-
-
-        this.skillList.Add("Foil Stackin");
-        this.skillList.Add("Defensive Whack");
-
+        this.skillList.Add("Basic Attack");
+        this.skillList.Add("Circular Cut");
 
         this.acc = 10;
         this.spd = 3;
@@ -26,6 +17,7 @@ public class Garlic : Unit{
         this.hp = this.maxhp;
         this.atk = 4;
         this.def = 1;
+
 
         //UnitActionManager.Instance.StoreUnit(this);
         //this.charName = "Carrot";

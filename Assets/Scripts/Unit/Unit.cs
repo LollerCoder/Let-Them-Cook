@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
+using UnityEngine.UI;
 
 [Serializable]
 public abstract class Unit : MonoBehaviour
@@ -180,6 +181,16 @@ public abstract class Unit : MonoBehaviour
     }
 
     public bool InRange = false;
+
+    //
+    [Header("Buff and Debuff Controllers")]
+
+    [SerializeField]
+    Animator BufController;
+
+    [SerializeField]
+    Animator DebufController;
+
     public void TakeDamage(float damage, Unit attacker)
     {
 
@@ -395,8 +406,109 @@ public abstract class Unit : MonoBehaviour
     {
         UnitActions.UnitSelect(this);
     }
+
+    //////////////////////////////////
+    //
+
+
+    private void HpBarShow(Parameters param)
+    {
+        bool isYou = false;
+        Unit unit = param.GetUnitExtra(UNIT);
+
+
+        //if (this.Type == EUnitType.Enemy)//enemy
+        //{
+        //    this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.8941177f, 0, 0.05098039f, 1);
+
+        //}
+
+        //if (this.Type == EUnitType.Ally)//ally
+        //{
+        //    this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.0619223f, 0.2870282f, 0.8415094f, 1);
+        //}
+
+        if (UnitActionManager.Instance.UnitOrder[0] == this && this.Type != EUnitType.Enemy)//its you
+        {
+            isYou = true;
+        }
+        this.hpBar.GetComponent<HpBar>().setColor(unit.Type, isYou);
+
+        if (unit == this)
+        {
+            this.hpBar.GetComponentInChildren<HpBar>().hpPopUp(this.hpBar, this.maxhp, this.hp);
+        }
+    }
+
+    private void HpBarHide(Parameters param)
+    {
+        Unit unit = param.GetUnitExtra(UNIT);
+
+
+
+        if (unit == this)
+        {
+            this.hpBar.GetComponentInChildren<HpBar>().hpHide(this.hpBar);
+        }
+
+    }
+
+    private void BuffArrowShow(Parameters param)
+    {
+        if (this == param.GetUnitExtra("UNIT"))
+        {
+            this.BufController.SetBool("isBuffed", true);
+            //Debug.Log("Buffed");
+        }
+
+    }
+
+    private void DebuffArrowShow(Parameters param)
+    {
+        if (this == param.GetUnitExtra("UNIT"))
+        {
+            this.DebufController.SetBool("isDebuffed", true);
+            // Debug.Log("Debuffed");
+        }
+    }
+
+    private void BuffArrowHide(Parameters param)
+    {
+        if (this == param.GetUnitExtra("UNIT"))
+        {
+            this.BufController.SetBool("isBuffed", false);
+            //Debug.Log("buffGone");
+        }
+
+    }
+
+    private void DebuffArrowHide(Parameters param)
+    {
+        if (this == param.GetUnitExtra("UNIT"))
+        {
+            this.DebufController.SetBool("isDebuffed", false);
+            // Debug.Log("DebuffedGone");
+        }
+    }
+
+    /// <summary>
+    /// ////////////////////////////////////////
+    /// </summary>
+    /// 
+
     protected virtual void Start()
     {
+        //ADDING OBSERVERS
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.HIDE_HP, this.HpBarHide);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.SHOW_HP, this.HpBarShow);
+
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.DEBUFF_SHOW, this.DebuffArrowShow);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.BUFF_SHOW, this.BuffArrowShow);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.DEBUFF_HIDE, this.DebuffArrowHide);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.BUFF_SHOW, this.BuffArrowHide);
+
+        this.animator = this.GetComponent<Animator>();
+
         if (this.type == EUnitType.Ally)
         {
             this.animator.SetBool("Ally", true);
@@ -406,6 +518,14 @@ public abstract class Unit : MonoBehaviour
             this.animator.SetBool("Ally", false);
         }
 
+        Slider hpSlide = this.hpBar.transform.Find("Slider").GetComponent<Slider>();
+        hpSlide.maxValue = this.maxhp;
+        hpSlide.value = hp;
+        Slider easeSlide = this.hpBar.transform.Find("EaseSlider").GetComponent<Slider>();
+        easeSlide.maxValue = this.maxhp;
+        easeSlide.value = hp;
+
+        UnitActionManager.Instance.UnitList.Add(this);
     }
 
     //protected abstract void HandleDeath();
