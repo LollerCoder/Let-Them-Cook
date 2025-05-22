@@ -8,9 +8,6 @@ public class Tomato : Unit
     protected override void Start()
     {
 
-
-        this.animator = this.GetComponent<Animator>();
-
         this.skillList.Add("Basic Attack");
         this.skillList.Add("Circular Cut");
 

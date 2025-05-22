@@ -15,8 +15,6 @@ public class Brocolli : Unit {
     protected override void Start() {
 
 
-        this.animator = this.GetComponent<Animator>();
-
         this.skillList.Add("Rotten");
 
         this.acc = 5;

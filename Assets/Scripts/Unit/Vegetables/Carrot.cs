@@ -44,7 +44,5 @@ public class Carrot : Unit{
         //this.ingredientType = EIngredientType.CARROT;
         //this.type = EUnitType.Ally;
         base.Start();
-        
-
     }
 }

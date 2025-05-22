@@ -16,8 +16,6 @@ public class Garlic : Unit{
     protected override void Start() {
 
 
-        this.animator = this.GetComponent<Animator>();
-
         this.skillList.Add("Foil Stackin");
         this.skillList.Add("Defensive Whack");
 

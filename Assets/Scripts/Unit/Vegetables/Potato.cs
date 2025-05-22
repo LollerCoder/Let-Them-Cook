@@ -13,7 +13,6 @@ public class Potato : Unit {
 
     protected override void Start() {
 
-        this.animator = this.GetComponent<Animator>();
 
         this.skillList.Add("Basic Attack");
 
