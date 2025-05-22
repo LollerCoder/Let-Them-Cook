@@ -860,8 +860,9 @@ GameObject:
   - component: {fileID: 59340532064796960}
   - component: {fileID: 2517267455503825380}
   - component: {fileID: 9205173872590818891}
+  - component: {fileID: 1046618052473504474}
   m_Layer: 6
-  m_Name: UnitTemplate 1
+  m_Name: Beetroot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -928,7 +929,7 @@ SpriteRenderer:
   m_SortingLayerID: 58333245
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1443800000, guid: a54d6f6a70cfadc4598f8e73fa03f203, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -936,7 +937,7 @@ SpriteRenderer:
   m_Size: {x: 2.02, y: 3.04}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &59340532064796960
@@ -949,7 +950,7 @@ Animator:
   m_GameObject: {fileID: 8658494959366762821}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 128b64cbf8e277e4f843dcfb156553ec, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -994,3 +995,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af77c3ae89978548ac6d12ace3b3784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1046618052473504474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8658494959366762821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c2c32584da8546449e200bfb4a805ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBar: {fileID: 7513153323364645393}
+  ingredientType: 0
+  type: 0
+  charName: 
+  hp: 0
+  _tile: {fileID: 0}
+  InRange: 0
+  BufController: {fileID: 2863555831090316737}
+  DebufController: {fileID: 657468297688533773}

@@ -25,12 +25,12 @@ public class Brocolli : Unit {
         this.def = 5;
 
 
-        Slider hpSlide = this.hpBar.transform.Find("Slider").GetComponent<Slider>();
-        hpSlide.maxValue = this.maxhp;
-        hpSlide.value = hp;
-        Slider easeSlide = this.hpBar.transform.Find("EaseSlider").GetComponent<Slider>();
-        easeSlide.maxValue = this.maxhp;
-        easeSlide.value = hp;
+        //Slider hpSlide = this.hpBar.transform.Find("Slider").GetComponent<Slider>();
+        //hpSlide.maxValue = this.maxhp;
+        //hpSlide.value = hp;
+        //Slider easeSlide = this.hpBar.transform.Find("EaseSlider").GetComponent<Slider>();
+        //easeSlide.maxValue = this.maxhp;
+        //easeSlide.value = hp;
 
         base.Start();
     }
