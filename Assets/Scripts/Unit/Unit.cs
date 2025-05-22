@@ -438,7 +438,7 @@ public abstract class Unit : MonoBehaviour
         {
             isYou = true;
         }
-        this.hpBar.GetComponent<HpBar>().setColor(unit.Type, isYou);
+        this.hpBar.GetComponent<HpBar>().setColor(this.Type, isYou);
 
         if (unit == this)
         {

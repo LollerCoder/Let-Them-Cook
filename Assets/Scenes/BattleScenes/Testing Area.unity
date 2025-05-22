@@ -3625,7 +3625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnOffDodge: 1
-  enableCutscene: 0
+  enableCutscene: 1
 --- !u!4 &439627407
 Transform:
   m_ObjectHideFlags: 0
@@ -12329,6 +12329,7 @@ MonoBehaviour:
   InRange: 0
   BufController: {fileID: 967267571}
   DebufController: {fileID: 1007686761}
+  effects: []
 --- !u!65 &1390893721
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17628,6 +17629,7 @@ MonoBehaviour:
   InRange: 0
   BufController: {fileID: 3258688762418004079}
   DebufController: {fileID: 3848176966219616750}
+  effects: []
 --- !u!224 &274424884332402467
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18668,6 +18670,7 @@ MonoBehaviour:
   InRange: 0
   BufController: {fileID: 4284376249948467772}
   DebufController: {fileID: 1756560017257974191}
+  effects: []
 --- !u!114 &2094699684772889022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18689,6 +18692,7 @@ MonoBehaviour:
   InRange: 0
   BufController: {fileID: 4284376249719662323}
   DebufController: {fileID: 1756560017029700960}
+  effects: []
 --- !u!224 &2297148988534719793
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20909,7 +20913,7 @@ Transform:
   m_GameObject: {fileID: 1088408925875156493}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: 0.5, z: 3}
+  m_LocalPosition: {x: 6, y: 0.5, z: 3}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:

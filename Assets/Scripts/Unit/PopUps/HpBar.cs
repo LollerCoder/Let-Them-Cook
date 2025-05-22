@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//using UnityEngine.UIElements;
 
 public class HpBar : MonoBehaviour
 {
     //Broadcasting
     public const string UNIT = "UNIT";
 
+
+ 
     
-    
-    
+
+
     // Start is called before the first frame update
    
 
@@ -19,17 +22,22 @@ public class HpBar : MonoBehaviour
 
         if (unitType == EUnitType.Enemy)//enemy
         {
+            //Debug.Log("Red applied");   
             this.gameObject.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.8941177f, 0, 0.05098039f, 1);
 
         }
 
         if (unitType == EUnitType.Ally)//ally
         {
+            //Debug.Log("Blue applied");
+
             this.gameObject.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.0619223f, 0.2870282f, 0.8415094f, 1);
         }
 
         if (isItYou)//its you
         {
+            //Debug.Log("Green applied");
+
             this.gameObject.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.2638531f, 0.8943396f, 0.2008044f, 1);
         }
     }
@@ -38,14 +46,22 @@ public class HpBar : MonoBehaviour
     public void hpPopUp(GameObject popUpp, int maxHp, int hp)
     {
         popUpp.SetActive(true);
+        
         Slider hpSlide = popUpp.transform.Find("Slider").GetComponent<Slider>();
         Slider easeSlide = popUpp.transform.Find("EaseSlider").GetComponent<Slider>();
+        hpSlide.enabled = true;
+        easeSlide.enabled = true;
 
         hpSlide.value = hp;
+        hpSlide.maxValue = maxHp;
+        easeSlide.maxValue = maxHp;
 
 
+
+        Debug.Log(easeSlide.value + " vs " + hpSlide.value);
         if (easeSlide.value != hpSlide.value)
         {
+            Debug.Log(easeSlide.value + " vs " + hpSlide.value);
             if (popUpp.activeSelf)
             {
                 StartCoroutine(easer(popUpp));
