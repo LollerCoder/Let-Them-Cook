@@ -200,6 +200,8 @@ public class UnitActionManager : MonoBehaviour
             }
         }
     }
+
+    //first thing that happens when Unit's turn starts
     private void SetUpTurn()
     {
         Parameters param = new Parameters();
@@ -223,6 +225,9 @@ public class UnitActionManager : MonoBehaviour
         this.hadAttacked = false;
         this.GetFirstUnit().Tile.isWalkable = true;
         this.numAttack = -1;
+
+        //apply effects
+        this.GetFirstUnit().ApplyEffects();
 
         // reset and update attackable list
         UnitAttackActions.SetAttackableList();

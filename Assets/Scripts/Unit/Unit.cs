@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Scripting.APIUpdating;
 using UnityEngine.UI;
 
 [Serializable]
@@ -190,6 +188,14 @@ public abstract class Unit : MonoBehaviour
 
     [SerializeField]
     Animator DebufController;
+
+    [Header("Effects")]
+    [SerializeField]
+    private List<Effect> effects = new List<Effect>();
+
+    /// <summary>
+    /// BELOW ARE THE METHODS
+    /// </summary>
 
     public void TakeDamage(float damage, Unit attacker)
     {
@@ -577,5 +583,89 @@ public abstract class Unit : MonoBehaviour
         return poison;
         
 
+    }
+
+    ////////////////////////////
+    ///
+    ///     EFFECTS
+
+    //Adding effects
+    public void AddEffect(Effect effect)
+    {
+        this.effects.Add(effect);
+    }
+
+    public void AddEffect(EnumEffects effects, Unit origin, Parameters effectParam)
+    {
+        Debug.Log("Adding effect");
+
+        string effectName = "null";
+        int duration = effectParam.GetIntExtra("duration", 1);
+
+        switch (effects)
+        {
+            case EnumEffects.Poison:
+                Poison poisonEffect = new Poison(duration, origin);
+                this.effects.Add(poisonEffect);
+                effectName = "Poison";
+                break;
+            case EnumEffects.RechargeSkill:
+                RechargingSkill rck = new RechargingSkill(duration, origin, effectParam.GetStringExtra("SkillName", "Skill"));
+                Debug.Log(rck);
+                this.effects.Add(rck);
+                effectName = "Recharge Skill";
+                break;
+            default:
+                Debug.Log("Effect not found!");
+                break;
+        }
+
+        Debug.Log("Added effect " + effectName);
+    }
+
+    //Applying effects
+    public void ApplyEffects()
+    {
+        foreach (Effect effect in this.effects)
+        {
+            effect.ApplyEffect(this);
+        }
+
+        this.effects.RemoveAll(ef => ef.Duration <= 0);
+    }
+
+    public Effect GetEffect(string effect)
+    {
+
+        //for (int i = 0; i < this.effects.Count; i++)
+        //{
+        //    if (String.Equals(this.effects[i].EffectName, effect))
+        //    {
+        //        Debug.Log("EF: " + this.effects[i]);
+        //        return this.effects[i];
+        //    }
+        //}
+
+        bool isSame;
+
+        foreach (Effect ef in this.effects)
+        {
+            isSame = String.Equals(effect, ef.EffectName);
+            Debug.Log(effect + " vs " + ef.EffectName + " is " + isSame);
+            Debug.Log("EF: " + ef);
+            if (isSame) return ef;
+        }
+
+        Debug.Log("Didn't find effect");
+        return null;
+        //return this.effects.Find(ef => String.Equals(effect, ef.EffectName));
+    }
+
+    public void PrintEffects()
+    {
+        Debug.Log("Effects of " + this.Name);
+
+        foreach (Effect ef in this.effects)
+            Debug.Log(ef.EffectName);
     }
 }
