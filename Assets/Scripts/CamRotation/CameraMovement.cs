@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraMovement : MonoBehaviour
 {    //https://www.youtube.com/watch?v=rDJOilo4Xrg&t=316s
@@ -52,6 +53,10 @@ public class CameraMovement : MonoBehaviour
                 this.reset = false;
                 this.targetPosition = Vector3.zero;
             }
+        }
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Lobby");
         }
     }
 
