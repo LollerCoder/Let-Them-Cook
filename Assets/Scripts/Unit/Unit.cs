@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
+using UnityEngine.UI;
 
 [Serializable]
 public abstract class Unit : MonoBehaviour
@@ -517,12 +518,12 @@ public abstract class Unit : MonoBehaviour
             this.animator.SetBool("Ally", false);
         }
 
-        //Slider hpSlide = this.hpBar.transform.Find("Slider").GetComponent<Slider>();
-        //hpSlide.maxValue = this.maxhp;
-        //hpSlide.value = hp;
-        //Slider easeSlide = this.hpBar.transform.Find("EaseSlider").GetComponent<Slider>();
-        //easeSlide.maxValue = this.maxhp;
-        //easeSlide.value = hp;
+        Slider hpSlide = this.hpBar.transform.Find("Slider").GetComponent<Slider>();
+        hpSlide.maxValue = this.maxhp;
+        hpSlide.value = hp;
+        Slider easeSlide = this.hpBar.transform.Find("EaseSlider").GetComponent<Slider>();
+        easeSlide.maxValue = this.maxhp;
+        easeSlide.value = hp;
 
         UnitActionManager.Instance.UnitList.Add(this);
     }
