@@ -549,6 +549,14 @@ public abstract class Unit : MonoBehaviour
 
     /*COLOR CHANGER*/
 
+    public void ChangeColor(Color _color)
+    {
+        SpriteRenderer spriteAsset = this.GetComponent<SpriteRenderer>();
+
+        //Debug.Log("Prev color: " + spriteAsset.color);
+        spriteAsset.color = _color;
+    }
+
     public Color poisonUnit(SpriteRenderer spriteAsset)
     {
 
@@ -595,40 +603,16 @@ public abstract class Unit : MonoBehaviour
         this.effects.Add(effect);
     }
 
-    public void AddEffect(EnumEffects effects, Unit origin, Parameters effectParam)
-    {
-        Debug.Log("Adding effect");
-
-        string effectName = "null";
-        int duration = effectParam.GetIntExtra("duration", 1);
-
-        switch (effects)
-        {
-            case EnumEffects.Poison:
-                Poison poisonEffect = new Poison(duration, origin);
-                this.effects.Add(poisonEffect);
-                effectName = "Poison";
-                break;
-            case EnumEffects.RechargeSkill:
-                RechargingSkill rck = new RechargingSkill(duration, origin, effectParam.GetStringExtra("SkillName", "Skill"));
-                Debug.Log(rck);
-                this.effects.Add(rck);
-                effectName = "Recharge Skill";
-                break;
-            default:
-                Debug.Log("Effect not found!");
-                break;
-        }
-
-        Debug.Log("Added effect " + effectName);
-    }
-
     //Applying effects
     public void ApplyEffects()
     {
         foreach (Effect effect in this.effects)
         {
             effect.ApplyEffect(this);
+
+            //check if finished
+            if (effect.Duration <= 0)
+                effect.EffectAfterAction(this);
         }
 
         this.effects.RemoveAll(ef => ef.Duration <= 0);
@@ -651,12 +635,12 @@ public abstract class Unit : MonoBehaviour
         foreach (Effect ef in this.effects)
         {
             isSame = String.Equals(effect, ef.EffectName);
-            Debug.Log(effect + " vs " + ef.EffectName + " is " + isSame);
-            Debug.Log("EF: " + ef);
+            //Debug.Log(effect + " vs " + ef.EffectName + " is " + isSame);
+            //Debug.Log("EF: " + ef);
             if (isSame) return ef;
         }
 
-        Debug.Log("Didn't find effect");
+        //Debug.Log("Didn't find effect");
         return null;
         //return this.effects.Find(ef => String.Equals(effect, ef.EffectName));
     }

@@ -33,4 +33,10 @@ public class Effect
     {
         //Debug.Log("Doing " + this.EffectName);
     }
+
+    //function that will be called once the duration is finished
+    public virtual void EffectAfterAction(Unit unitAffected)
+    {
+        Debug.Log(this.EffectName + " has finished!");
+    }
 }
