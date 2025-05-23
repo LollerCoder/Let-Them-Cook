@@ -53,7 +53,9 @@ public class CutsceneManager : MonoBehaviour
         //ESkillType skillAnim = param.GetSkillTypeExtra(SKILLANIM);
 
 
-        EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.HP, target.MAXHP);
+
+        EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.MAXHP, target.HP);
+        EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Enemy, false);
         EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
         findSkillAnim(skillName);
         
@@ -113,6 +115,43 @@ public class CutsceneManager : MonoBehaviour
         }
     }
 
+    private void CutsceneTakeDamage()
+    {
+
+
+        //Parameters param = new Parameters();
+        //param.PutExtra(UNIT, target);
+
+        UnitActions.applySkill(target, UnitActionManager.Instance.numAttack);
+        EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.MAXHP, target.HP);
+        EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Enemy, false);
+       
+
+
+
+
+
+
+
+
+        Debug.Log("CutsceneOuch");
+
+    }
+
+    IEnumerator CutsceneDeadCheck()
+    {
+        if (target.HP <= 0)
+        {
+            yield return new WaitForSeconds(1);
+            CutsceneAnim.SetTrigger("DedEnemy");
+        }
+        else
+        {
+            yield return new WaitForSeconds(1);
+            this.CutsceneEnd();
+        }   
+    }
+
     private void CutsceneEnd()
     {
         //player.transform.position = playerOriginalpos;
@@ -128,49 +167,28 @@ public class CutsceneManager : MonoBehaviour
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
     }
 
-    private void CutsceneTakeDamage()
-    {
-
-
-        //Parameters param = new Parameters();
-        //param.PutExtra(UNIT, target);
-
-        EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Enemy, false);
-        EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.HP, target.MAXHP);
-
-        UnitActions.applySkill(target, UnitActionManager.Instance.numAttack);
-
-
-        
-        
-
-
-
-
-        Debug.Log("CutsceneOuch");
-        
-    }
+    
 
     private void Update()
     {
-        if (moving)
-        {
-            //Debug.Log("MOVING");
-            ticks += Time.deltaTime;
-            if (ticks < 5.0f)
-            {
-                //movingBox.transform.Translate(Vector3.right * speed * Time.deltaTime);
+        //if (moving)
+        //{
+        //    //Debug.Log("MOVING");
+        //    ticks += Time.deltaTime;
+        //    if (ticks < 5.0f)
+        //    {
+        //        //movingBox.transform.Translate(Vector3.right * speed * Time.deltaTime);
 
-            }
-            else
-            {
-                ticks = 0.0f;
-                moving = false;
-                this.CutsceneEnd();
+        //    }
+        //    else
+        //    {
+        //        ticks = 0.0f;
+        //        moving = false;
+                
                 
                
 
-            }
-        }
+        //    }
+        //}
     }
 }
