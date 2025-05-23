@@ -16,4 +16,9 @@ public class Poison : Effect
         //Debug.Log("Poison!");
         unitAffected.TakeDamage(this.damage, this.EffectMaker);
     }
+
+    public override void EffectAfterAction(Unit unitAffected)
+    {
+        unitAffected.ChangeColor(Color.white);
+    }
 }
