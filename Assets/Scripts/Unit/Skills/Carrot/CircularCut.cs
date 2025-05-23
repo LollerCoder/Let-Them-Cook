@@ -19,6 +19,8 @@ public class CircularCut : Skill
 
     public override void SkillAction(Unit target, Unit origin)
     {
+        origin.AddEffect(new Dizzy(2, origin));
+
         PopUpManager.Instance.addPopUp(this.skillName, origin.transform);
 
         List<Vector3> cardinalDirs = new List<Vector3>();
