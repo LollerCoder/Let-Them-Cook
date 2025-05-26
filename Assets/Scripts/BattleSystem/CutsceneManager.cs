@@ -39,9 +39,9 @@ public class CutsceneManager : MonoBehaviour
 
 
 
-    float ticks = 0.0f;
-    float speed = 25.0f;
-    bool moving = false;
+   // float ticks = 0.0f;
+    //float speed = 25.0f;
+   // bool moving = false;
     private void MOVE(Parameters param)
     {
         BattleUI.Instance.ToggleActionBox();
@@ -72,7 +72,7 @@ public class CutsceneManager : MonoBehaviour
         SpriteRenderer EnemySprite = target.gameObject.GetComponent<SpriteRenderer>();
         CutscenePlayer.GetComponent<SpriteRenderer>().sprite = PlayerSprite.sprite;
         CutsceneEnemy.GetComponent<SpriteRenderer>().sprite = EnemySprite.sprite;
-        moving = true;
+       // moving = true;
 
         
     }

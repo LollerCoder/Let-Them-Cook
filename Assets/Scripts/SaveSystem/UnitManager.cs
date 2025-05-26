@@ -26,7 +26,7 @@ public class UnitManager : MonoBehaviour
         if (levelNum >= 1) addUnit("Carrot", carrotTemplate, new Vector3(3,0.5f,4));
 
         /*for testing pruposes*/
-        if (levelNum >= 1) addUnit("Garlic", garlicTemplate, new Vector3(4,0.5f,4));
+       //if (levelNum >= 1) addUnit("Garlic", garlicTemplate, new Vector3(4,0.5f,4));
 
         /*Will uncomment when we have the assets for them*/
         // else if (levelNum >= 3) addUnit("Chili", new Vector3(3,0.5f,4));

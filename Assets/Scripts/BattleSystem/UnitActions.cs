@@ -14,7 +14,7 @@ public static class UnitActions {
     
     public static bool stepFlag = false;
     
-    private static int _affectedStatValue = 0;
+   // private static int _affectedStatValue = 0;
 
     public const string UNIT = "UNIT";
 
@@ -260,7 +260,7 @@ public static class UnitActions {
     }
     public static void TileTapped(Tile goalTile) {
         Unit unit = UnitActionManager.Instance.GetFirstUnit();
-        string bufDebufname = ""; //name
+        //string bufDebufname = ""; //name
 
         EffectInfo terst = new EffectInfo(0, 0, EStatToEffect.NOTSET); //effectInfo
         if (!UnitActionManager.Instance.hadMoved &&
