@@ -10,6 +10,8 @@ public enum ETileType {
 
     HEAL,
     SLOW,
-    DAMAGE
+    DAMAGE,
+
+    OBJECTIVE
 
 }
