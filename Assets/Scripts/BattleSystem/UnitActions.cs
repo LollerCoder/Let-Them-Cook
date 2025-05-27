@@ -189,12 +189,12 @@ public static class UnitActions {
 
         float step = UnitActionManager.Instance.Speed * Time.deltaTime;
 
-        float previousY = currentUnit.transform.position.y;
+        //float previousY = currentUnit.transform.position.y;
         Vector3 currentPos = currentUnit.transform.position;
 
         currentUnit.transform.position = Vector3.MoveTowards(currentPos, PathFinding.Path[0].transform.position, step);
         currentUnit.transform.position = new Vector3(currentUnit.transform.position.x,
-                                                            previousY,
+                                                            PathFinding.Path[0].transform.position.y + 0.5f,
                                                             currentUnit.transform.position.z);
 
         Vector2 unitPos = new Vector2(currentUnit.transform.position.x, currentUnit.transform.position.z);
@@ -204,7 +204,7 @@ public static class UnitActions {
 
         if (Vector2.Distance(unitPos, tilePos) < 0.1f) {
             currentUnit.transform.position = new Vector3(PathFinding.Path[0].transform.position.x,
-                                                            previousY,
+                                                            PathFinding.Path[0].transform.position.y + 0.5f,
                                                             PathFinding.Path[0].transform.position.z);
             currentUnit.Tile = PathFinding.Path[0];
             goalTile = PathFinding.Path[0];
@@ -317,8 +317,7 @@ public static class UnitActions {
 
         }
     }
-    public static  void UpdateTile() { /////move to tileactions
-        //TileMapGenerator.Instance.UpdateTile();
+    public static void UpdateTile() { // move to tileactions
         TileMapManager.Instance.UpdateTile();
         foreach (Unit unit in UnitActionManager.Instance.UnitOrder) {
             if (unit.Type != EUnitType.Ally) {

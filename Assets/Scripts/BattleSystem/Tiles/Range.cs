@@ -11,29 +11,50 @@ public static class Range {
 
     public static List<Tile> GetTilesInMovement(Tile startingTile, float range) {
         List<Tile> inRangeTiles = new List<Tile>();
+        Dictionary<Tile, float> costSoFar = new Dictionary<Tile, float>();
+        List<Tile> tileQueue = new List<Tile>();
 
-        int stepCount = 0;
+        costSoFar[startingTile] = 0f;
+        tileQueue.Add(startingTile);
 
-        inRangeTiles.Add(startingTile);
+        while (tileQueue.Count > 0) {
+            // Get tile with lowest cost so far
+            Tile current = tileQueue.OrderBy(t => costSoFar[t]).First();
+            tileQueue.Remove(current);
 
-        List<Tile> previousTiles = new List<Tile>();
-        previousTiles.Add(startingTile);
+            inRangeTiles.Add(current);
 
-        while(stepCount < range) {
-            List<Tile> neighborTiles = new List<Tile>();
+            foreach (Tile neighbor in GetNeighborTiles(current)) {
+                if (!neighbor.isWalkable)
+                    continue;
 
-            foreach(Tile tile in previousTiles) {
-                if (!tile.isWalkable) { // do not add as highlighted area in range
+                int cost = 0;
+
+                if (current.bCost == neighbor.bCost) {
+                    cost = 1;
+                }
+                else if (Mathf.Abs(neighbor.bCost - current.bCost) > 1) {
                     continue;
                 }
-                neighborTiles.AddRange(GetNeighborTiles(tile));
-            }
+                else if (current.bCost < neighbor.bCost) {
+                    cost = neighbor.bCost;
+                }
+                else {
+                    cost = 1;
+                }
 
-            inRangeTiles.AddRange(neighborTiles);
-            previousTiles = neighborTiles.Distinct().ToList();
-            stepCount++;
+                float newCost = costSoFar[current] + cost;  // Accumulate cost to enter neighbor
+
+                if (newCost <= range && (!costSoFar.ContainsKey(neighbor) || newCost < costSoFar[neighbor])) {
+                    costSoFar[neighbor] = newCost;
+
+                    if (!tileQueue.Contains(neighbor))
+                        tileQueue.Add(neighbor);
+                }
+            }
         }
-        return inRangeTiles.Distinct().ToList();
+
+        return inRangeTiles;
     }
 
     public static List<Tile> GetTilesInAttackRange(Tile startingTile, int range) {

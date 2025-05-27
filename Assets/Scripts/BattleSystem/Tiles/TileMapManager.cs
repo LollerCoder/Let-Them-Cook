@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class TileMapManager : MonoBehaviour {
     public static TileMapManager Instance = null;
@@ -59,8 +60,8 @@ public class TileMapManager : MonoBehaviour {
             if (this.TileMap.ContainsKey(key)) {
                 this.TileMap[key].tileType = ETileType.UNPASSABLE;
                 this.TileMap[key].isWalkable = false;
-                Debug.Log(this.TileMap[key].name);
-                Debug.Log(key);
+               // Debug.Log(this.TileMap[key].name);
+               // Debug.Log(key);
             }
         }
     }
@@ -106,9 +107,11 @@ public class TileMapManager : MonoBehaviour {
         return neighbors;
     }
     public void UpdateTile() {
+
         foreach(var tileMap in this._tileMap) {
-            if(tileMap.Value.tileType != ETileType.UNPASSABLE) {
+            if (tileMap.Value.tileType != ETileType.UNPASSABLE) {
                 tileMap.Value.isWalkable = true;
+
             }
         }
     }
