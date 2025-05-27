@@ -1,0 +1,22 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+//will be used as a flag to indicate Unit was a hostage
+public class CapturedHostage : Effect
+{
+    public CapturedHostage(int _duration, Unit _effectMaker) : base(_duration, _effectMaker)
+    {
+        this.EffectName = "Captured_Hostage";
+    }
+
+    public override void EffectAction(Unit unitAffected)
+    {
+        
+    }
+
+    public override void EffectAfterAction(Unit unitAffected)
+    {
+        this.Duration += 999;
+    }
+}
