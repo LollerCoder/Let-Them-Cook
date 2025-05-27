@@ -27,10 +27,6 @@ public class Tile : MonoBehaviour{
         get { return this.Heuristic; }
         set { this.Heuristic = value; }
     }
-
-    public int F {
-        get { return this.bCost + this.Heuristic; }
-    }
     
     public Tile previousTile;
 

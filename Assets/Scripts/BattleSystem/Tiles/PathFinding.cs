@@ -15,12 +15,13 @@ public static class PathFinding {
         List<Tile> tileVisited = new List<Tile>();
         Dictionary<Tile, int> costSoFar = new Dictionary<Tile, int>();
 
-        costSoFar[start] = 0; // stores the accumulative cost for each tile (starting tile to the next tile)
+        costSoFar[start] = 0; // stores the added cost for each tile (current tile to the next tile)
         start.heuristic = GetManhattanDistance(start, end);
         tileQueue.Add(start);
 
         while (tileQueue.Count > 0) {
-            Tile currentTile = tileQueue.OrderBy(x => x.F).First();
+            // get the tile with the lowest cost to travel to first
+            Tile currentTile = tileQueue.OrderBy(x => costSoFar[x] + x.heuristic).First();
 
             tileQueue.Remove(currentTile);
             tileVisited.Add(currentTile);
@@ -54,7 +55,7 @@ public static class PathFinding {
                 int tempCost = costSoFar[currentTile] + cost;
 
                 if (!costSoFar.ContainsKey(neighbor) || tempCost < costSoFar[neighbor]) {
-                    costSoFar[neighbor] = tempCost;
+                    costSoFar[neighbor] = tempCost; // store the added cost to the neighbor tile
                     neighbor.heuristic = GetManhattanDistance(end, neighbor);
                     neighbor.previousTile = currentTile;
 

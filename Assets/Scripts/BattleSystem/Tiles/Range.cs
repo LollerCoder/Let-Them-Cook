@@ -18,8 +18,8 @@ public static class Range {
         tileQueue.Add(startingTile);
 
         while (tileQueue.Count > 0) {
-            // Get tile with lowest cost so far
-            Tile current = tileQueue.OrderBy(t => costSoFar[t]).First();
+            // get the tile with the lowest cost to travel to first
+            Tile current = tileQueue.OrderBy(x => costSoFar[x]).First();
             tileQueue.Remove(current);
 
             inRangeTiles.Add(current);
@@ -43,10 +43,10 @@ public static class Range {
                     cost = 1;
                 }
 
-                float newCost = costSoFar[current] + cost;  // Accumulate cost to enter neighbor
+                float tempCost = costSoFar[current] + cost;
 
-                if (newCost <= range && (!costSoFar.ContainsKey(neighbor) || newCost < costSoFar[neighbor])) {
-                    costSoFar[neighbor] = newCost;
+                if (tempCost <= range && (!costSoFar.ContainsKey(neighbor) || tempCost < costSoFar[neighbor])) {
+                    costSoFar[neighbor] = tempCost; // store the added cost to the neighbor tile
 
                     if (!tileQueue.Contains(neighbor))
                         tileQueue.Add(neighbor);

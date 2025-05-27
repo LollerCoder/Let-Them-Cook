@@ -270,7 +270,7 @@ public static class UnitActions {
             PathFinding.Path = PathFinding.AStarPathFinding(unit.Tile,
                          goalTile,
                          Range.GetTilesInMovement(unit.Tile,
-                                                         unit.Speed)
+                                                         unit.Move)
                          );
 
             if (unit.Tile.TilePos == goalTile.TilePos) {
