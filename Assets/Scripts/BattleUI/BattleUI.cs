@@ -395,6 +395,15 @@ public class BattleUI : MonoBehaviour {
         this.gameEndAnimator.SetBool("GameEnd", true);
     }
 
+    public void EndScreen(Parameters param)
+    {
+        this.gameEndText.text = param.GetStringExtra("End_Text", "Stage Complete");
+        this.gameEndButtonText.text = param.GetStringExtra("Button_Text", "Continue");
+        this.gameEndAllyWin = param.GetBoolExtra("Ally_Win", true);
+
+        this.gameEndAnimator.SetBool("GameEnd", true);
+    }
+
     public void GameEndButtonClick() {
         if(this.gameEndAllyWin) {
 

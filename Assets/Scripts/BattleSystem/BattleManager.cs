@@ -60,6 +60,19 @@ public class BattleManager : MonoBehaviour {
         }
     }
 
+    private void EndLevel(Parameters param)
+    {
+        if (!(param.GetBoolExtra("Level_Complete", false))) return;
+
+        BattleUI.Instance.EndScreen(param);
+
+        this.GameEnd = true;
+        this.CollectRemainingVeg();
+
+        /*Set the next level as unlocked*/
+        LevelManager.instance.updateMap(SceneManager.GetActiveScene().name);
+    }
+
     private void SetUnitNums() {
         foreach(Unit unit in UnitActionManager.Instance.UnitList) {
             if(unit.Type == EUnitType.Ally) {
@@ -96,7 +109,7 @@ public class BattleManager : MonoBehaviour {
 
         
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.HANDLE_GAIN_REWARDS, this.HandleUnitLevelUp);
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CHECK_END_CONDITION, this.EndCondition);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CHECK_END_CONDITION, this.EndLevel);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.ON_START, this.SetUnitNums);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.NEXT_TURN, this.NextTurn);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.UPDATE_INVENTORY, this.UpdateInventory);
