@@ -58,10 +58,10 @@ public class HpBar : MonoBehaviour
 
 
 
-        Debug.Log(easeSlide.value + " vs " + hpSlide.value);
+        //Debug.Log(easeSlide.value + " vs " + hpSlide.value);
         if (easeSlide.value != hpSlide.value)
         {
-            Debug.Log(easeSlide.value + " vs " + hpSlide.value);
+            
             if (popUpp.activeSelf)
             {
                 StartCoroutine(easer(popUpp));

@@ -17,9 +17,13 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] GameObject EnemyHP;
 
 
-
+    [Header("Animator")]
     [SerializeField] Animator CutsceneAnim;
-    
+    [Header("Dummies")]
+    [SerializeField] GameObject[] Dummies;
+
+
+
     
     Unit player;
     Unit target;
@@ -49,9 +53,11 @@ public class CutsceneManager : MonoBehaviour
         player = param.GetUnitExtra(currUNIT);
         target = param.GetUnitExtra(TARGET);
         string skillName = param.GetStringExtra(SKILLNAME,"THIS SHOULD NEVER BE USED.");
-        //camera = param.GetGameObjectExtra(CAMERA);
-        //ESkillType skillAnim = param.GetSkillTypeExtra(SKILLANIM);
 
+        SpriteRenderer PlayerSprite = player.gameObject.GetComponent<SpriteRenderer>();
+        SpriteRenderer EnemySprite = target.gameObject.GetComponent<SpriteRenderer>();
+        CutscenePlayer.GetComponent<SpriteRenderer>().sprite = PlayerSprite.sprite;
+        CutsceneEnemy.GetComponent<SpriteRenderer>().sprite = EnemySprite.sprite;
 
 
         EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.MAXHP, target.HP);
@@ -60,27 +66,37 @@ public class CutsceneManager : MonoBehaviour
         findSkillAnim(skillName);
         
 
-        //player.gameObject.GetComponent<SpriteRenderer>().sprite;
-
-        //playerOriginalpos = player.transform.position;
-        //targetOriginalpos = target.transform.position;
-
-        //target.transform.position = enemySpawn.transform.position;
-        //player.transform.position = playerSpawn.transform.position;
-
-        SpriteRenderer PlayerSprite = player.gameObject.GetComponent<SpriteRenderer>();
-        SpriteRenderer EnemySprite = target.gameObject.GetComponent<SpriteRenderer>();
-        CutscenePlayer.GetComponent<SpriteRenderer>().sprite = PlayerSprite.sprite;
-        CutsceneEnemy.GetComponent<SpriteRenderer>().sprite = EnemySprite.sprite;
-       // moving = true;
 
         
+      
+        
+    }
+    private void AOEMOVE(Parameters param)
+    {
+        Debug.Log("AOE DUMMIES");
+        int dummycount = param.GetIntExtra("DummyCount",0);
+
+        Debug.Log("Dummies were: " + dummycount);
+        for (int i = 0; i < dummycount - 1; i++)
+        {
+            SpriteRenderer DummySprite = Dummies[i].gameObject.GetComponent<SpriteRenderer>();
+            DummySprite = param.GetUnitExtra("Dummy" + i).gameObject.GetComponent<SpriteRenderer>();
+            Dummies[i].SetActive(true);
+        }
+
+    
+
+
+
+
+
     }
 
     private void Start()
     {
 
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_PLAY, this.MOVE);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_AOE, this.AOEMOVE);
 
     }
 
@@ -121,7 +137,10 @@ public class CutsceneManager : MonoBehaviour
 
         //Parameters param = new Parameters();
         //param.PutExtra(UNIT, target);
-
+        foreach(GameObject dummy in Dummies)
+        {
+            dummy.SetActive(false);
+        }
         UnitActions.applySkill(target, UnitActionManager.Instance.numAttack);
         EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.MAXHP, target.HP);
         EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Enemy, false);
@@ -154,8 +173,7 @@ public class CutsceneManager : MonoBehaviour
 
     private void CutsceneEnd()
     {
-        //player.transform.position = playerOriginalpos;
-        //target.transform.position = targetOriginalpos;
+    
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_END);
 
 
@@ -171,24 +189,6 @@ public class CutsceneManager : MonoBehaviour
 
     private void Update()
     {
-        //if (moving)
-        //{
-        //    //Debug.Log("MOVING");
-        //    ticks += Time.deltaTime;
-        //    if (ticks < 5.0f)
-        //    {
-        //        //movingBox.transform.Translate(Vector3.right * speed * Time.deltaTime);
-
-        //    }
-        //    else
-        //    {
-        //        ticks = 0.0f;
-        //        moving = false;
-                
-                
-               
-
-        //    }
-        //}
+        
     }
 }

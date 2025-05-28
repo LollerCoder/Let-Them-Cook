@@ -3,8 +3,12 @@ using UnityEngine;
 
 public class CircularCut : Skill
 {
-    private float damage = 10.0f;
 
+
+    private float damage = 10.0f;
+    List<Vector3> cardinalDirs = new List<Vector3>();
+    List<Unit> neighbors = new List<Unit>();
+    Unit neighbor = null;
     public CircularCut()
     {
         this.skillName = "Circular Cut";
@@ -15,33 +19,75 @@ public class CircularCut : Skill
 
         //for skill progressions
         this.cost = 30;
+
+
+        cardinalDirs.Add(Vector3.left);
+        cardinalDirs.Add(Vector3.right);
+        cardinalDirs.Add(Vector3.forward);
+        cardinalDirs.Add(Vector3.back);
     }
 
     public override void SkillAction(Unit target, Unit origin)
     {
         origin.AddEffect(new Dizzy(2, origin));
-
         PopUpManager.Instance.addPopUp(this.skillName, origin.transform);
 
-        List<Vector3> cardinalDirs = new List<Vector3>();
-        cardinalDirs.Add(Vector3.left);
-        cardinalDirs.Add(Vector3.right);
-        cardinalDirs.Add(Vector3.forward);
-        cardinalDirs.Add(Vector3.back);
-
-        Unit neighbor;
-
-        foreach (Vector3 dir in cardinalDirs)
+        if (!GameSettingsManager.Instance.enableCutscene)
         {
-            neighbor = this.Get_Neighbor(origin.transform.position, dir);
-            Debug.Log("Neighbor" + neighbor);
-            if (neighbor != null)
+            GetNeighborList(origin);
+            foreach (Unit neighbor in neighbors)
             {
+                
                 neighbor.TakeDamage(damage, origin);
                 PopUpManager.Instance.addPopUp("-" + damage.ToString(), neighbor.transform);
             }
         }
+        else
+        {
+            foreach (var neighbor in neighbors)
+            {
+
+                neighbor.TakeDamage(damage, origin);
+                PopUpManager.Instance.addPopUp("-" + damage.ToString(), neighbor.transform);
+            }
+        }
+      
+
+
+
     }
+    public override void GetNeighborList(Unit origin)
+    {
+        Debug.Log("Finding neighbors");
+            foreach (Vector3 dir in cardinalDirs)
+            {
+                neighbor = this.Get_Neighbor(origin.transform.position, dir);
+                Debug.Log("Neighbor" + neighbor);
+                if (neighbor != null)
+                {
+                    neighbors.Add(neighbor);
+                    
+
+                }
+
+            }
+            if (GameSettingsManager.Instance.enableCutscene)
+            {
+                int x = 0;
+                Parameters param = new Parameters();
+                foreach (Unit adjacent in neighbors)
+                {
+                    param.PutExtra("Dummy" + x, adjacent);
+                    x++;
+                }
+                param.PutExtra("DummyCount", neighbors.Count);
+                EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_AOE,param);
+                Debug.Log("Event made");
+            }
+            
+       
+    }
+    
 
     private Unit Get_Neighbor(Vector3 originPoint, Vector3 dir)
     {
@@ -55,4 +101,6 @@ public class CircularCut : Skill
 
         return hit.collider.gameObject.GetComponent<Unit>();
     }
+
+    
 }
