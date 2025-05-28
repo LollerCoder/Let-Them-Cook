@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class Tile : MonoBehaviour{
 
     private int tileX;
     private int tileZ;
+
+    public bool withProp = false;
 
     public Vector2Int TilePos {
         get { return new Vector2Int(tileX, tileZ);}

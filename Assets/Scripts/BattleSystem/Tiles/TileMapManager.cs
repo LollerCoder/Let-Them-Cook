@@ -15,12 +15,6 @@ public class TileMapManager : MonoBehaviour {
 
     public float unitLock;
 
-    [SerializeField]
-    private List<TileMapProps> Props = new List<TileMapProps>();
-
-    [SerializeField]
-    private Transform PropField;
-
     // Start is called before the first frame update
     void Start() {
         Tile[] Tiles = FindObjectsByType<Tile>(FindObjectsSortMode.None);
@@ -28,19 +22,20 @@ public class TileMapManager : MonoBehaviour {
             Vector2Int tilePosition = new Vector2Int(Mathf.RoundToInt(tile.transform.position.x), // to ensure the position is not a float
                                                      Mathf.RoundToInt(tile.transform.position.z));
 
-            tile.isWalkable = true;
-            tile.TilePos = tilePosition;
-
-            if (tilePosition == new Vector2Int(3, 9)) {
-                Debug.Log(tilePosition);
+            if (tile.withProp) {
+                tile.tileType = ETileType.UNPASSABLE;
+                tile.isWalkable = false;
             }
+            else {
+                tile.isWalkable = true;
+            }
+
+            tile.TilePos = tilePosition;
 
             if (!this._tileMap.ContainsKey(tilePosition)) { // avoid any duplicate keys
                 this._tileMap.Add(tilePosition, tile);
             }
         }
-        this.PropGenerator();
-        this.UpdateTileWithProps();
     }
 
     public void Awake() {
@@ -49,26 +44,6 @@ public class TileMapManager : MonoBehaviour {
         }
         else if (Instance != null) {
             Destroy(this.gameObject);
-        }
-    }
-
-    private void PropGenerator() {
-        foreach(TileMapProps props in this.Props) {
-            Instantiate(props.value, props.key, props.value.transform.rotation, this.PropField);
-        }
-    }
-
-    private void UpdateTileWithProps() {
-        Vector2Int key;
-        foreach (TileMapProps props in this.Props) {
-            key = new Vector2Int((int)props.key.x, (int)props.key.z);
-
-            if (this.TileMap.ContainsKey(key)) {
-                this.TileMap[key].tileType = ETileType.UNPASSABLE;
-                this.TileMap[key].isWalkable = false;
-               // Debug.Log(this.TileMap[key].name);
-               // Debug.Log(key);
-            }
         }
     }
 
@@ -122,14 +97,4 @@ public class TileMapManager : MonoBehaviour {
         }
     }
 
-}
-
-[Serializable]
-public class TileMapProps {
-    public Vector3 key;
-    public GameObject value;
-    public TileMapProps(Vector3 key, GameObject value) {
-        this.key = key;
-        this.value = value;
-    }
 }

@@ -47,7 +47,7 @@ public static class UnitActions {
             UnitActionManager.Instance.GetFirstUnit().OnMovement(true);
             UnitActionManager.Instance.GetFirstUnit().transform.position = currentTilePos;
             UnitActionManager.Instance.GetFirstUnit().Tile = currentTile;
-
+            bGoal = false;
             EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
             //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
             //if (BattleUI.Instance.ActionBoxState) {               // MIGHT CHANGE
