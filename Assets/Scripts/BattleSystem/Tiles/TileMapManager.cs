@@ -13,6 +13,8 @@ public class TileMapManager : MonoBehaviour {
         get { return _tileMap; }
     }
 
+    public float unitLock;
+
     [SerializeField]
     private List<TileMapProps> Props = new List<TileMapProps>();
 
@@ -28,6 +30,10 @@ public class TileMapManager : MonoBehaviour {
 
             tile.isWalkable = true;
             tile.TilePos = tilePosition;
+
+            if (tilePosition == new Vector2Int(3, 9)) {
+                Debug.Log(tilePosition);
+            }
 
             if (!this._tileMap.ContainsKey(tilePosition)) { // avoid any duplicate keys
                 this._tileMap.Add(tilePosition, tile);

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TileHover : MonoBehaviour {
+    [SerializeField]
+    float yPos;
     void Update() {
         var Tile = this.OnHitTile();
 
@@ -10,7 +12,7 @@ public class TileHover : MonoBehaviour {
             Tile tile = Tile.GetComponent<Tile>();
             if (tile != null) {
                 this.transform.position = new Vector3(tile.transform.position.x, 
-                    tile.transform.position.y + 0.42f, // set it just above the tile
+                    tile.transform.position.y + this.yPos, // set it just above the tile
                     tile.transform.position.z);
             }
         }

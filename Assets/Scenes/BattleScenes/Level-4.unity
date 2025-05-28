@@ -291,6 +291,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4676822637959562795, guid: 135bcf538daeac4439b3b4cc70e3fd53, type: 3}
+      propertyPath: yPos
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 6190075913887439728, guid: 135bcf538daeac4439b3b4cc70e3fd53, type: 3}
       propertyPath: m_Name
       value: TileHover
@@ -2378,10 +2382,12 @@ MonoBehaviour:
   type: 1
   charName: 
   hp: 0
+  move: 3
   _tile: {fileID: 0}
   InRange: 0
   BufController: {fileID: 967267571}
   DebufController: {fileID: 1007686761}
+  effects: []
 --- !u!65 &1390893721
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3625,10 +3631,12 @@ MonoBehaviour:
   type: 1
   charName: 
   hp: 0
+  move: 3
   _tile: {fileID: 0}
   InRange: 0
   BufController: {fileID: 3258688762418004079}
   DebufController: {fileID: 3848176966219616750}
+  effects: []
 --- !u!224 &274424884332402467
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4727,10 +4735,12 @@ MonoBehaviour:
   type: 0
   charName: 
   hp: 0
+  move: 3
   _tile: {fileID: 0}
   InRange: 0
   BufController: {fileID: 4284376249948467772}
   DebufController: {fileID: 1756560017257974191}
+  effects: []
 --- !u!114 &2094699684772889022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4748,10 +4758,12 @@ MonoBehaviour:
   type: 0
   charName: 
   hp: 0
+  move: 3
   _tile: {fileID: 0}
   InRange: 0
   BufController: {fileID: 4284376249719662323}
   DebufController: {fileID: 1756560017029700960}
+  effects: []
 --- !u!224 &2297148988534719793
 RectTransform:
   m_ObjectHideFlags: 0
