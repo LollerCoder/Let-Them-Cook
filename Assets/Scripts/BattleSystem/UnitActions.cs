@@ -194,7 +194,7 @@ public static class UnitActions {
 
         currentUnit.transform.position = Vector3.MoveTowards(currentPos, PathFinding.Path[0].transform.position, step);
         currentUnit.transform.position = new Vector3(currentUnit.transform.position.x,
-                                                            PathFinding.Path[0].transform.position.y + 0.5f,
+                                                            PathFinding.Path[0].transform.position.y + TileMapManager.Instance.unitLock,
                                                             currentUnit.transform.position.z);
 
         Vector2 unitPos = new Vector2(currentUnit.transform.position.x, currentUnit.transform.position.z);
@@ -204,7 +204,7 @@ public static class UnitActions {
 
         if (Vector2.Distance(unitPos, tilePos) < 0.1f) {
             currentUnit.transform.position = new Vector3(PathFinding.Path[0].transform.position.x,
-                                                            PathFinding.Path[0].transform.position.y + 0.5f,
+                                                            PathFinding.Path[0].transform.position.y + TileMapManager.Instance.unitLock,
                                                             PathFinding.Path[0].transform.position.z);
             currentUnit.Tile = PathFinding.Path[0];
             goalTile = PathFinding.Path[0];
@@ -306,13 +306,17 @@ public static class UnitActions {
 
         Vector2Int unitPos = new Vector2Int();
         foreach (Unit unit in UnitActionManager.Instance.UnitList) {
+
             unitPos = new Vector2Int(
                 (int)unit.transform.position.x,
                 (int)unit.transform.position.z
             );
+            Debug.Log(unit.Name + unitPos);
 
             if (map.ContainsKey(unitPos)) {
                 unit.Tile = map[unitPos];
+                Debug.Log(unit.Name + unitPos + "assigned");
+
             }
 
         }
@@ -320,6 +324,10 @@ public static class UnitActions {
     public static void UpdateTile() { // move to tileactions
         TileMapManager.Instance.UpdateTile();
         foreach (Unit unit in UnitActionManager.Instance.UnitOrder) {
+            if (unit.Tile == null) {
+                Debug.Log(unit.Name);
+            }
+
             if (unit.Type != EUnitType.Ally) {
                 unit.Tile.isWalkable = false;
             }
