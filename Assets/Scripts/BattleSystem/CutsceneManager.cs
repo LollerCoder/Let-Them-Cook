@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UIElements;
@@ -21,6 +22,7 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] Animator CutsceneAnim;
     [Header("Dummies")]
     [SerializeField] GameObject[] Dummies;
+    private List<Unit> DummiesData = new List<Unit>();
 
 
 
@@ -73,24 +75,36 @@ public class CutsceneManager : MonoBehaviour
     }
     private void AOEMOVE(Parameters param)
     {
-        Debug.Log("AOE DUMMIES");
+        //Debug.Log("AOE DUMMIES");
         int dummycount = param.GetIntExtra("DummyCount",0);
 
-        Debug.Log("Dummies were: " + dummycount);
+        //Debug.Log("Dummies were: " + dummycount);
         for (int i = 0; i < dummycount; i++)
         {
             Dummies[i].SetActive(true);
             SpriteRenderer DummySprite = Dummies[i].gameObject.GetComponent<SpriteRenderer>();
-            DummySprite.sprite = param.GetUnitExtra("Dummy" + i).gameObject.GetComponent<SpriteRenderer>().sprite;
-            if(DummySprite != null)
-            {
-                Debug.Log("Something Found");
-            }
-            Debug.Log("Dummy" + i);
+            Unit dummySent = param.GetUnitExtra("Dummy" + i);
+            
+            DummiesData.Add(dummySent);
+
+            DummySprite.sprite = dummySent.gameObject.GetComponent<SpriteRenderer>().sprite;
+            HpBar DummyHp = Dummies[i].gameObject.GetComponentInChildren<HpBar>(true);
            
+            DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
+            DummyHp.hpHide(DummyHp.gameObject);
+            DummyHp.setColor(EUnitType.Enemy, false);
+            //if(DummyHp == null) {
+            //    Debug.Log("Dummy hp NULL");
+            //}
+
+            //Debug.Log("MaxHp" + dummySent.MAXHP);
+            //Debug.Log("Hp" + dummySent.HP);
+
+
+
         }
 
-    
+
 
 
 
@@ -140,17 +154,32 @@ public class CutsceneManager : MonoBehaviour
     private void CutsceneTakeDamage()
     {
 
-
-        //Parameters param = new Parameters();
-        //param.PutExtra(UNIT, target);
-        foreach(GameObject dummy in Dummies)
-        {
-            dummy.SetActive(false);
-        }
+        
+        
         UnitActions.applySkill(target, UnitActionManager.Instance.numAttack);
         EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.MAXHP, target.HP);
         EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Enemy, false);
-       
+
+
+        if (DummiesData.Count() != 0)
+        {
+            for (int i = 0; i < Dummies.Count(); i++)
+            {
+                if (Dummies[i].activeSelf)
+                {
+                    HpBar DummyHp = Dummies[i].gameObject.GetComponentInChildren<HpBar>(true);
+                    Unit dummySent = DummiesData[i];
+
+                    DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
+                    //DummyHp.hpHide(DummyHp.gameObject);
+                    DummyHp.setColor(EUnitType.Enemy, false);
+                }
+
+
+
+
+            }
+        }
 
 
 
@@ -159,7 +188,8 @@ public class CutsceneManager : MonoBehaviour
 
 
 
-       
+
+
 
     }
 

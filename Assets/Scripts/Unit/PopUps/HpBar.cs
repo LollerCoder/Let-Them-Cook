@@ -45,6 +45,7 @@ public class HpBar : MonoBehaviour
 
     public void hpPopUp(GameObject popUpp, int maxHp, int hp)
     {
+        Debug.Log(hp + "/" + maxHp);
         popUpp.SetActive(true);
         
         Slider hpSlide = popUpp.transform.Find("Slider").GetComponent<Slider>();

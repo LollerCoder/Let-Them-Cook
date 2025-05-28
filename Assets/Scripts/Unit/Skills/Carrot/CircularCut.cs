@@ -84,12 +84,12 @@ public class CircularCut : Skill
                 {
                     param.PutExtra("Dummy" + x, adjacent);
                     
-                    Debug.Log("Dummy" + x);
+                    //Debug.Log("Dummy" + x);
                     x++;
             }
                 param.PutExtra("DummyCount", neighbors.Count);
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_AOE,param);
-                Debug.Log("Event made");
+                //Debug.Log("Event made");
             }
             
        
