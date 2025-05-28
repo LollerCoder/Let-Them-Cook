@@ -60,8 +60,11 @@ public class Tile : MonoBehaviour{
         this._mat.color = Color.green;
     }
     public void OnMouseUp() {
-        if (!EventSystem.current.IsPointerOverGameObject()) { // to make sure that it wont be clickable when behind a UI element
+        if (!EventSystem.current.IsPointerOverGameObject() && !UnitActions.bGoal)
+        { // to make sure that it wont be clickable when behind a UI element
+            UnitActions.bGoal = true;
             UnitActions.TileTapped(this);
+          
         }
     }
     public virtual void ApplyEffect(Unit unit) {

@@ -13,6 +13,9 @@ public static class UnitActions {
     private static DroppedVegetable currVeg;
     
     public static bool stepFlag = false;
+
+    //if a tile has been tapped
+    public static bool bGoal = false;
     
    // private static int _affectedStatValue = 0;
 
@@ -258,46 +261,56 @@ public static class UnitActions {
         BattleUI.Instance.ToggleEatOrPickUpButtons();
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
     }
-    public static void TileTapped(Tile goalTile) {
+    public static void TileTapped(Tile goalTile)
+    {
         Unit unit = UnitActionManager.Instance.GetFirstUnit();
         //string bufDebufname = ""; //name
-
         EffectInfo terst = new EffectInfo(0, 0, EStatToEffect.NOTSET); //effectInfo
-        if (!UnitActionManager.Instance.hadMoved &&
-            !AllyOnTileGoal(goalTile) &&
-            UnitActionManager.Instance.OnMove) {
 
-            PathFinding.Path = PathFinding.AStarPathFinding(unit.Tile,
-                         goalTile,
-                         Range.GetTilesInMovement(unit.Tile,
-                                                         unit.Move)
-                         );
 
-            if (unit.Tile.TilePos == goalTile.TilePos) {
+
+        if (!UnitActionManager.Instance.hadMoved && !AllyOnTileGoal(goalTile) && UnitActionManager.Instance.OnMove && bGoal)
+        {
+
+            PathFinding.Path = PathFinding.AStarPathFinding(unit.Tile, goalTile,
+                                Range.GetTilesInMovement(unit.Tile, unit.Move));
+
+            if (unit.Tile.TilePos == goalTile.TilePos)
+            {
+                Debug.Log("helllloooo");
                 stepFlag = true;
                 //BattleUI.Instance.ToggleActionBox(); // MIGHT CHANGE
                 UnitActionManager.Instance.GetFirstUnit().OnMovement(false);
                 UnitActionManager.Instance.OnMove = false;
+
             }
 
-            if (PathFinding.Path.Count > 0) {
+            if (PathFinding.Path.Count > 0)
+            {
                 stepFlag = true;
                 unit.OnMovement(true);
                 UnitActionManager.Instance.Moving = true;
                 BattleUI.Instance.ToggleWaitButton(false);
 
 
+
                 SpriteRenderer cuSR = UnitActionManager.Instance.GetFirstUnit().GetComponent<SpriteRenderer>();
-                if (UnitActionManager.Instance.GetFirstUnit().transform.position.x > goalTile.transform.position.x) {
+                if (UnitActionManager.Instance.GetFirstUnit().transform.position.x > goalTile.transform.position.x)
+                {
                     //Debug.Log("looking left");
                     cuSR.flipX = true;
                 }
-                else {
+                else
+                {
                     //Debug.Log("looking right");
                     cuSR.flipX = false;
                 }
+
+
             }
         }
+        
+     
     }
     public static void AssignUnitTile() {
 

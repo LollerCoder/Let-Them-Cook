@@ -70,7 +70,10 @@ public class UnitAttackActions : MonoBehaviour {
         //        return true;
         //    }
         //}
-        if(selectedUnit.InRange) {
+
+        /*If within range and if the type is Enemy*/
+        if (selectedUnit.InRange && (selectedUnit.Type == EUnitType.Enemy|| selectedUnit.Type == EUnitType.Boss))
+        {
             return true;
         }
         return false;
