@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class HostageReleaserTile : Tile
 {
-    void Start()
-    {
-        base.Start();
-        this.tileType = ETileType.OBJECTIVE;
-    }
+
 
     public override void ApplyEffect(Unit unit)
     {

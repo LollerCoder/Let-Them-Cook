@@ -6,12 +6,6 @@ using UnityEngine;
 //tile where hostage needs to go to to win/get free
 public class HostageGoalTile : Tile
 {
-        // Start is called before the first frame update
-    void Start()
-    {
-        base.Start();
-        this.tileType = ETileType.OBJECTIVE;
-    }
 
     public override void ApplyEffect(Unit unit)
     {
