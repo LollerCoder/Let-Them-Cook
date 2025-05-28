@@ -98,7 +98,7 @@ public class HpBar : MonoBehaviour
         }
       
         easeSlide.value = Mathf.CeilToInt(easeSlide.value)/1;
-        Debug.Log("Easing Final: " + easeSlide.value);
+        //Debug.Log("Easing Final: " + easeSlide.value);
         yield return null;
 
     }

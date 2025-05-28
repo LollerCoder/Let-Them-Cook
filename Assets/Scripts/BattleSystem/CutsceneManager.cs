@@ -77,11 +77,17 @@ public class CutsceneManager : MonoBehaviour
         int dummycount = param.GetIntExtra("DummyCount",0);
 
         Debug.Log("Dummies were: " + dummycount);
-        for (int i = 0; i < dummycount - 1; i++)
+        for (int i = 0; i < dummycount; i++)
         {
-            SpriteRenderer DummySprite = Dummies[i].gameObject.GetComponent<SpriteRenderer>();
-            DummySprite = param.GetUnitExtra("Dummy" + i).gameObject.GetComponent<SpriteRenderer>();
             Dummies[i].SetActive(true);
+            SpriteRenderer DummySprite = Dummies[i].gameObject.GetComponent<SpriteRenderer>();
+            DummySprite.sprite = param.GetUnitExtra("Dummy" + i).gameObject.GetComponent<SpriteRenderer>().sprite;
+            if(DummySprite != null)
+            {
+                Debug.Log("Something Found");
+            }
+            Debug.Log("Dummy" + i);
+           
         }
 
     
@@ -153,7 +159,7 @@ public class CutsceneManager : MonoBehaviour
 
 
 
-        Debug.Log("CutsceneOuch");
+       
 
     }
 

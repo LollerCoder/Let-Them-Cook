@@ -32,9 +32,13 @@ public class CircularCut : Skill
         origin.AddEffect(new Dizzy(2, origin));
         PopUpManager.Instance.addPopUp(this.skillName, origin.transform);
 
+        //target
+        target.TakeDamage(damage, origin);
+        PopUpManager.Instance.addPopUp("-" + damage.ToString(), target.transform);
+
         if (!GameSettingsManager.Instance.enableCutscene)
         {
-            GetNeighborList(origin);
+            GetNeighborList(origin,target);
             foreach (Unit neighbor in neighbors)
             {
                 
@@ -56,15 +60,16 @@ public class CircularCut : Skill
 
 
     }
-    public override void GetNeighborList(Unit origin)
+    public override void GetNeighborList(Unit origin, Unit Target)
     {
         Debug.Log("Finding neighbors");
             foreach (Vector3 dir in cardinalDirs)
             {
                 neighbor = this.Get_Neighbor(origin.transform.position, dir);
                 Debug.Log("Neighbor" + neighbor);
-                if (neighbor != null)
+                if (neighbor != null  && neighbor != Target)
                 {
+                  
                     neighbors.Add(neighbor);
                     
 
@@ -78,8 +83,10 @@ public class CircularCut : Skill
                 foreach (Unit adjacent in neighbors)
                 {
                     param.PutExtra("Dummy" + x, adjacent);
+                    
+                    Debug.Log("Dummy" + x);
                     x++;
-                }
+            }
                 param.PutExtra("DummyCount", neighbors.Count);
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_AOE,param);
                 Debug.Log("Event made");

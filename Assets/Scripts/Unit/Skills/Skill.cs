@@ -42,7 +42,7 @@ public class Skill
 
     }
 
-    public virtual void GetNeighborList(Unit origin)
+    public virtual void GetNeighborList(Unit origin,Unit target)
     {
 
     }
