@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2374961506560105311}
   - component: {fileID: 698932008006743345}
-  - component: {fileID: 4656159043229376470}
-  - component: {fileID: 85490013685061727}
   - component: {fileID: 5145978829346073834}
   - component: {fileID: 9220422037435779797}
+  - component: {fileID: 4656159043229376470}
+  - component: {fileID: 4470494495508889525}
   m_Layer: 0
-  m_Name: Base Veggie
+  m_Name: Garlic
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 58333245
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 893666098, guid: 5b268fe7a7e0da346a3a4cf97d9ba0f4, type: 3}
+  m_Sprite: {fileID: -1183024814, guid: 4ec41e8dfbe862841aeb052457894bea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,50 +93,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4656159043229376470
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6826841743163241225}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1b0a283947c644a45a0186e1eb53402e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &85490013685061727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6826841743163241225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc59386fc7ffe5640933898c4e06faf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpBar: {fileID: 987084643209834741}
-  ingredientType: 0
-  type: 0
-  charName: 
-  hp: 0
-  _tile: {fileID: 0}
-  InRange: 0
-  BufController: {fileID: 3258688762731242823}
-  DebufController: {fileID: 3848176966163297478}
-  effects: []
 --- !u!65 &5145978829346073834
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -170,6 +126,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af77c3ae89978548ac6d12ace3b3784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &4656159043229376470
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6826841743163241225}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2048258e160020c40bc11230e86ccd1d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4470494495508889525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6826841743163241225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ed3b56ce9ddf64d96c9766561f22c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBar: {fileID: 987084643209834741}
+  ingredientType: 4
+  type: 0
+  charName: 
+  hp: 0
+  _tile: {fileID: 0}
+  InRange: 0
+  BufController: {fileID: 3258688762731242823}
+  DebufController: {fileID: 3848176966163297478}
+  effects: []
 --- !u!1001 &628814814362855714
 PrefabInstance:
   m_ObjectHideFlags: 0

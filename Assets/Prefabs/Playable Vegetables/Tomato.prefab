@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 336522217391511972}
   m_Layer: 0
   m_Name: Tomato
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 58333245
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1993025831, guid: ee34142f7b5d41a47a88edcac7d0a8c7, type: 3}
+  m_Sprite: {fileID: 143880202, guid: e3332b40071720d408437179cc5bcc72, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -136,7 +136,7 @@ Animator:
   m_GameObject: {fileID: 6826841743163241225}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1b0a283947c644a45a0186e1eb53402e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9ec3652039fce4a4d8ecd9395dfa67c4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -169,6 +169,7 @@ MonoBehaviour:
   InRange: 0
   BufController: {fileID: 3258688762731242823}
   DebufController: {fileID: 3848176966163297478}
+  effects: []
 --- !u!1001 &628814814362855714
 PrefabInstance:
   m_ObjectHideFlags: 0
