@@ -33,7 +33,7 @@ public class Rotten : Skill
         //adding recharging skill
         origin.AddEffect(new RechargingSkill(3, origin, "Rotten"));
 
-        PopUpManager.Instance.addPopUp("Poisoned!", target.transform);
+        PopUpManager.Instance.addPopUp("So bitter!", target.transform);
 
         //target.GetComponent<SpriteRenderer>().color =  target.poisonUnit(target.GetComponent<SpriteRenderer>());
 
