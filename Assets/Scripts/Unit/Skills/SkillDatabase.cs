@@ -45,6 +45,7 @@ public class SkillDatabase : MonoBehaviour
         Skill rotten = new Rotten();
         Skill daze = new Daze();
         Skill foilThrow = new FoilThrow();
+        Skill harvest = new Harvest();
 
         this.skillDatabase.Add(basic.SkillName,basic);
         this.skillDatabase.Add(trueStrike.SkillName, trueStrike);
@@ -59,6 +60,7 @@ public class SkillDatabase : MonoBehaviour
         this.skillDatabase.Add(rotten.SkillName, rotten);
         this.skillDatabase.Add(daze.SkillName, daze);
         this.skillDatabase.Add(foilThrow.SkillName, foilThrow);
+        this.skillDatabase.Add(harvest.SkillName, harvest);
     }
 
     // Update is called once per frame
