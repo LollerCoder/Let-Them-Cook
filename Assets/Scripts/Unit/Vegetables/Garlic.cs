@@ -16,13 +16,13 @@ public class Garlic : Unit{
     protected override void Start() {
 
 
-        this.skillList.Add("Foil Stackin");
-        this.skillList.Add("Defensive Whack");
+        this.skillList.Add("Foil Throw");
+        this.skillList.Add("Daze");
 
 
         this.acc = 10;
-        this.spd = 3;
-        this.maxhp = 20;
+        this.spd = 4;
+        this.maxhp = 15;
         this.hp = this.maxhp;
         this.atk = 4;
         this.def = 1;
