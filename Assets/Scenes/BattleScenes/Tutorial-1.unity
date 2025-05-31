@@ -239,7 +239,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &9281532
 GameObject:
@@ -361,7 +364,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &30735724
 GameObject:
@@ -543,7 +549,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &56486379
 GameObject:
@@ -738,7 +747,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &121714506
 GameObject:
@@ -860,7 +872,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &146199108
 GameObject:
@@ -982,7 +997,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &149484489
 GameObject:
@@ -1104,7 +1122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &205019407
 GameObject:
@@ -1226,7 +1247,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &222862614
 GameObject:
@@ -1348,7 +1372,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1001 &235790161
 PrefabInstance:
@@ -1527,7 +1554,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1001 &269514509
 PrefabInstance:
@@ -1826,7 +1856,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &358384548
 GameObject:
@@ -1948,7 +1981,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &377036227
 GameObject:
@@ -2109,7 +2145,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &377508127
 GameObject:
@@ -2245,26 +2284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0533d7d5ab7b9db4f894bc41568d9a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Props:
-  - key: {x: 0, y: 0.4, z: 0}
-    value: {fileID: 2355039089027312852, guid: 2436268522a5b36408b857120f5aef55, type: 3}
-  - key: {x: 1, y: 0.4, z: 4}
-    value: {fileID: 2355039089027312852, guid: 2436268522a5b36408b857120f5aef55, type: 3}
-  - key: {x: 3, y: 0.4, z: 6}
-    value: {fileID: 2355039089027312852, guid: 2436268522a5b36408b857120f5aef55, type: 3}
-  - key: {x: 5, y: 0.4, z: 6}
-    value: {fileID: 2355039089027312852, guid: 2436268522a5b36408b857120f5aef55, type: 3}
-  - key: {x: 10, y: 0.4, z: 6}
-    value: {fileID: 2355039089027312852, guid: 2436268522a5b36408b857120f5aef55, type: 3}
-  - key: {x: 12, y: 0.4, z: 5}
-    value: {fileID: 2355039089027312852, guid: 2436268522a5b36408b857120f5aef55, type: 3}
-  - key: {x: 13, y: 0.4, z: 4}
-    value: {fileID: 2355039089027312852, guid: 2436268522a5b36408b857120f5aef55, type: 3}
-  - key: {x: 15, y: 0.4, z: 5}
-    value: {fileID: 2355039089027312852, guid: 2436268522a5b36408b857120f5aef55, type: 3}
-  - key: {x: 0, y: 0.4, z: 0}
-    value: {fileID: 2355039089027312852, guid: 2436268522a5b36408b857120f5aef55, type: 3}
-  PropField: {fileID: 877470979}
+  unitLock: 0
 --- !u!1 &380895303
 GameObject:
   m_ObjectHideFlags: 0
@@ -2437,7 +2457,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &403620422
 GameObject:
@@ -2591,7 +2614,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &439627405
 GameObject:
@@ -2803,7 +2829,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!114 &450797829
 MonoBehaviour:
@@ -2938,7 +2967,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &488096606
 GameObject:
@@ -3060,7 +3092,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &493826138
 GameObject:
@@ -3182,7 +3217,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &501487056
 GameObject:
@@ -3304,7 +3342,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &529730351
 GameObject:
@@ -3426,7 +3467,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &551983979
 GameObject:
@@ -3548,7 +3592,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &575334877
 GameObject:
@@ -3670,7 +3717,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &581411545
 GameObject:
@@ -3792,7 +3842,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &594569764
 GameObject:
@@ -3914,7 +3967,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &598718597
 GameObject:
@@ -4036,7 +4092,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &609807198
 GameObject:
@@ -4158,7 +4217,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &613440385
 GameObject:
@@ -4280,7 +4342,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &626529233
 GameObject:
@@ -4462,7 +4527,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &650567686
 GameObject:
@@ -4584,7 +4652,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &659080193
 GameObject:
@@ -4706,7 +4777,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &667003240
 GameObject:
@@ -4921,7 +4995,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &671401973
 GameObject:
@@ -5043,7 +5120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &672282747
 GameObject:
@@ -5240,7 +5320,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &707617334
 GameObject:
@@ -5362,7 +5445,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &760474626
 GameObject:
@@ -5628,7 +5714,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &787186775
 GameObject:
@@ -5750,7 +5839,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!114 &813297240 stripped
 MonoBehaviour:
@@ -5883,7 +5975,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &816079477
 GameObject:
@@ -6156,7 +6251,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &990393801
 GameObject:
@@ -6278,7 +6376,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &995046740
 GameObject:
@@ -6520,7 +6621,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1015581552
 GameObject:
@@ -6642,7 +6746,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1019296391
 GameObject:
@@ -6764,7 +6871,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1029320442
 GameObject:
@@ -6886,7 +6996,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1049257915
 GameObject:
@@ -7008,7 +7121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1094015416
 GameObject:
@@ -7179,7 +7295,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1140325933
 GameObject:
@@ -7356,7 +7475,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1152262087
 GameObject:
@@ -7478,7 +7600,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1176610833
 GameObject:
@@ -7600,7 +7725,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1179508845
 GameObject:
@@ -7782,7 +7910,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1232103492
 GameObject:
@@ -7904,7 +8035,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1234007608
 GameObject:
@@ -8026,7 +8160,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1249763506
 GameObject:
@@ -8148,7 +8285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1263280390
 GameObject:
@@ -8345,7 +8485,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1303932646
 GameObject:
@@ -8467,7 +8610,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1308920255
 GameObject:
@@ -8589,7 +8735,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1311995869
 GameObject:
@@ -8711,7 +8860,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1382884832
 GameObject:
@@ -8833,7 +8985,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1387346508
 GameObject:
@@ -9075,7 +9230,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1443980737
 GameObject:
@@ -9197,7 +9355,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1446697711
 GameObject:
@@ -9319,7 +9480,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1447886803
 GameObject:
@@ -9658,7 +9822,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1470682225
 GameObject:
@@ -10019,7 +10186,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1590953408
 GameObject:
@@ -10141,7 +10311,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1594828250
 GameObject:
@@ -10323,7 +10496,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1648345535
 GameObject:
@@ -10516,7 +10692,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1661267290
 GameObject:
@@ -10671,7 +10850,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1693912542
 GameObject:
@@ -10793,7 +10975,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1698400544
 GameObject:
@@ -11035,7 +11220,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1766801595
 GameObject:
@@ -11243,7 +11431,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1821705051
 GameObject:
@@ -11365,7 +11556,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1846258935
 GameObject:
@@ -11547,7 +11741,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &1853368165
 GameObject:
@@ -12229,7 +12426,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &2005387740
 GameObject:
@@ -12351,7 +12551,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &2019247635
 GameObject:
@@ -12604,10 +12807,12 @@ MonoBehaviour:
   type: 1
   charName: 
   hp: 0
+  move: 3
   _tile: {fileID: 0}
   InRange: 0
   BufController: {fileID: 3258688763163046118}
   DebufController: {fileID: 3848176965488222567}
+  effects: []
 --- !u!224 &274424883468920746
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13660,10 +13865,12 @@ MonoBehaviour:
   type: 0
   charName: 
   hp: 0
+  move: 3
   _tile: {fileID: 0}
   InRange: 0
   BufController: {fileID: 4284376249948467772}
   DebufController: {fileID: 1756560017257974191}
+  effects: []
 --- !u!114 &2094699684772889022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13681,10 +13888,12 @@ MonoBehaviour:
   type: 0
   charName: 
   hp: 0
+  move: 3
   _tile: {fileID: 0}
   InRange: 0
   BufController: {fileID: 4284376249719662323}
   DebufController: {fileID: 1756560017029700960}
+  effects: []
 --- !u!224 &2297148988863477176
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14998,7 +15207,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!23 &5328867109960349534
 MeshRenderer:
@@ -15876,7 +16088,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!4 &8330284146135248400
 Transform:
@@ -16105,7 +16320,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
   previousTile: {fileID: 0}
+  TileType: 0
   isWalkable: 0
 --- !u!1 &9142960503066566905
 GameObject:
