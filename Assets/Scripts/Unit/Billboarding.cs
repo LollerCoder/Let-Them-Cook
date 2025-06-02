@@ -3,7 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Billboarding : MonoBehaviour {
-    private Vector3 cameraDir;
+    //private Vector3 cameraDir;
+
+    private SpriteRenderer spriteRenderer;
+
+    private void Start()
+    {
+        this.spriteRenderer = GetComponent<SpriteRenderer>();
+
+        this.FixOffset();
+    }
 
     // Update is called once per frame
     void Update() {
@@ -21,5 +30,19 @@ public class Billboarding : MonoBehaviour {
         transform.LookAt(transform.position + Camera.main.transform.forward);
         transform.position = new Vector3(originalPosition.x,this.transform.position.y,originalPosition.z);
 
+        
+    }
+
+    //fix the offset of the sprites of some units
+    private void FixOffset()
+    {
+        if (gameObject.tag != "Unit" ||
+            GetComponent<Potato>() != null ||
+            GetComponent<Carrot>() != null)
+        {
+            return;
+        }
+
+        spriteRenderer.transform.localPosition += new Vector3(0, 0.3f, 0);
     }
 }

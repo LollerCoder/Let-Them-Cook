@@ -7,7 +7,7 @@ using static UnityEngine.UI.Image;
 public class Shove : Skill
 {
 
-    private int sucessChance = 90;
+    //private int sucessChance = 90;
 
     public Shove()
     {
@@ -21,16 +21,21 @@ public class Shove : Skill
 
     public override void SkillAction(Unit target, Unit origin)
     {
-        if (Random.Range(1, 100) < sucessChance)
-        {
-            PopUpManager.Instance.addPopUp(this.skillName + "d", target.transform);
-            Vector3 dir = (target.gameObject.transform.position - origin.gameObject.transform.position).normalized;
-            if (!this.WallChecker(target.gameObject.transform.position, dir)) this.ShoveTarget(target, dir);
-        }
-        else
-        {
-            PopUpManager.Instance.addPopUp("Failed :(", target.transform);
-        }
+        //Debug.Log("Shoved!");
+        PopUpManager.Instance.addPopUp(this.skillName + "d", target.transform);
+        Vector3 dir = (target.gameObject.transform.position - origin.gameObject.transform.position).normalized;
+        if (!this.WallChecker(target.gameObject.transform.position, dir)) this.ShoveTarget(target, dir);
+
+        //if (Random.Range(1, 100) < sucessChance)
+        //{
+        //    PopUpManager.Instance.addPopUp(this.skillName + "d", target.transform);
+        //    Vector3 dir = (target.gameObject.transform.position - origin.gameObject.transform.position).normalized;
+        //    if (!this.WallChecker(target.gameObject.transform.position, dir)) this.ShoveTarget(target, dir);
+        //}
+        //else
+        //{
+        //    PopUpManager.Instance.addPopUp("Failed :(", target.transform);
+        //}
     }
 
     private void ShoveTarget (Unit target, Vector3 direction)

@@ -7,5 +7,10 @@ public enum EIngredientType
     POTATO,
     CHILI,
     CABBAGE,
-    GARLIC
+    GARLIC,
+    TOMATO,
+    PUMPKIN,
+    BROCOLLI,
+    BEETROOT,
+    CORN
 }
