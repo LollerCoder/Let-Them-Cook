@@ -139,7 +139,10 @@ public class CutsceneManager : MonoBehaviour
                 break;
             case ESkillType.HEAL:
                 Debug.Log("BOO BOO");
-
+                EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.MAXHP, target.HP);
+                EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Ally, false);
+                EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
+                CutsceneAnim.SetTrigger("Heal");
                 break;
             case ESkillType.DEFEND:
                 Debug.Log("Parry");

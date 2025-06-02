@@ -364,8 +364,8 @@ public class BattleUI : MonoBehaviour {
             curr_count++;
 
         } while(curr_count < max_queue);
+        this.Turn[0].gameObject.transform.parent.transform.localScale = new Vector3(1.5f,1.5f,1.5f);
         
-
 
     }
 
