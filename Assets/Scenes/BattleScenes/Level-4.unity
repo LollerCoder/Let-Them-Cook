@@ -11395,6 +11395,7 @@ GameObject:
   - component: {fileID: 5871010860973419863}
   - component: {fileID: 8496062240844973075}
   - component: {fileID: 8496062240844973076}
+  - component: {fileID: 8496062240844973077}
   m_Layer: 9
   m_Name: Level4.088
   m_TagString: Untagged
@@ -12855,8 +12856,8 @@ GameObject:
   - component: {fileID: 7715473436018141071}
   - component: {fileID: 6390728180690962865}
   - component: {fileID: 8740837132403262234}
-  - component: {fileID: 8740837132403262235}
   - component: {fileID: 8740837132403262236}
+  - component: {fileID: 8740837132403262237}
   m_Layer: 9
   m_Name: Level4.275
   m_TagString: Untagged
@@ -18980,8 +18981,8 @@ GameObject:
   - component: {fileID: 2947219910562884191}
   - component: {fileID: 2443844455750910726}
   - component: {fileID: 5393125929846962907}
-  - component: {fileID: 5393125929846962908}
   - component: {fileID: 5393125929846962909}
+  - component: {fileID: 5393125929846962910}
   m_Layer: 9
   m_Name: Level4.356
   m_TagString: Untagged
@@ -27353,8 +27354,8 @@ GameObject:
   - component: {fileID: 656819880989849751}
   - component: {fileID: 7611896768266072975}
   - component: {fileID: 3747201610005466279}
-  - component: {fileID: 7611896768266072976}
   - component: {fileID: 7611896768266072977}
+  - component: {fileID: 7611896768266072978}
   m_Layer: 9
   m_Name: Level4.344
   m_TagString: Untagged
@@ -31968,23 +31969,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5393125929846962908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2924745764593273832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  baseCost: 4
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &5393125929846962909
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32006,6 +31990,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 3.0408026e-17, y: -4.530063e-10, z: -0.0080248155}
+--- !u!114 &5393125929846962910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2924745764593273832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62ecbbbc5dbd5141ab9d0e0dbff159d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 4
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+  caged_hostage: {fileID: 7942083109392821638}
+  hostage_template: {fileID: 6826841743163241225, guid: 0db73c59e50d85b4fa6273a8e00da9eb, type: 3}
+  tile_spawn: {fileID: 8169225705846557597}
 --- !u!4 &5393356764637693972
 Transform:
   m_ObjectHideFlags: 0
@@ -40032,8 +40036,8 @@ GameObject:
   - component: {fileID: 8407358554780773380}
   - component: {fileID: 5877800314530145749}
   - component: {fileID: 1696812169852975532}
-  - component: {fileID: 8407358554780773381}
   - component: {fileID: 8407358554780773382}
+  - component: {fileID: 8407358554780773383}
   m_Layer: 9
   m_Name: Level4.143
   m_TagString: Untagged
@@ -43463,8 +43467,8 @@ GameObject:
   - component: {fileID: 5622368797084682959}
   - component: {fileID: 2407498406238493923}
   - component: {fileID: 2856286587564018079}
-  - component: {fileID: 6980617115086230613}
   - component: {fileID: 6980617115086230614}
+  - component: {fileID: 6980617115086230615}
   m_Layer: 9
   m_Name: Level4.048
   m_TagString: Untagged
@@ -43472,23 +43476,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6980617115086230613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6980617115086230612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  baseCost: 4
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &6980617115086230614
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43510,6 +43497,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 3.0408026e-17, y: -4.530063e-10, z: -0.0080248155}
+--- !u!114 &6980617115086230615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6980617115086230612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62ecbbbc5dbd5141ab9d0e0dbff159d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 4
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+  caged_hostage: {fileID: 7942083109392821638}
+  hostage_template: {fileID: 6826841743163241225, guid: 0db73c59e50d85b4fa6273a8e00da9eb, type: 3}
+  tile_spawn: {fileID: 8169225705846557597}
 --- !u!212 &6983850251773866272
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -45596,6 +45603,7 @@ GameObject:
   - component: {fileID: 6483714985896240587}
   - component: {fileID: 7263754405664267918}
   - component: {fileID: 7263754405664267919}
+  - component: {fileID: 7263754405664267920}
   m_Layer: 9
   m_Name: Level4.119
   m_TagString: Untagged
@@ -45641,6 +45649,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 3.0408026e-17, y: -4.530063e-10, z: -0.0080248155}
+--- !u!114 &7263754405664267920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7263754405664267917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7c6e183f47b8a4abae7c580254b6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 2
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+  enemy_template: {fileID: 6826841743163241225, guid: 3001626eedc74ac458c011807e2758c3, type: 3}
 --- !u!4 &7267917102761969457
 Transform:
   m_ObjectHideFlags: 0
@@ -46259,8 +46285,8 @@ GameObject:
   - component: {fileID: 5095226174384398793}
   - component: {fileID: 2398852945285422717}
   - component: {fileID: 52243529733805711}
-  - component: {fileID: 7355770693819674069}
   - component: {fileID: 7355770693819674070}
+  - component: {fileID: 7355770693819674071}
   m_Layer: 9
   m_Name: Level4.201
   m_TagString: Untagged
@@ -46268,23 +46294,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7355770693819674069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7355770693819674068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  baseCost: 2
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &7355770693819674070
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46306,6 +46315,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 3.0408026e-17, y: -4.530063e-10, z: -0.0080248155}
+--- !u!114 &7355770693819674071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7355770693819674068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a2af7621abefc48b0cd89e3d6a0cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+  arrow_template: {fileID: 5139888769839455279, guid: 72872137009d6fa489ae4b16a6b374bf, type: 3}
 --- !u!23 &7363713808248072105
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47939,23 +47966,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4522773739748275580}
   m_Mesh: {fileID: 4019569761926106178, guid: 50917f67e24881c499d7c950dbb1f629, type: 3}
---- !u!114 &7611896768266072976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4522773739748275580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  baseCost: 2
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &7611896768266072977
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47977,6 +47987,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 3.0408026e-17, y: -4.530063e-10, z: -0.0080248155}
+--- !u!114 &7611896768266072978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4522773739748275580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a2af7621abefc48b0cd89e3d6a0cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+  arrow_template: {fileID: 5139888769839455279, guid: 72872137009d6fa489ae4b16a6b374bf, type: 3}
 --- !u!23 &7624899534230248465
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -55163,8 +55191,8 @@ GameObject:
   - component: {fileID: 1983265121409126180}
   - component: {fileID: 3238617550643192821}
   - component: {fileID: 4506495431662712737}
-  - component: {fileID: 8381502730435119819}
   - component: {fileID: 8381502730435119820}
+  - component: {fileID: 8381502730435119821}
   m_Layer: 9
   m_Name: Level4.013
   m_TagString: Untagged
@@ -55172,23 +55200,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8381502730435119819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8381502730435119818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  baseCost: 2
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &8381502730435119820
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55210,6 +55221,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 3.0408026e-17, y: -4.530063e-10, z: -0.0080248155}
+--- !u!114 &8381502730435119821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8381502730435119818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a2af7621abefc48b0cd89e3d6a0cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+  arrow_template: {fileID: 5139888769839455279, guid: 72872137009d6fa489ae4b16a6b374bf, type: 3}
 --- !u!4 &8381697762243125237
 Transform:
   m_ObjectHideFlags: 0
@@ -55571,23 +55600,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 15180174}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8407358554780773381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6574203632576589731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  baseCost: 2
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &8407358554780773382
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55609,6 +55621,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 3.0408026e-17, y: -4.530063e-10, z: -0.0080248155}
+--- !u!114 &8407358554780773383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6574203632576589731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a2af7621abefc48b0cd89e3d6a0cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+  arrow_template: {fileID: 5139888769839455279, guid: 72872137009d6fa489ae4b16a6b374bf, type: 3}
 --- !u!33 &8411338531482977874
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -56075,7 +56105,7 @@ MonoBehaviour:
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
-  caged_hostage: {fileID: 0}
+  caged_hostage: {fileID: 7942083109392821638}
   hostage_template: {fileID: 6826841743163241225, guid: 0db73c59e50d85b4fa6273a8e00da9eb, type: 3}
   tile_spawn: {fileID: 8169225705846557597}
 --- !u!23 &8468927417995727763
@@ -56386,6 +56416,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 3.0408026e-17, y: -4.530063e-10, z: -0.0080248155}
+--- !u!114 &8496062240844973077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480842785817193110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7c6e183f47b8a4abae7c580254b6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 2
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+  enemy_template: {fileID: 6826841743163241225, guid: 3001626eedc74ac458c011807e2758c3, type: 3}
 --- !u!4 &8496862929660670534
 Transform:
   m_ObjectHideFlags: 0
@@ -59221,23 +59269,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8740837132403262235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738662520246517073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  baseCost: 4
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &8740837132403262236
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -59259,6 +59290,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 3.0408026e-17, y: -4.530063e-10, z: -0.0080248155}
+--- !u!114 &8740837132403262237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738662520246517073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62ecbbbc5dbd5141ab9d0e0dbff159d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 4
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+  caged_hostage: {fileID: 7942083109392821638}
+  hostage_template: {fileID: 6826841743163241225, guid: 0db73c59e50d85b4fa6273a8e00da9eb, type: 3}
+  tile_spawn: {fileID: 8169225705846557597}
 --- !u!33 &8743496130348647841
 MeshFilter:
   m_ObjectHideFlags: 0
