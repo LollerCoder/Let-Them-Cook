@@ -8,9 +8,18 @@ using UnityEngine.SceneManagement;
 /*to be added in the Allies parent*/
 public class UnitManager : MonoBehaviour
 {
+    public static UnitManager Instance;
+
     private GameObject unitParent;
     public GameObject carrotTemplate, garlicTemplate /*will add more templates when assets are done*/;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(this);
+    }
+
     void Start()
     {
         unitParent = this.gameObject;
@@ -23,7 +32,7 @@ public class UnitManager : MonoBehaviour
         int levelNum = int.Parse(SceneManager.GetActiveScene().name.Split("-")[1]);
         
 
-        if (levelNum >= 1) addUnit("Carrot", carrotTemplate, new Vector3(3,0.5f,4));
+        //if (levelNum >= 1) addUnit("Carrot", carrotTemplate, new Vector3(3,0.5f,4));
 
         /*for testing pruposes*/
        //if (levelNum >= 1) addUnit("Garlic", garlicTemplate, new Vector3(4,0.5f,4));
@@ -37,7 +46,7 @@ public class UnitManager : MonoBehaviour
         // else if (levelNum >= 13) addUnit("Tomato", new Vector3(5,0.5f,4));
     }
 
-    public void addUnit(string name, GameObject template, Vector3 position)
+    public void addUnit(string name, GameObject template, Vector3 position, EUnitType type)
     {
         GameObject unit = Instantiate(template, position, Quaternion.identity, unitParent.transform);
 
@@ -45,10 +54,12 @@ public class UnitManager : MonoBehaviour
 
         unit.SetActive(true);
 
+        unit.GetComponent<Unit>().Type = type;
+
         //Add it to parent
         unit.transform.parent = unitParent.transform;
 
         //Add unit in the UnitList
-        UnitActionManager.Instance.UnitList.Add(unit.GetComponent<Unit>());
+        //UnitActionManager.Instance.UnitList.Add(unit.GetComponent<Unit>());
     }
 }

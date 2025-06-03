@@ -115,7 +115,7 @@ public class UnitActionManager : MonoBehaviour
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
     }
-    private void DecideTurnOrder() {
+    public void DecideTurnOrder() {
         _Units = _Units.Except(this._unitOrder).ToList(); //filter out duplicates
         this._unitOrder.AddRange(_Units) ;
         this._unitOrder.Sort((x, y) => y.Speed.CompareTo(x.Speed));

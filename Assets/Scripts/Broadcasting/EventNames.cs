@@ -101,6 +101,14 @@ public class EventNames {
 		public const string ENEMY_FOCUS = "ENEMY_FOCUS";
 		public const string CURRENT_FOCUS = "CURRENT_FOCUS";
 	}
+
+	public class HostageRescue_Events
+	{
+		public const string HOSTAGE_FREE = "HOSTAGE_FREE";
+		public const string GOAL_ARROW_HIDE = "GOAL_ARROW_HIDE";
+		public const string GOAL_ARROW_UNHIDE = "GOAL_ARROW_UNHIDE";
+
+    }
 }
 
 

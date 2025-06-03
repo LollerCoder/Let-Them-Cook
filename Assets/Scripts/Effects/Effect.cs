@@ -38,4 +38,10 @@ public class Effect
     {
         Debug.Log(this.EffectName + " has finished!");
     }
+
+    //function called after the end turn of the unit affected
+    public virtual void AfterTurnAction(Unit unitAffected)
+    {
+
+    }
 }

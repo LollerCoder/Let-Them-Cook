@@ -534,7 +534,7 @@ public abstract class Unit : MonoBehaviour
         easeSlide.maxValue = this.maxhp;
         easeSlide.value = hp;
 
-        //UnitActionManager.Instance.UnitList.Add(this);
+        UnitActionManager.Instance.UnitList.Add(this);
     }
 
     //protected abstract void HandleDeath();
@@ -619,6 +619,14 @@ public abstract class Unit : MonoBehaviour
         }
 
         this.effects.RemoveAll(ef => ef.Duration <= 0);
+    }
+
+    public void EndTurnEffects()
+    {
+        foreach (Effect effect in this.effects)
+        {
+            effect.AfterTurnAction(this);
+        }
     }
 
     public Effect GetEffect(string effect)

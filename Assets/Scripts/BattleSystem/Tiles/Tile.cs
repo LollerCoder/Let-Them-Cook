@@ -42,7 +42,7 @@ public class Tile : MonoBehaviour{
 
 
     public bool isWalkable;
-    protected void Start() {
+    public void Start() {
         
         this._mat = this.gameObject.GetComponent<Renderer>().material;
         this._color = this._mat.color;
