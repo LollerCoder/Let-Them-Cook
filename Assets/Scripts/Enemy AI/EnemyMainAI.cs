@@ -56,34 +56,39 @@ namespace EnemyAI
                 if (currDist < prevDist &&
                     ally.HP > 0)
                 {
+                    //Debug.Log("Distance: " + currDist);
                     targetUnit = ally;
                     prevDist = currDist;
                 }
             }
-
+            
             return targetUnit;
         }
 
         public void TakeAction()
         {
+
+            //Debug.Log("Enemy Agent Attacking!");
+            this._attackAI.OnAttack(this.GetClosestAllyUnit(), this._CurrentEnemyUnit);
+
             //int action = UnityEngine.Random.Range(1, 3);
-            int action = 1;
-            switch (action)
-            {
-                case 1:
-                    {
-                        Debug.Log("Enemy Agent Attacking!");
-                        this._attackAI.OnAttack(this.GetClosestAllyUnit(), this._CurrentEnemyUnit);
-                        break;
-                    }
-                case 2:
-                    {
-                        Debug.Log("Enemy Agent Healing!");
-                        this._CurrentEnemyUnit.Heal();
-                        break;
-                    }
-                default: break;
-            }
+            //int action = 1;
+            //switch (action)
+            //{
+            //    case 1:
+            //        {
+            //            Debug.Log("Enemy Agent Attacking!");
+            //            this._attackAI.OnAttack(this.GetClosestAllyUnit(), this._CurrentEnemyUnit);
+            //            break;
+            //        }
+            //    case 2:
+            //        {
+            //            Debug.Log("Enemy Agent Healing!");
+            //            this._CurrentEnemyUnit.Heal();
+            //            break;
+            //        }
+            //    default: break;
+            //}
         }
 
         public List<Tile> TakeTurn(Unit currentEnemyAgent)
