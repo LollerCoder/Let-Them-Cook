@@ -62,14 +62,20 @@ public class Tile : MonoBehaviour{
     public void HighlightHealableTile() {
         this._mat.color = Color.green;
     }
-    public void OnMouseUp() {
-        if (!EventSystem.current.IsPointerOverGameObject() && !UnitActions.bGoal)
-        { // to make sure that it wont be clickable when behind a UI element
-            UnitActions.bGoal = true;
-            UnitActions.TileTapped(this);
-          
-        }
+
+    public void TileClick() {
+        UnitActions.TileTapped(this);
     }
+    //public void OnMouseUp() {
+    //    Debug.Log("Tapped");
+    //    if (!EventSystem.current.IsPointerOverGameObject() && !UnitActions.bGoal)
+    //    { // to make sure that it wont be clickable when behind a UI element
+    //        UnitActions.bGoal = true;
+
+    //        UnitActions.TileTapped(this);
+
+    //    }
+    //}
     public virtual void ApplyEffect(Unit unit) {
         Debug.Log("DEFAULT");
     }
