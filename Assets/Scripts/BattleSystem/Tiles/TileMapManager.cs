@@ -15,12 +15,22 @@ public class TileMapManager : MonoBehaviour {
 
     public float unitLock;
 
+    public bool mapFlipped = false;
+
     // Start is called before the first frame update
     void Start() {
         Tile[] Tiles = FindObjectsByType<Tile>(FindObjectsSortMode.None);
         foreach (Tile tile in Tiles) {
-            Vector2Int tilePosition = new Vector2Int(Mathf.RoundToInt(tile.transform.position.x), // to ensure the position is not a float
-                                                     Mathf.RoundToInt(tile.transform.position.z));
+            Vector2Int tilePosition;
+
+            if (mapFlipped) {
+                tilePosition = new Vector2Int(Mathf.RoundToInt(tile.transform.position.x), // to ensure the position is not a float
+                                         Mathf.RoundToInt(tile.transform.position.z));
+            }
+            else {
+               tilePosition = new Vector2Int(Mathf.RoundToInt(-tile.transform.position.x), // to ensure the position is not a float
+                                         Mathf.RoundToInt(-tile.transform.position.z));
+            }
 
             if (tile.withProp) {
                 tile.tileType = ETileType.UNPASSABLE;

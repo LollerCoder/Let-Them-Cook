@@ -56109,7 +56109,6 @@ GameObject:
   - component: {fileID: 7425336032948770074}
   - component: {fileID: 8570544448407190442}
   - component: {fileID: 3475180944442741071}
-  - component: {fileID: 8570544448407190443}
   - component: {fileID: 8570544448407190444}
   m_Layer: 0
   m_Name: Level4.308
@@ -57775,23 +57774,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8404787415270681677}
   m_Mesh: {fileID: -432584570461655829, guid: 50917f67e24881c499d7c950dbb1f629, type: 3}
---- !u!114 &8570544448407190443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8404787415270681677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 1
-  baseCost: 2
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &8570544448407190444
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58709,7 +58691,6 @@ GameObject:
   - component: {fileID: 934489659120031340}
   - component: {fileID: 6310516417073702601}
   - component: {fileID: 299480031241339103}
-  - component: {fileID: 8660682898917667881}
   - component: {fileID: 8660682898917667882}
   m_Layer: 0
   m_Name: Level4.006
@@ -58718,23 +58699,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8660682898917667881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8660682898917667880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  baseCost: 2
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &8660682898917667882
 BoxCollider:
   m_ObjectHideFlags: 0
