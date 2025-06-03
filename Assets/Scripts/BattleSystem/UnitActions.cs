@@ -325,11 +325,11 @@ public static class UnitActions {
                 Mathf.RoundToInt(unit.transform.position.x),
                 Mathf.RoundToInt(unit.transform.position.z)
             );
-            Debug.Log(unit.Name + unitPos);
+            //Debug.Log(unit.Name + unitPos);
 
             if (map.ContainsKey(unitPos)) {
                 unit.Tile = map[unitPos];
-                Debug.Log(unit.Name + unitPos + "assigned");
+               //Debug.Log(unit.Name + unitPos + "assigned");
 
             }
 

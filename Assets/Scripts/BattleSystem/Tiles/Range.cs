@@ -37,7 +37,7 @@ public static class Range {
                     continue;
                 }
                 else if (current.bCost < neighbor.bCost) {
-                    cost = neighbor.bCost;
+                    cost = 1 + (neighbor.bCost - current.bCost); // ensures you can travel to a neighbor tile 1 cost higher than the current tile
                 }
                 else {
                     cost = 1;
