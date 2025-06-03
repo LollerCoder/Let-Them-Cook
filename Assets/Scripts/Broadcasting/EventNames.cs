@@ -109,6 +109,12 @@ public class EventNames {
 		public const string GOAL_ARROW_UNHIDE = "GOAL_ARROW_UNHIDE";
 
     }
+
+	public class EnemySpawn_Events
+	{
+		public const string SPAWN_ENEMY = "SPAWN_ENEMY";
+
+    }
 }
 
 

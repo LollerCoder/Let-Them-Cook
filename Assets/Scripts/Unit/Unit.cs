@@ -606,6 +606,11 @@ public abstract class Unit : MonoBehaviour
         this.effects.Add(effect);
     }
 
+    public void AddEffects(List<Effect> effects)
+    {
+        this.effects.AddRange(effects);
+    }
+
     //Applying effects
     public void ApplyEffects()
     {

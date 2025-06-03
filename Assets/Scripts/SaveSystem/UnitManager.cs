@@ -46,20 +46,45 @@ public class UnitManager : MonoBehaviour
         // else if (levelNum >= 13) addUnit("Tomato", new Vector3(5,0.5f,4));
     }
 
-    public void addUnit(string name, GameObject template, Vector3 position, EUnitType type)
+    public void addUnit(string name, GameObject template, Tile tile_spawn_loc, EUnitType type, List<Effect> effects)
     {
-        GameObject unit = Instantiate(template, position, Quaternion.identity, unitParent.transform);
+        GameObject unitGO = CreateUnitGameObject(name,
+            template,
+            tile_spawn_loc.gameObject.transform.position);
 
-        unit.name = name;
+        unitGO.transform.Translate(0, 0.25f, 0);
 
-        unit.SetActive(true);
+        Unit unit = unitGO.GetComponent<Unit>();
+        unit.Type = type;
+        unit.Tile = tile_spawn_loc;
+        unit.AddEffects(effects);
 
-        unit.GetComponent<Unit>().Type = type;
+        this.addUnitToList(unit.GetComponent<Unit>());
+    }
+
+    private GameObject CreateUnitGameObject(string name, GameObject template, Vector3 pos)
+    {
+        GameObject unit = Instantiate(template,
+            pos,
+            Quaternion.identity,
+            unitParent.transform
+            );
 
         //Add it to parent
         unit.transform.parent = unitParent.transform;
 
+        unit.SetActive(true);
+
+        return unit; 
+    }
+
+    private void addUnitToList(Unit unit)
+    {
+        //Add it to parent
+        unit.transform.parent = unitParent.transform;
+
         //Add unit in the UnitList
-        //UnitActionManager.Instance.UnitList.Add(unit.GetComponent<Unit>());
+        UnitActionManager.Instance.UnitList.Add(unit.GetComponent<Unit>());
+        UnitActionManager.Instance.DecideTurnOrder();
     }
 }
