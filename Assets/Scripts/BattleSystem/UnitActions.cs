@@ -322,8 +322,8 @@ public static class UnitActions {
         foreach (Unit unit in UnitActionManager.Instance.UnitList) {
 
             unitPos = new Vector2Int(
-                (int)unit.transform.position.x,
-                (int)unit.transform.position.z
+                Mathf.RoundToInt(unit.transform.position.x),
+                Mathf.RoundToInt(unit.transform.position.z)
             );
             Debug.Log(unit.Name + unitPos);
 
