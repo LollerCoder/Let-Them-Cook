@@ -53,7 +53,8 @@ namespace EnemyAI
                     this._CurrentEnemyUnit.transform.position,
                     ally.transform.position
                     );
-                if (currDist < prevDist)
+                if (currDist < prevDist &&
+                    ally.HP > 0)
                 {
                     targetUnit = ally;
                     prevDist = currDist;
