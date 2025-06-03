@@ -11132,7 +11132,6 @@ GameObject:
   - component: {fileID: 1139883325}
   - component: {fileID: 1139883329}
   - component: {fileID: 1139883328}
-  - component: {fileID: 1139883327}
   - component: {fileID: 1139883326}
   m_Layer: 0
   m_Name: Tile_Light (63)
@@ -11177,23 +11176,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 1.323489e-23, y: -9.313226e-10, z: 5.551115e-17}
---- !u!114 &1139883327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1139883324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!23 &1139883328
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12011,7 +11993,58 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7301624523654478554, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 942047723354033232, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 1426902567567635603, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 5192268978894598149, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 6872717345036720420, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 4292409235381983572, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 5898538006251518538, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 3536010465121095041, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 545430302419588206, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 4544245822893352677, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 628462877127808516, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 5056131516643734427, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 8249168136902248210, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 2931775059216182212, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 8822609428278925505, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 3146616332410371249, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 2819847271981700685, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 8323763379909908877, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 983316028734304246, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 3699938139445946022, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 9056189331715998539, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 80018254921076706, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 8044289387301484868, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 2398759729349749129, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 1969044889992886008, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 8635879945272902007, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 7352366322847847574, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 5060013841460462079, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 7529634841712638399, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 8392913637809157800, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 692475869733168422, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 1894291528680890434, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 1820484947652125793, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 4206877512384519412, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 635702119777435935, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 5556467623142047163, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 3217982236783198535, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 81245240275208463, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 8545866877371378259, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 6195072709626525139, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 7489523330868370114, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 1544192952579650446, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 1600067874288323215, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 8843048254034698447, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 8833111705393891995, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 8320290448169448164, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 7872012720670880133, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 8857255379001539142, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 2931478452973428334, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 521744508625514583, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
+    - {fileID: 3562766890779612243, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -12753,7 +12786,6 @@ GameObject:
   - component: {fileID: 1278679345}
   - component: {fileID: 1278679349}
   - component: {fileID: 1278679348}
-  - component: {fileID: 1278679347}
   - component: {fileID: 1278679346}
   m_Layer: 0
   m_Name: Tile_Light (1)
@@ -12798,23 +12830,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 1.323489e-23, y: -9.313226e-10, z: 5.551115e-17}
---- !u!114 &1278679347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278679344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!23 &1278679348
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15155,7 +15170,6 @@ GameObject:
   - component: {fileID: 1483115549}
   - component: {fileID: 1483115553}
   - component: {fileID: 1483115552}
-  - component: {fileID: 1483115551}
   - component: {fileID: 1483115550}
   m_Layer: 0
   m_Name: Tile_Dark (63)
@@ -15200,23 +15214,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1483115551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483115548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!23 &1483115552
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23650,7 +23647,6 @@ GameObject:
   - component: {fileID: 4625781380038008758}
   - component: {fileID: 3132458321508943900}
   - component: {fileID: 3877453518216816501}
-  - component: {fileID: 5203225590125422960}
   - component: {fileID: 5203225590125422959}
   m_Layer: 0
   m_Name: Tile_Dark
@@ -23680,23 +23676,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5203225590125422960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5203225590125422958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 1
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!23 &5328867109960349534
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24593,7 +24572,6 @@ GameObject:
   - component: {fileID: 2341617321823786401}
   - component: {fileID: 4539612646629843484}
   - component: {fileID: 5328867109960349534}
-  - component: {fileID: 8179153550032792804}
   - component: {fileID: 8179153550032792803}
   m_Layer: 0
   m_Name: Tile_Light
@@ -24623,23 +24601,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 1.323489e-23, y: -9.313226e-10, z: 5.551115e-17}
---- !u!114 &8179153550032792804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8179153550032792802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!4 &8330284146135248400
 Transform:
   m_ObjectHideFlags: 0
@@ -24919,3 +24880,4 @@ SceneRoots:
   - {fileID: 377036228}
   - {fileID: 1195041262}
   - {fileID: 1335209595}
+  - {fileID: 1916916779}

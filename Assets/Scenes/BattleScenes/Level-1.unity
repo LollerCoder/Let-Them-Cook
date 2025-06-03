@@ -6339,7 +6339,6 @@ GameObject:
   - component: {fileID: 787186776}
   - component: {fileID: 787186778}
   - component: {fileID: 787186777}
-  - component: {fileID: 787186780}
   - component: {fileID: 787186779}
   m_Layer: 0
   m_Name: Tile_Dark (30)
@@ -6436,23 +6435,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &787186780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 787186775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!114 &813297240 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1552359711998657431, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
@@ -10878,7 +10860,6 @@ GameObject:
   - component: {fileID: 1590953409}
   - component: {fileID: 1590953411}
   - component: {fileID: 1590953410}
-  - component: {fileID: 1590953413}
   - component: {fileID: 1590953412}
   m_Layer: 0
   m_Name: Tile_Light (34)
@@ -10975,23 +10956,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 1.323489e-23, y: -9.313226e-10, z: 5.551115e-17}
---- !u!114 &1590953413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590953408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 1
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!1 &1594828250
 GameObject:
   m_ObjectHideFlags: 0
@@ -13630,7 +13594,6 @@ GameObject:
   - component: {fileID: 2005387741}
   - component: {fileID: 2005387743}
   - component: {fileID: 2005387742}
-  - component: {fileID: 2005387745}
   - component: {fileID: 2005387744}
   m_Layer: 0
   m_Name: Tile_Dark (29)
@@ -13727,23 +13690,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2005387745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005387740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!1 &2019247635
 GameObject:
   m_ObjectHideFlags: 0
