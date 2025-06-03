@@ -20,7 +20,7 @@ public class TileHover : MonoBehaviour {
         }
 
         if (Input.GetMouseButtonDown(0)) {
-            Tile hitTile = null;
+            GameObject hitTile = null;
 
             RaycastHit hit;
             Vector3 origin = transform.position;
@@ -30,13 +30,16 @@ public class TileHover : MonoBehaviour {
             int ignoreLayer = ~LayerMask.GetMask("Units"); // ignore the unit layer
 
             if (Physics.Raycast(origin, direction, out hit, distance, ignoreLayer)) {
-                hitTile = hit.collider.gameObject.GetComponent<Tile>();
+                hitTile = hit.collider.gameObject;
             }
 
             if (hitTile && (!EventSystem.current.IsPointerOverGameObject() && !UnitActions.bGoal)) { // to make sure that it wont be clickable
-                                                                                                    // when behind a UI element
-                UnitActions.bGoal = true;
-                UnitActions.TileTapped(hitTile);                                                        
+                                                                                                     // when behind a UI element
+                if (OnHitTile() == hitTile) { // prevent tapping of a tile when mouse is on other objects 
+                    UnitActions.bGoal = true;
+                    UnitActions.TileTapped(hitTile.GetComponent<Tile>());
+                }
+                                                     
             }
         }
     }
