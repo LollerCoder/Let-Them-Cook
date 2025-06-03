@@ -82,7 +82,8 @@ public static class UnitActions {
         
     }
     public static void UnitSelect(Unit selectedUnit) {
-        if (UnitAttackActions.IsUnitAttackable(selectedUnit) && UnitActionManager.Instance.OnAttack) {
+        // check if the unit selected is in the range of the skill
+        if (UnitAttackActions.IsUnitSelectable(selectedUnit, UnitActionManager.Instance.numAttack) && UnitActionManager.Instance.OnAttack) {
             ConfirmAttack(selectedUnit, UnitActionManager.Instance.numAttack);
         }
     }
@@ -277,7 +278,7 @@ public static class UnitActions {
 
             if (unit.Tile.TilePos == goalTile.TilePos)
             {
-                Debug.Log("helllloooo");
+                //Debug.Log("helllloooo");
                 stepFlag = true;
                 //BattleUI.Instance.ToggleActionBox(); // MIGHT CHANGE
                 UnitActionManager.Instance.GetFirstUnit().OnMovement(false);
@@ -285,28 +286,28 @@ public static class UnitActions {
 
             }
 
-            if (PathFinding.Path.Count > 0)
-            {
-                stepFlag = true;
-                unit.OnMovement(true);
-                UnitActionManager.Instance.Moving = true;
-                BattleUI.Instance.ToggleWaitButton(false);
+            if (PathFinding.Path.Count <= 0) {
+                UnitActions.bGoal = false;
+                return;
+            }
+
+            // if there is a path
+
+            stepFlag = true;
+            unit.OnMovement(true);
+            UnitActionManager.Instance.Moving = true;
+            BattleUI.Instance.ToggleWaitButton(false);
 
 
 
-                SpriteRenderer cuSR = UnitActionManager.Instance.GetFirstUnit().GetComponent<SpriteRenderer>();
-                if (UnitActionManager.Instance.GetFirstUnit().transform.position.x > goalTile.transform.position.x)
-                {
-                    //Debug.Log("looking left");
-                    cuSR.flipX = true;
-                }
-                else
-                {
-                    //Debug.Log("looking right");
-                    cuSR.flipX = false;
-                }
-
-
+            SpriteRenderer cuSR = UnitActionManager.Instance.GetFirstUnit().GetComponent<SpriteRenderer>();
+            if (UnitActionManager.Instance.GetFirstUnit().transform.position.x > goalTile.transform.position.x) {
+                //Debug.Log("looking left");
+                cuSR.flipX = true;
+            }
+            else {
+                //Debug.Log("looking right");
+                cuSR.flipX = false;
             }
         }
         
