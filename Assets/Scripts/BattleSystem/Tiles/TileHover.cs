@@ -34,8 +34,9 @@ public class TileHover : MonoBehaviour {
             }
 
             if (hitTile && (!EventSystem.current.IsPointerOverGameObject() && !UnitActions.bGoal)) { // to make sure that it wont be clickable
-                                                                                                     // when behind a UI element
-                hitTile.TileClick();
+                                                                                                    // when behind a UI element
+                UnitActions.bGoal = true;
+                UnitActions.TileTapped(hitTile);                                                        
             }
         }
     }

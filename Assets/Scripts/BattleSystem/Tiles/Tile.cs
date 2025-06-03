@@ -63,11 +63,6 @@ public class Tile : MonoBehaviour{
         this._mat.color = Color.green;
     }
 
-    public void TileClick() {
-        UnitActions.bGoal = true;
-        UnitActions.TileTapped(this);
-    }
-
     public virtual void ApplyEffect(Unit unit) {
         Debug.Log("DEFAULT");
     }
