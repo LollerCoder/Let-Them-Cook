@@ -77,7 +77,7 @@ public class CutsceneManager : MonoBehaviour
     {
         //Debug.Log("AOE DUMMIES");
         int dummycount = param.GetIntExtra("DummyCount",0);
-
+        Debug.Log("AOE DUMMIES: " + dummycount);
         //Debug.Log("Dummies were: " + dummycount);
         for (int i = 0; i < dummycount; i++)
         {
@@ -91,8 +91,16 @@ public class CutsceneManager : MonoBehaviour
             HpBar DummyHp = Dummies[i].gameObject.GetComponentInChildren<HpBar>(true);
            
             DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
+            if (dummySent.Type == EUnitType.Enemy)
+            {
+                DummyHp.setColor(EUnitType.Enemy, false);
+            }
+            else
+            {
+                DummyHp.setColor(EUnitType.Ally, false);
+            }
             DummyHp.hpHide(DummyHp.gameObject);
-            DummyHp.setColor(EUnitType.Enemy, false);
+            
             //if(DummyHp == null) {
             //    Debug.Log("Dummy hp NULL");
             //}
@@ -170,6 +178,7 @@ public class CutsceneManager : MonoBehaviour
             {
                 if (Dummies[i].activeSelf)
                 {
+                    UnitActions.applySkill(DummiesData[i], UnitActionManager.Instance.numAttack);
                     HpBar DummyHp = Dummies[i].gameObject.GetComponentInChildren<HpBar>(true);
                     Unit dummySent = DummiesData[i];
 
@@ -219,6 +228,27 @@ public class CutsceneManager : MonoBehaviour
         EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
 
         //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.HIDE_HP);
+
+        for (int i = 0; i < Dummies.Count(); i++)
+        {
+            if (Dummies[i].activeSelf)
+            {
+                HpBar DummyHp = Dummies[i].gameObject.GetComponentInChildren<HpBar>(true);
+                //Unit dummySent = DummiesData[i];
+
+                //dummySent.gameObject.SetActive(false);
+                
+                //DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
+                DummyHp.hpHide(DummyHp.gameObject);
+                Dummies[i].gameObject.SetActive(false);
+                //DummyHp.setColor(EUnitType.Enemy, false);
+            }
+
+
+
+
+        }
+        DummiesData.Clear();
 
         BattleUI.Instance.ToggleTurnOrderUI();
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);

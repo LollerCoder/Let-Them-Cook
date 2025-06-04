@@ -118,7 +118,15 @@ public static class UnitActions {
             param.PutGameObjectExtra(CAMERA, Camera.main.gameObject);
             //param.PutExtra(SKILLANIM, skillType);
             param.PutExtra(SKILLNAME, SkillName);
-            SkillDatabase.Instance.findSkill("Circular Cut").GetNeighborList(currentUnit,target);
+            if(currentUnit.SKILLLIST[Skill] != null)
+            {
+                if(SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SKILLTYPE == ESkillType.AOE)
+                {
+                    SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).GetNeighborList(currentUnit, target);
+                }
+
+            }
+            //SkillDatabase.Instance.findSkill("Circular Cut")
             EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY, param); //cutscene call
             EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY); // camera takes one with params
         }
