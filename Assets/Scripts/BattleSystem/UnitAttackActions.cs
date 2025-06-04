@@ -64,7 +64,11 @@ public class UnitAttackActions : MonoBehaviour {
             }
         }
     }
-    public static bool IsUnitSelectable(Unit selectedUnit, int skillNum) { 
+    public static bool IsUnitSelectable(Unit selectedUnit, int skillNum) {
+        if (skillNum == -1) {
+            return false;
+        }
+
         if (Attackables[skillNum].Find(u => u == selectedUnit)) {
             return true;
         }
