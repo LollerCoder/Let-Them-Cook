@@ -86,10 +86,11 @@ public class CircularCut : Skill
                     
                     //Debug.Log("Dummy" + x);
                     x++;
-            }
+                }
                 param.PutExtra("DummyCount", neighbors.Count);
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_AOE,param);
-                //Debug.Log("Event made");
+            //Debug.Log("Event made");
+            neighbors.Clear();
             }
             
        
@@ -101,7 +102,7 @@ public class CircularCut : Skill
         RaycastHit hit;
         originPoint += dir * 0.2f;
         Debug.DrawRay(originPoint, dir, Color.red, 5f);
-        Physics.Raycast(originPoint, dir, out hit, Mathf.Infinity);
+        Physics.Raycast(originPoint, dir, out hit, 1.0f);
         Debug.Log("Hit " + hit);
 
         if (hit.collider == null) return null;

@@ -45,7 +45,7 @@ public class HpBar : MonoBehaviour
 
     public void hpPopUp(GameObject popUpp, int maxHp, int hp)
     {
-        Debug.Log(hp + "/" + maxHp);
+        //Debug.Log(hp + "/" + maxHp);
         popUpp.SetActive(true);
         
         Slider hpSlide = popUpp.transform.Find("Slider").GetComponent<Slider>();
@@ -63,7 +63,7 @@ public class HpBar : MonoBehaviour
         if (easeSlide.value != hpSlide.value)
         {
             
-            if (popUpp.activeSelf)
+            if (popUpp.activeSelf && popUpp.transform.parent.gameObject.activeSelf)
             {
                 StartCoroutine(easer(popUpp));
             }
