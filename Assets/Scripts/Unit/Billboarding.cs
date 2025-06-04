@@ -11,7 +11,7 @@ public class Billboarding : MonoBehaviour {
     {
         this.spriteRenderer = GetComponent<SpriteRenderer>();
 
-        this.FixOffset();
+        //this.FixOffset();
     }
 
     // Update is called once per frame

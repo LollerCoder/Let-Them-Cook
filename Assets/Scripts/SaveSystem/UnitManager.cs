@@ -52,7 +52,7 @@ public class UnitManager : MonoBehaviour
             template,
             tile_spawn_loc.gameObject.transform.position);
 
-        unitGO.transform.Translate(0, 0.25f, 0);
+        //unitGO.transform.Translate(0, 0.25f, 0);
 
         Unit unit = unitGO.GetComponent<Unit>();
         unit.Type = type;

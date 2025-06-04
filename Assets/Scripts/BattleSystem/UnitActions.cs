@@ -204,6 +204,10 @@ public static class UnitActions {
         //float previousY = currentUnit.transform.position.y;
         Vector3 currentPos = currentUnit.transform.position;
 
+        if (currentUnit.Name == "Sergeant Bob") {
+
+        }
+
         currentUnit.transform.position = Vector3.MoveTowards(currentPos, PathFinding.Path[0].transform.position, step);
         currentUnit.transform.position = new Vector3(currentUnit.transform.position.x,
                                                             PathFinding.Path[0].transform.position.y + TileMapManager.Instance.unitLock,
