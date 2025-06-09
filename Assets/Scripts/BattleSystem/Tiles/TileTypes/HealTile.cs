@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealTile : Tile {
 
-    public void Start() {
+    public new void Start() {
         base.Start();
         this.tileType = ETileType.HEAL;
     }

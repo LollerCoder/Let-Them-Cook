@@ -64,16 +64,22 @@ public class UnitAttackActions : MonoBehaviour {
             }
         }
     }
-    public static bool IsUnitAttackable(Unit selectedUnit) {
-        //for(int i = 0; i < Attackables.Count; i++) {
-        //    if (Attackables[i].Find(u => u == selectedUnit)) {
-        //        return true;
-        //    }
-        //}
-        if(selectedUnit.InRange) {
+    public static bool IsUnitSelectable(Unit selectedUnit, int skillNum) {
+        if (skillNum == -1) {
+            return false;
+        }
+
+        if (Attackables[skillNum].Find(u => u == selectedUnit)) {
             return true;
         }
         return false;
+
+        /*If within range and if the type is Enemy*/
+        //if (selectedUnit.InRange && (selectedUnit.Type == EUnitType.Enemy|| selectedUnit.Type == EUnitType.Boss))
+        //{
+        //    return true;
+        //}
+        //return false;
     }
 
     public static void SetAttackableList() {

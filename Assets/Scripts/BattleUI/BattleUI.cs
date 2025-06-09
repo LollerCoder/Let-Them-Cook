@@ -160,6 +160,10 @@ public class BattleUI : MonoBehaviour {
         for (int i = 0; i < this.attackNum.Count(); i++) {
             this.attackNum[i] = false;
         }
+
+        //apply after turn effects
+        UnitActionManager.Instance.GetFirstUnit().EndTurnEffects();
+
         UnitActionManager.Instance.ResetCurrentUnit();
 
         if(GameEnd) {
@@ -364,8 +368,8 @@ public class BattleUI : MonoBehaviour {
             curr_count++;
 
         } while(curr_count < max_queue);
+        this.Turn[0].gameObject.transform.parent.transform.localScale = new Vector3(1.5f,1.5f,1.5f);
         
-
 
     }
 

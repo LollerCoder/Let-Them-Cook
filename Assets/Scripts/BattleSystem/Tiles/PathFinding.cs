@@ -9,14 +9,19 @@ public static class PathFinding {
         get {  return _path; } 
         set { _path = value; }
     }
+
     public static List<Tile> AStarPathFinding(Tile start, Tile end, List<Tile> inRangeTiles) {
         List<Tile> tileQueue = new List<Tile>();
         List<Tile> tileVisited = new List<Tile>();
+        Dictionary<Tile, int> costSoFar = new Dictionary<Tile, int>();
 
+        costSoFar[start] = 0; // stores the added cost for each tile (current tile to the next tile)
+        start.heuristic = GetManhattanDistance(start, end);
         tileQueue.Add(start);
 
         while (tileQueue.Count > 0) {
-            Tile currentTile = tileQueue.OrderBy(x => x.F).First();
+            // get the tile with the lowest cost to travel to first
+            Tile currentTile = tileQueue.OrderBy(x => costSoFar[x] + x.heuristic).First();
 
             tileQueue.Remove(currentTile);
             tileVisited.Add(currentTile);
@@ -27,18 +32,36 @@ public static class PathFinding {
 
             List<Tile> neighborTiles = GetNeighborTiles(currentTile, inRangeTiles);
 
-            foreach(Tile neighbor in neighborTiles) {
-                if(!neighbor.isWalkable || tileVisited.Contains(neighbor)){
+            foreach (Tile neighbor in neighborTiles) {
+                if (!neighbor.isWalkable || tileVisited.Contains(neighbor)) {
                     continue;
                 }
 
-                neighbor.cost = GetManhattanDistance(start, neighbor);
-                neighbor.heuristic = GetManhattanDistance(end, neighbor);
+                int cost = 0;
 
-                neighbor.previousTile = currentTile;
+                if (currentTile.bCost == neighbor.bCost) {
+                    cost = 1;
+                }
+                else if (Mathf.Abs(neighbor.bCost - currentTile.bCost) > 1) {
+                    continue;
+                }
+                else if (currentTile.bCost < neighbor.bCost) {
+                    cost = neighbor.bCost;
+                }
+                else {
+                    cost = 1;
+                }
 
-                if(!tileQueue.Contains(neighbor)) {
-                    tileQueue.Add(neighbor);
+                int tempCost = costSoFar[currentTile] + cost;
+
+                if (!costSoFar.ContainsKey(neighbor) || tempCost < costSoFar[neighbor]) {
+                    costSoFar[neighbor] = tempCost; // store the added cost to the neighbor tile
+                    neighbor.heuristic = GetManhattanDistance(end, neighbor);
+                    neighbor.previousTile = currentTile;
+
+                    if (!tileQueue.Contains(neighbor)) {
+                        tileQueue.Add(neighbor);
+                    }
                 }
             }
         }
@@ -49,7 +72,6 @@ public static class PathFinding {
         List<Tile> neighborTiles = new List<Tile>();
 
         neighborTiles = TileMapManager.Instance.GetNeighborTiles(currentTile, inRangeTiles);
-        //neighborTiles = TileMapGenerator.Instance.GetNeighborTiles(currentTile, inRangeTiles);
 
         return neighborTiles;
     }

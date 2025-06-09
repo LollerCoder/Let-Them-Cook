@@ -73,8 +73,12 @@ public class EventNames {
         public const string ON_START = "ON_START";
 		public const string NEXT_TURN = "NEXT_TURN";
 		public const string UPDATE_INVENTORY = "UPDATE_INVENTORY";
+
+		//CUTSCENE
 		public const string CUTSCENE_PLAY = "CUTSCENE_PLAY";
         public const string CUTSCENE_END = "CUTSCENE_END";
+		//AOE TOGGLE
+		public const string CUTSCENE_AOE = "CUTSCENE_AOE";
     }
 
 
@@ -97,6 +101,20 @@ public class EventNames {
 		public const string ENEMY_FOCUS = "ENEMY_FOCUS";
 		public const string CURRENT_FOCUS = "CURRENT_FOCUS";
 	}
+
+	public class HostageRescue_Events
+	{
+		public const string HOSTAGE_FREE = "HOSTAGE_FREE";
+		public const string GOAL_ARROW_HIDE = "GOAL_ARROW_HIDE";
+		public const string GOAL_ARROW_UNHIDE = "GOAL_ARROW_UNHIDE";
+
+    }
+
+	public class EnemySpawn_Events
+	{
+		public const string SPAWN_ENEMY = "SPAWN_ENEMY";
+
+    }
 }
 
 

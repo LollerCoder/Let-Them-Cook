@@ -32,6 +32,7 @@ public abstract class Unit : MonoBehaviour
         get { return skillList; }
     }
 
+    [Header("Unit Stats")]
     [SerializeField]
     protected EIngredientType ingredientType;
     public EIngredientType IngredientType
@@ -147,9 +148,11 @@ public abstract class Unit : MonoBehaviour
     protected float maxexp; // max experience
     public float MAXEXP { get { return this.maxexp; } }
 
+    [SerializeField]
     protected int basicrange = 2; // range
     public int BasicRange { get { return this.basicrange; } }
 
+    [SerializeField]
     protected float move = 3; // move
     public float Move
     {
@@ -603,6 +606,11 @@ public abstract class Unit : MonoBehaviour
         this.effects.Add(effect);
     }
 
+    public void AddEffects(List<Effect> effects)
+    {
+        this.effects.AddRange(effects);
+    }
+
     //Applying effects
     public void ApplyEffects()
     {
@@ -616,6 +624,14 @@ public abstract class Unit : MonoBehaviour
         }
 
         this.effects.RemoveAll(ef => ef.Duration <= 0);
+    }
+
+    public void EndTurnEffects()
+    {
+        foreach (Effect effect in this.effects)
+        {
+            effect.AfterTurnAction(this);
+        }
     }
 
     public Effect GetEffect(string effect)

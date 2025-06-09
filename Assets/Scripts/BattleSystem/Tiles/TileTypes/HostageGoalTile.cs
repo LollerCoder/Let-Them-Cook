@@ -6,11 +6,30 @@ using UnityEngine;
 //tile where hostage needs to go to to win/get free
 public class HostageGoalTile : Tile
 {
-        // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private GameObject arrow_template;
+    private GameObject arrow;
+
+    private new void Start()
     {
+        //Debug.Log("Hi i am here");
+        EventBroadcaster.Instance.AddObserver(EventNames.HostageRescue_Events.GOAL_ARROW_HIDE, this.HideArrow);
+        EventBroadcaster.Instance.AddObserver(EventNames.HostageRescue_Events.GOAL_ARROW_UNHIDE, this.ShowArrow);
+
+        this.arrow = Instantiate(arrow_template, transform.position + Vector3.up * 0.25f, new Quaternion(0,0,0,0));
+        this.arrow.SetActive(false);
+
         base.Start();
-        this.tileType = ETileType.OBJECTIVE;
+    }
+
+    public void ShowArrow()
+    {
+        this.arrow.SetActive(true);
+    }
+
+    public void HideArrow()
+    {
+        this.arrow.SetActive(false);
     }
 
     public override void ApplyEffect(Unit unit)

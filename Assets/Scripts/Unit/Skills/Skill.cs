@@ -42,6 +42,11 @@ public class Skill
 
     }
 
+    public virtual void GetNeighborList(Unit origin,Unit target)
+    {
+
+    }
+
     //Debuffs/Buffs
     public EffectInfo skillData;
     

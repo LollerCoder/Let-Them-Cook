@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+//using UnityEditor.TestTools.TestRunner;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,13 +26,18 @@ public class BattleManager : MonoBehaviour {
     [SerializeField]
     private bool GameEnd = false;
 
-    private void NextTurn() {
+    private void NextTurn()
+    {
         Unit unit = UnitActionManager.Instance.GetFirstUnit();
-        if (unit != null) {
+        if (unit != null)
+        {
             unit.Tile.ApplyEffect(unit);
         }
 
+        UnitActions.bGoal = false;
         BattleUI.Instance.OnEndTurn(this.GameEnd);
+        
+
     }
 
     private void EndCondition(Parameters param) {

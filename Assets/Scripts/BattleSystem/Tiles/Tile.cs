@@ -1,7 +1,9 @@
+using NUnit.Framework.Constraints;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Tilemaps;
 public class Tile : MonoBehaviour{
     private Material _mat;
     private Color _color;
@@ -9,30 +11,29 @@ public class Tile : MonoBehaviour{
     private int tileX;
     private int tileZ;
 
+    public bool withProp = false;
+
     public Vector2Int TilePos {
         get { return new Vector2Int(tileX, tileZ);}
         set { tileX = value.x; tileZ = value.y; }
     }
 
-    private int Cost;
+    [SerializeField]
+    private int baseCost = 1;
     private int Heuristic;
-
-    public int cost {
-        get { return this.Cost; }
-        set { this.Cost = value; }
+    
+    public int bCost {
+        get { return this.baseCost; }
+        set { this.baseCost = value; }
     }
-
     public int heuristic {
         get { return this.Heuristic; }
         set { this.Heuristic = value; }
     }
-
-    public int F {
-        get { return this.Cost + this.Heuristic; }
-    }
     
     public Tile previousTile;
 
+    [SerializeField]
     protected ETileType TileType;
     public ETileType tileType {
         get { return this.TileType; }
@@ -41,7 +42,7 @@ public class Tile : MonoBehaviour{
 
 
     public bool isWalkable;
-    protected void Start() {
+    public void Start() {
         
         this._mat = this.gameObject.GetComponent<Renderer>().material;
         this._color = this._mat.color;
@@ -62,11 +63,6 @@ public class Tile : MonoBehaviour{
         this._mat.color = Color.green;
     }
 
-    public void OnMouseUp() {
-        if (!EventSystem.current.IsPointerOverGameObject()) { // to make sure that it wont be clickable when behind a UI element
-            UnitActions.TileTapped(this);
-        }
-    }
     public virtual void ApplyEffect(Unit unit) {
         Debug.Log("DEFAULT");
     }

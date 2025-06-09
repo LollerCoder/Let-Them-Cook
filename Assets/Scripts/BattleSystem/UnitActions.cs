@@ -13,8 +13,11 @@ public static class UnitActions {
     private static DroppedVegetable currVeg;
     
     public static bool stepFlag = false;
+
+    //if a tile has been tapped
+    public static bool bGoal = false;
     
-    private static int _affectedStatValue = 0;
+   // private static int _affectedStatValue = 0;
 
     public const string UNIT = "UNIT";
 
@@ -44,7 +47,7 @@ public static class UnitActions {
             UnitActionManager.Instance.GetFirstUnit().OnMovement(true);
             UnitActionManager.Instance.GetFirstUnit().transform.position = currentTilePos;
             UnitActionManager.Instance.GetFirstUnit().Tile = currentTile;
-
+            bGoal = false;
             EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
             //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
             //if (BattleUI.Instance.ActionBoxState) {               // MIGHT CHANGE
@@ -79,7 +82,8 @@ public static class UnitActions {
         
     }
     public static void UnitSelect(Unit selectedUnit) {
-        if (UnitAttackActions.IsUnitAttackable(selectedUnit) && UnitActionManager.Instance.OnAttack) {
+        // check if the unit selected is in the range of the skill
+        if (UnitAttackActions.IsUnitSelectable(selectedUnit, UnitActionManager.Instance.numAttack) && UnitActionManager.Instance.OnAttack) {
             ConfirmAttack(selectedUnit, UnitActionManager.Instance.numAttack);
         }
     }
@@ -114,7 +118,15 @@ public static class UnitActions {
             param.PutGameObjectExtra(CAMERA, Camera.main.gameObject);
             //param.PutExtra(SKILLANIM, skillType);
             param.PutExtra(SKILLNAME, SkillName);
+            if(currentUnit.SKILLLIST[Skill] != null)
+            {
+                if(SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SKILLTYPE == ESkillType.AOE)
+                {
+                    SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).GetNeighborList(currentUnit, target);
+                }
 
+            }
+            //SkillDatabase.Instance.findSkill("Circular Cut")
             EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY, param); //cutscene call
             EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY); // camera takes one with params
         }
@@ -189,12 +201,16 @@ public static class UnitActions {
 
         float step = UnitActionManager.Instance.Speed * Time.deltaTime;
 
-        float previousY = currentUnit.transform.position.y;
+        //float previousY = currentUnit.transform.position.y;
         Vector3 currentPos = currentUnit.transform.position;
+
+        if (currentUnit.Name == "Sergeant Bob") {
+
+        }
 
         currentUnit.transform.position = Vector3.MoveTowards(currentPos, PathFinding.Path[0].transform.position, step);
         currentUnit.transform.position = new Vector3(currentUnit.transform.position.x,
-                                                            previousY,
+                                                            PathFinding.Path[0].transform.position.y + TileMapManager.Instance.unitLock,
                                                             currentUnit.transform.position.z);
 
         Vector2 unitPos = new Vector2(currentUnit.transform.position.x, currentUnit.transform.position.z);
@@ -204,7 +220,7 @@ public static class UnitActions {
 
         if (Vector2.Distance(unitPos, tilePos) < 0.1f) {
             currentUnit.transform.position = new Vector3(PathFinding.Path[0].transform.position.x,
-                                                            previousY,
+                                                            PathFinding.Path[0].transform.position.y + TileMapManager.Instance.unitLock,
                                                             PathFinding.Path[0].transform.position.z);
             currentUnit.Tile = PathFinding.Path[0];
             goalTile = PathFinding.Path[0];
@@ -258,46 +274,56 @@ public static class UnitActions {
         BattleUI.Instance.ToggleEatOrPickUpButtons();
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
     }
-    public static void TileTapped(Tile goalTile) {
+    public static void TileTapped(Tile goalTile)
+    {
         Unit unit = UnitActionManager.Instance.GetFirstUnit();
-        string bufDebufname = ""; //name
-
+        //string bufDebufname = ""; //name
         EffectInfo terst = new EffectInfo(0, 0, EStatToEffect.NOTSET); //effectInfo
-        if (!UnitActionManager.Instance.hadMoved &&
-            !AllyOnTileGoal(goalTile) &&
-            UnitActionManager.Instance.OnMove) {
 
-            PathFinding.Path = PathFinding.AStarPathFinding(unit.Tile,
-                         goalTile,
-                         Range.GetTilesInMovement(unit.Tile,
-                                                         unit.Speed)
-                         );
 
-            if (unit.Tile.TilePos == goalTile.TilePos) {
+
+        if (!UnitActionManager.Instance.hadMoved && !AllyOnTileGoal(goalTile) && UnitActionManager.Instance.OnMove && bGoal)
+        {
+
+            PathFinding.Path = PathFinding.AStarPathFinding(unit.Tile, goalTile,
+                                Range.GetTilesInMovement(unit.Tile, unit.Move));
+
+            if (unit.Tile.TilePos == goalTile.TilePos)
+            {
+                //Debug.Log("helllloooo");
                 stepFlag = true;
                 //BattleUI.Instance.ToggleActionBox(); // MIGHT CHANGE
                 UnitActionManager.Instance.GetFirstUnit().OnMovement(false);
                 UnitActionManager.Instance.OnMove = false;
+
             }
 
-            if (PathFinding.Path.Count > 0) {
-                stepFlag = true;
-                unit.OnMovement(true);
-                UnitActionManager.Instance.Moving = true;
-                BattleUI.Instance.ToggleWaitButton(false);
+            if (PathFinding.Path.Count <= 0) {
+                UnitActions.bGoal = false;
+                return;
+            }
+
+            // if there is a path
+
+            stepFlag = true;
+            unit.OnMovement(true);
+            UnitActionManager.Instance.Moving = true;
+            BattleUI.Instance.ToggleWaitButton(false);
 
 
-                SpriteRenderer cuSR = UnitActionManager.Instance.GetFirstUnit().GetComponent<SpriteRenderer>();
-                if (UnitActionManager.Instance.GetFirstUnit().transform.position.x > goalTile.transform.position.x) {
-                    //Debug.Log("looking left");
-                    cuSR.flipX = true;
-                }
-                else {
-                    //Debug.Log("looking right");
-                    cuSR.flipX = false;
-                }
+
+            SpriteRenderer cuSR = UnitActionManager.Instance.GetFirstUnit().GetComponent<SpriteRenderer>();
+            if (UnitActionManager.Instance.GetFirstUnit().transform.position.x > goalTile.transform.position.x) {
+                //Debug.Log("looking left");
+                cuSR.flipX = true;
+            }
+            else {
+                //Debug.Log("looking right");
+                cuSR.flipX = false;
             }
         }
+        
+     
     }
     public static void AssignUnitTile() {
 
@@ -306,21 +332,28 @@ public static class UnitActions {
 
         Vector2Int unitPos = new Vector2Int();
         foreach (Unit unit in UnitActionManager.Instance.UnitList) {
+
             unitPos = new Vector2Int(
-                (int)unit.transform.position.x,
-                (int)unit.transform.position.z
+                Mathf.RoundToInt(unit.transform.position.x),
+                Mathf.RoundToInt(unit.transform.position.z)
             );
+            //Debug.Log(unit.Name + unitPos);
 
             if (map.ContainsKey(unitPos)) {
                 unit.Tile = map[unitPos];
+               //Debug.Log(unit.Name + unitPos + "assigned");
+
             }
 
         }
     }
-    public static  void UpdateTile() { /////move to tileactions
-        //TileMapGenerator.Instance.UpdateTile();
+    public static void UpdateTile() { // move to tileactions
         TileMapManager.Instance.UpdateTile();
         foreach (Unit unit in UnitActionManager.Instance.UnitOrder) {
+            if (unit.Tile == null) {
+                Debug.Log(unit.Name);
+            }
+
             if (unit.Type != EUnitType.Ally) {
                 unit.Tile.isWalkable = false;
             }

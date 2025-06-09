@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UIElements;
@@ -17,9 +18,14 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] GameObject EnemyHP;
 
 
-
+    [Header("Animator")]
     [SerializeField] Animator CutsceneAnim;
-    
+    [Header("Dummies")]
+    [SerializeField] GameObject[] Dummies;
+    private List<Unit> DummiesData = new List<Unit>();
+
+
+
     
     Unit player;
     Unit target;
@@ -39,9 +45,9 @@ public class CutsceneManager : MonoBehaviour
 
 
 
-    float ticks = 0.0f;
-    float speed = 25.0f;
-    bool moving = false;
+   // float ticks = 0.0f;
+    //float speed = 25.0f;
+   // bool moving = false;
     private void MOVE(Parameters param)
     {
         BattleUI.Instance.ToggleActionBox();
@@ -49,9 +55,11 @@ public class CutsceneManager : MonoBehaviour
         player = param.GetUnitExtra(currUNIT);
         target = param.GetUnitExtra(TARGET);
         string skillName = param.GetStringExtra(SKILLNAME,"THIS SHOULD NEVER BE USED.");
-        //camera = param.GetGameObjectExtra(CAMERA);
-        //ESkillType skillAnim = param.GetSkillTypeExtra(SKILLANIM);
 
+        SpriteRenderer PlayerSprite = player.gameObject.GetComponent<SpriteRenderer>();
+        SpriteRenderer EnemySprite = target.gameObject.GetComponent<SpriteRenderer>();
+        CutscenePlayer.GetComponent<SpriteRenderer>().sprite = PlayerSprite.sprite;
+        CutsceneEnemy.GetComponent<SpriteRenderer>().sprite = EnemySprite.sprite;
 
 
         EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.MAXHP, target.HP);
@@ -60,27 +68,63 @@ public class CutsceneManager : MonoBehaviour
         findSkillAnim(skillName);
         
 
-        //player.gameObject.GetComponent<SpriteRenderer>().sprite;
-
-        //playerOriginalpos = player.transform.position;
-        //targetOriginalpos = target.transform.position;
-
-        //target.transform.position = enemySpawn.transform.position;
-        //player.transform.position = playerSpawn.transform.position;
-
-        SpriteRenderer PlayerSprite = player.gameObject.GetComponent<SpriteRenderer>();
-        SpriteRenderer EnemySprite = target.gameObject.GetComponent<SpriteRenderer>();
-        CutscenePlayer.GetComponent<SpriteRenderer>().sprite = PlayerSprite.sprite;
-        CutsceneEnemy.GetComponent<SpriteRenderer>().sprite = EnemySprite.sprite;
-        moving = true;
 
         
+      
+        
+    }
+    private void AOEMOVE(Parameters param)
+    {
+        //Debug.Log("AOE DUMMIES");
+        int dummycount = param.GetIntExtra("DummyCount",0);
+        Debug.Log("AOE DUMMIES: " + dummycount);
+        //Debug.Log("Dummies were: " + dummycount);
+        for (int i = 0; i < dummycount; i++)
+        {
+            Dummies[i].SetActive(true);
+            SpriteRenderer DummySprite = Dummies[i].gameObject.GetComponent<SpriteRenderer>();
+            Unit dummySent = param.GetUnitExtra("Dummy" + i);
+            
+            DummiesData.Add(dummySent);
+
+            DummySprite.sprite = dummySent.gameObject.GetComponent<SpriteRenderer>().sprite;
+            HpBar DummyHp = Dummies[i].gameObject.GetComponentInChildren<HpBar>(true);
+           
+            DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
+            if (dummySent.Type == EUnitType.Enemy)
+            {
+                DummyHp.setColor(EUnitType.Enemy, false);
+            }
+            else
+            {
+                DummyHp.setColor(EUnitType.Ally, false);
+            }
+            DummyHp.hpHide(DummyHp.gameObject);
+            
+            //if(DummyHp == null) {
+            //    Debug.Log("Dummy hp NULL");
+            //}
+
+            //Debug.Log("MaxHp" + dummySent.MAXHP);
+            //Debug.Log("Hp" + dummySent.HP);
+
+
+
+        }
+
+
+
+
+
+
+
     }
 
     private void Start()
     {
 
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_PLAY, this.MOVE);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_AOE, this.AOEMOVE);
 
     }
 
@@ -103,7 +147,10 @@ public class CutsceneManager : MonoBehaviour
                 break;
             case ESkillType.HEAL:
                 Debug.Log("BOO BOO");
-
+                EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.MAXHP, target.HP);
+                EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Ally, false);
+                EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
+                CutsceneAnim.SetTrigger("Heal");
                 break;
             case ESkillType.DEFEND:
                 Debug.Log("Parry");
@@ -118,14 +165,33 @@ public class CutsceneManager : MonoBehaviour
     private void CutsceneTakeDamage()
     {
 
-
-        //Parameters param = new Parameters();
-        //param.PutExtra(UNIT, target);
-
+        
+        
         UnitActions.applySkill(target, UnitActionManager.Instance.numAttack);
         EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.MAXHP, target.HP);
         EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Enemy, false);
-       
+
+
+        if (DummiesData.Count() != 0)
+        {
+            for (int i = 0; i < Dummies.Count(); i++)
+            {
+                if (Dummies[i].activeSelf)
+                {
+                    UnitActions.applySkill(DummiesData[i], UnitActionManager.Instance.numAttack);
+                    HpBar DummyHp = Dummies[i].gameObject.GetComponentInChildren<HpBar>(true);
+                    Unit dummySent = DummiesData[i];
+
+                    DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
+                    //DummyHp.hpHide(DummyHp.gameObject);
+                    DummyHp.setColor(EUnitType.Enemy, false);
+                }
+
+
+
+
+            }
+        }
 
 
 
@@ -134,7 +200,8 @@ public class CutsceneManager : MonoBehaviour
 
 
 
-        Debug.Log("CutsceneOuch");
+
+
 
     }
 
@@ -154,14 +221,34 @@ public class CutsceneManager : MonoBehaviour
 
     private void CutsceneEnd()
     {
-        //player.transform.position = playerOriginalpos;
-        //target.transform.position = targetOriginalpos;
+    
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_END);
 
 
         EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
 
         //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.HIDE_HP);
+
+        for (int i = 0; i < Dummies.Count(); i++)
+        {
+            if (Dummies[i].activeSelf)
+            {
+                HpBar DummyHp = Dummies[i].gameObject.GetComponentInChildren<HpBar>(true);
+                //Unit dummySent = DummiesData[i];
+
+                //dummySent.gameObject.SetActive(false);
+                
+                //DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
+                DummyHp.hpHide(DummyHp.gameObject);
+                Dummies[i].gameObject.SetActive(false);
+                //DummyHp.setColor(EUnitType.Enemy, false);
+            }
+
+
+
+
+        }
+        DummiesData.Clear();
 
         BattleUI.Instance.ToggleTurnOrderUI();
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
@@ -171,24 +258,6 @@ public class CutsceneManager : MonoBehaviour
 
     private void Update()
     {
-        //if (moving)
-        //{
-        //    //Debug.Log("MOVING");
-        //    ticks += Time.deltaTime;
-        //    if (ticks < 5.0f)
-        //    {
-        //        //movingBox.transform.Translate(Vector3.right * speed * Time.deltaTime);
-
-        //    }
-        //    else
-        //    {
-        //        ticks = 0.0f;
-        //        moving = false;
-                
-                
-               
-
-        //    }
-        //}
+        
     }
 }

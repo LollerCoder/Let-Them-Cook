@@ -33,7 +33,7 @@ namespace EnemyAI
 
             if (path.Count <= 0) return null;
 
-            //get actual path relative to unit's speed
+            //get actual path relative to unit's movement range
             List<Tile> actual_path = new List<Tile>();
 
             for (int i = 0; i < _currentUnit.Move && i < path.Count; i++)

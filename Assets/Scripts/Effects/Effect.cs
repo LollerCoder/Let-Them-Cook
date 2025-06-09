@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Compilation;
 using UnityEngine;
 
 [System.Serializable]
@@ -38,5 +37,11 @@ public class Effect
     public virtual void EffectAfterAction(Unit unitAffected)
     {
         Debug.Log(this.EffectName + " has finished!");
+    }
+
+    //function called after the end turn of the unit affected
+    public virtual void AfterTurnAction(Unit unitAffected)
+    {
+
     }
 }
