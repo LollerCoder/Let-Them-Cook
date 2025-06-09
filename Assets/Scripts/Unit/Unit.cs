@@ -210,49 +210,49 @@ public abstract class Unit : MonoBehaviour
         this.effectManager.EffectAccess(this); //target
 
         //check if its true damage
-        if (damage == 0)
-        {
-            if (this.isDodged(attacker) || GameSettingsManager.Instance.turnOffDodge)
-            {
-                Debug.Log("HP before :" + this.hp);
-                int dmg = CalculateDamage(attacker);
-                if (this.defend)
-                {
+        //if (damage == 0)
+        //{
+        //    if (this.isDodged(attacker) || GameSettingsManager.Instance.turnOffDodge)
+        //    {
+        //        Debug.Log("HP before :" + this.hp);
+        //        int dmg = CalculateDamage(attacker);
+        //        if (this.defend)
+        //        {
 
-                    dmg = dmg - (int)Mathf.Round(dmg * 0.2f);
-                }
-                this.hp -= dmg;
-                this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
-                Debug.Log("Dealt Damage: " + dmg);
+        //            dmg = dmg - (int)Mathf.Round(dmg * 0.2f);
+        //        }
+        //        this.hp -= dmg;
+        //        this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
+        //        Debug.Log("Dealt Damage: " + dmg);
 
-                PopUpManager.Instance.addPopUp(dmg.ToString(), this.transform);
-                Debug.Log("My name is: " + this.Name + "Yo");
-                Debug.Log("HP after :" + this.hp);
+        //        PopUpManager.Instance.addPopUp(dmg.ToString(), this.transform);
+        //        Debug.Log("My name is: " + this.Name + "Yo");
+        //        Debug.Log("HP after :" + this.hp);
 
-                //PopUpManager.Instance.addpopUpHealth(this.MAXHP, this.HP,this.transform);
+        //        //PopUpManager.Instance.addpopUpHealth(this.MAXHP, this.HP,this.transform);
 
-                Debug.Log("HP after :" + this.hp);
+        //        Debug.Log("HP after :" + this.hp);
 
-                this.defend = false;
-
-
-            }
-            else
-            {
-                PopUpManager.Instance.addPopUp("DODGE", this.transform);
-                Debug.Log("DODGE");
-            }
-        }
-
-        else
-        {
-            //PopUpManager.Instance.addPopUp(damage.ToString(), this.transform);
-            this.hp -= (int)damage;
-            this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
-
-        }
+        //        this.defend = false;
 
 
+        //    }
+        //    else
+        //    {
+        //        PopUpManager.Instance.addPopUp("DODGE", this.transform);
+        //        Debug.Log("DODGE");
+        //    }
+        //}
+
+
+        //Doing the damage
+        int dmg = CalculateDamage(attacker);
+        Debug.Log("Damage taken: " + ((int)damage + dmg));
+        this.hp -= (int)damage + dmg;
+        this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
+
+
+        //unit is dead
         if (this.hp == 0)
         {
             Debug.Log("Its Dead");
