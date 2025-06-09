@@ -247,7 +247,7 @@ public abstract class Unit : MonoBehaviour
 
         //Doing the damage
         int dmg = CalculateDamage(attacker);
-        Debug.Log("Damage taken: " + ((int)damage + dmg));
+        //Debug.Log("Damage taken: " + ((int)damage + dmg));
         this.hp -= (int)damage + dmg;
         this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
 
