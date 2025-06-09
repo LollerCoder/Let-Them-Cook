@@ -56,15 +56,19 @@ public class Shove : Skill
         if (landingSpot != null)
         {
             target.Tile = landingSpot;
+            target.gameObject.transform.position = new Vector3(
+                target.gameObject.transform.position.x,
+                landingSpot.gameObject.transform.position.y,
+                target.gameObject.transform.position.z);
 
-            target.TakeDamage(5, origin);
+            target.TakeDamage(3, origin);
         }
         else
         {
             target.gameObject.transform.position = currPos;
 
             //if there is a wall add more damage
-            target.TakeDamage(10, origin);
+            target.TakeDamage(5, origin);
         }
 
         target.AddEffect(new Dizzy(2, origin));
