@@ -83,7 +83,10 @@ public static class UnitActions {
     }
     public static void UnitSelect(Unit selectedUnit) {
         // check if the unit selected is in the range of the skill
-        if (UnitAttackActions.IsUnitSelectable(selectedUnit, UnitActionManager.Instance.numAttack) && UnitActionManager.Instance.OnAttack) {
+        if (UnitAttackActions.IsUnitSelectable(selectedUnit, UnitActionManager.Instance.numAttack) && 
+            UnitActionManager.Instance.OnAttack &&
+            !UnitActionManager.Instance.hadAttacked
+            ) {
             ConfirmAttack(selectedUnit, UnitActionManager.Instance.numAttack);
         }
     }
