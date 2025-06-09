@@ -5,7 +5,7 @@ public class CircularCut : Skill
 {
 
 
-    private float damage = 10.0f;
+    private float damage = 7.0f;
     List<Vector3> cardinalDirs = new List<Vector3>();
     List<Unit> neighbors = new List<Unit>();
     Unit neighbor = null;
