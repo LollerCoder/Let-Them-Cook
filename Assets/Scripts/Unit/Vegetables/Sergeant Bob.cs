@@ -13,7 +13,7 @@ public class SergeantBob : Unit
 
 
         this.acc = 10;
-        this.spd = 2;
+        this.Speed = 2;
         this.maxhp = 25;
         this.hp = this.maxhp;
         this.atk = 2;

@@ -1,12 +1,16 @@
 using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 
 [Serializable]
-public abstract class Unit : MonoBehaviour
-{
+public abstract class Unit : MonoBehaviour, ITurnTaker {
+
+    public float Speed { get; set; }
+    public Sprite Sprite { get; set; }
 
     public const string UNIT = "UNIT";
 
@@ -70,15 +74,6 @@ public abstract class Unit : MonoBehaviour
     {
         get { return this.accMult; }
         set { this.accMult = value; }
-    }
-
-    protected float spd; // movement range
-
-    [SerializeField]
-    public float Speed
-    {
-        get { return this.spd; }
-        set { this.spd = value; }
     }
 
     protected float spdMult = 1; // hit
@@ -153,7 +148,7 @@ public abstract class Unit : MonoBehaviour
     public int BasicRange { get { return this.basicrange; } }
 
     [SerializeField]
-    protected float move = 3; // move
+    protected float move = 3; // movement range
     public float Move
     {
         get { return this.move; }
@@ -277,6 +272,22 @@ public abstract class Unit : MonoBehaviour
         EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
     }
 
+    public void TakeDamageFromTile(int damage) {
+        this.hp -= damage;
+        PopUpManager.Instance.addPopUp(damage.ToString(), this.transform);
+
+        if (this.hp == 0) {
+            Debug.Log("Its Dead");
+            this.Tile.isWalkable = true;
+
+            this.HandleDeath();
+        }
+
+        Parameters param = new Parameters();
+        param.PutExtra(UNIT, this);
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
+    }
+
     public void gainHealth(float healPts, Unit partyMember)
     {
 
@@ -351,7 +362,7 @@ public abstract class Unit : MonoBehaviour
     }
     public bool isDodged(Unit attacker)
     {
-        float chance = 50 + ((attacker.spd + attacker.acc - this.spd));
+        float chance = 50 + ((attacker.Speed + attacker.acc - this.Speed));
         float x = UnityEngine.Random.Range(1, 100);
 
         if (x < chance)
@@ -364,7 +375,7 @@ public abstract class Unit : MonoBehaviour
     }
     public int CalculateDamage(Unit attacker)
     {
-        float dmg = 1 + attacker.Attack * (1 - (this.def + this.spd) / 100);
+        float dmg = 1 + attacker.Attack * (1 - (this.def + this.Speed) / 100);
         dmg = (float)Math.Floor(dmg);
         return (int)dmg;
     }
@@ -436,8 +447,8 @@ public abstract class Unit : MonoBehaviour
         //{
         //    this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.0619223f, 0.2870282f, 0.8415094f, 1);
         //}
-
-        if (UnitActionManager.Instance.UnitOrder[0] == this && this.Type != EUnitType.Enemy)//its you
+        
+        if (UnitActionManager.Instance.TurnOrder[0] == this && this.Type != EUnitType.Enemy)//its you
         {
             isYou = true;
         }
@@ -534,8 +545,11 @@ public abstract class Unit : MonoBehaviour
         easeSlide.maxValue = this.maxhp;
         easeSlide.value = hp;
 
+        this.Sprite = this.GetComponent<SpriteRenderer>().sprite;
+
         UnitActionManager.Instance.UnitList.Add(this);
     }
+
 
     //protected abstract void HandleDeath();
 
