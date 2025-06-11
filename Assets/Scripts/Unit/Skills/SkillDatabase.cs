@@ -47,6 +47,7 @@ public class SkillDatabase : MonoBehaviour
         Skill foilThrow = new FoilThrow();
         Skill harvest = new Harvest();
         Skill yell = new Yell();
+        Skill popCorn = new PopCorn();
 
         this.skillDatabase.Add(basic.SkillName,basic);
         this.skillDatabase.Add(trueStrike.SkillName, trueStrike);
@@ -63,6 +64,7 @@ public class SkillDatabase : MonoBehaviour
         this.skillDatabase.Add(foilThrow.SkillName, foilThrow);
         this.skillDatabase.Add(harvest.SkillName, harvest);
         this.skillDatabase.Add(yell.SkillName, yell);
+        this.skillDatabase.Add(popCorn.SkillName, popCorn);
     }
 
     // Update is called once per frame
