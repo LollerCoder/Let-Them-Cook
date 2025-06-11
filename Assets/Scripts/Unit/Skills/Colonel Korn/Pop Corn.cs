@@ -28,7 +28,7 @@ public class PopCorn : Skill
     {
         List<Unit> nearbyUnits = new List<Unit>();
 
-        foreach (Unit unit in UnitActionManager.Instance.UnitOrder)
+        foreach (Unit unit in UnitActionManager.Instance.TurnOrder)
         {
             if (unit != origin &&
                 Vector3.Distance(unit.transform.position, origin.transform.position) < 2.0f)
