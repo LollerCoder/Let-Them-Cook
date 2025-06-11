@@ -36,7 +36,7 @@ public static class UnitActions {
     public static void ResetPosition() {
         if (!UnitActionManager.Instance.Moving) {
             UnitActionManager.Instance.OnMove = false;
-
+            Unit unit = (Unit)UnitActionManager.Instance.GetFirstUnit();
             if (UnitActionManager.Instance.hadMoved) {
                 //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
                 BattleUI.Instance.ToggleActionBox();
@@ -44,9 +44,9 @@ public static class UnitActions {
             UnitActionManager.Instance.OnAttack = false;
             UnitActionManager.Instance.OnMove = true;
             UnitActionManager.Instance.hadMoved = false;
-            UnitActionManager.Instance.GetFirstUnit().OnMovement(true);
-            UnitActionManager.Instance.GetFirstUnit().transform.position = currentTilePos;
-            UnitActionManager.Instance.GetFirstUnit().Tile = currentTile;
+            unit.OnMovement(true);
+            unit.transform.position = currentTilePos;
+            unit.Tile = currentTile;
             bGoal = false;
             EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
             //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
@@ -64,7 +64,7 @@ public static class UnitActions {
 
             // reset and updatec attackable list
             UnitAttackActions.ResetAttackables();
-            UnitAttackActions.CheckSkillRange(UnitActionManager.Instance.GetFirstUnit());
+            UnitAttackActions.CheckSkillRange(unit);
 
             
         }
@@ -83,14 +83,17 @@ public static class UnitActions {
     }
     public static void UnitSelect(Unit selectedUnit) {
         // check if the unit selected is in the range of the skill
-        if (UnitAttackActions.IsUnitSelectable(selectedUnit, UnitActionManager.Instance.numAttack) && UnitActionManager.Instance.OnAttack) {
+        if (UnitAttackActions.IsUnitSelectable(selectedUnit, UnitActionManager.Instance.numAttack) && 
+            UnitActionManager.Instance.OnAttack &&
+            !UnitActionManager.Instance.hadAttacked
+            ) {
             ConfirmAttack(selectedUnit, UnitActionManager.Instance.numAttack);
         }
     }
 
     ///////////////////////////////////////////////////////
     public static void ConfirmAttack(Unit target, int Skill) {
-        Unit currentUnit = UnitActionManager.Instance.GetFirstUnit();
+        Unit currentUnit = (Unit)UnitActionManager.Instance.GetFirstUnit();
         //ESkillType skillType = ESkillType.NONE;
         string SkillName = "";
 
@@ -145,7 +148,7 @@ public static class UnitActions {
 
     public static void applySkill(Unit target, int Skill)
     {
-        Unit currentUnit = UnitActionManager.Instance.GetFirstUnit();
+        Unit currentUnit = (Unit)UnitActionManager.Instance.GetFirstUnit();
 
         if (currentUnit.SKILLLIST[Skill] != null)
         {
@@ -182,7 +185,7 @@ public static class UnitActions {
     ///////////////////////////////////////////////////////
     
     public static bool AllyOnTileGoal(Tile endTile) {
-        if (endTile.TilePos == UnitActionManager.Instance.GetFirstUnit().Tile.TilePos) {
+        if (endTile.TilePos == ((Unit)UnitActionManager.Instance.GetFirstUnit()).Tile.TilePos) {
             return false;
         }
 
@@ -197,7 +200,7 @@ public static class UnitActions {
         return false;
     }
     public static void MoveCurrentUnit() {
-        Unit currentUnit = UnitActionManager.Instance.GetFirstUnit();
+        Unit currentUnit = (Unit)UnitActionManager.Instance.GetFirstUnit();
 
         float step = UnitActionManager.Instance.Speed * Time.deltaTime;
 
@@ -242,7 +245,7 @@ public static class UnitActions {
 
                 // reset and update attackable list
                 UnitAttackActions.ResetAttackables();
-                UnitAttackActions.CheckSkillRange(UnitActionManager.Instance.GetFirstUnit());
+                UnitAttackActions.CheckSkillRange((Unit)UnitActionManager.Instance.GetFirstUnit());
             }
             else if (CheckVegetableOnTile(currentUnit) && currentUnit.Type == EUnitType.Ally) {
                 BattleUI.Instance.ToggleEatOrPickUpButtons();
@@ -276,7 +279,7 @@ public static class UnitActions {
     }
     public static void TileTapped(Tile goalTile)
     {
-        Unit unit = UnitActionManager.Instance.GetFirstUnit();
+        Unit unit = (Unit)UnitActionManager.Instance.GetFirstUnit();
         //string bufDebufname = ""; //name
         EffectInfo terst = new EffectInfo(0, 0, EStatToEffect.NOTSET); //effectInfo
 
@@ -293,7 +296,7 @@ public static class UnitActions {
                 //Debug.Log("helllloooo");
                 stepFlag = true;
                 //BattleUI.Instance.ToggleActionBox(); // MIGHT CHANGE
-                UnitActionManager.Instance.GetFirstUnit().OnMovement(false);
+                ((Unit)UnitActionManager.Instance.GetFirstUnit()).OnMovement(false);
                 UnitActionManager.Instance.OnMove = false;
 
             }
@@ -312,8 +315,8 @@ public static class UnitActions {
 
 
 
-            SpriteRenderer cuSR = UnitActionManager.Instance.GetFirstUnit().GetComponent<SpriteRenderer>();
-            if (UnitActionManager.Instance.GetFirstUnit().transform.position.x > goalTile.transform.position.x) {
+            SpriteRenderer cuSR = ((Unit)UnitActionManager.Instance.GetFirstUnit()).GetComponent<SpriteRenderer>();
+            if (((Unit)UnitActionManager.Instance.GetFirstUnit()).transform.position.x > goalTile.transform.position.x) {
                 //Debug.Log("looking left");
                 cuSR.flipX = true;
             }
@@ -349,16 +352,18 @@ public static class UnitActions {
     }
     public static void UpdateTile() { // move to tileactions
         TileMapManager.Instance.UpdateTile();
-        foreach (Unit unit in UnitActionManager.Instance.UnitOrder) {
-            if (unit.Tile == null) {
-                Debug.Log(unit.Name);
-            }
+        foreach (ITurnTaker temp in UnitActionManager.Instance.TurnOrder) {
+            if (temp is Unit unit) {
+                if (unit.Tile == null) {
+                    Debug.Log(unit.Name);
+                }
 
-            if (unit.Type != EUnitType.Ally) {
-                unit.Tile.isWalkable = false;
-            }
-            else {
-                unit.Tile.isWalkable = true;
+                if (unit.Type != EUnitType.Ally) {
+                    unit.Tile.isWalkable = false;
+                }
+                else {
+                    unit.Tile.isWalkable = true;
+                }
             }
         }
     }

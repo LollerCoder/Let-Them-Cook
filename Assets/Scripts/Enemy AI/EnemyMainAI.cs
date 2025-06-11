@@ -105,6 +105,13 @@ namespace EnemyAI
 
             Unit target = this.GetClosestAllyUnit();
 
+            //if dazed or stunned
+            if (this._CurrentEnemyUnit.GetEffect("Dizzy") != null)
+            {
+                Debug.Log("Skipping turn!");
+                return path;
+            }
+
             if (inRangeTiles.Contains(target.Tile))
             {
                 //Take action

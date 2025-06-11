@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.GraphicsBuffer;
 
 public class CameraMovement : MonoBehaviour
 {    //https://www.youtube.com/watch?v=rDJOilo4Xrg&t=316s
@@ -12,7 +13,7 @@ public class CameraMovement : MonoBehaviour
     private Camera cam;
     private float rotationX = 0f;
 
-    public float movementSpeed = 5.0f; 
+    public float movementSpeed = 7.0f; 
     
     public const string POS = "POS";
 
@@ -22,7 +23,11 @@ public class CameraMovement : MonoBehaviour
     private Vector3 previousCamPos;
     private Quaternion previousCamRot;
 
-    
+    [SerializeField]
+    private float heightOffset; // height above the tiles
+    [SerializeField]
+    private LayerMask tileLayer; // layer of the tiles for raycast detection
+
     void Start()
     {
         cam = Camera.main;
@@ -38,7 +43,7 @@ public class CameraMovement : MonoBehaviour
         this.CameraMove();
         this.CameraLook();
 
-        if (Input.GetKeyUp(KeyCode.Space) && !UnitActionManager.Instance.OnAttack) {
+        if (Input.GetKeyUp(KeyCode.C) && !UnitActionManager.Instance.OnAttack) {
             this.ResetPosition();
         }
         if (Input.GetKeyUp(KeyCode.Q) && UnitActionManager.Instance.numAttack >= 0) {
@@ -48,8 +53,9 @@ public class CameraMovement : MonoBehaviour
             UnitAttackActions.CycleEnemy(UnitActionManager.Instance.numAttack, 1); // 1 for E/Right
         }
         if (this.reset) {
-            this.cam.transform.position = Vector3.Lerp(this.cam.transform.position, this.targetPosition, Time.deltaTime * 5f);
-            if(Vector3.Distance(this.cam.transform.position, this.targetPosition) < 0.1f) {
+            this.cam.transform.position = Vector3.Lerp(this.cam.transform.position, this.targetPosition, Time.deltaTime * 10f);
+
+            if(Vector3.Distance(this.cam.transform.position, this.targetPosition) < 0.5f) {
                 this.reset = false;
                 this.targetPosition = Vector3.zero;
             }
@@ -91,8 +97,14 @@ public class CameraMovement : MonoBehaviour
     }
 
     private void ResetPosition() {
-        Vector3 characterPos = UnitActionManager.Instance.GetFirstUnit().transform.position;
+        Vector3 characterPos = Vector3.zero;
 
+        if (UnitActionManager.Instance.GetFirstUnit() is Unit unit) {
+            characterPos = unit.transform.position;
+        }
+        if (UnitActionManager.Instance.GetFirstUnit() is SpecialUnits sUnit) {
+            characterPos = sUnit.location.position;
+        }
         Vector3 cameraPosition = characterPos;
 
         cameraPosition.y = this.cam.transform.position.y;
@@ -148,31 +160,42 @@ public class CameraMovement : MonoBehaviour
     }
     private void CameraMove() {
         float speed = Time.deltaTime * this.movementSpeed;
-        if (!this.reset) {
+
+        if (!this.reset && !UnitActionManager.Instance.bEnemy) {
+            Vector3 moveDir = Vector3.zero;
             if (Input.GetKey(KeyCode.W)) {
                 Vector3 forward = this.cam.transform.forward;
                 forward.y = 0; // discard y/vertical component so that it wont go up or down
-                forward.Normalize(); // normalize to maintain consistent speed
-                this.cam.transform.Translate(forward * speed, Space.World);
+                moveDir += forward.normalized; //normalize to maintain consistent speed
             }
-            else if (Input.GetKey(KeyCode.A)) {
+            if (Input.GetKey(KeyCode.A)) {
                 Vector3 left = this.cam.transform.right * -1.0f;
                 left.y = 0;
-                left.Normalize();
-                this.cam.transform.Translate(left * speed, Space.World);
+                moveDir += left.normalized;
             }
-            else if (Input.GetKey(KeyCode.S)) {
+            if (Input.GetKey(KeyCode.S)) {
                 Vector3 back = this.cam.transform.forward * -1.0f;
                 back.y = 0;
-                back.Normalize();
-                this.cam.transform.Translate(back * speed, Space.World);
+                moveDir += back.normalized;
             }
-            else if (Input.GetKey(KeyCode.D)) {
+            if (Input.GetKey(KeyCode.D)) {
                 Vector3 right = this.cam.transform.right;
                 right.y = 0;
-                right.Normalize();
-                this.cam.transform.Translate(right * speed, Space.World);
+                moveDir += right.normalized;
             }
+            this.cam.transform.Translate(moveDir.normalized * speed, Space.World);
+
+        }
+        this.AdjustHeightToTerrain();
+    }
+    private void AdjustHeightToTerrain() {
+        Ray ray = new Ray(this.cam.transform.position, Vector3.down);
+
+        if (Physics.Raycast(ray, out RaycastHit hit, 100.0f, this.tileLayer)) {
+            float targetY = hit.point.y + this.heightOffset;
+            Vector3 pos = cam.transform.position;
+            pos.y = Mathf.Lerp(pos.y, targetY, Time.deltaTime * 5.0f);
+            cam.transform.position = pos;
         }
     }
 

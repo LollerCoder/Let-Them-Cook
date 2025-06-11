@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Poison : Effect
 {
-    private float damage = 5.0f;
+    private float damage = 2.0f;
 
     public Poison(int _duration, Unit _effectMaker) : base(_duration, _effectMaker)
     {
