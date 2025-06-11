@@ -2,22 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SergeantBob : Unit
+public class ColonelKorn : Unit
 {
     protected override void Start()
     {
 
-        
-        this.skillList.Add("Shove");
-        this.skillList.Add("Yell");
+
+        this.skillList.Add("Pop Corn!");
 
 
         this.acc = 10;
-        this.Speed = 2;
-        this.maxhp = 25;
+        this.spd = 4;
+        this.maxhp = 40;
         this.hp = this.maxhp;
-        this.atk = 2;
-        this.def = 4;
+        this.atk = 5;
+        this.def = 5;
 
         base.Start();
     }

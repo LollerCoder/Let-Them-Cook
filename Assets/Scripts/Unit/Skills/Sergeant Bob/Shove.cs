@@ -15,6 +15,8 @@ public class Shove : Skill
         this.veggieType = EVeggie.CARROT;
         this.skillType = ESkillType.BASIC;
 
+        this.skillRange = 1;
+
         //for skill progressions
         this.cost = 30;
     }
@@ -24,7 +26,7 @@ public class Shove : Skill
         //Debug.Log("Shoved!");
         PopUpManager.Instance.addPopUp(this.skillName + "d", target.transform);
         Vector3 dir = (target.gameObject.transform.position - origin.gameObject.transform.position).normalized;
-        if (!this.WallChecker(target.gameObject.transform.position, dir)) this.ShoveTarget(target, dir);
+        if (!this.WallChecker(target.gameObject.transform.position, dir)) this.ShoveTarget(target, origin, dir);
 
         //if (Random.Range(1, 100) < sucessChance)
         //{
@@ -38,7 +40,7 @@ public class Shove : Skill
         //}
     }
 
-    private void ShoveTarget (Unit target, Vector3 direction)
+    private void ShoveTarget (Unit target, Unit origin, Vector3 direction)
     {
         //backup the position
         Vector3 currPos = target.transform.position;
@@ -54,11 +56,22 @@ public class Shove : Skill
         if (landingSpot != null)
         {
             target.Tile = landingSpot;
+            target.gameObject.transform.position = new Vector3(
+                target.gameObject.transform.position.x,
+                landingSpot.gameObject.transform.position.y,
+                target.gameObject.transform.position.z);
+
+            target.TakeDamage(3, origin);
         }
         else
         {
             target.gameObject.transform.position = currPos;
+
+            //if there is a wall add more damage
+            target.TakeDamage(5, origin);
         }
+
+        target.AddEffect(new Dizzy(2, origin));
     }
 
     //checks if the position where target is getting shoved into has a wall or is occupied
