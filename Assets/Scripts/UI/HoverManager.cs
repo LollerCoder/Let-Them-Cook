@@ -8,7 +8,7 @@ public class HoverManager : MonoBehaviour
 {
     public static HoverManager Instance;
 
-    public TextMeshProUGUI textComponent;
+    public TextMeshProUGUI textComponent, subText;
 
     private void Awake()
     {
@@ -28,10 +28,46 @@ public class HoverManager : MonoBehaviour
         transform.position = Input.mousePosition;
     }
 
-    public void SetAndShowToolTip(string message)
+    public void SetAndShowToolTip(string message, string message2)
     {
         gameObject.SetActive(true);
         textComponent.text = message;
+        subText.text = message2;
+    }
+
+    public string getFlavourText(string message)
+    {
+        string msg;
+        switch (message)
+        {
+            case "Basic Attack":
+                msg = "Slash your enemies!";
+                break;
+            
+            case "Circular Cut":
+                msg = "Damages surrounding foe, cannot move to other tiles after usage";
+                break;
+            
+            case "Photosynthesis":
+                msg = "Slash your enemies!";
+                break;
+
+            case "Shove":
+                msg = "Push your enemies away!";
+                break;
+
+             case "Yell":
+                msg = "Heal one of your allies";
+                break;
+
+            default:
+                msg = "No skill found";
+                break;
+
+
+        }
+
+        return msg;
     }
 
     public void HideToolTip()
