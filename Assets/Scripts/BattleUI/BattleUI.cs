@@ -351,7 +351,7 @@ public class BattleUI : MonoBehaviour {
 
         }
 
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
+       
 
         do
         {

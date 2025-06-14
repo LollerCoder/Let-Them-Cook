@@ -238,13 +238,14 @@ public class UnitActionManager : MonoBehaviour
                     SpringTile st = tile.gameObject.GetComponent<SpringTile>();
 
                     if (st != null) { st.ApplyOnUnitStart(); }
+                    Debug.Log("Launch");
                     
                 }
             //springs
-
+            
 
             UnitActions.SetCurrentTile(unit.Tile, unit.transform.position.y);
-
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
             unit.OnMovement(true);
             unit.OnTurn(true);
             unit.GetComponent<BoxCollider>().enabled = false;

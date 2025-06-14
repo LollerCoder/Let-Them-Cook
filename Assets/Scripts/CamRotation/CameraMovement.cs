@@ -97,6 +97,7 @@ public class CameraMovement : MonoBehaviour
     }
 
     private void ResetPosition() {
+        Debug.Log("Cam Reset");
         Vector3 characterPos = Vector3.zero;
 
         if (UnitActionManager.Instance.GetFirstUnit() is Unit unit) {

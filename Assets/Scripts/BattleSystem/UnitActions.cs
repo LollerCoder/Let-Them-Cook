@@ -256,6 +256,7 @@ public static class UnitActions {
             if (st != null)
             {
                 st.setUnitToLaunch(currentUnit);
+                Debug.Log("UnitToLaunchSet");
             }
             //springs
         }
