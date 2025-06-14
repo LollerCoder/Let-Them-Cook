@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 //https://www.youtube.com/watch?v=9dYDBomQpBQ
@@ -17,7 +18,7 @@ public class PauseGame : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPause)
             {
@@ -41,5 +42,25 @@ public class PauseGame : MonoBehaviour
         Time.timeScale = 1f;
         isPause = false;
 
+    }
+
+    public void OnResumeButton()
+    {
+        resumeGame();
+    }
+
+    public void OnRestartButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void OnLobbyButton()
+    {
+        SceneManager.LoadScene("Lobby");
+    }
+
+    public void OnExitButton()
+    {
+        Application.Quit();
     }
 }

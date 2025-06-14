@@ -60,10 +60,10 @@ public class CameraMovement : MonoBehaviour
                 this.targetPosition = Vector3.zero;
             }
         }
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("Lobby");
-        }
+        //if (Input.GetKeyUp(KeyCode.Escape))
+        //{
+        //    SceneManager.LoadScene("Lobby");
+        //}
     }
 
     private void OnDestroy()
