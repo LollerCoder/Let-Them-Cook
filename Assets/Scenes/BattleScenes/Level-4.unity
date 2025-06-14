@@ -5961,8 +5961,8 @@ GameObject:
   - component: {fileID: 4368745515493894532}
   - component: {fileID: 1845422173969345087}
   - component: {fileID: 3764238964820208072}
-  - component: {fileID: 4368745515493894533}
   - component: {fileID: 4368745515493894534}
+  - component: {fileID: 4368745515493894535}
   m_Layer: 9
   m_Name: Level4.229
   m_TagString: Untagged
@@ -26512,23 +26512,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 15180174}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4368745515493894533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284749501782564935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  baseCost: 2
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &4368745515493894534
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26550,6 +26533,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 3.0408026e-17, y: -4.530063e-10, z: -0.0080248155}
+--- !u!114 &4368745515493894535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284749501782564935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a81896abaf1ac4298ce2337c693105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  baseCost: 2
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+  Location1: {fileID: 3313372499604541317}
 --- !u!1 &4373044662726061545
 GameObject:
   m_ObjectHideFlags: 0

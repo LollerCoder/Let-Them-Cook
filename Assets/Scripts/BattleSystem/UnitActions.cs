@@ -250,6 +250,14 @@ public static class UnitActions {
             else if (CheckVegetableOnTile(currentUnit) && currentUnit.Type == EUnitType.Ally) {
                 BattleUI.Instance.ToggleEatOrPickUpButtons();
             }
+
+            //springs
+            SpringTile st = currentUnit.Tile as SpringTile;
+            if (st != null)
+            {
+                st.setUnitToLaunch(currentUnit);
+            }
+            //springs
         }
 
     }
