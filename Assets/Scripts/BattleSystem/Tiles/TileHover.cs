@@ -39,8 +39,8 @@ public class TileHover : MonoBehaviour {
                     UnitActions.bGoal = true;
                     UnitActions.TileTapped(hitTile.GetComponent<Tile>());
                 }
-                Debug.Log("Hit tile: " + hitTile);
-                Debug.Log("On Hit tile: " + OnHitTile());
+                //Debug.Log("Hit tile: " + hitTile);
+                //Debug.Log("On Hit tile: " + OnHitTile());
 
             }
         }

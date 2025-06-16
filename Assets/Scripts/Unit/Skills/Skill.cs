@@ -49,7 +49,9 @@ public class Skill
 
     //Debuffs/Buffs
     public EffectInfo skillData;
-    
+
+    public Sprite defaultIcon;
+    public Sprite highlightedIcon;
 
     public Skill()
     {
