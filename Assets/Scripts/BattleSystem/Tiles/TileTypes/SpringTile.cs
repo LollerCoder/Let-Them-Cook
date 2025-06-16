@@ -35,6 +35,7 @@ public class SpringTile : Tile
             if(unitToLaunch == UnitActionManager.Instance.GetFirstUnit() as Unit)
             {
                 unitToLaunch.gameObject.transform.position = Location1.transform.position;
+                unitToLaunch = null;
             }
             
         }
