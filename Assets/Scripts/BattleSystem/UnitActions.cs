@@ -183,7 +183,6 @@ public static class UnitActions {
     }
 
     ///////////////////////////////////////////////////////
-    
     public static bool AllyOnTileGoal(Tile endTile) {
         if (endTile.TilePos == ((Unit)UnitActionManager.Instance.GetFirstUnit()).Tile.TilePos) {
             return false;
@@ -192,6 +191,7 @@ public static class UnitActions {
         foreach (Unit unit in UnitActionManager.Instance.UnitList) {
             if (unit.Type == EUnitType.Ally) {
                 if (unit.Tile.TilePos == endTile.TilePos) {
+                    bGoal = false;
                     return true;
                 }
             }
@@ -291,8 +291,6 @@ public static class UnitActions {
         Unit unit = (Unit)UnitActionManager.Instance.GetFirstUnit();
         //string bufDebufname = ""; //name
         EffectInfo terst = new EffectInfo(0, 0, EStatToEffect.NOTSET); //effectInfo
-
-
 
         if (!UnitActionManager.Instance.hadMoved && !AllyOnTileGoal(goalTile) && UnitActionManager.Instance.OnMove && bGoal)
         {
