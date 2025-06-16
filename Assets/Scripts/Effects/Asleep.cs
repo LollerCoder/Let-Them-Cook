@@ -10,14 +10,16 @@ public class Asleep : Effect
     {
         this.EffectName = "Asleep";
 
+        Debug.Log("Initializing health " + this.initHealth);
         this.initHealth = _effectMaker.HP;
     }
 
     public override void EffectAction(Unit unitAffected)
     {
+        Debug.Log("init health " + this.initHealth);
         if (unitAffected.HP < this.initHealth)
         {
-            EventBroadcaster.Instance.PostEvent(EventNames.EnemySpawn_Events.SPAWN_ENEMY);
+            EventBroadcaster.Instance.PostEvent(EventNames.Level3_Objectives.WOKE_UP);
             this.Duration = 0;
             return;
         }

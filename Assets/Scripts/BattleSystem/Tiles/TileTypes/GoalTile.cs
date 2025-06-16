@@ -1,10 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//tile where hostage needs to go to to win/get free
-public class HostageGoalTile : Tile
+public class GoalTile : Tile
 {
     [SerializeField]
     private GameObject arrow_template;
@@ -16,7 +14,7 @@ public class HostageGoalTile : Tile
         EventBroadcaster.Instance.AddObserver(EventNames.Tile_Events.GOAL_ARROW_HIDE, this.HideArrow);
         EventBroadcaster.Instance.AddObserver(EventNames.Tile_Events.GOAL_ARROW_UNHIDE, this.ShowArrow);
 
-        this.arrow = Instantiate(arrow_template, transform.position + Vector3.up * 0.25f, new Quaternion(0,0,0,0));
+        this.arrow = Instantiate(arrow_template, transform.position + Vector3.up * 0.25f, new Quaternion(0, 0, 0, 0));
         this.arrow.SetActive(false);
 
         base.Start();
@@ -34,15 +32,17 @@ public class HostageGoalTile : Tile
 
     public override void ApplyEffect(Unit unit)
     {
-        if (unit.GetEffect("Captured_Hostage").EffectName == null) return;
+        if (unit.GetEffect("Captured_Hostage").EffectName != null ||
+            unit.GetEffect("Key Holder").EffectName != null)
+        {
+            Parameters param = new Parameters();
 
-        Parameters param = new Parameters();
+            param.PutExtra("End_Text", "Hostage Freed");
+            param.PutExtra("Ally_Win", false);
 
-        param.PutExtra("End_Text", "Hostage Freed");
-        param.PutExtra("Ally_Win", false);
+            param.PutExtra("Level_Complete", true);
 
-        param.PutExtra("Level_Complete", true);
-
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
+        }
     }
 }

@@ -44,4 +44,9 @@ public class Effect
     {
 
     }
+
+    public virtual void AfterDeathAction(Unit unitAffected)
+    {
+
+    }
 }
