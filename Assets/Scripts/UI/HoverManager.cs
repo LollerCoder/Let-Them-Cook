@@ -30,9 +30,9 @@ public class HoverManager : MonoBehaviour
 
     public void SetAndShowToolTip(string message, string message2)
     {
-        //gameObject.SetActive(true);
-        //textComponent.text = message;
-        //subText.text = message2;
+        gameObject.SetActive(true);
+        textComponent.text = message;
+        subText.text = message2;
     }
 
     public string getFlavourText(string message)
