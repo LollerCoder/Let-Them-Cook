@@ -13,6 +13,8 @@ public class Photosynthesis : Skill
         //for skill progressions
         this.cost = 15;
         this.skillRange = 1;
+        this.defaultIcon = Resources.Load<Sprite>("Sprites/Skills/photosynthesisDefault");
+        this.highlightedIcon = Resources.Load<Sprite>("Sprites/Skills/photosynthesisHighlighted");
     }
 
     public override void SkillAction(Unit target, Unit origin)

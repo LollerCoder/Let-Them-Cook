@@ -22,9 +22,6 @@ public class BattleUI : MonoBehaviour {
     [SerializeField]
     private Image AttackBox;
 
-    [SerializeField]
-    private List<Sprite> attackSprites;
-
     public List<Image> Turn;
 
     [SerializeField]
@@ -223,16 +220,8 @@ public class BattleUI : MonoBehaviour {
     private void AssignSprites(Unit unit) {   // also where gettng the name of the skills
         for (int i = 0; i < this.skillSlots.Length; i++) {
             if (this.skillSlots[i] == true) {
-                this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[i]; // skills
-                //this.Attacks[i].transform.Find("Nameplate").transform.Find("Text (Legacy)").GetComponentInChildren<Text>().text = unit.SKILLLIST[i];
                 this.Attacks[i].GetComponentInChildren<Text>().text = unit.SKILLLIST[i];
-               
-            }
-            else {
-                this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[2]; // none
-                //this.Attacks[i].GetComponentInChildren<Text>().text = "";
-                this.Attacks[i].GetComponentInParent<Image>().enabled = false;  
-                this.BuffetContainers[i].sprite = lids[0];
+                this.Attacks[i].GetComponent<Image>().sprite = SkillDatabase.Instance.findSkill(unit.SKILLLIST[i]).defaultIcon;
             }
         }
     }
@@ -270,63 +259,47 @@ public class BattleUI : MonoBehaviour {
     }
 
     private void AttackState(int num) {
-        if (UnitActionManager.Instance.numAttack > 0) { // reset skill highlighted tiles
-            UnitAttackActions.UnHighlightUnitTiles(UnitAttackActions.Attackables[UnitActionManager.Instance.numAttack]);
-        }
+        if (UnitActionManager.Instance.GetFirstUnit() is Unit unit) {
+            if (UnitActionManager.Instance.numAttack > 0) { // reset skill highlighted tiles
+                UnitAttackActions.UnHighlightUnitTiles(UnitAttackActions.Attackables[UnitActionManager.Instance.numAttack]);
+            }
 
-        UnitAttackActions.EnemyListed = false;
-        if(num < 0) {
-            return;
-        }
-
-        if (this.skillSlots[num] == true) {
-            if (this.attackNum[num] == true) {   // if the same skill is selected twice, unselect it
-                this.attackNum[num] = false;
-                UnitActionManager.Instance.OnAttack = false;
-                UnitActionManager.Instance.numAttack = -1;  // default value (no skill is selected)
-                EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
-                if (num != 0) {
-                    this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[1]; // skills
-                }
-                else {
-                    this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[0]; // basic attack
-                }
-
-                UnitActions.HideInRangeHPBar(num);
+            UnitAttackActions.EnemyListed = false;
+            if (num < 0) {
                 return;
             }
 
-            for(int i = 0; i < this.attackNum.Length; i++) {   // reset everything
-                this.attackNum[i] = false;
+            if (this.skillSlots[num] == true) {
+                if (this.attackNum[num] == true) {   // if the same skill is selected twice, unselect it
+                    this.attackNum[num] = false;
+                    UnitActionManager.Instance.OnAttack = false;
+                    UnitActionManager.Instance.numAttack = -1;  // default value (no skill is selected)
+                    EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
 
-                if (i != 0) {
-                    this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[1]; // skill - TRUE STRIKE FOR NOW
-                }
-                else {
-                    this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[0]; // basic attack
+                    this.Attacks[num].GetComponent<Image>().sprite = SkillDatabase.Instance.findSkill(unit.SKILLLIST[num]).defaultIcon; // skills
+                    UnitActions.HideInRangeHPBar(num);
+                    return;
                 }
 
-            }
-            
-            //highlights
-            if(num != 0) {
-                this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[3]; // skill - TRUE STRIKE FOR NOW
+                for (int i = 0; i < this.attackNum.Length; i++) {   // reset everything
+                    this.attackNum[i] = false;
+                    this.Attacks[i].GetComponent<Image>().sprite = SkillDatabase.Instance.findSkill(unit.SKILLLIST[i]).defaultIcon; // skills
+                }
+
+                this.Attacks[num].GetComponent<Image>().sprite = SkillDatabase.Instance.findSkill(unit.SKILLLIST[num]).highlightedIcon;
+
+                this.attackNum[num] = true;
+                UnitActionManager.Instance.OnAttack = true;
+                UnitActionManager.Instance.numAttack = num;
+
+                UnitAttackActions.CycleEnemy(num, 0);
+
+
             }
             else {
-                this.Attacks[num].GetComponent<Image>().sprite = this.attackSprites[2];// basic
+                UnitActionManager.Instance.OnAttack = false;
             }
-
-            this.attackNum[num] = true;
-            UnitActionManager.Instance.OnAttack = true;
-            UnitActionManager.Instance.numAttack = num;
-
-            UnitAttackActions.CycleEnemy(num, 0);
-
-
-        }
-        else {
-            UnitActionManager.Instance.OnAttack = false;
-        }
+        }        
     }
 
     public void ResetButtonState(int i) {
