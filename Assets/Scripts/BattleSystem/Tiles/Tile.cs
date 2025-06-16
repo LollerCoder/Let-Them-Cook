@@ -66,4 +66,9 @@ public class Tile : MonoBehaviour{
     public virtual void ApplyEffect(Unit unit) {
         Debug.Log("DEFAULT");
     }
+
+    public virtual void ApplyOnUnitStart()
+    {
+        Debug.Log("yehey");
+    }
 }

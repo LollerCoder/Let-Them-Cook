@@ -28,16 +28,13 @@ public class BattleManager : MonoBehaviour {
 
     private void NextTurn()
     {
-        Unit unit = UnitActionManager.Instance.GetFirstUnit();
-        if (unit != null)
+        if (UnitActionManager.Instance.GetFirstUnit() is Unit unit)
         {
             unit.Tile.ApplyEffect(unit);
         }
 
         UnitActions.bGoal = false;
         BattleUI.Instance.OnEndTurn(this.GameEnd);
-        
-
     }
 
     private void EndCondition(Parameters param) {

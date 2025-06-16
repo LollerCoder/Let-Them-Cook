@@ -149,26 +149,29 @@ public class BattleUI : MonoBehaviour {
     }
 
     public void OnEndTurn(bool GameEnd) {
-        if(UnitActionManager.Instance.GetFirstUnit().Type == EUnitType.Ally && this.actionShow) {
-            this.ToggleActionBox();
+        if (UnitActionManager.Instance.GetFirstUnit() is Unit unit) {
+            if (unit.Type == EUnitType.Ally && this.actionShow) {
+                this.ToggleActionBox();
+            }
+
+            if (unit.Type == EUnitType.Ally && this.eatPickUpShow) {
+                this.ToggleEatOrPickUpButtons();
+            }
+
+            for (int i = 0; i < this.attackNum.Count(); i++) {
+                this.attackNum[i] = false;
+            }
+
+            //apply after turn effects
+            unit.EndTurnEffects();
+
+            UnitActionManager.Instance.ResetCurrentUnit();
+
+            if (GameEnd) {
+                return;
+            }
         }
-
-        if (UnitActionManager.Instance.GetFirstUnit().Type == EUnitType.Ally && this.eatPickUpShow) {
-            this.ToggleEatOrPickUpButtons();
-        }
-
-        for (int i = 0; i < this.attackNum.Count(); i++) {
-            this.attackNum[i] = false;
-        }
-
-        //apply after turn effects
-        UnitActionManager.Instance.GetFirstUnit().EndTurnEffects();
-
-        UnitActionManager.Instance.ResetCurrentUnit();
-
-        if(GameEnd) {
-            return;
-        }
+        
         //if(BattleUI.Instance.waitButton.enabled == false) BattleUI.Instance.ShowWaitButton(); // used in tutorial because of hiding wait button
 
         this.StartCoroutine(this.CloseUI(0.75f));
@@ -335,7 +338,7 @@ public class BattleUI : MonoBehaviour {
         this.AttackState(4);
     }
 
-    public void UpdateTurnOrder(List<Unit> unitOrder) {
+    public void UpdateTurnOrder(List<ITurnTaker> unitOrder) {
         int max_queue= 9;
         int curr_count = 0; //for making sure portraits are slapped onto the queue
         int curr_created = 0; //counting how many veggies are made currently
@@ -348,7 +351,7 @@ public class BattleUI : MonoBehaviour {
 
         }
 
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
+       
 
         do
         {
@@ -356,13 +359,13 @@ public class BattleUI : MonoBehaviour {
             
             if (curr_created < unitOrder.Count)
             {
-                this.Turn[curr_count].sprite = unitOrder[curr_created].GetComponent<SpriteRenderer>().sprite;
+                this.Turn[curr_count].sprite = unitOrder[curr_created].Sprite;
                 curr_created++;
             }
             else
             {
                 curr_created = 0;
-                this.Turn[curr_count].sprite = unitOrder[curr_created].GetComponent<SpriteRenderer>().sprite;
+                this.Turn[curr_count].sprite = unitOrder[curr_created].Sprite;
                 curr_created++;
             }
             curr_count++;

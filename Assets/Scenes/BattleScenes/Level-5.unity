@@ -3532,6 +3532,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+  heightOffset: 0
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &451339006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8934,6 +8938,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb2bb42f06444a45abcb20109788572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bEnemy: 0
+  bAlly: 0
   speed: 7
   _Units:
   - {fileID: 2094699684772889022}
@@ -11331,6 +11337,7 @@ MonoBehaviour:
   ingredientType: 1
   type: 1
   charName: 
+  atk: 0
   hp: 0
   basicrange: 2
   move: 3
@@ -12078,6 +12085,63 @@ MonoBehaviour:
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
+--- !u!1001 &1497274402
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1078704110972254887, guid: a4775a6b9af770c478c01127b7560ab3, type: 3}
+      propertyPath: m_Name
+      value: HoverUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382224101820643111, guid: a4775a6b9af770c478c01127b7560ab3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.7286453
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382224101820643111, guid: a4775a6b9af770c478c01127b7560ab3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.502859
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382224101820643111, guid: a4775a6b9af770c478c01127b7560ab3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.1946955
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382224101820643111, guid: a4775a6b9af770c478c01127b7560ab3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382224101820643111, guid: a4775a6b9af770c478c01127b7560ab3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382224101820643111, guid: a4775a6b9af770c478c01127b7560ab3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382224101820643111, guid: a4775a6b9af770c478c01127b7560ab3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382224101820643111, guid: a4775a6b9af770c478c01127b7560ab3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382224101820643111, guid: a4775a6b9af770c478c01127b7560ab3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382224101820643111, guid: a4775a6b9af770c478c01127b7560ab3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4775a6b9af770c478c01127b7560ab3, type: 3}
 --- !u!114 &1503132301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15126,6 +15190,63 @@ MonoBehaviour:
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
+--- !u!1001 &1871881423
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6967185967663864541, guid: b04ddc78cc219084b9a7af2daabc5d2e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.933395
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967185967663864541, guid: b04ddc78cc219084b9a7af2daabc5d2e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.317539
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967185967663864541, guid: b04ddc78cc219084b9a7af2daabc5d2e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.987889
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967185967663864541, guid: b04ddc78cc219084b9a7af2daabc5d2e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967185967663864541, guid: b04ddc78cc219084b9a7af2daabc5d2e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967185967663864541, guid: b04ddc78cc219084b9a7af2daabc5d2e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967185967663864541, guid: b04ddc78cc219084b9a7af2daabc5d2e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967185967663864541, guid: b04ddc78cc219084b9a7af2daabc5d2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967185967663864541, guid: b04ddc78cc219084b9a7af2daabc5d2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6967185967663864541, guid: b04ddc78cc219084b9a7af2daabc5d2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585873381974186951, guid: b04ddc78cc219084b9a7af2daabc5d2e, type: 3}
+      propertyPath: m_Name
+      value: PauseUI
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b04ddc78cc219084b9a7af2daabc5d2e, type: 3}
 --- !u!114 &1872981362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18002,6 +18123,7 @@ MonoBehaviour:
   ingredientType: 1
   type: 1
   charName: 
+  atk: 0
   hp: 0
   basicrange: 2
   move: 3
@@ -34455,6 +34577,7 @@ MonoBehaviour:
   ingredientType: 0
   type: 0
   charName: Carrot 2
+  atk: 0
   hp: 0
   basicrange: 2
   move: 3
@@ -34479,6 +34602,7 @@ MonoBehaviour:
   ingredientType: 0
   type: 0
   charName: Carrot 1
+  atk: 0
   hp: 0
   basicrange: 2
   move: 3
@@ -108537,3 +108661,5 @@ SceneRoots:
   - {fileID: 1195041262}
   - {fileID: 1348256514}
   - {fileID: 810168209}
+  - {fileID: 1497274402}
+  - {fileID: 1871881423}

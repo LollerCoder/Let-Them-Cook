@@ -10,7 +10,7 @@ public class Beetroot : Unit
         this.skillList.Add("Circular Cut");
 
         this.acc = 5;
-        this.spd = 2;
+        this.Speed = 2;
         this.maxhp = 15;
         this.hp = this.maxhp;
         this.atk = 3;

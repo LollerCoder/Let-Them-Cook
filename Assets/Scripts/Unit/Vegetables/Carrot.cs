@@ -32,7 +32,7 @@ public class Carrot : Unit{
         this.skillList.Add("Photosynthesis");
 
         this.acc = 10;
-        this.spd = 3;
+        this.Speed = 3;
         this.maxhp = 20;
         this.hp = this.maxhp;
         this.atk = 4;

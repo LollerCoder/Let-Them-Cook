@@ -9,6 +9,7 @@ public enum ETileType {
     //HAZARD,
 
     HEAL,
+    SPRING,
     SLOW,
     DAMAGE,
 

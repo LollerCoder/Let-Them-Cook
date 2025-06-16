@@ -21,7 +21,7 @@ public class Garlic : Unit{
 
 
         this.acc = 10;
-        this.spd = 4;
+        this.Speed = 4;
         this.maxhp = 15;
         this.hp = this.maxhp;
         this.atk = 4;

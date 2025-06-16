@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -36,6 +37,7 @@ public class UnitAttackActions : MonoBehaviour {
         }
         for (int j = 0; j < Attackables.Count; j++) { // will change depending to the range of the unit/skill
             if (Attackables[j].Count == 0){
+                
                 BattleUI.Instance.UpdateButtonState(j, false);
             }
             else {
@@ -45,21 +47,25 @@ public class UnitAttackActions : MonoBehaviour {
         }
     }
     public static void UpdateAttackableUnits(int i) {
-        foreach (Unit unit in UnitActionManager.Instance.UnitOrder) {
+        foreach (ITurnTaker temp in UnitActionManager.Instance.TurnOrder) {
             foreach (Tile tile in Range.InRangeTiles) {
-                if (unit.Tile == tile && unit.Type != EUnitType.Ally) {
-                    Attackables[i].Add(unit);
-                    //unit.InRange = true;
+                if (temp is Unit unit) {
+                    if (unit.Tile == tile && unit.Type != EUnitType.Ally) {
+                        Attackables[i].Add(unit);
+                        //unit.InRange = true;
+                    }
                 }
             }
         }
     }
 
     public static void UpdateSelectableAllies(int i) {
-        foreach (Unit unit in UnitActionManager.Instance.UnitOrder) {
+        foreach (ITurnTaker temp in UnitActionManager.Instance.TurnOrder) {
             foreach (Tile tile in Range.InRangeTiles) {
-                if (unit.Tile == tile && unit.Type == EUnitType.Ally) {
-                    Attackables[i].Add(unit);
+                if (temp is Unit unit) {
+                    if (unit.Tile == tile && unit.Type == EUnitType.Ally) {
+                        Attackables[i].Add(unit);
+                    }
                 }
             }
         }
@@ -85,10 +91,10 @@ public class UnitAttackActions : MonoBehaviour {
     public static void SetAttackableList() {
         ResetAttackables();
         Attackables.Clear(); // clear the entire list first, match the number of unit skills
-        for (int i = 0; i < UnitActionManager.Instance.GetFirstUnit().SKILLLIST.Count; i++) {
+        for (int i = 0; i < ((Unit)UnitActionManager.Instance.GetFirstUnit()).SKILLLIST.Count; i++) {
             Attackables.Add(new List<Unit>());
         }
-        CheckSkillRange(UnitActionManager.Instance.GetFirstUnit());
+        CheckSkillRange((Unit)UnitActionManager.Instance.GetFirstUnit());
     }
 
     public static void ResetAttackables() {

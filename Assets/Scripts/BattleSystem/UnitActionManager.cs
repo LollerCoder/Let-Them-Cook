@@ -1,4 +1,5 @@
 using EnemyAI;
+using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,7 +20,8 @@ public class UnitActionManager : MonoBehaviour
 
     PostProcessVolume vignette;
 
-    bool bEnemy = false;
+    public bool bEnemy = false;
+    public bool bAlly = false;
 
     [SerializeField]
     private float speed;
@@ -34,10 +36,11 @@ public class UnitActionManager : MonoBehaviour
     {
         get { return _Units; }
     }
-    private List<Unit> _unitOrder = new List<Unit>();
-    public List<Unit> UnitOrder
+
+    private List<ITurnTaker> _turnOrder = new List<ITurnTaker>();
+    public List<ITurnTaker> TurnOrder
     {
-        get { return _unitOrder; }
+        get { return _turnOrder; }
     }
 
     private Unit enemy = null;
@@ -55,13 +58,8 @@ public class UnitActionManager : MonoBehaviour
 
     public bool Moving = false;
 
-    // for storing the unit
-    public void StoreUnit(Unit unit) {
-        this._Units.Add(unit);
-    }
-
-    public Unit GetFirstUnit() {
-        return this._unitOrder[0];
+    public ITurnTaker GetFirstUnit() {
+        return this._turnOrder[0];
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -89,7 +87,9 @@ public class UnitActionManager : MonoBehaviour
         //    }
         //}
 
-        PathFinding.Path = this._enemyAI.TakeTurn(this._unitOrder[0]);
+        if (this.GetFirstUnit() is Unit enemy) {
+            PathFinding.Path = this._enemyAI.TakeTurn(enemy);
+        }
 
         this.StartCoroutine(this.EnemyWait(2.0f)); // fix this instead of doing a coroutine, do the next turn whenever the enemy has done all of their actions
     }
@@ -107,7 +107,7 @@ public class UnitActionManager : MonoBehaviour
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void RemoveUnitFromOrder(Unit removedUnit) {
-        this._unitOrder.Remove(removedUnit);
+        this._turnOrder.Remove((ITurnTaker)removedUnit);
         removedUnit.Tile.isWalkable = true;
 
         Parameters param = new Parameters();
@@ -116,13 +116,28 @@ public class UnitActionManager : MonoBehaviour
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
     }
     public void DecideTurnOrder() {
-        _Units = _Units.Except(this._unitOrder).ToList(); //filter out duplicates
-        this._unitOrder.AddRange(_Units) ;
-        this._unitOrder.Sort((x, y) => y.Speed.CompareTo(x.Speed));
-        BattleUI.Instance.UpdateTurnOrder(this._unitOrder);
+
+        List<Unit> tempList = new List<Unit>();
+
+        foreach(ITurnTaker taker in this.TurnOrder) {
+            if (taker is Unit temp) {
+                tempList.Add(temp);
+            }
+        }
+
+        _Units = _Units.Except(tempList).ToList(); //filter out duplicates
+        this._turnOrder.AddRange(_Units) ;
+        this._turnOrder.Sort((x, y) => y.Speed.CompareTo(x.Speed));
+        BattleUI.Instance.UpdateTurnOrder(this._turnOrder);
     }
 
     public void UnitTurn() {
+
+        ITurnTaker firstTurn = this.GetFirstUnit();
+
+        this.TurnOrder.Remove(firstTurn);
+        this.TurnOrder.Add(firstTurn);
+
         Range.UnHighlightTiles();
 
         UnitAttackActions.EnemyListed = false;
@@ -133,7 +148,8 @@ public class UnitActionManager : MonoBehaviour
     }
 
     public void ResetCurrentUnit() {
-        Unit unit = this.GetFirstUnit();
+        Unit unit = (Unit)this.GetFirstUnit();
+
         unit.GetComponent<BoxCollider>().enabled = true;
         unit.OnMovement(false);
         unit.OnTurn(false);
@@ -145,8 +161,6 @@ public class UnitActionManager : MonoBehaviour
 
         unit.EffectManager.EffectTimer();
         unit.EffectManager.ArrowHider(unit);
-        this._unitOrder.Remove(unit);
-        this._unitOrder.Add(unit);
     }
 
 
@@ -169,6 +183,10 @@ public class UnitActionManager : MonoBehaviour
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void LateUpdate() {
+        if (this.TurnOrder.Count <= 0 || this.GetFirstUnit() is SpecialUnits) {
+            return;
+        }
+
         if (Input.GetKeyUp(KeyCode.R) && UnitActions.stepFlag)
         {
             BattleUI.Instance.ResetButtonState(this.numAttack);
@@ -180,15 +198,15 @@ public class UnitActionManager : MonoBehaviour
         if (PathFinding.Path.Count > 0) {
             UnitActions.MoveCurrentUnit();
         }
-        else
+        else if ((PathFinding.Path.Count <= 0) && (this.GetFirstUnit() is Unit unit))
         {
             if (this.OnAttack && !this.hadAttacked)
             {
-                UnitAttackActions.ShowUnitsInSkillRange(this.numAttack, this.GetFirstUnit());
+                UnitAttackActions.ShowUnitsInSkillRange(this.numAttack, unit);
             }
             else if (this.OnMove && !this.hadMoved)
             {
-                Range.GetRange(this._unitOrder[0], this._unitOrder[0].Move, "Move");
+                Range.GetRange(unit, unit.Move, "Move");
             }
             else if (this.OverEnemy && this.enemy != null)
             {
@@ -204,58 +222,71 @@ public class UnitActionManager : MonoBehaviour
     //first thing that happens when Unit's turn starts
     private void SetUpTurn()
     {
-        Parameters param = new Parameters();
-        param.PutExtra(UNIT, this.GetFirstUnit());
+        BattleUI.Instance.UpdateTurnOrder(this.TurnOrder);
 
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
+        if (this.GetFirstUnit() is Unit unit) {
+            Parameters param = new Parameters();
+            param.PutExtra(UNIT, unit);
 
-        BattleUI.Instance.UpdateTurnOrder(this._unitOrder);
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
 
-        if(this.GetFirstUnit().Type == EUnitType.Ally) BattleUI.Instance.NextUnitSkills(this.GetFirstUnit());
+            if (unit.Type == EUnitType.Ally) BattleUI.Instance.NextUnitSkills(unit);
 
-        UnitActions.SetCurrentTile(this.GetFirstUnit().Tile, this.GetFirstUnit().transform.position.y);
-        
-        
-        this.GetFirstUnit().OnMovement(true);
-        this.GetFirstUnit().OnTurn(true);
-        this.GetFirstUnit().GetComponent<BoxCollider>().enabled = false;
+            //springs
+                foreach(Tile tile in TileMapManager.Instance.TileMap.Values)
+                {
+                    SpringTile st = tile.gameObject.GetComponent<SpringTile>();
 
-        this.OnMove = true;
-        this.hadMoved = false;
-        this.hadAttacked = false;
-        this.GetFirstUnit().Tile.isWalkable = true;
-        this.numAttack = -1;
+                    if (st != null) { st.ApplyOnUnitStart(); }
+                    Debug.Log("Launch");
+                    
+                }
+            //springs
+            
 
-        //apply effects
-        this.GetFirstUnit().ApplyEffects();
+            UnitActions.SetCurrentTile(unit.Tile, unit.transform.position.y);
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
+            unit.OnMovement(true);
+            unit.OnTurn(true);
+            unit.GetComponent<BoxCollider>().enabled = false;
 
-        // reset and update attackable list
-        UnitAttackActions.SetAttackableList();
-        
-        switch (this._unitOrder[0].Type)
-        {
-            case EUnitType.Ally:
+            this.OnMove = true;
+            this.hadMoved = false;
+            this.hadAttacked = false;
+            unit.Tile.isWalkable = true;
+            this.numAttack = -1;
 
-                bEnemy = false;
-                BattleUI.Instance.ToggleActionBox();
-                break;
+            //apply effects
+            unit.ApplyEffects();
 
+            // reset and update attackable list
+            UnitAttackActions.SetAttackableList();
 
-            case EUnitType.Enemy:
+            switch (unit.Type) {
+                case EUnitType.Ally:
 
-                bEnemy = true;
-
-                EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
-
-                this.EnemyUnitAction();
-                break;
-
-
-            case EUnitType.SpecialTile:
-                ((ISpecialTile)this._unitOrder[0]).ApplyEffect();
-                break;
+                    bEnemy = false;
+                    bAlly = true;
+                    BattleUI.Instance.ToggleActionBox();
+                    break;
 
 
+                case EUnitType.Enemy:
+
+                    bEnemy = true;
+                    bAlly = false;
+                    EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
+
+                    this.EnemyUnitAction();
+                    break;
+
+
+                case EUnitType.SpecialTile:
+                    ((ISpecialTile)unit).ApplyEffect();
+                    break;
+
+
+            }
         }
 
         //if (this._unitOrder[0].Type != EUnitType.Ally) {
@@ -263,17 +294,19 @@ public class UnitActionManager : MonoBehaviour
         //    bEnemy = true;
 
         //    EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
-            
+
         //    this.EnemyUnitAction();
         //}
         //else
         //{
         //    bEnemy = false;
         //    BattleUI.Instance.ToggleActionBox();
-            
+
 
         //}
-
+        if (this.GetFirstUnit() is SpecialUnits sUnit) {
+            sUnit.Action();
+        }
 
     }
     public void OnStart() {
