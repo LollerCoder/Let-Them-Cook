@@ -69,8 +69,8 @@ public class BattleUI : MonoBehaviour {
         get { return this.eatPickUpShow; }
     }
 
-    public bool[] attackNum = { false, false, false, false, false }; // which skill was pressed 
-    public bool[] skillSlots = { false, false, false, false, false }; // which skill is usable
+    public bool[] attackNum = { false, false}; // which skill was pressed 
+    public bool[] skillSlots = { false, false}; // which skill is usable
 
 
 
@@ -122,6 +122,17 @@ public class BattleUI : MonoBehaviour {
 
     public void WaitButton() {
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+    }
+
+    public void ResetButton()
+    {
+        this.ResetButtonState(-1);
+        UnitActions.ResetPosition();
+    }
+
+    public void CamFocusButton()
+    {
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
     }
 
     public void ShowWaitButton()
@@ -220,7 +231,7 @@ public class BattleUI : MonoBehaviour {
             else {
                 this.Attacks[i].GetComponent<Image>().sprite = this.attackSprites[2]; // none
                 //this.Attacks[i].GetComponentInChildren<Text>().text = "";
-                this.Attacks[i].GetComponentInParent<Image>().enabled = false;
+                this.Attacks[i].GetComponentInParent<Image>().enabled = false;  
                 this.BuffetContainers[i].sprite = lids[0];
             }
         }

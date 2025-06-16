@@ -29,7 +29,7 @@ public class Carrot : Unit{
 
         this.skillList.Add("Basic Attack");
         this.skillList.Add("Circular Cut");
-        this.skillList.Add("Photosynthesis");
+        //this.skillList.Add("Photosynthesis");
 
         this.acc = 10;
         this.Speed = 3;
