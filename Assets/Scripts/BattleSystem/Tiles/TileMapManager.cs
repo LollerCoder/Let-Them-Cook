@@ -54,6 +54,10 @@ public class TileMapManager : MonoBehaviour {
 
         if (inRangeTiles.Count > 0) {
             foreach (Tile tile in inRangeTiles) {
+                if (availableTiles.ContainsKey(tile.TilePos)) {
+                    Debug.Log(tile.TilePos);
+                    continue;
+                }
                 availableTiles.Add(tile.TilePos, tile);
             }
         }
