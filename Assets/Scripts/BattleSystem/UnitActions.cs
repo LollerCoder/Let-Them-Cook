@@ -111,25 +111,34 @@ public static class UnitActions {
         UnitActionManager.Instance.OnAttack = false;
         UnitActionManager.Instance.hadAttacked = true;
 
-        //JAIRO WORKING HERE
+        //JAIRO BATTLECUTSCENE
 
         if (GameSettingsManager.Instance.enableCutscene)
         {
             Parameters param = new Parameters();
-            param.PutExtra(currUNIT, currentUnit);
-            param.PutExtra(TARGET, target);
-            param.PutGameObjectExtra(CAMERA, Camera.main.gameObject);
-            //param.PutExtra(SKILLANIM, skillType);
-            param.PutExtra(SKILLNAME, SkillName);
-            if(currentUnit.SKILLLIST[Skill] != null)
+            
+            
+
+
+            if (currentUnit.SKILLLIST[Skill] != null)
             {
                 if(SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SKILLTYPE == ESkillType.AOE)
                 {
-                    SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).GetNeighborList(currentUnit, target);
+                    param = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).GetNeighborList(currentUnit, target);
+                    param.PutExtra("TARGETS", "MULTIPLE");
+                    
                 }
-
+                else
+                {
+                    param.PutExtra("TARGETS", "SINGLE");
+                    
+                }
+                
             }
-            //SkillDatabase.Instance.findSkill("Circular Cut")
+            param.PutGameObjectExtra(CAMERA, Camera.main.gameObject);
+            param.PutExtra(currUNIT, currentUnit);
+            param.PutExtra(TARGET, target);
+            param.PutExtra(SKILLNAME, SkillName);
             EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY, param); //cutscene call
             EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY); // camera takes one with params
         }

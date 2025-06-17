@@ -24,7 +24,8 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] ParticleSystem HealParticle;
     [Header("Dummies")]
     [SerializeField] GameObject[] Dummies;
-    private List<Unit> DummiesData = new List<Unit>();
+    
+    private Dictionary<Unit, Vector3> DummiesData = new Dictionary<Unit, Vector3>();
 
 
 
@@ -47,16 +48,39 @@ public class CutsceneManager : MonoBehaviour
 
 
 
-   // float ticks = 0.0f;
+    // float ticks = 0.0f;
     //float speed = 25.0f;
-   // bool moving = false;
-    private void MOVE(Parameters param)
+    // bool moving = false;
+
+
+
+    private void SETUP(Parameters param)
     {
         BattleUI.Instance.ToggleActionBox();
         BattleUI.Instance.ToggleTurnOrderUI();
         player = param.GetUnitExtra(currUNIT);
         target = param.GetUnitExtra(TARGET);
-        string skillName = param.GetStringExtra(SKILLNAME,"THIS SHOULD NEVER BE USED.");
+
+        string numTARGETS = param.GetStringExtra("TARGETS", "THIS SHOULD NEVER BE USED.");
+
+        string skillName = param.GetStringExtra(SKILLNAME, "THIS SHOULD NEVER BE USED.");
+
+        switch (numTARGETS)
+        {
+            case "SINGLE":
+                this.SINGLE();
+                break;
+            case "MULTIPLE":
+                this.MULTIPLE(param);
+                break;
+        }
+        findSkillAnim(skillName);
+    }
+
+
+    private void SINGLE()
+    {
+        
 
         SpriteRenderer PlayerSprite = player.gameObject.GetComponent<SpriteRenderer>();
         SpriteRenderer EnemySprite = target.gameObject.GetComponent<SpriteRenderer>();
@@ -67,7 +91,7 @@ public class CutsceneManager : MonoBehaviour
         EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.MAXHP, target.HP);
         EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Enemy, false);
         EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
-        findSkillAnim(skillName);
+       
         
 
 
@@ -75,33 +99,41 @@ public class CutsceneManager : MonoBehaviour
       
         
     }
-    private void AOEMOVE(Parameters param)
+    private void MULTIPLE(Parameters param)
     {
+        CutsceneEnemy.SetActive(false);
         //Debug.Log("AOE DUMMIES");
         int dummycount = param.GetIntExtra("DummyCount",0);
         Debug.Log("AOE DUMMIES: " + dummycount);
         //Debug.Log("Dummies were: " + dummycount);
+
+
+        //This should just log the stuff
         for (int i = 0; i < dummycount; i++)
         {
-            Dummies[i].SetActive(true);
-            SpriteRenderer DummySprite = Dummies[i].gameObject.GetComponent<SpriteRenderer>();
+            //Dummies[i].SetActive(true);
+            //SpriteRenderer DummySprite = Dummies[i].gameObject.GetComponent<SpriteRenderer>();
             Unit dummySent = param.GetUnitExtra("Dummy" + i);
-            
-            DummiesData.Add(dummySent);
+            Vector3 dir = param.GetVector3Extra("Direction" + i);
 
-            DummySprite.sprite = dummySent.gameObject.GetComponent<SpriteRenderer>().sprite;
-            HpBar DummyHp = Dummies[i].gameObject.GetComponentInChildren<HpBar>(true);
+            
+
+
+            DummiesData.Add(dummySent,dir);
+
+            //DummySprite.sprite = dummySent.gameObject.GetComponent<SpriteRenderer>().sprite;
+            //HpBar DummyHp = Dummies[i].gameObject.GetComponentInChildren<HpBar>(true);
            
-            DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
-            if (dummySent.Type == EUnitType.Enemy)
-            {
-                DummyHp.setColor(EUnitType.Enemy, false);
-            }
-            else
-            {
-                DummyHp.setColor(EUnitType.Ally, false);
-            }
-            DummyHp.hpHide(DummyHp.gameObject);
+            //DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
+            //if (dummySent.Type == EUnitType.Enemy)
+            //{
+            //    DummyHp.setColor(EUnitType.Enemy, false);
+            //}
+            //else
+            //{
+            //    DummyHp.setColor(EUnitType.Ally, false);
+            //}
+            //DummyHp.hpHide(DummyHp.gameObject);
             
             //if(DummyHp == null) {
             //    Debug.Log("Dummy hp NULL");
@@ -114,6 +146,49 @@ public class CutsceneManager : MonoBehaviour
 
         }
 
+        //this will set the set them up to be seen
+        foreach (var Dummy in DummiesData)
+        {
+            if (Dummy.Value == Vector3.left)
+            {
+                CutsceneEnemy.SetActive(true);
+                Debug.Log(Dummy.Key.gameObject.GetComponent<SpriteRenderer>().sprite.name);
+                CutsceneEnemy.GetComponent<SpriteRenderer>().sprite = Dummy.Key.gameObject.GetComponent<SpriteRenderer>().sprite;
+
+               
+            }
+            if (Dummy.Value == Vector3.right)
+            {
+               
+                Dummies[0].SetActive(true);
+                Dummies[0].GetComponent<SpriteRenderer>().sprite = Dummy.Key.gameObject.GetComponent<SpriteRenderer>().sprite;
+            }
+            if (Dummy.Value == Vector3.forward)
+            {
+                Dummies[1].SetActive(true);
+                Dummies[1].GetComponent<SpriteRenderer>().sprite = Dummy.Key.gameObject.GetComponent<SpriteRenderer>().sprite;
+            }
+            if (Dummy.Value == Vector3.back)
+            {
+                Dummies[2].SetActive(true);
+                Dummies[2].GetComponent<SpriteRenderer>().sprite = Dummy.Key.gameObject.GetComponent<SpriteRenderer>().sprite;
+            }
+            //Hpbar show
+            HpBar DummyHp = Dummy.Key.gameObject.GetComponentInChildren<HpBar>(true);
+
+            DummyHp.hpPopUp(DummyHp.gameObject, Dummy.Key.MAXHP, Dummy.Key.HP);
+            if (Dummy.Key.Type == EUnitType.Enemy)
+            {
+                DummyHp.setColor(EUnitType.Enemy, false);
+            }
+            else
+            {
+                DummyHp.setColor(EUnitType.Ally, false);
+            }
+            DummyHp.hpHide(DummyHp.gameObject);
+
+            
+        }
 
 
 
@@ -125,8 +200,8 @@ public class CutsceneManager : MonoBehaviour
     private void Start()
     {
 
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_PLAY, this.MOVE);
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_AOE, this.AOEMOVE);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_PLAY, this.SETUP);
+        //EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_AOE, this.MULTIPLE);
 
     }
 
@@ -176,23 +251,79 @@ public class CutsceneManager : MonoBehaviour
 
         if (DummiesData.Count() != 0)
         {
-            for (int i = 0; i < Dummies.Count(); i++)
+            foreach(var Dummy in DummiesData)
             {
-                if (Dummies[i].activeSelf)
+                if (Dummy.Value == Vector3.left)
                 {
-                    UnitActions.applySkill(DummiesData[i], UnitActionManager.Instance.numAttack);
-                    HpBar DummyHp = Dummies[i].gameObject.GetComponentInChildren<HpBar>(true);
-                    Unit dummySent = DummiesData[i];
+
+                    //CutscenePlayer.GetComponent<SpriteRenderer>().sprite = pl.gameObject.GetComponent<SpriteRenderer>().sprite;
+                    UnitActions.applySkill(Dummy.Key, UnitActionManager.Instance.numAttack);
+                    HpBar DummyHp = EnemyHP.gameObject.GetComponentInChildren<HpBar>(true);
+                    Unit dummySent = Dummy.Key;
 
                     DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
                     //DummyHp.hpHide(DummyHp.gameObject);
                     DummyHp.setColor(EUnitType.Enemy, false);
                 }
+                if (Dummy.Value == Vector3.right)
+                {
+                    UnitActions.applySkill(Dummy.Key, UnitActionManager.Instance.numAttack);
+                    HpBar DummyHp = Dummies[0].gameObject.GetComponentInChildren<HpBar>(true);
+                    Unit dummySent = Dummy.Key;
 
+                    DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
+                    //DummyHp.hpHide(DummyHp.gameObject);
+                    DummyHp.setColor(EUnitType.Enemy, false);
+                }
+                if (Dummy.Value == Vector3.forward)
+                {
+                    UnitActions.applySkill(Dummy.Key, UnitActionManager.Instance.numAttack);
+                    HpBar DummyHp = Dummies[1].gameObject.GetComponentInChildren<HpBar>(true);
+                    Unit dummySent = Dummy.Key;
 
+                    DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
+                    //DummyHp.hpHide(DummyHp.gameObject);
+                    DummyHp.setColor(EUnitType.Enemy, false);
+                }
+                if (Dummy.Value == Vector3.back)
+                {
+                    UnitActions.applySkill(Dummy.Key, UnitActionManager.Instance.numAttack);
+                    HpBar DummyHp = Dummies[2].gameObject.GetComponentInChildren<HpBar>(true);
+                    Unit dummySent = Dummy.Key;
 
+                    DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
+                    //DummyHp.hpHide(DummyHp.gameObject);
+                    DummyHp.setColor(EUnitType.Enemy, false);
+                }
+                if (Dummy.Key)
+                {
+                    
+                    //UnitActions.applySkill(DummiesData[i], UnitActionManager.Instance.numAttack);
+                    //HpBar DummyHp = Dummies[i].gameObject.GetComponentInChildren<HpBar>(true);
+                    //Unit dummySent = DummiesData[i];
 
+                    //DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
+                    ////DummyHp.hpHide(DummyHp.gameObject);
+                    //DummyHp.setColor(EUnitType.Enemy, false);
+                }
             }
+            //for (int i = 0; i < Dummies.Count(); i++)
+            //{
+            //    if (Dummies[i].activeSelf)
+            //    {
+            //        UnitActions.applySkill(DummiesData[i], UnitActionManager.Instance.numAttack);
+            //        HpBar DummyHp = Dummies[i].gameObject.GetComponentInChildren<HpBar>(true);
+            //        Unit dummySent = DummiesData[i];
+
+            //        DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
+            //        //DummyHp.hpHide(DummyHp.gameObject);
+            //        DummyHp.setColor(EUnitType.Enemy, false);
+            //    }
+
+
+
+
+            //}
         }
 
 
@@ -209,6 +340,7 @@ public class CutsceneManager : MonoBehaviour
 
     IEnumerator CutsceneDeadCheck()
     {
+        this.ResetCutscene();
         if (target.HP <= 0)
         {
             yield return new WaitForSeconds(1);
@@ -220,13 +352,9 @@ public class CutsceneManager : MonoBehaviour
             this.CutsceneEnd();
         }   
     }
-
-    private void CutsceneEnd()
+    private void ResetCutscene()
     {
-    
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_END);
-
-
+        CutsceneEnemy.SetActive(true);
         EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
 
         //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.HIDE_HP);
@@ -239,7 +367,7 @@ public class CutsceneManager : MonoBehaviour
                 //Unit dummySent = DummiesData[i];
 
                 //dummySent.gameObject.SetActive(false);
-                
+
                 //DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
                 DummyHp.hpHide(DummyHp.gameObject);
                 Dummies[i].gameObject.SetActive(false);
@@ -251,6 +379,16 @@ public class CutsceneManager : MonoBehaviour
 
         }
         DummiesData.Clear();
+    }
+
+    private void CutsceneEnd()
+    {
+
+        this.ResetCutscene();
+
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_END);
+
+        
 
         BattleUI.Instance.ToggleTurnOrderUI();
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);

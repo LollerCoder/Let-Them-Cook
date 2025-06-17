@@ -42,9 +42,9 @@ public class Skill
 
     }
 
-    public virtual void GetNeighborList(Unit origin,Unit target)
+    public virtual Parameters GetNeighborList(Unit origin,Unit target)
     {
-
+        return null;
     }
 
     //Debuffs/Buffs

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CircularCut : Skill
@@ -7,7 +8,9 @@ public class CircularCut : Skill
 
     private float damage = 7.0f;
     List<Vector3> cardinalDirs = new List<Vector3>();
-    List<Unit> neighbors = new List<Unit>();
+
+    private Dictionary<Unit, Vector3> neighbors = new Dictionary<Unit, Vector3>();
+    //List<Unit> neighbors = new List<Unit>();
     Unit neighbor = null;
     public CircularCut()
     {
@@ -21,10 +24,10 @@ public class CircularCut : Skill
         this.cost = 30;
 
 
-        cardinalDirs.Add(Vector3.left);
-        cardinalDirs.Add(Vector3.right);
-        cardinalDirs.Add(Vector3.forward);
-        cardinalDirs.Add(Vector3.back);
+        cardinalDirs.Add(Vector3.left);  //enemy 
+        cardinalDirs.Add(Vector3.right); // dummy
+        cardinalDirs.Add(Vector3.forward); // dummy1 behind carrot
+        cardinalDirs.Add(Vector3.back); //dummy2 in front of carrot
     }
 
     public override void SkillAction(Unit target, Unit origin)
@@ -39,7 +42,7 @@ public class CircularCut : Skill
         if (!GameSettingsManager.Instance.enableCutscene)
         {
             GetNeighborList(origin,target);
-            foreach (Unit neighbor in neighbors)
+            foreach (Unit neighbor in neighbors.Keys)
             {
                 
                 neighbor.TakeDamage(damage, origin);
@@ -48,7 +51,7 @@ public class CircularCut : Skill
         }
         else
         {
-            foreach (var neighbor in neighbors)
+            foreach (var neighbor in neighbors.Keys)
             {
 
                 neighbor.TakeDamage(damage, origin);
@@ -60,18 +63,19 @@ public class CircularCut : Skill
 
 
     }
-    public override void GetNeighborList(Unit origin, Unit Target)
+    public override Parameters GetNeighborList(Unit origin, Unit Target)
     {
+        Parameters param = new Parameters();
         Debug.Log("Finding neighbors");
             foreach (Vector3 dir in cardinalDirs)
             {
                 neighbor = this.Get_Neighbor(origin.transform.position, dir);
                 Debug.Log("Neighbor" + neighbor);
-                if (neighbor != null  && neighbor != Target)
-                {
-                  
-                    neighbors.Add(neighbor);
-                    
+                if (neighbor != null  )
+                { //&& neighbor != Target
+
+                    neighbors.Add(neighbor, dir);
+                   
 
                 }
 
@@ -79,20 +83,27 @@ public class CircularCut : Skill
             if (GameSettingsManager.Instance.enableCutscene)
             {
                 int x = 0;
-                Parameters param = new Parameters();
-                foreach (Unit adjacent in neighbors)
+                
+                foreach (Unit adjacent in neighbors.Keys)
                 {
                     param.PutExtra("Dummy" + x, adjacent);
                     
                     //Debug.Log("Dummy" + x);
                     x++;
                 }
+                x = 0;
+                foreach (Vector3 dir in neighbors.Values)
+                {
+                    param.PutExtra("Direction" + x, dir);
+                    x++;
+                }
                 param.PutExtra("DummyCount", neighbors.Count);
-                EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_AOE,param);
+                
+                //EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_AOE,param);
             //Debug.Log("Event made");
-            neighbors.Clear();
+                neighbors.Clear();
             }
-            
+        return param;
        
     }
     

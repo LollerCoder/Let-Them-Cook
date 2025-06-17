@@ -238,7 +238,7 @@ public class UnitActionManager : MonoBehaviour
                     SpringTile st = tile.gameObject.GetComponent<SpringTile>();
 
                     if (st != null) { st.ApplyOnUnitStart(); }
-                    Debug.Log("Launch");
+                    //Debug.Log("Launch");
                     
                 }
             //springs
