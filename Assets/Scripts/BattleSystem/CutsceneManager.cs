@@ -20,6 +20,8 @@ public class CutsceneManager : MonoBehaviour
 
     [Header("Animator")]
     [SerializeField] Animator CutsceneAnim;
+    [Header("ParticeSystems")]
+    [SerializeField] ParticleSystem HealParticle;
     [Header("Dummies")]
     [SerializeField] GameObject[] Dummies;
     private List<Unit> DummiesData = new List<Unit>();
@@ -254,7 +256,10 @@ public class CutsceneManager : MonoBehaviour
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
     }
 
-    
+    private void HealingParticles()
+    {
+        HealParticle.Play();
+    }
 
     private void Update()
     {
