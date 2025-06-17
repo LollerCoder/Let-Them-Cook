@@ -107,6 +107,7 @@ public class EventNames {
 		public const string HOSTAGE_FREE = "HOSTAGE_FREE";
 		public const string GOAL_ARROW_HIDE = "GOAL_ARROW_HIDE";
 		public const string GOAL_ARROW_UNHIDE = "GOAL_ARROW_UNHIDE";
+		public const string ARROW_SHOWED = "ARROW_SHOWED";
 
     }
 

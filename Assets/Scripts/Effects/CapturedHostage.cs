@@ -5,6 +5,7 @@ using UnityEngine;
 //will be used as a flag to indicate Unit was a hostage
 public class CapturedHostage : Effect
 {
+
     public CapturedHostage(int _duration, Unit _effectMaker) : base(_duration, _effectMaker)
     {
         this.EffectName = "Captured_Hostage";
