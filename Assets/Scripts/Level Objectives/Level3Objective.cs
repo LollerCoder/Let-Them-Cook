@@ -35,16 +35,21 @@ public class Level3Objective : MonoBehaviour
     public void SpawnEnemies()
     {
         //getting the keyholder
-        Unit enemyKeyHolder = enemyObjs[Random.Range(0, 1)].GetComponent<Unit>();
-        enemyKeyHolder.AddEffect(new KeyHolder(999, enemyKeyHolder));
+        int keyHolderIndex = Random.Range(0, 1);
+
+        List<Effect> effectsAdded = new List<Effect>();
 
         for (int i = 0; i < enemyObjs.Count; i++)
         {
+            effectsAdded.Clear();
+
+            if (i == keyHolderIndex) effectsAdded.Add(new KeyHolder(99,guard));
+
             UnitManager.Instance.addUnit("Enemy",
                 enemyObjs[i],
                 spawnTile[i],
                 EUnitType.Enemy,
-                new List<Effect>()
+                effectsAdded
                 );
         }
     }
