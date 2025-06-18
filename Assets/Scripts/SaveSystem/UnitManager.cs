@@ -13,6 +13,8 @@ public class UnitManager : MonoBehaviour
 
     public bool bTomato = false;
 
+    public int UnitCounter = 0;
+
     private GameObject unitParent;
     public GameObject tomatoTemplate, garlicTemplate /*will add more templates when assets are done*/;
     // Start is called before the first frame update
@@ -28,7 +30,7 @@ public class UnitManager : MonoBehaviour
         unitParent = this.gameObject;
     }
 
-    public void manageParty()
+    public void manageParty(List<Tile> tiles)//, List<Unit> unitSpawn)
     {
         Debug.Log("Tomato is " + bTomato);
         //what level number is the player at right now?
@@ -37,9 +39,20 @@ public class UnitManager : MonoBehaviour
 
         if (levelNum >= 1 && bTomato)
         {
-            addUnit("Tomato", tomatoTemplate, new Vector3(3, 0.5f, 4), EUnitType.Ally, new List<Effect>());
+            Debug.Log("Tomato is in the list na"); 
+            addUnit("Tomato", tomatoTemplate, tiles[UnitCounter], EUnitType.Ally, new List<Effect>());
             bTomato = false;
+            UnitCounter++;
         }
+
+
+
+        // for (int index = 0; index <= unitSpawn.Count; index++)
+        // {
+
+        //     addUnit("Ally", tomatoTemplate, tiles[index], EUnitType.Ally, new List<Effect>());
+        //    //unitSpawn[index] = tiles[0]
+        // }
 
         /*for testing pruposes*/
         //if (levelNum >= 1) addUnit("Garlic", garlicTemplate, new Vector3(4,0.5f,4));
@@ -54,23 +67,23 @@ public class UnitManager : MonoBehaviour
     }
 
 
-    public void addUnit(string name, GameObject template, Vector3 tile_spawn_loc, EUnitType type, List<Effect> effects)
-    {
-        GameObject unitGO = CreateUnitGameObject(name,
-            template,
-            tile_spawn_loc);
+    // public void addUnit(string name, GameObject template, Vector3 tile_spawn_loc, EUnitType type, List<Effect> effects)
+    // {
+    //     GameObject unitGO = CreateUnitGameObject(name,
+    //         template,
+    //         tile_spawn_loc);
 
-        //unitGO.transform.Translate(0, 0.25f, 0);
+    //     //unitGO.transform.Translate(0, 0.25f, 0);
 
-        Unit unit = unitGO.GetComponent<Unit>();
-        unit.Type = type;
-        unit.AddEffects(effects);
+    //     Unit unit = unitGO.GetComponent<Unit>();
+    //     unit.Type = type;
+    //     unit.AddEffects(effects);
 
-        //assigning the tile
-        unit.Tile = TileMapManager.Instance.TileMap[new Vector2Int((int)tile_spawn_loc.x, (int)tile_spawn_loc.z)];
+    //     //assigning the tile
+    //     unit.Tile = TileMapManager.Instance.TileMap[new Vector2Int((int)tile_spawn_loc.x, (int)tile_spawn_loc.z)];
 
-        this.addUnitToList(unit.GetComponent<Unit>());
-    }
+    //     this.addUnitToList(unit.GetComponent<Unit>());
+    // }
 
 
     public void addUnit(string name, GameObject template, Tile tile_spawn_loc, EUnitType type, List<Effect> effects)

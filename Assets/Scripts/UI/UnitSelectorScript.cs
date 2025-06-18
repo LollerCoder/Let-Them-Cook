@@ -6,7 +6,14 @@ using UnityEngine.UI;
 
 public class UnitSelectorScript : MonoBehaviour
 {
+    [Header("Units")]
+    [SerializeField]
+    private List<Tile> tileSpawn = new List<Tile>();
+    private List<Unit> unitSpawn = new List<Unit>();
+
     GameObject unitPanel;
+
+    private bool bPressed = false;
 
     public Button Tbtn;
     void Start()
@@ -26,10 +33,19 @@ public class UnitSelectorScript : MonoBehaviour
 
     }
 
+    //button for tomato
     public void buttonReader()
     {
         UnitManager.Instance.bTomato = true;
+        //this.unitSpawn.Add(new Tomato);
         Debug.Log("Tomato selected!");
+
+        // if (!bPressed)
+        // {
+        //     bPressed = true;
+
+
+        // } else if (bPressed) UnitManager.Instance.UnitCounter -= 1;
 
     }
 
@@ -39,6 +55,6 @@ public class UnitSelectorScript : MonoBehaviour
 
         unitPanel.SetActive(false);
 
-        UnitManager.Instance.manageParty();
+        UnitManager.Instance.manageParty(this.tileSpawn);
     }
 }
