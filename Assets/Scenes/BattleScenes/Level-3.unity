@@ -1184,6 +1184,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4613277454985713304, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
+      propertyPath: tileSpawn.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613277454985713304, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
+      propertyPath: 'tileSpawn.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1319828009}
     - target: {fileID: 7895408615917409100, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
       propertyPath: m_Name
       value: UnitSelectorUI
@@ -8024,6 +8032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bTomato: 0
+  UnitCounter: 0
   tomatoTemplate: {fileID: 229794016}
   garlicTemplate: {fileID: 798473449}
 --- !u!114 &1663546500
@@ -15297,7 +15306,7 @@ Transform:
   m_GameObject: {fileID: 2800756320565305451}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710677, y: -0.000000053385083, z: -0.000000053385072, w: -0.7071068}
-  m_LocalPosition: {x: -1, y: 0, z: -3}
+  m_LocalPosition: {x: -1.02, y: 0, z: -3.04}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
