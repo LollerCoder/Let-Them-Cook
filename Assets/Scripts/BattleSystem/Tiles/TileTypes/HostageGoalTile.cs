@@ -13,8 +13,8 @@ public class HostageGoalTile : Tile
     private new void Start()
     {
         //Debug.Log("Hi i am here");
-        EventBroadcaster.Instance.AddObserver(EventNames.HostageRescue_Events.GOAL_ARROW_HIDE, this.HideArrow);
-        EventBroadcaster.Instance.AddObserver(EventNames.HostageRescue_Events.GOAL_ARROW_UNHIDE, this.ShowArrow);
+        EventBroadcaster.Instance.AddObserver(EventNames.Tile_Events.GOAL_ARROW_HIDE, this.HideArrow);
+        EventBroadcaster.Instance.AddObserver(EventNames.Tile_Events.GOAL_ARROW_UNHIDE, this.ShowArrow);
 
         this.arrow = Instantiate(arrow_template, transform.position + Vector3.up * 0.25f, new Quaternion(0,0,0,0));
         this.arrow.SetActive(false);

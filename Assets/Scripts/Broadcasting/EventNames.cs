@@ -108,7 +108,6 @@ public class EventNames {
 		public const string GOAL_ARROW_HIDE = "GOAL_ARROW_HIDE";
 		public const string GOAL_ARROW_UNHIDE = "GOAL_ARROW_UNHIDE";
 		public const string ARROW_SHOWED = "ARROW_SHOWED";
-
     }
 
 	public class EnemySpawn_Events
@@ -116,6 +115,20 @@ public class EventNames {
 		public const string SPAWN_ENEMY = "SPAWN_ENEMY";
 
     }
+
+	public class Level3_Objectives
+	{
+		public const string WOKE_UP = "WOKE_UP";
+		public const string KEY_FOUND = "KEY_FOUND";
+		public const string ESCAPED = "ESCAPED";
+	}
+
+	public class Tile_Events
+    {
+        public const string GOAL_ARROW_HIDE = "GOAL_ARROW_HIDE";
+        public const string GOAL_ARROW_UNHIDE = "GOAL_ARROW_UNHIDE";
+    }
+
 }
 
 

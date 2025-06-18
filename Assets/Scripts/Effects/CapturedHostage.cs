@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 //will be used as a flag to indicate Unit was a hostage
@@ -13,7 +14,7 @@ public class CapturedHostage : Effect
 
     public override void EffectAction(Unit unitAffected)
     {
-        EventBroadcaster.Instance.PostEvent(EventNames.HostageRescue_Events.GOAL_ARROW_UNHIDE);
+        EventBroadcaster.Instance.PostEvent(EventNames.Tile_Events.GOAL_ARROW_UNHIDE);
     }
 
     public override void EffectAfterAction(Unit unitAffected)
@@ -23,6 +24,6 @@ public class CapturedHostage : Effect
 
     public override void AfterTurnAction(Unit unitAffected)
     {
-        EventBroadcaster.Instance.PostEvent(EventNames.HostageRescue_Events.GOAL_ARROW_HIDE);
+        EventBroadcaster.Instance.PostEvent(EventNames.Tile_Events.GOAL_ARROW_HIDE);
     }
 }

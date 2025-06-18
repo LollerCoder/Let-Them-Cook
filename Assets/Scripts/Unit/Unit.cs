@@ -406,9 +406,13 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
     {
         DroppedVegetableManager.Instance.CreateDropVegetable(this);
 
+        //doing effect actions
+        this.AfterDeathEffects();
+
         this.GetComponent<Animator>().enabled = false;
         this.gameObject.SetActive(false);
         this.Tile.isWalkable = true;
+
         UnitActionManager.Instance.RemoveUnitFromOrder(this);
     }
 
@@ -644,6 +648,14 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         foreach (Effect effect in this.effects)
         {
             effect.AfterTurnAction(this);
+        }
+    }
+
+    public void AfterDeathEffects()
+    {
+        foreach (Effect effect in this.effects)
+        {
+            effect.AfterDeathAction(this);
         }
     }
 
