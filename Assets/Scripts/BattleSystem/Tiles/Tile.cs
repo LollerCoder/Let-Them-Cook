@@ -16,12 +16,6 @@ public class Tile : MonoBehaviour{
     [SerializeField]
     GameObject moveRange;
 
-    private Material red;
-    private Material green;
-    private Material blue;
-
-    private MeshRenderer meshRen;
-
     private Vector3 rangePos;
 
     public GameObject rangeIndicator = null;
@@ -60,41 +54,23 @@ public class Tile : MonoBehaviour{
     public void Start() {
         this.rangePos = this.transform.position;
         this.rangePos.y += 0.04f;
-
-        //this.red = TileHelper.Attack;
-        //this.blue = TileHelper.Walk;
-        //this.green = TileHelper.Heal;
-
-        //this.moveRange = GameObject.Instantiate(this.moveRange);
-
-        //this.meshRen = this.moveRange.GetComponent<MeshRenderer>();
-
-        //this.moveRange.transform.position = pos;
-        //this.meshRen.material = this.blue;
-        //this.moveRange.SetActive(false);
     }
     public void UnHighlightTile() {
-        //Debug.Log("ADW");
         this.inWalkRange = false;
-        //this.moveRange.SetActive(false);
         TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
     }
     public void UnHighlightTargetTile() {
         if (this.inWalkRange) {
-            //this.moveRange.GetComponent<MeshRenderer>().material.color = this.blue.color;
             TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
             this.rangeIndicator = TileHelper.Instance.SpawnRangeIndicator(this.rangePos, RangeType.WALK);
             return;
         }
-        //this.moveRange.SetActive(false);
         TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
     }
 
     public void HighlightWalkableTile() {
         if (this.isWalkable) { //just to make sure it wont be highlighted
             this.inWalkRange = true;
-            //this.meshRen.material = this.blue;
-            //this.moveRange.SetActive(true);
             if (this.rangeIndicator != null) {
                 TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
             }
@@ -103,8 +79,6 @@ public class Tile : MonoBehaviour{
         }
     }
     public void HighlightAttackableTile() {
-        //this.meshRen.material = this.red;
-        //this.moveRange.SetActive(true);
         if (this.rangeIndicator != null) {
             TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
         }
@@ -112,8 +86,6 @@ public class Tile : MonoBehaviour{
     }
 
     public void HighlightHealableTile() {
-        //this.meshRen.material = this.green;
-        //this.moveRange.SetActive(true);
         if (this.rangeIndicator != null) {
             TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
         }
