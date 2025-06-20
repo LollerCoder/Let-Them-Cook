@@ -49,7 +49,7 @@ namespace EnemyAI
             }
 
             //making the sprite face the correct direction
-            SpriteRenderer cuSR =  _currentUnit.GetComponent<SpriteRenderer>();
+            SpriteRenderer cuSR = _currentUnit.spriteRenderer;
 
             if (_currentUnit.transform.position.x >= targetUnit.transform.position.x)
             {
