@@ -6,21 +6,28 @@ using UnityEngine.UI;
 public class Hover : MonoBehaviour
 {
     public string message, message2;
-
-   private void OnMouseEnter()
-    {  
-        HoverManager.Instance.SetAndShowToolTip(message, message2);
+   private void OnMouseDown()
+    {
+        if (Input.GetMouseButtonDown(1))
+            HoverManager.Instance.SetAndShowToolTip(message, message2);
     }
 
     public void showSkillName()
     {
-         if (gameObject.tag == "Skills")
-        { 
+        if (gameObject.tag == "Skills")
+        {
             message = gameObject.GetComponentInChildren<Text>().text;
             message2 = HoverManager.Instance.getFlavourText(message);
 
+
         }   
         HoverManager.Instance.SetAndShowToolTip(message, message2);
+       
+    }
+
+    public void hideSkill()
+    {
+         HoverManager.Instance.HideToolTip();
     }
 
     private void OnMouseExit()

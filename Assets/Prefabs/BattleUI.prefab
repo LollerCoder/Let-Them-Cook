@@ -231,9 +231,10 @@ GameObject:
   - component: {fileID: 6064871508047047905}
   - component: {fileID: 25848365592272997}
   - component: {fileID: 6221798759500174663}
+  - component: {fileID: 389206612079938897}
   m_Layer: 5
   m_Name: BA
-  m_TagString: Untagged
+  m_TagString: Skills
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -366,13 +367,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 0
+  - eventID: 4
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 389206612079938897}
           m_TargetAssemblyTypeName: Hover, Assembly-CSharp
-          m_MethodName: OnMouseEnter
+          m_MethodName: showSkillName
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -382,6 +383,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &389206612079938897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348513278161879963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de30115eb020cf4d90a7db6ff14083b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: 
+  message2: 
 --- !u!1 &1746859905818460506
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +410,7 @@ GameObject:
   - component: {fileID: 3780366223142821652}
   m_Layer: 5
   m_Name: Nameplate
-  m_TagString: Untagged
+  m_TagString: Skills
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1122,7 +1137,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 160919419726255939}
+      - m_Target: {fileID: 1598977757463057462}
         m_TargetAssemblyTypeName: DemoSceneLoading, Assembly-CSharp
         m_MethodName: GoToScene
         m_Mode: 1
@@ -1198,6 +1213,8 @@ GameObject:
   - component: {fileID: 3116613265014022026}
   - component: {fileID: 2376989948002901916}
   - component: {fileID: 2734066641059103268}
+  - component: {fileID: 5817642864446093479}
+  - component: {fileID: 4054178605523261003}
   m_Layer: 5
   m_Name: PlayerAttackOptions
   m_TagString: Untagged
@@ -1289,6 +1306,49 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5817642864446093479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3603217999178902401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de30115eb020cf4d90a7db6ff14083b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: 
+  message2: 
+--- !u!114 &4054178605523261003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3603217999178902401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5817642864446093479}
+          m_TargetAssemblyTypeName: Hover, Assembly-CSharp
+          m_MethodName: hideSkill
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3833173173539696356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,11 +1360,9 @@ GameObject:
   - component: {fileID: 5774274585832569447}
   - component: {fileID: 8273425348646062773}
   - component: {fileID: 6884428341218147711}
-  - component: {fileID: 7032840708538891819}
-  - component: {fileID: 2635892536945136192}
   m_Layer: 5
   m_Name: Buffet1
-  m_TagString: Skills
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1367,65 +1425,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7032840708538891819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3833173173539696356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2635892536945136192}
-          m_TargetAssemblyTypeName: Hover, Assembly-CSharp
-          m_MethodName: OnMouseEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: hi
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: HoverManager, Assembly-CSharp
-          m_MethodName: HideToolTip
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: hi
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &2635892536945136192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3833173173539696356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4de30115eb020cf4d90a7db6ff14083b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: 
-  message2: 
 --- !u!1 &4113153364100410580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,9 +1516,11 @@ GameObject:
   - component: {fileID: 1510909633502182146}
   - component: {fileID: 662918823084495448}
   - component: {fileID: 7935601106665298180}
+  - component: {fileID: 4040874705007661551}
+  - component: {fileID: 7803073817770352153}
   m_Layer: 5
   m_Name: WaitButton
-  m_TagString: Untagged
+  m_TagString: Skills
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1639,6 +1640,49 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4040874705007661551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321106724314475256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7803073817770352153}
+          m_TargetAssemblyTypeName: Hover, Assembly-CSharp
+          m_MethodName: showSkillName
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &7803073817770352153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321106724314475256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de30115eb020cf4d90a7db6ff14083b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: 
+  message2: 
 --- !u!1 &4357577155965085190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,11 +1773,9 @@ GameObject:
   - component: {fileID: 6765699934318207302}
   - component: {fileID: 1877518618806200412}
   - component: {fileID: 323250569369688822}
-  - component: {fileID: 6593132111096348228}
-  - component: {fileID: 827044860077309870}
   m_Layer: 5
   m_Name: Buffet2
-  m_TagString: Skills
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1796,65 +1838,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6593132111096348228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4434868770256022426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 827044860077309870}
-          m_TargetAssemblyTypeName: Hover, Assembly-CSharp
-          m_MethodName: OnMouseEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: HoverManager, Assembly-CSharp
-          m_MethodName: HideToolTip
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &827044860077309870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4434868770256022426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4de30115eb020cf4d90a7db6ff14083b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: 
-  message2: 
 --- !u!1 &4702939362507839808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,9 +1850,11 @@ GameObject:
   - component: {fileID: 2302515378398025326}
   - component: {fileID: 7313151210715263722}
   - component: {fileID: 4161431516010189850}
+  - component: {fileID: 1918073108625242653}
+  - component: {fileID: 7290927962378506650}
   m_Layer: 5
   m_Name: ResetButton
-  m_TagString: Untagged
+  m_TagString: Skills
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1989,6 +1974,49 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1918073108625242653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4702939362507839808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de30115eb020cf4d90a7db6ff14083b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: 
+  message2: 
+--- !u!114 &7290927962378506650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4702939362507839808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1918073108625242653}
+          m_TargetAssemblyTypeName: Hover, Assembly-CSharp
+          m_MethodName: showSkillName
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5114184375910117851
 GameObject:
   m_ObjectHideFlags: 0
@@ -2120,11 +2148,6 @@ MonoBehaviour:
   turnOrderCard: {fileID: 8767800105820149003, guid: 69a5838914dbf8d439bad48a9fe413d5, type: 3}
   turnOrderField: {fileID: 7079041278187719721}
   AttackBox: {fileID: 2376989948002901916}
-  attackSprites:
-  - {fileID: -115126887, guid: fa4939a7535af6348a40fc4d40073b1d, type: 3}
-  - {fileID: 21300000, guid: 7d6429a4adb780a4c8ac9d60aafef8e1, type: 3}
-  - {fileID: -806478487, guid: e1070dc2be319d24d86ed34827562566, type: 3}
-  - {fileID: 21300000, guid: 8e3eb03214fcf95419d090d9a4349764, type: 3}
   Turn:
   - {fileID: 4163483270329904357}
   BuffetContainers:
@@ -2287,9 +2310,11 @@ GameObject:
   - component: {fileID: 6500138227701924521}
   - component: {fileID: 7546135810527417398}
   - component: {fileID: 3322365432758108066}
+  - component: {fileID: 2561427143722864606}
+  - component: {fileID: 4294744770164577594}
   m_Layer: 5
   m_Name: Skill1
-  m_TagString: Untagged
+  m_TagString: Skills
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2409,6 +2434,49 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2561427143722864606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5460761649095171654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de30115eb020cf4d90a7db6ff14083b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: 
+  message2: 
+--- !u!114 &4294744770164577594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5460761649095171654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2561427143722864606}
+          m_TargetAssemblyTypeName: Hover, Assembly-CSharp
+          m_MethodName: showSkillName
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5468387882742226950
 GameObject:
   m_ObjectHideFlags: 0
@@ -4086,9 +4154,11 @@ GameObject:
   - component: {fileID: 8984977488239440394}
   - component: {fileID: 2142533948026889539}
   - component: {fileID: 6878455778343723536}
+  - component: {fileID: 7587627835690615384}
+  - component: {fileID: 4514271023750996735}
   m_Layer: 5
   m_Name: CamFocusButton
-  m_TagString: Untagged
+  m_TagString: Skills
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4208,6 +4278,49 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7587627835690615384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8352454763266559011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de30115eb020cf4d90a7db6ff14083b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: 
+  message2: 
+--- !u!114 &4514271023750996735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8352454763266559011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7587627835690615384}
+          m_TargetAssemblyTypeName: Hover, Assembly-CSharp
+          m_MethodName: showSkillName
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8388827610316851255
 GameObject:
   m_ObjectHideFlags: 0
