@@ -200,21 +200,20 @@ public class UnitActionManager : MonoBehaviour
         }
         else if ((PathFinding.Path.Count <= 0) && (this.GetFirstUnit() is Unit unit))
         {
-            if (this.OnAttack && !this.hadAttacked)
-            {
-                UnitAttackActions.ShowUnitsInSkillRange(this.numAttack, unit);
+            if (this.OnAttack && !this.hadAttacked) {
+                //UnitAttackActions.ShowUnitsInSkillRange(this.numAttack, unit);
             }
             else if (this.OnMove && !this.hadMoved)
             {
-                Range.GetRange(unit, unit.Move, "Move");
+                //Range.GetRange(unit, unit.Move, "Move");
             }
             else if (this.OverEnemy && this.enemy != null)
             {
-                Range.GetRange(this.enemy, this.enemy.Speed, "Move");
+                Range.GetRange(this.enemy, this.enemy.Speed, RangeType.WALK);
             }
             else
             {
-                Range.UnHighlightTiles();
+                //Range.UnHighlightTiles();
             }
         }
     }
@@ -268,6 +267,7 @@ public class UnitActionManager : MonoBehaviour
                     bEnemy = false;
                     bAlly = true;
                     BattleUI.Instance.ToggleActionBox();
+                    Range.GetRange(unit, unit.Move, RangeType.WALK);
                     break;
 
 

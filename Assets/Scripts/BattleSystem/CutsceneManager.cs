@@ -80,10 +80,10 @@ public class CutsceneManager : MonoBehaviour
 
     private void SINGLE()
     {
-        
 
-        SpriteRenderer PlayerSprite = player.gameObject.GetComponent<SpriteRenderer>();
-        SpriteRenderer EnemySprite = target.gameObject.GetComponent<SpriteRenderer>();
+
+        SpriteRenderer PlayerSprite = player.spriteRenderer;
+        SpriteRenderer EnemySprite = target.spriteRenderer;
         CutscenePlayer.GetComponent<SpriteRenderer>().sprite = PlayerSprite.sprite;
         CutsceneEnemy.GetComponent<SpriteRenderer>().sprite = EnemySprite.sprite;
 

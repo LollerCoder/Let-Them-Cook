@@ -42,7 +42,7 @@ public class UnitAttackActions : MonoBehaviour {
             }
             else {
                 BattleUI.Instance.UpdateButtonState(j, true);
-                Debug.Log(j);
+                //Debug.Log(j);
             }
         }
     }
@@ -107,8 +107,9 @@ public class UnitAttackActions : MonoBehaviour {
 
     public static void UnHighlightUnitTiles(List<Unit> attackables) {
         foreach (Unit unit in attackables) {
-            //unit.InRange = false;
-            unit.Tile.UnHighlightTile();
+            unit.InRange = false;
+            unit.Tile.UnHighlightTargetTile();
+
         }
     }
 
@@ -131,15 +132,15 @@ public class UnitAttackActions : MonoBehaviour {
         EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.ENEMY_FOCUS, param);
     }
     private static void GetUnitsInRange(Skill skill, Unit unit, int index) { // Function that determines the skill type to pick the appropriate range and target selection
-        
-        Range.GetRange(unit, skill.SkillRange, skill.SKILLTYPE.ToString()); // change this to base on the actual range
-        
+               
         switch (skill.SKILLTYPE) { 
             case ESkillType.BASIC:
             case ESkillType.AOE:
+                Range.GetRange(unit, skill.SkillRange, RangeType.ATTACK);
                 UpdateAttackableUnits(index);
                 break;
             case ESkillType.HEAL:
+                Range.GetRange(unit, skill.SkillRange, RangeType.HEAL);
                 UpdateSelectableAllies(index);
                 break;
             default: break;

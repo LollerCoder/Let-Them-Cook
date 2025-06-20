@@ -118,6 +118,7 @@ public class BattleUI : MonoBehaviour {
     }
 
     public void WaitButton() {
+        Range.UnHighlightTiles();
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
     }
 
@@ -260,7 +261,8 @@ public class BattleUI : MonoBehaviour {
 
     private void AttackState(int num) {
         if (UnitActionManager.Instance.GetFirstUnit() is Unit unit) {
-            if (UnitActionManager.Instance.numAttack > 0) { // reset skill highlighted tiles
+            if (UnitActionManager.Instance.numAttack >= 0) { // reset skill highlighted tiles
+                //Debug.Log("NUM"+UnitActionManager.Instance.numAttack);
                 UnitAttackActions.UnHighlightUnitTiles(UnitAttackActions.Attackables[UnitActionManager.Instance.numAttack]);
             }
 
@@ -276,6 +278,7 @@ public class BattleUI : MonoBehaviour {
                     UnitActionManager.Instance.numAttack = -1;  // default value (no skill is selected)
                     EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
 
+                    UnitAttackActions.UnHighlightUnitTiles(UnitAttackActions.Attackables[num]);
                     this.Attacks[num].GetComponent<Image>().sprite = SkillDatabase.Instance.findSkill(unit.SKILLLIST[num]).defaultIcon; // skills
                     UnitActions.HideInRangeHPBar(num);
                     return;
@@ -291,6 +294,8 @@ public class BattleUI : MonoBehaviour {
                 this.attackNum[num] = true;
                 UnitActionManager.Instance.OnAttack = true;
                 UnitActionManager.Instance.numAttack = num;
+
+                UnitAttackActions.ShowUnitsInSkillRange(num, unit);
 
                 UnitAttackActions.CycleEnemy(num, 0);
 

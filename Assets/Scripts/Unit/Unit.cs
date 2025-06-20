@@ -9,7 +9,7 @@ using UnityEngine.UI;
 [Serializable]
 public abstract class Unit : MonoBehaviour, ITurnTaker {
 
-    public SpriteRenderer holder;
+    public SpriteRenderer spriteRenderer;
     public float Speed { get; set; }
     public Sprite Sprite { get; set; }
 
@@ -554,8 +554,8 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         easeSlide.value = hp;
 
         //this.Sprite = this.GetComponentInChildren<SpriteRenderer>().sprite;
-        
-        this.Sprite = this.holder.sprite;
+
+        this.Sprite = this.spriteRenderer.sprite;
 
         UnitActionManager.Instance.UnitList.Add(this);
     }
