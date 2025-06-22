@@ -52,7 +52,7 @@ public class TileHover : MonoBehaviour {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        int ignoreLayer = ~LayerMask.GetMask("Units"); // ignore the unit layer
+        int ignoreLayer = ~LayerMask.GetMask("Units", "Border"); // ignore the unit layer
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, ignoreLayer)) {
             hitTile = hit.collider.gameObject;

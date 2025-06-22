@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
@@ -202,14 +203,20 @@ public class CameraMovement : MonoBehaviour
                 right.y = 0;
                 moveDir += right.normalized;
             }
-            this.cam.transform.Translate(moveDir.normalized * speed, Space.World);
+
+            float checkDistance = speed + 0.1f;
+
+            if (!Physics.Raycast(this.cam.transform.position, moveDir.normalized, checkDistance, LayerMask.GetMask("Border"))) {
+                this.cam.transform.Translate(moveDir.normalized * speed, Space.World);
+            }
+            //this.cam.transform.Translate(moveDir.normalized * speed, Space.World);
 
         }
     }
     private void AdjustHeightToTerrain() {
         Ray ray = new Ray(this.cam.transform.position, Vector3.down);
         //Debug.DrawRay(this.transform.position, Vector3.down * 1000f, Color.red, 5f);
-        if (Physics.Raycast(ray, out RaycastHit hit, 20f, LayerMask.GetMask("Tiles"))) {
+        if (Physics.Raycast(ray, out RaycastHit hit, 20f, LayerMask.GetMask("Tiles", "Border"))) {
             float targetY = hit.point.y + this.heightOffset;
             Vector3 pos = cam.transform.position;
             pos.y = Mathf.Lerp(pos.y, targetY, Time.deltaTime * 5.0f);
@@ -217,7 +224,6 @@ public class CameraMovement : MonoBehaviour
             //Debug.Log(hit.point.y);
         }
     }
-
     private void battleCutsceneCamMove()
     {
         GameObject battleCutscene = GameObject.FindWithTag("BattleCutscene");

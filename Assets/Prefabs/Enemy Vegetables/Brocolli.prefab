@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 58333245
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 2032385731, guid: 20882f8cc8cc50a4f97060577be1b912, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -121,9 +121,11 @@ GameObject:
   - component: {fileID: 5145978829346073834}
   - component: {fileID: 9220422037435779797}
   - component: {fileID: -842071040329486358}
+  - component: {fileID: 6835314755832079259}
+  - component: {fileID: 1659417049413063693}
   m_Layer: 0
   m_Name: Brocolli
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,7 +197,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 601992361995793116}
   hpBar: {fileID: 987084643209834741}
   ingredientType: 0
-  type: 0
+  type: 1
   charName: 
   atk: 0
   hp: 0
@@ -207,6 +209,47 @@ MonoBehaviour:
   BufController: {fileID: 3258688762731242823}
   DebufController: {fileID: 3848176966163297478}
   effects: []
+--- !u!114 &6835314755832079259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6826841743163241225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de30115eb020cf4d90a7db6ff14083b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: 'Brocolli '
+  message2: 
+--- !u!54 &1659417049413063693
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6826841743163241225}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &628814814362855714
 PrefabInstance:
   m_ObjectHideFlags: 0
