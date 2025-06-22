@@ -414,7 +414,7 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         //doing effect actions
         this.AfterDeathEffects();
 
-        this.GetComponent<Animator>().enabled = false;
+        this.animator.enabled = false;
         this.gameObject.SetActive(false);
         this.Tile.isWalkable = true;
 
