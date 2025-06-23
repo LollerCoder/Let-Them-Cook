@@ -19,8 +19,8 @@ public class PlayerWASDMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myAnimator = GetComponent<Animator>();
-        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        myAnimator = GetComponentInChildren<Animator>();
+        mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myrigidbody = GetComponent<Rigidbody>();
 
@@ -88,6 +88,8 @@ public class PlayerWASDMovement : MonoBehaviour
         //moving
         Vector3 PlayerVelocity = new Vector3(moveInput.x * runSpeed, 0, moveInput.y * runSpeed);
         myrigidbody.velocity = PlayerVelocity;
+        //this.gameObject.transform.position += PlayerVelocity;
+        //Debug.Log("Velocitty: " + PlayerVelocity);
 
         //flip
         if (moveInput.x == -1) mySpriteRenderer.flipX = true;
