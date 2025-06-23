@@ -18,6 +18,7 @@ public class Level3Objective : MonoBehaviour
     void Start()
     {
         EventBroadcaster.Instance.AddObserver(EventNames.Level3_Objectives.WOKE_UP, this.SpawnEnemies);
+        EventBroadcaster.Instance.AddObserver(EventNames.Level3_Objectives.KEY_FOUND, this.GiveAllyKey);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.ON_START, this.LateStart);
         
     }
@@ -52,5 +53,12 @@ public class Level3Objective : MonoBehaviour
                 effectsAdded
                 );
         }
+    }
+
+    public void GiveAllyKey(Parameters param)
+    {
+        Unit enemyHolder = param.GetUnitExtra("Enemy Keyholder");
+        Unit unit2Give = UnitActionManager.Instance.GetClosestUnit(enemyHolder, EUnitType.Enemy);
+        unit2Give.AddEffect(new KeyHolder(999, enemyHolder));
     }
 }

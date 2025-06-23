@@ -20,7 +20,7 @@ public class Asleep : Effect
         if (unitAffected.HP < this.initHealth)
         {
             EventBroadcaster.Instance.PostEvent(EventNames.Level3_Objectives.WOKE_UP);
-            this.Duration = 0;
+            this.Duration = 1;
         }
         else
         {

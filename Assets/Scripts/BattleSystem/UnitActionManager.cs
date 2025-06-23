@@ -309,6 +309,33 @@ public class UnitActionManager : MonoBehaviour
         }
 
     }
+
+    //getting closest unit to
+    public Unit GetClosestUnit(Unit origin, EUnitType type)
+    {
+        Unit closest = null;
+        float minDistance = Mathf.Infinity;
+        Vector3 origPos = origin.transform.position;
+
+        foreach (Unit u in this._turnOrder)
+        {
+            Debug.Log("CURRENT UNIT TO CHECK " + u);
+            if (origin == u || u.Type == type) continue;
+
+            float curDistance = Vector3.Distance(origPos, u.transform.position);
+            Debug.Log("Distance: " + curDistance);
+            if (curDistance < minDistance)
+            {
+                Debug.Log("UPDATING CLOSEST: " + u + " distance: " + curDistance);
+                minDistance = curDistance;
+                closest = u;
+            }
+        }
+
+        Debug.Log("CLOSEST UNIT: " + closest);
+        return closest;
+    }
+
     public void OnStart() {
         this.DecideTurnOrder();
         UnitActions.AssignUnitTile();
