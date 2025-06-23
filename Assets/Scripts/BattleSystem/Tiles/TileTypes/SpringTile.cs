@@ -25,6 +25,7 @@ public class SpringTile : Tile
         //}
         unitToLaunch = unit;
         unitToLaunch.Tile = Location1;
+        unit.OnSpring(true);
 
     }
 
@@ -35,6 +36,7 @@ public class SpringTile : Tile
             if(unitToLaunch == UnitActionManager.Instance.GetFirstUnit() as Unit)
             {
                 unitToLaunch.gameObject.transform.position = Location1.transform.position;
+                unitToLaunch = null;
             }
             
         }

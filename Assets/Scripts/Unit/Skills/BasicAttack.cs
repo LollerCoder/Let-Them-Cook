@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.UI.Image;
  
 public class BasicAttack : Skill
 {
@@ -14,6 +13,9 @@ public class BasicAttack : Skill
         this.skillType = ESkillType.BASIC;
 
         this.skillRange = 1;
+
+        this.defaultIcon = Resources.Load<Sprite>("Skills/basicAttackDefault");
+        this.highlightedIcon = Resources.Load<Sprite>("Skills/basicAttackHighlighted");
     }
 
     public override void  SkillAction(Unit target, Unit origin)

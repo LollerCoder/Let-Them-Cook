@@ -39,8 +39,8 @@ public class TileHover : MonoBehaviour {
                     UnitActions.bGoal = true;
                     UnitActions.TileTapped(hitTile.GetComponent<Tile>());
                 }
-                Debug.Log("Hit tile: " + hitTile);
-                Debug.Log("On Hit tile: " + OnHitTile());
+                //Debug.Log("Hit tile: " + hitTile);
+                //Debug.Log("On Hit tile: " + OnHitTile());
 
             }
         }
@@ -52,7 +52,7 @@ public class TileHover : MonoBehaviour {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        int ignoreLayer = ~LayerMask.GetMask("Units"); // ignore the unit layer
+        int ignoreLayer = ~LayerMask.GetMask("Units", "Border"); // ignore the unit layer
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, ignoreLayer)) {
             hitTile = hit.collider.gameObject;

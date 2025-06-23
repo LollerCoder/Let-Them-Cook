@@ -9,6 +9,7 @@ using UnityEngine.UI;
 [Serializable]
 public abstract class Unit : MonoBehaviour, ITurnTaker {
 
+    public SpriteRenderer spriteRenderer;
     public float Speed { get; set; }
     public Sprite Sprite { get; set; }
 
@@ -154,10 +155,7 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         set { this.move = value; }
     }
 
-
-
-
-
+    [SerializeField]
     protected Animator animator;
 
     protected bool defend = false;
@@ -402,6 +400,13 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         }
     }
 
+    public void OnSpring(bool value) {
+        if (this.animator != null) {
+            Debug.Log("sprin");
+            this.animator.SetTrigger("Spring");
+        }
+    }
+
     private void HandleDeath()
     {
         DroppedVegetableManager.Instance.CreateDropVegetable(this);
@@ -409,7 +414,7 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         //doing effect actions
         this.AfterDeathEffects();
 
-        this.GetComponent<Animator>().enabled = false;
+        this.animator.enabled = false;
         this.gameObject.SetActive(false);
         this.Tile.isWalkable = true;
 
@@ -530,7 +535,7 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.DEBUFF_HIDE, this.DebuffArrowHide);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.BUFF_SHOW, this.BuffArrowHide);
 
-        this.animator = this.GetComponent<Animator>();
+        //this.animator = this.GetComponentInChildren<Animator>();
 
         if (this.type == EUnitType.Ally)
         {
@@ -548,7 +553,9 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         easeSlide.maxValue = this.maxhp;
         easeSlide.value = hp;
 
-        this.Sprite = this.GetComponent<SpriteRenderer>().sprite;
+        //this.Sprite = this.GetComponentInChildren<SpriteRenderer>().sprite;
+
+        this.Sprite = this.spriteRenderer.sprite;
 
         UnitActionManager.Instance.UnitList.Add(this);
     }

@@ -25,6 +25,7 @@ public class HostageGoalTile : Tile
     public void ShowArrow()
     {
         this.arrow.SetActive(true);
+        EventBroadcaster.Instance.PostEvent(EventNames.HostageRescue_Events.ARROW_SHOWED);
     }
 
     public void HideArrow()
@@ -34,7 +35,7 @@ public class HostageGoalTile : Tile
 
     public override void ApplyEffect(Unit unit)
     {
-        if (unit.GetEffect("Captured_Hostage").EffectName == null) return;
+        if (unit.GetEffect("Captured_Hostage") == null) return;
 
         Parameters param = new Parameters();
 

@@ -5,13 +5,18 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 /*to be added in the Allies parent*/
 public class UnitManager : MonoBehaviour
 {
     public static UnitManager Instance;
 
+    public bool bTomato = false;
+
+    public int UnitCounter = 0;
+
     private GameObject unitParent;
-    public GameObject carrotTemplate, garlicTemplate /*will add more templates when assets are done*/;
+    public GameObject tomatoTemplate, garlicTemplate /*will add more templates when assets are done*/;
     // Start is called before the first frame update
 
     private void Awake()
@@ -23,19 +28,34 @@ public class UnitManager : MonoBehaviour
     void Start()
     {
         unitParent = this.gameObject;
-        manageParty();
     }
 
-    public void manageParty()
+    public void manageParty(List<Tile> tiles)//, List<Unit> unitSpawn)
     {
+        Debug.Log("Tomato is " + bTomato);
         //what level number is the player at right now?
         int levelNum = int.Parse(SceneManager.GetActiveScene().name.Split("-")[1]);
-        
 
-        //if (levelNum >= 1) addUnit("Carrot", carrotTemplate, new Vector3(3,0.5f,4));
+
+        if (levelNum >= 1 && bTomato)
+        {
+            Debug.Log("Tomato is in the list na"); 
+            addUnit("Tomato", tomatoTemplate, tiles[UnitCounter], EUnitType.Ally, new List<Effect>());
+            bTomato = false;
+            UnitCounter++;
+        }
+
+
+
+        // for (int index = 0; index <= unitSpawn.Count; index++)
+        // {
+
+        //     addUnit("Ally", tomatoTemplate, tiles[index], EUnitType.Ally, new List<Effect>());
+        //    //unitSpawn[index] = tiles[0]
+        // }
 
         /*for testing pruposes*/
-       //if (levelNum >= 1) addUnit("Garlic", garlicTemplate, new Vector3(4,0.5f,4));
+        //if (levelNum >= 1) addUnit("Garlic", garlicTemplate, new Vector3(4,0.5f,4));
 
         /*Will uncomment when we have the assets for them*/
         // else if (levelNum >= 3) addUnit("Chili", new Vector3(3,0.5f,4));
@@ -46,13 +66,33 @@ public class UnitManager : MonoBehaviour
         // else if (levelNum >= 13) addUnit("Tomato", new Vector3(5,0.5f,4));
     }
 
+
+    // public void addUnit(string name, GameObject template, Vector3 tile_spawn_loc, EUnitType type, List<Effect> effects)
+    // {
+    //     GameObject unitGO = CreateUnitGameObject(name,
+    //         template,
+    //         tile_spawn_loc);
+
+    //     //unitGO.transform.Translate(0, 0.25f, 0);
+
+    //     Unit unit = unitGO.GetComponent<Unit>();
+    //     unit.Type = type;
+    //     unit.AddEffects(effects);
+
+    //     //assigning the tile
+    //     unit.Tile = TileMapManager.Instance.TileMap[new Vector2Int((int)tile_spawn_loc.x, (int)tile_spawn_loc.z)];
+
+    //     this.addUnitToList(unit.GetComponent<Unit>());
+    // }
+
+
     public void addUnit(string name, GameObject template, Tile tile_spawn_loc, EUnitType type, List<Effect> effects)
     {
         GameObject unitGO = CreateUnitGameObject(name,
             template,
             tile_spawn_loc.gameObject.transform.position);
 
-        //unitGO.transform.Translate(0, 0.25f, 0);
+        unitGO.transform.Translate(0, 0.25f, 0);
 
         Unit unit = unitGO.GetComponent<Unit>();
         unit.Type = type;
@@ -75,7 +115,7 @@ public class UnitManager : MonoBehaviour
 
         unit.SetActive(true);
 
-        return unit; 
+        return unit;
     }
 
     private void addUnitToList(Unit unit)
@@ -87,4 +127,7 @@ public class UnitManager : MonoBehaviour
         UnitActionManager.Instance.UnitList.Add(unit.GetComponent<Unit>());
         UnitActionManager.Instance.DecideTurnOrder();
     }
+
+
+
 }

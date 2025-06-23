@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
 public class CameraMovement : MonoBehaviour
 {    //https://www.youtube.com/watch?v=rDJOilo4Xrg&t=316s
+
+    [Range(1, 200)]
+    public int cameraSensitivity = 100;
 
     private Vector3 previousPosition;
     private Camera cam;
@@ -18,15 +22,14 @@ public class CameraMovement : MonoBehaviour
     public const string POS = "POS";
 
     private bool reset = false;
+    [SerializeField]
     private Vector3 targetPosition;
 
     private Vector3 previousCamPos;
     private Quaternion previousCamRot;
 
-    [SerializeField]
+    [SerializeField, Range(4, 8)]
     private float heightOffset; // height above the tiles
-    [SerializeField]
-    private LayerMask tileLayer; // layer of the tiles for raycast detection
 
     void Start()
     {
@@ -43,21 +46,32 @@ public class CameraMovement : MonoBehaviour
         this.CameraMove();
         this.CameraLook();
 
-        if (Input.GetKeyUp(KeyCode.C) && !UnitActionManager.Instance.OnAttack) {
+        if (Input.GetKeyUp(KeyCode.C) /*&& !UnitActionManager.Instance.OnAttack*/) {
             this.ResetPosition();
         }
-        if (Input.GetKeyUp(KeyCode.Q) && UnitActionManager.Instance.numAttack >= 0) {
-            UnitAttackActions.CycleEnemy(UnitActionManager.Instance.numAttack, 0); // 0 for Q/Left
+        if (Input.GetKeyUp(KeyCode.E) && this.heightOffset < 8) {
+            this.heightOffset++;
         }
-        if (Input.GetKeyUp(KeyCode.E) && UnitActionManager.Instance.numAttack >= 0) {
-            UnitAttackActions.CycleEnemy(UnitActionManager.Instance.numAttack, 1); // 1 for E/Right
+        if (Input.GetKeyUp(KeyCode.Q) && this.heightOffset > 4) {
+            this.heightOffset--;
         }
+        //if (Input.GetKeyUp(KeyCode.Q) && UnitActionManager.Instance.numAttack >= 0) {
+        //    UnitAttackActions.CycleEnemy(UnitActionManager.Instance.numAttack, 0); // 0 for Q/Left
+
+        //}
+        //if (Input.GetKeyUp(KeyCode.E) && UnitActionManager.Instance.numAttack >= 0) {
+        //    UnitAttackActions.CycleEnemy(UnitActionManager.Instance.numAttack, 1); // 1 for E/Right
+        //}
         if (this.reset) {
             this.cam.transform.position = Vector3.Lerp(this.cam.transform.position, this.targetPosition, Time.deltaTime * 10f);
-
-            if(Vector3.Distance(this.cam.transform.position, this.targetPosition) < 0.5f) {
+            Vector3 pos = this.cam.transform.position;
+            pos.y = Mathf.MoveTowards(this.cam.transform.position.y, this.targetPosition.y, Time.deltaTime * 10f);
+            this.cam.transform.position = pos;
+            if (Vector3.Distance(this.cam.transform.position, this.targetPosition) < 0.01f) {
+                this.cam.transform.position = this.targetPosition;
                 this.reset = false;
                 this.targetPosition = Vector3.zero;
+                //Debug.Log("STILL HERE");
             }
         }
         //if (Input.GetKeyUp(KeyCode.Escape))
@@ -68,8 +82,8 @@ public class CameraMovement : MonoBehaviour
 
     private void OnDestroy()
     {
-        //EventBroadcaster.Instance.RemoveObserver(EventNames.BattleCamera_Events.CURRENT_FOCUS);
-        //EventBroadcaster.Instance.RemoveObserver(EventNames.BattleCamera_Events.ENEMY_FOCUS);
+        EventBroadcaster.Instance.RemoveObserver(EventNames.BattleCamera_Events.CURRENT_FOCUS);
+        EventBroadcaster.Instance.RemoveObserver(EventNames.BattleCamera_Events.ENEMY_FOCUS);
     }
 
     private void EnemyPosition(Parameters param) {
@@ -93,37 +107,40 @@ public class CameraMovement : MonoBehaviour
         // override the rotationX with the new rotation so that it wont go back to the original rotation before the reset
         this.rotationX = cam.transform.localEulerAngles.x;
 
-        this.cam.fieldOfView = 71.0f; // reset to original FoV
+        //this.heightOffset = 6;
+
+        /*this.cam.fieldOfView = 71.0f; // reset to original FoV*/
     }
 
     private void ResetPosition() {
-        Debug.Log("Cam Reset");
+        //Debug.Log("Cam Reset");
+
         Vector3 characterPos = Vector3.zero;
 
         if (UnitActionManager.Instance.GetFirstUnit() is Unit unit) {
             characterPos = unit.transform.position;
+            characterPos.y = unit.Tile.transform.position.y;
         }
         if (UnitActionManager.Instance.GetFirstUnit() is SpecialUnits sUnit) {
             characterPos = sUnit.location.position;
         }
         Vector3 cameraPosition = characterPos;
 
-        cameraPosition.y = this.cam.transform.position.y;
+        cameraPosition.y = characterPos.y + heightOffset;
 
         this.reset = true;
         this.targetPosition = cameraPosition;
         this.targetPosition.z = cameraPosition.z - 2;
 
         // set the camera's x rotation to 89 instead of exactly looking at the character (90)
+
         Quaternion targetRotation = Quaternion.Euler(63f, 0f, 0f);
         this.cam.transform.rotation = targetRotation;
-
-        //this.cam.transform.LookAt(characterPos);
 
         // override the rotationX with the new rotation so that it wont go back to the original rotation before the reset
         this.rotationX = cam.transform.localEulerAngles.x;
 
-        this.cam.fieldOfView = 71.0f; // reset to original FoV
+        //this.cam.fieldOfView = 71.0f; // reset to original FoV
     }
 
     private void CameraLook() {
@@ -137,11 +154,11 @@ public class CameraMovement : MonoBehaviour
 
             //cam.transform.position = transform.position;
 
-            rotationX += direction.y * 180;
+            rotationX += direction.y * this.cameraSensitivity;
             rotationX = Mathf.Clamp(rotationX, 36, 89);
 
             cam.transform.localEulerAngles = new Vector3(rotationX, cam.transform.localEulerAngles.y, cam.transform.localEulerAngles.z);
-            cam.transform.Rotate(new Vector3(0, 1, 0), -direction.x * 180, Space.World);
+            cam.transform.Rotate(new Vector3(0, 1, 0), -direction.x * this.cameraSensitivity, Space.World);
 
             previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
 
@@ -152,14 +169,16 @@ public class CameraMovement : MonoBehaviour
             //previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
         }
 
-        if (Input.mouseScrollDelta.y < 0 && cam.fieldOfView < 71) {
-            cam.fieldOfView += 1.0f;
+        if (Input.mouseScrollDelta.y < 0 && this.movementSpeed < 20) {
+            this.movementSpeed += 1.0f;
         }
-        if (Input.mouseScrollDelta.y > 0 && cam.fieldOfView > 29) {
-            cam.fieldOfView -= 1.0f;
+        if (Input.mouseScrollDelta.y > 0 && this.movementSpeed > 1) {
+            this.movementSpeed -= 1.0f;
         }
     }
     private void CameraMove() {
+        this.AdjustHeightToTerrain();
+
         float speed = Time.deltaTime * this.movementSpeed;
 
         if (!this.reset && !UnitActionManager.Instance.bEnemy) {
@@ -184,22 +203,27 @@ public class CameraMovement : MonoBehaviour
                 right.y = 0;
                 moveDir += right.normalized;
             }
-            this.cam.transform.Translate(moveDir.normalized * speed, Space.World);
+
+            float checkDistance = speed + 0.1f;
+
+            if (!Physics.Raycast(this.cam.transform.position, moveDir.normalized, checkDistance, LayerMask.GetMask("Border"))) {
+                this.cam.transform.Translate(moveDir.normalized * speed, Space.World);
+            }
+            //this.cam.transform.Translate(moveDir.normalized * speed, Space.World);
 
         }
-        this.AdjustHeightToTerrain();
     }
     private void AdjustHeightToTerrain() {
         Ray ray = new Ray(this.cam.transform.position, Vector3.down);
-
-        if (Physics.Raycast(ray, out RaycastHit hit, 100.0f, this.tileLayer)) {
+        //Debug.DrawRay(this.transform.position, Vector3.down * 1000f, Color.red, 5f);
+        if (Physics.Raycast(ray, out RaycastHit hit, 20f, LayerMask.GetMask("Tiles", "Border"))) {
             float targetY = hit.point.y + this.heightOffset;
             Vector3 pos = cam.transform.position;
             pos.y = Mathf.Lerp(pos.y, targetY, Time.deltaTime * 5.0f);
             cam.transform.position = pos;
+            //Debug.Log(hit.point.y);
         }
     }
-
     private void battleCutsceneCamMove()
     {
         GameObject battleCutscene = GameObject.FindWithTag("BattleCutscene");

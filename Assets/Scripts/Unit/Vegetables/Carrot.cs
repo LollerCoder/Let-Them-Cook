@@ -7,6 +7,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Carrot : Unit{
+    [Header("Customize Stat")]
+    [SerializeField]
+    private float spd = 3;
 
     private void Update()
     {
@@ -28,16 +31,15 @@ public class Carrot : Unit{
         //this.animator = this.GetComponent<Animator>();
 
         this.skillList.Add("Basic Attack");
-        this.skillList.Add("Circular Cut");
+        //this.skillList.Add("Circular Cut");
         this.skillList.Add("Photosynthesis");
 
         this.acc = 10;
-        this.Speed = 3;
+        this.Speed = this.spd;
         this.maxhp = 20;
         this.hp = this.maxhp;
         this.atk = 4;
         this.def = 1;
-
 
         //UnitActionManager.Instance.StoreUnit(this);
         //this.charName = "Carrot";
