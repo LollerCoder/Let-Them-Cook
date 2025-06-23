@@ -27,7 +27,12 @@ public class KeyHolder : Effect
 
     public override void AfterDeathAction(Unit unitAffected)
     {
-        Debug.Log("Key found!");
-        EventBroadcaster.Instance.PostEvent(EventNames.Level3_Objectives.KEY_FOUND);
+        //Debug.Log("Key found!");
+        if (unitAffected.Type == EUnitType.Enemy)
+        {
+            Parameters param = new Parameters();
+            param.PutExtra("Enemy Keyholder", unitAffected);
+            EventBroadcaster.Instance.PostEvent(EventNames.Level3_Objectives.KEY_FOUND, param);
+        }
     }
 }

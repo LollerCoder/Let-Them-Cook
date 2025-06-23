@@ -59,7 +59,7 @@ public class GoalTile : Tile
             EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
         }
 
-        if (this.goalMet)
+        if (unit.GetEffect("Key Holder") != null)
         {
             param.PutExtra("End_Text", "Key Obtained!");
             param.PutExtra("Ally_Win", false);
