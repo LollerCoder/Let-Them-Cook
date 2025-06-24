@@ -34,7 +34,11 @@ public class IntroVidHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            this._vidPlayer.Stop();
+            this.OnVideoEnd(this._vidPlayer);
+        }
     }
 
     public void PlayVid()

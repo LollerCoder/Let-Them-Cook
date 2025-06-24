@@ -6,27 +6,44 @@ using UnityEngine;
 public class PlayerWASDMovement : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float runSpeed = 10f;
+    [SerializeField]
+    public float RunSpeed = 10.0f;
+    private float _runSpeed;
 
     [Header("References")]
     Animator myAnimator;
     SpriteRenderer mySpriteRenderer;
     Vector2 moveInput;
     Rigidbody myrigidbody;
-    CapsuleCollider2D myBodyCollider;
-    BoxCollider2D myFeetCollider;
 
     // Start is called before the first frame update
     void Start()
     {
-        myAnimator = GetComponent<Animator>();
-        mySpriteRenderer = GetComponent<SpriteRenderer>();
-        myBodyCollider = GetComponent<CapsuleCollider2D>();
+        myAnimator = GetComponentInChildren<Animator>();
+        mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         myrigidbody = GetComponent<Rigidbody>();
+
+        if (myrigidbody == null) Debug.Log("Rigid body not found!");
+        else Debug.Log("Rigid body found");
+
+        if (myrigidbody.IsSleeping())
+        {
+            Debug.Log("Rigid body waking up!");
+            myrigidbody.WakeUp();
+        }
+        else
+        {
+            Debug.Log("Rigidbody already awake!");
+        }
+
 
         //animations
         myAnimator.SetBool("Turn", true);
         myAnimator.SetBool("Ally", true);
+
+        Debug.Log("Setting speed");
+        this._runSpeed = RunSpeed;
+
     }
 
     // Update is called once per frame
@@ -86,8 +103,10 @@ public class PlayerWASDMovement : MonoBehaviour
         moveInput = GetInput();
 
         //moving
-        Vector3 PlayerVelocity = new Vector3(moveInput.x * runSpeed, 0, moveInput.y * runSpeed);
+        Vector3 PlayerVelocity = new Vector3(moveInput.x * _runSpeed, 0, moveInput.y * _runSpeed);
         myrigidbody.velocity = PlayerVelocity;
+        //this.gameObject.transform.position += PlayerVelocity;
+        //Debug.Log("Velocitty: " + PlayerVelocity);
 
         //flip
         if (moveInput.x == -1) mySpriteRenderer.flipX = true;
@@ -100,6 +119,6 @@ public class PlayerWASDMovement : MonoBehaviour
 
     public void SetRunSpeed(float _speed)
     {
-        runSpeed = _speed;
+        _runSpeed = _speed;
     }
 }

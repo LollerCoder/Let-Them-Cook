@@ -537,14 +537,14 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
 
         //this.animator = this.GetComponentInChildren<Animator>();
 
-        if (this.type == EUnitType.Ally)
-        {
-            this.animator.SetBool("Ally", true);
-        }
-        if (this.type != EUnitType.Ally)
-        {
-            this.animator.SetBool("Ally", false);
-        }
+        //if (this.type == EUnitType.Ally)
+        //{
+        //    this.animator.SetBool("Ally", true);
+        //}
+        //if (this.type != EUnitType.Ally)
+        //{
+        //    this.animator.SetBool("Ally", false);
+        //}
 
         Slider hpSlide = this.hpBar.transform.Find("Slider").GetComponent<Slider>();
         hpSlide.maxValue = this.maxhp;
@@ -555,7 +555,7 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
 
         //this.Sprite = this.GetComponentInChildren<SpriteRenderer>().sprite;
 
-        this.Sprite = this.spriteRenderer.sprite;
+        //this.Sprite = this.spriteRenderer.sprite;
 
         UnitActionManager.Instance.UnitList.Add(this);
     }
