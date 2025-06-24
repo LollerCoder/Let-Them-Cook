@@ -1513,6 +1513,7 @@ Transform:
   - {fileID: 1831449450}
   - {fileID: 318042106}
   - {fileID: 1494122247}
+  - {fileID: 919698434}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &380895305
@@ -2384,10 +2385,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1661267291}
     m_Modifications:
-    - target: {fileID: 742051265592354550, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1088408925908182974, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
       propertyPath: m_Name
       value: Carrot (1)
@@ -3061,6 +3058,67 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1001 &849484367
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 380895304}
+    m_Modifications:
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6028644
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725434359469644863, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6826841743163241225, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_Name
+      value: Potato (Enemy) (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
 --- !u!1 &877470978
 GameObject:
   m_ObjectHideFlags: 0
@@ -3199,6 +3257,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1677340472}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!4 &919698434 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+  m_PrefabInstance: {fileID: 849484367}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1024391093
 GameObject:
   m_ObjectHideFlags: 0
@@ -3777,10 +3840,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1661267291}
     m_Modifications:
-    - target: {fileID: 742051265592354550, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1088408925908182974, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
       propertyPath: m_Name
       value: Carrot

@@ -99,6 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af77c3ae89978548ac6d12ace3b3784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  minVerticalAngle: -30
+  maxVerticalAngle: 20
 --- !u!1 &1537195852086935809
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +222,10 @@ PrefabInstance:
     - target: {fileID: 363432561203616215, guid: e36a319bdd348ac4d97b5025a9517795, type: 3}
       propertyPath: m_Name
       value: HealthBarPopL
+      objectReference: {fileID: 0}
+    - target: {fileID: 363432561203616215, guid: e36a319bdd348ac4d97b5025a9517795, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 513644568460780509, guid: e36a319bdd348ac4d97b5025a9517795, type: 3}
       propertyPath: m_PresetInfoIsWorld
