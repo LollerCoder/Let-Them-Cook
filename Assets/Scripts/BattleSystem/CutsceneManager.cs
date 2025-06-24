@@ -56,6 +56,7 @@ public class CutsceneManager : MonoBehaviour
 
     private void SETUP(Parameters param)
     {
+        CameraMovement.inCutscene = true;
         BattleUI.Instance.ToggleActionBox();
         BattleUI.Instance.ToggleTurnOrderUI();
         player = param.GetUnitExtra(currUNIT);
@@ -383,7 +384,6 @@ public class CutsceneManager : MonoBehaviour
 
     private void CutsceneEnd()
     {
-
         this.ResetCutscene();
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_END);

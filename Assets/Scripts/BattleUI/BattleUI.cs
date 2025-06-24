@@ -19,16 +19,13 @@ public class BattleUI : MonoBehaviour {
     [SerializeField]
     private GameObject turnOrderField;
 
-    [SerializeField]
-    private Image AttackBox;
-
     public List<Image> Turn;
 
     [SerializeField]
     private List<Image> BuffetContainers;
 
     [SerializeField]
-    private List<Button> Attacks; // buttons 
+    private List<SkillButton> Attacks; // buttons 
 
     [SerializeField]
     private Animator EatPickUpButtons;
@@ -45,7 +42,7 @@ public class BattleUI : MonoBehaviour {
     [SerializeField]
     private Button waitButton;
 
-   
+    private Animator anim_BattleUI;
     
 
     private Animator gameEndAnimator;
@@ -82,7 +79,7 @@ public class BattleUI : MonoBehaviour {
         //    Debug.Log("ERROR: UNITSTATS CANNOT BE FOUND (BATTLEUI.CS, START() )");
         //}
         this.gameEndAnimator = this.gameEndScreen.GetComponent<Animator>();
-
+        this.anim_BattleUI = this.GetComponent<Animator>();
         //EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX, this.ToggleActionBox);
         
     }
@@ -92,7 +89,7 @@ public class BattleUI : MonoBehaviour {
     }
     public void ToggleActionBox() {
         this.actionShow = !this.actionShow;
-        this.AttackBox.GetComponent<Animator>().SetBool("Show", this.actionShow);
+        this.anim_BattleUI.SetBool("PlayerActions", this.actionShow);
         this.ToggleWaitButton(this.actionShow);
     }
 
@@ -221,41 +218,47 @@ public class BattleUI : MonoBehaviour {
     private void AssignSprites(Unit unit) {   // also where gettng the name of the skills
         for (int i = 0; i < this.skillSlots.Length; i++) {
             if (this.skillSlots[i] == true) {
-                this.Attacks[i].GetComponentInChildren<Text>().text = unit.SKILLLIST[i];
-                this.Attacks[i].GetComponent<Image>().sprite = SkillDatabase.Instance.findSkill(unit.SKILLLIST[i]).defaultIcon;
+                Debug.Log(i);
+                this.Attacks[i].Text.text = unit.SKILLLIST[i];
+                this.Attacks[i].Image.sprite = SkillDatabase.Instance.findSkill(unit.SKILLLIST[i]).defaultIcon;
             }
         }
     }
-    public void UpdateButtonState(int i, bool active) {
+    public void UpdateButtonState(int i, bool active, Unit unit) {
         if (!active) {
+
             this.skillSlots[i] = false;
 
-            this.Attacks[i].GetComponentInParent<Image>().enabled = false;
+            this.Attacks[i].Button.interactable = false;
+            this.Attacks[i].Image.sprite = SkillDatabase.Instance.findSkill(unit.SKILLLIST[i]).defaultIcon;
 
-            Color color = this.Attacks[i].GetComponent<Image>().color;
+            //this.Attacks[i].GetComponentInParent<Image>().enabled = false;
 
-            this.BuffetContainers[i].sprite = lids[0];
+            ////Color color = this.Attacks[i].GetComponent<Image>().color;
 
-            color.r = 0.3f;
-            color.g = 0.3f;
-            color.b = 0.3f;
+            //this.BuffetContainers[i].sprite = lids[0];
 
-            this.Attacks[i].GetComponent<Image>().color = color;
+            //color.r = 0.3f;
+            //color.g = 0.3f;
+            //color.b = 0.3f;
+
+            //this.Attacks[i].GetComponent<Image>().color = color;
         }
         else{
             this.skillSlots[i] = true;
 
-            this.Attacks[i].GetComponentInParent<Image>().enabled = true;
+            this.Attacks[i].Button.interactable = true;
+            //this.Attacks[i].GetComponentInParent<Image>().enabled = true;
 
-            this.BuffetContainers[i].sprite = lids[1];
+            //this.BuffetContainers[i].sprite = lids[1];
 
-            Color color = this.Attacks[i].GetComponent<Image>().color;
+            //Color color = this.Attacks[i].GetComponent<Image>().color;
 
-            color.r = 1f;
-            color.g = 1f;
-            color.b = 1f;
+            //color.r = 1f;
+            //color.g = 1f;
+            //color.b = 1f;
 
-            this.Attacks[i].GetComponent<Image>().color = color;
+            //this.Attacks[i].GetComponent<Image>().color = color;
         }
     }
 
@@ -279,17 +282,17 @@ public class BattleUI : MonoBehaviour {
                     EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
 
                     UnitAttackActions.UnHighlightUnitTiles(UnitAttackActions.Attackables[num]);
-                    this.Attacks[num].GetComponent<Image>().sprite = SkillDatabase.Instance.findSkill(unit.SKILLLIST[num]).defaultIcon; // skills
+                    this.Attacks[num].Image.sprite = SkillDatabase.Instance.findSkill(unit.SKILLLIST[num]).defaultIcon; // skills
                     UnitActions.HideInRangeHPBar(num);
                     return;
                 }
 
                 for (int i = 0; i < this.attackNum.Length; i++) {   // reset everything
                     this.attackNum[i] = false;
-                    this.Attacks[i].GetComponent<Image>().sprite = SkillDatabase.Instance.findSkill(unit.SKILLLIST[i]).defaultIcon; // skills
+                    this.Attacks[i].Image.sprite = SkillDatabase.Instance.findSkill(unit.SKILLLIST[i]).defaultIcon; // skills
                 }
 
-                this.Attacks[num].GetComponent<Image>().sprite = SkillDatabase.Instance.findSkill(unit.SKILLLIST[num]).highlightedIcon;
+                this.Attacks[num].Image.sprite = SkillDatabase.Instance.findSkill(unit.SKILLLIST[num]).highlightedIcon;
 
                 this.attackNum[num] = true;
                 UnitActionManager.Instance.OnAttack = true;
@@ -311,20 +314,11 @@ public class BattleUI : MonoBehaviour {
         this.AttackState(i);
     }
 
-    public void OnBasicAttack() {
+    public void FirstSlot() {
         this.AttackState(0);
     }
-    public void OnSkill1() {
+    public void SecondSlot() {
         this.AttackState(1);
-    }
-    public void OnSkill2() {
-        this.AttackState(2);
-    }
-    public void OnSkill3() {
-        this.AttackState(3);
-    }
-    public void OnSkill4() { 
-        this.AttackState(4);
     }
 
     public void UpdateTurnOrder(List<ITurnTaker> unitOrder) {

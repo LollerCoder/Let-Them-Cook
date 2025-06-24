@@ -17,7 +17,9 @@ public class CameraMovement : MonoBehaviour
     private Camera cam;
     private float rotationX = 0f;
 
-    public float movementSpeed = 7.0f; 
+    public float Speed = 7.0f;
+    private float movementSpeed;
+    private float shiftSpeed;
     
     public const string POS = "POS";
 
@@ -31,6 +33,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField, Range(4, 8)]
     private float heightOffset; // height above the tiles
 
+    public static bool inCutscene = false;
     void Start()
     {
         cam = Camera.main;
@@ -38,22 +41,27 @@ public class CameraMovement : MonoBehaviour
         EventBroadcaster.Instance.AddObserver(EventNames.BattleCamera_Events.ENEMY_FOCUS, this.EnemyPosition);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_PLAY, this.battleCutsceneCamMove);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_END, this.battleCutsceneReset);
+
+        this.movementSpeed = this.Speed;
+        this.shiftSpeed = this.movementSpeed * 2f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.CameraMove();
-        this.CameraLook();
+        if (!inCutscene) {
+            this.CameraMove();
+            this.CameraLook();
+        }
 
         if (Input.GetKeyUp(KeyCode.C) /*&& !UnitActionManager.Instance.OnAttack*/) {
             this.ResetPosition();
         }
-        if (Input.GetKeyUp(KeyCode.E) && this.heightOffset < 8) {
-            this.heightOffset++;
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
+            this.movementSpeed = this.shiftSpeed;
         }
-        if (Input.GetKeyUp(KeyCode.Q) && this.heightOffset > 4) {
-            this.heightOffset--;
+        else if (Input.GetKeyUp(KeyCode.LeftShift)) {
+            this.movementSpeed = this.Speed;
         }
         //if (Input.GetKeyUp(KeyCode.Q) && UnitActionManager.Instance.numAttack >= 0) {
         //    UnitAttackActions.CycleEnemy(UnitActionManager.Instance.numAttack, 0); // 0 for Q/Left
@@ -169,11 +177,11 @@ public class CameraMovement : MonoBehaviour
             //previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
         }
 
-        if (Input.mouseScrollDelta.y < 0 && this.movementSpeed < 20) {
-            this.movementSpeed += 1.0f;
+        if (Input.mouseScrollDelta.y > 0 && this.heightOffset < 8) {
+            this.heightOffset++;
         }
-        if (Input.mouseScrollDelta.y > 0 && this.movementSpeed > 1) {
-            this.movementSpeed -= 1.0f;
+        if (Input.mouseScrollDelta.y < 0 && this.heightOffset > 4) {
+            this.heightOffset--;
         }
     }
     private void CameraMove() {
