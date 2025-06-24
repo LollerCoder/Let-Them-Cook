@@ -51,12 +51,14 @@ public class PauseGame : MonoBehaviour
 
     public void OnRestartButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 
     public void OnLobbyButton()
     {
-        SceneManager.LoadScene("Lobby");
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("Lobby", LoadSceneMode.Single);
     }
 
     public void OnExitButton()
