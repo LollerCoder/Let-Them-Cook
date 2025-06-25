@@ -21,8 +21,7 @@ public class BattleUI : MonoBehaviour {
 
     public List<Image> Turn;
 
-    [SerializeField]
-    private List<Image> BuffetContainers;
+   
 
     [SerializeField]
     private List<SkillButton> Attacks; // buttons 
@@ -331,7 +330,7 @@ public class BattleUI : MonoBehaviour {
            GameObject newCard = Instantiate(turnOrderCard);
            this.Turn.Add(newCard.transform.Find("1").GetComponent<Image>());
            newCard.transform.SetParent(this.turnOrderField.transform, false);
-
+           newCard.transform.Find("1").SetParent(newCard.transform,false);
         }
 
        
@@ -350,6 +349,13 @@ public class BattleUI : MonoBehaviour {
                     cardCanvas.overrideSorting = true;
                     cardCanvas.sortingOrder = unitOrder.Count - curr_count + 100; //100 is an arbitrary number, its just the lazy man's way out to say 'render on top'
                     cardCanvas.sortingLayerName = "BattleUI";
+
+                    //transparency
+                    Color c = this.Turn[curr_count].gameObject.GetComponent<Image>().color;
+                    c.a = (100 - (10 * curr_count)) / 100.0f;
+                    this.Turn[curr_count].gameObject.transform.parent.GetComponent<Image>().color = c;
+                    this.Turn[curr_count].gameObject.GetComponent<Image>().color = c;
+                    Debug.Log(c.a);
                 }
             }
             else //make list repeat
@@ -363,6 +369,13 @@ public class BattleUI : MonoBehaviour {
                     cardCanvas.overrideSorting = true;
                     cardCanvas.sortingOrder = unitOrder.Count - curr_count + 100; //100 is an arbitrary number, its just the lazy man's way out to say 'render on top'
                     cardCanvas.sortingLayerName = "BattleUI";
+
+                    //transparency
+                    Color c = this.Turn[curr_count].gameObject.GetComponent<Image>().color;
+                    c.a = (100 - (10 * curr_count)) / 100.0f;
+                    this.Turn[curr_count].gameObject.transform.parent.GetComponent<Image>().color = c;
+                    this.Turn[curr_count].gameObject.GetComponent<Image>().color = c;
+                    Debug.Log(c.a);
                 }
                 //Canvas cardCanvas = this.Turn[curr_count].GetComponentInParent<Canvas>();
                 //if (cardCanvas != null)
