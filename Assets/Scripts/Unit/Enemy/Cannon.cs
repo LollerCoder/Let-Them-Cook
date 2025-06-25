@@ -12,6 +12,7 @@ public class Cannon : SpecialUnits {
     }
 
     public override void Action() {
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
         foreach (Tile tile in this.targetTiles) {
             Ray ray = new Ray(tile.transform.position, Vector3.up);
             Debug.DrawRay(tile.transform.position, Vector3.up, Color.red, 5f);
@@ -21,7 +22,6 @@ public class Cannon : SpecialUnits {
                 }
             }
         }
-
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
     }
 }
