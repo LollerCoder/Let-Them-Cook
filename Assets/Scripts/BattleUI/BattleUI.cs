@@ -344,18 +344,41 @@ public class BattleUI : MonoBehaviour {
             {
                 this.Turn[curr_count].sprite = unitOrder[curr_created].Sprite;
                 curr_created++;
+                Canvas cardCanvas = this.Turn[curr_count].GetComponentInParent<Canvas>();
+                if (cardCanvas != null)
+                {
+                    cardCanvas.overrideSorting = true;
+                    cardCanvas.sortingOrder = unitOrder.Count - curr_count + 100; //100 is an arbitrary number, its just the lazy man's way out to say 'render on top'
+                    cardCanvas.sortingLayerName = "BattleUI";
+                }
             }
-            else
+            else //make list repeat
             {
                 curr_created = 0;
                 this.Turn[curr_count].sprite = unitOrder[curr_created].Sprite;
                 curr_created++;
+                Canvas cardCanvas = this.Turn[curr_count].GetComponentInParent<Canvas>();
+                if (cardCanvas != null)
+                {
+                    cardCanvas.overrideSorting = true;
+                    cardCanvas.sortingOrder = unitOrder.Count - curr_count + 100; //100 is an arbitrary number, its just the lazy man's way out to say 'render on top'
+                    cardCanvas.sortingLayerName = "BattleUI";
+                }
+                //Canvas cardCanvas = this.Turn[curr_count].GetComponentInParent<Canvas>();
+                //if (cardCanvas != null)
+                //{
+                //    cardCanvas.overrideSorting = true;
+                //    cardCanvas.sortingOrder = unitOrder.Count - curr_created; ;
+                //    Debug.Log("IT EXISTS");
+                //}
             }
             curr_count++;
 
         } while(curr_count < max_queue);
         this.Turn[0].gameObject.transform.parent.transform.localScale = new Vector3(1.5f,1.5f,1.5f);
+        //this.Turn[0].transform.parent.SetAsLastSibling();
         
+       
 
     }
 
