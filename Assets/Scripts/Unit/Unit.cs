@@ -409,6 +409,8 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
 
     private void HandleDeath()
     {
+        EventBroadcaster.Instance.PostEvent(EventNames.Enemy_Events.ON_ENEMY_DEFEATED);
+
         DroppedVegetableManager.Instance.CreateDropVegetable(this);
 
         //doing effect actions
