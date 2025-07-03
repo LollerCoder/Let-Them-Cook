@@ -7,42 +7,45 @@ public class Billboarding : MonoBehaviour {
 
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField]
+    public Transform cameraTransform;
+
+    [Header("Angle of Tilt")]
+    [SerializeField] 
+    public float minVerticalAngle = -30f;
+    [SerializeField]
+    public float maxVerticalAngle = 20f;
+
     private void Start()
     {
-        this.spriteRenderer = GetComponent<SpriteRenderer>();
+        this.cameraTransform = Camera.main.transform;
 
-        //this.FixOffset();
+        this.spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update() {
-        // store the original position of the sprite
-        Vector3 originalPosition = transform.position;
+        //old
+        //Vector3 originalPosition = transform.position;
+        //transform.LookAt(transform.position + Camera.main.transform.forward);
+        //transform.position = new Vector3(originalPosition.x, this.transform.position.y, originalPosition.z);
 
-        //// get the direction from the camera
-        //this.cameraDir = Camera.main.transform.position - transform.position;
+        Vector3 directionToCamera = cameraTransform.position - transform.position;
 
-        //transform.rotation = Quaternion.LookRotation(cameraDir);
+        // Calculate horizontal rotation (Y-axis)
+        Vector3 flatDirection = new Vector3(directionToCamera.x, 0, directionToCamera.z);
+        Quaternion horizontalRotation = Quaternion.LookRotation(flatDirection);
 
-        //// keep the original position to remove any displacement
-        
+        // Apply horizontal rotation
+        transform.rotation = horizontalRotation;
 
-        transform.LookAt(transform.position + Camera.main.transform.forward);
-        transform.position = new Vector3(originalPosition.x,this.transform.position.y,originalPosition.z);
+        // Calculate vertical tilt angle
+        float verticalAngle = Vector3.SignedAngle(flatDirection, directionToCamera, transform.right);
 
-        
-    }
+        // Clamp vertical tilt
+        verticalAngle = Mathf.Clamp(verticalAngle, minVerticalAngle, maxVerticalAngle);
 
-    //fix the offset of the sprites of some units
-    private void FixOffset()
-    {
-        if (gameObject.tag != "Unit" ||
-            GetComponent<Potato>() != null ||
-            GetComponent<Carrot>() != null)
-        {
-            return;
-        }
-
-        spriteRenderer.transform.localPosition += new Vector3(0, 0.3f, 0);
+        // Apply vertical tilt
+        transform.rotation *= Quaternion.AngleAxis(verticalAngle, Vector3.right);
     }
 }
