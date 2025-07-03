@@ -846,6 +846,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4421890679549472937, guid: f35af92b3ee93404ea68f8a53e873ba1, type: 3}
+      propertyPath: move
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421890679549472937, guid: f35af92b3ee93404ea68f8a53e873ba1, type: 3}
       propertyPath: holder
       value: 
       objectReference: {fileID: 1496855889}
@@ -880,7 +884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraSensitivity: 100
-  movementSpeed: 6
+  Speed: 7
   targetPosition: {x: 0, y: 0, z: 0}
   heightOffset: 6
 --- !u!1 &507584448
