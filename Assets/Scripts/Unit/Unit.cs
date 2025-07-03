@@ -572,7 +572,7 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
 
     public void ChangeColor(Color _color)
     {
-        SpriteRenderer spriteAsset = this.GetComponent<SpriteRenderer>();
+        SpriteRenderer spriteAsset = this.GetComponentInChildren<SpriteRenderer>();
 
         //Debug.Log("Prev color: " + spriteAsset.color);
         spriteAsset.color = _color;
