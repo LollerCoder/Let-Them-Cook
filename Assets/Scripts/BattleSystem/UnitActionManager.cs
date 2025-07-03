@@ -337,6 +337,11 @@ public class UnitActionManager : MonoBehaviour
         
     }
 
+    public void OnAddUnitSelect()
+    {
+
+    }
+
     public void Awake()
     {
         if (Instance == null)

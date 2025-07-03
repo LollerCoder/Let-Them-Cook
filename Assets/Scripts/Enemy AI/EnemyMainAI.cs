@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace EnemyAI
@@ -30,14 +31,8 @@ namespace EnemyAI
 
             this._Units = units;
 
-            this._AllyUnits = units.FindAll(
-                delegate (Unit u)
-                {
-                    return u.Type == EUnitType.Ally;
-                }
-                );
-
         }
+
         private Unit GetClosestAllyUnit()
         {
             Unit targetUnit = null;
