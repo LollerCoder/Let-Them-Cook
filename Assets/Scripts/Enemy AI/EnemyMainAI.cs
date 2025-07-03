@@ -33,6 +33,11 @@ namespace EnemyAI
 
         }
 
+        public void UpdateAllyUnits(List<Unit> units)
+        {
+            this._AllyUnits = units;
+        }
+
         private Unit GetClosestAllyUnit()
         {
             Unit targetUnit = null;

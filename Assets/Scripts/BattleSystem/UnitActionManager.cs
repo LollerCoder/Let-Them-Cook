@@ -70,7 +70,7 @@ public class UnitActionManager : MonoBehaviour
         vignette = Camera.main.GetComponentInChildren<PostProcessVolume>();
         vignette.weight = 0.0f;
      
-
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.ADDED_UNITS_SELECTED, this.OnAddUnitSelect);
     }
     public void EnemyUnitAction()
     {
@@ -339,7 +339,9 @@ public class UnitActionManager : MonoBehaviour
 
     public void OnAddUnitSelect()
     {
-
+        this._enemyAI.UpdateAllyUnits(
+                _Units.FindAll(u => u.Type == EUnitType.Ally)
+            );
     }
 
     public void Awake()

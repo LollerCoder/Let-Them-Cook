@@ -388,6 +388,8 @@ public class CutsceneManager : MonoBehaviour
 
     private void CutsceneEnd()
     {
+        CameraMovement.inCutscene = false;
+
         this.ResetCutscene();
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_END);

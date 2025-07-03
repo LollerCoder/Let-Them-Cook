@@ -56,5 +56,7 @@ public class UnitSelectorScript : MonoBehaviour
         unitPanel.SetActive(false);
 
         UnitManager.Instance.manageParty(this.tileSpawn);
+
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.ADDED_UNITS_SELECTED);
     }
 }
