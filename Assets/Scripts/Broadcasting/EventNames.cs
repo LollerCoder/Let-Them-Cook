@@ -79,6 +79,9 @@ public class EventNames {
         public const string CUTSCENE_END = "CUTSCENE_END";
 		//AOE TOGGLE
 		public const string CUTSCENE_AOE = "CUTSCENE_AOE";
+
+		//UNIT SELECT
+		public const string ADDED_UNITS_SELECTED = "ADDED_UNITS_SELECTED";
     }
 
 

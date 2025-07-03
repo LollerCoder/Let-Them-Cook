@@ -535,16 +535,12 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.DEBUFF_HIDE, this.DebuffArrowHide);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.BUFF_SHOW, this.BuffArrowHide);
 
-        //this.animator = this.GetComponentInChildren<Animator>();
-
-        //if (this.type == EUnitType.Ally)
-        //{
-        //    this.animator.SetBool("Ally", true);
-        //}
-        //if (this.type != EUnitType.Ally)
-        //{
-        //    this.animator.SetBool("Ally", false);
-        //}
+        if (this.type == EUnitType.Ally) {
+            this.animator.SetBool("Ally", true);
+        }
+        if (this.type != EUnitType.Ally) {
+            this.animator.SetBool("Ally", false);
+        }
 
         Slider hpSlide = this.hpBar.transform.Find("Slider").GetComponent<Slider>();
         hpSlide.maxValue = this.maxhp;
@@ -553,11 +549,9 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         easeSlide.maxValue = this.maxhp;
         easeSlide.value = hp;
 
-        //this.Sprite = this.GetComponentInChildren<SpriteRenderer>().sprite;
-
-        //this.Sprite = this.spriteRenderer.sprite;
-
         UnitActionManager.Instance.UnitList.Add(this);
+
+        this.Sprite = this.spriteRenderer.sprite;
     }
 
 
@@ -578,7 +572,7 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
 
     public void ChangeColor(Color _color)
     {
-        SpriteRenderer spriteAsset = this.GetComponent<SpriteRenderer>();
+        SpriteRenderer spriteAsset = this.GetComponentInChildren<SpriteRenderer>();
 
         //Debug.Log("Prev color: " + spriteAsset.color);
         spriteAsset.color = _color;

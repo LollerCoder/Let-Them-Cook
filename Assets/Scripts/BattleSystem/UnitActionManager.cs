@@ -198,22 +198,11 @@ public class UnitActionManager : MonoBehaviour
         if (PathFinding.Path.Count > 0) {
             UnitActions.MoveCurrentUnit();
         }
-        else if ((PathFinding.Path.Count <= 0) && (this.GetFirstUnit() is Unit unit))
+        else if ((PathFinding.Path.Count <= 0))
         {
-            if (this.OnAttack && !this.hadAttacked) {
-                //UnitAttackActions.ShowUnitsInSkillRange(this.numAttack, unit);
-            }
-            else if (this.OnMove && !this.hadMoved)
-            {
-                //Range.GetRange(unit, unit.Move, "Move");
-            }
-            else if (this.OverEnemy && this.enemy != null)
+            if (this.OverEnemy && this.enemy != null)
             {
                 Range.GetRange(this.enemy, this.enemy.Speed, RangeType.WALK);
-            }
-            else
-            {
-                //Range.UnHighlightTiles();
             }
         }
     }
@@ -223,7 +212,7 @@ public class UnitActionManager : MonoBehaviour
     {
         BattleUI.Instance.UpdateTurnOrder(this.TurnOrder);
 
-        if (this.GetFirstUnit() is Unit unit) {
+        if (this.GetFirstUnit() is Unit unit) { 
             Parameters param = new Parameters();
             param.PutExtra(UNIT, unit);
 
@@ -346,6 +335,11 @@ public class UnitActionManager : MonoBehaviour
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.ON_START);  
         
+    }
+
+    public void OnAddUnitSelect()
+    {
+
     }
 
     public void Awake()

@@ -17,10 +17,12 @@ public class GameScript : MonoBehaviour
 
     public bool bData = false;
 
+    private int currLvl = 0;
+
     void Start()
     {
         parent = this.gameObject;
-       
+
     }
 
     public void SaveGame()
@@ -28,29 +30,35 @@ public class GameScript : MonoBehaviour
         FileSystem.saveProgress(this);
         Debug.Log(this.gameObject.name + " saved");
     }
-    
+
     public void LoadGame()
     {
         Debug.Log("LOAD GAME");
         for (int i = 0; i < parent.transform.childCount; i++)
         {
             levelList.Add(parent.transform.GetChild(i).gameObject.GetComponent<LevelSelector>());
-         }
+        }
 
-            GameData data = FileSystem.LoadProgress();
-            if (data == null) { Debug.Log("Save File not found"); return; }
-            else bData = true;
-                
-                
-            //load it back here
-            for (int i = 0; i < parent.transform.childCount; i++)
-            {
-                levelList[i].canLoad = data.finishedLvlList[i];
-                Debug.Log(parent.transform.GetChild(i).name + "    " + levelList[i].canLoad);
-            }
+        GameData data = FileSystem.LoadProgress();
+        if (data == null) { Debug.Log("Save File not found"); return; }
+        else bData = true;
 
 
-        
+        //load it back here
+        for (int i = 0; i < parent.transform.childCount; i++)
+        {
+            levelList[i].canLoad = data.finishedLvlList[i];
+            Debug.Log(parent.transform.GetChild(i).name + "    " + levelList[i].canLoad);
+            if (levelList[i].canLoad) currLvl = int.Parse(levelList[i].name.Split("-")[1]);
+        }
+
+
+
+    }
+
+    public int getCurrLvl()
+    {
+        return 0;//currLvl;
     }
 
 }

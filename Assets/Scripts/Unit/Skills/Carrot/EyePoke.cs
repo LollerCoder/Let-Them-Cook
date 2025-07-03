@@ -22,6 +22,9 @@ public class EyePoke : Skill
         this.cost = 50;
 
         this.skillData = new EffectInfo(duration, mod, stat);
+
+        this.defaultIcon = Resources.Load<Sprite>("Skills/skillDefault");
+        this.highlightedIcon = Resources.Load<Sprite>("Skills/skillHighlighted");
     }
 
 
