@@ -25,7 +25,7 @@ public class HoverManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y + 10.0f, Input.mousePosition.z);
+        transform.position = new Vector3(Input.mousePosition.x - 500.0f, Input.mousePosition.y + 10.0f, Input.mousePosition.z);
     }
 
     public void SetAndShowToolTip(string message, string message2)

@@ -15,8 +15,8 @@ public class TrueStrike : Skill
         this.skillType = ESkillType.BASIC;
         //for skill progressions
         this.cost = 30;
-        this.defaultIcon = Resources.Load<Sprite>("Sprites/Skills/trueStrikeDefault");
-        this.highlightedIcon = Resources.Load<Sprite>("Sprites/Skills/trueStrikeHighlighted");
+        this.defaultIcon = Resources.Load<Sprite>("Skills/trueStrikeDefault");
+        this.highlightedIcon = Resources.Load<Sprite>("Skills/trueStrikeHighlighted");
     }
 
 
