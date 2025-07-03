@@ -934,6 +934,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af77c3ae89978548ac6d12ace3b3784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  minVerticalAngle: -30
+  maxVerticalAngle: 20
 --- !u!114 &507584451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1777,6 +1780,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af77c3ae89978548ac6d12ace3b3784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  minVerticalAngle: -30
+  maxVerticalAngle: 20
 --- !u!114 &619455106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2102,6 +2108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af77c3ae89978548ac6d12ace3b3784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  minVerticalAngle: -30
+  maxVerticalAngle: 20
 --- !u!114 &843421249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2965,6 +2974,7 @@ GameObject:
   - component: {fileID: 1533642186}
   - component: {fileID: 1533642185}
   - component: {fileID: 1533642188}
+  - component: {fileID: 1533642189}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3108,6 +3118,15 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!45 &1533642189
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533642184}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 911f189b89bcb0148b80ca3791104826, type: 2}
 --- !u!1 &1658249481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3285,6 +3304,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af77c3ae89978548ac6d12ace3b3784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  minVerticalAngle: -30
+  maxVerticalAngle: 20
 --- !u!65 &1741617112
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18872,7 +18894,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -20570,7 +20592,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -23737,7 +23759,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -24765,7 +24787,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -24885,7 +24907,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -25230,7 +25252,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -27385,7 +27407,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -28462,7 +28484,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -28680,7 +28702,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -28892,7 +28914,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -29483,7 +29505,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -30478,7 +30500,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -31554,7 +31576,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -31969,7 +31991,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -33186,7 +33208,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -33854,7 +33876,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -34036,7 +34058,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -34620,7 +34642,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -34933,7 +34955,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -35309,7 +35331,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -36029,7 +36051,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -37203,7 +37225,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -37469,7 +37491,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -37706,7 +37728,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -38180,7 +38202,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -39091,7 +39113,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -39267,7 +39289,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -40691,7 +40713,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -41766,7 +41788,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -42349,7 +42371,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -42922,7 +42944,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -43193,7 +43215,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -44033,7 +44055,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -44724,7 +44746,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -45623,7 +45645,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -45743,7 +45765,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -45835,7 +45857,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -46146,7 +46168,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -46431,7 +46453,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -46633,7 +46655,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -46861,7 +46883,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -47119,7 +47141,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -47388,7 +47410,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -47838,7 +47860,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -48522,7 +48544,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -49323,7 +49345,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -49431,7 +49453,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -49742,7 +49764,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -50195,7 +50217,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -50478,7 +50500,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -50526,7 +50548,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -50610,7 +50632,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -50718,7 +50740,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -50943,7 +50965,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -51066,7 +51088,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -51222,7 +51244,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -51779,7 +51801,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -51834,7 +51856,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -52508,7 +52530,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -52984,7 +53006,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -53032,7 +53054,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -53175,7 +53197,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -53350,7 +53372,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -53930,7 +53952,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -54193,7 +54215,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -54381,7 +54403,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -54465,7 +54487,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -54513,7 +54535,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -54851,7 +54873,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -54961,7 +54983,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -55053,7 +55075,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -55256,7 +55278,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -55319,7 +55341,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -55581,7 +55603,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -55644,7 +55666,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -55927,7 +55949,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -56002,7 +56024,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -56154,7 +56176,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -56325,7 +56347,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -56472,7 +56494,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -57102,7 +57124,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -57269,7 +57291,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -57580,7 +57602,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -57842,7 +57864,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -58094,7 +58116,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -58424,7 +58446,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -58576,7 +58598,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -59138,7 +59160,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -59350,7 +59372,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -59458,7 +59480,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -59513,7 +59535,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -59880,7 +59902,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -59983,7 +60005,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -60203,7 +60225,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -60386,7 +60408,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -60470,7 +60492,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -60791,7 +60813,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -60959,7 +60981,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -61098,7 +61120,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -61326,7 +61348,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -62295,7 +62317,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -62403,7 +62425,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -62463,7 +62485,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -62547,7 +62569,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -62631,7 +62653,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -62890,7 +62912,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -63022,7 +63044,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -63185,7 +63207,7 @@ MonoBehaviour:
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 2
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
