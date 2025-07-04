@@ -2416,6 +2416,88 @@ MonoBehaviour:
   Speed: 7
   targetPosition: {x: 0, y: 0, z: 0}
   heightOffset: 8
+--- !u!1001 &452235445
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1327808607}
+    m_Modifications:
+    - target: {fileID: 1718084017035510944, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718084017035510944, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718084017035510944, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718084017035510944, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718084017035510944, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -400
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718084017035510944, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718084017035510944, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718084017035510944, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718084017035510944, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718084017035510944, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718084017035510944, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718084017035510944, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718084017035510944, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718084017035510944, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3629838486499983976, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+      propertyPath: targetObj
+      value: 
+      objectReference: {fileID: 5566081716669519343}
+    - target: {fileID: 8702855633063098508, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+      propertyPath: m_Name
+      value: Way Point Marker
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+--- !u!4 &452235446 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1718084017035510944, guid: 7c15b8c41b1bf4a42a6fc77114cbe210, type: 3}
+  m_PrefabInstance: {fileID: 452235445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &467314011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6214,6 +6296,11 @@ MonoBehaviour:
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
+--- !u!224 &1327808607 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3601496294334080019, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+  m_PrefabInstance: {fileID: 794716827822140901}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1337742124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13236,7 +13323,10 @@ PrefabInstance:
       objectReference: {fileID: 794716827822140904}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3601496294334080019, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 452235446}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
 --- !u!114 &794716827822140904 stripped
@@ -39170,7 +39260,7 @@ MonoBehaviour:
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
-  arrow_template: {fileID: 0}
+  arrow_template: {fileID: 5139888769839455279, guid: 72872137009d6fa489ae4b16a6b374bf, type: 3}
   goalMet: 0
 --- !u!23 &7202650618969791173
 MeshRenderer:
@@ -42103,7 +42193,7 @@ MonoBehaviour:
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
-  arrow_template: {fileID: 0}
+  arrow_template: {fileID: 5139888769839455279, guid: 72872137009d6fa489ae4b16a6b374bf, type: 3}
   goalMet: 0
 --- !u!4 &7783412541874119742
 Transform:
@@ -43435,7 +43525,7 @@ MonoBehaviour:
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
-  arrow_template: {fileID: 0}
+  arrow_template: {fileID: 5139888769839455279, guid: 72872137009d6fa489ae4b16a6b374bf, type: 3}
   goalMet: 0
 --- !u!1 &8054209472283478779
 GameObject:
@@ -45754,7 +45844,7 @@ MonoBehaviour:
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
-  arrow_template: {fileID: 0}
+  arrow_template: {fileID: 5139888769839455279, guid: 72872137009d6fa489ae4b16a6b374bf, type: 3}
   goalMet: 0
 --- !u!33 &8568069596935991465
 MeshFilter:
@@ -48872,7 +48962,7 @@ MonoBehaviour:
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
-  arrow_template: {fileID: 0}
+  arrow_template: {fileID: 5139888769839455279, guid: 72872137009d6fa489ae4b16a6b374bf, type: 3}
   goalMet: 0
 --- !u!4 &9157972775593949400
 Transform:
