@@ -11,7 +11,7 @@ public class Poison : Effect
         this.EffectName = "Poison";
     }
 
-    public override void EffectAction(Unit unitAffected)
+    public override void AfterTurnAction(Unit unitAffected)
     {
         //Debug.Log("Poison!");
         unitAffected.TakeDamage(this.damage, this.EffectMaker);

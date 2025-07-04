@@ -50,6 +50,8 @@ public class EventNames {
         public const string ON_UNIT_TURN_END = "ON_UNIT_TURN_END";
         public const string ON_ATTACK_START = "ON_ATTACK_START";
         public const string ON_ATTACK_END = "ON_ATTACK_END";
+        public const string ON_DESTINATION_REACHED = "ON_DESTINATION_REACHED";
+        public const string ON_ENEMY_END_TURN = "ON_ENEMY_END_TURN";
     }
   
     public class UIEvents {

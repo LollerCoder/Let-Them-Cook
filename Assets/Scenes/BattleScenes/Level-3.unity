@@ -606,25 +606,6 @@ MonoBehaviour:
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
---- !u!114 &117142231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7201705690692625930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!114 &121572054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3925,25 +3906,6 @@ MonoBehaviour:
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
---- !u!114 &797604370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8030364410037593596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!114 &798105653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4625,25 +4587,6 @@ MonoBehaviour:
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
---- !u!114 &894433347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5566081716669519343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -5598,25 +5541,6 @@ MonoBehaviour:
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
---- !u!114 &1167746411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8554018605913530528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!114 &1168894821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6392,25 +6316,6 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7282893486104665559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
---- !u!114 &1359780668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2580159441737688458}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
@@ -19835,8 +19740,8 @@ GameObject:
   - component: {fileID: 1943168089449226588}
   - component: {fileID: 2888676635650777127}
   - component: {fileID: 9151947715691460681}
-  - component: {fileID: 1359780668}
   - component: {fileID: 9151947715691460682}
+  - component: {fileID: 9151947715691460683}
   m_Layer: 9
   m_Name: Level3.138
   m_TagString: Untagged
@@ -31860,8 +31765,8 @@ GameObject:
   - component: {fileID: 1668189092739112881}
   - component: {fileID: 3201956159913331329}
   - component: {fileID: 7777810574137658528}
-  - component: {fileID: 894433347}
   - component: {fileID: 7777810574137658529}
+  - component: {fileID: 7777810574137658530}
   m_Layer: 9
   m_Name: Level3.140
   m_TagString: Untagged
@@ -39216,8 +39121,8 @@ GameObject:
   - component: {fileID: 1797295892446040594}
   - component: {fileID: 2477756187670135137}
   - component: {fileID: 4466110464977421892}
-  - component: {fileID: 117142231}
   - component: {fileID: 7201705690692625931}
+  - component: {fileID: 7201705690692625932}
   m_Layer: 9
   m_Name: Level3.162
   m_TagString: Untagged
@@ -39246,6 +39151,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.02, z: 0.01641396}
   m_Center: {x: -4.168635e-17, y: -9.313226e-10, z: -0.007999986}
+--- !u!114 &7201705690692625932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7201705690692625930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198b82d7a6f2e044683d6f57beff9fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  moveRange: {fileID: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+  arrow_template: {fileID: 0}
+  goalMet: 0
 --- !u!23 &7202650618969791173
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -42158,6 +42084,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.02, z: 0.01641396}
   m_Center: {x: -4.168635e-17, y: -9.313226e-10, z: -0.007999986}
+--- !u!114 &7777810574137658530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566081716669519343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198b82d7a6f2e044683d6f57beff9fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  moveRange: {fileID: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+  arrow_template: {fileID: 0}
+  goalMet: 0
 --- !u!4 &7783412541874119742
 Transform:
   m_ObjectHideFlags: 0
@@ -43308,8 +43255,8 @@ GameObject:
   - component: {fileID: 5160567549087003513}
   - component: {fileID: 3804860407963994110}
   - component: {fileID: 8048451220853138371}
-  - component: {fileID: 797604370}
   - component: {fileID: 8048451220853138372}
+  - component: {fileID: 8048451220853138373}
   m_Layer: 9
   m_Name: Level3.141
   m_TagString: Untagged
@@ -43469,6 +43416,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.02, z: 0.01641396}
   m_Center: {x: -4.168635e-17, y: -9.313226e-10, z: -0.007999986}
+--- !u!114 &8048451220853138373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8030364410037593596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198b82d7a6f2e044683d6f57beff9fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  moveRange: {fileID: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+  arrow_template: {fileID: 0}
+  goalMet: 0
 --- !u!1 &8054209472283478779
 GameObject:
   m_ObjectHideFlags: 0
@@ -45737,8 +45705,8 @@ GameObject:
   - component: {fileID: 6071246585183301172}
   - component: {fileID: 4380029663889541756}
   - component: {fileID: 3221107336524471509}
-  - component: {fileID: 1167746411}
   - component: {fileID: 8554018605913530529}
+  - component: {fileID: 8554018605913530530}
   m_Layer: 9
   m_Name: Level3.150
   m_TagString: Untagged
@@ -45767,6 +45735,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.02, z: 0.01641396}
   m_Center: {x: -4.168635e-17, y: -9.313226e-10, z: -0.007999986}
+--- !u!114 &8554018605913530530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8554018605913530528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198b82d7a6f2e044683d6f57beff9fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  moveRange: {fileID: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+  arrow_template: {fileID: 0}
+  goalMet: 0
 --- !u!33 &8568069596935991465
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -48864,6 +48853,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.02, z: 0.01641396}
   m_Center: {x: -4.168635e-17, y: -9.313226e-10, z: -0.007999986}
+--- !u!114 &9151947715691460683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2580159441737688458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198b82d7a6f2e044683d6f57beff9fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  moveRange: {fileID: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+  arrow_template: {fileID: 0}
+  goalMet: 0
 --- !u!4 &9157972775593949400
 Transform:
   m_ObjectHideFlags: 0

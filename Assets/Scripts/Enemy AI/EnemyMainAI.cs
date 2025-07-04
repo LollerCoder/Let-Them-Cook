@@ -110,6 +110,7 @@ namespace EnemyAI
                 this._CurrentEnemyUnit.GetEffect("Asleep") != null)
             {
                 Debug.Log("Skipping turn!");
+                EventBroadcaster.Instance.PostEvent(EventNames.UnitActionEvents.ON_ENEMY_END_TURN);
                 return path;
             }
 

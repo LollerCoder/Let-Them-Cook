@@ -71,6 +71,9 @@ public class UnitActionManager : MonoBehaviour
         vignette.weight = 0.0f;
      
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.ADDED_UNITS_SELECTED, this.OnAddUnitSelect);
+
+        EventBroadcaster.Instance.AddObserver(EventNames.UnitActionEvents.ON_DESTINATION_REACHED, this.EnemyAIEndTurn);
+        EventBroadcaster.Instance.AddObserver(EventNames.UnitActionEvents.ON_ENEMY_END_TURN, this.EnemyAIEndTurn);
     }
     public void EnemyUnitAction()
     {
@@ -91,13 +94,29 @@ public class UnitActionManager : MonoBehaviour
             PathFinding.Path = this._enemyAI.TakeTurn(enemy);
         }
 
-        this.StartCoroutine(this.EnemyWait(2.0f)); // fix this instead of doing a coroutine, do the next turn whenever the enemy has done all of their actions
+        //this.StartCoroutine(this.EnemyWait(2.0f)); // fix this instead of doing a coroutine, do the next turn whenever the enemy has done all of their actions
     }
     private IEnumerator EnemyWait(float seconds)
     {
         this.OnAttack = false;
         this.OnMove = false;
         yield return new WaitForSeconds(seconds);
+        PathFinding.Path.Clear();
+        EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.ENABLE_CLICKS);
+
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+    }
+
+    public void EnemyAIEndTurn()
+    {
+        if ((Unit)(this.TurnOrder[0]) != null)
+        {
+            Debug.Log("Type is unit");
+            if (((Unit)this.TurnOrder[0]).Type != EUnitType.Enemy) return;
+        }
+        this.OnAttack = false;
+        this.OnMove = false;
+
         PathFinding.Path.Clear();
         EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.ENABLE_CLICKS);
 
