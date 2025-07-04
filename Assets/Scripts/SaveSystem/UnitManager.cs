@@ -124,7 +124,7 @@ public class UnitManager : MonoBehaviour
         unit.transform.parent = unitParent.transform;
 
         //Add unit in the UnitList
-        UnitActionManager.Instance.UnitList.Add(unit.GetComponent<Unit>());
+        UnitActionManager.Instance.AddUnit(unit.GetComponent<Unit>());
         UnitActionManager.Instance.DecideTurnOrder();
     }
 
