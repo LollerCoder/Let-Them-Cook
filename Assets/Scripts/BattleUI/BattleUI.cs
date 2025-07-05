@@ -355,7 +355,6 @@ public class BattleUI : MonoBehaviour {
                     c.a = (100 - (10 * curr_count)) / 100.0f;
                     this.Turn[curr_count].gameObject.transform.parent.GetComponent<Image>().color = c;
                     this.Turn[curr_count].gameObject.GetComponent<Image>().color = c;
-                    Debug.Log(c.a);
                 }
             }
             else //make list repeat
@@ -375,7 +374,6 @@ public class BattleUI : MonoBehaviour {
                     c.a = (100 - (10 * curr_count)) / 100.0f;
                     this.Turn[curr_count].gameObject.transform.parent.GetComponent<Image>().color = c;
                     this.Turn[curr_count].gameObject.GetComponent<Image>().color = c;
-                    Debug.Log(c.a);
                 }
                 //Canvas cardCanvas = this.Turn[curr_count].GetComponentInParent<Canvas>();
                 //if (cardCanvas != null)
