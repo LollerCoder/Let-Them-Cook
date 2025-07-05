@@ -5,11 +5,20 @@ using UnityEngine.UIElements;
 
 public class ObjectiveChecker : MonoBehaviour
 {
-    [SerializeField] private List<MonoBehaviour> Objectives; // buttons 
+    [SerializeField] private List<Objective> Objectives; // buttons 
+    [SerializeField] private int totalLevelObjectives = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        foreach (Objective conv in Objectives)
+        {
+            if (!conv.getIfOptional())
+            {
+               totalLevelObjectives++;
+            }
+
+
+        }
     }
 
     // Update is called once per frame
@@ -21,21 +30,18 @@ public class ObjectiveChecker : MonoBehaviour
     void checkObjectives()
     {
         float count = 0;
-        foreach (MonoBehaviour conv in Objectives)
+        foreach (Objective conv in Objectives)
         {
-            if(conv is IObjective)
+            if (conv.getIfCleared() && !conv.getIfOptional())
             {
-                IObjective obj = (IObjective) conv;
-                if (obj.getIfCleared())
-                {
-                    count++;
-                }
+                count++;
             }
+            
             
         }
         
 
-        if (Objectives.Count == count)
+        if (totalLevelObjectives == count)
         {
             Parameters param = new Parameters();
             param.PutExtra("Level_Complete", true);

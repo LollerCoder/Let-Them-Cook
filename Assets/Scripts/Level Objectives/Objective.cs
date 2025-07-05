@@ -3,47 +3,67 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Objective : MonoBehaviour, IObjective
+public class Objective : MonoBehaviour
 {
-    [SerializeField] Toggle toggle;
-    [SerializeField] private string toggleMessage;
-    private Text toggleText;
-    private bool cleared = false;
+    [SerializeField] protected Toggle toggle;
+    [SerializeField] protected string toggleMessage;
+    [SerializeField] protected bool optional = false;
+
+    protected Text toggleText;
+    protected bool cleared = false;
+
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         this.toggle.interactable = false;
         this.toggle.isOn = false;
         this.toggleText = toggle.GetComponentInChildren<Text>();
         this.toggleText.text = toggleMessage;
+
+        if (optional)
+        {
+            Image toggleBG = toggle.GetComponentInChildren<Image>();
+            toggleBG.color = Color.green;
+            Vector3 pos = this.gameObject.transform.localPosition;
+            pos.x += 10;
+            this.gameObject.transform.localPosition = pos;
+
+
+            this.toggleText.text = "(Optional) " + toggleMessage;
+        }
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
-        this.clearCondition();
+        //this.clearCondition();
     }
 
-    
-    
-    public void clearCondition()
+
+
+    protected virtual void clearCondition()
     {
-        Unit someBS = UnitActionManager.Instance.GetFirstUnit() as Unit;
-        GameObject toCheck = someBS.gameObject;
-        if (toCheck.transform.position.x == 3 && toCheck.transform.position.z == 4)
-        {
-            toggle.isOn = true;
-            cleared = true;
-        }
+        //Unit someBS = UnitActionManager.Instance.GetFirstUnit() as Unit;
+        //GameObject toCheck = someBS.gameObject;
+        //if (toCheck.transform.position.x == 3 && toCheck.transform.position.z == 4)
+        //{
+        //    toggle.isOn = true;
+        //    cleared = true;
+        //}
 
     }
-    public void onConditionClear()
+    protected virtual void onConditionClear()
     {
-        
+
     }
 
-    public bool getIfCleared()
+    public virtual bool getIfCleared()
     {
         return cleared;
+    }
+
+    public virtual bool getIfOptional()
+    {
+        return optional;
     }
 }

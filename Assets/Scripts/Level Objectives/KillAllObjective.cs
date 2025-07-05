@@ -3,27 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class KillAllObjective : MonoBehaviour , IObjective
+public class KillAllObjective : Objective
 {
-    [SerializeField] Toggle toggle;
-    [SerializeField] private string toggleMessage;
-    private Text toggleText;
+ 
     private int _EnemyNums;
 
-    private bool cleared = false;
+  
 
-    public bool Cleared { get { return cleared; } }
+   
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
+        base.Start();
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.ON_START, this.LateStart);
         EventBroadcaster.Instance.AddObserver(EventNames.Enemy_Events.ON_ENEMY_DEFEATED, this.DecrementEnemyCount);
 
-        this.toggle.interactable = false;
-        this.toggle.isOn = false;
-        this.toggleText = toggle.GetComponentInChildren<Text>();
-        this.toggleText.text = toggleMessage;
+      
     }
 
     public void LateStart()
@@ -37,7 +33,7 @@ public class KillAllObjective : MonoBehaviour , IObjective
         this.clearCondition();
         
     }
-    public void clearCondition()
+    protected override void  clearCondition()
     {
        
 
@@ -50,13 +46,13 @@ public class KillAllObjective : MonoBehaviour , IObjective
         }
 
     }
-    public void onConditionClear()
+    protected override void onConditionClear()
     {
 
     }
 
 
-    public bool getIfCleared()
+    public override bool getIfCleared()
     {
         return cleared;
     }
