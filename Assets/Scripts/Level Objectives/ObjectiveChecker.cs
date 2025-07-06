@@ -46,6 +46,7 @@ public class ObjectiveChecker : MonoBehaviour
             Parameters param = new Parameters();
             param.PutExtra("Level_Complete", true);
             EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION);
         }
         
     }

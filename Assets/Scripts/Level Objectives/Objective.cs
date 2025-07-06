@@ -24,9 +24,9 @@ public class Objective : MonoBehaviour
         {
             Image toggleBG = toggle.GetComponentInChildren<Image>();
             toggleBG.color = Color.green;
-            Vector3 pos = this.gameObject.transform.localPosition;
-            pos.x += 10;
-            this.gameObject.transform.localPosition = pos;
+            //Vector3 pos = this.gameObject.transform.localPosition;
+            //pos.x += 10;
+            //this.gameObject.transform.localPosition = pos;
 
 
             this.toggleText.text = "(Optional) " + toggleMessage;
