@@ -15,7 +15,7 @@ public class Tomato : Unit
         this.Speed = 3;
         this.maxhp = 20;
         this.hp = this.maxhp;
-        this.atk = 4;
+        this.atk = 2;
         this.def = 1;
 
 

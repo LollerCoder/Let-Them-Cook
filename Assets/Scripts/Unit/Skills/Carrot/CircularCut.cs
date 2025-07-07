@@ -6,7 +6,7 @@ public class CircularCut : Skill
 {
 
 
-    private float damage = 7.0f;
+    private float damage = 3.0f;
     List<Vector3> cardinalDirs = new List<Vector3>();
 
     private Dictionary<Unit, Vector3> neighbors = new Dictionary<Unit, Vector3>();
