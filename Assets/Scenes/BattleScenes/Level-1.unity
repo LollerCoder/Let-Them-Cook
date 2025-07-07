@@ -6766,6 +6766,7 @@ GameObject:
   - component: {fileID: 1533642186}
   - component: {fileID: 1533642185}
   - component: {fileID: 1533642188}
+  - component: {fileID: 1533642189}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6865,6 +6866,15 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!45 &1533642189
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533642184}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 0826064a807a8b949831031c1ad49ed9, type: 2}
 --- !u!1001 &1552511115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10389,6 +10399,22 @@ PrefabInstance:
     - target: {fileID: 3601496294334080019, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 21.772
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823782485783095530, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823782485783095530, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823782485783095530, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823782485783095530, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5114184375910117851, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_Name
