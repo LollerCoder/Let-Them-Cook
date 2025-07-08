@@ -1,23 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
 public class LvlPreview : MonoBehaviour
 {
     [SerializeField] Camera cam;
-    [SerializeField] List<GameObject> levelMapPrefabs = new List<GameObject>();
 
     private GameObject _generatedLevel;
 
     private Vector3 _center;
 
-    private GameScript lvlIndicator;
-
     private void OnEnable()
     {
-        int levelToGenerate = 1;//lvlIndicator.getCurrLvl();
-        this._generatedLevel = GameObject.Instantiate(levelMapPrefabs[levelToGenerate], this.gameObject.transform);
+        this._generatedLevel = GameObject.Find(SceneManager.GetActiveScene().name);
 
         Vector3 sumVector = new Vector3(0f, 0f, 0f);
 
@@ -32,7 +29,7 @@ public class LvlPreview : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+         Time.timeScale = 1.0f;
     }
 
     // Update is called once per frame

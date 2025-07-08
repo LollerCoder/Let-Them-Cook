@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UnitSelectorScript : MonoBehaviour
@@ -13,9 +14,15 @@ public class UnitSelectorScript : MonoBehaviour
 
     GameObject unitPanel;
 
+    public GameObject mapCam;
+
     private bool bPressed = false;
 
-    public Button Tbtn;
+    private Color btnColor = new Color(255f, 255f, 255f, 255f);
+
+    public Button Tbtn, Gbtn, Pbtn;
+
+    private int lvlNumber;
     void Start()
     {
         /*Pause thegame and choose your units first*/
@@ -24,6 +31,14 @@ public class UnitSelectorScript : MonoBehaviour
         unitPanel = this.gameObject;
 
         unitPanel.SetActive(true);
+
+        btnColor.a = 225;
+
+        //what level number is the player at right now?
+        lvlNumber = int.Parse(SceneManager.GetActiveScene().name.Split("-")[1]);
+
+        if (lvlNumber >= 2) Gbtn.interactable = true;
+        if (lvlNumber >= 3) Pbtn.interactable = true;
 
     }
 
@@ -34,18 +49,68 @@ public class UnitSelectorScript : MonoBehaviour
     }
 
     //button for tomato
-    public void buttonReader()
+    public void buttonTReader()
     {
-        UnitManager.Instance.bTomato = true;
-        //this.unitSpawn.Add(new Tomato);
-        Debug.Log("Tomato selected!");
 
-        // if (!bPressed)
-        // {
-        //     bPressed = true;
+        if (!bPressed)
+        {
+            btnColor.a = 125;
+            UnitManager.Instance.bTomato = true;
+            bPressed = true;
+           //Tbtn.GetComponent<Button>().
+            Debug.Log("Tomato selected!");
+        }
 
+        else if (bPressed)
+        {
+            btnColor.a = 255;
+            UnitManager.Instance.bTomato = false;
+            bPressed = false;
+          // Tbtn.GetComponent<Image>().color = btnColor;
+            Debug.Log("Tomato deselected");
+        }
 
-        // } else if (bPressed) UnitManager.Instance.UnitCounter -= 1;
+    }
+
+     public void buttonGReader()
+    {
+
+        if (!bPressed)
+        {
+            btnColor.a = 125;
+            UnitManager.Instance.bGarlic = true;
+            bPressed = true;
+            Debug.Log("Garlic selected!");
+        }
+
+        else if (bPressed)
+        {
+            btnColor.a = 255;
+            UnitManager.Instance.bGarlic = false;
+            bPressed = false;
+            Debug.Log("Garlic deselected");
+        }
+
+    }
+
+     public void buttonPReader()
+    {
+
+        if (!bPressed)
+        {
+            btnColor.a = 125;
+            UnitManager.Instance.bPumpkin = true;
+            bPressed = true;
+            Debug.Log("Pumpkin selected!");
+        }
+
+        else if (bPressed)
+        {
+            btnColor.a = 255;
+            UnitManager.Instance.bPumpkin = false;
+            bPressed = false;
+            Debug.Log("Pumpkin deselected");
+        }
 
     }
 
@@ -54,6 +119,8 @@ public class UnitSelectorScript : MonoBehaviour
         Time.timeScale = 1.0f;
 
         unitPanel.SetActive(false);
+
+        mapCam.SetActive(false);
 
         UnitManager.Instance.manageParty(this.tileSpawn);
 
