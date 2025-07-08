@@ -67,6 +67,7 @@ public class BattleManager : MonoBehaviour {
     private void EndLevel(Parameters param)
     {
         if (!(param.GetBoolExtra("Level_Complete", false))) return;
+        if (this.GameEnd) return; //makes sure it only cals once
 
         BattleUI.Instance.EndScreen(param);
 
