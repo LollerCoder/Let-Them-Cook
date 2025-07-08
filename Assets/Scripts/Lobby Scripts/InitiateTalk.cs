@@ -1,0 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class InitiateTalk : MonoBehaviour
+{
+    [SerializeField]
+    private Dialogue _Dialogue;
+    [SerializeField]
+    private Animator _Animator;
+
+    private bool isPlayerIn = false;
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (_Animator != null)
+        {
+            _Animator.SetBool("Ally", true);
+            _Animator.SetBool("Turn", true);
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerIn)
+        {
+            Debug.Log("Talking!");
+            Talk();
+        }
+    }
+
+    private void Talk()
+    {
+        DialogueManager.Instance.StartDialogue(_Dialogue);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player") this.isPlayerIn = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player") this.isPlayerIn = false;
+    }
+}
