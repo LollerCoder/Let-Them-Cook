@@ -2,26 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FindKeyObjective : Objective
+public class EscapeObjective : Objective
 {
     // Start is called before the first frame update
     new void Start()
     {
         base.Start();
-        EventBroadcaster.Instance.AddObserver(EventNames.Level3_Objectives.KEY_FOUND, this.FoundKey);
-
-
+        EventBroadcaster.Instance.AddObserver(EventNames.Level3_Objectives.ESCAPED, this.Escaped);
     }
 
-
-    public void FoundKey(Parameters param)
+    public void Escaped(Parameters param)
     {
         this.clearCondition();
     }
 
     protected override void clearCondition()
     {
-        Debug.Log("Found key!!!");
         toggle.isOn = true;
 
         cleared = true;
