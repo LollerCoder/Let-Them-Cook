@@ -419,6 +419,7 @@ public class UnitActionManager : MonoBehaviour
 
     public void OnAddUnitSelect()
     {
+        Debug.Log("Updated ally units on enemy AI");
         this._enemyAI.UpdateAllyUnits(
                 _Units.FindAll(u => u.Type == EUnitType.Ally)
             );

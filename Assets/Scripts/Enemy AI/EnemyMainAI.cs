@@ -104,6 +104,11 @@ namespace EnemyAI
                 );
 
             Unit target = this.GetClosestAllyUnit();
+            if (target == null)
+            {
+                Debug.LogError("TARGET NOT FOUND!");
+                return path;
+            }
 
             //if dazed or stunned
             if (this._CurrentEnemyUnit.GetEffect("Dizzy") != null ||
