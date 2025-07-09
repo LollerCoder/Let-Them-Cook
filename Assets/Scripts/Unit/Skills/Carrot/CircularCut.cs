@@ -29,8 +29,7 @@ public class CircularCut : Skill
         cardinalDirs.Add(Vector3.forward); // dummy1 behind carrot
         cardinalDirs.Add(Vector3.back); //dummy2 in front of carrot
 
-        this.defaultIcon = Resources.Load<Sprite>("Skills/skillDefault");
-        this.highlightedIcon = Resources.Load<Sprite>("Skills/skillHighlighted");
+        SkillDatabase.Instance.GetSkillSprite(this);
     }
 
     public override void SkillAction(Unit target, Unit origin)

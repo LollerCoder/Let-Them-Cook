@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9a44203a027c9c64685dfc097edde74c
+guid: 6e6783d86fa461c4caf30e6377619138
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,194 +93,220 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skills (UnHighlighted_0
+      name: Basic Attack
       rect:
         serializedVersion: 2
         x: 1
         y: 1
-        width: 85
-        height: 83
+        width: 99
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ade168e945bbd814aaf4b564c4774df3
-      internalID: 1054454936
+      spriteID: 0b8ddede95b4aca4792dbcc9b0842b38
+      internalID: -1529596783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skills (UnHighlighted_1
+      name: Circular Cut
       rect:
         serializedVersion: 2
-        x: 88
+        x: 102
         y: 1
-        width: 85
-        height: 83
+        width: 99
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d737f4ffdc70c74ba5112abe8dc2a81
-      internalID: 568282701
+      spriteID: 468b0117c2757f64984900c788f76200
+      internalID: -1118381035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skills (UnHighlighted_2
+      name: Daze
       rect:
         serializedVersion: 2
-        x: 175
+        x: 203
         y: 1
-        width: 85
-        height: 83
+        width: 99
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 717607850898d4843a6cb012ed2440cc
-      internalID: -1391803582
+      spriteID: dfa82b4cb35d68845b45da0b21922dbe
+      internalID: -1694758511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skills (UnHighlighted_3
+      name: Foil Throw
       rect:
         serializedVersion: 2
-        x: 262
+        x: 304
         y: 1
-        width: 85
-        height: 83
+        width: 99
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69c9d269c5de2ac49bdb100eb1f9b869
-      internalID: 635194012
+      spriteID: 8bd5257783877a44b8c1c4066567aa7a
+      internalID: -27568711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skills (UnHighlighted_4
+      name: Harvest
       rect:
         serializedVersion: 2
-        x: 349
+        x: 405
         y: 1
-        width: 85
-        height: 83
+        width: 99
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f62c6dbbb7027f949a6569f9b4d7dd2f
-      internalID: 197466454
+      spriteID: 6a941ac3f3816814cac94428b544d206
+      internalID: 1485802150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skills (UnHighlighted_5
+      name: None
       rect:
         serializedVersion: 2
-        x: 437
+        x: 506
         y: 1
-        width: 83
-        height: 83
+        width: 99
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ef793e40272ecc4ba50639f03cb5acd
-      internalID: -360353549
+      spriteID: b4ad9de0872fedd40804caa00dc6a046
+      internalID: 2121773855
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skills (UnHighlighted_6
+      name: Photosynthesis
       rect:
         serializedVersion: 2
-        x: 523
+        x: 607
         y: 1
-        width: 85
-        height: 83
+        width: 99
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d668e8bc1b6ce24bba80db4c5ac5d16
-      internalID: -376559686
+      spriteID: 494d241b0a3b7394b9849e1dbb5df327
+      internalID: -1391259080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skills (UnHighlighted_7
+      name: Shove
       rect:
         serializedVersion: 2
-        x: 610
+        x: 708
         y: 1
-        width: 85
-        height: 83
+        width: 99
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1879ceaa7e88da744a62cb007ad48e59
-      internalID: 1615258153
+      spriteID: 5dc7e7ca5013f2f448afb58b50935e29
+      internalID: 1101512133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skills (UnHighlighted_8
+      name: Yell
       rect:
         serializedVersion: 2
-        x: 697
+        x: 809
         y: 1
-        width: 85
-        height: 83
+        width: 99
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af1e7c97bda765e4ea61c508a82a14f9
-      internalID: 1601235509
+      spriteID: 58c202c09542eef46a46c47180aa2dcc
+      internalID: 2018615822
       vertices: []
       indices: 
       edges: []
@@ -288,7 +314,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ca83abd5b62dcc649ab620cb19ea759e
+    spriteID: 2e457880a87c8734b917f77bfba3ebb6
     internalID: 0
     vertices: []
     indices: 
@@ -296,15 +322,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Skills (UnHighlighted_0: 1054454936
-      Skills (UnHighlighted_1: 568282701
-      Skills (UnHighlighted_2: -1391803582
-      Skills (UnHighlighted_3: 635194012
-      Skills (UnHighlighted_4: 197466454
-      Skills (UnHighlighted_5: -360353549
-      Skills (UnHighlighted_6: -376559686
-      Skills (UnHighlighted_7: 1615258153
-      Skills (UnHighlighted_8: 1601235509
+      Basic Attack: -1529596783
+      Circular Cut: -1118381035
+      Daze: -1694758511
+      Foil Throw: -27568711
+      Harvest: 1485802150
+      None: 2121773855
+      Photosynthesis: -1391259080
+      Shove: 1101512133
+      Yell: 2018615822
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

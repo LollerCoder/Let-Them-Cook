@@ -20,8 +20,7 @@ public class Shove : Skill
         //for skill progressions
         this.cost = 30;
 
-        this.defaultIcon = Resources.Load<Sprite>("Skills/shoveDefault");
-        this.highlightedIcon = Resources.Load<Sprite>("Skills/shoveHighlighted");
+        SkillDatabase.Instance.GetSkillSprite(this);
     }
 
     public override void SkillAction(Unit target, Unit origin)
