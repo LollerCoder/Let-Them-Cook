@@ -2562,6 +2562,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1311745346 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4136441154967088673, guid: ed03afad1508e134ca8ef3df087980ba, type: 3}
+  m_PrefabInstance: {fileID: 48441554940447904}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1317111452 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1676162882554029920, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
@@ -5334,7 +5339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4732478772269336981, guid: 662542df0f608e4408f406209a69ec0c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.26
+      value: -12.09
       objectReference: {fileID: 0}
     - target: {fileID: 4732478772269336981, guid: 662542df0f608e4408f406209a69ec0c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5504,6 +5509,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 872143965}
+    - target: {fileID: 4735777063834045606, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
+      propertyPath: _center
+      value: 
+      objectReference: {fileID: 1311745346}
     - target: {fileID: 5419185969622449125, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 80
