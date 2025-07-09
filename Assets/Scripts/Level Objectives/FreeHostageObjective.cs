@@ -2,26 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FindKeyObjective : Objective
+public class FreeHostageObjective : Objective
 {
-    // Start is called before the first frame update
+
     new void Start()
     {
         base.Start();
-        EventBroadcaster.Instance.AddObserver(EventNames.Level3_Objectives.KEY_FOUND, this.FoundKey);
+        EventBroadcaster.Instance.AddObserver(EventNames.Level3_Objectives.KEY_FOUND, this.FreeHostage);
 
 
     }
 
-
-    public void FoundKey(Parameters param)
+    public void FreeHostage(Parameters param)
     {
         this.clearCondition();
     }
 
     protected override void clearCondition()
     {
-        Debug.Log("Found key!!!");
         toggle.isOn = true;
 
         cleared = true;

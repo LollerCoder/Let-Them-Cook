@@ -70,7 +70,8 @@ public class UnitActionManager : MonoBehaviour
         vignette = Camera.main.GetComponentInChildren<PostProcessVolume>();
         vignette.weight = 0.0f;
      
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.ADDED_UNITS_SELECTED, this.OnAddUnitSelect);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.ADDED_UNITS_SELECTED, this.UpdateEnemyAIList);
+        EventBroadcaster.Instance.AddObserver(EventNames.HostageRescue_Events.HOSTAGE_FREE, this.UpdateEnemyAIList);
 
         EventBroadcaster.Instance.AddObserver(EventNames.UnitActionEvents.ON_DESTINATION_REACHED, this.EnemyAIEndTurn);
         EventBroadcaster.Instance.AddObserver(EventNames.UnitActionEvents.ON_ENEMY_END_TURN, this.EnemyAIEndTurn);
@@ -132,8 +133,11 @@ public class UnitActionManager : MonoBehaviour
     }
 
     public void RemoveUnitFromOrder(Unit removedUnit) {
+        this._Units.Remove(removedUnit);
         this._turnOrder.Remove((ITurnTaker)removedUnit);
         removedUnit.Tile.isWalkable = true;
+
+        this._enemyAI.UpdateAllyUnits(_Units.FindAll(u => u.Type == EUnitType.Ally));
 
         Parameters param = new Parameters();
         param.PutExtra(UNIT, removedUnit);
@@ -417,7 +421,7 @@ public class UnitActionManager : MonoBehaviour
         
     }
 
-    public void OnAddUnitSelect()
+    public void UpdateEnemyAIList()
     {
         //Debug.Log("Updated ally units on enemy AI");
         this._enemyAI.UpdateAllyUnits(

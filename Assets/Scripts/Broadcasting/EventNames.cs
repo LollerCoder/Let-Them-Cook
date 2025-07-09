@@ -14,37 +14,6 @@ public class EventNames {
 	public const string ON_PICTURE_CLICKED = "ON_PICTURE_CLICKED";
 
 
-	public class ARBluetoothEvents {
-		public const string ON_START_BLUETOOTH_DEMO = "ON_START_BLUETOOTH_DEMO";
-		public const string ON_RECEIVED_MESSAGE = "ON_RECEIVED_MESSAGE";
-	}
-
-	public class ARPhysicsEvents {
-		public const string ON_FIRST_TARGET_SCAN = "ON_FIRST_TARGET_SCAN";
-		public const string ON_FINAL_TARGET_SCAN = "ON_FINAL_TARGET_SCAN";
-	}
-
-	public class ExtendTrackEvents {
-		public const string ON_TARGET_SCAN = "ON_TARGET_SCAN";
-		public const string ON_TARGET_HIDE = "ON_TARGET_HIDE";
-		public const string ON_SHOW_ALL = "ON_SHOW_ALL";
-		public const string ON_HIDE_ALL = "ON_HIDE_ALL";
-		public const string ON_DELETE_ALL = "ON_DELETE_ALL";
-	}
-
-	public class X01_Events {
-		public const string ON_FIRST_SCAN = "ON_FIRST_SCAN";
-		public const string ON_FINAL_SCAN = "ON_FINAL_SCAN";
-		public const string EXTENDED_TRACK_ON_SCAN = "EXTENDED_TRACK_ON_SCAN";
-		public const string EXTENDED_TRACK_REMOVED = "EXTENDED_TRACK_REMOVED";
-	}
-
-	public class X22_Events {
-		public const string ON_FIRST_SCAN = "ON_FIRST_SCAN";
-		public const string ON_FINAL_SCAN = "ON_FINAL_SCAN";
-		public const string EXTENDED_TRACK_ON_SCAN = "EXTENDED_TRACK_ON_SCAN";
-		public const string EXTENDED_TRACK_REMOVED = "EXTENDED_TRACK_REMOVED";
-	}
     public class UnitActionEvents {
         public const string ON_UNIT_TURN_START = "ON_UNIT_TURN_START";
         public const string ON_UNIT_TURN_END = "ON_UNIT_TURN_END";
@@ -113,6 +82,7 @@ public class EventNames {
 		public const string GOAL_ARROW_HIDE = "GOAL_ARROW_HIDE";
 		public const string GOAL_ARROW_UNHIDE = "GOAL_ARROW_UNHIDE";
 		public const string ARROW_SHOWED = "ARROW_SHOWED";
+		public const string ON_BOARD = "ON_BOARD";
     }
 
 	public class EnemySpawn_Events

@@ -10,6 +10,8 @@ public class HostageGoalTile : Tile
     private GameObject arrow_template;
     private GameObject arrow;
 
+    private Unit _UnitOnBoard = null;
+
     private new void Start()
     {
         //Debug.Log("Hi i am here");
@@ -35,15 +37,29 @@ public class HostageGoalTile : Tile
 
     public override void ApplyEffect(Unit unit)
     {
-        if (unit.GetEffect("Captured_Hostage") == null) return;
+        //if (unit.GetEffect("Captured_Hostage") == null) return;
 
-        Parameters param = new Parameters();
+        //Parameters param = new Parameters();
 
-        param.PutExtra("End_Text", "Hostage Freed");
-        param.PutExtra("Ally_Win", false);
+        //param.PutExtra("End_Text", "Hostage Freed");
+        //param.PutExtra("Ally_Win", false);
 
-        param.PutExtra("Level_Complete", true);
+        //param.PutExtra("Level_Complete", true);
 
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
+        //EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
+
+        //NEW
+        //increment on board if ally
+        if (unit.Type == EUnitType.Ally)
+        {
+            BattleUI.Instance.ToggleActionBox();
+            UnitActionManager.Instance.RemoveUnitFromOrder(unit);
+            unit.gameObject.SetActive(false);
+            EventBroadcaster.Instance.PostEvent(EventNames.HostageRescue_Events.ON_BOARD);
+        
+        }
+        
+        //get the number of allies on board
+
     }
 }
