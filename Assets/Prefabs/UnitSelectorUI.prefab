@@ -502,7 +502,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 900, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3977396702690026211
 CanvasRenderer:
@@ -1042,7 +1042,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21, y: 0}
+  m_AnchoredPosition: {x: 80, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2614981091100169128
@@ -1257,6 +1257,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2739172519250061551}
   - component: {fileID: 4613277454985713304}
+  - component: {fileID: 4735777063834045606}
   m_Layer: 0
   m_Name: UnitSelectorUI
   m_TagString: Untagged
@@ -1299,6 +1300,19 @@ MonoBehaviour:
   Tbtn: {fileID: 735938908756315744}
   Gbtn: {fileID: 7936904199564082414}
   Pbtn: {fileID: 620711496895188325}
+--- !u!114 &4735777063834045606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7895408615917409100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd09369708324040be56b6c28184747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
 --- !u!1 &8334295217877092203
 GameObject:
   m_ObjectHideFlags: 0

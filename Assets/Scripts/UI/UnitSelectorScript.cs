@@ -16,7 +16,7 @@ public class UnitSelectorScript : MonoBehaviour
 
     public GameObject mapCam;
 
-    private bool bPressed = false;
+    private bool bTPressed = false, bGPressed = false, bPPressed = false;
 
     private Color btnColor = new Color(255f, 255f, 255f, 255f);
 
@@ -26,7 +26,7 @@ public class UnitSelectorScript : MonoBehaviour
     void Start()
     {
         /*Pause thegame and choose your units first*/
-        Time.timeScale = 0.0f;
+       // Time.timeScale = 0.0f;
 
         unitPanel = this.gameObject;
 
@@ -52,20 +52,20 @@ public class UnitSelectorScript : MonoBehaviour
     public void buttonTReader()
     {
 
-        if (!bPressed)
+        if (!bTPressed)
         {
             btnColor.a = 125;
             UnitManager.Instance.bTomato = true;
-            bPressed = true;
+            bTPressed = true;
            //Tbtn.GetComponent<Button>().
             Debug.Log("Tomato selected!");
         }
 
-        else if (bPressed)
+        else if (bTPressed)
         {
             btnColor.a = 255;
             UnitManager.Instance.bTomato = false;
-            bPressed = false;
+            bTPressed = false;
           // Tbtn.GetComponent<Image>().color = btnColor;
             Debug.Log("Tomato deselected");
         }
@@ -75,19 +75,19 @@ public class UnitSelectorScript : MonoBehaviour
      public void buttonGReader()
     {
 
-        if (!bPressed)
+        if (!bGPressed)
         {
             btnColor.a = 125;
             UnitManager.Instance.bGarlic = true;
-            bPressed = true;
+            bGPressed = true;
             Debug.Log("Garlic selected!");
         }
 
-        else if (bPressed)
+        else if (bGPressed)
         {
             btnColor.a = 255;
             UnitManager.Instance.bGarlic = false;
-            bPressed = false;
+            bGPressed = false;
             Debug.Log("Garlic deselected");
         }
 
@@ -96,19 +96,19 @@ public class UnitSelectorScript : MonoBehaviour
      public void buttonPReader()
     {
 
-        if (!bPressed)
+        if (!bPPressed)
         {
             btnColor.a = 125;
             UnitManager.Instance.bPumpkin = true;
-            bPressed = true;
+            bPPressed = true;
             Debug.Log("Pumpkin selected!");
         }
 
-        else if (bPressed)
+        else if (bPPressed)
         {
             btnColor.a = 255;
             UnitManager.Instance.bPumpkin = false;
-            bPressed = false;
+            bPPressed = false;
             Debug.Log("Pumpkin deselected");
         }
 
@@ -116,7 +116,7 @@ public class UnitSelectorScript : MonoBehaviour
 
     public void startGame()
     {
-        Time.timeScale = 1.0f;
+      //  Time.timeScale = 1.0f;
 
         unitPanel.SetActive(false);
 

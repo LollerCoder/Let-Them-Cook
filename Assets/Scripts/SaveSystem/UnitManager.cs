@@ -41,23 +41,23 @@ public class UnitManager : MonoBehaviour
         {
             addUnit("Tomato", tomatoTemplate, tiles[UnitCounter], EUnitType.Ally, new List<Effect>());
             bTomato = false;
-            UnitCounter++;
+            UnitCounter+= 1;
         }
 
         if (levelNum >= 2 && bGarlic)
         {
             addUnit("Garlic", garlicTemplate, tiles[UnitCounter], EUnitType.Ally, new List<Effect>());
             bGarlic = false;
-            UnitCounter++;
+            UnitCounter+= 1;
         }
 
 
-        //  if (levelNum >= 3 && bPumpkin)
-        // {
-        //     addUnit("Pumpkin", pumpkinTemplate, tiles[UnitCounter], EUnitType.Ally, new List<Effect>());
-        //     bPumpkin = false;
-        //     UnitCounter++;
-        // }
+         if (levelNum >= 3 && bPumpkin)
+        {
+            addUnit("Pumpkin", pumpkinTemplate, tiles[UnitCounter], EUnitType.Ally, new List<Effect>());
+            bPumpkin = false;
+            UnitCounter+= 1;
+        }
     }
 
 
