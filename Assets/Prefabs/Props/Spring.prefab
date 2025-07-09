@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 3991581857600929381}
   - component: {fileID: 4438878583537172493}
   - component: {fileID: 402868522679231998}
+  - component: {fileID: 1132971069751398394}
   m_Layer: 9
   m_Name: Spring
   m_TagString: Untagged
@@ -215,3 +216,25 @@ MonoBehaviour:
   TileType: 4
   isWalkable: 0
   Location1: {fileID: 0}
+--- !u!95 &1132971069751398394
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8389671810806797992}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 068fdfac15111fb4885d1334e58f155f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
