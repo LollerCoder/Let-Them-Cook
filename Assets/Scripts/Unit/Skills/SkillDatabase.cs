@@ -51,13 +51,13 @@ public class SkillDatabase : MonoBehaviour
         Skill yell = new Yell();
         Skill popCorn = new PopCorn();
 
-        this.skillDatabase.Add(basic.SkillName,basic); //
+        this.skillDatabase.Add(basic.SkillName, basic);//
         this.skillDatabase.Add(circularCut.SkillName, circularCut);//
         this.skillDatabase.Add(daze.SkillName, daze);//
-        this.skillDatabase.Add(foilThrow.SkillName, foilThrow);
+        this.skillDatabase.Add(foilThrow.SkillName, foilThrow); // 
         this.skillDatabase.Add(harvest.SkillName, harvest);//
         this.skillDatabase.Add(heal.SkillName, heal);//
-        this.skillDatabase.Add(shove.SkillName, shove);
+        this.skillDatabase.Add(shove.SkillName, shove);//
         this.skillDatabase.Add(rotten.SkillName, rotten);
         this.skillDatabase.Add(yell.SkillName, yell);//
         this.skillDatabase.Add(popCorn.SkillName, popCorn);
