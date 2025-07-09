@@ -44,7 +44,7 @@ public class UnitManager : MonoBehaviour
             UnitCounter+= 1;
         }
 
-        if (levelNum >= 2 && bGarlic)
+        if (levelNum >= 4 && bGarlic)
         {
             addUnit("Garlic", garlicTemplate, tiles[UnitCounter], EUnitType.Ally, new List<Effect>());
             bGarlic = false;
