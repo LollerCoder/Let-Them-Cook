@@ -15,6 +15,7 @@ public class Objective : MonoBehaviour
     // Start is called before the first frame update
     protected void Start()
     {
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CHECK_END_CONDITION, AdjustSize);
         this.toggle.interactable = false;
         this.toggle.isOn = false;
         this.toggleText = toggle.GetComponentInChildren<Text>();
@@ -39,7 +40,10 @@ public class Objective : MonoBehaviour
         //this.clearCondition();
     }
 
-
+    protected void AdjustSize()
+    {
+        this.toggleText.fontSize = 25;
+    }
 
     protected virtual void clearCondition()
     {
