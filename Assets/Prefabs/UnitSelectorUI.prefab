@@ -552,7 +552,7 @@ GameObject:
   - component: {fileID: 8524831304877606129}
   - component: {fileID: 735938908756315744}
   m_Layer: 5
-  m_Name: TomatoBtn
+  m_Name: BobBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 143880202, guid: e3332b40071720d408437179cc5bcc72, type: 3}
+  m_Sprite: {fileID: 272140885, guid: 6c5205a0b80beca4686de58856ff1e07, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1313,6 +1313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
+  _center: {fileID: 0}
 --- !u!1 &8334295217877092203
 GameObject:
   m_ObjectHideFlags: 0
