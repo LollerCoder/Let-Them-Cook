@@ -40,16 +40,9 @@ public class SkillDatabase : MonoBehaviour
     {
         this.skillDatabase = new Dictionary<string, Skill>();
 
-        //Carrot skills
         Skill basic = new BasicAttack();
-        Skill trueStrike = new TrueStrike();
-        Skill eyePoke = new EyePoke();
-        Skill tripUp = new TripUp();
-        Skill eagle = new EagleEye();
         Skill shove = new Shove();
         Skill heal = new Photosynthesis();
-        Skill foilStackin = new FoilStackin();
-        Skill defensiveWhack = new DefensiveWhack();
         Skill circularCut = new CircularCut();
         Skill rotten = new Rotten();
         Skill daze = new Daze();
@@ -58,21 +51,15 @@ public class SkillDatabase : MonoBehaviour
         Skill yell = new Yell();
         Skill popCorn = new PopCorn();
 
-        this.skillDatabase.Add(basic.SkillName,basic);
-        this.skillDatabase.Add(trueStrike.SkillName, trueStrike);
-        this.skillDatabase.Add(circularCut.SkillName, circularCut);
-        this.skillDatabase.Add(daze.SkillName, daze);
+        this.skillDatabase.Add(basic.SkillName,basic); //
+        this.skillDatabase.Add(circularCut.SkillName, circularCut);//
+        this.skillDatabase.Add(daze.SkillName, daze);//
         this.skillDatabase.Add(foilThrow.SkillName, foilThrow);
-        this.skillDatabase.Add(harvest.SkillName, harvest);
-        this.skillDatabase.Add(heal.SkillName, heal);
+        this.skillDatabase.Add(harvest.SkillName, harvest);//
+        this.skillDatabase.Add(heal.SkillName, heal);//
         this.skillDatabase.Add(shove.SkillName, shove);
-        this.skillDatabase.Add(eyePoke.SkillName, eyePoke);
-        this.skillDatabase.Add(tripUp.SkillName, tripUp);
-        this.skillDatabase.Add(eagle.SkillName, eagle);
-        this.skillDatabase.Add(foilStackin.SkillName,foilStackin);
-        this.skillDatabase.Add(defensiveWhack.SkillName,defensiveWhack);
         this.skillDatabase.Add(rotten.SkillName, rotten);
-        this.skillDatabase.Add(yell.SkillName, yell);
+        this.skillDatabase.Add(yell.SkillName, yell);//
         this.skillDatabase.Add(popCorn.SkillName, popCorn);
        
     }

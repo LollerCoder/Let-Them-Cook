@@ -404,7 +404,9 @@ public class CutsceneManager : MonoBehaviour
     {
         HealParticle.Play();
     }
-
+    private void PlaySFX(string name) {
+        SFXManager.Instance.Play(name);
+    }
     private void Update()
     {
         

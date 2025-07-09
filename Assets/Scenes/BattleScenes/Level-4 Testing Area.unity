@@ -1371,6 +1371,7 @@ Transform:
   - {fileID: 1094015418}
   - {fileID: 1902955811}
   - {fileID: 524900207}
+  - {fileID: 1900289466}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &380777110
@@ -4998,9 +4999,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bTomato: 0
+  bPumpkin: 0
+  bGarlic: 0
   UnitCounter: 0
   tomatoTemplate: {fileID: 0}
   garlicTemplate: {fileID: 0}
+  pumpkinTemplate: {fileID: 0}
 --- !u!1 &1672784607
 GameObject:
   m_ObjectHideFlags: 0
@@ -5600,6 +5604,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890985568}
   m_CullTransparentMesh: 1
+--- !u!4 &1900289466 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1002006542785741941, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+  m_PrefabInstance: {fileID: 423964850053810628}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1902955810
 GameObject:
   m_ObjectHideFlags: 0
@@ -7325,8 +7334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
@@ -7972,6 +7979,107 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4802251851122540354}
   m_Mesh: {fileID: 3988604378993856034, guid: 50917f67e24881c499d7c950dbb1f629, type: 3}
+--- !u!1001 &423964850053810628
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 377036228}
+    m_Modifications:
+    - target: {fileID: 1002006542785741941, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002006542785741941, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002006542785741941, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002006542785741941, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002006542785741941, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002006542785741941, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002006542785741941, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002006542785741941, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002006542785741941, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002006542785741941, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6051980499593691438, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: m_Name
+      value: SFXManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770123112089289832, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: sounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770123112089289832, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c2c7c13e23f0b8743b8798bd3710a0c0, type: 3}
+    - target: {fileID: 8770123112089289832, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 655a75c91c921b549b5d9d254593dac8, type: 3}
+    - target: {fileID: 8770123112089289832, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: sounds.Array.data[1].name
+      value: Circular Cut
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770123112089289832, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: sounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: eb1ee79f3be2dee4f9e63ebcbcae69b4, type: 3}
+    - target: {fileID: 8770123112089289832, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: sounds.Array.data[2].name
+      value: Basic Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770123112089289832, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: sounds.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770123112089289832, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: sounds.Array.data[1].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770123112089289832, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: sounds.Array.data[2].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770123112089289832, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770123112089289832, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: sounds.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8e4d8393740881e49a180273522b6140, type: 3}
 --- !u!23 &430908877490437466
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9267,6 +9375,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -44.80829
       objectReference: {fileID: 0}
+    - target: {fileID: 1640075446602167188, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -9.040649
+      objectReference: {fileID: 0}
     - target: {fileID: 2338931673485903545, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -9387,6 +9499,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 21.772
       objectReference: {fileID: 0}
+    - target: {fileID: 3823782485783095530, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823782485783095530, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823782485783095530, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823782485783095530, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3823963449249707876, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -9402,6 +9530,10 @@ PrefabInstance:
     - target: {fileID: 5232467644495936170, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354609540948252172, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -49.025146
       objectReference: {fileID: 0}
     - target: {fileID: 6629844031012271415, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_Camera
@@ -9454,6 +9586,10 @@ PrefabInstance:
     - target: {fileID: 8287271111585280180, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963402375897401769, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.0975342
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10820,8 +10956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -13438,8 +13572,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -15925,8 +16057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -16476,8 +16606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -18228,8 +18356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -20362,8 +20488,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -21541,8 +21665,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -22063,8 +22185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -22869,8 +22989,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -23399,8 +23517,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -24201,8 +24317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -24346,8 +24460,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -25944,8 +26056,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -26029,8 +26139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -26158,8 +26266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -26287,8 +26393,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -26566,8 +26670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a81896abaf1ac4298ce2337c693105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -26686,8 +26788,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -26800,8 +26900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 1
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -27049,8 +27147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -27158,8 +27254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -27968,8 +28062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -28100,8 +28192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -28269,8 +28359,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -28386,8 +28474,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -28562,8 +28648,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 1
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -28698,8 +28782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -28748,8 +28830,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -28922,8 +29002,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -29150,8 +29228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -29310,8 +29386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -29518,8 +29592,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -29827,8 +29899,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -29884,8 +29954,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -30038,8 +30106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -30285,8 +30351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -30427,8 +30491,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -30489,8 +30551,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -30938,8 +30998,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -31126,8 +31184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -31204,8 +31260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -31261,8 +31315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -31373,8 +31425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -31509,8 +31559,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -31603,8 +31651,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -31653,8 +31699,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -31745,8 +31789,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -31911,8 +31953,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -32033,8 +32073,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62ecbbbc5dbd5141ab9d0e0dbff159d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -32042,7 +32080,7 @@ MonoBehaviour:
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
-  caged_hostage: {fileID: 7942083109392821638}
+  caged_hostage_prop: {fileID: 0}
   hostage_template: {fileID: 6826841743163241225, guid: 0db73c59e50d85b4fa6273a8e00da9eb, type: 3}
   tile_spawn: {fileID: 8169225705846557597}
 --- !u!4 &5393356764637693972
@@ -32072,8 +32110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -32222,8 +32258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -32370,8 +32404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -32502,8 +32534,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -32667,8 +32697,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -32795,8 +32823,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -32921,8 +32947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -33063,8 +33087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -33180,8 +33202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -33448,8 +33468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -33490,8 +33508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -33607,8 +33623,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -33812,8 +33826,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -33898,8 +33910,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -33960,8 +33970,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -34061,8 +34069,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -34199,8 +34205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -34274,8 +34278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -34530,8 +34532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -34632,8 +34632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -34963,8 +34961,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -35077,8 +35073,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
@@ -35244,8 +35238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -35294,8 +35286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -35438,8 +35428,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -35632,8 +35620,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -35689,8 +35675,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -35775,8 +35759,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -35840,8 +35822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -36108,8 +36088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 1
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -36205,8 +36183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -36262,8 +36238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -36448,8 +36422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -36769,8 +36741,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -36978,8 +36948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -37179,8 +37147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -37229,8 +37195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -37334,8 +37298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -37463,8 +37425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -37533,8 +37493,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -37619,8 +37577,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -37720,8 +37676,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -37858,8 +37812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -37920,8 +37872,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -38105,8 +38055,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -38203,8 +38151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -38273,8 +38219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -38418,8 +38362,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -38488,8 +38430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -38550,8 +38490,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -38648,8 +38586,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -38778,8 +38714,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -38828,8 +38762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -39005,8 +38937,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -39055,8 +38985,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -39117,8 +39045,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -39247,8 +39173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -39363,8 +39287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -39456,8 +39378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -39562,8 +39482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -39627,8 +39545,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -39727,8 +39643,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -39885,8 +39799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -40023,8 +39935,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -40188,8 +40098,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 1
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -40238,8 +40146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -40308,8 +40214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -40438,8 +40342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -40500,8 +40402,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -40674,8 +40574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -40736,8 +40634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -40822,8 +40718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -40972,8 +40866,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -41022,8 +40914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -41084,8 +40974,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -41475,8 +41363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -41617,8 +41503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -41747,8 +41631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -41797,8 +41679,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -41854,8 +41734,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -41936,8 +41814,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -41986,8 +41862,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -42208,8 +42082,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -42252,8 +42124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -42302,8 +42172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -42379,8 +42247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -42531,8 +42397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -42593,8 +42457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -42663,8 +42525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -42772,8 +42632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -42889,8 +42747,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -42975,8 +42831,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -43061,8 +42915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -43138,8 +42990,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 1
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -43239,8 +43089,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -43333,8 +43181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -43435,8 +43281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -43566,8 +43410,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -43616,8 +43458,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -43813,8 +43653,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62ecbbbc5dbd5141ab9d0e0dbff159d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -43822,7 +43660,7 @@ MonoBehaviour:
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
-  caged_hostage: {fileID: 7942083109392821638}
+  caged_hostage_prop: {fileID: 0}
   hostage_template: {fileID: 6826841743163241225, guid: 0db73c59e50d85b4fa6273a8e00da9eb, type: 3}
   tile_spawn: {fileID: 8169225705846557597}
 --- !u!23 &6987020859617646807
@@ -43956,8 +43794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -44109,8 +43945,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -44159,8 +43993,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -44236,8 +44068,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -44293,8 +44123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -44378,8 +44206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -44435,8 +44261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -44521,8 +44345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -44672,8 +44494,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -44757,8 +44577,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -44858,8 +44676,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -44959,8 +44775,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -45068,8 +44882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -45133,8 +44945,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -45203,8 +45013,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -45265,8 +45073,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -45435,8 +45241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -45541,8 +45345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -45606,8 +45408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -45671,8 +45471,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -45757,8 +45555,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -45974,8 +45770,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -46036,8 +45830,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7c6e183f47b8a4abae7c580254b6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -46093,8 +45885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -46202,8 +45992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -46288,8 +46076,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -46353,8 +46139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -46418,8 +46202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -46512,8 +46294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -46569,8 +46349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -46655,8 +46433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -46738,8 +46514,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a2af7621abefc48b0cd89e3d6a0cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -46863,8 +46637,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -46925,8 +46697,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -47162,8 +46932,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -47227,8 +46995,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -47408,8 +47174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -47494,8 +47258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -47683,8 +47445,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -47753,8 +47513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -47835,8 +47593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -47921,8 +47677,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -48008,8 +47762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -48078,8 +47830,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -48164,8 +47914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -48262,8 +48010,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -48348,8 +48094,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -48419,8 +48163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a2af7621abefc48b0cd89e3d6a0cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -48581,8 +48323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -48675,8 +48415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -48796,8 +48534,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -48882,8 +48618,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -48983,8 +48717,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -49063,8 +48795,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -49148,8 +48878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -49269,8 +48997,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -49331,8 +49057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -49393,8 +49117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -49443,8 +49165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -49544,8 +49264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 1
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -49609,8 +49327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -49725,8 +49441,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -49811,8 +49525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -49861,8 +49573,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -49947,8 +49657,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -50024,8 +49732,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -50110,8 +49816,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -50172,8 +49876,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -50258,8 +49960,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -50320,8 +50020,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -50382,8 +50080,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -50439,8 +50135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -50501,8 +50195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -50551,8 +50243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -50637,8 +50327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -50687,8 +50375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -50744,8 +50430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -50838,8 +50522,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -50924,8 +50606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 1
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -51025,8 +50705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 1
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -51075,8 +50753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -51137,8 +50813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -51223,8 +50897,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -51280,8 +50952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -51404,8 +51074,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -51476,8 +51144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -51538,8 +51204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -51641,8 +51305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -51735,8 +51397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -51865,8 +51525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -51974,8 +51632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -52075,8 +51731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -52125,8 +51779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -52211,8 +51863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -52261,8 +51911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -52347,8 +51995,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -52451,8 +52097,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -52560,8 +52204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -52646,8 +52288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -52747,8 +52387,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -52804,8 +52442,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -52854,8 +52490,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -52940,8 +52574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -53049,8 +52681,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -53155,8 +52785,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -53212,8 +52840,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -53314,8 +52940,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -53384,8 +53008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -53514,8 +53136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -53571,8 +53191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -53657,8 +53275,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -53763,8 +53379,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -53855,8 +53469,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -53927,8 +53539,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -53977,8 +53587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 1
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -54034,8 +53642,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -54114,8 +53720,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -54171,8 +53775,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -54221,8 +53823,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -54307,8 +53907,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -54357,8 +53955,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -54415,8 +54011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -54501,8 +54095,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -54579,8 +54171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -54673,8 +54263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -54735,8 +54323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -54821,8 +54407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -54871,8 +54455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -54933,8 +54515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -54983,8 +54563,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -55069,8 +54647,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -55126,8 +54702,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -55176,8 +54750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -55262,8 +54834,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -55324,8 +54894,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -55374,8 +54942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -55455,8 +55021,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -55512,8 +55076,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -55574,8 +55136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -55636,8 +55196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -55722,8 +55280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -55772,8 +55328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -55858,8 +55412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -55941,8 +55493,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a2af7621abefc48b0cd89e3d6a0cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -55978,8 +55528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -56040,8 +55588,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -56090,8 +55636,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -56140,8 +55684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -56202,8 +55744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -56272,8 +55812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -56389,8 +55927,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a2af7621abefc48b0cd89e3d6a0cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -56439,8 +55975,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -56496,8 +56030,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -56561,8 +56093,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -56611,8 +56141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -56661,8 +56189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -56762,8 +56288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -56884,8 +56408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62ecbbbc5dbd5141ab9d0e0dbff159d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -56893,7 +56415,7 @@ MonoBehaviour:
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
-  caged_hostage: {fileID: 7942083109392821638}
+  caged_hostage_prop: {fileID: 0}
   hostage_template: {fileID: 6826841743163241225, guid: 0db73c59e50d85b4fa6273a8e00da9eb, type: 3}
   tile_spawn: {fileID: 8169225705846557597}
 --- !u!23 &8468927417995727763
@@ -56997,8 +56519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -57054,8 +56574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -57140,8 +56658,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -57211,8 +56727,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7c6e183f47b8a4abae7c580254b6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -57281,8 +56795,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -57338,8 +56850,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -57388,8 +56898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -57438,8 +56946,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -57495,8 +57001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -57609,8 +57113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -57686,8 +57188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -57748,8 +57248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -57805,8 +57303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -57870,8 +57366,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -57974,8 +57468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -58024,8 +57516,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -58103,8 +57593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -58189,8 +57677,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -58239,8 +57725,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -58325,8 +57809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -58397,8 +57879,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -58447,8 +57927,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -58497,8 +57975,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -58554,8 +58030,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -58611,8 +58085,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 1
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -58673,8 +58145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -58730,8 +58200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -58816,8 +58284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -58932,8 +58398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -58994,8 +58458,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -59111,8 +58573,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -59147,8 +58607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -59254,8 +58712,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -59324,8 +58780,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -59386,8 +58840,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -59436,8 +58888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -59498,8 +58948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -59555,8 +59003,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -59605,8 +59051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -59655,8 +59099,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -59712,8 +59154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -59798,8 +59238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -59855,8 +59293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -59905,8 +59341,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -59955,8 +59389,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -60017,8 +59449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 1
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -60074,8 +59504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 1
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -60160,8 +59588,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -60210,8 +59636,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -60317,8 +59741,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62ecbbbc5dbd5141ab9d0e0dbff159d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -60326,7 +59748,7 @@ MonoBehaviour:
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
-  caged_hostage: {fileID: 7942083109392821638}
+  caged_hostage_prop: {fileID: 0}
   hostage_template: {fileID: 6826841743163241225, guid: 0db73c59e50d85b4fa6273a8e00da9eb, type: 3}
   tile_spawn: {fileID: 8169225705846557597}
 --- !u!33 &8743496130348647841
@@ -60349,8 +59771,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -60426,8 +59846,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -60483,8 +59901,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -60540,8 +59956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -60590,8 +60004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -60648,8 +60060,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -60734,8 +60144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -60840,8 +60248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -60890,8 +60296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -60940,8 +60344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -60997,8 +60399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -61083,8 +60483,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -61133,8 +60531,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 1
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -61234,8 +60630,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -61320,8 +60714,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -61406,8 +60798,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -61492,8 +60882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -61578,8 +60966,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -61640,8 +61026,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -61746,8 +61130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -61808,8 +61190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -61914,8 +61294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -61964,8 +61342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -62021,8 +61397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -62083,8 +61457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -62145,8 +61517,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -62207,8 +61577,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -62264,8 +61632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 1
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -62326,8 +61692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -62412,8 +61776,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -62462,8 +61824,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -62524,8 +61884,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -62594,8 +61952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -62680,8 +62036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -62730,8 +62084,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -62816,8 +62168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -62866,8 +62216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -62916,8 +62264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -63002,8 +62348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -63064,8 +62408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -63121,8 +62463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -63183,8 +62523,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -63269,8 +62607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -63319,8 +62655,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -63376,8 +62710,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -63462,8 +62794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -63524,8 +62854,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -63586,8 +62914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -63636,8 +62962,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -63698,8 +63022,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -63784,8 +63106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -63846,8 +63166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -63896,8 +63214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -63982,8 +63298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -64039,8 +63353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -64101,8 +63413,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -64187,8 +63497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -64249,8 +63557,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -64311,8 +63617,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -64368,8 +63672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -64425,8 +63727,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -64475,8 +63775,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -64537,8 +63835,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -64623,8 +63919,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -64685,8 +63979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -64771,8 +64063,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -64833,8 +64123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -64895,8 +64183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -64981,8 +64267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -65031,8 +64315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -65081,8 +64363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -65143,8 +64423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -65200,8 +64478,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -65250,8 +64526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -65336,8 +64610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -65398,8 +64670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -65475,8 +64745,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 1
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -65525,8 +64793,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -65582,8 +64848,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -65632,8 +64896,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -65682,8 +64944,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -65732,8 +64992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -65833,8 +65091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -65890,8 +65146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -65976,8 +65230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -66038,8 +65290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -66100,8 +65350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -66186,8 +65434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -66248,8 +65494,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -66334,8 +65578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -66384,8 +65626,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -66434,8 +65674,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -66491,8 +65729,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -66577,8 +65813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -66678,8 +65912,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
@@ -66735,8 +65967,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileX: 0
-  tileZ: 0
   withProp: 0
   moveRange: {fileID: 8174175122324195000, guid: c3edb787b3a008a4e8143961b86ff16e, type: 3}
   rangeIndicator: {fileID: 0}
