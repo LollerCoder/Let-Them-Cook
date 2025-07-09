@@ -23,7 +23,7 @@ public class Objective : MonoBehaviour
         if (optional)
         {
             Image toggleBG = toggle.GetComponentInChildren<Image>();
-            toggleBG.color = Color.green;
+            toggleBG.color = new Color(0.1291918f, 0.35040640f, 0.7207546f);
             //Vector3 pos = this.gameObject.transform.localPosition;
             //pos.x += 10;
             //this.gameObject.transform.localPosition = pos;
