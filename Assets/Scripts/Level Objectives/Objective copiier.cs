@@ -6,6 +6,7 @@ public class Objectivecopiier : MonoBehaviour
 {
     [SerializeField] private GameObject toCopy;
     [SerializeField] private GameObject copyTo;
+    [SerializeField] private GameObject gameEnd;
 
 
     // Start is called before the first frame update
@@ -24,7 +25,14 @@ public class Objectivecopiier : MonoBehaviour
 
         toCopyRT.anchoredPosition = new  Vector2(0, -120);
 
-        
+        if(gameEnd.GetComponent<Canvas>() == null)
+        {
+            Debug.Log("Canvas was found");
+        }
+
+        gameEnd.GetComponent<Canvas>().sortingOrder = 150;  
+        gameEnd.GetComponent<Canvas>().overrideSorting = true;
+        gameEnd.GetComponent<Canvas>().sortingLayerName = "BattleUI";
     }
     // Update is called once per frame
     void Update()

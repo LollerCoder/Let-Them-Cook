@@ -346,8 +346,10 @@ public class BattleUI : MonoBehaviour {
                 if (cardCanvas != null)
                 {
                     cardCanvas.overrideSorting = true;
-                    cardCanvas.sortingOrder = unitOrder.Count - curr_count + 100; //100 is an arbitrary number, its just the lazy man's way out to say 'render on top'
+                    cardCanvas.sortingOrder = unitOrder.Count - curr_count + 50; //100 is an arbitrary number, its just the lazy man's way out to say 'render on top'
                     cardCanvas.sortingLayerName = "BattleUI";
+
+                    Debug.Log(unitOrder.Count - curr_count + 100);
 
                     //transparency
                     Color c = this.Turn[curr_count].gameObject.GetComponent<Image>().color;
@@ -365,7 +367,7 @@ public class BattleUI : MonoBehaviour {
                 if (cardCanvas != null)
                 {
                     cardCanvas.overrideSorting = true;
-                    cardCanvas.sortingOrder = unitOrder.Count - curr_count + 100; //100 is an arbitrary number, its just the lazy man's way out to say 'render on top'
+                    cardCanvas.sortingOrder = unitOrder.Count - curr_count +50; //100 is an arbitrary number, its just the lazy man's way out to say 'render on top'
                     cardCanvas.sortingLayerName = "BattleUI";
 
                     //transparency
