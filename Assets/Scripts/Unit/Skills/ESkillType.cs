@@ -4,6 +4,7 @@ public enum ESkillType{
     BUFFDEBUFF,
     HEAL,
     DEFEND,
-    AOE
+    AOE,
+    RANGE
 }
 
