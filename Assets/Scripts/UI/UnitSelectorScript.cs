@@ -18,7 +18,10 @@ public class UnitSelectorScript : MonoBehaviour
 
     private bool bTPressed = false, bGPressed = false, bPPressed = false;
 
-    private Color btnColor = new Color(255f, 255f, 255f, 255f);
+    public Color bTrueColor = new Color(255f, 255f, 38f, 125f);
+    public Color bFalseColor  = new Color(255f, 255f, 255f, 225f);
+
+
 
     public Button Tbtn, Gbtn, Pbtn;
 
@@ -31,8 +34,6 @@ public class UnitSelectorScript : MonoBehaviour
         unitPanel = this.gameObject;
 
         unitPanel.SetActive(true);
-
-        btnColor.a = 225;
 
         //what level number is the player at right now?
         lvlNumber = int.Parse(SceneManager.GetActiveScene().name.Split("-")[1]);
@@ -51,24 +52,31 @@ public class UnitSelectorScript : MonoBehaviour
     //button for tomato
     public void buttonTReader()
     {
+        ColorBlock TbtnClr = Tbtn.colors;
 
         if (!bTPressed)
         {
-            btnColor.a = 125;
             UnitManager.Instance.bTomato = true;
             bTPressed = true;
-           //Tbtn.GetComponent<Button>().
             Debug.Log("Tomato selected!");
+
+            TbtnClr.normalColor = bTrueColor;
+            TbtnClr.highlightedColor = bTrueColor;
+            TbtnClr.pressedColor = bTrueColor;
         }
 
         else if (bTPressed)
         {
-            btnColor.a = 255;
             UnitManager.Instance.bTomato = false;
             bTPressed = false;
-          // Tbtn.GetComponent<Image>().color = btnColor;
             Debug.Log("Tomato deselected");
+
+            TbtnClr.normalColor = bFalseColor;
+            TbtnClr.highlightedColor = bFalseColor;
+            TbtnClr.pressedColor = bFalseColor;
         }
+
+        Tbtn.colors = TbtnClr;
 
     }
 
@@ -77,7 +85,6 @@ public class UnitSelectorScript : MonoBehaviour
 
         if (!bGPressed)
         {
-            btnColor.a = 125;
             UnitManager.Instance.bGarlic = true;
             bGPressed = true;
             Debug.Log("Garlic selected!");
@@ -85,7 +92,6 @@ public class UnitSelectorScript : MonoBehaviour
 
         else if (bGPressed)
         {
-            btnColor.a = 255;
             UnitManager.Instance.bGarlic = false;
             bGPressed = false;
             Debug.Log("Garlic deselected");
@@ -98,7 +104,6 @@ public class UnitSelectorScript : MonoBehaviour
 
         if (!bPPressed)
         {
-            btnColor.a = 125;
             UnitManager.Instance.bPumpkin = true;
             bPPressed = true;
             Debug.Log("Pumpkin selected!");
@@ -106,7 +111,6 @@ public class UnitSelectorScript : MonoBehaviour
 
         else if (bPPressed)
         {
-            btnColor.a = 255;
             UnitManager.Instance.bPumpkin = false;
             bPPressed = false;
             Debug.Log("Pumpkin deselected");

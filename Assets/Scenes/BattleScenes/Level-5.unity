@@ -1421,6 +1421,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 735938908756315744, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 735938908756315744, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2739172519250061551, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.961909
@@ -1466,6 +1474,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1660935256}
     - target: {fileID: 4613277454985713304, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
+      propertyPath: bTrueColor.b
+      value: 0.14901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613277454985713304, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
+      propertyPath: bTrueColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613277454985713304, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
+      propertyPath: bTrueColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613277454985713304, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
       propertyPath: tileSpawn.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1492,6 +1512,10 @@ PrefabInstance:
     - target: {fileID: 7895408615917409100, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
       propertyPath: m_Name
       value: UnitSelectorUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524831304877606129, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1261331104042033360, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
@@ -2981,6 +3005,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 802799268}
+  - component: {fileID: 802799269}
   m_Layer: 0
   m_Name: Allies
   m_TagString: Untagged
@@ -3005,6 +3030,25 @@ Transform:
   - {fileID: 1321145364}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &802799269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802799265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b53149a35afd0419ffc20d9a5bb810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bTomato: 0
+  bPumpkin: 0
+  bGarlic: 0
+  UnitCounter: 0
+  tomatoTemplate: {fileID: 6826841743163241225, guid: 7a669efbbe45f664f910e9326351b9eb, type: 3}
+  garlicTemplate: {fileID: 6826841743163241225, guid: 0db73c59e50d85b4fa6273a8e00da9eb, type: 3}
+  pumpkinTemplate: {fileID: 6826841743163241225, guid: f35af92b3ee93404ea68f8a53e873ba1, type: 3}
 --- !u!1001 &810168209
 PrefabInstance:
   m_ObjectHideFlags: 0
