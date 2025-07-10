@@ -12,7 +12,7 @@ public class Photosynthesis : Skill
 
         //for skill progressions
         this.cost = 15;
-        this.skillRange = 1;
+        this.skillRange = 3;
         SkillDatabase.Instance.GetSkillSprite(this);
     }
 

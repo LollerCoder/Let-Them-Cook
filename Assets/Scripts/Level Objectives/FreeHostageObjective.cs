@@ -8,12 +8,12 @@ public class FreeHostageObjective : Objective
     new void Start()
     {
         base.Start();
-        EventBroadcaster.Instance.AddObserver(EventNames.Level3_Objectives.KEY_FOUND, this.FreeHostage);
+        EventBroadcaster.Instance.AddObserver(EventNames.HostageRescue_Events.HOSTAGE_FREE, this.FreeHostage);
 
 
     }
 
-    public void FreeHostage(Parameters param)
+    public void FreeHostage()
     {
         this.clearCondition();
     }

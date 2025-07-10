@@ -84,6 +84,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue() {
         this.animator.SetBool("Open", false);
+        EventBroadcaster.Instance.PostEvent(EventNames.Dialogue_Events.ON_DIALOGUE_FINISHED);
     }
     
     public void Awake() {

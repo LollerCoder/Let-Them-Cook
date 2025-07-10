@@ -10,13 +10,15 @@ public class HostageGoalTile : Tile
     private GameObject arrow_template;
     private GameObject arrow;
 
-    private Unit _UnitOnBoard = null;
+    private bool _CanGo = false;
 
     private new void Start()
     {
         //Debug.Log("Hi i am here");
         EventBroadcaster.Instance.AddObserver(EventNames.Tile_Events.GOAL_ARROW_HIDE, this.HideArrow);
         EventBroadcaster.Instance.AddObserver(EventNames.Tile_Events.GOAL_ARROW_UNHIDE, this.ShowArrow);
+
+        EventBroadcaster.Instance.AddObserver(EventNames.HostageRescue_Events.BOAT_ARRIVED, this.ToggleOnBoard);
 
         this.arrow = Instantiate(arrow_template, transform.position + Vector3.up * 0.25f, new Quaternion(0,0,0,0));
         this.arrow.SetActive(false);
@@ -26,13 +28,22 @@ public class HostageGoalTile : Tile
 
     public void ShowArrow()
     {
+        if (!this._CanGo) return;
+
         this.arrow.SetActive(true);
         EventBroadcaster.Instance.PostEvent(EventNames.HostageRescue_Events.ARROW_SHOWED);
     }
 
     public void HideArrow()
     {
+        if (!this._CanGo) return;
+
         this.arrow.SetActive(false);
+    }
+
+    public void ToggleOnBoard()
+    {
+        this._CanGo = true;
     }
 
     public override void ApplyEffect(Unit unit)
@@ -50,7 +61,7 @@ public class HostageGoalTile : Tile
 
         //NEW
         //increment on board if ally
-        if (unit.Type == EUnitType.Ally)
+        if (unit.Type == EUnitType.Ally && this._CanGo)
         {
             BattleUI.Instance.ToggleActionBox();
             UnitActionManager.Instance.RemoveUnitFromOrder(unit);

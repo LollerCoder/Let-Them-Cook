@@ -82,6 +82,7 @@ public class EventNames {
 		public const string GOAL_ARROW_HIDE = "GOAL_ARROW_HIDE";
 		public const string GOAL_ARROW_UNHIDE = "GOAL_ARROW_UNHIDE";
 		public const string ARROW_SHOWED = "ARROW_SHOWED";
+		public const string BOAT_ARRIVED = "BOAT_ARRIVED";
 		public const string ON_BOARD = "ON_BOARD";
     }
 
