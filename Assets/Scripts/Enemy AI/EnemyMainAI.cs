@@ -119,7 +119,9 @@ namespace EnemyAI
                 return path;
             }
 
-            if (inRangeTiles.Contains(target.Tile))
+            if (inRangeTiles.Contains(target.Tile) ||
+                this._CurrentEnemyUnit.GetEffect("Rooted") != null //when rooted, don't move but can attack nearby
+                )
             {
                 //Take action
                 Debug.Log("Taking action!");

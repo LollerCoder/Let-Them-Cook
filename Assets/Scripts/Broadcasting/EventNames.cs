@@ -105,6 +105,11 @@ public class EventNames {
         public const string GOAL_ARROW_UNHIDE = "GOAL_ARROW_UNHIDE";
     }
 
+	public class Level5_Events
+    {
+		public const string BREACHED = "BREACHED";
+    }
+
 }
 
 
