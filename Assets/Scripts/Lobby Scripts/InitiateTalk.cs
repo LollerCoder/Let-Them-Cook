@@ -10,6 +10,8 @@ public class InitiateTalk : MonoBehaviour
     private Animator _Animator;
 
     private bool isPlayerIn = false;
+    private bool isTalking = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,20 +20,27 @@ public class InitiateTalk : MonoBehaviour
             _Animator.SetBool("Ally", true);
             _Animator.SetBool("Turn", true);
         }
+
+        EventBroadcaster.Instance.AddObserver(EventNames.Dialogue_Events.ON_DIALOGUE_FINISHED, this.FinishedTalk);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isPlayerIn)
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerIn && !isTalking)
         {
-            Debug.Log("Talking!");
             Talk();
         }
     }
 
+    public void FinishedTalk()
+    {
+        isTalking = false;
+    }
+
     private void Talk()
     {
+        this.isTalking = true;
         DialogueManager.Instance.StartDialogue(_Dialogue);
     }
 

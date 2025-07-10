@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd229e0ef2a61249a69958e0b2d1644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextSpeed: 0
+  TextSpeed: 0.05
   animator: {fileID: 942330382}
   nameText: {fileID: 413282624}
   dialogeText: {fileID: 1995845465}
@@ -399,6 +399,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &194993975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7591333277156362876, guid: 583ff1e82f474f64bafa522075192727, type: 3}
+  m_PrefabInstance: {fileID: 3706501832186411211}
+  m_PrefabAsset: {fileID: 0}
 --- !u!65 &205499854
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1312,6 +1317,129 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.051849954, y: 0.058198478, z: 0.042729627}
   m_Center: {x: 9.1063745e-10, y: 0.025047095, z: 0.020135185}
+--- !u!1001 &1195711522
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1720018594}
+    m_Modifications:
+    - target: {fileID: 2639935147057454482, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: _Dialogue.names.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639935147057454482, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: _Dialogue.sprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639935147057454482, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: '_Dialogue.names.Array.data[0]'
+      value: Captain Bob II
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639935147057454482, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: _Dialogue.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639935147057454482, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: '_Dialogue.sprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 893666098, guid: 5b268fe7a7e0da346a3a4cf97d9ba0f4, type: 3}
+    - target: {fileID: 2639935147057454482, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: '_Dialogue.sentences.Array.data[0]'
+      value: Yo ho matey! I know how yer feeling. My brother too got kidnapped. We'll
+        have our revenge don't worry!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -55.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -16.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3701849583079909181, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_Name
+      value: Captain Bob II
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721147785823423740, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a89880a1786aee448a61f1bafaae4936, type: 2}
+    - target: {fileID: 5989658362150713954, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_Size.x
+      value: 2.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5989658362150713954, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_Size.y
+      value: 3.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 5989658362150713954, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 893666098, guid: 5b268fe7a7e0da346a3a4cf97d9ba0f4, type: 3}
+    - target: {fileID: 5989658362150713954, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+--- !u!4 &1195711523 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+  m_PrefabInstance: {fileID: 1195711522}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1332165454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1320,6 +1448,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 165702310}
     m_Modifications:
+    - target: {fileID: 2838755377588220204, guid: 06cfedbaf1ce0574188727528978e198, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 191556254}
+    - target: {fileID: 2838755377588220204, guid: 06cfedbaf1ce0574188727528978e198, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisplayNextSentence
+      objectReference: {fileID: 0}
     - target: {fileID: 5477122708050856005, guid: 06cfedbaf1ce0574188727528978e198, type: 3}
       propertyPath: m_Name
       value: DialogueSection
@@ -1390,16 +1526,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 1720018594}
     m_Modifications:
     - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.089119
+      value: -47.59
       objectReference: {fileID: 0}
     - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.412944
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.605259
+      value: -16.95
       objectReference: {fileID: 0}
     - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1429,9 +1577,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3701849583079909181, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
       propertyPath: m_Name
-      value: Lobby Interactable Characters (1)
+      value: Lobby Interactable Characters Template
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1620,7 +1772,7 @@ MonoBehaviour:
   camerajeraObjRef: {fileID: 505955286}
   playerCamMarker: {fileID: 1517175161}
   cameraMapPos: {x: -35, y: 6, z: -33}
-  mapObj: {fileID: 8891950063371302554}
+  mapObj: {fileID: 194993975}
 --- !u!1 &1646920615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1731,8 +1883,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2082689013}
   - {fileID: 1398996253}
+  - {fileID: 1195711523}
+  - {fileID: 2082689013}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1791810937
@@ -1978,7 +2131,7 @@ PrefabInstance:
     - target: {fileID: 2639935147057454482, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
       propertyPath: '_Dialogue.sentences.Array.data[0]'
       value: When I find those chef-wannabes I will make a stew out of them for what
-        they did to my son
+        they did to my youngest son
       objectReference: {fileID: 0}
     - target: {fileID: 2720554705599327218, guid: a56ca7e2dad1d6044ae465e228f65c6f, type: 3}
       propertyPath: m_LocalScale.x
@@ -4254,11 +4407,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450652339690501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8891950063371302554 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5312672484983110462, guid: 583ff1e82f474f64bafa522075192727, type: 3}
-  m_PrefabInstance: {fileID: 3706501832186411211}
-  m_PrefabAsset: {fileID: 0}
 --- !u!33 &8897240366022026068
 MeshFilter:
   m_ObjectHideFlags: 0

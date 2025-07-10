@@ -9,13 +9,14 @@ public class LevelSelector : MonoBehaviour
     public bool canLoad = false;
     [SerializeField] private string sceneToLoad;
 
-    [Header("Material")]
+    [Header("Toggle Indicator")]
+    [SerializeField] private Renderer Indicator;
     [SerializeField] private Material unlockedMat;
-    private Material lockedMat;
+    [SerializeField] private Material lockedMat;
 
     private void Start()
     {
-        lockedMat = GetComponent<Material>();
+
     }
 
     private void OnMouseDown()
@@ -27,8 +28,8 @@ public class LevelSelector : MonoBehaviour
     {
         canLoad = isLocked;
 
-        if (canLoad) GetComponent<Renderer>().material = unlockedMat;
-        else GetComponent<Renderer>().material = lockedMat;
+        if (canLoad) this.Indicator.material = unlockedMat;
+        else this.Indicator.material = lockedMat;
     }
 
     public void LoadLevel()

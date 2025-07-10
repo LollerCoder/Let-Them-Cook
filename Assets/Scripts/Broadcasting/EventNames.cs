@@ -29,6 +29,7 @@ public class EventNames {
     }
     public class Dialogue_Events
     {
+        public const string ON_DIALOGUE_START = "ON_DIALOGUE_START";
         public const string ON_DIALOGUE_FINISHED = "ON_DIALOGUE_FINISHED";
     }
 
