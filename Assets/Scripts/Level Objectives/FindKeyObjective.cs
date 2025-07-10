@@ -21,7 +21,7 @@ public class FindKeyObjective : Objective
 
     protected override void clearCondition()
     {
-        Debug.Log("Found key!!!");
+        //Debug.Log("Found key!!!");
         toggle.isOn = true;
 
         cleared = true;

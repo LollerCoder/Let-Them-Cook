@@ -16,13 +16,15 @@ public class KillAllObjective : Objective
     new void Start()
     {
         base.Start();
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.ON_START, this.LateStart);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.ON_START, this.SetEnemyCount);
         EventBroadcaster.Instance.AddObserver(EventNames.Enemy_Events.ON_ENEMY_DEFEATED, this.DecrementEnemyCount);
+
+        EventBroadcaster.Instance.AddObserver(EventNames.EnemySpawn_Events.SPAWN_ENEMY, this.SetEnemyCount);
 
       
     }
 
-    public void LateStart()
+    public void SetEnemyCount()
     {
         this._EnemyNums = UnitActionManager.Instance.UnitList.FindAll(u => u.Type == EUnitType.Enemy).Count;
     }

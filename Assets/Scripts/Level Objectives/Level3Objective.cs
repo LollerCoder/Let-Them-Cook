@@ -53,6 +53,8 @@ public class Level3Objective : MonoBehaviour
                 effectsAdded
                 );
         }
+
+        EventBroadcaster.Instance.PostEvent(EventNames.EnemySpawn_Events.SPAWN_ENEMY);
     }
 
     public void GiveAllyKey(Parameters param)
