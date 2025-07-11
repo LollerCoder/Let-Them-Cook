@@ -49,10 +49,11 @@ namespace EnemyAI
                  * Check if ally is still alive
                  */
 
-                float currDist = Vector3.Distance(
-                    this._CurrentEnemyUnit.transform.position,
-                    ally.transform.position
-                    );
+                float currDist = PathFinding.AStarPathFinding(this._CurrentEnemyUnit.Tile,
+                             ally.Tile,
+                             Range.GetTilesInMovement(this._CurrentEnemyUnit.Tile,
+                                                             100)
+                             ).Count;
                 if (currDist < prevDist &&
                     ally.HP > 0)
                 {
