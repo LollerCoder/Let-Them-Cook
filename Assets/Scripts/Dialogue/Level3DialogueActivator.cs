@@ -29,7 +29,7 @@ public class Level3DialogueActivator : MonoBehaviour
 
     public void KeyFoundDialogue(Parameters param)
     {
-        Debug.Log("FOUND KEY!");
+        //Debug.Log("FOUND KEY!");
         DialogueManager.Instance.StartDialogue(_KeyFoundDialogue);
     }
 
