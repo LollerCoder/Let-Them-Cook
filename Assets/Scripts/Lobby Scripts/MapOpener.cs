@@ -18,6 +18,9 @@ public class MapOpener : MonoBehaviour
     [SerializeField] private GameObject mapObj;
     private bool mapToggled = false;
 
+    [Header("Button Prompt")]
+    [SerializeField] private GameObject _ButtonPrompt;
+
     private GameObject playerRef;
 
     private LevelSelector[] levelSelectors;
@@ -51,6 +54,7 @@ public class MapOpener : MonoBehaviour
           //toggling the levels
         levelSelectors = mapObj.GetComponentsInChildren<LevelSelector>();
 
+        this._ButtonPrompt.SetActive(false);
 
         for (int i = 0; i < mapObj.transform.childCount; i++)
         {
@@ -83,6 +87,7 @@ public class MapOpener : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag != "Player") return;
+        this._ButtonPrompt.SetActive(true);
         playerRef = other.gameObject;
         isPlayerIn = true;
     }
@@ -90,6 +95,7 @@ public class MapOpener : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag != "Player") return;
+        this._ButtonPrompt.SetActive(false);
         isPlayerIn = false;
     }
 
@@ -114,6 +120,7 @@ public class MapOpener : MonoBehaviour
         }
 
         GetComponent<BoxCollider>().enabled = !mapToggled;
+        this._ButtonPrompt.SetActive(!mapToggled);
         playerRef.GetComponentInChildren<SpriteRenderer>().enabled = !mapToggled;
         playerRef.GetComponent<Collider>().enabled = !mapToggled;
         mapObj.SetActive(mapToggled);

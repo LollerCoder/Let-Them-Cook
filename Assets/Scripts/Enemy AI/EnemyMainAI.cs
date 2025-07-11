@@ -49,10 +49,11 @@ namespace EnemyAI
                  * Check if ally is still alive
                  */
 
-                float currDist = Vector3.Distance(
-                    this._CurrentEnemyUnit.transform.position,
-                    ally.transform.position
-                    );
+                float currDist = PathFinding.AStarPathFinding(this._CurrentEnemyUnit.Tile,
+                             ally.Tile,
+                             Range.GetTilesInMovement(this._CurrentEnemyUnit.Tile,
+                                                             100)
+                             ).Count;
                 if (currDist < prevDist &&
                     ally.HP > 0)
                 {
@@ -119,14 +120,19 @@ namespace EnemyAI
                 return path;
             }
 
-            if (inRangeTiles.Contains(target.Tile) ||
-                this._CurrentEnemyUnit.GetEffect("Rooted") != null //when rooted, don't move but can attack nearby
-                )
+            if (inRangeTiles.Contains(target.Tile))
             {
                 //Take action
                 Debug.Log("Taking action!");
                 this.TakeAction();
             }
+
+            if (this._CurrentEnemyUnit.GetEffect("Rooted") != null)
+            {
+                EventBroadcaster.Instance.PostEvent(EventNames.UnitActionEvents.ON_ENEMY_END_TURN);
+                return path;
+            }
+
             else
             {
                 //Move closer
