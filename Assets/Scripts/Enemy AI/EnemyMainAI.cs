@@ -119,14 +119,19 @@ namespace EnemyAI
                 return path;
             }
 
-            if (inRangeTiles.Contains(target.Tile) ||
-                this._CurrentEnemyUnit.GetEffect("Rooted") != null //when rooted, don't move but can attack nearby
-                )
+            if (inRangeTiles.Contains(target.Tile))
             {
                 //Take action
                 Debug.Log("Taking action!");
                 this.TakeAction();
             }
+
+            if (this._CurrentEnemyUnit.GetEffect("Rooted") != null)
+            {
+                EventBroadcaster.Instance.PostEvent(EventNames.UnitActionEvents.ON_ENEMY_END_TURN);
+                return path;
+            }
+
             else
             {
                 //Move closer
