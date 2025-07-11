@@ -8,6 +8,8 @@ public class InitiateTalk : MonoBehaviour
     private Dialogue _Dialogue;
     [SerializeField]
     private Animator _Animator;
+    [SerializeField]
+    private GameObject _ButtonPrompt;
 
     private bool isPlayerIn = false;
     private bool isTalking = false;
@@ -22,6 +24,9 @@ public class InitiateTalk : MonoBehaviour
         }
 
         EventBroadcaster.Instance.AddObserver(EventNames.Dialogue_Events.ON_DIALOGUE_FINISHED, this.FinishedTalk);
+        
+        this._ButtonPrompt.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -47,10 +52,12 @@ public class InitiateTalk : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player") this.isPlayerIn = true;
+        this._ButtonPrompt.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player") this.isPlayerIn = false;
+        this._ButtonPrompt.SetActive(false);
     }
 }
