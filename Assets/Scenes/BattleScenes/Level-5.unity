@@ -1403,10 +1403,6 @@ PrefabInstance:
       value: 0.11836952
       objectReference: {fileID: 0}
     - target: {fileID: 4613277454985713304, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
-      propertyPath: tileSpawn.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4613277454985713304, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
       propertyPath: 'tileSpawn.Array.data[0]'
       value: 
       objectReference: {fileID: 7730321902102704294}
@@ -1430,8 +1426,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnitSelectorUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8743946935585494761, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948197707619320679, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8948197707619320679, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}

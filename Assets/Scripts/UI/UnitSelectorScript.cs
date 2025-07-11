@@ -36,8 +36,8 @@ public class UnitSelectorScript : MonoBehaviour
         //what level number is the player at right now?
         lvlNumber = int.Parse(SceneManager.GetActiveScene().name.Split("-")[1]);
 
-        if (lvlNumber >= 3) Gbtn.interactable = true;
-        if (lvlNumber >= 2) Pbtn.interactable = true;
+        if (lvlNumber >= 5) Gbtn.interactable = true;
+        if (lvlNumber >= 3) Pbtn.interactable = true;
 
       
 
