@@ -36,8 +36,8 @@ public class UnitSelectorScript : MonoBehaviour
         //what level number is the player at right now?
         lvlNumber = int.Parse(SceneManager.GetActiveScene().name.Split("-")[1]);
 
-        if (lvlNumber >= 2) Gbtn.interactable = true;
-        if (lvlNumber >= 3) Pbtn.interactable = true;
+        if (lvlNumber >= 3) Gbtn.interactable = true;
+        if (lvlNumber >= 2) Pbtn.interactable = true;
 
       
 
@@ -62,6 +62,7 @@ public class UnitSelectorScript : MonoBehaviour
             TbtnClr.normalColor = bTrueColor;
             TbtnClr.highlightedColor = bTrueColor;
             TbtnClr.pressedColor = bTrueColor;
+            TbtnClr.selectedColor = bTrueColor;
             Tbtn.colors = TbtnClr;
         }
 
@@ -74,6 +75,7 @@ public class UnitSelectorScript : MonoBehaviour
             TbtnClr.normalColor = bFalseColor;
             TbtnClr.highlightedColor = bFalseColor;
             TbtnClr.pressedColor = bFalseColor;
+            TbtnClr.selectedColor = bFalseColor;
             Tbtn.colors = TbtnClr;
         }
 
@@ -83,12 +85,18 @@ public class UnitSelectorScript : MonoBehaviour
 
      public void buttonGReader()
     {
-
+        ColorBlock GbtnClr = Gbtn.colors;
         if (!bGPressed)
         {
             UnitManager.Instance.bGarlic = true;
             bGPressed = true;
             Debug.Log("Garlic selected!");
+
+            GbtnClr.normalColor = bTrueColor;
+            GbtnClr.highlightedColor = bTrueColor;
+            GbtnClr.pressedColor = bTrueColor;
+            GbtnClr.selectedColor = bTrueColor;
+            Gbtn.colors = GbtnClr;
         }
 
         else if (bGPressed)
@@ -96,18 +104,31 @@ public class UnitSelectorScript : MonoBehaviour
             UnitManager.Instance.bGarlic = false;
             bGPressed = false;
             Debug.Log("Garlic deselected");
+            
+            GbtnClr.normalColor = bFalseColor;
+            GbtnClr.highlightedColor = bFalseColor;
+            GbtnClr.pressedColor = bFalseColor;
+            GbtnClr.selectedColor = bFalseColor;
+            Gbtn.colors = GbtnClr;
         }
 
     }
 
      public void buttonPReader()
     {
+        ColorBlock PbtnClr = Pbtn.colors;
 
         if (!bPPressed)
         {
             UnitManager.Instance.bPumpkin = true;
             bPPressed = true;
             Debug.Log("Pumpkin selected!");
+
+            PbtnClr.normalColor = bTrueColor;
+            PbtnClr.highlightedColor = bTrueColor;
+            PbtnClr.pressedColor = bTrueColor;
+            PbtnClr.selectedColor = bTrueColor;
+            Pbtn.colors = PbtnClr;
         }
 
         else if (bPPressed)
@@ -115,6 +136,14 @@ public class UnitSelectorScript : MonoBehaviour
             UnitManager.Instance.bPumpkin = false;
             bPPressed = false;
             Debug.Log("Pumpkin deselected");
+
+            PbtnClr.normalColor = bFalseColor;
+            PbtnClr.highlightedColor = bFalseColor;
+            PbtnClr.pressedColor = bFalseColor;
+            PbtnClr.selectedColor = bFalseColor;
+            Pbtn.colors = PbtnClr;
+            
+            
         }
 
     }
