@@ -21,15 +21,13 @@ public class UnitSelectorScript : MonoBehaviour
     public Color bTrueColor = new Color(255f, 255f, 38f, 125f);
     public Color bFalseColor  = new Color(255f, 255f, 255f, 225f);
 
-
-
     public Button Tbtn, Gbtn, Pbtn;
 
     private int lvlNumber;
     void Start()
     {
         /*Pause thegame and choose your units first*/
-       // Time.timeScale = 0.0f;
+        // Time.timeScale = 0.0f;
 
         unitPanel = this.gameObject;
 
@@ -41,19 +39,20 @@ public class UnitSelectorScript : MonoBehaviour
         if (lvlNumber >= 2) Gbtn.interactable = true;
         if (lvlNumber >= 3) Pbtn.interactable = true;
 
+      
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     //button for tomato
     public void buttonTReader()
     {
         ColorBlock TbtnClr = Tbtn.colors;
-
         if (!bTPressed)
         {
             UnitManager.Instance.bTomato = true;
@@ -63,6 +62,7 @@ public class UnitSelectorScript : MonoBehaviour
             TbtnClr.normalColor = bTrueColor;
             TbtnClr.highlightedColor = bTrueColor;
             TbtnClr.pressedColor = bTrueColor;
+            Tbtn.colors = TbtnClr;
         }
 
         else if (bTPressed)
@@ -74,9 +74,10 @@ public class UnitSelectorScript : MonoBehaviour
             TbtnClr.normalColor = bFalseColor;
             TbtnClr.highlightedColor = bFalseColor;
             TbtnClr.pressedColor = bFalseColor;
+            Tbtn.colors = TbtnClr;
         }
 
-        Tbtn.colors = TbtnClr;
+        
 
     }
 
