@@ -59,6 +59,7 @@ public class PlayerWASDMovement : MonoBehaviour
     public void NoWalk()
     {
         this._runSpeed = 0;
+        this.myrigidbody.velocity = Vector3.zero;
     }
     
     public void YesWalk()

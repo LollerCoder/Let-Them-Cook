@@ -107,7 +107,7 @@ public class MapOpener : MonoBehaviour
             //Debug.Log("Going to map");
             mapToggled = true;
             cameraTargetPos = cameraMapPos;
-            playerRef.GetComponent<PlayerWASDMovement>().SetRunSpeed(0.0f);
+            playerRef.GetComponent<PlayerWASDMovement>().NoWalk();
         }
 
         //Toggle off
@@ -116,7 +116,7 @@ public class MapOpener : MonoBehaviour
             //Debug.Log("Back to player");
             mapToggled = false;
             cameraTargetPos = playerCamMarker.transform.position;
-            playerRef.GetComponent<PlayerWASDMovement>().SetRunSpeed(10.0f);
+            playerRef.GetComponent<PlayerWASDMovement>().YesWalk();
         }
 
         GetComponent<BoxCollider>().enabled = !mapToggled;
