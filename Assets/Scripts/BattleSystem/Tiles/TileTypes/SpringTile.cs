@@ -6,6 +6,7 @@ using UnityEngine.Android;
 public class SpringTile : Tile
 {
     [SerializeField] private Tile Location1;
+    [SerializeField] private Animator animator;
     private Unit unitToLaunch;
 
     public new void Start()
@@ -24,8 +25,7 @@ public class SpringTile : Tile
         //    this.unitToLaunch = hit.collider.gameObject.GetComponent<Unit>();
         //}
         unitToLaunch = unit;
-        unitToLaunch.Tile = Location1;
-        unit.OnSpring(true);
+
     }
 
     public override void ApplyOnUnitStart()
@@ -34,8 +34,14 @@ public class SpringTile : Tile
         {
             if(unitToLaunch == UnitActionManager.Instance.GetFirstUnit() as Unit)
             {
-                unitToLaunch.gameObject.transform.position = Location1.transform.position;
+                unitToLaunch.OnSpring(true);//go up
+                animator.SetTrigger("Spring");
+                unitToLaunch.Tile = Location1;
+                //unitToLaunch.gameObject.transform.position = Location1.transform.position;
                 unitToLaunch = null;
+                Parameters param = new Parameters();
+                param.PutExtra("pos", Location1.transform.position);
+                EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.SPRING,param);
             }
             
         }

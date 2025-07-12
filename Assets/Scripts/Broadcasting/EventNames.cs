@@ -54,6 +54,10 @@ public class EventNames {
 
 		//UNIT SELECT
 		public const string ADDED_UNITS_SELECTED = "ADDED_UNITS_SELECTED";
+
+		//SPRING
+		public const string SPRING = "SPRING";
+        public const string LAUNCH = "LAUNCH";
     }
 
 

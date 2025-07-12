@@ -5,6 +5,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
+using static UnityEditor.FilePathAttribute;
 
 [Serializable]
 public abstract class Unit : MonoBehaviour, ITurnTaker {
@@ -17,6 +18,7 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
 
     [SerializeField]
     public GameObject hpBar;
+
 
     public GameObject HPBAR
     {
@@ -403,13 +405,26 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         }
     }
 
+
+    ///SPRINGS <summary>
+    
     public void OnSpring(bool value) {
         if (this.animator != null) {
-            Debug.Log("sprin");
-            this.animator.SetTrigger("Spring");
+            Debug.Log("GONE");
+            this.animator.SetBool("HasSpringed", true);
         }
     }
-
+   
+    private void Launch()
+    {
+        if (this.animator != null)
+        {
+            this.animator.SetBool("HasSpringed", false);
+            Debug.Log("LANDING");
+            
+        }
+    }
+    ///SPRINGS
     private void HandleDeath()
     {
         EventBroadcaster.Instance.PostEvent(EventNames.Enemy_Events.ON_ENEMY_DEFEATED);
@@ -539,6 +554,8 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.BUFF_SHOW, this.BuffArrowShow);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.DEBUFF_HIDE, this.DebuffArrowHide);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.BUFF_SHOW, this.BuffArrowHide);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.LAUNCH, this.Launch);
+
 
         if (this.type == EUnitType.Ally) {
             this.animator.SetBool("Ally", true);
