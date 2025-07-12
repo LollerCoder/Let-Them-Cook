@@ -7,7 +7,7 @@ using UnityEngine;
 public class SFXScript : MonoBehaviour
 {
     private void Play(string name) {
-        SFXManager.Instance.Play("Steps");
+        SFXManager.Instance.Play(name);
     }
     //SPRINGS
     Vector3 tpLoc = Vector3.zero;

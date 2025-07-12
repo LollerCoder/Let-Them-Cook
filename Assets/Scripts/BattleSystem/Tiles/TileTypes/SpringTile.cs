@@ -36,6 +36,7 @@ public class SpringTile : Tile
             {
                 unitToLaunch.OnSpring(true);//go up
                 animator.SetTrigger("Spring");
+                
                 unitToLaunch.Tile = Location1;
                 //unitToLaunch.gameObject.transform.position = Location1.transform.position;
                 unitToLaunch = null;

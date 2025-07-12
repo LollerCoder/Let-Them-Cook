@@ -1254,6 +1254,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1640075446602167188, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -9.040649
+      objectReference: {fileID: 0}
     - target: {fileID: 2338931673485903545, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1381,6 +1385,14 @@ PrefabInstance:
     - target: {fileID: 5114184375910117851, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_Name
       value: BattleUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354609540948252172, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -49.025146
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963402375897401769, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.0975342
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3690,6 +3702,11 @@ MonoBehaviour:
     - SARGE! I'VE ARRIVED!
     - Good job. Now everyone...
     - R U N ! ! !
+--- !u!1 &1336623752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8389671810806797992, guid: 1eb3d143e0ba5b344bb4419590765335, type: 3}
+  m_PrefabInstance: {fileID: 2291907286525191871}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1390575193
 GameObject:
   m_ObjectHideFlags: 0
@@ -4893,6 +4910,22 @@ PrefabInstance:
     - target: {fileID: 6051980499593691438, guid: 8e4d8393740881e49a180273522b6140, type: 3}
       propertyPath: m_Name
       value: SFXManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770123112089289832, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: sounds.Array.data[11].pitch
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770123112089289832, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: sounds.Array.data[12].pitch
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770123112089289832, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: sounds.Array.data[11].volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770123112089289832, guid: 8e4d8393740881e49a180273522b6140, type: 3}
+      propertyPath: sounds.Array.data[12].volume
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15558,7 +15591,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8389671810806797992, guid: 1eb3d143e0ba5b344bb4419590765335, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4829946997792859508}
   m_SourcePrefab: {fileID: 100100000, guid: 1eb3d143e0ba5b344bb4419590765335, type: 3}
 --- !u!4 &2299657917781385212
 Transform:
@@ -28304,6 +28340,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3310516511444060517, guid: 1eb3d143e0ba5b344bb4419590765335, type: 3}
   m_PrefabInstance: {fileID: 2291907286525191871}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4829946997792859508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336623752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d7419106db2b74592a0631400dfbb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4834509890640945411
 GameObject:
   m_ObjectHideFlags: 0
