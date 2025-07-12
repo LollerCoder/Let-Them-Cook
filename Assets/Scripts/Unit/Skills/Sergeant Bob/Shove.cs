@@ -57,7 +57,7 @@ public class Shove : Skill
 
         //Updating the unit's tile
         Tile landingSpot = this.GetLandingSpot(target);
-        if (landingSpot != null)
+        if (landingSpot != null && !this._UnitHit)
         {
             target.Tile = landingSpot;
             target.gameObject.transform.position = new Vector3(
@@ -93,9 +93,13 @@ public class Shove : Skill
         Debug.Log("Hit " + hit);
         if (hit.collider == null) return false;
 
-        if (!hit.collider.gameObject.GetComponent<Unit>()) return false;
+        //if (!hit.collider.gameObject.GetComponent<Unit>()) return false;
 
-        if (hit.collider.gameObject.GetComponent<Unit>()) this._UnitHit = hit.collider.gameObject.GetComponent<Unit>();
+        if (hit.collider.gameObject.GetComponent<Unit>())
+        {
+            this._UnitHit = hit.collider.gameObject.GetComponent<Unit>();
+            return false;
+        }
 
         return isWall;
     }
