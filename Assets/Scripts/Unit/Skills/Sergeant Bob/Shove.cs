@@ -30,7 +30,9 @@ public class Shove : Skill
         //Debug.Log("Shoved!");
         PopUpManager.Instance.addPopUp(this.skillName + "d", target.transform);
         Vector3 dir = (target.gameObject.transform.position - origin.gameObject.transform.position).normalized;
-        if (!this.WallChecker(target.gameObject.transform.position, dir)) this.ShoveTarget(target, origin, dir);
+
+        this.WallChecker(target.gameObject.transform.position, dir);
+        this.ShoveTarget(target, origin, dir);
 
         //if (Random.Range(1, 100) < sucessChance)
         //{
@@ -82,26 +84,27 @@ public class Shove : Skill
     }
 
     //checks if the position where target is getting shoved into has a wall or is occupied
-    private bool WallChecker(Vector3 originPoint, Vector3 dir)
+    private void WallChecker(Vector3 originPoint, Vector3 dir)
     {
-        bool isWall = true;
+        //bool isWall = true;
+        this._UnitHit = null;
 
         RaycastHit hit;
         originPoint += dir * 0.2f;  
         Debug.DrawRay(originPoint, dir, Color.red, 5f);
         Physics.Raycast(originPoint, dir, out hit, Mathf.Infinity);
         Debug.Log("Hit " + hit);
-        if (hit.collider == null) return false;
+        //if (hit.collider == null) return false;
 
         //if (!hit.collider.gameObject.GetComponent<Unit>()) return false;
 
         if (hit.collider.gameObject.GetComponent<Unit>())
         {
             this._UnitHit = hit.collider.gameObject.GetComponent<Unit>();
-            return false;
+            //return false;
         }
 
-        return isWall;
+        //return isWall;
     }
 
     private Tile GetLandingSpot(Unit target)
