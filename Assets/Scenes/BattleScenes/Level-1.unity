@@ -246,7 +246,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925985989314}
+  player: {fileID: 1740436787}
 --- !u!1001 &32398873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -515,32 +515,19 @@ MonoBehaviour:
   dialogue:
     names:
     - Sergeant BOB
-    - Private Potato Jenkins
-    - Sergeant BOB
-    - Sergeant BOB
-    - Sergeant BOB
     - Sergeant BOB
     - Sergeant BOB
     - Sergeant BOB
     sprites:
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: -1993025831, guid: ee34142f7b5d41a47a88edcac7d0a8c7, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
     sentences:
-    - JENKINS!
-    - Waugh, Yes sir?!
-    - What are, you doing private? A pin cushion has PINS.
-    - 'USE EM! '
-    - Now look closely cadet. Enemies are in RED OUTLINE with a RED HP BAR. COMMIE
-      SCUM.
-    - While your allies wear BLUE! The color of FREEDOM.
-    - Current controlled units have GREEN HP bars and a white outline.
+    - Now look closely cadet. Enemies are in RED OUTLINE with a RED HP BAR.
+    - Current controlled units have GREEN HP bars and a yellow tile under.
     - DON'T FORGET IT MAGGOT!
+    - Now go punch that potato head again
 --- !u!1 &61110099
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,63 +821,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 219951473092511495, guid: 33ee6b143f0859743a617263ca240fbe, type: 3}
   m_PrefabInstance: {fileID: 662830415}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &161468600
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1661267291}
-    m_Modifications:
-    - target: {fileID: 1088408925908182974, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_Name
-      value: Carrot
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
 --- !u!1001 &164570353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -958,7 +888,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2299284892947879354, guid: 54c5040b87cb7c24580645d57df909ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2299284892947879354, guid: 54c5040b87cb7c24580645d57df909ba, type: 3}
       propertyPath: m_LocalPosition.y
@@ -966,7 +896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2299284892947879354, guid: 54c5040b87cb7c24580645d57df909ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2299284892947879354, guid: 54c5040b87cb7c24580645d57df909ba, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1458,7 +1388,7 @@ Transform:
   m_GameObject: {fileID: 275158836}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalPosition: {x: 4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1491,7 +1421,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925875156493}
+  player: {fileID: 2101671696}
 --- !u!1 &284000671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,7 +1448,7 @@ Transform:
   m_GameObject: {fileID: 284000671}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: -2}
+  m_LocalPosition: {x: 4, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1551,7 +1481,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925875156493}
+  player: {fileID: 2101671696}
 --- !u!4 &293140561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 219951473092511495, guid: 33ee6b143f0859743a617263ca240fbe, type: 3}
@@ -2082,7 +2012,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2374961505867730686}
+  - {fileID: 498951086}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &380895305
@@ -2517,6 +2447,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8260462384208344486, guid: b6bd62a6e0b324b47b002d9d6ed39001, type: 3}
   m_PrefabInstance: {fileID: 494435497}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &498951085
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 380895304}
+    m_Modifications:
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6826841743163241225, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+      propertyPath: m_Name
+      value: Potato (Enemy)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+--- !u!4 &498951086 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2374961506560105311, guid: 369320f2370228c499bc0f05f20f46e7, type: 3}
+  m_PrefabInstance: {fileID: 498951085}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &501487057 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2299284892947879354, guid: 54c5040b87cb7c24580645d57df909ba, type: 3}
@@ -2740,7 +2732,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925985989314}
+  player: {fileID: 1740436787}
 --- !u!4 &644986587 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 219951473092511495, guid: 33ee6b143f0859743a617263ca240fbe, type: 3}
@@ -2756,75 +2748,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2299284892947879354, guid: 54c5040b87cb7c24580645d57df909ba, type: 3}
   m_PrefabInstance: {fileID: 1960170413}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &660248198
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 380895304}
-    m_Modifications:
-    - target: {fileID: 85490013685061727, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
-      propertyPath: type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374961506560105311, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374961506560105311, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374961506560105311, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374961506560105311, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374961506560105311, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374961506560105311, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374961506560105311, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374961506560105311, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374961506560105311, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2374961506560105311, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5145978829346073834, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
-      propertyPath: m_Size.y
-      value: 1.9030111
-      objectReference: {fileID: 0}
-    - target: {fileID: 5145978829346073834, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
-      propertyPath: m_Center.y
-      value: 0.024276018
-      objectReference: {fileID: 0}
-    - target: {fileID: 6826841743163241225, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
-      propertyPath: m_Name
-      value: Potato
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
 --- !u!1001 &662830415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3059,7 +2982,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925985989314}
+  player: {fileID: 1740436787}
 --- !u!4 &680890567 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 219951473092511495, guid: 33ee6b143f0859743a617263ca240fbe, type: 3}
@@ -3278,7 +3201,7 @@ Transform:
   m_GameObject: {fileID: 760474626}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3311,7 +3234,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925875156493}
+  player: {fileID: 2101671696}
 --- !u!1 &769535227
 GameObject:
   m_ObjectHideFlags: 0
@@ -3358,44 +3281,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     names:
-    - Private Potato Jenkins
-    - Private Potato Jenkins
-    - Private Potato Jenkins
-    - Private Potato Jenkins
-    - Private Potato Jenkins
-    - Private Potato Jenkins
-    - Private Potato Jenkins
-    - Private Potato Jenkins
-    - Private Potato Jenkins
-    - YOU
+    - Sergeant Bob
+    - Sergeant Bob
+    - Sergeant Bob
+    - Sergeant Bob
+    - Sergeant Bob
+    - Sergeant Bob
+    - Sergeant Bob
+    - Sergeant Bob
     sprites:
-    - {fileID: 635010942, guid: 534c3446d60d8fb478a0cd60742e5afc, type: 3}
-    - {fileID: 635010942, guid: 534c3446d60d8fb478a0cd60742e5afc, type: 3}
-    - {fileID: 635010942, guid: 534c3446d60d8fb478a0cd60742e5afc, type: 3}
-    - {fileID: 635010942, guid: 534c3446d60d8fb478a0cd60742e5afc, type: 3}
-    - {fileID: 635010942, guid: 534c3446d60d8fb478a0cd60742e5afc, type: 3}
-    - {fileID: 635010942, guid: 534c3446d60d8fb478a0cd60742e5afc, type: 3}
-    - {fileID: 635010942, guid: 534c3446d60d8fb478a0cd60742e5afc, type: 3}
-    - {fileID: 635010942, guid: 534c3446d60d8fb478a0cd60742e5afc, type: 3}
-    - {fileID: 635010942, guid: 534c3446d60d8fb478a0cd60742e5afc, type: 3}
-    - {fileID: 893666098, guid: 5b268fe7a7e0da346a3a4cf97d9ba0f4, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
     sentences:
-    - 'Oh uhm. Sergeant BOB didn''t say this but...
-
-'
+    - One more thing...
     - See the thing at the top?
     - That's the turn order.
     - Its determined by Speed a stat that' you'll learn soon enough.
     - If you want to know who's turn it is and who goes next? Look there.
-    - Its goes left to right. Pretty easy.
+    - It goes left to right. Pretty easy.
     - 'Pretty useful for strategy isn''t it?
 
 '
-    - "Wait... \r\n"
-    - WHY ARE YOU RUNNING AT ME?!
-    - '-Objective Update-
-
-      Make Mashed Potato.'
+    - Now finish of that Chef-hat-wearing good for nothing potato head!
 --- !u!4 &777243196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2299284892947879354, guid: 54c5040b87cb7c24580645d57df909ba, type: 3}
@@ -3712,7 +3625,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925985989314}
+  player: {fileID: 1740436787}
 --- !u!1001 &843171262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3933,6 +3846,81 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54c5040b87cb7c24580645d57df909ba, type: 3}
+--- !u!1 &908946992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 908946993}
+  - component: {fileID: 908946994}
+  m_Layer: 0
+  m_Name: Correct (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &908946993
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908946992}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1404905060}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &908946994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908946992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e5b519fc9a6b44c85fe63608f8afe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerEntered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1451506514}
+        m_TargetAssemblyTypeName: DialogueStart, Assembly-CSharp
+        m_MethodName: flower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  destroyPos:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1404905061}
+        m_TargetAssemblyTypeName: JenkPosDestroyer, Assembly-CSharp
+        m_MethodName: killChecks
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  player: {fileID: 2101671696}
 --- !u!1001 &920206981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4280,6 +4268,81 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54c5040b87cb7c24580645d57df909ba, type: 3}
+--- !u!1 &967684491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 967684492}
+  - component: {fileID: 967684493}
+  m_Layer: 0
+  m_Name: Correct (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &967684492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967684491}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1404905060}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &967684493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967684491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e5b519fc9a6b44c85fe63608f8afe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerEntered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1451506514}
+        m_TargetAssemblyTypeName: DialogueStart, Assembly-CSharp
+        m_MethodName: flower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  destroyPos:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1404905061}
+        m_TargetAssemblyTypeName: JenkPosDestroyer, Assembly-CSharp
+        m_MethodName: killChecks
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  player: {fileID: 2101671696}
 --- !u!1001 &968320397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5378,7 +5441,7 @@ MonoBehaviour:
     - How in the-
     - Cadet! That is a humongous flower.
     - Are you blind?!
-    - Go to the flower!
+    - Have me go next to the flower!
 --- !u!4 &1179508847
 Transform:
   m_ObjectHideFlags: 0
@@ -5497,7 +5560,7 @@ Transform:
   m_GameObject: {fileID: 1263280390}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5545,7 +5608,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925875156493}
+  player: {fileID: 2101671696}
 --- !u!4 &1281314608 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 219951473092511495, guid: 33ee6b143f0859743a617263ca240fbe, type: 3}
@@ -5943,7 +6006,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925985989314}
+  player: {fileID: 1740436787}
 --- !u!1001 &1390384892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6220,11 +6283,14 @@ Transform:
   m_GameObject: {fileID: 1404905059}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8, y: 1, z: 5}
+  m_LocalPosition: {x: 7, y: 1, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1263280391}
+  - {fileID: 908946993}
+  - {fileID: 967684492}
+  - {fileID: 1698860093}
   - {fileID: 2052058108}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6357,7 +6423,7 @@ Transform:
   m_GameObject: {fileID: 1447886803}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6390,7 +6456,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925875156493}
+  player: {fileID: 2101671696}
 --- !u!1 &1451506513
 GameObject:
   m_ObjectHideFlags: 0
@@ -6443,45 +6509,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     names:
-    - Sergeant BOB
-    - Sergeant BOB
-    - Sergeant BOB
-    - Private Potato Jenkins
-    - Sergeant BOB
-    - Private Potato Jenkins
-    - Sergeant BOB
-    - Private Potato Jenkins
-    - Sergeant BOB
-    - Sergeant BOB
-    - Sergeant BOB
-    - Sergeant BOB
+    - Tom Itto
+    - Sergeant Bob
+    - Sergeant Bob
+    - Sergeant Bob
     sprites:
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 635010942, guid: 534c3446d60d8fb478a0cd60742e5afc, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 635010942, guid: 534c3446d60d8fb478a0cd60742e5afc, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 635010942, guid: 534c3446d60d8fb478a0cd60742e5afc, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
+    - {fileID: 21300000, guid: d3ad91828ebece34ab18be856602a42e, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
     sentences:
-    - Welcome to basic training school cadet.
-    - My name is Sergeant BOB and Im here to tell you what's what in this army.
-    - PRIVATE POTATO JENKINS!
-    - Waugh?! SIR YES SIR?!
-    - 'Jenkins, you''re like a son to me. '
-    - Wah, really sir?
-    - No you MAGGOT! Now get in there and be today's PIN CUSHION!
-    - Aah, Sir yes sir!
-    - Now Cadet, lets get to training!
-    - You see that carrot?
-    - That's YOU.
-    - The purple squares are places you can walk to. Click on a square next to Jenkins.
-      That's an ORDER!
+    - Garlfield! Where are you?!
+    - You there! If you want to live do what I say!
+    - See those blue tiles on the ground? Those are the tiles you can move into!
+    - Now get close to that Chef-hat-wearing potato head!
 --- !u!4 &1451506516
 Transform:
   m_ObjectHideFlags: 0
@@ -6612,7 +6653,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925985989314}
+  player: {fileID: 1740436787}
 --- !u!1001 &1471887701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7133,7 +7174,7 @@ Transform:
   m_GameObject: {fileID: 1594828250}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: 2, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7166,7 +7207,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925875156493}
+  player: {fileID: 2101671696}
 --- !u!4 &1599879928 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2299284892947879354, guid: 54c5040b87cb7c24580645d57df909ba, type: 3}
@@ -7182,7 +7223,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4257406047682525958, guid: c2053e6c13566fb4983f24dce4c79a6a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4257406047682525958, guid: c2053e6c13566fb4983f24dce4c79a6a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7190,35 +7231,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4257406047682525958, guid: c2053e6c13566fb4983f24dce4c79a6a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4257406047682525958, guid: c2053e6c13566fb4983f24dce4c79a6a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.00000005338508
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257406047682525958, guid: c2053e6c13566fb4983f24dce4c79a6a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.000000053385076
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257406047682525958, guid: c2053e6c13566fb4983f24dce4c79a6a, type: 3}
-      propertyPath: m_LocalRotation.y
       value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4257406047682525958, guid: c2053e6c13566fb4983f24dce4c79a6a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257406047682525958, guid: c2053e6c13566fb4983f24dce4c79a6a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257406047682525958, guid: c2053e6c13566fb4983f24dce4c79a6a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.70710677
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4257406047682525958, guid: c2053e6c13566fb4983f24dce4c79a6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 4257406047682525958, guid: c2053e6c13566fb4983f24dce4c79a6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 4257406047682525958, guid: c2053e6c13566fb4983f24dce4c79a6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -180
       objectReference: {fileID: 0}
     - target: {fileID: 5463210267124613137, guid: c2053e6c13566fb4983f24dce4c79a6a, type: 3}
       propertyPath: m_Name
@@ -7288,23 +7329,23 @@ MonoBehaviour:
     - Sergeant BOB
     - Sergeant BOB
     sprites:
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
     sentences:
     - "Did you see that, Cadet? \r\n\t\r\n\t"
-    - Did you see the bar that popped up? That was Jenkin's LIFE BAR or as I like
-      to call it, his spunk.
+    - Did you see the bar that popped up? That was the enemie's LIFE BAR or as I
+      like to call it, their spunk.
     - Get it to ZERO and he's like your hopes and dreams.
     - Dead, Crushed and Forgotten.
-    - THE NUMBER that appeared is HOW MUCH DAMAGE YOU DEALT. 4 is not a flattering
-      number ,cadet. I WANT MORE!
-    - "Luckily your Cousin CARROTE over here is prepared to aid that mediocre performance.\r\n\r\r\n"
-    - "Have Cousin Carrote over there walk over to the flower. It won't bite!\r\n\r\r\n"
+    - Now if you can deal damage, you can take damage as well!
+    - So if you ever need a health boost go near those red flowers, they'll heal
+      you at the end of your turn!
+    - Now have myself walk next to it.
 --- !u!4 &1657486852 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 219951473092511495, guid: 33ee6b143f0859743a617263ca240fbe, type: 3}
@@ -7339,8 +7380,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8330284146135248400}
-  - {fileID: 8330284146371918559}
+  - {fileID: 1740436786}
+  - {fileID: 2101671695}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1669565682 stripped
@@ -7379,7 +7420,7 @@ Transform:
   m_GameObject: {fileID: 1698400544}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: -1}
+  m_LocalPosition: {x: 3, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7412,7 +7453,82 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925875156493}
+  player: {fileID: 2101671696}
+--- !u!1 &1698860092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1698860093}
+  - component: {fileID: 1698860094}
+  m_Layer: 0
+  m_Name: Correct (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1698860093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698860092}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1404905060}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1698860094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698860092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e5b519fc9a6b44c85fe63608f8afe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerEntered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1451506514}
+        m_TargetAssemblyTypeName: DialogueStart, Assembly-CSharp
+        m_MethodName: flower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  destroyPos:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1404905061}
+        m_TargetAssemblyTypeName: JenkPosDestroyer, Assembly-CSharp
+        m_MethodName: killChecks
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  player: {fileID: 2101671696}
 --- !u!1 &1713139715
 GameObject:
   m_ObjectHideFlags: 0
@@ -7457,7 +7573,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925985989314}
+  player: {fileID: 1740436787}
 --- !u!4 &1713139717
 Transform:
   m_ObjectHideFlags: 0
@@ -7682,6 +7798,73 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 219951473092511495, guid: 33ee6b143f0859743a617263ca240fbe, type: 3}
   m_PrefabInstance: {fileID: 1300751120}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1740436785
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1661267291}
+    m_Modifications:
+    - target: {fileID: 2374961506560105311, guid: af232b005f4a50144ab5d08b7060da5a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: af232b005f4a50144ab5d08b7060da5a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: af232b005f4a50144ab5d08b7060da5a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: af232b005f4a50144ab5d08b7060da5a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: af232b005f4a50144ab5d08b7060da5a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: af232b005f4a50144ab5d08b7060da5a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: af232b005f4a50144ab5d08b7060da5a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: af232b005f4a50144ab5d08b7060da5a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: af232b005f4a50144ab5d08b7060da5a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: af232b005f4a50144ab5d08b7060da5a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6826841743163241225, guid: af232b005f4a50144ab5d08b7060da5a, type: 3}
+      propertyPath: m_Name
+      value: Tomato
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: af232b005f4a50144ab5d08b7060da5a, type: 3}
+--- !u!4 &1740436786 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2374961506560105311, guid: af232b005f4a50144ab5d08b7060da5a, type: 3}
+  m_PrefabInstance: {fileID: 1740436785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1740436787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6826841743163241225, guid: af232b005f4a50144ab5d08b7060da5a, type: 3}
+  m_PrefabInstance: {fileID: 1740436785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1752965414
 GameObject:
   m_ObjectHideFlags: 0
@@ -7741,7 +7924,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925985989314}
+  player: {fileID: 1740436787}
 --- !u!1001 &1759731384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7867,34 +8050,25 @@ MonoBehaviour:
     - Sergeant BOB
     - Sergeant BOB
     - Sergeant BOB
-    - Sergeant BOB
-    - Sergeant BOB
-    - Sergeant BOB
-    - Sergeant BOB
     sprites:
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
     sentences:
-    - 'FLOWERS ARE EFFECTS CADET!
+    - 'FLOWERS ARE SPECIAL TILES CADET!
 
 
 
 
 '
-    - They range from good to downright nasty to VEGAS.
-    - Good is the red stuff. Its a buff in stats, always good.
-    - Vegas is colored purple. Its VEGAS. You risk big to gain big.
-    - "Or fall flat on your face.\r\n\r\r\n\r\r"
-    - "Take note of this Cadet.\r\n\r\r\n"
-    - "Now Carrote ain't no where near Jenkins!\r\n\r\r\n"
-    - 'Guess that means he gotta wait.
+    - Special Tiles are tiles that do something special. Their tiles are highlighted
+      purple.
+    - 'Now I ain''t near that potato-head.
+
+'
+    - 'Guess that means I gotta wait.
 
 
 '
@@ -7912,7 +8086,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2299284892947879354, guid: 54c5040b87cb7c24580645d57df909ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2299284892947879354, guid: 54c5040b87cb7c24580645d57df909ba, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7920,7 +8094,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2299284892947879354, guid: 54c5040b87cb7c24580645d57df909ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2299284892947879354, guid: 54c5040b87cb7c24580645d57df909ba, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8142,7 +8316,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925985989314}
+  player: {fileID: 1740436787}
 --- !u!4 &1852184614 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2299284892947879354, guid: 54c5040b87cb7c24580645d57df909ba, type: 3}
@@ -8220,7 +8394,7 @@ Transform:
   m_GameObject: {fileID: 1862736282}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8253,7 +8427,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925875156493}
+  player: {fileID: 2101671696}
 --- !u!1 &1864881023
 GameObject:
   m_ObjectHideFlags: 0
@@ -8304,13 +8478,13 @@ MonoBehaviour:
     - Sergeant BOB
     - Sergeant BOB
     sprites:
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
     sentences:
     - 'What in tarnation are you doing cadet? '
     - Are you illiterate?
-    - Insubordination! I said go next to JENKINS!
+    - Insubordination! I said go next to that potato head!
 --- !u!1001 &1871354619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8451,7 +8625,7 @@ Transform:
   m_GameObject: {fileID: 1883975989}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: -1}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8484,7 +8658,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925875156493}
+  player: {fileID: 2101671696}
 --- !u!1001 &1889586501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8757,7 +8931,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925985989314}
+  player: {fileID: 1740436787}
 --- !u!1 &1914886192
 GameObject:
   m_ObjectHideFlags: 0
@@ -9050,43 +9224,27 @@ MonoBehaviour:
     - Sergeant BOB
     - Sergeant BOB
     sprites:
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
-    - {fileID: 21300000, guid: 9fc4e448b8114c645b9b2f570da3e1f4, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
     sentences:
     - 'GOOD JOB CADET!
 
 
 
 '
-    - 'Now you might be wondering what the images on the bottom of the screen are!
-
-
-
-'
-    - 'That''s our GLORIOUS LEADER''S SKILLS bestowed upon us!
-
-
-
-'
+    - Now see those images on the right of your screen?
+    - Those are your skills!
     - 'Aren''t they a beauty!
 
 '
-    - THE PLATTER will be OPEN if you can use em!
-    - 'CADET! CLICK ON ANY of these useable SKILLS!
-
-
-
-'
-    - 'And put it right in JENKINS TEETH!
-
-
-
-'
+    - Skills have different ranges on where you can use them.
+    - The icon will darken if you can't use that skill.
+    - Now click on one of them and tell that potato head who's boss!
 --- !u!1 &1931276139
 GameObject:
   m_ObjectHideFlags: 0
@@ -9113,7 +9271,7 @@ Transform:
   m_GameObject: {fileID: 1931276139}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: 2, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9146,7 +9304,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925875156493}
+  player: {fileID: 2101671696}
 --- !u!1001 &1943754472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9280,7 +9438,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925985989314}
+  player: {fileID: 1740436787}
 --- !u!1001 &1948197962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9763,67 +9921,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2024028104
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1661267291}
-    m_Modifications:
-    - target: {fileID: 1088408925908182974, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_Name
-      value: Carrot (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2094699684586030274, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: spd
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
 --- !u!1001 &2045773802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10136,7 +10233,7 @@ Transform:
   m_GameObject: {fileID: 2079639096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10169,7 +10266,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  player: {fileID: 1088408925875156493}
+  player: {fileID: 2101671696}
 --- !u!1 &2081794470
 GameObject:
   m_ObjectHideFlags: 0
@@ -10267,6 +10364,73 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54c5040b87cb7c24580645d57df909ba, type: 3}
+--- !u!1001 &2101671694
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1661267291}
+    m_Modifications:
+    - target: {fileID: 2374961506560105311, guid: 7a669efbbe45f664f910e9326351b9eb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 7a669efbbe45f664f910e9326351b9eb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 7a669efbbe45f664f910e9326351b9eb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 7a669efbbe45f664f910e9326351b9eb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 7a669efbbe45f664f910e9326351b9eb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 7a669efbbe45f664f910e9326351b9eb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 7a669efbbe45f664f910e9326351b9eb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 7a669efbbe45f664f910e9326351b9eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 7a669efbbe45f664f910e9326351b9eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374961506560105311, guid: 7a669efbbe45f664f910e9326351b9eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6826841743163241225, guid: 7a669efbbe45f664f910e9326351b9eb, type: 3}
+      propertyPath: m_Name
+      value: Sergeant Bob
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7a669efbbe45f664f910e9326351b9eb, type: 3}
+--- !u!4 &2101671695 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2374961506560105311, guid: 7a669efbbe45f664f910e9326351b9eb, type: 3}
+  m_PrefabInstance: {fileID: 2101671694}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2101671696 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6826841743163241225, guid: 7a669efbbe45f664f910e9326351b9eb, type: 3}
+  m_PrefabInstance: {fileID: 2101671694}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2121334139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10634,16 +10798,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &1088408925875156493 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1088408925908182974, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-  m_PrefabInstance: {fileID: 161468600}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1088408925985989314 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1088408925908182974, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-  m_PrefabInstance: {fileID: 2024028104}
-  m_PrefabAsset: {fileID: 0}
 --- !u!33 &1536628150920573930
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10675,11 +10829,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2374961505867730686 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2374961506560105311, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
-  m_PrefabInstance: {fileID: 660248198}
-  m_PrefabAsset: {fileID: 0}
 --- !u!23 &2749931433545672527
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10845,16 +10994,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1954841031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &8330284146135248400 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-  m_PrefabInstance: {fileID: 2024028104}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8330284146371918559 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8330284146339933036, guid: 498b67a8bd91f4249a78283f350bd1ae, type: 3}
-  m_PrefabInstance: {fileID: 161468600}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9115320851605742838 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4257406047682525958, guid: c2053e6c13566fb4983f24dce4c79a6a, type: 3}

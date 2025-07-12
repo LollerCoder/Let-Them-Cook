@@ -70,14 +70,14 @@ public class DialogueStart : MonoBehaviour
     {
         switch (turnsCounted)
         {
-            case 0:
+            case 1:
                 
                 this.damagedJenkins();
                 break;
-            case 1:
+            case 2:
                 this.outlinePlay();
                 break;
-            case 2:
+            case 3:
                 this.turnOrderPlay();
                 break;
 
