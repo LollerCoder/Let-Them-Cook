@@ -247,6 +247,8 @@ public static class UnitActions {
             goalTile = PathFinding.Path[0];
 
             PathFinding.Path.RemoveAt(0);
+
+            SFXManager.Instance.Play("Steps");
         }
 
         if (PathFinding.Path.Count < 1)
