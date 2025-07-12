@@ -112,7 +112,7 @@ public class UnitActionManager : MonoBehaviour
     {
         if (this.GetFirstUnit() is Unit enemy)
         {
-            Debug.Log("Type is unit");
+            //Debug.Log("Type is unit");
             if (enemy.Type != EUnitType.Enemy) return;
 
         }

@@ -30,10 +30,10 @@ public class SFXManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s != null) {
             s.source.PlayOneShot(s.clip);
-            Debug.Log("adaw");
+            //Debug.Log("adaw");
         }
         else {
-            Debug.Log("lin");
+            //Debug.Log("lin");
         }
     }
 }
