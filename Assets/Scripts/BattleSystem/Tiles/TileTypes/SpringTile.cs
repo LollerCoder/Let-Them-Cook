@@ -24,8 +24,8 @@ public class SpringTile : Tile
         //    this.unitToLaunch = hit.collider.gameObject.GetComponent<Unit>();
         //}
         unitToLaunch = unit;
-        unitToLaunch.Tile = Location1;
-        unit.OnSpring(true);
+        
+        
 
     }
 
@@ -35,8 +35,13 @@ public class SpringTile : Tile
         {
             if(unitToLaunch == UnitActionManager.Instance.GetFirstUnit() as Unit)
             {
-                unitToLaunch.gameObject.transform.position = Location1.transform.position;
+                unitToLaunch.OnSpring(true);
+                unitToLaunch.Tile = Location1;
+                //unitToLaunch.gameObject.transform.position = Location1.transform.position;
                 unitToLaunch = null;
+                Parameters param = new Parameters();
+                param.PutExtra("pos", Location1.transform.position);
+                EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.SPRING,param);
             }
             
         }
