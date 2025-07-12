@@ -110,10 +110,11 @@ public class UnitActionManager : MonoBehaviour
 
     public void EnemyAIEndTurn()
     {
-        if ((Unit)(this.TurnOrder[0]) != null)
+        if (this.GetFirstUnit() is Unit enemy)
         {
             Debug.Log("Type is unit");
-            if (((Unit)this.TurnOrder[0]).Type != EUnitType.Enemy) return;
+            if (enemy.Type != EUnitType.Enemy) return;
+
         }
         this.OnAttack = false;
         this.OnMove = false;
@@ -218,7 +219,9 @@ public class UnitActionManager : MonoBehaviour
     public void UnitTurn() {
 
         ITurnTaker firstTurn = this.GetFirstUnit();
-
+        if (firstTurn is Unit unit) {
+            unit.Tile.UnHighlightTile();
+        }
         this.TurnOrder.Remove(firstTurn);
         this.TurnOrder.Add(firstTurn);
 
@@ -237,7 +240,6 @@ public class UnitActionManager : MonoBehaviour
         unit.GetComponent<BoxCollider>().enabled = true;
         unit.OnMovement(false);
         unit.OnTurn(false);
-
         Parameters param = new Parameters();
         param.PutExtra(UNIT, unit);
 
@@ -318,7 +320,6 @@ public class UnitActionManager : MonoBehaviour
 
             UnitActions.SetCurrentTile(unit.Tile, unit.transform.position.y);
             EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
-            unit.OnMovement(true);
             unit.OnTurn(true);
             unit.GetComponent<BoxCollider>().enabled = false;
 

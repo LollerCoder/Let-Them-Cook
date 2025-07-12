@@ -28,10 +28,12 @@ public class SFXManager : MonoBehaviour
 
     public void Play(string name) {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-
         if (s != null) {
             s.source.PlayOneShot(s.clip);
             Debug.Log("adaw");
+        }
+        else {
+            Debug.Log("lin");
         }
     }
 }

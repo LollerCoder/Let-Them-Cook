@@ -19,10 +19,13 @@ public class TileHelper : MonoBehaviour {
     public Material Heal;
     [SerializeField]
     public Material Walk;
+    [SerializeField]
+    public Material Current;
     public GameObject SpawnRangeIndicator(Vector3 pos, RangeType type) {
         GameObject obj = this.inactiveRange[0];
         this.inactiveRange.Remove(obj);
 
+        //Debug.Log(obj.name);
         obj.SetActive(true);
         obj.transform.position = pos;
         obj.transform.rotation = Quaternion.identity;
@@ -37,7 +40,10 @@ public class TileHelper : MonoBehaviour {
             case RangeType.HEAL:
                 obj.GetComponent<MeshRenderer>().material = Heal;
                 break;
-                default: break;
+            case RangeType.CURRENT:
+                obj.GetComponent<MeshRenderer>().material = Current;
+                break;
+            default: break;
         }
 
         activeRange.Add(obj);
@@ -51,6 +57,7 @@ public class TileHelper : MonoBehaviour {
 
         if (activeRange.Contains(range)) {
             range.SetActive(false);
+            //Debug.Log(range.name);
             this.inactiveRange.Add(range);
             this.activeRange.Remove(range);
             tile.rangeIndicator = null;
@@ -66,6 +73,7 @@ public class TileHelper : MonoBehaviour {
 
         for (int i = 0; i < 50; i++) {
             GameObject clone = GameObject.Instantiate(rangeTile);
+            clone.name = i.ToString();
             clone.SetActive(false);
             this.inactiveRange.Add(clone);
         }
@@ -75,6 +83,7 @@ public class TileHelper : MonoBehaviour {
 public enum RangeType { 
     WALK,
     ATTACK,
-    HEAL
+    HEAL,
+    CURRENT
 }
 

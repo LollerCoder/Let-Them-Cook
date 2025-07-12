@@ -24,8 +24,6 @@ public class SpringTile : Tile
         //    this.unitToLaunch = hit.collider.gameObject.GetComponent<Unit>();
         //}
         unitToLaunch = unit;
-        
-        
 
     }
 

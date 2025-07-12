@@ -197,8 +197,8 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
     public void TakeDamage(float damage, Unit attacker)
     {
 
-        Debug.Log("Unit name: " + attacker.Name);
-        Debug.Log(attacker.effectManager);
+        //Debug.Log("Unit name: " + attacker.Name);
+        //Debug.Log(attacker.effectManager);
 
         attacker.effectManager.EffectAccess(attacker); // attacker
         this.effectManager.EffectAccess(this); //target
@@ -241,7 +241,7 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
 
         //Doing the damage
         int dmg = CalculateDamage(attacker);
-        Debug.Log("Damage taken: " + ((int)damage + dmg));
+        //Debug.Log("Damage taken: " + ((int)damage + dmg));
         this.hp -= (int)damage + dmg;
         this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
 
@@ -290,8 +290,8 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
     public void gainHealth(float healPts, Unit partyMember)
     {
 
-        Debug.Log("Unit name: " + partyMember.Name);
-        Debug.Log(partyMember.effectManager);
+        //Debug.Log("Unit name: " + partyMember.Name);
+        //Debug.Log(partyMember.effectManager);
 
         partyMember.effectManager.EffectAccess(partyMember); // attacker
         this.effectManager.EffectAccess(this); //target
@@ -389,6 +389,7 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
     }
     public void OnTurn(bool value)
     {
+        //Debug.Log("TURN: " + value);
         if (this.animator != null)
         {
             this.animator.SetBool("Turn", value);
@@ -396,6 +397,8 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
     }
     public void OnMovement(bool value)
     {
+        //Debug.Log("Moving" + value);
+
         if (this.animator != null)
         {
             this.animator.SetBool("Walk", value);

@@ -232,7 +232,7 @@ public class CutsceneManager : MonoBehaviour
                 
                 break;
             case ESkillType.HEAL:
-                Debug.Log("BOO BOO");
+                //Debug.Log("BOO BOO");
                 EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.MAXHP, target.HP);
                 EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Ally, false);
                 EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
@@ -426,7 +426,7 @@ public class CutsceneManager : MonoBehaviour
         HealParticle.Play();
     }
     private void PlaySFX(string name) {
-        //SFXManager.Instance.Play(name);
+        SFXManager.Instance.Play(name);
     }
     private void Update()
     {

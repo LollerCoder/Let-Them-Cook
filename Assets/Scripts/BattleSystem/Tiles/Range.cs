@@ -133,9 +133,15 @@ public static class Range {
             case RangeType.WALK:
                 _inRangeTiles = GetTilesInMovement(unit.Tile, range);
 
-                foreach (Tile tile in _inRangeTiles) {
-                    tile.HighlightWalkableTile();
+                //foreach (Tile tile in _inRangeTiles) {
+                //    tile.HighlightWalkableTile();
+                //}
+
+                InRangeTiles[0].HighlightCurrentTile();
+                for (int i = 1; i < InRangeTiles.Count; i++) {
+                    InRangeTiles[i].HighlightWalkableTile();
                 }
+
                 break;
             case RangeType.HEAL:
                 _inRangeTiles = GetTilesInAttackMelee(unit.Tile, (int)range);
