@@ -10,7 +10,7 @@ public class FoilThrow : Skill
     {
         this.skillName = "Foil Throw";
         this.veggieType = EVeggie.GARLIC;
-        this.skillType = ESkillType.BASIC;
+        this.skillType = ESkillType.RANGE;
 
         this.skillRange = 3;
 

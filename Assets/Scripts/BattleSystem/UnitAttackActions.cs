@@ -135,6 +135,10 @@ public class UnitAttackActions : MonoBehaviour {
                
         switch (skill.SKILLTYPE) { 
             case ESkillType.BASIC:
+            case ESkillType.RANGE:
+                Range.GetRange(unit, skill.SkillRange, RangeType.ATTACK);
+                UpdateAttackableUnits(index);
+                break;
             case ESkillType.AOE:
                 Range.GetRange(unit, skill.SkillRange, RangeType.ATTACK);
                 UpdateAttackableUnits(index);

@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 3171896002134962826}
   - component: {fileID: 8761600388744231633}
   - component: {fileID: 7167576064355011211}
+  - component: {fileID: 6841807643880283201}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Unit Sprite
@@ -211,6 +212,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6841807643880283201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537195852086935809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d7419106db2b74592a0631400dfbb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx:
+    name: Walk
+    clip: {fileID: 8300000, guid: 1559dfca57ef7bd49a633c0a530a4fc8, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!1001 &1100954517418606369
 PrefabInstance:
   m_ObjectHideFlags: 0

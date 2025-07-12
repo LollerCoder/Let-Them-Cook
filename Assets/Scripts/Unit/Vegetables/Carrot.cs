@@ -31,7 +31,7 @@ public class Carrot : Unit{
         //this.animator = this.GetComponent<Animator>();
 
         //this.skillList.Add("Basic Attack");
-        this.skillList.Add("Circular Cut");
+        this.skillList.Add("Foil Throw");
         this.skillList.Add("Photosynthesis");
 
         this.acc = 10;
