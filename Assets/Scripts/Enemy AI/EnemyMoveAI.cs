@@ -19,7 +19,7 @@ namespace EnemyAI
 
         public List<Tile> MoveEnemy(Unit _currentUnit, Unit targetUnit)
         {
-            Debug.Log("Enemy Moving!");
+            //Debug.Log("Enemy Moving!");
 
             UnitActionManager.Instance.OnMove = true;
 

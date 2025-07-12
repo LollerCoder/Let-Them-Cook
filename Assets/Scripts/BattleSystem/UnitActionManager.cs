@@ -231,7 +231,7 @@ public class UnitActionManager : MonoBehaviour
 
         UnitActions.UpdateTile();
 
-        this.SetUpTurn();
+        this.StartCoroutine(this.SetUpTurn());
     }
 
     public void ResetCurrentUnit() {
@@ -294,7 +294,7 @@ public class UnitActionManager : MonoBehaviour
     }
 
     //first thing that happens when Unit's turn starts
-    private void SetUpTurn()
+    private IEnumerator SetUpTurn()
     {
         BattleUI.Instance.UpdateTurnOrder(this.TurnOrder);
 
@@ -350,7 +350,7 @@ public class UnitActionManager : MonoBehaviour
                     bEnemy = true;
                     bAlly = false;
                     EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
-
+                    yield return new WaitForSeconds(0.8f);
                     this.EnemyUnitAction();
                     break;
 
@@ -359,25 +359,12 @@ public class UnitActionManager : MonoBehaviour
                     ((ISpecialTile)unit).ApplyEffect();
                     break;
 
+                default:
+                    break;
 
             }
         }
 
-        //if (this._unitOrder[0].Type != EUnitType.Ally) {
-
-        //    bEnemy = true;
-
-        //    EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
-
-        //    this.EnemyUnitAction();
-        //}
-        //else
-        //{
-        //    bEnemy = false;
-        //    BattleUI.Instance.ToggleActionBox();
-
-
-        //}
         if (this.GetFirstUnit() is SpecialUnits sUnit) {
             sUnit.Action();
         }
@@ -416,7 +403,7 @@ public class UnitActionManager : MonoBehaviour
         UnitActions.UpdateTile();
         this._enemyAI = new EnemyMainAI(this._Units);
 
-        this.SetUpTurn();
+        this.StartCoroutine(this.SetUpTurn());
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.ON_START);  
         

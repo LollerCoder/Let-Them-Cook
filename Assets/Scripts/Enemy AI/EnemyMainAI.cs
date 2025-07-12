@@ -97,7 +97,7 @@ namespace EnemyAI
             List<Tile> path = new List<Tile>();
             this._CurrentEnemyUnit = currentEnemyAgent;
 
-            Debug.Log("enter enemyunityaction");
+            //Debug.Log("enter enemyunityaction");
 
             List<Tile> inRangeTiles = Range.GetTilesInAttackMelee(
                 this._CurrentEnemyUnit.Tile, 
@@ -136,7 +136,7 @@ namespace EnemyAI
             else
             {
                 //Move closer
-                Debug.Log("Moving!");
+                //Debug.Log("Moving!");
                 path = this._moveAI.MoveEnemy(this._CurrentEnemyUnit, target);
             }
 

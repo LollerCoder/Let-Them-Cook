@@ -62,10 +62,13 @@ public class CutsceneManager : MonoBehaviour
     private void SETUP(Parameters param)
     {
         CameraMovement.inCutscene = true;
-        BattleUI.Instance.ToggleActionBox();
         BattleUI.Instance.ToggleTurnOrderUI();
         player = param.GetUnitExtra(currUNIT);
         target = param.GetUnitExtra(TARGET);
+
+        if (player.Type == EUnitType.Ally) {
+            BattleUI.Instance.ToggleActionBox();
+        }
 
         string numTARGETS = param.GetStringExtra("TARGETS", "THIS SHOULD NEVER BE USED.");
 
