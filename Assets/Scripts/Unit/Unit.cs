@@ -252,11 +252,11 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
             Debug.Log("Its Dead");
             this.Tile.isWalkable = true;
 
-            if (attacker.type == EUnitType.Ally)
-            {
-                Debug.Log(this.type);
-                GameManager.Instance.OnDiedCallback.Invoke(this.ingredientType);
-            }
+            //if (attacker.type == EUnitType.Ally)
+            //{
+            //    Debug.Log(this.type);
+            //    GameManager.Instance.OnDiedCallback.Invoke(this.ingredientType);
+            //}
 
             this.HandleDeath();
 
