@@ -366,6 +366,7 @@ public class CutsceneManager : MonoBehaviour
 
     IEnumerator CutsceneDeadCheck()
     {
+        Debug.Log("Checcking dead");
         this.ResetCutscene();
         if (target.HP <= 0)
         {
@@ -409,9 +410,10 @@ public class CutsceneManager : MonoBehaviour
 
     private void CutsceneEnd()
     {
+        Debug.Log("Cutscene is Ending!");
         CameraMovement.inCutscene = false;
 
-        this.ResetCutscene();
+      
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_END);
 
@@ -419,6 +421,7 @@ public class CutsceneManager : MonoBehaviour
 
         BattleUI.Instance.ToggleTurnOrderUI();
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+        this.ResetCutscene();
     }
 
     private void HealingParticles()
