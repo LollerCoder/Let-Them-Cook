@@ -18,8 +18,7 @@ public class Photosynthesis : Skill
 
     public override void SkillAction(Unit target, Unit origin)
     {
-            origin.gainHealth(10,target);
-            PopUpManager.Instance.addPopUp(this.skillName + " 10 HP", target.transform);
+        target.gainHealth(4, origin);
     }
 
     public override void HighlightTile(Unit unit) {
