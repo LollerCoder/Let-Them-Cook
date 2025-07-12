@@ -1746,6 +1746,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4421890679549472937, guid: f35af92b3ee93404ea68f8a53e873ba1, type: 3}
+      propertyPath: move
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6826841743163241225, guid: f35af92b3ee93404ea68f8a53e873ba1, type: 3}
       propertyPath: m_Name
       value: Pumpkin
@@ -3222,7 +3226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bEnemy: 0
   bAlly: 0
-  speed: 6
+  speed: 5
   _Units: []
   numAttack: -1
   hadMoved: 0
