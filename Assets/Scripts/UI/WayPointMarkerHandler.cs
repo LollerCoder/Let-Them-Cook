@@ -11,7 +11,11 @@ public class WayPointMarkerHandler : MonoBehaviour
     void Start()
     {
         EventBroadcaster.Instance.AddObserver(EventNames.HostageRescue_Events.GOAL_ARROW_UNHIDE, this.ShowArrow);
+
+        //hiding the arrow
         EventBroadcaster.Instance.AddObserver(EventNames.HostageRescue_Events.GOAL_ARROW_HIDE, this.HideArrow);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_PLAY, this.HideArrow);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CHECK_END_CONDITION, this.HideArrowP);
 
         EventBroadcaster.Instance.AddObserver(EventNames.HostageRescue_Events.ARROW_SHOWED, this.AddTarget);
 
@@ -35,6 +39,10 @@ public class WayPointMarkerHandler : MonoBehaviour
     }
 
     public void HideArrow()
+    {
+        this.gameObject.SetActive(false);
+    }
+    public void HideArrowP(Parameters param)
     {
         this.gameObject.SetActive(false);
     }
