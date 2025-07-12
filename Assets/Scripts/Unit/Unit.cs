@@ -419,8 +419,9 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
     {
         if (this.animator != null)
         {
-            Debug.Log("LANDING");
             this.animator.SetBool("HasSpringed", false);
+            Debug.Log("LANDING");
+            
         }
     }
     ///SPRINGS

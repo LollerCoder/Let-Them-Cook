@@ -26,6 +26,7 @@ public class SFXScript : MonoBehaviour
     {
         if (tpLoc != Vector3.zero)
         {
+           
             Debug.Log("Teleport");
             this.gameObject.GetComponentInParent<Unit>().gameObject.transform.position = tpLoc;
             EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.LAUNCH);
