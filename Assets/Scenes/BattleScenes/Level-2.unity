@@ -2465,6 +2465,11 @@ MonoBehaviour:
   toggle: {fileID: 1317111454}
   toggleMessage: Kill All Enemies
   optional: 0
+--- !u!1 &1329181608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5303227089696330162, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+  m_PrefabInstance: {fileID: 794716827822140901}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1390893723 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2374961506560105311, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
@@ -4771,7 +4776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3216433155220034406, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: totalLevelObjectives
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3216433155220034406, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: 'Objectives.Array.data[0]'
@@ -4925,6 +4930,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1533642186}
+    - target: {fileID: 6805952096433504497, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
+      propertyPath: gameEnd
+      value: 
+      objectReference: {fileID: 1329181608}
     - target: {fileID: 8287271111585280180, guid: 0d446c82f5ab35a4fb259b016d78ba87, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
