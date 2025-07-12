@@ -44,7 +44,6 @@ public static class UnitActions {
             UnitActionManager.Instance.OnAttack = false;
             UnitActionManager.Instance.OnMove = true;
             UnitActionManager.Instance.hadMoved = false;
-            unit.OnMovement(true);
             unit.transform.position = currentTilePos;
             unit.Tile = currentTile;
             bGoal = false;
@@ -103,9 +102,9 @@ public static class UnitActions {
         }
 
 
-        Debug.Log("Attacked Target " + target.name);
+        //Debug.Log("Attacked Target " + target.name);
         if (Skill == 1) {
-            Debug.Log("10 dmg applied");
+            //Debug.Log("10 dmg applied");
         }
 
         UnitActionManager.Instance.OnAttack = false;
@@ -237,7 +236,14 @@ public static class UnitActions {
             currentUnit.transform.position = new Vector3(PathFinding.Path[0].transform.position.x,
                                                             PathFinding.Path[0].transform.position.y + TileMapManager.Instance.unitLock,
                                                             PathFinding.Path[0].transform.position.z);
+            if (currentUnit.Type == EUnitType.Enemy) {
+                currentUnit.Tile.UnHighlightTile();
+            }
+            else {
+                currentUnit.Tile.HighlightWalkableTile();
+            }
             currentUnit.Tile = PathFinding.Path[0];
+            currentUnit.Tile.HighlightCurrentTile();
             goalTile = PathFinding.Path[0];
 
             PathFinding.Path.RemoveAt(0);
@@ -245,11 +251,12 @@ public static class UnitActions {
 
         if (PathFinding.Path.Count < 1)
         {
-            EventBroadcaster.Instance.PostEvent(EventNames.UnitActionEvents.ON_DESTINATION_REACHED);
             UnitActionManager.Instance.Moving = false;
             UnitActionManager.Instance.OnMove = false;
             currentUnit.OnMovement(false);
+            currentUnit.OnTurn(true);
             BattleUI.Instance.ToggleWaitButton(true);
+
             if(currentUnit.Type == EUnitType.Ally && !CheckVegetableOnTile(currentUnit)) {
                 //BattleUI.Instance.ToggleActionBox();
                 //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
@@ -271,6 +278,8 @@ public static class UnitActions {
                 Debug.Log("UnitToLaunchSet");
             }
             //springs
+            currentUnit.Tile.HighlightCurrentTile();
+            EventBroadcaster.Instance.PostEvent(EventNames.UnitActionEvents.ON_DESTINATION_REACHED);
         }
 
     }
@@ -326,9 +335,8 @@ public static class UnitActions {
             }
 
             // if there is a path
-
-            stepFlag = true;
             unit.OnMovement(true);
+            stepFlag = true;
             UnitActionManager.Instance.Moving = true;
             BattleUI.Instance.ToggleWaitButton(false);
 

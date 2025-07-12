@@ -66,7 +66,7 @@ public class SkillDatabase : MonoBehaviour
     public void GetSkillSprite(Skill skill) {
 
         if (this.skillSprites.ContainsKey(skill.SkillName)) {
-            Debug.Log(skill.SkillName);
+            //Debug.Log(skill.SkillName);
             skill.highlightedIcon = this.skillSprites[skill.SkillName].highlight;
             skill.unHighlightIcon = this.skillSprites[skill.SkillName].unHighlight;
         }

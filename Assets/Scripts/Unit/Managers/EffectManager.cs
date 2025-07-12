@@ -70,7 +70,7 @@ public class EffectManager
 
           
         }
-        Debug.Log(applyTo.AccuracyMultiplier);
+        //Debug.Log(applyTo.AccuracyMultiplier);
 
     }
 

@@ -26,7 +26,6 @@ public class SpringTile : Tile
         unitToLaunch = unit;
         unitToLaunch.Tile = Location1;
         unit.OnSpring(true);
-
     }
 
     public override void ApplyOnUnitStart()

@@ -59,6 +59,7 @@ public class Tile : MonoBehaviour{
         this.inWalkRange = false;
         TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
     }
+
     public void UnHighlightTargetTile() {
         if (this.inWalkRange) {
             TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
@@ -90,6 +91,14 @@ public class Tile : MonoBehaviour{
             TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
         }
         this.rangeIndicator = TileHelper.Instance.SpawnRangeIndicator(rangePos, RangeType.HEAL);
+    }
+
+    public void HighlightCurrentTile() {
+        if (this.rangeIndicator != null) {
+            TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
+        }
+
+        this.rangeIndicator = TileHelper.Instance.SpawnRangeIndicator(rangePos, RangeType.CURRENT);
     }
 
     public virtual void ApplyEffect(Unit unit) {

@@ -59,12 +59,12 @@ namespace EnemyAI
 
             if (_currentUnit.transform.position.x >= targetUnit.transform.position.x)
             {
-                Debug.Log("looking left");
+                //Debug.Log("looking left");
                 cuSR.flipX = true;
             }
             else
             {
-                Debug.Log("looking right");
+                //Debug.Log("looking right");
                 cuSR.flipX = false;
             }
 
