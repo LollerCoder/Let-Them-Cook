@@ -32,12 +32,12 @@ public class LevelManager : MonoBehaviour
 
     public void updateMap(string sceneName)
     {
-        Debug.Log("Map updating");
+        //Debug.Log("Map updating");
 
         int levelNum = int.Parse(SceneManager.GetActiveScene().name.Split("-")[1]);
 
         parent.transform.GetChild(levelNum).gameObject.GetComponent<LevelSelector>().canLoad = true;
-        Debug.Log(parent.transform.GetChild(levelNum).gameObject.name + "  is now saved");
+        //Debug.Log(parent.transform.GetChild(levelNum).gameObject.name + "  is now saved");
 
         /*save game here*/
         parent.gameObject.GetComponent<GameScript>().SaveGame();

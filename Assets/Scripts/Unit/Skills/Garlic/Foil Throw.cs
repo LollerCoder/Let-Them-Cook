@@ -13,6 +13,8 @@ public class FoilThrow : Skill
         this.skillType = ESkillType.BASIC;
 
         this.skillRange = 3;
+
+        SkillDatabase.Instance.GetSkillSprite(this);
     }
 
     public override void SkillAction(Unit target, Unit origin)

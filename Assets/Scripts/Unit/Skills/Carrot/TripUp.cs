@@ -23,6 +23,8 @@ public class TripUp : Skill
         this.cost = 30;
 
         this.skillData = new EffectInfo(duration, mod, stat);
+
+        SkillDatabase.Instance.GetSkillSprite(this);
     }
 
 

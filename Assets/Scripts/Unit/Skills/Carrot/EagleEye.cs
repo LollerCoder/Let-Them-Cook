@@ -33,6 +33,7 @@ public class EagleEye : Skill
 
 
         this.skillData = new EffectInfo(duration, mod, stat);
+        SkillDatabase.Instance.GetSkillSprite(this);
 
     }
 

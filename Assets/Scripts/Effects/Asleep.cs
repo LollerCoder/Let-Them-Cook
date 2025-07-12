@@ -16,20 +16,23 @@ public class Asleep : Effect
 
     public override void EffectAction(Unit unitAffected)
     {
-        //Debug.Log("init health " + this.initHealth);
+        if (unitAffected.HP == this.initHealth)
+        {
+            PopUpManager.Instance.addPopUp(".....zzZZZ", unitAffected.transform);
+        }
+        else
+        {
+            PopUpManager.Instance.addPopUp("Huh... what?", unitAffected.transform);
+        }
+        
+    }
+
+    public override void AfterTurnAction(Unit unitAffected)
+    {
         if (unitAffected.HP < this.initHealth)
         {
             EventBroadcaster.Instance.PostEvent(EventNames.Level3_Objectives.WOKE_UP);
             this.Duration = 1;
         }
-        else
-        {
-            PopUpManager.Instance.addPopUp(".....zzZZZ", unitAffected.transform);
-            UnitActionManager.Instance.OnAttack = false;
-            UnitActionManager.Instance.OnMove = false;
-            UnitActionManager.Instance.hadAttacked = true;
-            UnitActionManager.Instance.hadMoved = true;
-        }
-
     }
 }

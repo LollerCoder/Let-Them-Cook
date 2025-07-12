@@ -12,6 +12,8 @@ public class DefensiveWhack : Skill
 
         //for skill progressions
         this.cost = 15;
+
+        SkillDatabase.Instance.GetSkillSprite(this);
     }
 
     public override void SkillAction(Unit target, Unit origin)

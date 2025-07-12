@@ -9,6 +9,8 @@ public class Shove : Skill
 
     //private int sucessChance = 90;
 
+    private Unit _UnitHit; //the unit that got shoved into
+
     public Shove()
     {
         this.skillName = "Shove";
@@ -20,8 +22,7 @@ public class Shove : Skill
         //for skill progressions
         this.cost = 30;
 
-        this.defaultIcon = Resources.Load<Sprite>("Skills/shoveDefault");
-        this.highlightedIcon = Resources.Load<Sprite>("Skills/shoveHighlighted");
+        SkillDatabase.Instance.GetSkillSprite(this);
     }
 
     public override void SkillAction(Unit target, Unit origin)
@@ -72,6 +73,9 @@ public class Shove : Skill
 
             //if there is a wall add more damage
             target.TakeDamage(5, origin);
+
+            //if the "wall" is a unit
+            if (this._UnitHit != null) this._UnitHit.TakeDamage(2, origin);
         }
 
         target.AddEffect(new Dizzy(2, origin));
@@ -90,6 +94,8 @@ public class Shove : Skill
         if (hit.collider == null) return false;
 
         if (!hit.collider.gameObject.GetComponent<Unit>()) return false;
+
+        if (hit.collider.gameObject.GetComponent<Unit>()) this._UnitHit = hit.collider.gameObject.GetComponent<Unit>();
 
         return isWall;
     }

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 public class Skill 
 {
@@ -50,7 +51,7 @@ public class Skill
     //Debuffs/Buffs
     public EffectInfo skillData;
 
-    public Sprite defaultIcon;
+    public Sprite unHighlightIcon;
     public Sprite highlightedIcon;
 
     public Skill()

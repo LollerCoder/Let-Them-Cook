@@ -101,6 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af77c3ae89978548ac6d12ace3b3784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  minVerticalAngle: -30
+  maxVerticalAngle: 20
 --- !u!1 &1762141483227868369
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,6 +390,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af77c3ae89978548ac6d12ace3b3784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  minVerticalAngle: -30
+  maxVerticalAngle: 20
 --- !u!1 &3098545543186099406
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +481,7 @@ GameObject:
   - component: {fileID: 7335790583154385083}
   m_Layer: 6
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Unit Sprite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -908,6 +914,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af77c3ae89978548ac6d12ace3b3784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  minVerticalAngle: -30
+  maxVerticalAngle: 20
 --- !u!114 &4780001217957373830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,6 +1036,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af77c3ae89978548ac6d12ace3b3784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  minVerticalAngle: -30
+  maxVerticalAngle: 20
 --- !u!114 &1046618052473504474
 MonoBehaviour:
   m_ObjectHideFlags: 0

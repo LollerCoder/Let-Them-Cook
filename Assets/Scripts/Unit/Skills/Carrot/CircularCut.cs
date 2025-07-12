@@ -6,7 +6,7 @@ public class CircularCut : Skill
 {
 
 
-    private float damage = 7.0f;
+    private float damage = 3.0f;
     List<Vector3> cardinalDirs = new List<Vector3>();
 
     private Dictionary<Unit, Vector3> neighbors = new Dictionary<Unit, Vector3>();
@@ -28,6 +28,8 @@ public class CircularCut : Skill
         cardinalDirs.Add(Vector3.right); // dummy
         cardinalDirs.Add(Vector3.forward); // dummy1 behind carrot
         cardinalDirs.Add(Vector3.back); //dummy2 in front of carrot
+
+        SkillDatabase.Instance.GetSkillSprite(this);
     }
 
     public override void SkillAction(Unit target, Unit origin)

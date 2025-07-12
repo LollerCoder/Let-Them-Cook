@@ -17,7 +17,9 @@ public class CameraMovement : MonoBehaviour
     private Camera cam;
     private float rotationX = 0f;
 
-    public float movementSpeed = 7.0f; 
+    public float Speed = 7.0f;
+    private float movementSpeed;
+    private float shiftSpeed;
     
     public const string POS = "POS";
 
@@ -28,9 +30,10 @@ public class CameraMovement : MonoBehaviour
     private Vector3 previousCamPos;
     private Quaternion previousCamRot;
 
-    [SerializeField, Range(4, 8)]
-    private float heightOffset; // height above the tiles
+    [SerializeField, Range(4, 12)]
+    private float heightOffset = 8; // height above the tiles
 
+    public static bool inCutscene = false;
     void Start()
     {
         cam = Camera.main;
@@ -38,30 +41,28 @@ public class CameraMovement : MonoBehaviour
         EventBroadcaster.Instance.AddObserver(EventNames.BattleCamera_Events.ENEMY_FOCUS, this.EnemyPosition);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_PLAY, this.battleCutsceneCamMove);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_END, this.battleCutsceneReset);
+
+        this.movementSpeed = this.Speed;
+        this.shiftSpeed = this.movementSpeed * 2f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.CameraMove();
-        this.CameraLook();
+        if (!inCutscene) {
+            this.CameraMove();
+            this.CameraLook();
+        }
 
         if (Input.GetKeyUp(KeyCode.C) /*&& !UnitActionManager.Instance.OnAttack*/) {
             this.ResetPosition();
         }
-        if (Input.GetKeyUp(KeyCode.E) && this.heightOffset < 8) {
-            this.heightOffset++;
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
+            this.movementSpeed = this.shiftSpeed;
         }
-        if (Input.GetKeyUp(KeyCode.Q) && this.heightOffset > 4) {
-            this.heightOffset--;
+        else if (Input.GetKeyUp(KeyCode.LeftShift)) {
+            this.movementSpeed = this.Speed;
         }
-        //if (Input.GetKeyUp(KeyCode.Q) && UnitActionManager.Instance.numAttack >= 0) {
-        //    UnitAttackActions.CycleEnemy(UnitActionManager.Instance.numAttack, 0); // 0 for Q/Left
-
-        //}
-        //if (Input.GetKeyUp(KeyCode.E) && UnitActionManager.Instance.numAttack >= 0) {
-        //    UnitAttackActions.CycleEnemy(UnitActionManager.Instance.numAttack, 1); // 1 for E/Right
-        //}
         if (this.reset) {
             this.cam.transform.position = Vector3.Lerp(this.cam.transform.position, this.targetPosition, Time.deltaTime * 10f);
             Vector3 pos = this.cam.transform.position;
@@ -71,7 +72,6 @@ public class CameraMovement : MonoBehaviour
                 this.cam.transform.position = this.targetPosition;
                 this.reset = false;
                 this.targetPosition = Vector3.zero;
-                //Debug.Log("STILL HERE");
             }
         }
         //if (Input.GetKeyUp(KeyCode.Escape))
@@ -99,8 +99,10 @@ public class CameraMovement : MonoBehaviour
         this.targetPosition.z = cameraPosition.z - 2;
 
         // set the camera's x rotation to 89 instead of exactly looking at the character (90)
+
         Quaternion targetRotation = Quaternion.Euler(63f, 0f, 0f);
         this.cam.transform.rotation = targetRotation;
+        
 
         //this.cam.transform.LookAt(characterPos);
 
@@ -133,9 +135,10 @@ public class CameraMovement : MonoBehaviour
         this.targetPosition.z = cameraPosition.z - 2;
 
         // set the camera's x rotation to 89 instead of exactly looking at the character (90)
-
         Quaternion targetRotation = Quaternion.Euler(63f, 0f, 0f);
         this.cam.transform.rotation = targetRotation;
+
+        //this.cam.transform.LookAt(this.targetPosition.normalized);
 
         // override the rotationX with the new rotation so that it wont go back to the original rotation before the reset
         this.rotationX = cam.transform.localEulerAngles.x;
@@ -169,11 +172,11 @@ public class CameraMovement : MonoBehaviour
             //previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
         }
 
-        if (Input.mouseScrollDelta.y < 0 && this.movementSpeed < 20) {
-            this.movementSpeed += 1.0f;
+        if (Input.mouseScrollDelta.y > 0 && this.heightOffset > 4) {
+            this.heightOffset--;
         }
-        if (Input.mouseScrollDelta.y > 0 && this.movementSpeed > 1) {
-            this.movementSpeed -= 1.0f;
+        if (Input.mouseScrollDelta.y < 0 && this.heightOffset < 12 ) {
+            this.heightOffset++;
         }
     }
     private void CameraMove() {

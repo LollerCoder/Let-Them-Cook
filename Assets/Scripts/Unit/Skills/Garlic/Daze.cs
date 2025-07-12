@@ -11,6 +11,8 @@ public class Daze : Skill
         this.skillType = ESkillType.BASIC;
 
         this.skillRange = 1;
+
+        SkillDatabase.Instance.GetSkillSprite(this);
     }
 
     public override void SkillAction(Unit target, Unit origin)

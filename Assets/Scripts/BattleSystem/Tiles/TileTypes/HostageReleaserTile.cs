@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class HostageReleaserTile : Tile
 {
-    [SerializeField]
-    private GameObject caged_hostage;
 
     [Header("Hostage")]
+    [SerializeField]
+    private GameObject caged_hostage_prop;
     [SerializeField]
     private GameObject hostage_template;
 
@@ -31,24 +31,35 @@ public class HostageReleaserTile : Tile
     public override void ApplyEffect(Unit unit)
     {
         if (isReleased) return;
+        if (unit.Type != EUnitType.Ally) return;
 
-        EventBroadcaster.Instance.PostEvent(EventNames.HostageRescue_Events.HOSTAGE_FREE);
-        EventBroadcaster.Instance.PostEvent(EventNames.EnemySpawn_Events.SPAWN_ENEMY);
 
-        caged_hostage.SetActive(false);
+        caged_hostage_prop.SetActive(false);
 
         tile_spawn.tileType = ETileType.DEFAULT;
-
-        List<Effect> effects = new List<Effect>();
-
-        effects.Add(new CapturedHostage(999, unit));
+        tile_spawn.withProp = false;
+        tile_spawn.isWalkable = false;
 
         UnitManager.Instance.addUnit("Garlic Hostage",
             hostage_template,
             tile_spawn,
             EUnitType.Ally,
-            effects
+            new List<Effect>()
             );
+
+        this.GiveAlliesEffect(unit);
+
+        EventBroadcaster.Instance.PostEvent(EventNames.HostageRescue_Events.HOSTAGE_FREE);
+        EventBroadcaster.Instance.PostEvent(EventNames.EnemySpawn_Events.SPAWN_ENEMY);
+
         //unit.AddEffect(new CapturedHostage(999, unit));
+    }
+
+    private void GiveAlliesEffect(Unit orig)
+    {
+        foreach (Unit unit in UnitActionManager.Instance.UnitList.FindAll(u => u.Type == EUnitType.Ally))
+        {
+            unit.AddEffect(new MissionEscapeEffect(999, orig));
+        }
     }
 }

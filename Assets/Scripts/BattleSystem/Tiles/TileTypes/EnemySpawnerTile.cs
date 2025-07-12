@@ -23,6 +23,7 @@ public class EnemySpawnerTile : Tile
             EUnitType.Enemy,
             new List<Effect>()
             );
+        this.withProp = false;
     }
 
     public override void ApplyEffect(Unit unit)

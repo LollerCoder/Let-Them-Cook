@@ -11,6 +11,7 @@ public class PopCorn : Skill
         this.skillType = ESkillType.AOE;
 
         this.skillRange = 2;
+        SkillDatabase.Instance.GetSkillSprite(this);
     }
 
     public override void SkillAction(Unit target, Unit origin)

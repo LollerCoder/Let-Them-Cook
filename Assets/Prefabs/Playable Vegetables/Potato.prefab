@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3668914687633007033}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Unit Sprite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 5145978829346073834}
   - component: {fileID: 85490013685061727}
   - component: {fileID: 9220422037435779797}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Potato
   m_TagString: Unit
   m_Icon: {fileID: 0}
@@ -207,6 +207,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af77c3ae89978548ac6d12ace3b3784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  minVerticalAngle: -30
+  maxVerticalAngle: 20
 --- !u!1001 &628814814362855714
 PrefabInstance:
   m_ObjectHideFlags: 0

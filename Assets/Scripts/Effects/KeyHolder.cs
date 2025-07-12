@@ -12,12 +12,14 @@ public class KeyHolder : Effect
 
     public override void EffectAction(Unit unitAffected)
     {
-        EventBroadcaster.Instance.PostEvent(EventNames.Tile_Events.GOAL_ARROW_UNHIDE);
+        if (unitAffected.Type == EUnitType.Ally)
+            EventBroadcaster.Instance.PostEvent(EventNames.Tile_Events.GOAL_ARROW_UNHIDE);
     }
 
     public override void AfterTurnAction(Unit unitAffected)
     {
-        EventBroadcaster.Instance.PostEvent(EventNames.Tile_Events.GOAL_ARROW_HIDE);
+        if (unitAffected.Type == EUnitType.Ally)
+            EventBroadcaster.Instance.PostEvent(EventNames.Tile_Events.GOAL_ARROW_HIDE);
     }
 
     public override void EffectAfterAction(Unit unitAffected)

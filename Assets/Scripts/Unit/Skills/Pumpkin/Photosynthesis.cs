@@ -12,15 +12,13 @@ public class Photosynthesis : Skill
 
         //for skill progressions
         this.cost = 15;
-        this.skillRange = 1;
-        this.defaultIcon = Resources.Load<Sprite>("Sprites/Skills/photosynthesisDefault");
-        this.highlightedIcon = Resources.Load<Sprite>("Sprites/Skills/photosynthesisHighlighted");
+        this.skillRange = 3;
+        SkillDatabase.Instance.GetSkillSprite(this);
     }
 
     public override void SkillAction(Unit target, Unit origin)
     {
-            origin.gainHealth(10,target);
-            PopUpManager.Instance.addPopUp(this.skillName + " 10 HP", target.transform);
+        target.gainHealth(4, origin);
     }
 
     public override void HighlightTile(Unit unit) {

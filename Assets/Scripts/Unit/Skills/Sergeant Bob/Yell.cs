@@ -11,6 +11,8 @@ public class Yell : Skill
         this.skillType = ESkillType.HEAL;
 
         this.skillRange = 4;
+
+        SkillDatabase.Instance.GetSkillSprite(this);
     }
 
     public override void SkillAction(Unit target, Unit origin)

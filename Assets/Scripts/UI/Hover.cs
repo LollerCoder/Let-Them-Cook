@@ -14,14 +14,20 @@ public class Hover : MonoBehaviour
 
     public void showSkillName()
     {
+        string msg2_buffer = "_";
+
         if (gameObject.tag == "Skills")
         {
             message = gameObject.GetComponentInChildren<Text>().text;
-            message2 = HoverManager.Instance.getFlavourText(message);
-
-
+            msg2_buffer = HoverManager.Instance.getFlavourText(message);
         }   
-        HoverManager.Instance.SetAndShowToolTip(message, message2);
+
+        if (msg2_buffer.Equals("No skill found") && message2 != null)
+        {
+            msg2_buffer = message2;
+        }
+
+        HoverManager.Instance.SetAndShowToolTip(message, msg2_buffer);
        
     }
 

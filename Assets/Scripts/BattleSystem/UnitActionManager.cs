@@ -70,7 +70,11 @@ public class UnitActionManager : MonoBehaviour
         vignette = Camera.main.GetComponentInChildren<PostProcessVolume>();
         vignette.weight = 0.0f;
      
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.ADDED_UNITS_SELECTED, this.UpdateEnemyAIList);
+        EventBroadcaster.Instance.AddObserver(EventNames.HostageRescue_Events.HOSTAGE_FREE, this.UpdateEnemyAIList);
 
+        EventBroadcaster.Instance.AddObserver(EventNames.UnitActionEvents.ON_DESTINATION_REACHED, this.EnemyAIEndTurn);
+        EventBroadcaster.Instance.AddObserver(EventNames.UnitActionEvents.ON_ENEMY_END_TURN, this.EnemyAIEndTurn);
     }
     public void EnemyUnitAction()
     {
@@ -91,7 +95,7 @@ public class UnitActionManager : MonoBehaviour
             PathFinding.Path = this._enemyAI.TakeTurn(enemy);
         }
 
-        this.StartCoroutine(this.EnemyWait(2.0f)); // fix this instead of doing a coroutine, do the next turn whenever the enemy has done all of their actions
+        //this.StartCoroutine(this.EnemyWait(2.0f)); // fix this instead of doing a coroutine, do the next turn whenever the enemy has done all of their actions
     }
     private IEnumerator EnemyWait(float seconds)
     {
@@ -104,11 +108,36 @@ public class UnitActionManager : MonoBehaviour
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
     }
 
+    public void EnemyAIEndTurn()
+    {
+        if ((Unit)(this.TurnOrder[0]) != null)
+        {
+            Debug.Log("Type is unit");
+            if (((Unit)this.TurnOrder[0]).Type != EUnitType.Enemy) return;
+        }
+        this.OnAttack = false;
+        this.OnMove = false;
+
+        PathFinding.Path.Clear();
+        EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.ENABLE_CLICKS);
+
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    public void AddUnit(Unit unit)
+    {
+        if (_Units.Contains(unit)) return;
+        _Units.Add(unit);
+    }
+
     public void RemoveUnitFromOrder(Unit removedUnit) {
+        this._Units.Remove(removedUnit);
         this._turnOrder.Remove((ITurnTaker)removedUnit);
         removedUnit.Tile.isWalkable = true;
+
+        this._enemyAI.UpdateAllyUnits(_Units.FindAll(u => u.Type == EUnitType.Ally));
 
         Parameters param = new Parameters();
         param.PutExtra(UNIT, removedUnit);
@@ -117,18 +146,73 @@ public class UnitActionManager : MonoBehaviour
     }
     public void DecideTurnOrder() {
 
-        List<Unit> tempList = new List<Unit>();
+        //List<Unit> tempList = new List<Unit>();
 
-        foreach(ITurnTaker taker in this.TurnOrder) {
-            if (taker is Unit temp) {
-                tempList.Add(temp);
+        //foreach(ITurnTaker taker in this.TurnOrder) {
+        //    if (taker is Unit temp) {
+        //        tempList.Add(temp);
+        //    }
+        //}
+
+        //_Units = _Units.Except(tempList).ToList(); //filter out duplicates
+
+        RemoveDuplicates();
+
+        //remove all units in turn order
+        this._turnOrder.RemoveAll(taker => taker is Unit);
+
+        this._turnOrder.AddRange(_Units);
+
+        this._turnOrder.Sort((x, y) => y.Speed.CompareTo(x.Speed));
+        BattleUI.Instance.UpdateTurnOrder(this._turnOrder);
+    }
+
+    private void RemoveDuplicates()
+    {
+        List<Unit> tempUnitList = new List<Unit>(_Units);
+
+        foreach (ITurnTaker taker in this.TurnOrder)
+        {
+            if (taker is Unit temp)
+            {
+                tempUnitList.Add(temp);
             }
         }
 
-        _Units = _Units.Except(tempList).ToList(); //filter out duplicates
-        this._turnOrder.AddRange(_Units) ;
-        this._turnOrder.Sort((x, y) => y.Speed.CompareTo(x.Speed));
-        BattleUI.Instance.UpdateTurnOrder(this._turnOrder);
+        List<Unit> toRemove = new List<Unit>();
+
+        //getting the duplicates
+        foreach (Unit u in tempUnitList)
+        {
+            if (tempUnitList.FindAll(un => un == u).Count > 1)
+            {
+                toRemove.Add(u);
+            }
+        }
+
+        //removing the duplicates
+        foreach (Unit u in toRemove)
+        {
+            tempUnitList.RemoveAll(un => un == u);
+            tempUnitList.Add(u);
+        }
+
+        _Units = tempUnitList;
+
+    }
+
+    private void PrintUnits()
+    {
+        Debug.Log("=============== Turn takers: ");
+        foreach (ITurnTaker tt in _turnOrder)
+        {
+            Debug.Log(tt);
+        }
+        Debug.Log("=============== " + _Units.Count + " Units: ");
+        foreach (Unit u in _Units)
+        {
+            Debug.Log(u);
+        }
     }
 
     public void UnitTurn() {
@@ -198,22 +282,11 @@ public class UnitActionManager : MonoBehaviour
         if (PathFinding.Path.Count > 0) {
             UnitActions.MoveCurrentUnit();
         }
-        else if ((PathFinding.Path.Count <= 0) && (this.GetFirstUnit() is Unit unit))
+        else if ((PathFinding.Path.Count <= 0))
         {
-            if (this.OnAttack && !this.hadAttacked) {
-                //UnitAttackActions.ShowUnitsInSkillRange(this.numAttack, unit);
-            }
-            else if (this.OnMove && !this.hadMoved)
-            {
-                //Range.GetRange(unit, unit.Move, "Move");
-            }
-            else if (this.OverEnemy && this.enemy != null)
+            if (this.OverEnemy && this.enemy != null)
             {
                 Range.GetRange(this.enemy, this.enemy.Speed, RangeType.WALK);
-            }
-            else
-            {
-                //Range.UnHighlightTiles();
             }
         }
     }
@@ -223,7 +296,7 @@ public class UnitActionManager : MonoBehaviour
     {
         BattleUI.Instance.UpdateTurnOrder(this.TurnOrder);
 
-        if (this.GetFirstUnit() is Unit unit) {
+        if (this.GetFirstUnit() is Unit unit) { 
             Parameters param = new Parameters();
             param.PutExtra(UNIT, unit);
 
@@ -346,6 +419,14 @@ public class UnitActionManager : MonoBehaviour
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.ON_START);  
         
+    }
+
+    public void UpdateEnemyAIList()
+    {
+        //Debug.Log("Updated ally units on enemy AI");
+        this._enemyAI.UpdateAllyUnits(
+                _Units.FindAll(u => u.Type == EUnitType.Ally)
+            );
     }
 
     public void Awake()

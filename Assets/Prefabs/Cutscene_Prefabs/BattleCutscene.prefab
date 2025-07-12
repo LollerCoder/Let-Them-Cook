@@ -453,6 +453,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af77c3ae89978548ac6d12ace3b3784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  minVerticalAngle: -30
+  maxVerticalAngle: 20
 --- !u!1 &1518170451952984756
 GameObject:
   m_ObjectHideFlags: 0
@@ -3776,6 +3779,9 @@ MonoBehaviour:
   - {fileID: 598724158444948824}
   - {fileID: 1582084266042239135}
   - {fileID: 7394041787918163292}
+  ProjectileSpriteRenderer: {fileID: 9177156360776846549}
+  FoilAxeSprite: {fileID: 21300000, guid: cd52d4c563e51d144ac25552135a09d8, type: 3}
+  RottenSprite: {fileID: 1684871766, guid: 20882f8cc8cc50a4f97060577be1b912, type: 3}
 --- !u!95 &7176725248792109814
 Animator:
   serializedVersion: 7
@@ -4326,6 +4332,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af77c3ae89978548ac6d12ace3b3784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  minVerticalAngle: -30
+  maxVerticalAngle: 20
 --- !u!1 &6712075550959845142
 GameObject:
   m_ObjectHideFlags: 0

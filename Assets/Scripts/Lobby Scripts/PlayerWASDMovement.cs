@@ -19,6 +19,10 @@ public class PlayerWASDMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //observers
+        EventBroadcaster.Instance.AddObserver(EventNames.Dialogue_Events.ON_DIALOGUE_START, this.NoWalk);
+        EventBroadcaster.Instance.AddObserver(EventNames.Dialogue_Events.ON_DIALOGUE_FINISHED, this.YesWalk);
+
         myAnimator = GetComponentInChildren<Animator>();
         mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         myrigidbody = GetComponent<Rigidbody>();
@@ -50,6 +54,16 @@ public class PlayerWASDMovement : MonoBehaviour
     void Update()
     {
         Walk();
+    }
+
+    public void NoWalk()
+    {
+        this._runSpeed = 0;
+    }
+    
+    public void YesWalk()
+    {
+        this._runSpeed = RunSpeed;
     }
 
     private Vector2 GetInput()
@@ -100,6 +114,8 @@ public class PlayerWASDMovement : MonoBehaviour
 
     private void Walk()
     {
+        if (_runSpeed <= 0) return;
+
         moveInput = GetInput();
 
         //moving
