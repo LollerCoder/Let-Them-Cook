@@ -551,7 +551,7 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         easeSlide.maxValue = this.maxhp;
         easeSlide.value = hp;
 
-        UnitActionManager.Instance.UnitList.Add(this);
+        UnitActionManager.Instance.AddUnit(this);
 
         this.Sprite = this.spriteRenderer.sprite;
     }

@@ -14,8 +14,7 @@ public class BasicAttack : Skill
 
         this.skillRange = 1;
 
-        this.defaultIcon = Resources.Load<Sprite>("Skills/basicAttackDefault");
-        this.highlightedIcon = Resources.Load<Sprite>("Skills/basicAttackHighlighted");
+        SkillDatabase.Instance.GetSkillSprite(this);
     }
 
     public override void  SkillAction(Unit target, Unit origin)

@@ -243,7 +243,9 @@ public static class UnitActions {
             PathFinding.Path.RemoveAt(0);
         }
 
-        if (PathFinding.Path.Count < 1) {
+        if (PathFinding.Path.Count < 1)
+        {
+            EventBroadcaster.Instance.PostEvent(EventNames.UnitActionEvents.ON_DESTINATION_REACHED);
             UnitActionManager.Instance.Moving = false;
             UnitActionManager.Instance.OnMove = false;
             currentUnit.OnMovement(false);

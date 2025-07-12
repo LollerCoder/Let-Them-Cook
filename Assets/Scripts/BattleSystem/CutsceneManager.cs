@@ -24,6 +24,11 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] ParticleSystem HealParticle;
     [Header("Dummies")]
     [SerializeField] GameObject[] Dummies;
+
+    [Header("Projectile")]
+    [SerializeField] SpriteRenderer ProjectileSpriteRenderer;
+    [SerializeField] Sprite FoilAxeSprite;
+    [SerializeField] Sprite RottenSprite;
     
     private Dictionary<Unit, Vector3> DummiesData = new Dictionary<Unit, Vector3>();
 
@@ -93,16 +98,15 @@ public class CutsceneManager : MonoBehaviour
         EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Enemy, false);
         EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
        
-        
-
-
-        
-      
-        
     }
     private void MULTIPLE(Parameters param)
     {
         CutsceneEnemy.SetActive(false);
+
+        //Setting the attacking unit
+        SpriteRenderer PlayerSprite = player.spriteRenderer;
+        CutscenePlayer.GetComponent<SpriteRenderer>().sprite = PlayerSprite.sprite;
+
         //Debug.Log("AOE DUMMIES");
         int dummycount = param.GetIntExtra("DummyCount",0);
         Debug.Log("AOE DUMMIES: " + dummycount);
@@ -240,6 +244,23 @@ public class CutsceneManager : MonoBehaviour
             case ESkillType.AOE:
                 Debug.Log("SPUN");
                 CutsceneAnim.SetTrigger("Spin");
+                break;
+            case ESkillType.RANGE:
+                this.ChangeProjectileSprite(name);
+                CutsceneAnim.SetTrigger("Throw");
+                break;
+        }
+    }
+
+    private void ChangeProjectileSprite(string name)
+    {
+        switch (name)
+        {
+            case "Rotten":
+                this.ProjectileSpriteRenderer.sprite = this.RottenSprite;
+                break;
+            case "Foil Throw":
+                this.ProjectileSpriteRenderer.sprite = this.FoilAxeSprite;
                 break;
         }
     }
@@ -404,7 +425,9 @@ public class CutsceneManager : MonoBehaviour
     {
         HealParticle.Play();
     }
-
+    private void PlaySFX(string name) {
+        //SFXManager.Instance.Play(name);
+    }
     private void Update()
     {
         

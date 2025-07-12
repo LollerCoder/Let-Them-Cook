@@ -18,6 +18,9 @@ namespace EnemyAI
 
             UnitActions.UnitSelect(target);
             SkillDatabase.Instance.applySkill(origin.SKILLLIST[0], target, origin);
+            //UnitActions.ConfirmAttack(target, 0);
+
+            EventBroadcaster.Instance.PostEvent(EventNames.UnitActionEvents.ON_ENEMY_END_TURN);
         }
     }
 

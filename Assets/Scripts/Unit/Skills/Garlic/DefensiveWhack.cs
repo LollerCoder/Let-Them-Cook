@@ -13,8 +13,7 @@ public class DefensiveWhack : Skill
         //for skill progressions
         this.cost = 15;
 
-        this.defaultIcon = Resources.Load<Sprite>("Skills/skillDefault");
-        this.highlightedIcon = Resources.Load<Sprite>("Skills/skillHighlighted");
+        SkillDatabase.Instance.GetSkillSprite(this);
     }
 
     public override void SkillAction(Unit target, Unit origin)

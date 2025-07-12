@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &16216263 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5312672484983110462, guid: 583ff1e82f474f64bafa522075192727, type: 3}
-  m_PrefabInstance: {fileID: 132163773}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &132163773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -704,6 +699,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1044992595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7591333277156362876, guid: 583ff1e82f474f64bafa522075192727, type: 3}
+  m_PrefabInstance: {fileID: 132163773}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1219289585
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,7 +994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vidBackground: {fileID: 2140648708}
   nextScene: Lobby
-  levelHolder: {fileID: 16216263}
+  levelHolder: {fileID: 1044992595}
 --- !u!1 &1927075583
 GameObject:
   m_ObjectHideFlags: 0

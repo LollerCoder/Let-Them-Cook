@@ -22,6 +22,8 @@ public class DialogueManager : MonoBehaviour {
     private bool skipTyping = false;
 
     public void StartDialogue(Dialogue dialogue) {
+        EventBroadcaster.Instance.PostEvent(EventNames.Dialogue_Events.ON_DIALOGUE_START);
+
         this.animator.SetBool("Open", true);
 
         this.sentences.Clear();
@@ -84,6 +86,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue() {
         this.animator.SetBool("Open", false);
+        EventBroadcaster.Instance.PostEvent(EventNames.Dialogue_Events.ON_DIALOGUE_FINISHED);
     }
     
     public void Awake() {

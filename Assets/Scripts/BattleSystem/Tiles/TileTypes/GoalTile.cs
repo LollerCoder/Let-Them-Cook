@@ -17,14 +17,19 @@ public class GoalTile : Tile
     {
         EventBroadcaster.Instance.AddObserver(EventNames.Level3_Objectives.KEY_FOUND, this.GoalComplete);
 
-        if (this.arrow != null)
+        if (this.arrow_template != null)
         {
+            Debug.Log("Arrow added!");
             //arrow observer
             EventBroadcaster.Instance.AddObserver(EventNames.Tile_Events.GOAL_ARROW_HIDE, this.HideArrow);
             EventBroadcaster.Instance.AddObserver(EventNames.Tile_Events.GOAL_ARROW_UNHIDE, this.ShowArrow);
 
             this.arrow = Instantiate(arrow_template, transform.position + Vector3.up * 0.25f, new Quaternion(0, 0, 0, 0));
             this.arrow.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Arrow not added!");
         }
 
         base.Start();

@@ -49,10 +49,11 @@ namespace EnemyAI
                  * Check if ally is still alive
                  */
 
-                float currDist = Vector3.Distance(
-                    this._CurrentEnemyUnit.transform.position,
-                    ally.transform.position
-                    );
+                float currDist = PathFinding.AStarPathFinding(this._CurrentEnemyUnit.Tile,
+                             ally.Tile,
+                             Range.GetTilesInMovement(this._CurrentEnemyUnit.Tile,
+                                                             100)
+                             ).Count;
                 if (currDist < prevDist &&
                     ally.HP > 0)
                 {
@@ -104,12 +105,18 @@ namespace EnemyAI
                 );
 
             Unit target = this.GetClosestAllyUnit();
+            if (target == null)
+            {
+                Debug.LogError("TARGET NOT FOUND!");
+                return path;
+            }
 
             //if dazed or stunned
             if (this._CurrentEnemyUnit.GetEffect("Dizzy") != null ||
                 this._CurrentEnemyUnit.GetEffect("Asleep") != null)
             {
                 Debug.Log("Skipping turn!");
+                EventBroadcaster.Instance.PostEvent(EventNames.UnitActionEvents.ON_ENEMY_END_TURN);
                 return path;
             }
 
@@ -119,6 +126,13 @@ namespace EnemyAI
                 Debug.Log("Taking action!");
                 this.TakeAction();
             }
+
+            if (this._CurrentEnemyUnit.GetEffect("Rooted") != null)
+            {
+                EventBroadcaster.Instance.PostEvent(EventNames.UnitActionEvents.ON_ENEMY_END_TURN);
+                return path;
+            }
+
             else
             {
                 //Move closer

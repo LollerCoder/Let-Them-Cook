@@ -29,9 +29,15 @@ namespace EnemyAI
                              Range.GetTilesInMovement(_currentUnit.Tile,
                                                              100)
                              );
-            path.RemoveAt(path.Count - 1);
 
-            if (path.Count <= 0) return null;
+            if (path.Count <= 0)
+            {
+                UnitActionManager.Instance.hadMoved = true;
+                _currentUnit.OnMovement(true);
+                EventBroadcaster.Instance.PostEvent(EventNames.UnitActionEvents.ON_ENEMY_END_TURN);
+                return path;
+            }
+            path.RemoveAt(path.Count - 1);
 
             //get actual path relative to unit's movement range
             List<Tile> actual_path = new List<Tile>();
