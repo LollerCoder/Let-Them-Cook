@@ -61,8 +61,9 @@ public class GoalTile : Tile
 
             param.PutExtra("Level_Complete", true);
 
-            EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
-            EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION); //objective copier just needs it to be an empty call
+            //EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
+            //EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION); //objective copier just needs it to be an empty call
+            EventBroadcaster.Instance.PostEvent(EventNames.Level3_Objectives.ESCAPED);
         }
 
         if (unit.GetEffect("Key Holder") != null)
@@ -72,8 +73,9 @@ public class GoalTile : Tile
 
             param.PutExtra("Level_Complete", true);
 
-            EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
-            EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION);//objective copier just needs it to be an empty call
+            //EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
+            //EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION);//objective copier just needs it to be an empty call
+            EventBroadcaster.Instance.PostEvent(EventNames.Level3_Objectives.ESCAPED);
         }
     }
 }

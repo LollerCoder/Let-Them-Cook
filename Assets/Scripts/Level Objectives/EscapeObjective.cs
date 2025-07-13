@@ -19,8 +19,9 @@ public class EscapeObjective : Objective
     }
 
     //for level 3
-    public void Escaped(Parameters param)
+    public void Escaped()
     {
+        Debug.Log("Escaping");
         this.clearCondition();
     }
 
