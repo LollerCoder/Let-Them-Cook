@@ -59,10 +59,11 @@ public class MapOpener : MonoBehaviour
 
         for (int i = 0; i < mapObj.transform.childCount; i++)
         {
+            levelSelectors[i].ToggleLevel(i < LevelManager.LevelsCompleted);
 
             if (levelSelectors[i].canLoad || i == 0) levelSelectors[i].ToggleLevel(true);
 
-            if (mapObj.GetComponent<GameScript>().bData == false) { Debug.Log("LOOP RETURN"); return; }
+            //if (mapObj.GetComponent<GameScript>().bData == false) { Debug.Log("LOOP RETURN"); return; }
            
         }
     }
@@ -105,6 +106,7 @@ public class MapOpener : MonoBehaviour
         //Toggle on
         if (!mapToggled)
         {
+            LobbyDialogue.Instance.MapTutorialPlay();
             //Debug.Log("Going to map");
             mapToggled = true;
             cameraTargetPos = cameraMapPos;
