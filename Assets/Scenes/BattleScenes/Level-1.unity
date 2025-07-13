@@ -6596,20 +6596,29 @@ MonoBehaviour:
     - Tom Itto
     - Tom Itto
     - Sergeant Bob
+    - Tom Itto
+    - Sergeant Bob
+    - Sergeant Bob
     - Sergeant Bob
     - Sergeant Bob
     sprites:
     - {fileID: 21300000, guid: d3ad91828ebece34ab18be856602a42e, type: 3}
     - {fileID: 21300000, guid: d3ad91828ebece34ab18be856602a42e, type: 3}
     - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: d3ad91828ebece34ab18be856602a42e, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
     - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
     - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
     sentences:
     - Garlfield!
     - Garlfield!? Where are you?!
-    - You there! If you want to live do what I say!
+    - You there! Get away from those Chef-hats!
+    - But they kidnapped my friend!
+    - Well they'll kidnap you too!
+    - If you want to help your friend do what I say!
     - See those blue tiles on the ground? Those are the tiles you can move into!
-    - Now get close to that Chef-hat-wearing potato head!
+    - Now get close to that Chef-hat-wearing potato head and smack 'em!
 --- !u!4 &1451506516
 Transform:
   m_ObjectHideFlags: 0
@@ -7447,7 +7456,9 @@ MonoBehaviour:
     - Sergeant BOB
     - Sergeant BOB
     - Sergeant BOB
+    - Sergeant BOB
     sprites:
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
     - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
     - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
     - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
@@ -7465,6 +7476,8 @@ MonoBehaviour:
     - So if you ever need a health boost go near those red flowers, they'll heal
       you at the end of your turn!
     - Now have myself walk next to it.
+    - You can also move the camera with the WASD key and look around with your mouse
+      while pressing right-click.
 --- !u!4 &1657486852 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 219951473092511495, guid: 33ee6b143f0859743a617263ca240fbe, type: 3}

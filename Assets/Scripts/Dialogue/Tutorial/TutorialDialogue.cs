@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogueStart : MonoBehaviour
 {
@@ -95,6 +96,8 @@ public class DialogueStart : MonoBehaviour
         {
             BattleUI.Instance.ShowWaitButton();
         }
+
+        if (Input.GetKeyDown(KeyCode.Backspace)) SceneManager.SetActiveScene(SceneManager.GetActiveScene());
     }
 
     public void Awake()

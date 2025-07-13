@@ -1619,6 +1619,94 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06cfedbaf1ce0574188727528978e198, type: 3}
+--- !u!1 &1351742735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1351742737}
+  - component: {fileID: 1351742736}
+  m_Layer: 0
+  m_Name: Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1351742736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351742735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 610721e9a33e31a42b2443c9bd4c8328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _IntroDialogue:
+    names:
+    - Sergeant Bob
+    - Sergeant Bob
+    - Sergeant Bob
+    - Sergeant Bob
+    - Sergeant Bob
+    - Sergeant Bob
+    - Sergeant Bob
+    sprites:
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    sentences:
+    - Welcome cadet to our base!
+    - It's not much but it's honest work.
+    - Now I know what you're going through
+    - You see my youngest son was kidnapped by those no-good-chef-hat wearing vegetables!
+    - If you follow me we can save your friend and my son!
+    - You can move around this base with WASD keys and interact with the E key!
+    - Walk towards that table on the center and interact with it!
+  _MapDialogue:
+    names:
+    - Sergeant Bob
+    - Sergeant Bob
+    - Sergeant Bob
+    - Sergeant Bob
+    - Sergeant Bob
+    sprites:
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    sentences:
+    - This is the map! It shows you all the available levels.
+    - If it's green you can play it, if red you can't!
+    - As you complete a level, the next one will get unlocked!
+    - You can click "E" again to exit the level selector.
+    - But for now, click on level 2!
+--- !u!4 &1351742737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351742735}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.9565436, y: -3.8702734, z: 8.765408}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1398996252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4587,3 +4675,4 @@ SceneRoots:
   - {fileID: 1720018594}
   - {fileID: 191556255}
   - {fileID: 1791810940}
+  - {fileID: 1351742737}
