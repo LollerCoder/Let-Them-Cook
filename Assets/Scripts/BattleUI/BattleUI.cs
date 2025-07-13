@@ -103,16 +103,6 @@ public class BattleUI : MonoBehaviour {
         this.GetComponent<Animator>().SetBool("Show", this.turnOrderShow);
     }
 
-    public void EatButton() {
-        Debug.Log("Eat");
-        UnitActions.UpdateVegetable(0);
-    }
-
-    public void PickUpButton() {
-        Debug.Log("PickUp");
-        UnitActions.UpdateVegetable(1);
-    }
-
     public void WaitButton() {
         Range.UnHighlightTiles();
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);

@@ -221,6 +221,7 @@ public class UnitActionManager : MonoBehaviour
         ITurnTaker firstTurn = this.GetFirstUnit();
         if (firstTurn is Unit unit) {
             unit.Tile.UnHighlightTile();
+
         }
         this.TurnOrder.Remove(firstTurn);
         this.TurnOrder.Add(firstTurn);
@@ -236,7 +237,7 @@ public class UnitActionManager : MonoBehaviour
 
     public void ResetCurrentUnit() {
         Unit unit = (Unit)this.GetFirstUnit();
-
+        UnitActions.CheckVegetableOnTile(unit);
         unit.GetComponent<BoxCollider>().enabled = true;
         unit.OnMovement(false);
         unit.OnTurn(false);

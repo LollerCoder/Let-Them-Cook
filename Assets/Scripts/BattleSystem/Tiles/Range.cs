@@ -109,7 +109,7 @@ public static class Range {
                 //    tile.HighlightWalkableTile();
                 //}
 
-                InRangeTiles[0].HighlightCurrentTile();
+                InRangeTiles[0].HighlightCurrentTile(unit.Type);
                 for (int i = 1; i < InRangeTiles.Count; i++) {
                     InRangeTiles[i].HighlightWalkableTile();
                 }

@@ -10,7 +10,6 @@ public static class UnitActions {
     private static Tile currentTile;
     private static Vector3 currentTilePos;
     private static Tile goalTile = new Tile();
-    private static DroppedVegetable currVeg;
     
     public static bool stepFlag = false;
 
@@ -243,7 +242,7 @@ public static class UnitActions {
                 currentUnit.Tile.HighlightWalkableTile();
             }
             currentUnit.Tile = PathFinding.Path[0];
-            currentUnit.Tile.HighlightCurrentTile();
+            currentUnit.Tile.HighlightCurrentTile(currentUnit.Type);
             goalTile = PathFinding.Path[0];
 
             PathFinding.Path.RemoveAt(0);
@@ -258,19 +257,8 @@ public static class UnitActions {
             currentUnit.OnMovement(false);
             currentUnit.OnTurn(true);
             BattleUI.Instance.ToggleWaitButton(true);
-
-            if(currentUnit.Type == EUnitType.Ally && !CheckVegetableOnTile(currentUnit)) {
-                //BattleUI.Instance.ToggleActionBox();
-                //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
-
-                // reset and update attackable list
-                UnitAttackActions.ResetAttackables();
-                UnitAttackActions.CheckSkillRange((Unit)UnitActionManager.Instance.GetFirstUnit());
-                //Range.UnHighlightTiles();
-            }
-            else if (CheckVegetableOnTile(currentUnit) && currentUnit.Type == EUnitType.Ally && currentUnit.Name == "Pum") {
-                BattleUI.Instance.ToggleEatOrPickUpButtons();
-            }
+            UnitAttackActions.ResetAttackables();
+            UnitAttackActions.CheckSkillRange((Unit)UnitActionManager.Instance.GetFirstUnit());
 
             //springs
             SpringTile st = currentUnit.Tile as SpringTile;
@@ -280,35 +268,22 @@ public static class UnitActions {
                 Debug.Log("UnitToLaunchSet");
             }
             //springs
-            currentUnit.Tile.HighlightCurrentTile();
+            currentUnit.Tile.HighlightCurrentTile(currentUnit.Type);
             EventBroadcaster.Instance.PostEvent(EventNames.UnitActionEvents.ON_DESTINATION_REACHED);
         }
 
     }
 
-    private static bool CheckVegetableOnTile(Unit unit) {
+    public static bool CheckVegetableOnTile(Unit unit) {
         foreach(DroppedVegetable veg in DroppedVegetableManager.Instance.VegInField) {
             if(veg.Tile == unit.Tile) {
-                currVeg = veg;
+                DroppedVegetableManager.Instance.EatVegetable(veg, unit);
                 return true;
             }
         }
-
         return false;
     }
 
-    public static void UpdateVegetable(int choice) { // 0 for eat, 1 for pickup
-        if (choice == 0) {
-            DroppedVegetableManager.Instance.EatVegetable(currVeg);
-        }
-        if(choice == 1) {
-            DroppedVegetableManager.Instance.PickUpVegetable(currVeg);
-        }
-   
-        currVeg = null;
-        BattleUI.Instance.ToggleEatOrPickUpButtons();
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
-    }
     public static void TileTapped(Tile goalTile)
     {
         Unit unit = (Unit)UnitActionManager.Instance.GetFirstUnit();

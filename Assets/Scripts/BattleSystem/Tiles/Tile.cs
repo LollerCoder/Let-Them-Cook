@@ -89,12 +89,17 @@ public class Tile : MonoBehaviour{
         this.rangeIndicator = TileHelper.Instance.SpawnRangeIndicator(rangePos, RangeType.HEAL);
     }
 
-    public void HighlightCurrentTile() {
+    public void HighlightCurrentTile(EUnitType type) {
         if (this.rangeIndicator != null) {
             TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
         }
 
-        this.rangeIndicator = TileHelper.Instance.SpawnRangeIndicator(rangePos, RangeType.CURRENT);
+        if (type == EUnitType.Ally) {
+            this.rangeIndicator = TileHelper.Instance.SpawnRangeIndicator(rangePos, RangeType.CURRENT);
+        }
+        else {
+            this.rangeIndicator = TileHelper.Instance.SpawnRangeIndicator(rangePos, RangeType.ATTACK);
+        }
     }
 
     public virtual void ApplyEffect(Unit unit) {
