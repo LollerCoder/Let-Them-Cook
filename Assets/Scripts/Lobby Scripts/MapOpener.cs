@@ -32,7 +32,8 @@ public class MapOpener : MonoBehaviour
     {
         cameraTargetPos = camerajeraObjRef.transform.position;
 
-        mapObj.GetComponent<GameScript>().LoadGame();
+        //mapObj.GetComponent<GameScript>().LoadGame();
+        mapObj.GetComponent<GameScript>().LoadGameV2();
 
         mapObj.SetActive(false);
         

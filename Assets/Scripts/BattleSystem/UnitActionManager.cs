@@ -398,6 +398,7 @@ public class UnitActionManager : MonoBehaviour
     }
 
     public void OnStart() {
+        CameraMovement.inCutscene = false;
         this.DecideTurnOrder();
         UnitActions.AssignUnitTile();
         UnitActions.UpdateTile();

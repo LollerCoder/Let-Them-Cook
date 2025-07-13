@@ -56,6 +56,21 @@ public class GameScript : MonoBehaviour
 
     }
 
+    public void LoadGameV2()
+    {
+        for (int i = 0; i < parent.transform.childCount; i++)
+        {
+            levelList.Add(parent.transform.GetChild(i).gameObject.GetComponent<LevelSelector>());
+        }
+
+        //load it back here
+        for (int i = 0; i < LevelManager.LevelsCompleted + 1; i++)
+        {
+            Debug.Log("Level " + i + " can be played!");
+            levelList[i].ToggleLevel(true);
+        }
+    }
+
     public int getCurrLvl()
     {
         return 0;//currLvl;

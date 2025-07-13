@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance { get; private set; }
+    public static int LevelsCompleted { get; private set; }
 
     public GameObject parent;
     //public GameObject parent;
@@ -16,7 +17,7 @@ public class LevelManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-
+            LevelsCompleted = 0;
         }
         else
         {
@@ -35,6 +36,12 @@ public class LevelManager : MonoBehaviour
         //Debug.Log("Map updating");
 
         int levelNum = int.Parse(SceneManager.GetActiveScene().name.Split("-")[1]);
+
+        //update high completed level
+        if (levelNum > LevelsCompleted)
+        {
+            LevelsCompleted = levelNum;
+        }
 
         parent.transform.GetChild(levelNum).gameObject.GetComponent<LevelSelector>().canLoad = true;
         //Debug.Log(parent.transform.GetChild(levelNum).gameObject.name + "  is now saved");
