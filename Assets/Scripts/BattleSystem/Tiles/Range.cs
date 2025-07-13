@@ -56,34 +56,6 @@ public static class Range {
 
         return inRangeTiles;
     }
-
-    public static List<Tile> GetTilesInAttackRange(Tile startingTile, int range) {
-        List<Tile> inRangeTiles = new List<Tile>();
-
-        int stepCount = 0;
-
-        inRangeTiles.Add(startingTile);
-        
-        List<Tile> previousTiles = new List<Tile>();
-        previousTiles.Add(startingTile);
-        
-        while (stepCount < range) {
-            List<Tile> neighborTiles = new List<Tile>();
-
-            foreach (Tile tile in previousTiles) {
-                if (!tile.isWalkable) {
-                    continue;
-                }
-                neighborTiles.AddRange(GetNeighborTiles(tile));
-            }
-            previousTiles = neighborTiles.Distinct().ToList();
-            stepCount++;
-        }
-        // only takes the last tiles in range
-        inRangeTiles = previousTiles;
-        inRangeTiles.Remove(startingTile);
-        return inRangeTiles.Distinct().ToList();
-    }
     public static List<Tile> GetTilesInAttackMelee(Tile startingTile, int range) {
         List<Tile> inRangeTiles = new List<Tile>();
 

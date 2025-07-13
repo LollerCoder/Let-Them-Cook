@@ -125,6 +125,8 @@ namespace EnemyAI
                 //Take action
                 Debug.Log("Taking action!");
                 this.TakeAction();
+
+                return path;
             }
 
             if (this._CurrentEnemyUnit.GetEffect("Rooted") != null)

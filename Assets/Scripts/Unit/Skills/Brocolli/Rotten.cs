@@ -9,9 +9,9 @@ public class Rotten : Skill
     {
         this.skillName = "Rotten";
         this.veggieType = EVeggie.NONE;
-        this.skillType = ESkillType.BASIC;
+        this.skillType = ESkillType.RANGE;
 
-        this.skillRange = 1;
+        this.skillRange = 2;
 
         SkillDatabase.Instance.GetSkillSprite(this);
     }
