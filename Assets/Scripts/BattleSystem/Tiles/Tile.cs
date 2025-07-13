@@ -13,10 +13,7 @@ public class Tile : MonoBehaviour{
 
     public bool withProp = false;
 
-    [SerializeField]
-    GameObject moveRange;
-
-    private Vector3 rangePos;
+    protected Vector3 rangePos;
 
     public GameObject rangeIndicator = null;
 
@@ -48,14 +45,14 @@ public class Tile : MonoBehaviour{
         set {  TileType = value; }
     }
 
-    private bool inWalkRange;
+    protected bool inWalkRange;
 
     public bool isWalkable;
     public void Start() {
         this.rangePos = this.transform.position;
         this.rangePos.y += 0.04f;
     }
-    public void UnHighlightTile() {
+    public virtual void UnHighlightTile() {
         this.inWalkRange = false;
         TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
     }
@@ -69,13 +66,12 @@ public class Tile : MonoBehaviour{
         TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
     }
 
-    public void HighlightWalkableTile() {
+    public virtual void HighlightWalkableTile() {
         if (this.isWalkable) { //just to make sure it wont be highlighted
             this.inWalkRange = true;
             if (this.rangeIndicator != null) {
                 TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
             }
-
             this.rangeIndicator = TileHelper.Instance.SpawnRangeIndicator(rangePos, RangeType.WALK);
         }
     }

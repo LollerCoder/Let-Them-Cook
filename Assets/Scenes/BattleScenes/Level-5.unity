@@ -2759,6 +2759,7 @@ MonoBehaviour:
   Heal: {fileID: 2100000, guid: f2b80c5dacf09c24a93395c44fabb737, type: 2}
   Walk: {fileID: 2100000, guid: 484f4519ec8ec80429a0ab4428b655ce, type: 2}
   Current: {fileID: 2100000, guid: 119f8a4e2d1f56b4d88f65e6b140fd5e, type: 2}
+  HealTile: {fileID: 0}
 --- !u!114 &766790365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9390,7 +9391,6 @@ GameObject:
   - component: {fileID: 1876411585337420746}
   - component: {fileID: 4656388456965676585}
   - component: {fileID: 110194437679263633}
-  - component: {fileID: 4656388456965676586}
   - component: {fileID: 4656388456965676587}
   m_Layer: 9
   m_Name: Level5.004
@@ -9861,7 +9861,6 @@ GameObject:
   - component: {fileID: 5175760318102004470}
   - component: {fileID: 6450691109968484493}
   - component: {fileID: 4905814129919803644}
-  - component: {fileID: 6450691109968484494}
   - component: {fileID: 6450691109968484495}
   m_Layer: 9
   m_Name: Level5.338
@@ -11847,7 +11846,6 @@ GameObject:
   - component: {fileID: 1976994861060500539}
   - component: {fileID: 5445478257505322147}
   - component: {fileID: 8337332346300745709}
-  - component: {fileID: 8337332346300745710}
   - component: {fileID: 8337332346300745711}
   m_Layer: 9
   m_Name: Level5.660
@@ -13943,7 +13941,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -14052,7 +14049,6 @@ GameObject:
   - component: {fileID: 2955235933646226662}
   - component: {fileID: 4457595280756226144}
   - component: {fileID: 2428102391532223145}
-  - component: {fileID: 4457595280756226145}
   - component: {fileID: 4457595280756226146}
   m_Layer: 9
   m_Name: Level5.752
@@ -14783,7 +14779,6 @@ GameObject:
   - component: {fileID: 8758482164897172710}
   - component: {fileID: 4828838898787321396}
   - component: {fileID: 8456332133972713811}
-  - component: {fileID: 8758482164897172711}
   - component: {fileID: 8758482164897172712}
   m_Layer: 9
   m_Name: Level5.265
@@ -15297,7 +15292,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -16808,7 +16802,6 @@ GameObject:
   - component: {fileID: 6172826583548499647}
   - component: {fileID: 9139116184746743126}
   - component: {fileID: 7697694147640453389}
-  - component: {fileID: 9139116184746743127}
   - component: {fileID: 9139116184746743128}
   m_Layer: 9
   m_Name: Level5.638
@@ -17398,7 +17391,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -17622,7 +17614,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -17998,7 +17989,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 5
   previousTile: {fileID: 0}
@@ -19180,7 +19170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -19431,7 +19420,6 @@ GameObject:
   - component: {fileID: 2099614831740081775}
   - component: {fileID: 5615934073036770510}
   - component: {fileID: 4742458665194717786}
-  - component: {fileID: 5615934073036770511}
   - component: {fileID: 5615934073036770512}
   m_Layer: 9
   m_Name: Level5.076
@@ -19512,7 +19500,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -21869,7 +21856,6 @@ GameObject:
   - component: {fileID: 4509499425998724084}
   - component: {fileID: 8412355492264412862}
   - component: {fileID: 4159564175750565}
-  - component: {fileID: 8412355492264412863}
   - component: {fileID: 8412355492264412864}
   m_Layer: 9
   m_Name: Level5.236
@@ -21967,7 +21953,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -22427,7 +22412,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -23096,7 +23080,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -23302,7 +23285,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -23459,7 +23441,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -23719,7 +23700,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -24319,7 +24299,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -24699,7 +24678,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -24844,7 +24822,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -25203,7 +25180,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -25500,7 +25476,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -26508,7 +26483,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -26592,7 +26566,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -26662,7 +26635,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -27321,7 +27293,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -27867,7 +27838,6 @@ GameObject:
   - component: {fileID: 8817666972432945497}
   - component: {fileID: 7958237006165601277}
   - component: {fileID: 108545814014178116}
-  - component: {fileID: 8817666972432945498}
   - component: {fileID: 8817666972432945499}
   m_Layer: 9
   m_Name: Level5.692
@@ -28092,7 +28062,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -28566,7 +28535,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -28795,7 +28763,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -28996,7 +28963,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -29168,25 +29134,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504092830664080542}
   m_Mesh: {fileID: 3759376431253746739, guid: 89ac69d01be7650408314bc08e5f9460, type: 3}
---- !u!114 &4457595280756226145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504092830664080542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 1
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 5
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &4457595280756226146
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29298,7 +29245,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -29358,7 +29304,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -29406,7 +29351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -29781,7 +29725,6 @@ GameObject:
   - component: {fileID: 7349689189390963136}
   - component: {fileID: 6876890124537344543}
   - component: {fileID: 7273973376643599900}
-  - component: {fileID: 7349689189390963137}
   - component: {fileID: 7349689189390963138}
   m_Layer: 9
   m_Name: Level5.174
@@ -30041,7 +29984,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -30319,7 +30261,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -30471,7 +30412,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -30550,25 +30490,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565631182555604626}
   m_Mesh: {fileID: 323663719544648395, guid: 89ac69d01be7650408314bc08e5f9460, type: 3}
---- !u!114 &4656388456965676586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 565631182555604626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &4656388456965676587
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31111,7 +31032,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -31257,7 +31177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -31320,7 +31239,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -31579,7 +31497,6 @@ GameObject:
   - component: {fileID: 7098375982521182998}
   - component: {fileID: 423429833101514375}
   - component: {fileID: 4348057130749715093}
-  - component: {fileID: 7098375982521182999}
   - component: {fileID: 7098375982521183000}
   m_Layer: 9
   m_Name: Level5.085
@@ -31705,7 +31622,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 5
   previousTile: {fileID: 0}
@@ -32044,7 +31960,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -32104,7 +32019,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 5
   previousTile: {fileID: 0}
@@ -32406,7 +32320,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -32589,7 +32502,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -32840,7 +32752,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -33279,7 +33190,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -33873,7 +33783,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 1
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -34201,7 +34110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -34305,7 +34213,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -34494,7 +34401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 1
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -35027,7 +34933,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -35347,7 +35252,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -35928,7 +35832,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -35997,7 +35900,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -36045,7 +35947,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -36191,7 +36092,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 5
   previousTile: {fileID: 0}
@@ -36360,7 +36260,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -36480,7 +36379,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -36599,7 +36497,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -36679,7 +36576,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -36969,7 +36865,6 @@ GameObject:
   - component: {fileID: 8557484220429269730}
   - component: {fileID: 5909789332680542879}
   - component: {fileID: 387953322024188345}
-  - component: {fileID: 8557484220429269731}
   - component: {fileID: 8557484220429269732}
   m_Layer: 9
   m_Name: Level5.045
@@ -37035,7 +36930,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -37150,25 +37044,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2550934015128447245}
   m_Mesh: {fileID: 4641710676927637324, guid: 89ac69d01be7650408314bc08e5f9460, type: 3}
---- !u!114 &5615934073036770511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2550934015128447245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 1
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &5615934073036770512
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37312,7 +37187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -37699,7 +37573,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -37805,7 +37678,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -37853,7 +37725,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -38073,7 +37944,6 @@ GameObject:
   - component: {fileID: 2838345072783619248}
   - component: {fileID: 1314425571939621563}
   - component: {fileID: 7244002813879912714}
-  - component: {fileID: 7244002813879912715}
   - component: {fileID: 7244002813879912716}
   m_Layer: 9
   m_Name: Level5.260
@@ -38139,7 +38009,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -38194,7 +38063,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -38414,7 +38282,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -38474,7 +38341,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -38600,7 +38466,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -38823,7 +38688,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -39089,7 +38953,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -39230,7 +39093,6 @@ GameObject:
   - component: {fileID: 3784379078300934637}
   - component: {fileID: 2246178001817137625}
   - component: {fileID: 8570810330196386902}
-  - component: {fileID: 8570810330196386903}
   - component: {fileID: 8570810330196386904}
   m_Layer: 9
   m_Name: Level5.661
@@ -39260,7 +39122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -39320,7 +39181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -39404,7 +39264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -39687,7 +39546,6 @@ GameObject:
   - component: {fileID: 1545068487969066092}
   - component: {fileID: 8758706867057115470}
   - component: {fileID: 7232946168700867862}
-  - component: {fileID: 8758706867057115471}
   - component: {fileID: 8758706867057115472}
   m_Layer: 9
   m_Name: Level5.007
@@ -39739,7 +39597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -39793,7 +39650,6 @@ GameObject:
   - component: {fileID: 5760240431456500116}
   - component: {fileID: 977263036848090282}
   - component: {fileID: 5276813681436012222}
-  - component: {fileID: 5986569955861250382}
   - component: {fileID: 5986569955861250383}
   m_Layer: 9
   m_Name: Level5.003
@@ -39802,25 +39658,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &5986569955861250382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5986569955861250381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &5986569955861250383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40013,7 +39850,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -40138,7 +39974,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -40267,7 +40102,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -40428,7 +40262,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -40466,7 +40299,6 @@ GameObject:
   - component: {fileID: 117244503933948685}
   - component: {fileID: 2420856925707549827}
   - component: {fileID: 3523977670912041394}
-  - component: {fileID: 6061861094500708786}
   - component: {fileID: 6061861094500708787}
   m_Layer: 9
   m_Name: Level5.070
@@ -40475,25 +40307,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6061861094500708786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6061861094500708785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 1
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &6061861094500708787
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40619,7 +40432,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -40674,7 +40486,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -40770,7 +40581,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -41024,7 +40834,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -41092,7 +40901,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -41152,7 +40960,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -41200,7 +41007,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -41335,7 +41141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -41425,7 +41230,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -41485,7 +41289,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -41679,7 +41482,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -41745,7 +41547,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -41805,7 +41606,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -42072,7 +41872,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 1
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -42293,7 +42092,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -42348,7 +42146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -42446,7 +42243,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -42506,7 +42302,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -42613,7 +42408,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -42778,7 +42572,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -42862,7 +42655,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -42961,7 +42753,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -43009,7 +42800,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -43095,7 +42885,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -43158,25 +42947,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655390164500734608}
   m_Mesh: {fileID: -533350212714647370, guid: 89ac69d01be7650408314bc08e5f9460, type: 3}
---- !u!114 &6450691109968484494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 655390164500734608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &6450691109968484495
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43286,7 +43056,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 3
   previousTile: {fileID: 0}
@@ -43334,7 +43103,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 4
   previousTile: {fileID: 0}
@@ -43410,7 +43178,6 @@ GameObject:
   - component: {fileID: 5966438835044146363}
   - component: {fileID: 2845999575470062927}
   - component: {fileID: 5854924697595991718}
-  - component: {fileID: 6498772877048267446}
   - component: {fileID: 6498772877048267447}
   m_Layer: 9
   m_Name: Level5.005
@@ -43419,25 +43186,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6498772877048267446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6498772877048267445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &6498772877048267447
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43500,7 +43248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -43656,7 +43403,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -43812,7 +43558,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -44048,7 +43793,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -44143,7 +43887,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -44227,7 +43970,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -44265,7 +44007,6 @@ GameObject:
   - component: {fileID: 8299347609904601337}
   - component: {fileID: 8484993067473048396}
   - component: {fileID: 3906620485082081250}
-  - component: {fileID: 8484993067473048397}
   - component: {fileID: 8484993067473048398}
   m_Layer: 9
   m_Name: Level5.256
@@ -44307,7 +44048,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -44405,7 +44145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -44465,7 +44204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -44549,7 +44287,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 4
   previousTile: {fileID: 0}
@@ -44624,7 +44361,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -44684,7 +44420,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -44764,7 +44499,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 4
   previousTile: {fileID: 0}
@@ -44950,7 +44684,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -45025,7 +44758,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -45125,7 +44857,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -45217,7 +44948,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -45293,7 +45023,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -45348,7 +45077,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 1
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -45477,7 +45205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -45561,7 +45288,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -45679,7 +45405,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -45791,7 +45516,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -45890,7 +45614,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -45945,7 +45668,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -46020,7 +45742,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -46136,7 +45857,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -46212,7 +45932,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -46250,7 +45969,6 @@ GameObject:
   - component: {fileID: 7946804230671464580}
   - component: {fileID: 1206479302459396563}
   - component: {fileID: 5435251372732464627}
-  - component: {fileID: 7946804230671464581}
   - component: {fileID: 7946804230671464582}
   m_Layer: 9
   m_Name: Level5.178
@@ -46287,7 +46005,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -46402,7 +46119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -46502,7 +46218,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -46594,7 +46309,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -46752,7 +46466,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -46815,7 +46528,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -46960,7 +46672,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -47184,7 +46895,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -47313,7 +47023,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -47376,7 +47085,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 5
   previousTile: {fileID: 0}
@@ -47503,7 +47211,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -47602,7 +47309,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -47688,25 +47394,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 766790363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7098375982521182999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4800443866292536327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 1
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &7098375982521183000
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47749,7 +47436,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -47804,7 +47490,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -47864,7 +47549,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -47920,7 +47604,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -48047,7 +47730,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -48244,7 +47926,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -48304,7 +47985,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -48359,7 +48039,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -48515,7 +48194,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -48563,7 +48241,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -48770,7 +48447,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -48856,25 +48532,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7244002813879912715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5733494667905201910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 1
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &7244002813879912716
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -48974,7 +48631,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -49037,7 +48693,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -49164,7 +48819,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 5
   previousTile: {fileID: 0}
@@ -49224,7 +48878,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -49352,7 +49005,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -49422,7 +49074,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -49485,7 +49136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -49545,7 +49195,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -49686,7 +49335,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -49728,7 +49376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -49776,7 +49423,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -49824,7 +49470,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -49908,7 +49553,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -50038,7 +49682,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -50098,7 +49741,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -50140,25 +49782,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 766790363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7349689189390963137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4542508484523016943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 1
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &7349689189390963138
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50252,7 +49875,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -50351,7 +49973,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -50399,7 +50020,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 4
   previousTile: {fileID: 0}
@@ -50454,7 +50074,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -50559,7 +50178,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -50614,7 +50232,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 1
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -50662,7 +50279,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -50746,7 +50362,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -50901,7 +50516,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -50974,7 +50588,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -51029,7 +50642,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -51113,7 +50725,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -51173,7 +50784,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -51263,7 +50873,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -51500,7 +51109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -51555,7 +51163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 5
   previousTile: {fileID: 0}
@@ -51615,7 +51222,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 1
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -51767,7 +51373,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -51869,7 +51474,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -51964,7 +51568,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -52068,7 +51671,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -52255,7 +51857,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -52408,7 +52009,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -52463,7 +52063,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -52523,7 +52122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -52679,7 +52277,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -52821,7 +52418,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -52921,7 +52517,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -52996,7 +52591,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -53069,7 +52663,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 1
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -53228,7 +52821,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -53405,7 +52997,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -53477,7 +53068,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -53613,7 +53203,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -53681,7 +53270,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -53765,7 +53353,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -53800,7 +53387,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -53848,7 +53434,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -53903,7 +53488,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -53951,7 +53535,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 5
   previousTile: {fileID: 0}
@@ -54006,7 +53589,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -54066,7 +53648,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 5
   previousTile: {fileID: 0}
@@ -54149,7 +53730,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -54197,7 +53777,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -54252,7 +53831,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -54320,7 +53898,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -54404,7 +53981,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -54509,7 +54085,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -54643,7 +54218,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -54907,7 +54481,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -54967,7 +54540,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -55023,7 +54595,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 5
   previousTile: {fileID: 0}
@@ -55107,7 +54678,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -55155,7 +54725,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -55239,7 +54808,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -55294,7 +54862,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -55342,7 +54909,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -55390,7 +54956,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -55438,7 +55003,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -55496,25 +55060,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 766790363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7946804230671464581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6913986530839159082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 1
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &7946804230671464582
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55569,7 +55114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -55629,7 +55173,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -55713,7 +55256,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -55776,7 +55318,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -55831,7 +55372,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -55887,7 +55427,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -55950,7 +55489,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -55998,7 +55536,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -56054,7 +55591,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -56122,7 +55658,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 1
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -56242,7 +55777,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -56344,7 +55878,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -56407,7 +55940,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 3
   previousTile: {fileID: 0}
@@ -56473,7 +56005,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -56533,7 +56064,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 5
   previousTile: {fileID: 0}
@@ -56785,7 +56315,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -56833,7 +56362,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -56904,7 +56432,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 5
   previousTile: {fileID: 0}
@@ -56952,7 +56479,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -57043,7 +56569,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -57103,7 +56628,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 3
   previousTile: {fileID: 0}
@@ -57231,7 +56755,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 1
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -57349,7 +56872,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -57404,7 +56926,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -57488,7 +57009,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -57536,7 +57056,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -57599,7 +57118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -57655,7 +57173,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -57783,7 +57300,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 5
   previousTile: {fileID: 0}
@@ -57843,7 +57359,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -57891,7 +57406,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -57990,7 +57504,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -58157,7 +57670,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -58213,7 +57725,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -58288,7 +57799,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -58336,7 +57846,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 5
   previousTile: {fileID: 0}
@@ -58384,7 +57893,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -58470,7 +57978,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -58545,7 +58052,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -58608,7 +58114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -58758,7 +58263,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -58847,7 +58351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -58902,7 +58405,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -58957,7 +58459,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -59028,25 +58529,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8337332346300745710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1057974371760844665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &8337332346300745711
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -59229,7 +58711,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -59284,7 +58765,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -59412,7 +58892,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -59559,7 +59038,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -59614,7 +59092,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -59669,7 +59146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -59704,25 +59180,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3109590489401298911}
   m_Mesh: {fileID: 288312525664061738, guid: 89ac69d01be7650408314bc08e5f9460, type: 3}
---- !u!114 &8412355492264412863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3109590489401298911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 1
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 6
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &8412355492264412864
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -59780,7 +59237,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -59864,7 +59320,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -59993,7 +59448,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 1
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -60063,7 +59517,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -60170,7 +59623,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 1
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -60243,25 +59695,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6668628851033222195}
   m_Mesh: {fileID: 4299453797523773793, guid: 89ac69d01be7650408314bc08e5f9460, type: 3}
---- !u!114 &8484993067473048397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6668628851033222195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 1
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &8484993067473048398
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60355,7 +59788,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -60439,7 +59871,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -60561,7 +59992,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -60658,7 +60088,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -60718,7 +60147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -60802,7 +60230,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -60886,7 +60313,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -60934,7 +60360,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -61018,7 +60443,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 1
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -61056,7 +60480,6 @@ GameObject:
   - component: {fileID: 8689096599933530255}
   - component: {fileID: 3063887931978725070}
   - component: {fileID: 5085278965309746611}
-  - component: {fileID: 8689096599933530256}
   - component: {fileID: 8689096599933530257}
   m_Layer: 9
   m_Name: Level5.086
@@ -61122,7 +60545,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -61164,25 +60586,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 766790363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8557484220429269731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5557729048288754214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 1
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &8557484220429269732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61261,7 +60664,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -61309,7 +60711,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -61393,7 +60794,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -61464,25 +60864,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8570810330196386903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5891651714249252787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &8570810330196386904
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61525,7 +60906,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -61620,7 +61000,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -61704,7 +61083,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -61797,7 +61175,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -61857,7 +61234,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -61986,7 +61362,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 3
   previousTile: {fileID: 0}
@@ -62056,7 +61431,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -62155,7 +61529,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -62248,7 +61621,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -62337,7 +61709,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -62371,7 +61742,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -62441,7 +61811,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -62489,7 +61858,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -62531,25 +61899,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 766790363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8689096599933530256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8551552417008798217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 1
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &8689096599933530257
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62649,7 +61998,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -62704,7 +62052,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -62764,7 +62111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -62824,7 +62170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -62872,7 +62217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 3
   previousTile: {fileID: 0}
@@ -62928,7 +62272,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -62983,7 +62326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -63053,7 +62395,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -63101,7 +62442,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -63156,7 +62496,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -63198,25 +62537,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 766790363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8758482164897172711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640015895511320675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 1
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 6
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &8758482164897172712
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -63246,25 +62566,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5957373129355991409}
   m_Mesh: {fileID: 7185090903136008344, guid: 89ac69d01be7650408314bc08e5f9460, type: 3}
---- !u!114 &8758706867057115471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5957373129355991409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &8758706867057115472
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -63382,7 +62683,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -63430,7 +62730,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -63490,7 +62789,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -63573,7 +62871,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -63633,7 +62930,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -63738,7 +63034,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -63765,7 +63060,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -63868,25 +63162,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 766790363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8817666972432945498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4194895738347479826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 1
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 6
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &8817666972432945499
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -63929,7 +63204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 5
   previousTile: {fileID: 0}
@@ -63999,7 +63273,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 5
   previousTile: {fileID: 0}
@@ -64077,7 +63350,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -64185,7 +63457,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -64233,7 +63504,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -64296,7 +63566,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -64351,7 +63620,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -64406,7 +63674,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -64490,7 +63757,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -64561,7 +63827,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -64616,7 +63881,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -64671,7 +63935,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -64792,7 +64055,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -64831,7 +64093,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -64886,7 +64147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -64934,7 +64194,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -64989,7 +64248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -65044,7 +64302,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 4
   previousTile: {fileID: 0}
@@ -65181,7 +64438,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -65265,7 +64521,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -65328,7 +64583,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -65412,7 +64666,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -65460,7 +64713,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -65515,7 +64767,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -65638,7 +64889,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -65701,7 +64951,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -65797,7 +65046,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -65856,7 +65104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 5
   previousTile: {fileID: 0}
@@ -65916,7 +65163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -66000,7 +65246,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 1
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -66084,7 +65329,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -66168,7 +65412,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -66231,7 +65474,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -66304,7 +65546,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -66383,25 +65624,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027343408908338714}
   m_Mesh: {fileID: -8893822889749951846, guid: 89ac69d01be7650408314bc08e5f9460, type: 3}
---- !u!114 &9139116184746743127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027343408908338714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  moveRange: {fileID: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!65 &9139116184746743128
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -66451,7 +65673,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -66535,7 +65756,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 6
   previousTile: {fileID: 0}
@@ -66616,7 +65836,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -66650,7 +65869,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -66698,7 +65916,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -66797,7 +66014,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -66845,7 +66061,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -66893,7 +66108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -67038,7 +66252,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -67138,7 +66351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}
@@ -67198,7 +66410,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
-  moveRange: {fileID: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 1
   previousTile: {fileID: 0}

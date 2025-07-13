@@ -21,6 +21,8 @@ public class TileHelper : MonoBehaviour {
     public Material Walk;
     [SerializeField]
     public Material Current;
+    [SerializeField]
+    public Material HealTile;
     public GameObject SpawnRangeIndicator(Vector3 pos, RangeType type) {
         GameObject obj = this.inactiveRange[0];
         this.inactiveRange.Remove(obj);
@@ -42,6 +44,9 @@ public class TileHelper : MonoBehaviour {
                 break;
             case RangeType.CURRENT:
                 obj.GetComponent<MeshRenderer>().material = Current;
+                break;
+            case RangeType.HEALTILE:
+                obj.GetComponent<MeshRenderer>().material = HealTile;
                 break;
             default: break;
         }
@@ -84,6 +89,7 @@ public enum RangeType {
     WALK,
     ATTACK,
     HEAL,
-    CURRENT
+    CURRENT,
+    HEALTILE
 }
 
