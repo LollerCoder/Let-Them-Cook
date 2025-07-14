@@ -59,7 +59,7 @@ public class MapOpener : MonoBehaviour
 
         for (int i = 0; i < mapObj.transform.childCount; i++)
         {
-            levelSelectors[i].ToggleLevel(i < LevelManager.LevelsCompleted);
+            levelSelectors[i].ToggleLevel(i <= LevelManager.LevelsCompleted);
 
             if (levelSelectors[i].canLoad || i == 0) levelSelectors[i].ToggleLevel(true);
 
