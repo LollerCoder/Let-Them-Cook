@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cannon : SpecialUnits {
-
+    [SerializeField]
+    private ParticleSystem CornParticle;
+    [SerializeField]
+    private Animator CannonAnims;
     public List<Tile> targetTiles = new List<Tile>();
     public void Start() {
         this.Sprite = holder;
@@ -23,5 +26,13 @@ public class Cannon : SpecialUnits {
             }
         }
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+    }
+    private void TriggerCannonAnim()
+    {
+        CannonAnims.SetTrigger("Fire");
+    }
+    public void CannonFX()
+    {
+        CornParticle.Play();
     }
 }
