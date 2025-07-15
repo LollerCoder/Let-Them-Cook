@@ -47459,8 +47459,8 @@ GameObject:
   - component: {fileID: 1025486869593692603}
   - component: {fileID: 3332237862948363053}
   - component: {fileID: 4089453315368027412}
-  - component: {fileID: 5018025030732534721}
   - component: {fileID: 5018025030732534722}
+  - component: {fileID: 5018025030732534723}
   m_Layer: 0
   m_Name: Cannons
   m_TagString: Untagged
@@ -48832,7 +48832,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3895596201594948309}
   m_Mesh: {fileID: 2460800204714755423, guid: 89ac69d01be7650408314bc08e5f9460, type: 3}
---- !u!95 &5018025030732534721
+--- !u!114 &5018025030732534722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828650624749418442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196875ac546934d4cbf1396abcd39173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holder: {fileID: -512532138, guid: 0733b2428c1227749a26165d0764d4ff, type: 3}
+  CornParticle: {fileID: 6885645646214539902}
+  CannonAnims: {fileID: 5018025030732534723}
+  targetTiles: []
+  speed: 2
+  parent: {fileID: 0}
+  bossTowerPos: {fileID: 0}
+  targetTilesCenter: {fileID: 0}
+  controlTile: {fileID: 0}
+  popcornPrefab: {fileID: 2807241633784078802, guid: 48edc9fa2b2f0df4f813826058f05801, type: 3}
+  alreadyTurned: 0
+  bossCannon: 1
+--- !u!95 &5018025030732534723
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -48854,30 +48878,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5018025030732534722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4828650624749418442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196875ac546934d4cbf1396abcd39173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  holder: {fileID: -512532138, guid: 0733b2428c1227749a26165d0764d4ff, type: 3}
-  CornParticle: {fileID: 6885645646214539902}
-  CannonAnims: {fileID: 5018025030732534721}
-  targetTiles: []
-  speed: 2
-  parent: {fileID: 0}
-  bossTowerPos: {fileID: 0}
-  targetTilesCenter: {fileID: 0}
-  controlTile: {fileID: 0}
-  popcornPrefab: {fileID: 2807241633784078802, guid: 48edc9fa2b2f0df4f813826058f05801, type: 3}
-  alreadyTurned: 0
-  bossCannon: 1
 --- !u!33 &5018545811443162697
 MeshFilter:
   m_ObjectHideFlags: 0

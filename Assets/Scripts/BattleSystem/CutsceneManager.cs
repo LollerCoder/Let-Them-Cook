@@ -165,26 +165,26 @@ public class CutsceneManager : MonoBehaviour
                 CutsceneEnemy.SetActive(true);
                 Debug.Log(Dummy.Key.gameObject.GetComponentInChildren<SpriteRenderer>().sprite.name);
                 CutsceneEnemy.GetComponentInChildren<SpriteRenderer>().sprite = _sprite;
-                //PowFxSpin[3].SetActive(true);
+                PowFxSpin[3].SetActive(true);
             }
             if (Dummy.Value == Vector3.right)
             {
                
                 Dummies[0].SetActive(true);
                 Dummies[0].GetComponentInChildren<SpriteRenderer>().sprite = _sprite;
-                //PowFxSpin[1].SetActive(true);
+                PowFxSpin[1].SetActive(true);
             }
             if (Dummy.Value == Vector3.forward)
             {
                 Dummies[1].SetActive(true);
                 Dummies[1].GetComponentInChildren<SpriteRenderer>().sprite = _sprite;
-                //PowFxSpin[0].SetActive(true);
+                PowFxSpin[0].SetActive(true);
             }
             if (Dummy.Value == Vector3.back)
             {
                 Dummies[2].SetActive(true);
                 Dummies[2].GetComponentInChildren<SpriteRenderer>().sprite = _sprite;
-                //PowFxSpin[2].SetActive(true);
+                PowFxSpin[2].SetActive(true);
             }
 
 
