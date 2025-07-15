@@ -371,6 +371,7 @@ public class UnitActionManager : MonoBehaviour
         }
 
         if (this.GetFirstUnit() is SpecialUnits sUnit) {
+            this.bEnemy = true;
             this.StartCoroutine(sUnit.Turn());
         }
 

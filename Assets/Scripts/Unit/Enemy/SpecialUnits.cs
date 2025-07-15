@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpecialUnits : MonoBehaviour, ITurnTaker {
-    public Transform location;
+    protected Transform location;
+    public Transform Location { get { return this.location; } }
     public float Speed { get; set; }
     public Sprite Sprite { get; set; }
 

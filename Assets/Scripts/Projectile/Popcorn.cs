@@ -9,10 +9,15 @@ public class Popcorn : MonoBehaviour {
     private Rigidbody rb;
 
     private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.GetComponent<Tower>() is Tower tower) {
+            tower.TriggerFallAnim();
+        }
+
         if (collision.gameObject.GetComponent<Unit>() is Unit unit) {
             unit.TakeDamageFromTile(5);
             this.forAllyTarget = false;
         }
+
         this.transform.position = Vector3.zero;
         this.transform.rotation = Quaternion.identity;
 

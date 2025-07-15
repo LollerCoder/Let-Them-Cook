@@ -23,6 +23,9 @@ public class Cannon : SpecialUnits {
     private Transform bossTowerPos;
 
     [SerializeField]
+    private Transform targetTilesCenter;
+
+    [SerializeField]
     private CannonTile controlTile;
 
     [SerializeField]
@@ -31,9 +34,15 @@ public class Cannon : SpecialUnits {
     [SerializeField]
     private bool alreadyTurned = false;
 
-    private Popcorn popcorn; 
+    [SerializeField]
+    private bool bossCannon = false;
+
+    private Popcorn popcorn;
+
+    private List<Unit> playerUnits = new List<Unit>();
 
     public void Start() {
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.PLAYERDEATH, this.UpdatePlayerUnitList);
         this.Sprite = holder;
         this.Speed = this.speed;
         GameObject obj = GameObject.Instantiate(this.popcornPrefab);
@@ -41,6 +50,15 @@ public class Cannon : SpecialUnits {
             this.popcorn = obj.GetComponent<Popcorn>();
         }
         this.popcorn.gameObject.SetActive(false);
+        if (this.bossCannon) {
+            List<Unit> units = UnitActionManager.Instance.UnitList;
+
+            foreach (Unit unit in units) {
+                if (unit.Type == EUnitType.Ally) {
+                    playerUnits.Add(unit);
+                }
+            }
+        }
         UnitActionManager.Instance.TurnOrder.Add(this);       
     }
 
@@ -61,11 +79,17 @@ public class Cannon : SpecialUnits {
     }
 
     public override IEnumerator Turn() {
+        this.location = this.transform;
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
         if (!this.alreadyTurned && this.CheckIfAllyUnitOnControlTile() == EUnitType.Ally) {
+
             yield return this.StartCoroutine(Rotate());
         }
-
         this.CannonAnims.SetTrigger("Fire");
+
+        if (this.CheckIfAllyUnitOnControlTile() == EUnitType.SpecialTile) {
+            this.StartCoroutine(this.NextTurn(0f));
+        }
     }
     public void Action() {
         if (this.CheckIfAllyUnitOnControlTile() == EUnitType.Ally) {
@@ -73,6 +97,9 @@ public class Cannon : SpecialUnits {
         }
         else if (this.CheckIfAllyUnitOnControlTile() == EUnitType.Enemy) {
             this.AttackNearTiles();
+        }
+        else if (this.bossCannon){
+            this.AttackRandomPlayerUnit();
         }
         else {
             this.StartCoroutine(this.NextTurn(0f));
@@ -83,11 +110,13 @@ public class Cannon : SpecialUnits {
         this.location = this.bossTowerPos;
         this.SpawnPopcorn(this.bossTowerPos);
         EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
+        
     }
 
     private void AttackNearTiles() {
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
+        this.location = this.targetTilesCenter;
         this.SpawnPopcorn(this.location);
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
         foreach (Tile tile in this.targetTiles) {
             Ray ray = new Ray(tile.transform.position, Vector3.up);
             Debug.DrawRay(tile.transform.position, Vector3.up, Color.red, 5f);
@@ -98,11 +127,6 @@ public class Cannon : SpecialUnits {
             }
         }
         this.StartCoroutine(this.NextTurn(1.0f));
-    }
-
-    private IEnumerator NextTurn(float seconds) {
-        yield return new WaitForSeconds(seconds);
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
     }
 
     private EUnitType CheckIfAllyUnitOnControlTile() {
@@ -122,6 +146,16 @@ public class Cannon : SpecialUnits {
         return EUnitType.SpecialTile;
     }
 
+    private void AttackRandomPlayerUnit() { 
+        int rand = Random.Range(0, playerUnits.Count);
+        this.location = playerUnits[rand].transform;
+
+        this.SpawnPopcorn(this.location);
+    }
+    public void UpdatePlayerUnitList() {
+        List<Unit> units = UnitActionManager.Instance.UnitList.FindAll(u => u.Type == EUnitType.Ally);
+        this.playerUnits = units;
+    }
     private void SpawnPopcorn(Transform target) {
         Vector3 newPos = new Vector3(target.transform.position.x,
                                      target.transform.position.y + 10f,
@@ -130,7 +164,10 @@ public class Cannon : SpecialUnits {
         this.popcorn.transform.position = newPos;
         this.popcorn.gameObject.SetActive(true);
     }
-
+    private IEnumerator NextTurn(float seconds) {
+        yield return new WaitForSeconds(seconds);
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+    }
     public void CannonFX()
     {
         CornParticle.Play();

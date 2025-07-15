@@ -24,7 +24,7 @@ public class HealTile : Tile {
     }
     public override void UnHighlightTargetTile() {
         TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
-        this.rangeIndicator = TileHelper.Instance.SpawnRangeIndicator(this.rangePos, RangeType.HEAL);
+        this.rangeIndicator = TileHelper.Instance.SpawnRangeIndicator(this.rangePos, RangeType.HEALTILE);
     }
     public override void HighlightWalkableTile() {
         if (this.isWalkable) { //just to make sure it wont be highlighted

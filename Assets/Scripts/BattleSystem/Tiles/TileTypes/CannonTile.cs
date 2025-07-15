@@ -24,4 +24,13 @@ public class CannonTile : Tile {
         TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
         this.rangeIndicator = TileHelper.Instance.SpawnRangeIndicator(this.rangePos, RangeType.CANNON);
     }
+        public override void HighlightWalkableTile() {
+        if (this.isWalkable) { //just to make sure it wont be highlighted
+            this.inWalkRange = true;
+            if (this.rangeIndicator != null) {
+                TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
+            }
+            this.rangeIndicator = TileHelper.Instance.SpawnRangeIndicator(rangePos, RangeType.CANNON);
+        }
+    }
 }

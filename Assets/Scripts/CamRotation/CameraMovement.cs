@@ -124,7 +124,7 @@ public class CameraMovement : MonoBehaviour
             characterPos.y = unit.Tile.transform.position.y;
         }
         if (UnitActionManager.Instance.GetFirstUnit() is SpecialUnits sUnit) {
-            characterPos = sUnit.location.position;
+            characterPos = sUnit.Location.position;
         }
         Vector3 cameraPosition = characterPos;
 
