@@ -433,7 +433,9 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
     ///SPRINGS
     private void HandleDeath()
     {
-        EventBroadcaster.Instance.PostEvent(EventNames.Enemy_Events.ON_ENEMY_DEFEATED);
+        
+        
+
 
         DroppedVegetableManager.Instance.CreateDropVegetable(this);
 
@@ -445,6 +447,16 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         this.Tile.isWalkable = true;
 
         UnitActionManager.Instance.RemoveUnitFromOrder(this);
+        //add if statements
+        switch (this.Type)
+        {
+            case EUnitType.Enemy:
+                EventBroadcaster.Instance.PostEvent(EventNames.Enemy_Events.ON_ENEMY_DEFEATED);
+                break;
+            case EUnitType.Ally:
+                EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.PLAYERDEATH);
+                break;
+        }
     }
 
     private void OnMouseEnter()
@@ -584,7 +596,10 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         this.Sprite = this.spriteRenderer.sprite;
     }
 
+
     //protected abstract void HandleDeath();
+
+
 
     // public Unit(Unit unit)
     // {
