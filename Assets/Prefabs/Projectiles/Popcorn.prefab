@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5395187063754017588}
   - component: {fileID: 7753741476748805918}
   - component: {fileID: 1763934265687642121}
+  - component: {fileID: 2011498748974976755}
+  - component: {fileID: 2507003879983837079}
   m_Layer: 0
   m_Name: Popcorn
   m_TagString: Untagged
@@ -27,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2807241633784078802}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -9.9461, y: 0.42315, z: 1.9622}
   m_LocalScale: {x: 33.1362, y: 33.1362, z: 33.1362}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &5395187063754017588
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -99,3 +101,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22eb08118028766418c5114a6abaf76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravityMultiplier: 3.5
+  forAllyTarget: 0
+  rb: {fileID: 2507003879983837079}
+--- !u!65 &2011498748974976755
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2807241633784078802}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.028573547, y: 0.031647917, z: 0.028838363}
+  m_Center: {x: 0.0009803041, y: 0.0019835774, z: 0.0008015622}
+--- !u!54 &2507003879983837079
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2807241633784078802}
+  serializedVersion: 4
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 0
+  m_ImplicitTensor: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
