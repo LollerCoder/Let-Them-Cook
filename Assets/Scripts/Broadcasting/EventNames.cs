@@ -58,6 +58,9 @@ public class EventNames {
 		//SPRING
 		public const string SPRING = "SPRING";
         public const string LAUNCH = "LAUNCH";
+
+        //PLAYER DEATH
+        public const string PLAYERDEATH = "PLAYERDEATH";
     }
 
 
