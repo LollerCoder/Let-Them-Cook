@@ -5,7 +5,7 @@ using UnityEngine;
 public class LobbyDialogue : MonoBehaviour
 {
     public static LobbyDialogue Instance;
-    public static bool FirstTime;
+    public static List<bool> DialogueComplete = new List<bool>();
 
     [Header("Dialogue")]
     [SerializeField]
@@ -20,7 +20,10 @@ public class LobbyDialogue : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            FirstTime = true;
+            for (int i = 0; i < 5; i++)
+            {
+                DialogueComplete.Add(false);
+            }
         }
         else
         {
@@ -31,9 +34,9 @@ public class LobbyDialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (FirstTime)
+        if (!LobbyDialogue.DialogueComplete[0])
         {
-            FirstTime = false;
+            LobbyDialogue.DialogueComplete[0] = true;
             _MapTutorialDone = false;
             DialogueManager.Instance.StartDialogue(_IntroDialogue);
 

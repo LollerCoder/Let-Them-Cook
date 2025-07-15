@@ -1,12 +1,4 @@
-using NUnit.Framework;
-using NUnit.Framework.Constraints;
-using Palmmedia.ReportGenerator.Core.Common;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Tilemaps;
 public class Tile : MonoBehaviour{
     private int tileX;
     private int tileZ;

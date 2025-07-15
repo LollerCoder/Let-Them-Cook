@@ -35,9 +35,9 @@ public class MapOpener : MonoBehaviour
         //mapObj.GetComponent<GameScript>().LoadGame();
         mapObj.GetComponent<GameScript>().LoadGameV2();
 
-        mapObj.SetActive(false);
-        
         updateToggles();
+
+        mapObj.SetActive(false);
 
   
         //load level data (outline code)
@@ -74,6 +74,7 @@ public class MapOpener : MonoBehaviour
         //Debug.Log(prevCameraPos);
         if (Input.GetKeyDown(KeyCode.E) && isPlayerIn)
         {
+            updateToggles();
             ToggleMap();
         }
 

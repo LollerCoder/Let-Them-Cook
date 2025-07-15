@@ -112,7 +112,7 @@ namespace EnemyAI
 
             if (target == null)
             {
-                Debug.LogError("TARGET NOT FOUND!");
+                Debug.LogError("TARGET NOT FOUND!");    
                 return path;
             }
 
