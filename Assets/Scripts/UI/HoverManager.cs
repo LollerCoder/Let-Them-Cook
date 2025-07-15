@@ -12,14 +12,8 @@ public class HoverManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = null;
-        }
-        else
-        {
-            Destroy(this);
-        }
+        if (Instance != null && Instance != this) Destroy(this.gameObject);
+        else Instance = this;
     }
     // Start is called before the first frame update
     void Start()

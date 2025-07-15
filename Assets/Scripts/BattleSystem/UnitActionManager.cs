@@ -67,6 +67,7 @@ public class UnitActionManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(" Unit action manager start!");
         vignette = Camera.main.GetComponentInChildren<PostProcessVolume>();
         vignette.weight = 0.0f;
      
