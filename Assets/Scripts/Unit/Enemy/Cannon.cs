@@ -48,10 +48,13 @@ public class Cannon : SpecialUnits {
         this.Sprite = holder;
         this.Speed = this.speed;
         GameObject obj = GameObject.Instantiate(this.popcornPrefab);
+
         if (obj.GetComponent<Popcorn>()) {
             this.popcorn = obj.GetComponent<Popcorn>();
         }
+
         this.popcorn.gameObject.SetActive(false);
+
         if (this.bossCannon) {
             List<Unit> units = UnitActionManager.Instance.UnitList;
 
@@ -84,10 +87,9 @@ public class Cannon : SpecialUnits {
         this.location = this.transform;
         EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
         if (!this.alreadyTurned && this.CheckIfAllyUnitOnControlTile() == EUnitType.Ally) {
-
             yield return this.StartCoroutine(Rotate());
         }
-        if (this.CheckIfAllyUnitOnControlTile() == EUnitType.SpecialTile || this.alreadyShotBossTower) {
+        if(this.CheckIfAllyUnitOnControlTile() == EUnitType.SpecialTile || this.alreadyShotBossTower) {
             this.StartCoroutine(this.NextTurn(0f));
         }
         else {
@@ -101,7 +103,7 @@ public class Cannon : SpecialUnits {
         else if (this.CheckIfAllyUnitOnControlTile() == EUnitType.Enemy) {
             this.AttackNearTiles();
         }
-        else if (this.bossCannon){
+        else if (this.bossCannon) {
             this.AttackRandomPlayerUnit();
         }
         else {
@@ -131,30 +133,29 @@ public class Cannon : SpecialUnits {
         }
         this.StartCoroutine(this.NextTurn(1.0f));
     }
-
+    private void AttackRandomPlayerUnit() {
+        int rand = Random.Range(0, playerUnits.Count);
+        this.location = playerUnits[rand].transform;
+        this.SpawnPopcorn(this.location);
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
+        this.StartCoroutine(this.NextTurn(1.0f));
+    }
     private EUnitType CheckIfAllyUnitOnControlTile() {
+        if (this.bossCannon) return EUnitType.Boss;
+
         Ray ray = new Ray(this.controlTile.transform.position, Vector3.up);
         Debug.DrawRay(this.controlTile.transform.position, Vector3.up, Color.red, 5f);
 
         if (Physics.Raycast(ray, out RaycastHit hit, 50.0f, LayerMask.GetMask("Units"))) {
             if (hit.collider.gameObject.GetComponent<Unit>() is Unit unit) {
-                if (unit.Type == EUnitType.Ally) {
-                    return EUnitType.Ally;
-                }
-                if (unit.Type == EUnitType.Enemy) {
-                    return EUnitType.Enemy;
-                }
+                if (unit.Type == EUnitType.Ally) return EUnitType.Ally;
+                if (unit.Type == EUnitType.Enemy) return EUnitType.Enemy;
             }
         }
+
         return EUnitType.SpecialTile;
     }
 
-    private void AttackRandomPlayerUnit() { 
-        int rand = Random.Range(0, playerUnits.Count);
-        this.location = playerUnits[rand].transform;
-
-        this.SpawnPopcorn(this.location);
-    }
     public void UpdatePlayerUnitList() {
         List<Unit> units = UnitActionManager.Instance.UnitList.FindAll(u => u.Type == EUnitType.Ally);
         this.playerUnits = units;

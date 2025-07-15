@@ -11,6 +11,13 @@ public class Tower : MonoBehaviour {
     private Cannon cannon;
     [SerializeField]
     private GameObject cornSpawn;
+    [SerializeField]
+    private GameObject towerCorn;
+
+    [SerializeField]
+    private GameObject PopCorn;
+    [SerializeField]
+    private Tile EnemyParent;
 
     public void TriggerFallAnim() {
         this.towerAnim.SetTrigger("TowerFall");
@@ -32,5 +39,8 @@ public class Tower : MonoBehaviour {
     private IEnumerator NextTurn(float seconds) {
         yield return new WaitForSeconds(seconds);
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+        GameObject CornBoss = GameObject.Instantiate(this.PopCorn, this.EnemyParent.transform);
+
+        Destroy(this.towerCorn);
     }
 }
