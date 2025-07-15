@@ -39,6 +39,8 @@ public class CameraMovement : MonoBehaviour
         cam = Camera.main;
         EventBroadcaster.Instance.AddObserver(EventNames.BattleCamera_Events.CURRENT_FOCUS, this.ResetPosition);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleCamera_Events.ENEMY_FOCUS, this.EnemyPosition);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleCamera_Events.MOVE_CAMERA, this.MoveCameraToNonUnit);
+
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_PLAY, this.battleCutsceneCamMove);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_END, this.battleCutsceneReset);
 
@@ -84,6 +86,7 @@ public class CameraMovement : MonoBehaviour
     {
         EventBroadcaster.Instance.RemoveObserver(EventNames.BattleCamera_Events.CURRENT_FOCUS);
         EventBroadcaster.Instance.RemoveObserver(EventNames.BattleCamera_Events.ENEMY_FOCUS);
+        EventBroadcaster.Instance.RemoveObserver(EventNames.BattleCamera_Events.MOVE_CAMERA);
     }
 
     private void EnemyPosition(Parameters param) {
@@ -234,6 +237,25 @@ public class CameraMovement : MonoBehaviour
         previousCamRot = cam.transform.rotation;
         cam.gameObject.transform.position = battleCutscene.transform.position;
         cam.gameObject.transform.rotation = battleCutscene.transform.rotation;
+    }
+
+    private void MoveCameraToNonUnit(Parameters param) {
+        Vector3 pos = param.GetVector3Extra("POS");
+
+        Vector3 characterPos = Vector3.zero;
+
+        Vector3 cameraPosition = pos;
+
+        cameraPosition.y = characterPos.y + heightOffset;
+
+        this.reset = true;
+        this.targetPosition = cameraPosition;
+        this.targetPosition.z = cameraPosition.z - 2;
+
+        Quaternion targetRotation = Quaternion.Euler(63f, 0f, 0f);
+        this.cam.transform.rotation = targetRotation;
+
+        this.rotationX = cam.transform.localEulerAngles.x;
     }
 
     private void battleCutsceneReset()

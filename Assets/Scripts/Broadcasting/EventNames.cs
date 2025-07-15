@@ -82,7 +82,8 @@ public class EventNames {
 	public class BattleCamera_Events {
 		public const string ENEMY_FOCUS = "ENEMY_FOCUS";
 		public const string CURRENT_FOCUS = "CURRENT_FOCUS";
-	}
+        public const string MOVE_CAMERA = "MOVE_CAMERA";
+    }
 
 	public class HostageRescue_Events
 	{

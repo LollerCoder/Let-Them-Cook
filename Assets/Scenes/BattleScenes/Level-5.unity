@@ -16055,6 +16055,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerParticle: {fileID: 1504708573}
   towerAnim: {fileID: 1668630872}
+  cannon: {fileID: 5018025030732534722}
+  cornSpawn: {fileID: 5283353232191808766}
 --- !u!65 &1668630874
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16580,6 +16582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1805822440}
   - component: {fileID: 1805822441}
+  - component: {fileID: 1805822442}
   m_Layer: 0
   m_Name: Colonel Kob (TOWER)
   m_TagString: Untagged
@@ -16656,6 +16659,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1805822442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805822439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af77c3ae89978548ac6d12ace3b3784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  minVerticalAngle: -30
+  maxVerticalAngle: 20
 --- !u!1 &1815020433
 GameObject:
   m_ObjectHideFlags: 0

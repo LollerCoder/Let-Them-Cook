@@ -37,6 +37,8 @@ public class Cannon : SpecialUnits {
     [SerializeField]
     private bool bossCannon = false;
 
+    private bool alreadyShotBossTower = false;
+
     private Popcorn popcorn;
 
     private List<Unit> playerUnits = new List<Unit>();
@@ -85,10 +87,11 @@ public class Cannon : SpecialUnits {
 
             yield return this.StartCoroutine(Rotate());
         }
-        this.CannonAnims.SetTrigger("Fire");
-
-        if (this.CheckIfAllyUnitOnControlTile() == EUnitType.SpecialTile) {
+        if (this.CheckIfAllyUnitOnControlTile() == EUnitType.SpecialTile || this.alreadyShotBossTower) {
             this.StartCoroutine(this.NextTurn(0f));
+        }
+        else {
+            this.CannonAnims.SetTrigger("Fire");
         }
     }
     public void Action() {
@@ -110,7 +113,7 @@ public class Cannon : SpecialUnits {
         this.location = this.bossTowerPos;
         this.SpawnPopcorn(this.bossTowerPos);
         EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
-        
+        this.alreadyShotBossTower = true;
     }
 
     private void AttackNearTiles() {

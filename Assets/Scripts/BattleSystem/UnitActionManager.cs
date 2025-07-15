@@ -135,17 +135,21 @@ public class UnitActionManager : MonoBehaviour
         _Units.Add(unit);
     }
 
-    public void RemoveUnitFromOrder(Unit removedUnit) {
-        this._Units.Remove(removedUnit);
-        this._turnOrder.Remove((ITurnTaker)removedUnit);
-        removedUnit.Tile.isWalkable = true;
+    public void RemoveUnitFromOrder(ITurnTaker removedUnit) {
+        if (removedUnit is SpecialUnits _unit) {
+            this._turnOrder.Remove(_unit);
+        }
+        if (removedUnit is Unit unit) {
+            this._Units.Remove(unit);
+            this._turnOrder.Remove(unit);
+            unit.Tile.isWalkable = true;
 
-        this._enemyAI.UpdateAllyUnits(_Units.FindAll(u => u.Type == EUnitType.Ally));
+            this._enemyAI.UpdateAllyUnits(_Units.FindAll(u => u.Type == EUnitType.Ally));
 
-        Parameters param = new Parameters();
-        param.PutExtra(UNIT, removedUnit);
-
-        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
+            Parameters param = new Parameters();
+            param.PutExtra(UNIT, unit);
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
+        }
     }
     public void DecideTurnOrder() {
 
