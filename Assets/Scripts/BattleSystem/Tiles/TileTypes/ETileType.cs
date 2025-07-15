@@ -12,6 +12,7 @@ public enum ETileType {
     SPRING,
     SLOW,
     DAMAGE,
+    CANNON,
 
     OBJECTIVE
 

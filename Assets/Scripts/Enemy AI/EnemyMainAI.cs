@@ -105,6 +105,11 @@ namespace EnemyAI
                 );
 
             Unit target = this.GetClosestAllyUnit();
+
+            if (currentEnemyAgent.OnWeapon) {
+                return null;
+            }
+
             if (target == null)
             {
                 Debug.LogError("TARGET NOT FOUND!");

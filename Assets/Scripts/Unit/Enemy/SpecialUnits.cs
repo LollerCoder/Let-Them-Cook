@@ -10,8 +10,8 @@ public class SpecialUnits : MonoBehaviour, ITurnTaker {
     [SerializeField]
     protected Sprite holder;
 
-    public virtual void Action() {
-
+    public virtual IEnumerator Turn() {
+        yield return null;
     }
 
 }

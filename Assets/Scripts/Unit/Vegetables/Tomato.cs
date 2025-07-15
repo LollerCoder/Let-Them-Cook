@@ -12,7 +12,7 @@ public class Tomato : Unit
         this.skillList.Add("Circular Cut");
 
         this.acc = 10;
-        this.Speed = 15;
+        this.Speed = this.speed;
         this.maxhp = 20;
         this.hp = this.maxhp;
         this.atk = 2;

@@ -58,6 +58,8 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
 
     [SerializeField]
     protected string charName; // unit name
+
+    public float speed;
     public string Name
     {
         get { return this.charName; }
@@ -176,6 +178,8 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
     }
 
     public bool InRange = false;
+
+    public bool OnWeapon = false;
 
     //
     [Header("Buff and Debuff Controllers")]
@@ -573,11 +577,12 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         easeSlide.maxValue = this.maxhp;
         easeSlide.value = hp;
 
+        this.Speed = speed;
+
         UnitActionManager.Instance.AddUnit(this);
 
         this.Sprite = this.spriteRenderer.sprite;
     }
-
 
     //protected abstract void HandleDeath();
 

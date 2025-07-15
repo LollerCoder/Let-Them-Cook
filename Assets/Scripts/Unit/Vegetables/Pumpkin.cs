@@ -13,7 +13,7 @@ public class Pumpkin : Unit
 
 
         this.acc = 10;
-        this.Speed = 3;
+        this.Speed = this.speed;
         this.maxhp = 25;
         this.hp = this.maxhp;
         this.atk = 2;

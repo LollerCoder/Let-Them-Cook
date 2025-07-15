@@ -55,6 +55,7 @@ MonoBehaviour:
   ingredientType: 0
   type: 0
   charName: 
+  speed: 3
   atk: 0
   hp: 0
   basicrange: 2
@@ -62,6 +63,7 @@ MonoBehaviour:
   animator: {fileID: 7167576064355011211}
   _tile: {fileID: 0}
   InRange: 0
+  OnWeapon: 0
   BufController: {fileID: 4284376249917531023}
   DebufController: {fileID: 1756560017225996316}
   effects: []
@@ -224,13 +226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d7419106db2b74592a0631400dfbb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx:
-    name: Walk
-    clip: {fileID: 8300000, guid: 1559dfca57ef7bd49a633c0a530a4fc8, type: 3}
-    volume: 1
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
 --- !u!1001 &1100954517418606369
 PrefabInstance:
   m_ObjectHideFlags: 0

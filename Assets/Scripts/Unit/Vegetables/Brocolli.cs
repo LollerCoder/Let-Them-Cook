@@ -18,7 +18,7 @@ public class Brocolli : Unit {
         this.skillList.Add("Rotten");
 
         this.acc = 5;
-        this.Speed = 2;
+        this.Speed = this.speed;
         this.maxhp = 15;
         this.hp = this.maxhp;
         this.atk = 3;

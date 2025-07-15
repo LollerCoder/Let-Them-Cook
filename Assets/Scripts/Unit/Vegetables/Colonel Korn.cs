@@ -12,7 +12,7 @@ public class ColonelKorn : Unit
 
 
         this.acc = 10;
-        this.Speed = 4;
+        this.Speed = this.speed;
         this.maxhp = 40;
         this.hp = this.maxhp;
         this.atk = 5;

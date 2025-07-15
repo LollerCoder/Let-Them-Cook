@@ -94,6 +94,7 @@ public class UnitActionManager : MonoBehaviour
 
         if (this.GetFirstUnit() is Unit enemy) {
             PathFinding.Path = this._enemyAI.TakeTurn(enemy);
+            if (PathFinding.Path == null) this.EnemyAIEndTurn();
         }
 
         //this.StartCoroutine(this.EnemyWait(2.0f)); // fix this instead of doing a coroutine, do the next turn whenever the enemy has done all of their actions
@@ -120,7 +121,7 @@ public class UnitActionManager : MonoBehaviour
         this.OnAttack = false;
         this.OnMove = false;
 
-        PathFinding.Path.Clear();
+        if(PathFinding.Path != null) PathFinding.Path.Clear();
         EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.ENABLE_CLICKS);
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
@@ -339,7 +340,9 @@ public class UnitActionManager : MonoBehaviour
 
             switch (unit.Type) {
                 case EUnitType.Ally:
+                    if (unit.OnWeapon) {
 
+                    }
                     bEnemy = false;
                     bAlly = true;
                     BattleUI.Instance.ToggleActionBox();
@@ -368,7 +371,7 @@ public class UnitActionManager : MonoBehaviour
         }
 
         if (this.GetFirstUnit() is SpecialUnits sUnit) {
-            sUnit.Action();
+            this.StartCoroutine(sUnit.Turn());
         }
 
     }
@@ -428,7 +431,7 @@ public class UnitActionManager : MonoBehaviour
         }
         else if (Instance != null)
         {
-            Destroy(this.gameObject);
+            Destroy(this);
         }
     }
 }

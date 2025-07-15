@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 5145978829346073834}
   - component: {fileID: 9220422037435779797}
   - component: {fileID: 336522217391511972}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tomato
   m_TagString: Unit
   m_Icon: {fileID: 0}
@@ -213,6 +213,7 @@ MonoBehaviour:
   ingredientType: 5
   type: 0
   charName: 
+  speed: 15
   atk: 0
   hp: 0
   basicrange: 2
@@ -220,6 +221,7 @@ MonoBehaviour:
   animator: {fileID: 8047262615196638938}
   _tile: {fileID: 0}
   InRange: 0
+  OnWeapon: 0
   BufController: {fileID: 3258688762731242823}
   DebufController: {fileID: 3848176966163297478}
   effects: []

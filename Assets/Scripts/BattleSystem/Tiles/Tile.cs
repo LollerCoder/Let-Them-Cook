@@ -13,6 +13,7 @@ public class Tile : MonoBehaviour{
 
     public bool withProp = false;
 
+    [SerializeField]
     protected Vector3 rangePos;
 
     public GameObject rangeIndicator = null;
@@ -57,7 +58,7 @@ public class Tile : MonoBehaviour{
         TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
     }
 
-    public void UnHighlightTargetTile() {
+    public virtual void UnHighlightTargetTile() {
         if (this.inWalkRange) {
             TileHelper.Instance.DeactivateRangeIndicator(this.rangeIndicator, this);
             this.rangeIndicator = TileHelper.Instance.SpawnRangeIndicator(this.rangePos, RangeType.WALK);

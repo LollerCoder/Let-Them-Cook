@@ -17,7 +17,7 @@ public class Potato : Unit {
         this.skillList.Add("Basic Attack");
 
         this.acc = 5;
-        this.Speed = 3;
+        this.Speed = this.speed;
         this.maxhp = 15;
         this.hp = this.maxhp;
         this.atk = 3;
