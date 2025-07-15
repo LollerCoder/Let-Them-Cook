@@ -36,7 +36,7 @@ public class IngredientsManager : MonoBehaviour
             // IngredientAmount[EIngredientType.CHILI] = 0;
             // IngredientAmount[EIngredientType.POTATO] = 0;
         }
-        else Destroy(this.gameObject);
+        else Destroy(this);
     }
 
     // Start is called before the first frame update

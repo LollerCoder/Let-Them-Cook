@@ -18,7 +18,7 @@ public class GameSettingsManager : MonoBehaviour
         }
         else
         {
-            Destroy(this.gameObject);
+            Destroy(this);
         }
     }
 }

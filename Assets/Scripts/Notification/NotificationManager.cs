@@ -27,7 +27,7 @@ public class NotificationManager : MonoBehaviour
         }
         else
         {
-            Destroy(this.gameObject);
+            Destroy(this);
         }
     }
 

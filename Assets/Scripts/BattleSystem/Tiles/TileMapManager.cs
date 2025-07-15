@@ -45,7 +45,7 @@ public class TileMapManager : MonoBehaviour {
             Instance = this;
         }
         else if (Instance != null) {
-            Destroy(this.gameObject);
+            Destroy(this);
         }
     }
 

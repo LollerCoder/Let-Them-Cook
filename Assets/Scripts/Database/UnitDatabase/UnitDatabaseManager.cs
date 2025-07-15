@@ -81,7 +81,7 @@ public class UnitDatabaseManager : MonoBehaviour
         }
         else
         {
-            Destroy(this.gameObject);
+            Destroy(this);
         }
     }
 

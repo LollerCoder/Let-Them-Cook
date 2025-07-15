@@ -14,7 +14,7 @@ public class SFXManager : MonoBehaviour
             Instance = this;
         }
         else if (Instance != null) {
-            Destroy(this.gameObject);
+            Destroy(this);
         }
 
         foreach (Sound s in this.sounds) {
