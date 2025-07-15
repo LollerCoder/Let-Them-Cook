@@ -61,11 +61,11 @@ public class MapOpener : MonoBehaviour
         {
             levelSelectors[i].ToggleLevel(i <= LevelManager.LevelsCompleted);
 
-            if (levelSelectors[i].canLoad || i == 0) levelSelectors[i].ToggleLevel(true);
-
             //if (mapObj.GetComponent<GameScript>().bData == false) { Debug.Log("LOOP RETURN"); return; }
            
         }
+
+        levelSelectors[0].ToggleLevel(false);
     }
 
     // Update is called once per frame
