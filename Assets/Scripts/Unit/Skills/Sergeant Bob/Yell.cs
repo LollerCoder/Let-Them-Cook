@@ -17,8 +17,8 @@ public class Yell : Skill
 
     public override void SkillAction(Unit target, Unit origin)
     {
-        origin.gainHealth(3, target);
-        target.AddEffect(new AttackBoost(3, target));
+        if (target.GetEffect("Attack Boost") == null)
+            target.AddEffect(new AttackBoost(1, target));
     }
 
 }
