@@ -7,6 +7,7 @@ public class ObjectiveChecker : MonoBehaviour
 {
     [SerializeField] private List<Objective> Objectives; // buttons 
     [SerializeField] private int totalLevelObjectives = 0;
+    private bool sent = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,10 +44,16 @@ public class ObjectiveChecker : MonoBehaviour
 
         if (totalLevelObjectives == count)
         {
-            Parameters param = new Parameters();
-            param.PutExtra("Level_Complete", true);
-            EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
-            EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION);
+            if(!sent)
+            {
+                Parameters param = new Parameters();
+                param.PutExtra("Level_Complete", true);
+                
+                EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
+                EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION);
+                sent = true;
+            }
+           
         }
         
     }

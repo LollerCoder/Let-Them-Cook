@@ -48,6 +48,8 @@ public class BattleUI : MonoBehaviour {
 
     private UnitStats _unitStats;
 
+    [SerializeField] private GameObject battleObjectives;
+
     private bool gameEndAllyWin = true; 
 
     private bool actionShow = false;
@@ -101,6 +103,13 @@ public class BattleUI : MonoBehaviour {
     {
         this.turnOrderShow = !this.turnOrderShow;
         this.GetComponent<Animator>().SetBool("Show", this.turnOrderShow);
+    }
+    public void TurnOffTurn()
+    {
+        this.turnOrderField.SetActive(false);
+        
+        this.battleObjectives.GetComponent<Image>().color = Color.clear;
+        this.battleObjectives.GetComponentInChildren<Text>().color = Color.clear;
     }
 
     public void WaitButton() {

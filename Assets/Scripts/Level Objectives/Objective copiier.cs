@@ -24,15 +24,9 @@ public class Objectivecopiier : MonoBehaviour
         toCopyRT.SetParent(copyToRT,false);
 
         toCopyRT.anchoredPosition = new  Vector2(0, -120);
+        BattleUI.Instance.TurnOffTurn();
 
-        //if(gameEnd.GetComponent<Canvas>() == null)
-        //{
-        //    Debug.Log("Canvas was found");
-        //}
 
-        //gameEnd.GetComponent<Canvas>().sortingOrder = 150;  
-        //gameEnd.GetComponent<Canvas>().overrideSorting = true;
-        //gameEnd.GetComponent<Canvas>().sortingLayerName = "BattleUI";
     }
     // Update is called once per frame
     void Update()
