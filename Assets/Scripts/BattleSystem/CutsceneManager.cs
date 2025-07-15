@@ -406,7 +406,7 @@ public class CutsceneManager : MonoBehaviour
                 //DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
                 DummyHp.hpHide(DummyHp.gameObject);
                 Dummies[i].gameObject.SetActive(false);
-                //PowFxSpin[i].gameObject.SetActive(false);
+                PowFxSpin[i].gameObject.SetActive(false);
                 //DummyHp.setColor(EUnitType.Enemy, false);
             }
 
