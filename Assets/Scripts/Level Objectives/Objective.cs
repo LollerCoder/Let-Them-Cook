@@ -9,8 +9,11 @@ public class Objective : MonoBehaviour
     [SerializeField] protected string toggleMessage;
     [SerializeField] protected bool optional = false;
 
+
+    [SerializeField]protected bool instaFail = false;
     protected Text toggleText;
     protected bool cleared = false;
+    protected bool unclearable = false;
 
     // Start is called before the first frame update
     protected void Start()
@@ -69,5 +72,15 @@ public class Objective : MonoBehaviour
     public virtual bool getIfOptional()
     {
         return optional;
+    }
+    //REMOVE ALL MENTION OF INSTAFAIL?
+    public virtual bool getIfInstaFail()
+    {
+        return instaFail;
+    }
+
+    public virtual bool getIfUnclearable()
+    {
+        return unclearable;
     }
 }

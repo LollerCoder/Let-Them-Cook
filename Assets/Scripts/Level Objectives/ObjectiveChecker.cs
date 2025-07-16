@@ -37,6 +37,17 @@ public class ObjectiveChecker : MonoBehaviour
             {
                 count++;
             }
+            if(conv.getIfUnclearable())
+            {
+                //Debug.Log("FAILING");
+                //fail
+                Parameters param = new Parameters();
+                param.PutExtra("Level_Complete", true);
+                param.PutExtra("Title", "Level Failed");
+                param.PutExtra("ButtonText", "Retry?");
+                EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
+                EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION);
+            }
             
             
         }
@@ -48,7 +59,9 @@ public class ObjectiveChecker : MonoBehaviour
             {
                 Parameters param = new Parameters();
                 param.PutExtra("Level_Complete", true);
-                
+                param.PutExtra("Title", "Level Complete");
+                param.PutExtra("ButtonText", "Continue");
+
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION);
                 sent = true;
