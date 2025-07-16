@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class ObjectiveChecker : MonoBehaviour
 {
@@ -37,6 +38,18 @@ public class ObjectiveChecker : MonoBehaviour
             {
                 count++;
             }
+            if(conv.getIfUnclearable())
+            {
+                //Debug.Log("FAILING");
+                //fail
+                Parameters param = new Parameters();
+                param.PutExtra("Level_Complete", true);
+                param.PutExtra("Title", "Level Failed");
+                param.PutExtra("ButtonText", "Retry?");
+                param.PutExtra("SceneToLoad", SceneManager.GetActiveScene().name);
+                EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
+                EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION);
+            }
             
             
         }
@@ -48,7 +61,9 @@ public class ObjectiveChecker : MonoBehaviour
             {
                 Parameters param = new Parameters();
                 param.PutExtra("Level_Complete", true);
-                
+                param.PutExtra("Title", "Level Complete");
+                param.PutExtra("ButtonText", "Continue");
+                param.PutExtra("SceneToLoad", "Lobby");
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION);
                 sent = true;

@@ -1947,10 +1947,7 @@ GameObject:
   - component: {fileID: 1135104572113249411}
   - component: {fileID: 320257045222948330}
   - component: {fileID: 8287271111585280180}
-  - component: {fileID: 7819675680523207393}
-  - component: {fileID: 8046429742644096320}
   - component: {fileID: 1598977757463057462}
-  - component: {fileID: 160919419726255939}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -2084,46 +2081,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7819675680523207393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3413517092561654114}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99365efd4ca5cf243806598f1e3a95e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _screenName: Cooking Tutorial
---- !u!114 &8046429742644096320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3413517092561654114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99365efd4ca5cf243806598f1e3a95e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _screenName: Lobby
 --- !u!114 &1598977757463057462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3413517092561654114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99365efd4ca5cf243806598f1e3a95e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _screenName: Lobby
---- !u!114 &160919419726255939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3325,6 +3283,7 @@ GameObject:
   - component: {fileID: 2505889832388035625}
   - component: {fileID: 2593987190475217917}
   - component: {fileID: 6805952096433504497}
+  - component: {fileID: 835000553337100582}
   m_Layer: 5
   m_Name: GameEnd
   m_TagString: Untagged
@@ -3439,6 +3398,20 @@ MonoBehaviour:
   toCopy: {fileID: 2629514736183374392}
   copyTo: {fileID: 454174511649705155}
   gameEnd: {fileID: 5303227089696330162}
+--- !u!114 &835000553337100582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5303227089696330162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c84ae6a4da459143a5f8ff7e8d5923d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Title: {fileID: 3150957101616295480}
+  ButtonText: {fileID: 6398538858444314231}
 --- !u!1 &5460761649095171654
 GameObject:
   m_ObjectHideFlags: 0
