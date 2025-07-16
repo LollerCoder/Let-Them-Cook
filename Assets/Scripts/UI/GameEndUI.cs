@@ -21,7 +21,7 @@ public class GameEndUI : MonoBehaviour
 
         this.Title.text = param.GetStringExtra("Title","NEVERAPPEARS");
         this.ButtonText.text = param.GetStringExtra("ButtonText", "NEVERAPPEARS");
-        this.GetComponentInChildren<DemoSceneLoading>().ScreenName = SceneManager.GetActiveScene().name;
+        this.GetComponentInChildren<DemoSceneLoading>().ScreenName = param.GetStringExtra("SceneToLoad", "NEVERAPPEARS");
 
     }
     // Update is called once per frame
