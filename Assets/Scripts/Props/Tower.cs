@@ -16,9 +16,6 @@ public class Tower : MonoBehaviour {
 
     [SerializeField]
     private GameObject PopCorn;
-    [SerializeField]
-    private Transform EnemyParent;
-
     public void TriggerFallAnim() {
         this.towerAnim.SetTrigger("TowerFall");
     }
