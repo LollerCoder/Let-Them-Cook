@@ -225,8 +225,9 @@ public class CutsceneManager : MonoBehaviour
     {
 
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_PLAY, this.SETUP);
+        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_RESET, this.ResetCutscene);
         //EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_AOE, this.MULTIPLE);
-      
+
     }
     private void findSkillAnim(string name)
     {
@@ -380,8 +381,8 @@ public class CutsceneManager : MonoBehaviour
 
     IEnumerator CutsceneDeadCheck()
     {
-        Debug.Log("Checcking dead");
-        this.ResetCutscene();
+        //Debug.Log("Checcking dead");
+        //this.ResetCutscene();
         if (target.HP <= 0)
         {
             yield return new WaitForSeconds(1);
@@ -428,19 +429,26 @@ public class CutsceneManager : MonoBehaviour
 
     private void CutsceneEnd()
     {
-        Debug.Log("Cutscene is Ending!");
+        StartCoroutine(CutsceneCoroutine());
+    }
+
+    private IEnumerator CutsceneCoroutine()
+    {
+        //Debug.Log("Cutscene is Ending!");
         CameraMovement.inCutscene = false;
 
-      
+
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_END);
-
         
+
 
         BattleUI.Instance.ToggleTurnOrderUI();
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+        yield return new WaitForSeconds(0.8f);
         this.ResetCutscene();
     }
+
 
     private void HealingParticles()
     {
