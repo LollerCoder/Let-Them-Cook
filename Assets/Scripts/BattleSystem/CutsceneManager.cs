@@ -225,7 +225,7 @@ public class CutsceneManager : MonoBehaviour
     {
 
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_PLAY, this.SETUP);
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_RESET, this.ResetCutscene);
+        
         //EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_AOE, this.MULTIPLE);
 
     }
