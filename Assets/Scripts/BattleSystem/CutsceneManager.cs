@@ -10,6 +10,7 @@ public class CutsceneManager : MonoBehaviour
     [Header("Spawns")]
     [SerializeField] GameObject enemySpawn;
     [SerializeField] GameObject playerSpawn;
+    [SerializeField] GameObject cutsceneIsland;
     [Header("OriginalCutsceneStuff")]
     [SerializeField] GameObject CutscenePlayer;
     [SerializeField] GameObject CutsceneEnemy;
@@ -30,6 +31,8 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] SpriteRenderer ProjectileSpriteRenderer;
     [SerializeField] Sprite FoilAxeSprite;
     [SerializeField] Sprite RottenSprite;
+
+
     
     private Dictionary<Unit, Vector3> DummiesData = new Dictionary<Unit, Vector3>();
 
@@ -90,7 +93,11 @@ public class CutsceneManager : MonoBehaviour
 
     private void SINGLE()
     {
-
+        if(player.Type != EUnitType.Ally)
+        {
+            this.cutsceneIsland.transform.localRotation = Quaternion.Euler(5f, 180f, 0f);
+            this.cutsceneIsland.transform.localPosition = this.cutsceneIsland.transform.localPosition + new Vector3(6.0f, 0.0f, 0.0f);
+        }
 
         SpriteRenderer PlayerSprite = player.spriteRenderer;
         SpriteRenderer EnemySprite = target.spriteRenderer;
@@ -219,9 +226,8 @@ public class CutsceneManager : MonoBehaviour
 
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_PLAY, this.SETUP);
         //EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_AOE, this.MULTIPLE);
-
+      
     }
-
     private void findSkillAnim(string name)
     {
         ESkillType skillAnim = SkillDatabase.Instance.findSkill(name).SKILLTYPE;
@@ -415,6 +421,9 @@ public class CutsceneManager : MonoBehaviour
 
         }
         DummiesData.Clear();
+        
+        this.cutsceneIsland.transform.localPosition = new Vector3(-3f, -1.738886f, 7.414598f);
+        this.cutsceneIsland.transform.localRotation = Quaternion.Euler(-10f, 0f, 0f);
     }
 
     private void CutsceneEnd()
