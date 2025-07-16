@@ -1889,6 +1889,7 @@ MonoBehaviour:
   Walk: {fileID: 2100000, guid: 484f4519ec8ec80429a0ab4428b655ce, type: 2}
   Current: {fileID: 2100000, guid: 119f8a4e2d1f56b4d88f65e6b140fd5e, type: 2}
   HealTile: {fileID: 2100000, guid: adcd9baa2a318004684a06631989c78b, type: 2}
+  CannonTile: {fileID: 2100000, guid: 7a2cba0abd56b6348a448bf631c9f427, type: 2}
 --- !u!4 &377508129
 Transform:
   m_ObjectHideFlags: 0
@@ -2003,7 +2004,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 380895304}
-  - component: {fileID: 380895305}
   m_Layer: 6
   m_Name: Enemies
   m_TagString: Untagged
@@ -2027,25 +2027,6 @@ Transform:
   - {fileID: 498951086}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &380895305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 380895303}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e47773683e056b44bea425cef710027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _normalEnemies: 1
-  _positions:
-  - {x: 5, y: 0.5, z: 3}
-  _scene: {fileID: 380895304}
-  _enemies:
-  - {fileID: 85490013685061727, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
-  boss: 0
 --- !u!4 &398929613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 219951473092511495, guid: 33ee6b143f0859743a617263ca240fbe, type: 3}
@@ -2839,6 +2820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -4697,6 +4679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -6028,6 +6011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -6893,6 +6877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
   previousTile: {fileID: 0}
@@ -8984,7 +8969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083e4c82037a09546a15ec74134fdd0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyController: {fileID: 380895305}
+  enemyController: {fileID: 0}
   numAllies: 0
   currAllies: 0
   inInventory: []
@@ -10951,6 +10936,7 @@ MonoBehaviour:
   toggle: {fileID: 794716827822140902}
   toggleMessage: Finish the Tutorial
   optional: 0
+  instaFail: 0
 --- !u!23 &849090771334515465
 MeshRenderer:
   m_ObjectHideFlags: 0

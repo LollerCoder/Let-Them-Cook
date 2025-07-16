@@ -38,7 +38,6 @@ public class Tower : MonoBehaviour {
     }
     private IEnumerator NextTurn(float seconds) {
         yield return new WaitForSeconds(seconds);
-        //GameObject CornBoss = GameObject.Instantiate(this.PopCorn, this.EnemyParent.transform);
         this.PopCorn.gameObject.SetActive(true);
         if (this.PopCorn.GetComponent<Unit>() is Unit unit) {
             UnitActionManager.Instance.AddUnit(unit);

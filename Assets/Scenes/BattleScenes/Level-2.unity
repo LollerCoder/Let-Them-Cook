@@ -717,7 +717,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 380895304}
-  - component: {fileID: 380895305}
   m_Layer: 6
   m_Name: Enemies
   m_TagString: Untagged
@@ -742,26 +741,6 @@ Transform:
   - {fileID: 1390893723}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &380895305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 380895303}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e47773683e056b44bea425cef710027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _normalEnemies: 2
-  _positions:
-  - {x: 7, y: 0.5, z: 7}
-  - {x: 10, y: 0.5, z: 3}
-  _scene: {fileID: 380895304}
-  _enemies:
-  - {fileID: 85490013685061727, guid: 9c33d1294bbab1344b30d73425f66417, type: 3}
-  boss: 0
 --- !u!1 &403620422
 GameObject:
   m_ObjectHideFlags: 0
@@ -4260,7 +4239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083e4c82037a09546a15ec74134fdd0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyController: {fileID: 380895305}
+  enemyController: {fileID: 0}
   numAllies: 0
   currAllies: 0
   inInventory: []
@@ -5226,6 +5205,10 @@ PrefabInstance:
       propertyPath: HealTile
       value: 
       objectReference: {fileID: 2100000, guid: adcd9baa2a318004684a06631989c78b, type: 2}
+    - target: {fileID: 7151014581092845326, guid: ed03afad1508e134ca8ef3df087980ba, type: 3}
+      propertyPath: CannonTile
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a2cba0abd56b6348a448bf631c9f427, type: 2}
     m_RemovedComponents:
     - {fileID: 5417828765705974993, guid: ed03afad1508e134ca8ef3df087980ba, type: 3}
     - {fileID: 2300397063678519017, guid: ed03afad1508e134ca8ef3df087980ba, type: 3}
