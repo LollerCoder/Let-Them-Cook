@@ -279,7 +279,7 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         this.hp -= damage;
         PopUpManager.Instance.addPopUp(damage.ToString(), this.transform);
 
-        if (this.hp == 0) {
+        if (this.hp <= 0) {
             Debug.Log("Its Dead");
             this.Tile.isWalkable = true;
 

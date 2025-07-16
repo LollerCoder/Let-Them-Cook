@@ -362,7 +362,7 @@ public static class UnitActions {
                     Debug.Log(unit.name);
                 }
 
-                if (unit.Type != EUnitType.Ally) {
+                if (unit.Type == EUnitType.Enemy) {
                     unit.Tile.isWalkable = false;
                 }
                 else {
