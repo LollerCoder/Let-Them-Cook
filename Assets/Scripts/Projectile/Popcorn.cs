@@ -7,6 +7,8 @@ public class Popcorn : MonoBehaviour {
     public bool forAllyTarget = false;
     [SerializeField]
     private Rigidbody rb;
+    [SerializeField]
+    private GameObject PopCornParticle;
 
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.GetComponent<Tower>() is Tower tower) {
@@ -17,7 +19,10 @@ public class Popcorn : MonoBehaviour {
             unit.TakeDamageFromTile(5);
             this.forAllyTarget = false;
         }
-
+        if (gameObject.active)
+        {
+            Instantiate(PopCornParticle, transform.position, transform.rotation);
+        }
         this.transform.position = Vector3.zero;
         this.transform.rotation = Quaternion.identity;
 
