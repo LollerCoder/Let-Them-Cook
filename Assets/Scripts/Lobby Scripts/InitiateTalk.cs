@@ -5,7 +5,7 @@ using UnityEngine;
 public class InitiateTalk : MonoBehaviour
 {
     [SerializeField]
-    private Dialogue _Dialogue;
+    private List<Dialogue> _Dialogue = new List<Dialogue>();
     [SerializeField]
     private Animator _Animator;
     [SerializeField]
@@ -46,7 +46,7 @@ public class InitiateTalk : MonoBehaviour
     private void Talk()
     {
         this.isTalking = true;
-        DialogueManager.Instance.StartDialogue(_Dialogue);
+        DialogueManager.Instance.StartDialogue(_Dialogue[LevelManager.LevelsCompleted - 1]);
     }
 
     private void OnTriggerEnter(Collider other)
