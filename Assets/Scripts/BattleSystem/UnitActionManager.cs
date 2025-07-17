@@ -304,7 +304,6 @@ public class UnitActionManager : MonoBehaviour
     private IEnumerator SetUpTurn()
     {
         BattleUI.Instance.UpdateTurnOrder(this.TurnOrder);
-
         if (this.GetFirstUnit() is Unit unit) { 
             Parameters param = new Parameters();
             param.PutExtra(UNIT, unit);
@@ -344,7 +343,7 @@ public class UnitActionManager : MonoBehaviour
 
             // reset and update attackable list
             UnitAttackActions.SetAttackableList();
-
+            UnitActions.ResetPosition();
             switch (unit.Type) {
                 case EUnitType.Ally:
                     if (unit.OnWeapon) {
@@ -362,7 +361,7 @@ public class UnitActionManager : MonoBehaviour
                     bEnemy = true;
                     bAlly = false;
                     EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
-                    yield return new WaitForSeconds(0.8f);
+                    yield return new WaitForSeconds(1.0f);
                     this.EnemyUnitAction();
                     break;
 
