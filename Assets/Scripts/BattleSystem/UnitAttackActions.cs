@@ -71,6 +71,10 @@ public class UnitAttackActions : MonoBehaviour {
         }
     }
     public static bool IsUnitSelectable(Unit selectedUnit, int skillNum) {
+        if (UnitActionManager.Instance.Moving) {
+            return false;
+        }
+
         if (skillNum == -1) {
             return false;
         }

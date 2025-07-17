@@ -34,6 +34,10 @@ public class CameraMovement : MonoBehaviour
     private float heightOffset = 8; // height above the tiles
 
     public static bool inCutscene = false;
+
+    [SerializeField]
+    private bool MapCamera;
+
     void Start()
     {
         cam = Camera.main;
@@ -43,7 +47,6 @@ public class CameraMovement : MonoBehaviour
 
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_PLAY, this.battleCutsceneCamMove);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.CUTSCENE_END, this.battleCutsceneReset);
-
         this.movementSpeed = this.Speed;
         this.shiftSpeed = this.movementSpeed * 2f;
     }
@@ -56,7 +59,7 @@ public class CameraMovement : MonoBehaviour
             this.CameraLook();
         }
 
-        if (Input.GetKeyUp(KeyCode.C) /*&& !UnitActionManager.Instance.OnAttack*/) {
+        if (Input.GetKeyUp(KeyCode.C)) {
             this.ResetPosition();
         }
         if (Input.GetKeyDown(KeyCode.LeftShift)) {
@@ -65,7 +68,7 @@ public class CameraMovement : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.LeftShift)) {
             this.movementSpeed = this.Speed;
         }
-        if (this.reset) {
+        if (this.reset && !inCutscene) {
             this.cam.transform.position = Vector3.Lerp(this.cam.transform.position, this.targetPosition, Time.deltaTime * 10f);
             Vector3 pos = this.cam.transform.position;
             pos.y = Mathf.MoveTowards(this.cam.transform.position.y, this.targetPosition.y, Time.deltaTime * 10f);
@@ -101,24 +104,13 @@ public class CameraMovement : MonoBehaviour
         this.targetPosition = cameraPosition;
         this.targetPosition.z = cameraPosition.z - 2;
 
-        // set the camera's x rotation to 89 instead of exactly looking at the character (90)
-
         Quaternion targetRotation = Quaternion.Euler(63f, 0f, 0f);
         this.cam.transform.rotation = targetRotation;
         
-
-        //this.cam.transform.LookAt(characterPos);
-
-        // override the rotationX with the new rotation so that it wont go back to the original rotation before the reset
         this.rotationX = cam.transform.localEulerAngles.x;
-
-        //this.heightOffset = 6;
-
-        /*this.cam.fieldOfView = 71.0f; // reset to original FoV*/
     }
 
     private void ResetPosition() {
-        //Debug.Log("Cam Reset");
 
         Vector3 characterPos = Vector3.zero;
 
@@ -137,16 +129,10 @@ public class CameraMovement : MonoBehaviour
         this.targetPosition = cameraPosition;
         this.targetPosition.z = cameraPosition.z - 2;
 
-        // set the camera's x rotation to 89 instead of exactly looking at the character (90)
         Quaternion targetRotation = Quaternion.Euler(63f, 0f, 0f);
         this.cam.transform.rotation = targetRotation;
 
-        //this.cam.transform.LookAt(this.targetPosition.normalized);
-
-        // override the rotationX with the new rotation so that it wont go back to the original rotation before the reset
         this.rotationX = cam.transform.localEulerAngles.x;
-
-        //this.cam.fieldOfView = 71.0f; // reset to original FoV
     }
 
     private void CameraLook() {
@@ -158,8 +144,6 @@ public class CameraMovement : MonoBehaviour
 
             Vector3 direction = previousPosition - cam.ScreenToViewportPoint(Input.mousePosition);
 
-            //cam.transform.position = transform.position;
-
             rotationX += direction.y * this.cameraSensitivity;
             rotationX = Mathf.Clamp(rotationX, 36, 89);
 
@@ -167,12 +151,6 @@ public class CameraMovement : MonoBehaviour
             cam.transform.Rotate(new Vector3(0, 1, 0), -direction.x * this.cameraSensitivity, Space.World);
 
             previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
-
-            //cam.transform.Rotate(new Vector3(1,0,0), direction.y * 180);
-            //cam.transform.Rotate(new Vector3(0,1,0), -direction.x * 180,Space.World);
-            //cam.transform.Translate(new Vector3(0,0,-10));
-
-            //previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
         }
 
         if (Input.mouseScrollDelta.y > 0 && this.heightOffset > 4) {
@@ -215,7 +193,6 @@ public class CameraMovement : MonoBehaviour
             if (!Physics.Raycast(this.cam.transform.position, moveDir.normalized, checkDistance, LayerMask.GetMask("Border"))) {
                 this.cam.transform.Translate(moveDir.normalized * speed, Space.World);
             }
-            //this.cam.transform.Translate(moveDir.normalized * speed, Space.World);
 
         }
     }
@@ -227,16 +204,16 @@ public class CameraMovement : MonoBehaviour
             Vector3 pos = cam.transform.position;
             pos.y = Mathf.Lerp(pos.y, targetY, Time.deltaTime * 5.0f);
             cam.transform.position = pos;
-            //Debug.Log(hit.point.y);
         }
     }
-    private void battleCutsceneCamMove()
-    {
+    private void battleCutsceneCamMove() {
         GameObject battleCutscene = GameObject.FindWithTag("BattleCutscene");
-        previousCamPos = cam.transform.position;
-        previousCamRot = cam.transform.rotation;
-        cam.gameObject.transform.position = battleCutscene.transform.position;
-        cam.gameObject.transform.rotation = battleCutscene.transform.rotation;
+        if (!this.MapCamera) {
+            previousCamPos = cam.transform.position;
+            previousCamRot = cam.transform.rotation;
+            cam.gameObject.transform.position = battleCutscene.transform.position;
+            cam.gameObject.transform.rotation = battleCutscene.transform.rotation;
+        }
     }
 
     private void MoveCameraToNonUnit(Parameters param) {

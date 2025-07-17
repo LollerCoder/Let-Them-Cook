@@ -270,8 +270,17 @@ public class UnitActionManager : MonoBehaviour
             if (vignette.weight > 0.1) {vignette.weight  -=  2.0f  * Time.deltaTime;}
             else vignette.weight = 0.0f;
         }
-            
 
+        if (!this.bEnemy && !this.hadAttacked && !this.Moving) {
+            if (Input.GetKeyDown(KeyCode.Alpha1)) {
+                this.numAttack = 0;
+                BattleUI.Instance.AttackState(this.numAttack);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2)) {
+                this.numAttack = 1;
+                BattleUI.Instance.AttackState(this.numAttack);
+            }
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -282,7 +291,6 @@ public class UnitActionManager : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.R) && UnitActions.stepFlag)
         {
-            BattleUI.Instance.ResetButtonState(this.numAttack);
             UnitActions.ResetPosition();
         }
 
@@ -352,6 +360,7 @@ public class UnitActionManager : MonoBehaviour
                     bEnemy = false;
                     bAlly = true;
                     BattleUI.Instance.ToggleActionBox();
+                    yield return new WaitForSeconds(1.0f);
                     Range.GetRange(unit, unit.Move, RangeType.WALK);
                     break;
 
@@ -361,12 +370,13 @@ public class UnitActionManager : MonoBehaviour
                     bEnemy = true;
                     bAlly = false;
                     EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
-                    yield return new WaitForSeconds(1.0f);
+                    yield return new WaitForSeconds(0.8f);
                     this.EnemyUnitAction();
                     break;
 
 
                 case EUnitType.SpecialTile:
+                    yield return new WaitForSeconds(1.0f);
                     ((ISpecialTile)unit).ApplyEffect();
                     break;
 
