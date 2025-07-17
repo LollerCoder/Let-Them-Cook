@@ -296,7 +296,7 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         partyMember.effectManager.EffectAccess(partyMember); // attacker
         this.effectManager.EffectAccess(this); //target
         this.hp += (int)healPts;
-        this.hp = Mathf.Max(HP, 0);
+        if (this.hp >= this.maxhp) this.hp = this.maxhp; //no overheal
 
 
 
