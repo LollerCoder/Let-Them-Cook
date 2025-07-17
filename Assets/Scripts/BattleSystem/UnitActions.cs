@@ -34,8 +34,12 @@ public static class UnitActions {
     }
     public static void ResetPosition() {
         if (!UnitActionManager.Instance.Moving) {
-            UnitActionManager.Instance.OnMove = false;
             Unit unit = (Unit)UnitActionManager.Instance.GetFirstUnit();
+            if (unit.Type == EUnitType.Enemy) {
+                return;
+            }
+            UnitActionManager.Instance.OnMove = false;
+
             if (UnitActionManager.Instance.hadMoved) {
                 //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
                 BattleUI.Instance.ToggleActionBox();
