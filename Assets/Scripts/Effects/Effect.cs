@@ -24,7 +24,6 @@ public class Effect
     public void ApplyEffect(Unit unitAffected)
     {
         if (Duration <= 0) {
-            Duration = 0;
             this.HideArrow(unitAffected);
             return;
         }
