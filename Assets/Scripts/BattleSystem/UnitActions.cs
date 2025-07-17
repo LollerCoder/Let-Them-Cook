@@ -261,12 +261,12 @@ public static class UnitActions {
             UnitAttackActions.CheckSkillRange((Unit)UnitActionManager.Instance.GetFirstUnit());
 
             //springs
-            SpringTile st = currentUnit.Tile as SpringTile;
-            if (st != null)
-            {
-                st.setUnitToLaunch(currentUnit);
-                Debug.Log("UnitToLaunchSet");
-            }
+            //SpringTile st = currentUnit.Tile as SpringTile;
+            //if (st != null)
+            //{
+            //    st.setUnitToLaunch(currentUnit);
+            //    Debug.Log("UnitToLaunchSet");
+            //}
             //springs
             currentUnit.Tile.HighlightCurrentTile(currentUnit.Type);
             EventBroadcaster.Instance.PostEvent(EventNames.UnitActionEvents.ON_DESTINATION_REACHED);

@@ -313,15 +313,18 @@ public class UnitActionManager : MonoBehaviour
 
             if (unit.Type == EUnitType.Ally) BattleUI.Instance.NextUnitSkills(unit);
 
-            //springs
-                foreach(Tile tile in TileMapManager.Instance.TileMap.Values)
-                {
-                    SpringTile st = tile.gameObject.GetComponent<SpringTile>();
+            //tile apply on unit start
+            unit.Tile.ApplyOnUnitStart(unit);
 
-                    if (st != null) { st.ApplyOnUnitStart(); }
-                    //Debug.Log("Launch");
+            //springs
+            //foreach (Tile tile in TileMapManager.Instance.TileMap.Values)
+            //{
+            //    SpringTile st = tile.gameObject.GetComponent<SpringTile>();
+
+            //    if (st != null) { st.ApplyOnUnitStart(); }
+            //    //Debug.Log("Launch");
                     
-                }
+            //}
             //springs
             
 

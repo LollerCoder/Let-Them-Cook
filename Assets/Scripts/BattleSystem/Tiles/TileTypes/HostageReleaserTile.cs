@@ -28,8 +28,11 @@ public class HostageReleaserTile : Tile
         isReleased = true;
     }
 
-    public override void ApplyEffect(Unit unit)
+    public override void ApplyOnUnitStart(Unit unit)
     {
+        
+        if (unit = UnitActionManager.Instance.GetFirstUnit() as Unit)
+
         if (isReleased) return;
         if (unit.Type != EUnitType.Ally) return;
 

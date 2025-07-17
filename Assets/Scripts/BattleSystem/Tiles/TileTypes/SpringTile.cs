@@ -28,24 +28,37 @@ public class SpringTile : Tile
 
     }
 
-    public override void ApplyOnUnitStart()
+    public override void ApplyOnUnitStart(Unit unit)
     {
-        if(unitToLaunch != null)
-        {
-            if(unitToLaunch == UnitActionManager.Instance.GetFirstUnit() as Unit)
-            {
-                unitToLaunch.OnSpring(true);//go up
-                animator.SetTrigger("Spring");
+        unitToLaunch = unit;
+
+        unitToLaunch.OnSpring(true);//go up
+        animator.SetTrigger("Spring");
+
+        unitToLaunch.Tile = Location1;
+        //unitToLaunch.gameObject.transform.position = Location1.transform.position;
+        unitToLaunch = null;
+        Parameters param = new Parameters();
+        param.PutExtra("pos", Location1.transform.position);
+        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.SPRING, param);
+
+
+        //if (unitToLaunch != null)
+        //{
+        //    if(unitToLaunch == UnitActionManager.Instance.GetFirstUnit() as Unit)
+        //    {
+        //        unitToLaunch.OnSpring(true);//go up
+        //        animator.SetTrigger("Spring");
                 
-                unitToLaunch.Tile = Location1;
-                //unitToLaunch.gameObject.transform.position = Location1.transform.position;
-                unitToLaunch = null;
-                Parameters param = new Parameters();
-                param.PutExtra("pos", Location1.transform.position);
-                EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.SPRING,param);
-            }
+        //        unitToLaunch.Tile = Location1;
+        //        //unitToLaunch.gameObject.transform.position = Location1.transform.position;
+        //        unitToLaunch = null;
+        //        Parameters param = new Parameters();
+        //        param.PutExtra("pos", Location1.transform.position);
+        //        EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.SPRING,param);
+        //    }
             
-        }
+        //}
     }
 
 }
