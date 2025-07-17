@@ -30,6 +30,7 @@ public class Parameters {
     private Dictionary<string, Unit> UnitData;
     private Dictionary<string, DroppedVegetable> VegData;
     private Dictionary<string, ESkillType> SkillTypeData;
+	private Dictionary<string, Tile> TileTypeData;
 
     public Parameters() {
 		this.charData = new Dictionary<string, char>();
@@ -49,6 +50,7 @@ public class Parameters {
 		this.UnitData = new Dictionary<string, Unit>();
 		this.VegData = new Dictionary<string, DroppedVegetable>();
         this.SkillTypeData = new Dictionary<string, ESkillType>();
+        this.TileTypeData = new Dictionary<string, Tile>();
     }
 
 	public void PutExtra(string paramName, bool value) {
@@ -114,6 +116,10 @@ public class Parameters {
     public void PutExtra(string paramName, ESkillType value)
     {
         this.SkillTypeData.Add(paramName, value);
+    }
+    public void PutExtra(string paramName, Tile value)
+    {
+        this.TileTypeData.Add(paramName, value);
     }
 
 
@@ -261,6 +267,18 @@ public class Parameters {
         else
         {
             return ESkillType.NONE;
+        }
+    }
+
+    public Tile GetTileTypeExtra(string paramName)
+    {
+        if (this.SkillTypeData.ContainsKey(paramName))
+        {
+            return this.TileTypeData[paramName];
+        }
+        else
+        {
+            return null;
         }
     }
 }

@@ -7,12 +7,14 @@ public class SpringTile : Tile
 {
     [SerializeField] private Tile Location1;
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject dummyToLaunch;
     private Unit unitToLaunch;
 
     public new void Start()
     {
         base.Start();
         this.tileType = ETileType.SPRING;
+        
     }
 
     public void setUnitToLaunch(Unit unit)
@@ -31,7 +33,8 @@ public class SpringTile : Tile
     public override void ApplyOnUnitStart(Unit unit)
     {
         unitToLaunch = unit;
-
+        dummyToLaunch.GetComponent<SpriteRenderer>().enabled = true;
+        dummyToLaunch.GetComponent<SpriteRenderer>().sprite = unitToLaunch.spriteRenderer.sprite;
         unitToLaunch.OnSpring(true);//go up
         animator.SetTrigger("Spring");
 

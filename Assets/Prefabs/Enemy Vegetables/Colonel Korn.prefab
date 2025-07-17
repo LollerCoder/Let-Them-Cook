@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 5615039749055278016}
   - component: {fileID: 4397464610247644619}
   - component: {fileID: 24927847820748021}
+  - component: {fileID: 7576146000325357806}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Unit Sprite
@@ -212,6 +213,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7576146000325357806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7558475211056663708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d7419106db2b74592a0631400dfbb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &628814814362855714
 PrefabInstance:
   m_ObjectHideFlags: 0
