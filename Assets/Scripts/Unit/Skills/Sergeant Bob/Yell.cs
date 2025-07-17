@@ -21,6 +21,7 @@ public class Yell : Skill
 
         target.AddEffect(new AttackBoost(1, target));
         target.gainHealth(2, origin);
+
     }
 
 }

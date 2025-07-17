@@ -13,6 +13,8 @@ public class Effect
 
     public Unit EffectMaker;
 
+    public EnumEffects effectType;
+
     public Effect(int _duration, Unit _effectMaker)
     {
         EffectMaker = _effectMaker;
@@ -21,7 +23,11 @@ public class Effect
 
     public void ApplyEffect(Unit unitAffected)
     {
-        if (Duration <= 0) return;
+        if (Duration <= 0) {
+            Duration = 0;
+            this.HideArrow(unitAffected);
+            return;
+        }
 
         EffectAction(unitAffected);
 
@@ -47,6 +53,9 @@ public class Effect
 
     public virtual void AfterDeathAction(Unit unitAffected)
     {
+
+    }
+    protected virtual void HideArrow(Unit unitAffected) {
 
     }
 }

@@ -515,42 +515,24 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
 
     }
 
-    private void BuffArrowShow(Parameters param)
+    public void ToggleBuffArrow(bool flag)
     {
-        if (this == param.GetUnitExtra("UNIT"))
-        {
-            this.BufController.SetBool("isBuffed", true);
-            //Debug.Log("Buffed");
-        }
-
+        //if (this == param.GetUnitExtra("UNIT"))
+        //{
+        //    this.BufController.SetBool("isBuffed", false);
+        //    //Debug.Log("buffGone");
+        //}
+        this.BufController.SetBool("isBuffed", flag);
     }
 
-    private void DebuffArrowShow(Parameters param)
+    public void ToggleDebuffArrow(bool flag)
     {
-        if (this == param.GetUnitExtra("UNIT"))
-        {
-            this.DebufController.SetBool("isDebuffed", true);
-            // Debug.Log("Debuffed");
-        }
-    }
-
-    private void BuffArrowHide(Parameters param)
-    {
-        if (this == param.GetUnitExtra("UNIT"))
-        {
-            this.BufController.SetBool("isBuffed", false);
-            //Debug.Log("buffGone");
-        }
-
-    }
-
-    private void DebuffArrowHide(Parameters param)
-    {
-        if (this == param.GetUnitExtra("UNIT"))
-        {
-            this.DebufController.SetBool("isDebuffed", false);
-            // Debug.Log("DebuffedGone");
-        }
+        //if (this == param.GetUnitExtra("UNIT"))
+        //{
+        //    this.DebufController.SetBool("isDebuffed", false);
+        //    // Debug.Log("DebuffedGone");
+        //}
+        this.DebufController.SetBool("isDebuffed", flag);
     }
 
     /// <summary>
@@ -564,10 +546,6 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.HIDE_HP, this.HpBarHide);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.SHOW_HP, this.HpBarShow);
 
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.DEBUFF_SHOW, this.DebuffArrowShow);
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.BUFF_SHOW, this.BuffArrowShow);
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.DEBUFF_HIDE, this.DebuffArrowHide);
-        EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.BUFF_SHOW, this.BuffArrowHide);
         EventBroadcaster.Instance.AddObserver(EventNames.BattleManager_Events.LAUNCH, this.Launch);
 
 
@@ -592,7 +570,6 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         this.Sprite = this.spriteRenderer.sprite;
     }
 
-
     //protected abstract void HandleDeath();
 
 
@@ -616,10 +593,9 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
 
     public void ChangeColor(Color _color)
     {
-        SpriteRenderer spriteAsset = this.GetComponentInChildren<SpriteRenderer>();
+        this.spriteRenderer.color = _color;
 
         //Debug.Log("Prev color: " + spriteAsset.color);
-        spriteAsset.color = _color;
     }
 
     public Color poisonUnit(SpriteRenderer spriteAsset)
