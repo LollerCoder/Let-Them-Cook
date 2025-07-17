@@ -198,7 +198,6 @@ public static class UnitActions {
         if (endTile.TilePos == ((Unit)UnitActionManager.Instance.GetFirstUnit()).Tile.TilePos) {
             return false;
         }
-        Debug.Log(endTile.TilePos);
         foreach (Unit unit in UnitActionManager.Instance.UnitList) {
             if (unit.Type == EUnitType.Ally) {
                 if (unit.Tile.TilePos == endTile.TilePos) {
@@ -261,6 +260,7 @@ public static class UnitActions {
             currentUnit.OnMovement(false);
             currentUnit.OnTurn(true);
             BattleUI.Instance.ToggleWaitButton(true);
+
             UnitAttackActions.ResetAttackables();
             UnitAttackActions.CheckSkillRange((Unit)UnitActionManager.Instance.GetFirstUnit());
 
@@ -320,7 +320,7 @@ public static class UnitActions {
             stepFlag = true;
             UnitActionManager.Instance.Moving = true;
             BattleUI.Instance.ToggleWaitButton(false);
-
+            BattleUI.Instance.AttackState(UnitActionManager.Instance.numAttack);
 
 
             SpriteRenderer cuSR = ((Unit)UnitActionManager.Instance.GetFirstUnit()).spriteRenderer;

@@ -1259,11 +1259,11 @@ PrefabInstance:
       objectReference: {fileID: 692651949}
     - target: {fileID: 8451736369919615666, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8451736369919615666, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8451736369919615666, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1890,6 +1890,7 @@ MonoBehaviour:
   Current: {fileID: 2100000, guid: 119f8a4e2d1f56b4d88f65e6b140fd5e, type: 2}
   HealTile: {fileID: 2100000, guid: adcd9baa2a318004684a06631989c78b, type: 2}
   CannonTile: {fileID: 2100000, guid: 7a2cba0abd56b6348a448bf631c9f427, type: 2}
+  RangeParent: {fileID: 1051943788}
 --- !u!4 &377508129
 Transform:
   m_ObjectHideFlags: 0
@@ -2180,6 +2181,7 @@ MonoBehaviour:
   Speed: 7
   targetPosition: {x: 0, y: 0, z: 0}
   heightOffset: 8
+  MapCamera: 0
 --- !u!4 &453295036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 219951473092511495, guid: 33ee6b143f0859743a617263ca240fbe, type: 3}
@@ -4983,6 +4985,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2299284892947879354, guid: 54c5040b87cb7c24580645d57df909ba, type: 3}
   m_PrefabInstance: {fileID: 1552511115}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1051943785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1051943788}
+  m_Layer: 0
+  m_Name: TileRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1051943788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051943785}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1053498654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11192,6 +11225,7 @@ SceneRoots:
   - {fileID: 794716827822140901}
   - {fileID: 131167955}
   - {fileID: 377508129}
+  - {fileID: 1051943788}
   - {fileID: 877470979}
   - {fileID: 1514192624}
   - {fileID: 2019247637}

@@ -66,25 +66,16 @@ public class BattleUI : MonoBehaviour {
 
     public bool[] attackNum = { false, false}; // which skill was pressed 
     public bool[] skillSlots = { false, false}; // which skill is usable
-
-
-
-
     
     private void Start() {
-        
-  
         //this._unitStats = this.GetComponentInChildren<UnitStats>();
 
         //if(this._unitStats == null) {
         //    Debug.Log("ERROR: UNITSTATS CANNOT BE FOUND (BATTLEUI.CS, START() )");
         //}
         this.gameEndAnimator = this.gameEndScreen.GetComponent<Animator>();
-        this.anim_BattleUI = this.GetComponent<Animator>();
-        //EventBroadcaster.Instance.AddObserver(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX, this.ToggleActionBox);
-        
+        this.anim_BattleUI = this.GetComponent<Animator>();        
     }
-
     public void ToggleWaitButton(bool flag) {
         this.waitButton.interactable = flag;
     }
@@ -175,8 +166,6 @@ public class BattleUI : MonoBehaviour {
                 return;
             }
         }
-        
-        //if(BattleUI.Instance.waitButton.enabled == false) BattleUI.Instance.ShowWaitButton(); // used in tutorial because of hiding wait button
 
         this.StartCoroutine(this.CloseUI(0.75f));
     }
@@ -228,41 +217,17 @@ public class BattleUI : MonoBehaviour {
 
             this.Attacks[i].Button.interactable = false;
             this.Attacks[i].Image.sprite = SkillDatabase.Instance.findSkill(unit.SKILLLIST[i]).unHighlightIcon;
-
-            //this.Attacks[i].GetComponentInParent<Image>().enabled = false;
-
-            ////Color color = this.Attacks[i].GetComponent<Image>().color;
-
-            //this.BuffetContainers[i].sprite = lids[0];
-
-            //color.r = 0.3f;
-            //color.g = 0.3f;
-            //color.b = 0.3f;
-
-            //this.Attacks[i].GetComponent<Image>().color = color;
         }
         else{
             this.skillSlots[i] = true;
 
             this.Attacks[i].Button.interactable = true;
-            //this.Attacks[i].GetComponentInParent<Image>().enabled = true;
-
-            //this.BuffetContainers[i].sprite = lids[1];
-
-            //Color color = this.Attacks[i].GetComponent<Image>().color;
-
-            //color.r = 1f;
-            //color.g = 1f;
-            //color.b = 1f;
-
-            //this.Attacks[i].GetComponent<Image>().color = color;
         }
     }
 
-    private void AttackState(int num) {
+    public void AttackState(int num) {
         if (UnitActionManager.Instance.GetFirstUnit() is Unit unit) {
             if (UnitActionManager.Instance.numAttack >= 0) { // reset skill highlighted tiles
-                //Debug.Log("NUM"+UnitActionManager.Instance.numAttack);
                 UnitAttackActions.UnHighlightUnitTiles(UnitAttackActions.Attackables[UnitActionManager.Instance.numAttack]);
             }
 
@@ -330,13 +295,8 @@ public class BattleUI : MonoBehaviour {
            newCard.transform.SetParent(this.turnOrderField.transform, false);
            newCard.transform.Find("1").SetParent(newCard.transform,false);
         }
-
-       
-
         do
         {
-            
-            
             if (curr_created < unitOrder.Count)
             {
                 this.Turn[curr_count].sprite = unitOrder[curr_created].Sprite;
@@ -388,15 +348,9 @@ public class BattleUI : MonoBehaviour {
         } while(curr_count < max_queue);
         this.Turn[0].gameObject.transform.parent.transform.localScale = new Vector3(1.5f,1.5f,1.5f);
         //this.Turn[0].transform.parent.SetAsLastSibling();
-        
-       
-
     }
 
     public void OnCancel() {
-        //this.DisableSkillBoxClick();
-        //this.EnableActionBoxClick();
-
         UnitActionManager.Instance.OnAttack = false;
     }
 

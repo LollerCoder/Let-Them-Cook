@@ -16,15 +16,19 @@ public class TileHelper : MonoBehaviour {
     [SerializeField]
     private Material Attack;
     [SerializeField]
-    public Material Heal;
+    private Material Heal;
     [SerializeField]
-    public Material Walk;
+    private Material Walk;
     [SerializeField]
-    public Material Current;
+    private Material Current;
     [SerializeField]
-    public Material HealTile;
+    private Material HealTile;
     [SerializeField]
-    public Material CannonTile;
+    private Material CannonTile;
+
+    [SerializeField]
+    private Transform RangeParent;
+
     public GameObject SpawnRangeIndicator(Vector3 pos, RangeType type) {
         GameObject obj = this.inactiveRange[0];
         this.inactiveRange.Remove(obj);
@@ -82,7 +86,7 @@ public class TileHelper : MonoBehaviour {
         }
 
         for (int i = 0; i < 50; i++) {
-            GameObject clone = GameObject.Instantiate(rangeTile);
+            GameObject clone = GameObject.Instantiate(rangeTile, this.RangeParent);
             clone.name = i.ToString();
             clone.SetActive(false);
             this.inactiveRange.Add(clone);

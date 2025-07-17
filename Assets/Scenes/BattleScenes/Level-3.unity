@@ -1128,6 +1128,37 @@ MonoBehaviour:
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
+--- !u!1 &236471853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 236471857}
+  m_Layer: 0
+  m_Name: TileRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &236471857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236471853}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &238020025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2439,6 +2470,7 @@ MonoBehaviour:
   Speed: 7
   targetPosition: {x: 0, y: 0, z: 0}
   heightOffset: 8
+  MapCamera: 0
 --- !u!114 &467314011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5516,11 +5548,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8451736369919615666, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8451736369919615666, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8451736369919615666, guid: 6e1c2896fd214874cb7f045a244fd81c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7836,7 +7868,7 @@ GameObject:
   - component: {fileID: 1683612659}
   - component: {fileID: 1683612660}
   m_Layer: 0
-  m_Name: Level-3
+  m_Name: TileMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8281,6 +8313,7 @@ MonoBehaviour:
   Current: {fileID: 2100000, guid: 119f8a4e2d1f56b4d88f65e6b140fd5e, type: 2}
   HealTile: {fileID: 2100000, guid: adcd9baa2a318004684a06631989c78b, type: 2}
   CannonTile: {fileID: 2100000, guid: 7a2cba0abd56b6348a448bf631c9f427, type: 2}
+  RangeParent: {fileID: 236471857}
 --- !u!1 &1685710800
 GameObject:
   m_ObjectHideFlags: 0
@@ -49261,6 +49294,7 @@ SceneRoots:
   - {fileID: 408845171}
   - {fileID: 443691716}
   - {fileID: 1683612658}
+  - {fileID: 236471857}
   - {fileID: 261690544}
   - {fileID: 801340885}
   - {fileID: 263716798}
