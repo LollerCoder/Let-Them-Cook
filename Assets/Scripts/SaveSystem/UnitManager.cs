@@ -74,6 +74,18 @@ public class UnitManager : MonoBehaviour
         unit.Tile = tile_spawn_loc;
         unit.AddEffects(effects);
 
+        //animator
+        switch (type)
+        {
+            case EUnitType.Ally:
+                unit.SetAnimatorBool("Ally", true);
+                break;
+            case EUnitType.Boss:
+            case EUnitType.Enemy:
+                unit.SetAnimatorBool("Ally", false);
+                break;
+        }
+
         this.addUnitToList(unit.GetComponent<Unit>());
     }
 

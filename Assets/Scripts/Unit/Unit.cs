@@ -606,7 +606,11 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
     //     this.Experience = unit.Experience;
     // }
 
-
+    /*  ANIMATOR    */  
+    public void SetAnimatorBool(string name, bool value)
+    {
+        this.animator.SetBool(name, value);
+    }
 
     /*COLOR CHANGER*/
 

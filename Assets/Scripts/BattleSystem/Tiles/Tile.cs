@@ -99,8 +99,8 @@ public class Tile : MonoBehaviour{
         //Debug.Log("DEFAULT");
     }
 
-    public virtual void ApplyOnUnitStart()
+    public virtual void ApplyOnUnitStart(Unit unit)
     {
-        Debug.Log("yehey");
+        //Debug.Log("yehey");
     }
 }
