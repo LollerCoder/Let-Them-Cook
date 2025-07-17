@@ -283,6 +283,9 @@ public class CutsceneManager : MonoBehaviour
             case "Shove":
                 CutsceneAnim.SetTrigger("Shove");
                 break;
+            case "Daze":
+                CutsceneAnim.SetTrigger("Daze");
+                break;
             //HEAL STUFF
             case "Yell":
                 CutsceneAnim.SetTrigger("Yell");
