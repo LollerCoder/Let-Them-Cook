@@ -6,6 +6,8 @@ public class Tower : MonoBehaviour {
     [SerializeField]
     private ParticleSystem towerParticle;
     [SerializeField]
+    private ParticleSystem BossParticle;
+    [SerializeField]
     private Animator towerAnim;
     [SerializeField]
     private Cannon cannon;
@@ -26,6 +28,10 @@ public class Tower : MonoBehaviour {
 
     private void PlayTowerFX() {
         this.towerParticle.Play();
+    }
+    private void PlayBossFX()
+    {
+        this.BossParticle.Play();
     }
 
     private void MoveCamera() {
