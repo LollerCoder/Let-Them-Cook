@@ -240,8 +240,9 @@ public class CutsceneManager : MonoBehaviour
                  
                 break;
             case ESkillType.BASIC:
-                Debug.Log("MELEE");
-                CutsceneAnim.SetTrigger("Attack");
+                //Debug.Log("MELEE");
+                this.PlayAnimation(name);
+                
                 break;
             case ESkillType.BUFFDEBUFF:
                 Debug.Log("BuffDebuff");
@@ -249,13 +250,13 @@ public class CutsceneManager : MonoBehaviour
                 break;
             case ESkillType.HEAL:
                 //Debug.Log("BOO BOO");
-                EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.MAXHP, target.HP);
-                EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Ally, false);
-                EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
-                CutsceneAnim.SetTrigger("Heal");
+                //EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.MAXHP, target.HP);
+                //EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Ally, false);
+                //EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
+                this.PlayAnimation(name);
                 break;
             case ESkillType.DEFEND:
-                Debug.Log("Parry");
+                //Debug.Log("Parry");
                 break;
             case ESkillType.AOE:
                 Debug.Log("SPUN");
@@ -268,6 +269,29 @@ public class CutsceneManager : MonoBehaviour
         }
     }
 
+    private void PlayAnimation(string name)
+    {
+        switch (name)
+        {
+            //BASIC ATTACKS
+            case "Basic Attack":
+                CutsceneAnim.SetTrigger("Attack");
+                break;
+            case "Harvest":
+                CutsceneAnim.SetTrigger("Harvest");
+                break;
+            case "Shove":
+                CutsceneAnim.SetTrigger("Shove");
+                break;
+            //HEAL STUFF
+            case "Yell":
+                CutsceneAnim.SetTrigger("Yell");
+                break;
+            case "Photosynthesis":
+                CutsceneAnim.SetTrigger("Heal");
+                break;
+        }
+    }
     private void ChangeProjectileSprite(string name)
     {
         switch (name)
@@ -386,6 +410,7 @@ public class CutsceneManager : MonoBehaviour
         //this.ResetCutscene();
         if (target.HP <= 0)
         {
+            EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpHide(EnemyHP);
             yield return new WaitForSeconds(1);
             CutsceneAnim.SetTrigger("DedEnemy");
         }
