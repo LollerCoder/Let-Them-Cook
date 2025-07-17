@@ -23,6 +23,7 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] Animator CutsceneAnim;
     [Header("ParticeSystems")]
     [SerializeField] ParticleSystem HealParticle;
+    [SerializeField] ParticleSystem YellParticle;
     [Header("Dummies")]
     [SerializeField] GameObject[] Dummies;
     [SerializeField] GameObject[] PowFxSpin;
@@ -453,6 +454,10 @@ public class CutsceneManager : MonoBehaviour
     private void HealingParticles()
     {
         HealParticle.Play();
+    }
+    private void YellingParticles()
+    {
+        YellParticle.Play();
     }
     private void PlaySFX(string name) {
         SFXManager.Instance.Play(name);
