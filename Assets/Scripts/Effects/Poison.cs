@@ -9,6 +9,7 @@ public class Poison : Effect
     public Poison(int _duration, Unit _effectMaker) : base(_duration, _effectMaker)
     {
         this.EffectName = "Poison";
+        _effectMaker.ToggleDebuffArrow(true);
     }
 
     public override void AfterTurnAction(Unit unitAffected)
@@ -20,5 +21,8 @@ public class Poison : Effect
     public override void EffectAfterAction(Unit unitAffected)
     {
         unitAffected.ChangeColor(Color.white);
+    }
+    protected override void HideArrow(Unit unitAffected) {
+        unitAffected.ToggleDebuffArrow(false);
     }
 }

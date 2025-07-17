@@ -58,6 +58,8 @@ public class UnitActionManager : MonoBehaviour
 
     public bool Moving = false;
 
+    public bool effectSkipTurn = false;
+
     public ITurnTaker GetFirstUnit() {
         return this._turnOrder[0];
     }
@@ -348,42 +350,48 @@ public class UnitActionManager : MonoBehaviour
 
             //apply effects
             unit.ApplyEffects();
-
-            // reset and update attackable list
-            UnitAttackActions.SetAttackableList();
-            UnitActions.ResetPosition();
-            switch (unit.Type) {
-                case EUnitType.Ally:
-                    if (unit.OnWeapon) {
-
-                    }
-                    bEnemy = false;
-                    bAlly = true;
-                    BattleUI.Instance.ToggleActionBox();
-                    yield return new WaitForSeconds(1.0f);
-                    Range.GetRange(unit, unit.Move, RangeType.WALK);
-                    break;
-
-
-                case EUnitType.Enemy:
-
-                    bEnemy = true;
-                    bAlly = false;
-                    EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
-                    yield return new WaitForSeconds(0.8f);
-                    this.EnemyUnitAction();
-                    break;
-
-
-                case EUnitType.SpecialTile:
-                    yield return new WaitForSeconds(1.0f);
-                    ((ISpecialTile)unit).ApplyEffect();
-                    break;
-
-                default:
-                    break;
-
+            if (this.effectSkipTurn) {
+                effectSkipTurn = false;
+                EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
             }
+            else {
+                UnitAttackActions.SetAttackableList();
+                UnitActions.ResetPosition();
+                switch (unit.Type) {
+                    case EUnitType.Ally:
+                        if (unit.OnWeapon) {
+
+                        }
+                        bEnemy = false;
+                        bAlly = true;
+                        BattleUI.Instance.ToggleActionBox();
+                        yield return new WaitForSeconds(1.0f);
+                        Range.GetRange(unit, unit.Move, RangeType.WALK);
+                        break;
+
+
+                    case EUnitType.Enemy:
+
+                        bEnemy = true;
+                        bAlly = false;
+                        EventBroadcaster.Instance.PostEvent(EventNames.UIEvents.DISABLE_CLICKS);
+                        yield return new WaitForSeconds(0.8f);
+                        this.EnemyUnitAction();
+                        break;
+
+
+                    case EUnitType.SpecialTile:
+                        yield return new WaitForSeconds(1.0f);
+                        ((ISpecialTile)unit).ApplyEffect();
+                        break;
+
+                    default:
+                        break;
+
+                }
+            }
+            // reset and update attackable list
+            
         }
 
         if (this.GetFirstUnit() is SpecialUnits sUnit) {

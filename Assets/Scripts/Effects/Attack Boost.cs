@@ -12,6 +12,7 @@ public class AttackBoost : Effect
         this.EffectName = "Attack Boost";
 
         this.baseAttack = _effectMaker.Attack;
+        _effectMaker.ToggleBuffArrow(true);
     }
 
     public override void EffectAction(Unit unitAffected)
@@ -25,5 +26,8 @@ public class AttackBoost : Effect
     public override void EffectAfterAction(Unit unitAffected)
     {
         unitAffected.Attack = this.baseAttack;
+    }
+    protected override void HideArrow(Unit unitAffected) {
+        unitAffected.ToggleBuffArrow(false);
     }
 }
