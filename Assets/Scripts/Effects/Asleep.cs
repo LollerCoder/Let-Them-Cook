@@ -35,4 +35,9 @@ public class Asleep : Effect
             this.Duration = 1;
         }
     }
+
+    public override void EffectAfterAction(Unit unitAffected)
+    {
+        this.Duration = 99;
+    }
 }

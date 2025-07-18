@@ -31,4 +31,9 @@ public class GeneralCutSceneDialogue : MonoBehaviour
     {
         SceneManager.LoadScene(this._NextSceneToLoad);
     }
+
+    public void OnDestroy()
+    {
+        EventBroadcaster.Instance.RemoveAllObservers();
+    }
 }

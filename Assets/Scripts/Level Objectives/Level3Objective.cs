@@ -20,6 +20,8 @@ public class Level3Objective : MonoBehaviour
     [SerializeField]
     private List<Tile> spawnTile_wave2 = new List<Tile>();
 
+    private bool _HasSpawned = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,11 +39,15 @@ public class Level3Objective : MonoBehaviour
 
     public void LateStart()
     {
-        guard.AddEffect(new Asleep(7, guard));
+        guard.AddEffect(new Asleep(999, guard));
     }
 
     public void SpawnEnemies()
     {
+        if (this._HasSpawned) return;
+
+        this._HasSpawned = true;
+
         //getting the keyholder
         int keyHolderIndex = Random.Range(0, 1);
 
