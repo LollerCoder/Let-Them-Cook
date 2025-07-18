@@ -41,23 +41,27 @@ public class HoverManager : MonoBehaviour
         switch (message)
         {
             case "Basic Attack":
-                msg = "Slash your enemies!";
+                msg = "Slash them!";
                 break;
             
             case "Circular Cut":
-                msg = "Damages surrounding foe, cannot move to other tiles after usage";
+                msg = "Damage veggies in the circle. Freezes unit after usage!";
                 break;
             
             case "Photosynthesis":
-                msg = "Slash your enemies!";
+                msg = "Heal a unit!";
                 break;
 
             case "Shove":
                 msg = "Push your enemies away!";
                 break;
 
-             case "Yell":
-                msg = "Heal one of your allies";
+            case "Yell":
+                msg = "Heal a unit and increase thier stat!";
+                break;
+            
+            case "Harvest":
+                msg = "Damage and heal yourself in battle!";
                 break;
 
             default:
