@@ -283,17 +283,22 @@ public class UnitActionManager : MonoBehaviour
                 BattleUI.Instance.AttackState(this.numAttack);
             }
         }
+
+        if (Input.GetKeyUp(KeyCode.Space) && !this.Moving) {
+            Range.UnHighlightTiles();
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
+        }
+
+        if (Input.GetKeyUp(KeyCode.R) && UnitActions.stepFlag) {
+            UnitActions.ResetPosition();
+        }
+
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void LateUpdate() {
         if (this.TurnOrder.Count <= 0 || this.GetFirstUnit() is SpecialUnits) {
             return;
-        }
-
-        if (Input.GetKeyUp(KeyCode.R) && UnitActions.stepFlag)
-        {
-            UnitActions.ResetPosition();
         }
 
         if (PathFinding.Path == null) return;
