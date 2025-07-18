@@ -447,7 +447,13 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         switch (this.Type)
         {
             case EUnitType.Enemy:
+                
+
+                Parameters param = new Parameters();
+                param.PutExtra("EnemyKilled", this);
                 EventBroadcaster.Instance.PostEvent(EventNames.Enemy_Events.ON_ENEMY_DEFEATED);
+                EventBroadcaster.Instance.PostEvent(EventNames.Enemy_Events.ON_ENEMY_DEFEATED,param);
+                
                 break;
             case EUnitType.Ally:
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.PLAYERDEATH);
