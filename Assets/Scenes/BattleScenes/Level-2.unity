@@ -268,6 +268,8 @@ GameObject:
   - component: {fileID: 119088276}
   - component: {fileID: 119088275}
   - component: {fileID: 119088273}
+  - component: {fileID: 119088278}
+  - component: {fileID: 119088277}
   m_Layer: 9
   m_Name: Light (62)
   m_TagString: Untagged
@@ -363,6 +365,44 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119088271}
   m_Mesh: {fileID: 3617506491534989366, guid: 50917f67e24881c499d7c950dbb1f629, type: 3}
+--- !u!114 &119088277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119088271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+--- !u!114 &119088278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119088271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!1001 &127193222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1763,13 +1803,62 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 76033760247853458, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1808428028}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7895408615917409100, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 720895372}
+    - targetCorrespondingSourceObject: {fileID: 7895408615917409100, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 720895371}
   m_SourcePrefab: {fileID: 100100000, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
 --- !u!224 &720895369 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 76033760247853458, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
   m_PrefabInstance: {fileID: 720895368}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &720895370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7895408615917409100, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
+  m_PrefabInstance: {fileID: 720895368}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &720895371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720895370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+--- !u!114 &720895372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720895370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!1001 &749329150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5341,6 +5430,8 @@ GameObject:
   - component: {fileID: 8667873524127684647}
   - component: {fileID: 7275975641541969707}
   - component: {fileID: 6922886462761904222}
+  - component: {fileID: 8667873524127684649}
+  - component: {fileID: 8667873524127684648}
   m_Layer: 9
   m_Name: Dark (36)
   m_TagString: Untagged
@@ -10849,6 +10940,8 @@ GameObject:
   - component: {fileID: 4137405401313887427}
   - component: {fileID: 7759845611044274796}
   - component: {fileID: 4057258120680069013}
+  - component: {fileID: 7759845611044274798}
+  - component: {fileID: 7759845611044274797}
   m_Layer: 9
   m_Name: Light (38)
   m_TagString: Untagged
@@ -10908,6 +11001,8 @@ GameObject:
   - component: {fileID: 3944541069106848587}
   - component: {fileID: 7234563339588625892}
   - component: {fileID: 4006112109919285277}
+  - component: {fileID: 7234563339588625894}
+  - component: {fileID: 7234563339588625893}
   m_Layer: 9
   m_Name: Light (56)
   m_TagString: Untagged
@@ -11444,6 +11539,8 @@ GameObject:
   - component: {fileID: 6103085819747407457}
   - component: {fileID: 5188578293625997677}
   - component: {fileID: 5542793915644044824}
+  - component: {fileID: 6103085819747407459}
+  - component: {fileID: 6103085819747407458}
   m_Layer: 9
   m_Name: Dark (52)
   m_TagString: Untagged
@@ -13355,6 +13452,8 @@ GameObject:
   - component: {fileID: 6897228363250467172}
   - component: {fileID: 5525819438922527935}
   - component: {fileID: 6583591283032501777}
+  - component: {fileID: 6897228363250467174}
+  - component: {fileID: 6897228363250467173}
   m_Layer: 9
   m_Name: Dark (51)
   m_TagString: Untagged
@@ -13696,6 +13795,8 @@ GameObject:
   - component: {fileID: 2586590834677417217}
   - component: {fileID: 8160219721196192686}
   - component: {fileID: 2504045519179224663}
+  - component: {fileID: 8160219721196192688}
+  - component: {fileID: 8160219721196192687}
   m_Layer: 9
   m_Name: Light (52)
   m_TagString: Untagged
@@ -14036,6 +14137,8 @@ GameObject:
   - component: {fileID: 6815414932908426669}
   - component: {fileID: 886841853131195138}
   - component: {fileID: 6895140001077188347}
+  - component: {fileID: 6895140001077188349}
+  - component: {fileID: 6895140001077188348}
   m_Layer: 9
   m_Name: Light (17)
   m_TagString: Untagged
@@ -15411,7 +15514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  withProp: 0
+  withProp: 1
   rangePos: {x: 0, y: 0, z: 0}
   rangeIndicator: {fileID: 0}
   baseCost: 2
@@ -16633,6 +16736,44 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3225294767051883534}
   m_Mesh: {fileID: -3138074213645494573, guid: 50917f67e24881c499d7c950dbb1f629, type: 3}
+--- !u!114 &6103085819747407458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3225294767051883534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+--- !u!114 &6103085819747407459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3225294767051883534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!4 &6116219369079463462
 Transform:
   m_ObjectHideFlags: 0
@@ -18043,6 +18184,7 @@ GameObject:
   - component: {fileID: 4646294645845493182}
   - component: {fileID: 1342479981180633873}
   - component: {fileID: 4710684765211530984}
+  - component: {fileID: 6832644647581190836}
   m_Layer: 9
   m_Name: Light (23)
   m_TagString: Untagged
@@ -18050,6 +18192,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6832644647581190836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832644647581190835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!23 &6858675719701712843
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18195,6 +18356,44 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 3.0408026e-17, y: -4.530063e-10, z: -0.0080248155}
+--- !u!114 &6895140001077188348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4629046766937885344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+--- !u!114 &6895140001077188349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4629046766937885344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!23 &6897228363250467172
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18239,6 +18438,44 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6897228363250467173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4284300179540511751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+--- !u!114 &6897228363250467174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4284300179540511751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!114 &6898404726886798218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19151,6 +19388,44 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7234563339588625893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2888295497836735558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+--- !u!114 &7234563339588625894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2888295497836735558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!1 &7243026921317243877
 GameObject:
   m_ObjectHideFlags: 0
@@ -19488,6 +19763,8 @@ GameObject:
   - component: {fileID: 8698292034302915645}
   - component: {fileID: 3057113706099896978}
   - component: {fileID: 8760565654451431275}
+  - component: {fileID: 8760565654451431277}
+  - component: {fileID: 8760565654451431276}
   m_Layer: 9
   m_Name: Light (25)
   m_TagString: Untagged
@@ -20339,6 +20616,44 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7759845611044274797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2865307568723348430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+--- !u!114 &7759845611044274798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2865307568723348430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!4 &7764682287011692048
 Transform:
   m_ObjectHideFlags: 0
@@ -20910,6 +21225,44 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8160219721196192687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4417451719627901452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+--- !u!114 &8160219721196192688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4417451719627901452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!1 &8169671853700304583
 GameObject:
   m_ObjectHideFlags: 0
@@ -20922,6 +21275,8 @@ GameObject:
   - component: {fileID: 8054717637474042314}
   - component: {fileID: 4401034095061436261}
   - component: {fileID: 7993143366845616796}
+  - component: {fileID: 8169671853700304585}
+  - component: {fileID: 8169671853700304584}
   m_Layer: 9
   m_Name: Light (26)
   m_TagString: Untagged
@@ -20929,6 +21284,44 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8169671853700304584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8169671853700304583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+--- !u!114 &8169671853700304585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8169671853700304583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!65 &8174982519186997928
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21418,6 +21811,7 @@ GameObject:
   - component: {fileID: 992849765535405067}
   - component: {fileID: 1257704797800532743}
   - component: {fileID: 1557750816951837810}
+  - component: {fileID: 8482326689556727397}
   m_Layer: 9
   m_Name: Dark (3)
   m_TagString: Untagged
@@ -21425,6 +21819,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8482326689556727397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8482326689556727396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!33 &8527241707159045871
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -21579,6 +21992,7 @@ GameObject:
   - component: {fileID: 7569558288250944896}
   - component: {fileID: 4312195657763683119}
   - component: {fileID: 7505595818777456342}
+  - component: {fileID: 8621265655614222990}
   m_Layer: 9
   m_Name: Light (1)
   m_TagString: Untagged
@@ -21586,6 +22000,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8621265655614222990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621265655614222989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!1 &8623290118638267850
 GameObject:
   m_ObjectHideFlags: 0
@@ -21633,6 +22066,44 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16450603105225288}
   m_Mesh: {fileID: -3138074213645494573, guid: 50917f67e24881c499d7c950dbb1f629, type: 3}
+--- !u!114 &8667873524127684648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16450603105225288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+--- !u!114 &8667873524127684649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16450603105225288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!65 &8675721030215262089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21854,6 +22325,44 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 3.0408026e-17, y: -4.530063e-10, z: -0.0080248155}
+--- !u!114 &8760565654451431276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7358337270100441904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+--- !u!114 &8760565654451431277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7358337270100441904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!4 &8775241593586836488
 Transform:
   m_ObjectHideFlags: 0
@@ -22124,6 +22633,7 @@ GameObject:
   - component: {fileID: 7102220143140144974}
   - component: {fileID: 3480052870056624609}
   - component: {fileID: 7184759961611834392}
+  - component: {fileID: 8951112962942732356}
   m_Layer: 9
   m_Name: Light
   m_TagString: Untagged
@@ -22131,6 +22641,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8951112962942732356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8951112962942732355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!1 &8971356952617780100
 GameObject:
   m_ObjectHideFlags: 0
@@ -22251,6 +22780,8 @@ GameObject:
   - component: {fileID: 7091923774633072962}
   - component: {fileID: 3508327387673993197}
   - component: {fileID: 7155887274898115092}
+  - component: {fileID: 8990039584414914129}
+  - component: {fileID: 8990039584414914128}
   m_Layer: 9
   m_Name: Light (41)
   m_TagString: Untagged
@@ -22258,6 +22789,44 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8990039584414914128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8990039584414914127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+--- !u!114 &8990039584414914129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8990039584414914127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!114 &9006319916734628798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22403,6 +22972,8 @@ GameObject:
   - component: {fileID: 444369383355784868}
   - component: {fileID: 1916769660944957864}
   - component: {fileID: 2194315271871098589}
+  - component: {fileID: 9104799803961920717}
+  - component: {fileID: 9104799803961920716}
   m_Layer: 9
   m_Name: Dark (47)
   m_TagString: Untagged
@@ -22410,6 +22981,44 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9104799803961920716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104799803961920715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 0
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
+--- !u!114 &9104799803961920717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9104799803961920715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!65 &9117631373224787113
 BoxCollider:
   m_ObjectHideFlags: 0

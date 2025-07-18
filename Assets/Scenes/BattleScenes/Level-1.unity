@@ -1922,6 +1922,7 @@ GameObject:
   - component: {fileID: 748210876}
   - component: {fileID: 748210875}
   - component: {fileID: 748210873}
+  - component: {fileID: 748210877}
   m_Layer: 9
   m_Name: Dark (39)
   m_TagString: Untagged
@@ -2017,6 +2018,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 748210871}
   m_Mesh: {fileID: -3138074213645494573, guid: 50917f67e24881c499d7c950dbb1f629, type: 3}
+--- !u!114 &748210877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748210871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!1 &760474626
 GameObject:
   m_ObjectHideFlags: 0
@@ -3775,14 +3795,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533642184}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.366717, y: 0.040351827, z: -0.015923139, w: -0.92932063}
-  m_LocalPosition: {x: 10, y: 4, z: 6.26}
+  m_LocalRotation: {x: 0.5224985, y: 0, z: 0, w: 0.8526402}
+  m_LocalPosition: {x: 1, y: 7.785677, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 403620424}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 63, y: 0, z: 0}
 --- !u!114 &1533642188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9797,6 +9817,7 @@ GameObject:
   - component: {fileID: 5714293831165606780}
   - component: {fileID: 6052331809565385840}
   - component: {fileID: 6274726432739986181}
+  - component: {fileID: 6274726432739986182}
   m_Layer: 9
   m_Name: Dark (16)
   m_TagString: Untagged
@@ -9936,6 +9957,7 @@ GameObject:
   - component: {fileID: 5714293831009636526}
   - component: {fileID: 6052331809711902626}
   - component: {fileID: 6274726432793256151}
+  - component: {fileID: 6274726432793256152}
   m_Layer: 9
   m_Name: Dark (34)
   m_TagString: Untagged
@@ -10014,6 +10036,7 @@ GameObject:
   - component: {fileID: 5714293830726194545}
   - component: {fileID: 6052331809457425021}
   - component: {fileID: 6274726432506144008}
+  - component: {fileID: 6274726432506144009}
   m_Layer: 9
   m_Name: Dark (10)
   m_TagString: Untagged
@@ -10192,6 +10215,7 @@ GameObject:
   - component: {fileID: 5714293832182876031}
   - component: {fileID: 6052331808531585139}
   - component: {fileID: 6274726433769862918}
+  - component: {fileID: 6274726433769862919}
   m_Layer: 9
   m_Name: Dark (35)
   m_TagString: Untagged
@@ -10451,6 +10475,7 @@ GameObject:
   - component: {fileID: 5714293831729197935}
   - component: {fileID: 6052331808983968867}
   - component: {fileID: 6274726434321777430}
+  - component: {fileID: 6274726434321777431}
   m_Layer: 9
   m_Name: Dark (15)
   m_TagString: Untagged
@@ -13276,6 +13301,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 3.0408026e-17, y: -4.530063e-10, z: -0.0080248155}
+--- !u!114 &6274726432506144009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3980398400585418526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!65 &6274726432527204678
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13402,6 +13446,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 3.0408026e-17, y: -4.530063e-10, z: -0.0080248155}
+--- !u!114 &6274726432739986182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3980398400211101971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!65 &6274726432789399514
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13444,6 +13507,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 3.0408026e-17, y: -4.530063e-10, z: -0.0080248155}
+--- !u!114 &6274726432793256152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3980398400297255617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!65 &6274726432812605390
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13780,6 +13862,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 3.0408026e-17, y: -4.530063e-10, z: -0.0080248155}
+--- !u!114 &6274726433769862919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3980398401211471120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!65 &6274726433813741703
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14032,6 +14133,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413962}
   m_Center: {x: 3.0408026e-17, y: -4.530063e-10, z: -0.0080248155}
+--- !u!114 &6274726434321777431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3980398401864196352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!65 &6274726434375603433
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15174,6 +15294,7 @@ GameObject:
   - component: {fileID: 7186305290715560036}
   - component: {fileID: 3558235839218564811}
   - component: {fileID: 7106574793170807602}
+  - component: {fileID: 9012398645722150762}
   m_Layer: 9
   m_Name: Light (27)
   m_TagString: Untagged
@@ -15181,6 +15302,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9012398645722150762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9012398645722150761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!1 &9012398645726169909
 GameObject:
   m_ObjectHideFlags: 0
@@ -15373,6 +15513,7 @@ GameObject:
   - component: {fileID: 7186305291101681249}
   - component: {fileID: 3558235838428213454}
   - component: {fileID: 7106574794091177271}
+  - component: {fileID: 9012398646373038445}
   m_Layer: 9
   m_Name: Light (32)
   m_TagString: Untagged
@@ -15380,6 +15521,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9012398646373038445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9012398646373038444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!1 &9012398646403113780
 GameObject:
   m_ObjectHideFlags: 0
@@ -15632,6 +15792,7 @@ GameObject:
   - component: {fileID: 7186305289471396648}
   - component: {fileID: 3558235840050613639}
   - component: {fileID: 7106574792460376190}
+  - component: {fileID: 9012398646898099238}
   m_Layer: 9
   m_Name: Light (4)
   m_TagString: Untagged
@@ -15639,6 +15800,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9012398646898099238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9012398646898099237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withProp: 1
+  rangePos: {x: 0, y: 0, z: 0}
+  rangeIndicator: {fileID: 0}
+  baseCost: 1
+  previousTile: {fileID: 0}
+  TileType: 0
+  isWalkable: 0
 --- !u!1 &9012398646919490094
 GameObject:
   m_ObjectHideFlags: 0
