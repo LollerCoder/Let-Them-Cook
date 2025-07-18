@@ -54,7 +54,7 @@ public class TileHelper : MonoBehaviour {
             case RangeType.HEALTILE:
                 obj.GetComponent<MeshRenderer>().material = HealTile;
                 break;
-            case RangeType.CANNON:
+            case RangeType.OBJECTIVE:
                 obj.GetComponent<MeshRenderer>().material = CannonTile;
                 break;
             default: break;
@@ -100,6 +100,7 @@ public enum RangeType {
     HEAL,
     CURRENT,
     HEALTILE,
-    CANNON
+    CANNON,
+    OBJECTIVE
 }
 
