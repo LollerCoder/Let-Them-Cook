@@ -12,6 +12,12 @@ public class Level5Objective : MonoBehaviour
     [SerializeField]
     private Dialogue _AlertDialogue;
 
+    [Header("Gate Objects")]
+    [SerializeField]
+    private List<GameObject> _GateObjs = new List<GameObject>();
+    [SerializeField]
+    private List<Tile> _GateTiles = new List<Tile>();
+
     private bool _IsAlerted = false;
 
     private void Start()
@@ -30,6 +36,17 @@ public class Level5Objective : MonoBehaviour
 
         this._IsAlerted = true;
 
+        //removing the gates
+        foreach (GameObject gate in this._GateObjs)
+        {
+            gate.SetActive(false);
+        }
+        foreach (Tile tile in this._GateTiles)
+        {
+            tile.withProp = false;
+        }
+
+        //Spawning the enemies
         DialogueManager.Instance.StartDialogue(this._AlertDialogue);
         EventBroadcaster.Instance.PostEvent(EventNames.EnemySpawn_Events.SPAWN_ENEMY);
     }

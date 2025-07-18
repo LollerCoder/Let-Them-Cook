@@ -9850,6 +9850,20 @@ MonoBehaviour:
     sentences:
     - THEY'RE GETTING CLOSE!
     - STOP THEM!
+  _GateObjs:
+  - {fileID: 7823300864085591495}
+  - {fileID: 4503391531085904910}
+  - {fileID: 4612335590972321633}
+  - {fileID: 8178506425169598340}
+  - {fileID: 3173399644353402128}
+  - {fileID: 5005514517346692129}
+  _GateTiles:
+  - {fileID: 8758482164897172713}
+  - {fileID: 5126057525516929165}
+  - {fileID: 9101440430890553541}
+  - {fileID: 8054362913870767208}
+  - {fileID: 5244056991245082158}
+  - {fileID: 8412355492264412865}
 --- !u!4 &1162033428
 Transform:
   m_ObjectHideFlags: 0
@@ -26558,7 +26572,6 @@ GameObject:
   - component: {fileID: 9101440430890553540}
   - component: {fileID: 9101440430890553541}
   - component: {fileID: 9101440430890553542}
-  - component: {fileID: 9101440430890553543}
   m_Layer: 9
   m_Name: Bridge_Down.035
   m_TagString: Untagged
@@ -33405,7 +33418,6 @@ GameObject:
   - component: {fileID: 4002250254944161395}
   - component: {fileID: 5126057525516929165}
   - component: {fileID: 5126057525516929166}
-  - component: {fileID: 5126057525516929167}
   m_Layer: 9
   m_Name: Bridge_Down.036
   m_TagString: Untagged
@@ -36629,7 +36641,6 @@ GameObject:
   - component: {fileID: 4443673883907292489}
   - component: {fileID: 5244056991245082158}
   - component: {fileID: 5244056991245082159}
-  - component: {fileID: 5244056991245082160}
   m_Layer: 9
   m_Name: Bridge_Down.033
   m_TagString: Untagged
@@ -54699,25 +54710,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413966}
   m_Center: {x: -3.031476e-17, y: -0.000000002782782, z: -0.008000169}
---- !u!114 &5126057525516929167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2065003582196620446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  rangePos: {x: 0, y: 0, z: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!4 &5130617863749148902
 Transform:
   m_ObjectHideFlags: 0
@@ -55329,25 +55321,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413966}
   m_Center: {x: 3.031476e-17, y: -0.000000002782782, z: -0.008000169}
---- !u!114 &5244056991245082160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2789683364486090436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  rangePos: {x: 0, y: 0, z: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!1 &5250285599383014665
 GameObject:
   m_ObjectHideFlags: 0
@@ -81317,7 +81290,6 @@ GameObject:
   - component: {fileID: 677220629182927142}
   - component: {fileID: 8054362913870767208}
   - component: {fileID: 8054362913870767209}
-  - component: {fileID: 8054362913870767210}
   m_Layer: 9
   m_Name: Bridge_Down.034
   m_TagString: Untagged
@@ -81365,25 +81337,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413966}
   m_Center: {x: 3.031476e-17, y: -0.000000010233363, z: -0.008000169}
---- !u!114 &8054362913870767210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8054362913870767207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  rangePos: {x: 0, y: 0, z: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!4 &8069318764333691627
 Transform:
   m_ObjectHideFlags: 0
@@ -85052,7 +85005,7 @@ MonoBehaviour:
   withProp: 1
   rangePos: {x: 0, y: 0, z: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 6
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -88546,7 +88499,7 @@ MonoBehaviour:
   withProp: 1
   rangePos: {x: 0, y: 0, z: 0}
   rangeIndicator: {fileID: 0}
-  baseCost: 1
+  baseCost: 6
   previousTile: {fileID: 0}
   TileType: 0
   isWalkable: 0
@@ -91311,25 +91264,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000001, z: 0.016413966}
   m_Center: {x: 3.031476e-17, y: -0.000000002782782, z: -0.008000169}
---- !u!114 &9101440430890553543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 761725924350665179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62918d5d28186e844ab242b6e629f0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  withProp: 0
-  rangePos: {x: 0, y: 0, z: 0}
-  rangeIndicator: {fileID: 0}
-  baseCost: 1
-  previousTile: {fileID: 0}
-  TileType: 0
-  isWalkable: 0
 --- !u!23 &9102341139659708568
 MeshRenderer:
   m_ObjectHideFlags: 0
