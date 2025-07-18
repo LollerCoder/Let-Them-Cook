@@ -23,4 +23,9 @@ public class PumpKenCutSceneDialogue : MonoBehaviour
     {
         SceneManager.LoadScene(NextScene);
     }
+
+    private void OnDestroy()
+    {
+        EventBroadcaster.Instance.RemoveAllObservers();
+    }
 }
