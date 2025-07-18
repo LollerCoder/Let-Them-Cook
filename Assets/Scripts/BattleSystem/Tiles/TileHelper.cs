@@ -24,7 +24,7 @@ public class TileHelper : MonoBehaviour {
     [SerializeField]
     private Material HealTile;
     [SerializeField]
-    private Material CannonTile;
+    private Material ObjectiveTile;
 
     [SerializeField]
     private Transform RangeParent;
@@ -55,7 +55,7 @@ public class TileHelper : MonoBehaviour {
                 obj.GetComponent<MeshRenderer>().material = HealTile;
                 break;
             case RangeType.OBJECTIVE:
-                obj.GetComponent<MeshRenderer>().material = CannonTile;
+                obj.GetComponent<MeshRenderer>().material = ObjectiveTile;
                 break;
             default: break;
         }
@@ -100,7 +100,6 @@ public enum RangeType {
     HEAL,
     CURRENT,
     HEALTILE,
-    CANNON,
     OBJECTIVE
 }
 
