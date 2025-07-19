@@ -190,58 +190,13 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
     [SerializeField]
     private List<Effect> effects = new List<Effect>();
 
-    /// <summary>
-    /// BELOW ARE THE METHODS
-    /// </summary>
-
     public void TakeDamage(float damage, Unit attacker)
     {
-
-        //Debug.Log("Unit name: " + attacker.Name);
-        //Debug.Log(attacker.effectManager);
-
         attacker.effectManager.EffectAccess(attacker); // attacker
         this.effectManager.EffectAccess(this); //target
 
-        //check if its true damage
-        //if (damage == 0)
-        //{
-        //    if (this.isDodged(attacker) || GameSettingsManager.Instance.turnOffDodge)
-        //    {
-        //        Debug.Log("HP before :" + this.hp);
-        //        int dmg = CalculateDamage(attacker);
-        //        if (this.defend)
-        //        {
-
-        //            dmg = dmg - (int)Mathf.Round(dmg * 0.2f);
-        //        }
-        //        this.hp -= dmg;
-        //        this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
-        //        Debug.Log("Dealt Damage: " + dmg);
-
-        //        PopUpManager.Instance.addPopUp(dmg.ToString(), this.transform);
-        //        Debug.Log("My name is: " + this.Name + "Yo");
-        //        Debug.Log("HP after :" + this.hp);
-
-        //        //PopUpManager.Instance.addpopUpHealth(this.MAXHP, this.HP,this.transform);
-
-        //        Debug.Log("HP after :" + this.hp);
-
-        //        this.defend = false;
-
-
-        //    }
-        //    else
-        //    {
-        //        PopUpManager.Instance.addPopUp("DODGE", this.transform);
-        //        Debug.Log("DODGE");
-        //    }
-        //}
-
-
         //Doing the damage
         int dmg = CalculateDamage(attacker);
-        //Debug.Log("Damage taken: " + ((int)damage + dmg));
         this.hp -= (int)damage + dmg;
         this.hp = Mathf.Max(HP, 0); // make sure it will never go past 0
 
@@ -251,12 +206,6 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         {
             Debug.Log("Its Dead");
             this.Tile.isWalkable = true;
-
-            //if (attacker.type == EUnitType.Ally)
-            //{
-            //    Debug.Log(this.type);
-            //    GameManager.Instance.OnDiedCallback.Invoke(this.ingredientType);
-            //}
 
             this.HandleDeath();
 
@@ -289,10 +238,6 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
 
     public void gainHealth(float healPts, Unit partyMember)
     {
-
-        //Debug.Log("Unit name: " + partyMember.Name);
-        //Debug.Log(partyMember.effectManager);
-
         partyMember.effectManager.EffectAccess(partyMember); // attacker
         this.effectManager.EffectAccess(this); //target
         this.hp += (int)healPts;
@@ -359,37 +304,16 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_DEFENSE, param);
 
     }
-    public bool isDodged(Unit attacker)
-    {
-        float chance = 50 + ((attacker.Speed + attacker.acc - this.Speed));
-        float x = UnityEngine.Random.Range(1, 100);
 
-        if (x < chance)
-        {
-            Debug.Log("HIT");
-            return true;
-        }
-        Debug.Log("MISS");
-        return false;
-    }
     public int CalculateDamage(Unit attacker)
     {
         float dmg = 1 + attacker.Attack * (1 - (this.def + this.Speed) / 100);
         dmg = (float)Math.Floor(dmg);
         return (int)dmg;
     }
-    public void Eat(Unit target)
-    {
 
-    }
-    public void Heal()
-    {
-        this.hp += 5;
-        //Debug.Log($"New HP: {this.hp}");
-    }
     public void OnTurn(bool value)
     {
-        //Debug.Log("TURN: " + value);
         if (this.animator != null)
         {
             this.animator.SetBool("Turn", value);
@@ -397,16 +321,11 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
     }
     public void OnMovement(bool value)
     {
-        //Debug.Log("Moving" + value);
-
         if (this.animator != null)
         {
             this.animator.SetBool("Walk", value);
         }
     }
-
-
-    ///SPRINGS <summary>
     
     public void OnSpring(bool value) {
         if (this.animator != null) {
@@ -429,10 +348,6 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
     ///SPRINGS
     private void HandleDeath()
     {
-        
-        
-
-
         DroppedVegetableManager.Instance.CreateDropVegetable(this);
 
         //doing effect actions
@@ -484,19 +399,7 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         bool isYou = false;
         Unit unit = param.GetUnitExtra(UNIT);
 
-
-        //if (this.Type == EUnitType.Enemy)//enemy
-        //{
-        //    this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.8941177f, 0, 0.05098039f, 1);
-
-        //}
-
-        //if (this.Type == EUnitType.Ally)//ally
-        //{
-        //    this.hpBar.transform.Find("Slider").GetComponentInChildren<Image>().color = new Color(0.0619223f, 0.2870282f, 0.8415094f, 1);
-        //}
-        
-        if (UnitActionManager.Instance.TurnOrder[0] == this && this.Type != EUnitType.Enemy)//its you
+        if (UnitActionManager.Instance.GetFirstUnit() is Unit _unit && _unit == this && this.Type != EUnitType.Enemy)//its you
         {
             isYou = true;
         }
@@ -512,39 +415,21 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
     {
         Unit unit = param.GetUnitExtra(UNIT);
 
-
-
         if (unit == this)
         {
             this.hpBar.GetComponentInChildren<HpBar>().hpHide(this.hpBar);
         }
-
     }
 
     public void ToggleBuffArrow(bool flag)
     {
-        //if (this == param.GetUnitExtra("UNIT"))
-        //{
-        //    this.BufController.SetBool("isBuffed", false);
-        //    //Debug.Log("buffGone");
-        //}
         this.BufController.SetBool("isBuffed", flag);
     }
 
     public void ToggleDebuffArrow(bool flag)
     {
-        //if (this == param.GetUnitExtra("UNIT"))
-        //{
-        //    this.DebufController.SetBool("isDebuffed", false);
-        //    // Debug.Log("DebuffedGone");
-        //}
         this.DebufController.SetBool("isDebuffed", flag);
     }
-
-    /// <summary>
-    /// ////////////////////////////////////////
-    /// </summary>
-    /// 
 
     protected virtual void Start()
     {
@@ -576,64 +461,24 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         this.Sprite = this.spriteRenderer.sprite;
     }
 
-    //protected abstract void HandleDeath();
-
-
-
-    // public Unit(Unit unit)
-    // {
-    //     this.Accuracy = unit.Accuracy;
-    //     this.Speed = unit.Speed;
-    //     this.Attack = unit.Attack;
-    //     this.Defense = unit.Defense;
-    //     this.Experience = unit.Experience;
-    // }
-
-    /*  ANIMATOR    */  
     public void SetAnimatorBool(string name, bool value)
     {
         this.animator.SetBool(name, value);
     }
 
-    /*COLOR CHANGER*/
-
     public void ChangeColor(Color _color)
     {
         this.spriteRenderer.color = _color;
-
-        //Debug.Log("Prev color: " + spriteAsset.color);
     }
 
     public Color poisonUnit(SpriteRenderer spriteAsset)
     {
 
         if (spriteAsset != null)Debug.Log("POISON");
-        //add damage logic here later
 
-        //Color change
-
-        /*
-        R - 79
-        G - 224
-        B - 90
-        */
         Color poison = Color.green;
 
         spriteAsset.color = poison;
-        // float rValue = 0, gValue = 0, bValue = 0;
-
-        // for (int counter = 0; counter <= 224; counter++)
-        // {
-        //     if (gValue <= 224) { poison.g = gValue; gValue++; }
-        //     if (rValue <= 79) { poison.r = rValue; rValue++; }
-        //     if (bValue <= 90) { poison.b = bValue; bValue++; }
-
-
-        //     spriteAsset.color = poison;
-        // }
-
-        //back to normal color
-
 
         return poison;
         
@@ -688,29 +533,15 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
 
     public Effect GetEffect(string effect)
     {
-
-        //for (int i = 0; i < this.effects.Count; i++)
-        //{
-        //    if (String.Equals(this.effects[i].EffectName, effect))
-        //    {
-        //        Debug.Log("EF: " + this.effects[i]);
-        //        return this.effects[i];
-        //    }
-        //}
-
         bool isSame;
 
         foreach (Effect ef in this.effects)
         {
             isSame = String.Equals(effect, ef.EffectName);
-            //Debug.Log(effect + " vs " + ef.EffectName + " is " + isSame);
-            //Debug.Log("EF: " + ef);
             if (isSame) return ef;
         }
 
-        //Debug.Log("Didn't find effect");
         return null;
-        //return this.effects.Find(ef => String.Equals(effect, ef.EffectName));
     }
 
     public void PrintEffects()
