@@ -267,6 +267,10 @@ public class CutsceneManager : MonoBehaviour
                 this.ChangeProjectileSprite(name);
                 CutsceneAnim.SetTrigger("Throw");
                 break;
+            case ESkillType.GROUND_SLAM:
+                CutsceneAnim.SetTrigger("GrandSlam");
+                break;
+
         }
     }
 

@@ -5,6 +5,7 @@ public enum ESkillType{
     HEAL,
     DEFEND,
     AOE,
-    RANGE
+    RANGE,
+    GROUND_SLAM
 }
 

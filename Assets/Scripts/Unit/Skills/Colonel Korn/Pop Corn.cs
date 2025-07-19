@@ -8,7 +8,7 @@ public class PopCorn : Skill
     {
         this.skillName = "Pop Corn!";
         this.veggieType = EVeggie.NONE;
-        this.skillType = ESkillType.AOE;
+        this.skillType = ESkillType.GROUND_SLAM;
 
         this.skillRange = 2;
         SkillDatabase.Instance.GetSkillSprite(this);
@@ -29,8 +29,11 @@ public class PopCorn : Skill
     {
         List<Unit> nearbyUnits = new List<Unit>();
 
-        foreach (Unit unit in UnitActionManager.Instance.TurnOrder)
+        foreach (ITurnTaker turnTaker in UnitActionManager.Instance.TurnOrder)
         {
+            if (turnTaker is not Unit) continue;
+
+            Unit unit = turnTaker as Unit;
             if (unit != origin &&
                 Vector3.Distance(unit.transform.position, origin.transform.position) < 2.0f)
             {
