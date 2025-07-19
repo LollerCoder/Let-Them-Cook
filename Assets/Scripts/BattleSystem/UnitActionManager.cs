@@ -60,6 +60,8 @@ public class UnitActionManager : MonoBehaviour
 
     public bool effectSkipTurn = false;
 
+    private bool waited = false;
+
     public ITurnTaker GetFirstUnit() {
         return this._turnOrder[0];
     }
@@ -79,27 +81,13 @@ public class UnitActionManager : MonoBehaviour
         EventBroadcaster.Instance.AddObserver(EventNames.UnitActionEvents.ON_DESTINATION_REACHED, this.EnemyAIEndTurn);
         EventBroadcaster.Instance.AddObserver(EventNames.UnitActionEvents.ON_ENEMY_END_TURN, this.EnemyAIEndTurn);
     }
-    public void EnemyUnitAction()
-    {
-        //UnitActions.OnAttack = true;
-
-        //this._inRangeTiles = this._showRange.GetTilesInAttackMelee(this._unitOrder[0].Tile, this._unitOrder[0].BasicRange);
-        //this.numAttack = 0;
-
-        //foreach (Unit unit in this._Units)
-        //{
-        //    if (unit.Type == EUnitType.Ally)
-        //    {
-        //        this.UnitSelect(unit);
-        //    }
-        //}
+    public void EnemyUnitAction() {
 
         if (this.GetFirstUnit() is Unit enemy) {
             PathFinding.Path = this._enemyAI.TakeTurn(enemy);
             if (PathFinding.Path == null) this.EnemyAIEndTurn();
         }
 
-        //this.StartCoroutine(this.EnemyWait(2.0f)); // fix this instead of doing a coroutine, do the next turn whenever the enemy has done all of their actions
     }
     private IEnumerator EnemyWait(float seconds)
     {
@@ -283,8 +271,10 @@ public class UnitActionManager : MonoBehaviour
                 BattleUI.Instance.AttackState(this.numAttack);
             }
         }
-
-        if (Input.GetKeyUp(KeyCode.Space) && !this.Moving) {
+             
+        if (Input.GetKeyDown(KeyCode.Space) && !this.Moving && this.GetFirstUnit() is Unit unit
+            && unit.Type == EUnitType.Ally && !this.waited) {
+            this.waited = true;
             Range.UnHighlightTiles();
             EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
         }
@@ -329,18 +319,7 @@ public class UnitActionManager : MonoBehaviour
 
             //tile apply on unit start
             unit.Tile.ApplyOnUnitStart(unit);
-
-            //springs
-            //foreach (Tile tile in TileMapManager.Instance.TileMap.Values)
-            //{
-            //    SpringTile st = tile.gameObject.GetComponent<SpringTile>();
-
-            //    if (st != null) { st.ApplyOnUnitStart(); }
-            //    //Debug.Log("Launch");
-                    
-            //}
-            //springs
-            
+          
 
             UnitActions.SetCurrentTile(unit.Tile, unit.transform.position.y);
             EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
@@ -403,7 +382,7 @@ public class UnitActionManager : MonoBehaviour
             this.bEnemy = true;
             this.StartCoroutine(sUnit.Turn());
         }
-
+        this.waited = false;
     }
 
     //getting closest unit to
