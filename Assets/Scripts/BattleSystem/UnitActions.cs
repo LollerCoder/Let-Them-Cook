@@ -41,7 +41,6 @@ public static class UnitActions {
             UnitActionManager.Instance.OnMove = false;
 
             if (UnitActionManager.Instance.hadMoved) {
-                //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
                 BattleUI.Instance.ToggleActionBox();
             }
             UnitActionManager.Instance.OnAttack = false;
@@ -50,12 +49,6 @@ public static class UnitActions {
             unit.transform.position = currentTilePos;
             unit.Tile = currentTile;
             bGoal = false;
-            //EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);
-            //EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.TOGGLE_ACTION_BOX);
-            //if (BattleUI.Instance.ActionBoxState) {               // MIGHT CHANGE
-            //    BattleUI.Instance.ToggleActionBox();
-            //}
-
             if (BattleUI.Instance.EatPickUpButtonState){
                 BattleUI.Instance.ToggleEatOrPickUpButtons();
             }
@@ -67,8 +60,7 @@ public static class UnitActions {
             // reset and updatec attackable list
             UnitAttackActions.ResetAttackables();
             UnitAttackActions.CheckSkillRange(unit);
-            Range.GetRange(unit, unit.Move, RangeType.WALK);
-            
+            Range.GetRange(unit, unit.Move, RangeType.WALK);  
         }
     }
     public static void UnitHover(Unit unit, bool toggle) { // if true, show hp bar ; if false, hide 
@@ -96,18 +88,14 @@ public static class UnitActions {
     ///////////////////////////////////////////////////////
     public static void ConfirmAttack(Unit target, int Skill) {
         Unit currentUnit = (Unit)UnitActionManager.Instance.GetFirstUnit();
-        //ESkillType skillType = ESkillType.NONE;
         string SkillName = "";
 
         if (currentUnit.SKILLLIST[Skill] != null)
         {
             SkillName = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SkillName;
         }
-
-
-        //Debug.Log("Attacked Target " + target.name);
         if (Skill == 1) {
-            //Debug.Log("10 dmg applied");
+
         }
 
         UnitActionManager.Instance.OnAttack = false;
@@ -115,27 +103,20 @@ public static class UnitActions {
 
         //JAIRO BATTLECUTSCENE
 
-        if (GameSettingsManager.Instance.enableCutscene)
-        {
+        if (GameSettingsManager.Instance.enableCutscene) {
             Parameters param = new Parameters();
-            
-            
 
-
-            if (currentUnit.SKILLLIST[Skill] != null)
-            {
-                if(SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SKILLTYPE == ESkillType.AOE)
-                {
+            if (currentUnit.SKILLLIST[Skill] != null) {
+                if (SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).SKILLTYPE == ESkillType.AOE) {
                     param = SkillDatabase.Instance.findSkill(currentUnit.SKILLLIST[Skill]).GetNeighborList(currentUnit, target);
                     param.PutExtra("TARGETS", "MULTIPLE");
-                    
+
                 }
-                else
-                {
+                else {
                     param.PutExtra("TARGETS", "SINGLE");
-                    
+
                 }
-                
+
             }
             param.PutGameObjectExtra(CAMERA, Camera.main.gameObject);
             param.PutExtra(currUNIT, currentUnit);
@@ -144,18 +125,11 @@ public static class UnitActions {
             EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY, param); //cutscene call
             EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CUTSCENE_PLAY); // camera takes one with params
         }
-        else
-        {
+        else {
             applySkill(target, Skill);
             EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
         }
-
-
-
-
-
     }
-
 
     public static void applySkill(Unit target, int Skill)
     {
@@ -164,8 +138,6 @@ public static class UnitActions {
         if (currentUnit.SKILLLIST[Skill] != null)
         {
             SkillDatabase.Instance.applySkill(currentUnit.SKILLLIST[Skill], target, currentUnit);
-
-
         }
     }
     public static void ShowInRangeHPBar(int i) {
@@ -264,14 +236,6 @@ public static class UnitActions {
             UnitAttackActions.ResetAttackables();
             UnitAttackActions.CheckSkillRange((Unit)UnitActionManager.Instance.GetFirstUnit());
 
-            //springs
-            //SpringTile st = currentUnit.Tile as SpringTile;
-            //if (st != null)
-            //{
-            //    st.setUnitToLaunch(currentUnit);
-            //    Debug.Log("UnitToLaunchSet");
-            //}
-            //springs
             currentUnit.Tile.HighlightCurrentTile(currentUnit.Type);
             EventBroadcaster.Instance.PostEvent(EventNames.UnitActionEvents.ON_DESTINATION_REACHED);
         }
@@ -290,56 +254,48 @@ public static class UnitActions {
 
     public static void TileTapped(Tile goalTile)
     {
-        Unit unit = (Unit)UnitActionManager.Instance.GetFirstUnit();
-        //string bufDebufname = ""; //name
-        EffectInfo terst = new EffectInfo(0, 0, EStatToEffect.NOTSET); //effectInfo
+        if (UnitActionManager.Instance.GetFirstUnit() is  Unit unit && unit.Type != EUnitType.Ally) {
 
-        if (!UnitActionManager.Instance.hadMoved && !AllyOnTileGoal(goalTile) && UnitActionManager.Instance.OnMove && bGoal)
-        {
+            //EffectInfo terst = new EffectInfo(0, 0, EStatToEffect.NOTSET); //effectInfo
 
-            PathFinding.Path = PathFinding.AStarPathFinding(unit.Tile, goalTile,
-                                Range.GetTilesInMovement(unit.Tile, unit.Move));
+            if (!UnitActionManager.Instance.hadMoved && !AllyOnTileGoal(goalTile) && UnitActionManager.Instance.OnMove && bGoal) {
 
-            if (unit.Tile.TilePos == goalTile.TilePos)
-            {
-                //Debug.Log("helllloooo");
+                PathFinding.Path = PathFinding.AStarPathFinding(unit.Tile, goalTile,
+                                    Range.GetTilesInMovement(unit.Tile, unit.Move));
+
+                if (unit.Tile.TilePos == goalTile.TilePos) {
+                    stepFlag = true;
+                    ((Unit)UnitActionManager.Instance.GetFirstUnit()).OnMovement(false);
+                    UnitActionManager.Instance.OnMove = false;
+                    Range.UnHighlightTiles();
+                }
+
+                if (PathFinding.Path.Count <= 0) {
+                    UnitActions.bGoal = false;
+                    return;
+                }
+
+                // if there is a path
+                unit.OnMovement(true);
                 stepFlag = true;
-                //BattleUI.Instance.ToggleActionBox(); // MIGHT CHANGE
-                ((Unit)UnitActionManager.Instance.GetFirstUnit()).OnMovement(false);
-                UnitActionManager.Instance.OnMove = false;
-                Range.UnHighlightTiles();
-            }
-
-            if (PathFinding.Path.Count <= 0) {
-                UnitActions.bGoal = false;
-                return;
-            }
-
-            // if there is a path
-            unit.OnMovement(true);
-            stepFlag = true;
-            UnitActionManager.Instance.Moving = true;
-            BattleUI.Instance.ToggleWaitButton(false);
-            BattleUI.Instance.AttackState(UnitActionManager.Instance.numAttack);
+                UnitActionManager.Instance.Moving = true;
+                BattleUI.Instance.ToggleWaitButton(false);
+                BattleUI.Instance.AttackState(UnitActionManager.Instance.numAttack);
 
 
-            SpriteRenderer cuSR = ((Unit)UnitActionManager.Instance.GetFirstUnit()).spriteRenderer;
-            if (((Unit)UnitActionManager.Instance.GetFirstUnit()).transform.position.x > goalTile.transform.position.x) {
-                //Debug.Log("looking left");
-                cuSR.flipX = true;
-            }
-            else {
-                //Debug.Log("looking right");
-                cuSR.flipX = false;
+                SpriteRenderer cuSR = ((Unit)UnitActionManager.Instance.GetFirstUnit()).spriteRenderer;
+                if (((Unit)UnitActionManager.Instance.GetFirstUnit()).transform.position.x > goalTile.transform.position.x) {
+                    cuSR.flipX = true;
+                }
+                else {
+                    cuSR.flipX = false;
+                }
             }
         }
-        
-     
     }
     public static void AssignUnitTile() {
 
         var map = TileMapManager.Instance.TileMap;
-        //var map = TileMapGenerator.Instance.TileMap;
 
         Vector2Int unitPos = new Vector2Int();
         foreach (Unit unit in UnitActionManager.Instance.UnitList) {
@@ -348,12 +304,9 @@ public static class UnitActions {
                 Mathf.RoundToInt(unit.transform.position.x),
                 Mathf.RoundToInt(unit.transform.position.z)
             );
-            //Debug.Log(unit.Name + unitPos);
 
             if (map.ContainsKey(unitPos)) {
                 unit.Tile = map[unitPos];
-               //Debug.Log(unit.Name + unitPos + "assigned");
-
             }
 
         }
