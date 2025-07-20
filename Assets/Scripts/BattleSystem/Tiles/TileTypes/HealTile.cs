@@ -14,7 +14,7 @@ public class HealTile : Tile {
         this.rangeIndicator = TileHelper.Instance.SpawnRangeIndicator(this.rangePos, RangeType.HEALTILE);
     }
     public override void ApplyEffect(Unit _unit) {
-        _unit.Heal();
+        _unit.gainHealth(5, _unit);
         Debug.Log("ONHEAL");
     }
     public override void UnHighlightTile() {

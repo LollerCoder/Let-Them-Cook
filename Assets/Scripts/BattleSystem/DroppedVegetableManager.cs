@@ -30,7 +30,7 @@ public class DroppedVegetableManager : MonoBehaviour {
         }
     }
     public void EatVegetable(DroppedVegetable veg, Unit unit) {
-        unit.Heal();
+        unit.gainHealth(5, unit);
         veg.Hide();
         this.vegInField.Remove(veg);
     }
