@@ -551,4 +551,10 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         foreach (Effect ef in this.effects)
             Debug.Log(ef.EffectName);
     }
+
+    public void Heal()
+    {
+        this.hp += 5;
+        //Debug.Log($"New HP: {this.hp}");
+    }
 }
