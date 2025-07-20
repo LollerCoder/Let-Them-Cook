@@ -254,8 +254,7 @@ public static class UnitActions {
 
     public static void TileTapped(Tile goalTile)
     {
-        if (UnitActionManager.Instance.GetFirstUnit() is  Unit unit && unit.Type != EUnitType.Ally) {
-
+        if (UnitActionManager.Instance.GetFirstUnit() is  Unit unit && unit.Type == EUnitType.Ally) {
             //EffectInfo terst = new EffectInfo(0, 0, EStatToEffect.NOTSET); //effectInfo
 
             if (!UnitActionManager.Instance.hadMoved && !AllyOnTileGoal(goalTile) && UnitActionManager.Instance.OnMove && bGoal) {
