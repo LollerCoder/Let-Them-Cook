@@ -44,8 +44,7 @@ public class ObjectiveChecker : MonoBehaviour
                 //fail
                 Parameters param = new Parameters();
                 param.PutExtra("Level_Complete", true);
-                param.PutExtra("Title", "Level Failed");
-                param.PutExtra("ButtonText", "Retry?");
+                param.PutExtra("End", false);
                 param.PutExtra("SceneToLoad", SceneManager.GetActiveScene().name);
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION);
@@ -61,8 +60,7 @@ public class ObjectiveChecker : MonoBehaviour
             {
                 Parameters param = new Parameters();
                 param.PutExtra("Level_Complete", true);
-                param.PutExtra("Title", "Level Complete");
-                param.PutExtra("ButtonText", "Continue");
+                param.PutExtra("End", true);
                 param.PutExtra("SceneToLoad", "Lobby");
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION);

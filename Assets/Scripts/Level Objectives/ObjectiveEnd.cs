@@ -23,7 +23,8 @@ public class ObjectiveEnd: MonoBehaviour
 
         toCopyRT.SetParent(copyToRT,false);
 
-        toCopyRT.anchoredPosition = new  Vector2(0, -120);
+        toCopyRT.anchoredPosition = new  Vector2(0, -435);
+        toCopyRT.localScale = new Vector3(1.8f, 1.8f, 1);
         BattleUI.Instance.TurnOffTurn();
 
 

@@ -6,8 +6,18 @@ using UnityEngine.UI;
 
 public class GameEndUI : MonoBehaviour
 {
-    [SerializeField] private Text Title;
-    [SerializeField] private Text ButtonText;  
+   
+    [SerializeField] private Image TitleImg;
+    [SerializeField] private Image ButtonImg;
+    [SerializeField] private Image TitleTextImg;
+    //Sucess
+    [SerializeField] private Sprite TitleImgWin;
+    [SerializeField] private Sprite ButtonImgWin;
+    [SerializeField] private Sprite TitleTextImgWin;
+    //Fail
+    [SerializeField] private Sprite TitleImgLose;
+    [SerializeField] private Sprite ButtonImgLose;
+    [SerializeField] private Sprite TitleTextImgLose;
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +29,20 @@ public class GameEndUI : MonoBehaviour
     void UISetup(Parameters param)
     {
 
-        this.Title.text = param.GetStringExtra("Title","NEVERAPPEARS");
-        this.ButtonText.text = param.GetStringExtra("ButtonText", "NEVERAPPEARS");
+        if(param.GetBoolExtra("End", false))
+        {
+            this.TitleImg.sprite = TitleImgWin;
+            this.ButtonImg.sprite = ButtonImgWin;
+            this.TitleTextImg.sprite = TitleTextImgWin;
+
+        }
+        else
+        {
+            this.TitleImg.sprite = TitleImgLose;
+            this.ButtonImg.sprite = ButtonImgLose;
+            this.TitleTextImg.sprite = TitleTextImgLose;
+        }
+        
         this.GetComponentInChildren<DemoSceneLoading>().ScreenName = param.GetStringExtra("SceneToLoad", "NEVERAPPEARS");
 
     }
