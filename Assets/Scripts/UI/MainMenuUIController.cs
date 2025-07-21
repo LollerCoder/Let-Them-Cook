@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuUIController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject _Credits;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        this._Credits.SetActive(false);
     }
 
     // Update is called once per frame
@@ -22,14 +25,9 @@ public class MainMenuUIController : MonoBehaviour
         SceneManager.LoadScene("Map");
     }
 
-    public void CookingButtonPressed()
+    public void CreditsButtonPressed()
     {
-
-    }
-
-    public void CookbookButtonPressed()
-    {
-
+        this._Credits.SetActive(!this._Credits.activeSelf);
     }
 
     public void ExitButtonPressed()
