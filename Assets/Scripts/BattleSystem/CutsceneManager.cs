@@ -129,38 +129,13 @@ public class CutsceneManager : MonoBehaviour
         //This should just log the stuff
         for (int i = 0; i < dummycount; i++)
         {
-            //Dummies[i].SetActive(true);
-            //SpriteRenderer DummySprite = Dummies[i].gameObject.GetComponent<SpriteRenderer>();
+           
             Unit dummySent = param.GetUnitExtra("Dummy" + i);
             Vector3 dir = param.GetVector3Extra("Direction" + i);
 
             
 
-
             DummiesData.Add(dummySent,dir);
-
-            //DummySprite.sprite = dummySent.gameObject.GetComponent<SpriteRenderer>().sprite;
-            //HpBar DummyHp = Dummies[i].gameObject.GetComponentInChildren<HpBar>(true);
-           
-            //DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
-            //if (dummySent.Type == EUnitType.Enemy)
-            //{
-            //    DummyHp.setColor(EUnitType.Enemy, false);
-            //}
-            //else
-            //{
-            //    DummyHp.setColor(EUnitType.Ally, false);
-            //}
-            //DummyHp.hpHide(DummyHp.gameObject);
-            
-            //if(DummyHp == null) {
-            //    Debug.Log("Dummy hp NULL");
-            //}
-
-            //Debug.Log("MaxHp" + dummySent.MAXHP);
-            //Debug.Log("Hp" + dummySent.HP);
-
-
 
         }
 
@@ -237,7 +212,7 @@ public class CutsceneManager : MonoBehaviour
         switch (skillAnim)
         {
             case ESkillType.NONE:
-                Debug.Log("No skill");
+                //Debug.Log("No skill");
                  
                 break;
             case ESkillType.BASIC:
@@ -246,7 +221,7 @@ public class CutsceneManager : MonoBehaviour
                 
                 break;
             case ESkillType.BUFFDEBUFF:
-                Debug.Log("BuffDebuff");
+                //Debug.Log("BuffDebuff");
                 
                 break;
             case ESkillType.HEAL:
@@ -260,7 +235,7 @@ public class CutsceneManager : MonoBehaviour
                 //Debug.Log("Parry");
                 break;
             case ESkillType.AOE:
-                Debug.Log("SPUN");
+                //Debug.Log("SPUN");
                 CutsceneAnim.SetTrigger("Spin");
                 break;
             case ESkillType.RANGE:
@@ -318,9 +293,9 @@ public class CutsceneManager : MonoBehaviour
 
         
         
-        UnitActions.applySkill(target, UnitActionManager.Instance.numAttack);
-        EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.MAXHP, target.HP);
-        EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Enemy, false);
+        //UnitActions.applySkill(target, UnitActionManager.Instance.numAttack);
+        //EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.MAXHP, target.HP);
+        //EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Enemy, false);
 
 
         if (DummiesData.Count() != 0)
@@ -369,39 +344,19 @@ public class CutsceneManager : MonoBehaviour
                     //DummyHp.hpHide(DummyHp.gameObject);
                     DummyHp.setColor(EUnitType.Enemy, false);
                 }
-                if (Dummy.Key)
-                {
-                    
-                    //UnitActions.applySkill(DummiesData[i], UnitActionManager.Instance.numAttack);
-                    //HpBar DummyHp = Dummies[i].gameObject.GetComponentInChildren<HpBar>(true);
-                    //Unit dummySent = DummiesData[i];
-
-                    //DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
-                    ////DummyHp.hpHide(DummyHp.gameObject);
-                    //DummyHp.setColor(EUnitType.Enemy, false);
-                }
+                
             }
-            //for (int i = 0; i < Dummies.Count(); i++)
-            //{
-            //    if (Dummies[i].activeSelf)
-            //    {
-            //        UnitActions.applySkill(DummiesData[i], UnitActionManager.Instance.numAttack);
-            //        HpBar DummyHp = Dummies[i].gameObject.GetComponentInChildren<HpBar>(true);
-            //        Unit dummySent = DummiesData[i];
-
-            //        DummyHp.hpPopUp(DummyHp.gameObject, dummySent.MAXHP, dummySent.HP);
-            //        //DummyHp.hpHide(DummyHp.gameObject);
-            //        DummyHp.setColor(EUnitType.Enemy, false);
-            //    }
-
-
-
-
-            //}
+           
         }
 
 
+        else
+        {
+            UnitActions.applySkill(target, UnitActionManager.Instance.numAttack);
+            EnemyHP.gameObject.GetComponentInChildren<HpBar>().hpPopUp(EnemyHP, target.MAXHP, target.HP);
+            EnemyHP.gameObject.GetComponentInChildren<HpBar>().setColor(EUnitType.Enemy, false);
 
+        }
 
 
 

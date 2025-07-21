@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CircularCut : Skill
@@ -71,7 +72,7 @@ public class CircularCut : Skill
         Debug.Log("Finding neighbors");
             foreach (Vector3 dir in cardinalDirs)
             {
-                neighbor = this.Get_Neighbor(origin.transform.position, dir);
+                neighbor = this.Get_Neighbor(origin.Tile, dir);
                 Debug.Log("Neighbor" + neighbor);
                 if (neighbor != null  )
                 { //&& neighbor != Target
@@ -110,17 +111,40 @@ public class CircularCut : Skill
     }
     
 
-    private Unit Get_Neighbor(Vector3 originPoint, Vector3 dir)
+    private Unit Get_Neighbor(Tile originTile, Vector3 dir)
     {
-        RaycastHit hit;
-        originPoint += dir * 0.2f;
-        Debug.DrawRay(originPoint, dir, Color.red, 5f);
-        Physics.Raycast(originPoint, dir, out hit, 1.0f);
-        Debug.Log("Hit " + hit);
+        //RaycastHit hit;
+        //originPoint += dir * 0.2f;
+        //Debug.DrawRay(originPoint, dir, Color.red, 5f);
+        //Physics.Raycast(originPoint, dir, out hit, 1.0f);
+        //Debug.Log("Hit " + hit);
 
-        if (hit.collider == null) return null;
+        //if (hit.collider == null) return null;
 
-        return hit.collider.gameObject.GetComponent<Unit>();
+        //return hit.collider.gameObject.GetComponent<Unit>();
+        Vector2 XZ = originTile.TilePos;
+        List<Unit> unitList = UnitActionManager.Instance.UnitList;
+        Unit toReturn = null;
+        foreach (Unit unit in unitList)
+        {
+            if(unit.Tile.TilePos == XZ + new Vector2(dir.x,dir.z))
+            {
+                Debug.Log("Compared " + unit.Tile.transform.position.y + " to " + originTile.transform.position.y);
+                if (Mathf.Abs(unit.Tile.transform.position.y - originTile.transform.position.y) < 0.01f)
+                {
+                    Debug.Log("Same y");
+                    toReturn = unit;
+                }
+                
+            }
+        }
+
+        if (toReturn != null)
+        {
+            Debug.Log("Returned a dummy for dir:" + dir);
+            return toReturn;
+        }
+        return null;
     }
 
     
