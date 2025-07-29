@@ -21,6 +21,8 @@ public class BattleUI : MonoBehaviour {
 
     public List<Image> Turn;
 
+    [SerializeField] private GameObject fastForwardIcon;
+
    
 
     [SerializeField]
@@ -66,6 +68,9 @@ public class BattleUI : MonoBehaviour {
 
     public bool[] attackNum = { false, false}; // which skill was pressed 
     public bool[] skillSlots = { false, false}; // which skill is usable
+
+
+
     
     private void Start() {
         //this._unitStats = this.GetComponentInChildren<UnitStats>();
@@ -400,5 +405,19 @@ public class BattleUI : MonoBehaviour {
         else if (Instance != null) {
             Destroy(this.gameObject);
         }
+    }
+    public void FastForwardShow(bool toggle)
+    {
+        if(toggle == false)
+        {
+            this.fastForwardIcon.SetActive(false);
+            
+        }
+        else
+        {
+            this.fastForwardIcon.SetActive(true);
+            
+        }
+        
     }
 }

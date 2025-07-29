@@ -240,7 +240,7 @@ public class UnitActionManager : MonoBehaviour
         unit.GetComponent<BoxCollider>().enabled = true;
         unit.OnMovement(false);
         unit.OnTurn(false);
-        Parameters param = new Parameters();
+        Parameters param = new Parameters();        
         param.PutExtra(UNIT, unit);
 
         EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.HIDE_HP, param);
@@ -252,6 +252,7 @@ public class UnitActionManager : MonoBehaviour
     public void ResetTimeScale() {
         this.onFastMode = false;
         Time.timeScale = this.timeScale;
+        BattleUI.Instance.FastForwardShow(false);
     }
 
     void Update()
@@ -259,6 +260,7 @@ public class UnitActionManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V) && !this.onFastMode) {
             this.onFastMode = true;
             Time.timeScale = this.timeScale * 2;
+            BattleUI.Instance.FastForwardShow(true);
         }
         else if (Input.GetKeyDown(KeyCode.V) && this.onFastMode) {
             this.ResetTimeScale();
