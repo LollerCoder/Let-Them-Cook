@@ -7,7 +7,7 @@ public class CircularCut : Skill
 {
 
 
-    private float damage = 1.0f;
+    private float damage = 2.0f;
     List<Vector3> cardinalDirs = new List<Vector3>();
 
     private Dictionary<Unit, Vector3> neighbors = new Dictionary<Unit, Vector3>();
@@ -35,7 +35,7 @@ public class CircularCut : Skill
 
     public override void SkillAction(Unit target, Unit origin)
     {
-        origin.AddEffect(new Dizzy(2, origin));
+        origin.AddEffect(new Dizzy(1, origin));
         PopUpManager.Instance.addPopUp(this.skillName, origin.transform);
 
         //target

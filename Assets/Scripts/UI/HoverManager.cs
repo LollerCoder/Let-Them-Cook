@@ -63,12 +63,15 @@ public class HoverManager : MonoBehaviour
             case "Harvest":
                 msg = "Damage and heal yourself in battle!";
                 break;
-
+            case "Daze":
+                msg = "Makes the enemy dizzy but for low damage!";
+                break;
+            case "Foil Throw":
+                msg = "Throws foils to the enemy from afar!";
+                break;
             default:
                 msg = "No skill found";
                 break;
-
-
         }
 
         return msg;

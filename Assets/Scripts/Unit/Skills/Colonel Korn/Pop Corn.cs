@@ -19,7 +19,7 @@ public class PopCorn : Skill
         foreach (Unit unit in this.GetNearbyUnits(origin))
         {
             PopUpManager.Instance.addPopUp("POP!", unit.transform);
-            unit.TakeDamage(3, origin);
+            unit.TakeDamage(4, origin);
         }
 
         target.AddEffect(new Dizzy(3, target));

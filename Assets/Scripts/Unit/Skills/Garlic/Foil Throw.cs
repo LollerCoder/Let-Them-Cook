@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FoilThrow : Skill
 {
-    private int damage = 5;
+    private int damage = 4;
 
     public FoilThrow()
     {

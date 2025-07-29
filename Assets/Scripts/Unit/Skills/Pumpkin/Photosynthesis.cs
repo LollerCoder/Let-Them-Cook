@@ -18,7 +18,7 @@ public class Photosynthesis : Skill
 
     public override void SkillAction(Unit target, Unit origin)
     {
-        target.gainHealth(4, origin);
+        target.gainHealth(5, origin);
     }
 
     public override void HighlightTile(Unit unit) {

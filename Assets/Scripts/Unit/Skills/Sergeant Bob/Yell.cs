@@ -20,7 +20,7 @@ public class Yell : Skill
         if (target.GetEffect("Attack Boost") != null) return;
 
         target.AddEffect(new AttackBoost(1, target));
-        target.gainHealth(2, origin);
+        target.gainHealth(3, origin);
 
     }
 

@@ -13,9 +13,9 @@ public class ColonelKorn : Unit
 
         this.acc = 10;
         this.Speed = this.speed;
-        this.maxhp = 40;
+        this.maxhp = 45;
         this.hp = this.maxhp;
-        this.atk = 5;
+        this.atk = 6;
         this.def = 5;
 
         base.Start();
