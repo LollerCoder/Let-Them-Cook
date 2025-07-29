@@ -40,4 +40,8 @@ public class Asleep : Effect
     {
         this.Duration = 99;
     }
+
+    public override void AfterDeathAction(Unit unitAffected) {
+        EventBroadcaster.Instance.PostEvent(EventNames.Level3_Objectives.WOKE_UP);
+    }
 }

@@ -57,7 +57,7 @@ public class HoverManager : MonoBehaviour
                 break;
 
             case "Yell":
-                msg = "Heal a unit and increase thier stat!";
+                msg = "Heal a unit and increase their attack!";
                 break;
             
             case "Harvest":
