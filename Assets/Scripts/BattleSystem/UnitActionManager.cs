@@ -62,6 +62,9 @@ public class UnitActionManager : MonoBehaviour
 
     private bool waited = false;
 
+    private bool onFastMode = false;
+    
+    private float timeScale = 0;
     public ITurnTaker GetFirstUnit() {
         return this._turnOrder[0];
     }
@@ -249,6 +252,15 @@ public class UnitActionManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.V) && !this.onFastMode) {
+            this.onFastMode = true;
+            Time.timeScale = this.timeScale * 2;
+        }
+        else if (Input.GetKeyDown(KeyCode.V) && this.onFastMode) {
+            this.onFastMode = false;
+            Time.timeScale = this.timeScale;
+        }
+
         if (bEnemy)
         {
             if (vignette.weight < 0.90)  vignette.weight  +=  3.0f * Time.deltaTime;
@@ -388,6 +400,7 @@ public class UnitActionManager : MonoBehaviour
     //getting closest unit to
     public Unit GetClosestUnit(Unit origin, EUnitType type)
     {
+
         Unit closest = null;
         float minDistance = Mathf.Infinity;
         Vector3 origPos = origin.transform.position;
@@ -442,6 +455,7 @@ public class UnitActionManager : MonoBehaviour
         {
             Destroy(this);
         }
+        this.timeScale = Time.timeScale;
     }
 }
 
