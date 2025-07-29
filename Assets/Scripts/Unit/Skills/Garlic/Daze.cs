@@ -19,6 +19,6 @@ public class Daze : Skill
     {
         PopUpManager.Instance.addPopUp("Dazed!", target.transform);
 
-        target.AddEffect(new Dizzy(3, target));
+        target.AddEffect(new Dizzy(2, target));
     }
 }
