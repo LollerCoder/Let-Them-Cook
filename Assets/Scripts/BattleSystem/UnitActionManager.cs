@@ -249,6 +249,10 @@ public class UnitActionManager : MonoBehaviour
         unit.EffectManager.ArrowHider(unit);
     }
 
+    public void ResetTimeScale() {
+        this.onFastMode = false;
+        Time.timeScale = this.timeScale;
+    }
 
     void Update()
     {
@@ -257,8 +261,7 @@ public class UnitActionManager : MonoBehaviour
             Time.timeScale = this.timeScale * 2;
         }
         else if (Input.GetKeyDown(KeyCode.V) && this.onFastMode) {
-            this.onFastMode = false;
-            Time.timeScale = this.timeScale;
+            this.ResetTimeScale();
         }
 
         if (bEnemy)

@@ -40,6 +40,7 @@ public class ObjectiveChecker : MonoBehaviour
             }
             if(conv.getIfUnclearable())
             {
+                UnitActionManager.Instance.ResetTimeScale();
                 //Debug.Log("FAILING");
                 //fail
                 Parameters param = new Parameters();
@@ -49,8 +50,6 @@ public class ObjectiveChecker : MonoBehaviour
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION);
             }
-            
-            
         }
         
 
@@ -58,6 +57,7 @@ public class ObjectiveChecker : MonoBehaviour
         {
             if(!sent)
             {
+                UnitActionManager.Instance.ResetTimeScale();
                 Parameters param = new Parameters();
                 param.PutExtra("Level_Complete", true);
                 param.PutExtra("End", true);
@@ -65,6 +65,7 @@ public class ObjectiveChecker : MonoBehaviour
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION, param);
                 EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.CHECK_END_CONDITION);
                 sent = true;
+
             }
            
         }
