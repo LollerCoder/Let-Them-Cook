@@ -22,7 +22,7 @@ public class PopCorn : Skill
             unit.TakeDamage(3, origin);
         }
 
-        origin.AddEffect(new Dizzy(3, origin));
+        target.AddEffect(new Dizzy(3, target));
     }
 
     private List<Unit> GetNearbyUnits(Unit origin)

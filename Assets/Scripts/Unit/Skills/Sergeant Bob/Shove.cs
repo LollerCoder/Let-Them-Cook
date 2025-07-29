@@ -78,9 +78,8 @@ public class Shove : Skill
 
             //if the "wall" is a unit
             if (this._UnitHit != null) this._UnitHit.TakeDamage(2, origin);
+            target.AddEffect(new Dizzy(2, target));
         }
-
-        target.AddEffect(new Dizzy(2, origin));
     }
 
     //checks if the position where target is getting shoved into has a wall or is occupied

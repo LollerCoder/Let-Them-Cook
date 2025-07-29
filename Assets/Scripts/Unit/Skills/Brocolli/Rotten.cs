@@ -41,7 +41,7 @@ public class Rotten : Skill
 
         //adding poison to target
         target.ChangeColor(Color.green);
-        target.AddEffect(new Poison(2, origin));
+        target.AddEffect(new Poison(2, target));
     }
 
     // Start is called before the first frame update
