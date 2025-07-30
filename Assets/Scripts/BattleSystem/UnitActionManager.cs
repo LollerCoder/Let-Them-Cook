@@ -290,7 +290,8 @@ public class UnitActionManager : MonoBehaviour
         }
              
         if (Input.GetKeyDown(KeyCode.Space) && !this.Moving && this.GetFirstUnit() is Unit unit
-            && unit.Type == EUnitType.Ally && !this.waited) {
+            && unit.Type == EUnitType.Ally && !this.waited
+            && !DialogueManager.Instance.animator.GetBool("Open")) {
             this.waited = true;
             Range.UnHighlightTiles();
             EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
