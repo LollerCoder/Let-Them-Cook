@@ -20,10 +20,6 @@ public class Asleep : Effect
         {
             PopUpManager.Instance.addPopUp(".....zzZZZ", unitAffected.transform);
         }
-        else
-        {
-            PopUpManager.Instance.addPopUp("Huh... what?", unitAffected.transform);
-        }
         
     }
 
@@ -38,7 +34,8 @@ public class Asleep : Effect
 
     public override void EffectAfterAction(Unit unitAffected)
     {
-        this.Duration = 99;
+        PopUpManager.Instance.addPopUp("Huh... what?", unitAffected.transform);
+        EventBroadcaster.Instance.PostEvent(EventNames.Level3_Objectives.WOKE_UP);
     }
 
     public override void AfterDeathAction(Unit unitAffected) {

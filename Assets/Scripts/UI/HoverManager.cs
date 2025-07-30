@@ -64,7 +64,7 @@ public class HoverManager : MonoBehaviour
                 msg = "Damage enemies and heal yourself in battle!";
                 break;
             case "Daze":
-                msg = "Makes the enemy dizzy!";
+                msg = "Damages self but makes the enemy dizzy!";
                 break;
             case "Foil Throw":
                 msg = "Throws foils to the enemy from afar!";
