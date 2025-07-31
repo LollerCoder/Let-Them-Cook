@@ -133,7 +133,7 @@ public class UnitActionManager : MonoBehaviour
             this._turnOrder.Remove(_unit);
         }
         if (removedUnit is Unit unit) {
-            //this._Units.Remove(unit);
+            this._Units.Remove(unit);
             this._turnOrder.Remove(unit);
             unit.Tile.isWalkable = true;
 
@@ -341,7 +341,6 @@ public class UnitActionManager : MonoBehaviour
 
             //tile apply on unit start
             unit.Tile.ApplyOnUnitStart(unit);
-          
 
             UnitActions.SetCurrentTile(unit.Tile, unit.transform.position.y);
             EventBroadcaster.Instance.PostEvent(EventNames.BattleCamera_Events.CURRENT_FOCUS);

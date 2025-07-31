@@ -65,10 +65,8 @@ public class SpringTile : Tile
     }
 
     private void CheckIfThereIsUnitOnLandingTile() {
-        foreach (Unit unit in UnitActionManager.Instance.UnitList) {
+        foreach (Unit unit in new List<Unit>(UnitActionManager.Instance.UnitList)) {
             if (unit.Tile == Location1 && unit != unitToLaunch) {
-                Debug.Log(unit.name);
-                Debug.Log(unitToLaunch.name);
                 unit.SpringDeath();
                 return;
             }
