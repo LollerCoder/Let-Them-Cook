@@ -28,7 +28,9 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.F10)) {
+            LevelsCompleted = 5;
+        }
     }
 
     public void updateMap(string sceneName)
