@@ -133,7 +133,7 @@ public class UnitActionManager : MonoBehaviour
             this._turnOrder.Remove(_unit);
         }
         if (removedUnit is Unit unit) {
-            this._Units.Remove(unit);
+            //this._Units.Remove(unit);
             this._turnOrder.Remove(unit);
             unit.Tile.isWalkable = true;
 
@@ -264,6 +264,10 @@ public class UnitActionManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.V) && this.onFastMode) {
             this.ResetTimeScale();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha0)) {
+            EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.NEXT_TURN);
         }
 
         if (bEnemy)

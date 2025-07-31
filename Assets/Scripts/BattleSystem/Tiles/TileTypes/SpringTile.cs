@@ -64,12 +64,10 @@ public class SpringTile : Tile
     }
 
     private void CheckIfThereIsUnitOnLandingTile() {
-        Ray ray = new Ray(this.Location1.transform.position, Vector3.up);
-        Debug.DrawRay(this.Location1.transform.position, Vector3.up, Color.red, 5f);
-
-        if (Physics.Raycast(ray, out RaycastHit hit, 50.0f, LayerMask.GetMask("Units"))) {
-            if (hit.collider.gameObject.GetComponent<Unit>() is Unit unit) {
+        foreach (Unit unit in UnitActionManager.Instance.UnitList) {
+            if (unit.Tile == Location1 && unit != unitToLaunch) {
                 unit.SpringDeath();
+                return;
             }
         }
     }
