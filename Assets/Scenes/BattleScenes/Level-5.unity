@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggle: {fileID: 53023054}
-  toggleMessage: Kill Colonel Korn
+  toggleMessage: Kill Colonel Cob
   optional: 0
   instaFail: 0
 --- !u!1 &85929623
@@ -7512,6 +7512,79 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 76033760247853458, guid: 8359306b60cd5394a823d82909dcb3ab, type: 3}
   m_PrefabInstance: {fileID: 523317524}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &626009671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 626009673}
+  - component: {fileID: 626009672}
+  m_Layer: 0
+  m_Name: Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &626009672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626009671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f44a65355e2300449ac4f842c8f558b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _IntroDialogue:
+    names:
+    - Colonel Cob
+    - Colonel Cob
+    - Colonel Cob
+    - Sargeant Bob
+    - Sargeant Bob
+    - Sargeant Bob
+    - Sargeant Bob
+    - Sargeant Bob
+    sprites:
+    - {fileID: 21300000, guid: ffa8e863828ce774fb6a7909d2bc48d7, type: 3}
+    - {fileID: 21300000, guid: ffa8e863828ce774fb6a7909d2bc48d7, type: 3}
+    - {fileID: 21300000, guid: ffa8e863828ce774fb6a7909d2bc48d7, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    - {fileID: 21300000, guid: c3526fdd355ee4f44a0977200b5316a2, type: 3}
+    sentences:
+    - What the- Intruders!
+    - Man the cannons, Boys!
+    - Looks like we're getting ourselves a nice salad for dinner!
+    - Dang nabbit. Those cannons are a pain!
+    - Fortunately those potatoes are too weak to move it.
+    - Cob however, is gonna a VERY strong man. He'll keep pelting us down till we're
+      minced.
+    - Cadets, we need Cob down from his tower.
+    - Comandeer the cannon and blast him. Then we can have him eat my pointy BE-hind.
+--- !u!4 &626009673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626009671}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &627964536
 GameObject:
   m_ObjectHideFlags: 0
@@ -97660,3 +97733,4 @@ SceneRoots:
   - {fileID: 656419312}
   - {fileID: 733388266}
   - {fileID: 1970709402}
+  - {fileID: 626009673}
