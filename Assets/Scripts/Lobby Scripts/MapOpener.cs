@@ -85,6 +85,10 @@ public class MapOpener : MonoBehaviour
             cameraTargetPos,
             0.5f
             );
+
+        if (Input.GetKeyDown(KeyCode.F10)) {
+            LevelManager.LevelsCompleted = 5;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
