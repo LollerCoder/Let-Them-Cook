@@ -18,10 +18,12 @@ public class PopCorn : Skill
     {
         foreach (Unit unit in this.GetNearbyUnits(origin))
         {
+            if (unit == target) continue; 
             PopUpManager.Instance.addPopUp("POP!", unit.transform);
             unit.TakeDamage(4, origin);
         }
 
+        target.TakeDamage(5, origin);
         target.AddEffect(new Dizzy(3, target));
     }
 
