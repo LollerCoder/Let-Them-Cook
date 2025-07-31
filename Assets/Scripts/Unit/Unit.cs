@@ -220,6 +220,10 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         EventBroadcaster.Instance.PostEvent(EventNames.BattleUI_Events.SHOW_HP, param);
     }
 
+    public void SpringDeath() {
+        this.HandleDeath();
+    }
+
     public void TakeDamageFromTile(int damage) {
         this.hp -= damage;
         PopUpManager.Instance.addPopUp(damage.ToString(), this.transform);
