@@ -24,11 +24,12 @@ public class SFXScript : MonoBehaviour
 
     private void TP()
     {
-        if (tpLoc != Vector3.zero)
+        if (tpLoc != Vector3.zero && this.gameObject.GetComponentInParent<Unit>() is Unit unit)
         {
            
             Debug.Log("Teleport");
-            this.gameObject.GetComponentInParent<Unit>().gameObject.transform.position = tpLoc;
+            unit.gameObject.transform.position = tpLoc;
+            UnitActions.SetCurrentTile(unit.Tile, unit.transform.position.y);
             EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.LAUNCH);
         }
     }
