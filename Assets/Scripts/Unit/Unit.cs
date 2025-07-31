@@ -344,7 +344,7 @@ public abstract class Unit : MonoBehaviour, ITurnTaker {
         {
             SFXManager.Instance.Play("SpringDown");
             this.animator.SetBool("HasSpringed", false);
-            Debug.Log("LANDING");
+            //Debug.Log("LANDING");
             
         }
     }

@@ -13,11 +13,11 @@ public class SFXScript : MonoBehaviour
     Vector3 tpLoc = Vector3.zero;
     private void setTP(Parameters param)
     {
-        Debug.Log("TPLOCATION SET");
+        //Debug.Log("TPLOCATION SET");
         tpLoc = param.GetVector3Extra("pos");
         if (tpLoc == Vector3.zero)
         {
-            Debug.Log("NO LOCATION??!");
+            //Debug.Log("NO LOCATION??!");
         }
         
     }

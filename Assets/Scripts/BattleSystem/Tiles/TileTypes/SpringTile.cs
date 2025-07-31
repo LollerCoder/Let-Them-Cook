@@ -40,11 +40,12 @@ public class SpringTile : Tile
         
         unitToLaunch.Tile = Location1;
         //unitToLaunch.gameObject.transform.position = Location1.transform.position;
+        this.CheckIfThereIsUnitOnLandingTile();
         unitToLaunch = null;
         Parameters param = new Parameters();
         param.PutExtra("pos", Location1.transform.position);
         EventBroadcaster.Instance.PostEvent(EventNames.BattleManager_Events.SPRING, param);
-        this.CheckIfThereIsUnitOnLandingTile();
+
         //if (unitToLaunch != null)
         //{
         //    if(unitToLaunch == UnitActionManager.Instance.GetFirstUnit() as Unit)
@@ -66,6 +67,8 @@ public class SpringTile : Tile
     private void CheckIfThereIsUnitOnLandingTile() {
         foreach (Unit unit in UnitActionManager.Instance.UnitList) {
             if (unit.Tile == Location1 && unit != unitToLaunch) {
+                Debug.Log(unit.name);
+                Debug.Log(unitToLaunch.name);
                 unit.SpringDeath();
                 return;
             }
